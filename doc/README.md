@@ -1,5 +1,6 @@
 # README
 
+## Project Team
 * Robert Steilberg | rhs16
 * Filip Mazurek | fjm7
 * Ryan Anders | dra17
