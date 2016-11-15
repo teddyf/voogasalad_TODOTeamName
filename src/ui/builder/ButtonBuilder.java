@@ -1,7 +1,6 @@
-package frontend.uibuilder;
+package ui.builder;
 
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 
 public class ButtonBuilder extends ComponentBuilder {
