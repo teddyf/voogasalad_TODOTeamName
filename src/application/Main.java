@@ -1,4 +1,6 @@
-package main;
+package application;
+
+import frontend.UILauncher;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -10,8 +12,8 @@ public class Main extends Application {
 	}
 	
 	@Override
-	public void start(Stage primaryStage) {
-		
+	public void start(Stage stage) {
+		new UILauncher(stage);
 	}
 
 }
