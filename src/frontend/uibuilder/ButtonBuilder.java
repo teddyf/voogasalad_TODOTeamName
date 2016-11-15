@@ -6,13 +6,8 @@ import javafx.scene.control.Button;
 
 public class ButtonBuilder extends ComponentBuilder {
 	
-	public ButtonBuilder(Parent layout) {
-		super(layout);
-	}
-	
-	@Override
-	public Node createComponent() {
-		return null;
+	public ButtonBuilder() {
+		super();
 	}
 	
 	@Override
@@ -20,8 +15,16 @@ public class ButtonBuilder extends ComponentBuilder {
 		Button button = new Button();
 		button.setLayoutX(properties.x);
 		button.setLayoutY(properties.y);
+		if (properties.width != 0) {			
+			button.setMinWidth(properties.width);
+			button.setMaxWidth(properties.width);
+		}
+		if (properties.height != 0) {
+			button.setMinWidth(properties.height);
+			button.setMaxWidth(properties.height);
+		}
 		button.setText(properties.message);
-		return addComponent(button);
+		return button;
 	}
 
 }
