@@ -9,8 +9,8 @@ public class SplashScreen extends Scene {
 
 	public SplashScreen(Parent root) {
 		super(root, 1000, 300);
-		UIBuilder builder = new UIBuilder(root);
-		builder.addNewButton(new ComponentProperties(200, 0).message("Hello"));
+		UIBuilder builder = new UIBuilder();
+		builder.addNewButton(root, new ComponentProperties(200, 0).message("Hello"));
 	}
 	
 

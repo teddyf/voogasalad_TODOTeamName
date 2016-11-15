@@ -7,15 +7,10 @@ import javafx.scene.layout.Pane;
 
 public class LabelBuilder extends ComponentBuilder {
 
-	public LabelBuilder(Parent layout) {
-		super(layout);
+	public LabelBuilder() {
+		super();
 	}
-	
-	@Override
-	public Node createComponent() {
-		return null;
-	}
-	
+
 	@Override
 	public Node createComponent(ComponentProperties properties) {
 		return null;
