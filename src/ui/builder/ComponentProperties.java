@@ -1,4 +1,4 @@
-package frontend.uibuilder;
+package ui.builder;
 
 public class ComponentProperties {
 

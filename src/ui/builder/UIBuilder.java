@@ -1,4 +1,4 @@
-package frontend.uibuilder;
+package ui.builder;
 
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -25,8 +25,7 @@ public class UIBuilder {
 		}
 		return component;
 	}
-	
-	
+
 	private Node removeComponent(Parent layout, Node component) {
 		if (layout instanceof Pane) {
 			Pane pane = (Pane) layout;
@@ -43,6 +42,5 @@ public class UIBuilder {
 	public void addNewButton(Parent layout, ComponentProperties properties) {
 		addComponent(layout, buttonBuilder.createComponent(properties));
 	}
-	
 
 }
