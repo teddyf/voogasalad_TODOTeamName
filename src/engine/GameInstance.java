@@ -1,14 +1,14 @@
 package engine;
 
-import editor.backend.Block;
-import editor.backend.Grid;
+import boardObjects.Block;
 import engine.backend.GameStatus;
+import grid.IGrid;
 import player.Player;
 
 public class GameInstance implements IGameInstance {
 	
 	private Player myPlayer;
-	private Grid myGrid;
+	private IGrid myGrid;
 	private int myScore;
 	private GameStatus myStatus;
 	
@@ -20,7 +20,7 @@ public class GameInstance implements IGameInstance {
 		return myPlayer;
 	}
 	
-	public Grid getGrid() {
+	public IGrid getGrid() {
 		return myGrid;
 	}
 	
@@ -45,7 +45,7 @@ public class GameInstance implements IGameInstance {
 	}
 	
 	public void movePlayer(UserInstruction input) {
-		Block newBlock;
+		Block newBlock = null; //TODO
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
 		switch (input) {
@@ -63,6 +63,7 @@ public class GameInstance implements IGameInstance {
 				break;
 			case TALK:
 			default:
+				//TODO: custom exception
 				break;
 		}
 		
