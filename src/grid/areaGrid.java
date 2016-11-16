@@ -33,15 +33,16 @@ public class areaGrid {
         }
     }
 
-    public void setBlock(int startRow, int startColumn, int endRow, int endColumn, String name, BlockType someType) {
-//        Block settingBlock = Class.forName();
-//        Constructor blockConstructor = Con
+    public void setBlock(int row, int col, String name, BlockType someType) {
+//        Class<Block> clazz = Block.class;
+//        Constructor<Block> ctor = clazz.getConstructor(Block.class);
+//        Block instance = ctor.newInstance(5);
             // TODO: make the block class by reflection
-        for(int i = startRow; i < endRow; i++) {
-            for(int j = startColumn; j < endColumn; j++) {
 
-            }
-        }
+    }
+
+    public Block getBlock(int row, int col) {
+        return myGrid[row][col];
     }
 
 }

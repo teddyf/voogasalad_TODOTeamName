@@ -8,12 +8,12 @@ import grid.BlockType;
  *
  * @author Filip Mazurek
  */
-public class ObstacleBlock extends Block {
+public class ObstacleBlock extends Block implements NotWalkable{
     private static final BlockType myBlockType= BlockType.OBSTACLE;
 
     public ObstacleBlock(String name) {
         super(name);
-        makeNotWalkable();
+        setWalkableStatus(IS_WALKABLE);
     }
 
 }

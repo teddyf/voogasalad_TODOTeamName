@@ -8,12 +8,12 @@ import grid.BlockType;
  *
  * @author Filip Mazurek
  */
-public class CommunicatorBlock extends Block {
+public class CommunicatorBlock extends Block implements NotWalkable{
     private static final BlockType myBlockType = BlockType.COMMUNICATOR;
 
     public CommunicatorBlock(String name) {
         super(name);
-        makeNotWalkable(); // tentative. What about notes on the floor, etc.
+        setWalkableStatus(IS_WALKABLE); // tentative. What about letters on the floor, etc.
     }
 
 }

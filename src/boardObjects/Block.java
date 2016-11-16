@@ -13,13 +13,13 @@ import java.util.List;
  * @author Filip Mazurek
  */
 public abstract class Block implements IBlock {
-    private static final boolean WALK_STATUS_TRUE = true;
-    private static final boolean WALK_STATUS_FALSE = false;
 
 //    private BlockType myBlockType; // this might not really be needed
+    private int myRow;
+    private int myColumn;
     private String myName;
     private double myIdentifier;
-    private boolean isWalkable;
+    private boolean walkableStatus;
     private List<Interaction> myInteractions;
 
     public Block(String name) {
@@ -46,11 +46,11 @@ public abstract class Block implements IBlock {
         return myInteractions.remove(someInteraction);
     }
 
-    protected void makeWalkable() {
-        isWalkable = WALK_STATUS_TRUE;
+    protected void setWalkableStatus(boolean status) {
+        walkableStatus = status;
     }
 
-    protected void makeNotWalkable() {
-        isWalkable = WALK_STATUS_FALSE;
+    public boolean isWalkable() {
+        return walkableStatus;
     }
 }
