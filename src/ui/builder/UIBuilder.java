@@ -4,6 +4,9 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.util.ResourceBundle;
 
 public class UIBuilder {
 	
@@ -42,5 +45,14 @@ public class UIBuilder {
 	public Node addNewButton(Parent layout, ComponentProperties properties) {
 		return addComponent(layout, buttonBuilder.createComponent(properties));
 	}
+
+	public void initWindow(Stage currStage, String propertiesFilePath) {
+        ResourceBundle resources = ResourceBundle.getBundle(propertiesFilePath);
+        currStage.setTitle(resources.getString("windowTitle"));
+        currStage.setHeight(Integer.parseInt(resources.getString("windowHeight")));
+        currStage.setWidth(Integer.parseInt(resources.getString("windowWidth")));
+        currStage.centerOnScreen();
+        currStage.show();
+    }
 
 }
