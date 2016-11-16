@@ -1,4 +1,4 @@
-package editor;
+package engine;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,24 +11,24 @@ import java.util.ResourceBundle;
 /**
  * @author Robert Steilberg
  */
-public class GameEditor extends Scene {
+public class GameEngine extends Scene {
 
-    private static final String EDITOR_RESOURCES = "resources/gameeditor";
+    private static final String EDITOR_RESOURCES = "resources/gameengine";
     private Stage myStage;
     private Parent myRoot;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
 
-    public GameEditor(Stage stage, Parent root) {
+    public GameEngine(Stage stage, Parent root) {
         super(root);
         myStage = stage;
         myRoot = root;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
-        initEditor();
+        initEngine();
     }
 
-    private void initEditor() {
+    private void initEngine() {
         myStage.setTitle(myResources.getString("windowTitle"));
         myStage.setHeight(Integer.parseInt(myResources.getString("windowHeight")));
         myStage.setWidth(Integer.parseInt(myResources.getString("windowWidth")));
