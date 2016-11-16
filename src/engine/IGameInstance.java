@@ -1,12 +1,19 @@
-package engine.backend;
+package engine;
 
-import editor.backend.Player;
+import engine.backend.GameStatus;
+import player.Player;
 
-public interface GameInstance {
+public interface IGameInstance {
+	
 	public int getScore();
+	
 	public Player getPlayer();
+	
 	public void savePlayer();
+	
 	public Player loadPlayer();
+	
 	public GameStatus getGameStatus();
+	
 	public void resetPlayer();
 }

@@ -33,6 +33,14 @@ public abstract class Block implements IBlock {
     public String getName() {
         return myName;
     }
+    
+    public int getRow() {
+    	return myRow;
+    }
+    
+    public int getCol() {
+    	return myColumn;
+    }
 
     protected boolean addInteraction(Interaction someInteraction) {
         return myInteractions.add(someInteraction);

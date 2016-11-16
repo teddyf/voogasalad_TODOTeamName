@@ -11,7 +11,7 @@ import java.lang.reflect.Constructor;
  *
  * @author Filip Mazurek
  */
-public class areaGrid {
+public class Grid implements IGrid {
     private static final String DEFAULT_BLOCK = "DEFAULT";
 
     private int myNumRows;
@@ -19,7 +19,7 @@ public class areaGrid {
     private Block[][] myGrid;
     private double currentIdentification; // to use for connected block images, to make it easier for front end display
 
-    public areaGrid(int numRows, int numColumns) {
+    public Grid(int numRows, int numColumns) {
         currentIdentification = 0;
         myNumRows = numRows;
         myNumColumns = numColumns;
@@ -33,16 +33,27 @@ public class areaGrid {
         }
     }
 
-    public void setBlock(int row, int col, String name, BlockType someType) {
-//        Class<Block> clazz = Block.class;
-//        Constructor<Block> ctor = clazz.getConstructor(Block.class);
-//        Block instance = ctor.newInstance(5);
-            // TODO: make the block class by reflection
-
+    public int getNumRows() {
+    	return myNumRows;
+    }
+    
+    public int getNumCols() {
+    	return myNumColumns;
     }
 
+    public IGrid getGrid() {
+    	return this;
+    }
+    
     public Block getBlock(int row, int col) {
         return myGrid[row][col];
     }
 
+    public void setBlock(int row, int col, String name, BlockType someType) {
+//      Class<Block> clazz = Block.class;
+//      Constructor<Block> ctor = clazz.getConstructor(Block.class);
+//      Block instance = ctor.newInstance(5);
+          // TODO: make the block class by reflection
+
+  }
 }
