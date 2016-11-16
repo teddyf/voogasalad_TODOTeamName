@@ -49,6 +49,11 @@ public class Grid implements IGrid {
         return myGrid[row][col];
     }
 
+    //TODO: implement giving out a shallow representation
+//    public ShallowBlock[][] getGridForRendering() {
+//        return myShallowRepresentation;
+//    }
+
     public void setBlock(int row, int col, String name, BlockType someType) {
 //      Class<Block> clazz = Block.class;
 //      Constructor<Block> ctor = clazz.getConstructor(Block.class);
