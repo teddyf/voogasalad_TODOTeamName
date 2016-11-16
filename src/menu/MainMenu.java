@@ -3,12 +3,24 @@ package menu;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.shape.Polygon;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ResourceBundle;
+
+import static javafx.scene.control.ContentDisplay.RIGHT;
 
 /**
  * @author Harshil Garg, Robert Steilberg
@@ -43,27 +55,47 @@ public class MainMenu extends Scene {
      * Initializes the navigational buttons in the main menu
      */
     private void initButtons() {
-        // create game editor button
-        int xPos = Integer.parseInt(myResources.getString("editorButtonXPos"));
-        int yPos = Integer.parseInt(myResources.getString("editorButtonYPos"));
-        String buttonText = myResources.getString("editorButtonText");
-        String id = myResources.getString("editorButtonId");
-        Node editorButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
-        editorButton.setOnMouseClicked(e -> myLauncher.launchEditor());
-        // create game engine button
-        xPos = Integer.parseInt(myResources.getString("engineButtonXPos"));
-        yPos = Integer.parseInt(myResources.getString("engineButtonYPos"));
-        id = myResources.getString("engineButtonId");
-        buttonText = myResources.getString("engineButtonText");
-        Node engineButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
-        engineButton.setOnMouseClicked(e -> myLauncher.launchEngine());
-        // create exit button
-        xPos = Integer.parseInt(myResources.getString("exitButtonXPos"));
-        yPos = Integer.parseInt(myResources.getString("exitButtonYPos"));
-        id = myResources.getString("exitButtonId");
-        buttonText = myResources.getString("exitButtonText");
-        Node exitButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
-        exitButton.setOnMouseClicked(e -> myStage.hide());
+        ColorAdjust ca = new ColorAdjust();
+        ca.setBrightness(-0.1);
+
+        ImageView build = new ImageView(new Image("resources/images/menu/build.png"));
+        build.setPreserveRatio(true);
+        build.setFitWidth(300);
+        build.setLayoutY(240);
+        build.setLayoutX(-85);
+        build.setOnMouseClicked(e -> myLauncher.launchEditor());
+        build.setOnMouseEntered(e -> build.setEffect(ca));
+        build.setOnMouseExited(e -> build.setEffect(null));
+        myBuilder.addComponent(myRoot,build);
+
+        ImageView play = new ImageView(new Image("resources/images/menu/play.png"));
+        play.setPreserveRatio(true);
+        play.setFitWidth(300);
+        play.setLayoutY(310);
+        play.setLayoutX(-44);
+        play.setOnMouseClicked(e -> myLauncher.launchEngine());
+        play.setOnMouseEntered(e -> play.setEffect(ca));
+        play.setOnMouseExited(e -> play.setEffect(null));
+        myBuilder.addComponent(myRoot,play);
+
+        ImageView exit = new ImageView(new Image("resources/images/menu/exit.png"));
+        exit.setPreserveRatio(true);
+        exit.setFitWidth(300);
+        exit.setLayoutY(380);
+        exit.setLayoutX(-1);
+
+
+        exit.setOnMouseClicked(e -> myStage.hide());
+        exit.setOnMouseEntered(e -> exit.setEffect(ca));
+        exit.setOnMouseExited(e -> exit.setEffect(null));
+
+
+        myBuilder.addComponent(myRoot,exit);
+
+
+
+
+
 
     }
 
@@ -76,6 +108,47 @@ public class MainMenu extends Scene {
         myStage.setWidth(Integer.parseInt(myResources.getString("windowWidth")));
         myStage.centerOnScreen();
         myStage.show();
+
+        Image i = new Image("resources/images/menu/background.png");
+        ImageView iv = new ImageView(i);
+        iv.setPreserveRatio(true);
+        iv.setFitWidth(900);
+        myBuilder.addComponent(myRoot,iv);
+
+
+
+
+        Font.loadFont("file:./src/resources/images/menu/blackout.ttf",12);
+
+
+
+        ImageView pb = new ImageView(new Image("resources/images/menu/pokeball.png"));
+        pb.setPreserveRatio(true);
+        pb.setFitWidth(50);
+        Label l = new Label("VOOGA", pb);
+        l.setContentDisplay(RIGHT);
+        l.setGraphicTextGap(10);
+        l.setLayoutX(15);
+        l.setFont(new Font("Blackout Midnight",60));
+        myBuilder.addComponent(myRoot,l);
+
+
+
+
+
+        Label l2 = new Label("Let's start building.");
+        l2.setLayoutX(15);
+        l2.setLayoutY(80);
+        l2.setFont(new Font("Blackout Midnight",40));
+        myBuilder.addComponent(myRoot,l2);
+
+
+
+
         initButtons();
+
+
+
+
     }
 }

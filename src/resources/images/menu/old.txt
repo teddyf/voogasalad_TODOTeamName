@@ -1,0 +1,22 @@
+
+        // create game editor button
+        int xPos = Integer.parseInt(myResources.getString("editorButtonXPos"));
+        int yPos = Integer.parseInt(myResources.getString("editorButtonYPos"));
+        String buttonText = myResources.getString("editorButtonText");
+        String id = myResources.getString("editorButtonId");
+        Node editorButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
+        editorButton.setOnMouseClicked(e -> myLauncher.launchEditor());
+        // create game engine button
+        xPos = Integer.parseInt(myResources.getString("engineButtonXPos"));
+        yPos = Integer.parseInt(myResources.getString("engineButtonYPos"));
+        id = myResources.getString("engineButtonId");
+        buttonText = myResources.getString("engineButtonText");
+        Node engineButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
+        engineButton.setOnMouseClicked(e -> myLauncher.launchEngine());
+        // create exit button
+        xPos = Integer.parseInt(myResources.getString("exitButtonXPos"));
+        yPos = Integer.parseInt(myResources.getString("exitButtonYPos"));
+        id = myResources.getString("exitButtonId");
+        buttonText = myResources.getString("exitButtonText");
+        Node exitButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
+        exitButton.setOnMouseClicked(e -> myStage.hide());
