@@ -1,4 +1,4 @@
-package gameplayer.backend;
+package editor.backend;
 
 public class GameStatus {
 

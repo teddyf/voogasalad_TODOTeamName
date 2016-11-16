@@ -1,4 +1,4 @@
-package gameplayer.backend;
+package player;
 
 import java.util.HashSet;
 

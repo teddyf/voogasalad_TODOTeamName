@@ -1,6 +1,6 @@
-package gameplayer.backend;
+package editor.backend;
 
-import editor.backend.Player;
+import player.Player;
 
 public interface GameInstance {
 	public int getScore();
