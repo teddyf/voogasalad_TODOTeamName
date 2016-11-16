@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 public class MainMenu extends Scene {
 
     private static final String MAINMENU_RESOURCES = "resources/mainmenu";
+    private static final String CSS_FILE_NAME = "resources/UIStyle.css";
     private Stage myStage;
     private UILauncher myLauncher;
     private Parent myRoot;
@@ -29,6 +30,7 @@ public class MainMenu extends Scene {
         myLauncher = launcher;
         myRoot = root;
         myResources = ResourceBundle.getBundle(MAINMENU_RESOURCES);
+        root.getStylesheets().add(CSS_FILE_NAME);
         initMenu();
     }
 

@@ -35,6 +35,4 @@ public class GameEngine extends Scene {
         myStage.centerOnScreen();
         myStage.show();
     }
-
-
 }
