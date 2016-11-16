@@ -1,9 +1,11 @@
 package editor;
 
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ui.UILauncher;
+import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
@@ -33,6 +35,9 @@ public class GameEditor extends Scene {
         myStage.setHeight(Integer.parseInt(myResources.getString("windowHeight")));
         myStage.setWidth(Integer.parseInt(myResources.getString("windowWidth")));
         myStage.centerOnScreen();
+        
+        myBuilder.addComponent(myRoot,new Screen(Integer.parseInt(myResources.getString("canvasWidth")),Integer.parseInt(myResources.getString("canvasHeight"))).getRoot());
+        
         myStage.show();
     }
 

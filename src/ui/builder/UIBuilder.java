@@ -13,7 +13,7 @@ public class UIBuilder {
 		buttonBuilder = new ButtonBuilder();
 	}
 	
-	private Node addComponent(Parent layout, Node component) {
+	public Node addComponent(Parent layout, Node component) {
 		if (layout instanceof Pane) {
 			Pane pane = (Pane) layout;
 			pane.getChildren().add(component);
