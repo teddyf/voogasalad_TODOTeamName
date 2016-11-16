@@ -1,6 +1,6 @@
 package boardObjects;
 
-import editor.backend.Interaction;
+import grid.BlockType;
 
 /**
  * A board object with which the player character will have some active interaction (i.e. pressing 'A'
@@ -8,10 +8,11 @@ import editor.backend.Interaction;
  *
  * @author Filip Mazurek
  */
-public class CommunicableBoardObject extends AbstractBoardObject {
+public class CommunicatorBlock extends Block {
+    private static final BlockType myBlockType = BlockType.COMMUNICATOR;
 
-    public CommunicableBoardObject() {
-        super();
+    public CommunicatorBlock(String name) {
+        super(name);
         makeNotWalkable(); // tentative. What about notes on the floor, etc.
     }
 

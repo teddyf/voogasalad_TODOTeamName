@@ -1,6 +1,6 @@
 package boardObjects;
 
-import editor.backend.Interaction;
+import grid.BlockType;
 
 /**
  * A board object which in general should not allow the player character to step on or otherwise
@@ -8,10 +8,11 @@ import editor.backend.Interaction;
  *
  * @author Filip Mazurek
  */
-public class ObstacleBoardObject extends AbstractBoardObject {
+public class ObstacleBlock extends Block {
+    private static final BlockType myBlockType= BlockType.OBSTACLE;
 
-    public ObstacleBoardObject() {
-        super();
+    public ObstacleBlock(String name) {
+        super(name);
         makeNotWalkable();
     }
 

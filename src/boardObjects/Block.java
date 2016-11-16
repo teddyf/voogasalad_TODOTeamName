@@ -1,6 +1,8 @@
 package boardObjects;
 
+import editor.backend.IBlock;
 import editor.backend.Interaction;
+import grid.BlockType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,15 +12,19 @@ import java.util.List;
  *
  * @author Filip Mazurek
  */
-public abstract class AbstractBoardObject {
+public abstract class Block implements IBlock {
     private static final boolean WALK_STATUS_TRUE = true;
     private static final boolean WALK_STATUS_FALSE = false;
 
+//    private BlockType myBlockType; // this might not really be needed
     private String myName;
     private double myIdentifier;
     private boolean isWalkable;
-
     private List<Interaction> myInteractions;
+
+    public Block(String name) {
+        myName = name;
+    }
 
     private List<Interaction> getInteractions() {
         return new ArrayList<>(myInteractions);
