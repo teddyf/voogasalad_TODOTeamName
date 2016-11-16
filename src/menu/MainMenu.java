@@ -1,7 +1,10 @@
 package menu;
 
+import editor.GameEditor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
@@ -10,9 +13,20 @@ import ui.builder.UIBuilder;
  */
 public class MainMenu extends Scene {
 
-    public MainMenu(Parent root) {
+    private UIBuilder myBuilder;
+    private UILauncher myLauncher;
+    private Parent myRoot;
+
+    public MainMenu(UILauncher launcher, Parent root) {
         super(root);
-        UIBuilder builder = new UIBuilder();
-        builder.addNewButton(root, new ComponentProperties(500, 0).message("Hello"));
+        myBuilder = new UIBuilder();
+        myLauncher = launcher;
+        myRoot = root;
+        initMenu();
+    }
+
+    private void initMenu() {
+        Node button = myBuilder.addNewButton(myRoot, new ComponentProperties(500, 20).message("Editor"));
+        button.setOnMouseClicked(e -> myLauncher.launchEditor());
     }
 }

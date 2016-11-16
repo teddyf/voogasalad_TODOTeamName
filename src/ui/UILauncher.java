@@ -1,5 +1,6 @@
 package ui;
 
+import editor.GameEditor;
 import menu.MainMenu;
 import javafx.scene.Group;
 import javafx.stage.Stage;
@@ -26,10 +27,15 @@ public class UILauncher {
         myResources = ResourceBundle.getBundle(MAINMENU_RESOURCES);
 	}
 
+	public void launchEditor() {
+        GameEditor editor = new GameEditor(new Group());
+        myStage.setScene(editor);
+    }
+
     /**
      * Navigates to the main menu
      */
-	public void goToMenu() {
+	public void launchMenu() {
 		myStage.setScene(myMainMenu);
 	}
 
@@ -51,7 +57,7 @@ public class UILauncher {
      */
 	public void init() {
         initWindow();
-        myMainMenu = new MainMenu(new Group());
-        goToMenu();
+        myMainMenu = new MainMenu(this, new Group());
+        launchMenu();
     }
 }
