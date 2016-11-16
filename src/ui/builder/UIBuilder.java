@@ -39,8 +39,8 @@ public class UIBuilder {
 		return component;
 	}
 	
-	public void addNewButton(Parent layout, ComponentProperties properties) {
-		addComponent(layout, buttonBuilder.createComponent(properties));
+	public Node addNewButton(Parent layout, ComponentProperties properties) {
+		return addComponent(layout, buttonBuilder.createComponent(properties));
 	}
 
 }
