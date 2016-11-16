@@ -45,4 +45,8 @@ public class areaGrid {
         return myGrid[row][col];
     }
 
+
+    public ShallowBlock[][] getGridForRendering() {
+        return myShallowRepresentation;
+    }
 }
