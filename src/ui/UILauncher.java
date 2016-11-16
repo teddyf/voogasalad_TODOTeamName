@@ -6,8 +6,6 @@ import menu.MainMenu;
 import javafx.scene.Group;
 import javafx.stage.Stage;
 
-import java.util.ResourceBundle;
-
 /**
  * @author Harshil Garg, Robert Steilberg
  *         <p>
@@ -25,16 +23,25 @@ public class UILauncher {
         myStage = stage;
         myStage.setResizable(false);
         myStage.setOnCloseRequest(e -> {
+            // closing the window takes you back to main menu
             e.consume();
             launchMenu();
         });
     }
 
+    /**
+     * Navigates to the game engine
+     */
     public void launchEngine() {
-        GameEngine engine = new GameEngine(myStage, new Group());
-        myStage.setScene(engine);
+        GameEngine engine = new GameEngine(myStage, this, new Group());
+        if (engine.init()) { // successfully opened a game file
+            myStage.setScene(engine);
+        }
     }
 
+    /**
+     * Navigates to the game editor
+     */
     public void launchEditor() {
         GameEditor editor = new GameEditor(myStage, new Group());
         myStage.setScene(editor);
