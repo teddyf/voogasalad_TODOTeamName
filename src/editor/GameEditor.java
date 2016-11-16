@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 
 /**
  * @author Robert Steilberg
+ *
+ * This class handles the game editor that is used to build games.
  */
 public class GameEditor extends Scene {
 
@@ -28,12 +30,11 @@ public class GameEditor extends Scene {
         initEditor();
     }
 
+    /**
+     * Initializes the game editor window
+     */
     private void initEditor() {
-        myStage.setTitle(myResources.getString("windowTitle"));
-        myStage.setHeight(Integer.parseInt(myResources.getString("windowHeight")));
-        myStage.setWidth(Integer.parseInt(myResources.getString("windowWidth")));
-        myStage.centerOnScreen();
-        myStage.show();
+        myBuilder.initWindow(myStage,EDITOR_RESOURCES);
     }
 
 
