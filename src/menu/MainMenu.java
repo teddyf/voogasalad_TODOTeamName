@@ -12,10 +12,16 @@ import java.util.ResourceBundle;
 
 /**
  * @author Harshil Garg, Robert Steilberg
+ *         <p>
+ *         This class handles launching the main menu and transitioning into the
+ *         game engine or game editor.
+ *         <p>
+ *         Dependencies: UILauncher, UIBuilder
  */
 public class MainMenu extends Scene {
 
     private static final String MAINMENU_RESOURCES = "resources/mainmenu";
+    private static final String CSS_FILE_NAME = "resources/UIStyle.css";
     private Stage myStage;
     private UILauncher myLauncher;
     private Parent myRoot;
@@ -29,23 +35,47 @@ public class MainMenu extends Scene {
         myLauncher = launcher;
         myRoot = root;
         myResources = ResourceBundle.getBundle(MAINMENU_RESOURCES);
+        root.getStylesheets().add(CSS_FILE_NAME);
         initMenu();
     }
 
+    /**
+     * Initializes the navigational buttons in the main menu
+     */
+    private void initButtons() {
+        // create game editor button
+        int xPos = Integer.parseInt(myResources.getString("editorButtonXPos"));
+        int yPos = Integer.parseInt(myResources.getString("editorButtonYPos"));
+        String buttonText = myResources.getString("editorButtonText");
+        String id = myResources.getString("editorButtonId");
+        Node editorButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
+        editorButton.setOnMouseClicked(e -> myLauncher.launchEditor());
+        // create game engine button
+        xPos = Integer.parseInt(myResources.getString("engineButtonXPos"));
+        yPos = Integer.parseInt(myResources.getString("engineButtonYPos"));
+        id = myResources.getString("engineButtonId");
+        buttonText = myResources.getString("engineButtonText");
+        Node engineButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
+        engineButton.setOnMouseClicked(e -> myLauncher.launchEngine());
+        // create exit button
+        xPos = Integer.parseInt(myResources.getString("exitButtonXPos"));
+        yPos = Integer.parseInt(myResources.getString("exitButtonYPos"));
+        id = myResources.getString("exitButtonId");
+        buttonText = myResources.getString("exitButtonText");
+        Node exitButton = myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos).message(buttonText).id(id));
+        exitButton.setOnMouseClicked(e -> myStage.hide());
+
+    }
+
+    /**
+     * Initializes the main menu window
+     */
     private void initMenu() {
         myStage.setTitle(myResources.getString("windowTitle"));
         myStage.setHeight(Integer.parseInt(myResources.getString("windowHeight")));
         myStage.setWidth(Integer.parseInt(myResources.getString("windowWidth")));
         myStage.centerOnScreen();
         myStage.show();
-
-        Node editorButton = myBuilder.addNewButton(myRoot, new ComponentProperties(500, 20).message("Editor"));
-        editorButton.setOnMouseClicked(e -> myLauncher.launchEditor());
-
-        Node gameButton = myBuilder.addNewButton(myRoot, new ComponentProperties(200, 20).message("Engine"));
-        gameButton.setOnMouseClicked(e -> myLauncher.launchEngine());
-
-        Node exitButton = myBuilder.addNewButton(myRoot, new ComponentProperties(100, 20).message("Exit"));
-        exitButton.setOnMouseClicked(e -> myStage.hide());
+        initButtons();
     }
 }
