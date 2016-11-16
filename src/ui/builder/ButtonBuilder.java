@@ -1,7 +1,6 @@
-package frontend.uibuilder;
+package ui.builder;
 
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 
 public class ButtonBuilder extends ComponentBuilder {
@@ -13,6 +12,7 @@ public class ButtonBuilder extends ComponentBuilder {
 	@Override
 	public Node createComponent(ComponentProperties properties) {
 		Button button = new Button();
+        button.setId(properties.id);
 		button.setLayoutX(properties.x);
 		button.setLayoutY(properties.y);
 		if (properties.width != 0) {			
@@ -20,8 +20,8 @@ public class ButtonBuilder extends ComponentBuilder {
 			button.setMaxWidth(properties.width);
 		}
 		if (properties.height != 0) {
-			button.setMinWidth(properties.height);
-			button.setMaxWidth(properties.height);
+			button.setMinHeight(properties.height);
+			button.setMaxHeight(properties.height);
 		}
 		button.setText(properties.message);
 		return button;

@@ -1,9 +1,12 @@
-package frontend.uibuilder;
+package ui.builder;
 
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import java.util.ResourceBundle;
 
 public class UIBuilder {
 	
@@ -13,7 +16,7 @@ public class UIBuilder {
 		buttonBuilder = new ButtonBuilder();
 	}
 	
-	private Node addComponent(Parent layout, Node component) {
+	public Node addComponent(Parent layout, Node component) {
 		if (layout instanceof Pane) {
 			Pane pane = (Pane) layout;
 			pane.getChildren().add(component);
@@ -25,8 +28,7 @@ public class UIBuilder {
 		}
 		return component;
 	}
-	
-	
+
 	private Node removeComponent(Parent layout, Node component) {
 		if (layout instanceof Pane) {
 			Pane pane = (Pane) layout;
@@ -40,9 +42,17 @@ public class UIBuilder {
 		return component;
 	}
 	
-	public void addNewButton(Parent layout, ComponentProperties properties) {
-		addComponent(layout, buttonBuilder.createComponent(properties));
+	public Node addNewButton(Parent layout, ComponentProperties properties) {
+		return addComponent(layout, buttonBuilder.createComponent(properties));
 	}
-	
+
+	public void initWindow(Stage currStage, String propertiesFilePath) {
+        ResourceBundle resources = ResourceBundle.getBundle(propertiesFilePath);
+        currStage.setTitle(resources.getString("windowTitle"));
+        currStage.setHeight(Integer.parseInt(resources.getString("windowHeight")));
+        currStage.setWidth(Integer.parseInt(resources.getString("windowWidth")));
+        currStage.centerOnScreen();
+        currStage.show();
+    }
 
 }
