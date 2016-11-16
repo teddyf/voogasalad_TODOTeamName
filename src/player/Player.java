@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import editor.backend.Battle;
-import editor.backend.Block;
 import editor.backend.Interaction;
 import editor.backend.Item;
 import editor.backend.Status;
 
 public class Player implements IPlayer {
+	
 	private String myName;
-	private Block myBlock;
+	private int myRow;
+	private int myCol;
 	private List<Item> myInventory;
 	private List<Battle> myBattleHistory;
 	private List<Interaction> myInteractionHistory;
@@ -29,8 +30,12 @@ public class Player implements IPlayer {
 		return myName;
 	}
 	
-	public Block getBlock() {
-		return myBlock;
+	public int getRow() {
+		return myRow;
+	}
+	
+	public int getCol() {
+		return myCol;
 	}
 	
 	public List<Item> getInventory() {
@@ -49,8 +54,12 @@ public class Player implements IPlayer {
 		return myStatus;
 	}
 	
-	public void setBlock(Block block) {
-		myBlock = block;
+	public void setRow(int row) {
+		myRow = row;
+	}
+	
+	public void setCol(int col) {
+		myCol = col;
 	}
 	
 	public void addItem(Item item) {

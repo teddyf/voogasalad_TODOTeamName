@@ -23,10 +23,16 @@ public interface IPlayer {
 	public String getPlayerName();
 	
 	/**
-	 * Gets the block that the player is located in
-	 * @return the block
+	 * Gets the row that the player is located in
+	 * @return the row
 	 */
-	public Block getBlock();
+	public int getRow();
+	
+	/**
+	 * Gets the column that the player is located in
+	 * @return the column
+	 */
+	public int getCol();
 	
  	/**
 	 * Gets the list of all items that the player possesses
