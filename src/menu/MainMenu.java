@@ -1,18 +1,51 @@
 package menu;
 
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
+import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
+
+import java.util.ResourceBundle;
 
 /**
  * @author Harshil Garg, Robert Steilberg
  */
 public class MainMenu extends Scene {
 
-    public MainMenu(Parent root) {
+    private static final String MAINMENU_RESOURCES = "resources/mainmenu";
+    private Stage myStage;
+    private UILauncher myLauncher;
+    private Parent myRoot;
+    private UIBuilder myBuilder;
+    private ResourceBundle myResources;
+
+    public MainMenu(Stage stage, UILauncher launcher, Parent root) {
         super(root);
-        UIBuilder builder = new UIBuilder();
-        builder.addNewButton(root, new ComponentProperties(500, 0).message("Hello"));
+        myStage = stage;
+        myBuilder = new UIBuilder();
+        myLauncher = launcher;
+        myRoot = root;
+        myResources = ResourceBundle.getBundle(MAINMENU_RESOURCES);
+        initMenu();
+    }
+
+    private void initMenu() {
+        myStage.setTitle(myResources.getString("windowTitle"));
+        myStage.setHeight(Integer.parseInt(myResources.getString("windowHeight")));
+        myStage.setWidth(Integer.parseInt(myResources.getString("windowWidth")));
+        myStage.centerOnScreen();
+        myStage.show();
+
+        Node editorButton = myBuilder.addNewButton(myRoot, new ComponentProperties(500, 20).message("Editor"));
+        editorButton.setOnMouseClicked(e -> myLauncher.launchEditor());
+
+        Node gameButton = myBuilder.addNewButton(myRoot, new ComponentProperties(200, 20).message("Engine"));
+        gameButton.setOnMouseClicked(e -> myLauncher.launchEngine());
+
+        Node exitButton = myBuilder.addNewButton(myRoot, new ComponentProperties(100, 20).message("Exit"));
+        exitButton.setOnMouseClicked(e -> myStage.hide());
     }
 }

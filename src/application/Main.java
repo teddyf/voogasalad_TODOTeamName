@@ -21,7 +21,7 @@ public class Main extends Application {
     }
 
     /**
-     * Launches the VoogaSalad menu.
+     * Launches the VOOGASalad menu.
      *
      * @param stage is the current JavaFX stage.
      */
