@@ -3,27 +3,18 @@ package menu;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ResourceBundle;
 
-import static javafx.scene.control.ContentDisplay.RIGHT;
 
 /**
- * @author Harshil Garg, Robert Steilberg
+ * @author Robert Steilberg, Harshil Garg
  *         <p>
  *         This class handles launching the main menu and transitioning into the
  *         game engine or game editor.
@@ -52,103 +43,102 @@ public class MainMenu extends Scene {
     }
 
     /**
+     * Adds a button to the main menu
+     *
+     * @param xPos  is the x position of the button
+     * @param yPos  is the y position of the button
+     * @param path  is the path to the button's image
+     * @param width is the width of the button
+     * @return the button
+     */
+    private Node addButton(int xPos, int yPos, String path, int width) {
+        return myBuilder.addNewImageView(myRoot, new ComponentProperties(xPos, yPos)
+                .path(path)
+                .preserveRatio(true)
+                .width(width));
+    }
+
+    /**
      * Initializes the navigational buttons in the main menu
      */
-    private void initButtons() {
-        ColorAdjust ca = new ColorAdjust();
-        ca.setBrightness(-0.1);
+    private void setButtons() {
+        ColorAdjust hoverOpacity = new ColorAdjust();
+        hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
+        // create build button
+        int xPos = Integer.parseInt(myResources.getString("buildButtonX"));
+        int yPos = Integer.parseInt(myResources.getString("buildButtonY"));
+        String path = myResources.getString("buildButtonPath");
+        int width = Integer.parseInt(myResources.getString("buttonWidth"));
+        Node buildButton = addButton(xPos, yPos, path, width);
+        buildButton.setOnMouseClicked(e -> myLauncher.launchEditor());
+        buildButton.setOnMouseEntered(e -> buildButton.setEffect(hoverOpacity));
+        buildButton.setOnMouseExited(e -> buildButton.setEffect(null));
+        // create play button
+        xPos = Integer.parseInt(myResources.getString("playButtonX"));
+        yPos = Integer.parseInt(myResources.getString("playButtonY"));
+        path = myResources.getString("playButtonPath");
+        Node playButton = addButton(xPos, yPos, path, width);
+        playButton.setOnMouseClicked(e -> myLauncher.launchEngine());
+        playButton.setOnMouseEntered(e -> playButton.setEffect(hoverOpacity));
+        playButton.setOnMouseExited(e -> playButton.setEffect(null));
+        // create exit button
+        xPos = Integer.parseInt(myResources.getString("exitButtonX"));
+        yPos = Integer.parseInt(myResources.getString("exitButtonY"));
+        path = myResources.getString("exitButtonPath");
+        Node exitButton = addButton(xPos, yPos, path, width);
+        exitButton.setOnMouseClicked(e -> myStage.hide());
+        exitButton.setOnMouseEntered(e -> exitButton.setEffect(hoverOpacity));
+        exitButton.setOnMouseExited(e -> exitButton.setEffect(null));
+    }
 
-        ImageView build = new ImageView(new Image("resources/images/menu/build.png"));
-        build.setPreserveRatio(true);
-        build.setFitWidth(300);
-        build.setLayoutY(240);
-        build.setLayoutX(-85);
-        build.setOnMouseClicked(e -> myLauncher.launchEditor());
-        build.setOnMouseEntered(e -> build.setEffect(ca));
-        build.setOnMouseExited(e -> build.setEffect(null));
-        myBuilder.addComponent(myRoot,build);
+    /**
+     * Sets the text of the main menu
+     */
+    private void setText() {
+        Font.loadFont(myResources.getString("externalFont"), 12);
+        // create title
+        int xPos = Integer.parseInt(myResources.getString("titleXPos"));
+        int yPos = Integer.parseInt(myResources.getString("titleYPos"));
+        String text = myResources.getString("titleText");
+        String font = myResources.getString("font");
+        int size = Integer.parseInt(myResources.getString("titleSize"));
+        myBuilder.addNewLabel(myRoot, new ComponentProperties(xPos, yPos)
+                .text(text)
+                .font(font)
+                .size(size));
+        // create subtitle
+        xPos = Integer.parseInt(myResources.getString("subtitleXPos"));
+        yPos = Integer.parseInt(myResources.getString("subtitleYPos"));
+        text = myResources.getString("subtitleText");
+        size = Integer.parseInt(myResources.getString("subtitleSize"));
+        myBuilder.addNewLabel(myRoot, new ComponentProperties(xPos, yPos)
+                .text(text)
+                .font(font)
+                .size(size));
+    }
 
-        ImageView play = new ImageView(new Image("resources/images/menu/play.png"));
-        play.setPreserveRatio(true);
-        play.setFitWidth(300);
-        play.setLayoutY(310);
-        play.setLayoutX(-44);
-        play.setOnMouseClicked(e -> myLauncher.launchEngine());
-        play.setOnMouseEntered(e -> play.setEffect(ca));
-        play.setOnMouseExited(e -> play.setEffect(null));
-        myBuilder.addComponent(myRoot,play);
-
-        ImageView exit = new ImageView(new Image("resources/images/menu/exit.png"));
-        exit.setPreserveRatio(true);
-        exit.setFitWidth(300);
-        exit.setLayoutY(380);
-        exit.setLayoutX(-1);
-
-
-        exit.setOnMouseClicked(e -> myStage.hide());
-        exit.setOnMouseEntered(e -> exit.setEffect(ca));
-        exit.setOnMouseExited(e -> exit.setEffect(null));
-
-
-        myBuilder.addComponent(myRoot,exit);
-
-
-
-
-
-
+    /**
+     * Sets the background of the main menu
+     */
+    private void setBackground() {
+        String path = myResources.getString("backgroundPath");
+        int width = Integer.parseInt(myResources.getString("backgroundWidth"));
+        myBuilder.addNewImageView(myRoot, new ComponentProperties(0, 0)
+                .path(path)
+                .preserveRatio(true)
+                .width(width));
     }
 
     /**
      * Initializes the main menu window
      */
     private void initMenu() {
-        myStage.setTitle(myResources.getString("windowTitle"));
         myStage.setHeight(Integer.parseInt(myResources.getString("windowHeight")));
         myStage.setWidth(Integer.parseInt(myResources.getString("windowWidth")));
         myStage.centerOnScreen();
         myStage.show();
-
-        Image i = new Image("resources/images/menu/background.png");
-        ImageView iv = new ImageView(i);
-        iv.setPreserveRatio(true);
-        iv.setFitWidth(900);
-        myBuilder.addComponent(myRoot,iv);
-
-
-
-
-        Font.loadFont("file:./src/resources/images/menu/blackout.ttf",12);
-
-
-
-        ImageView pb = new ImageView(new Image("resources/images/menu/pokeball.png"));
-        pb.setPreserveRatio(true);
-        pb.setFitWidth(50);
-        Label l = new Label("VOOGA", pb);
-        l.setContentDisplay(RIGHT);
-        l.setGraphicTextGap(10);
-        l.setLayoutX(15);
-        l.setFont(new Font("Blackout Midnight",60));
-        myBuilder.addComponent(myRoot,l);
-
-
-
-
-
-        Label l2 = new Label("Let's start building.");
-        l2.setLayoutX(15);
-        l2.setLayoutY(80);
-        l2.setFont(new Font("Blackout Midnight",40));
-        myBuilder.addComponent(myRoot,l2);
-
-
-
-
-        initButtons();
-
-
-
-
+        setBackground();
+        setText();
+        setButtons();
     }
 }

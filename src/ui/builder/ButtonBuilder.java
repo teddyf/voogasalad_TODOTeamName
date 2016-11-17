@@ -23,7 +23,7 @@ public class ButtonBuilder extends ComponentBuilder {
 			button.setMinHeight(properties.height);
 			button.setMaxHeight(properties.height);
 		}
-		button.setText(properties.message);
+		button.setText(properties.text);
 		return button;
 	}
 

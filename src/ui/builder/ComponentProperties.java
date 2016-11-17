@@ -7,8 +7,11 @@ public class ComponentProperties {
 	protected double y;
 	protected double width;
 	protected double height;
-	protected String message;
-
+	protected String text;
+	protected String path;
+    protected boolean preserveRatio;
+    protected String font;
+    protected int size;
 
 
 	public ComponentProperties(double x, double y) {
@@ -31,9 +34,29 @@ public class ComponentProperties {
 		return this;
 	}
 	
-	public ComponentProperties message(String message) {
-		this.message = message;
+	public ComponentProperties text(String text) {
+		this.text = text;
 		return this;
 	}
+
+    public ComponentProperties path(String path) {
+        this.path = path;
+        return this;
+    }
+
+    public ComponentProperties preserveRatio(boolean preserveRatio) {
+        this.preserveRatio = preserveRatio;
+        return this;
+    }
+
+    public ComponentProperties font(String font) {
+        this.font = font;
+        return this;
+    }
+
+    public ComponentProperties size(int size) {
+        this.size = size;
+        return this;
+    }
 	
 }
