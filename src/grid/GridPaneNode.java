@@ -17,7 +17,7 @@ public class GridPaneNode {
     private String name;
     private ImageView imageView;
     
-    private final String DEFAULT_IMAGE_PATH = "Resources/Photos/Sprites/Declaration/Grass/Default.png";
+    private final String DEFAULT_IMAGE_PATH = "resources/Photos/Sprites/Declaration/Grass/Default.png";
     
     public GridPaneNode(int row, int col, String name){
         this.row = row;
@@ -58,6 +58,11 @@ public class GridPaneNode {
     public void setName(String a){
         this.name = a;
         extractName(a);
+    }
+    
+    public String toString(){
+        String sol = "row: " + row + "\ncol: " + col + "\nname: " + type;
+        return sol;
     }
     
 
