@@ -1,6 +1,7 @@
 Net IDS: lz107 , am548
 
 ## Part 1
+
 What about your API/design is intended to be flexible?
 
 Aninda: Our API involves several classes that represent each main component of our game engine. We have a general superclass for each component that contains the methods for all types of that particular component in order to classify components by their functionality. For example, we have an Interaction component, but there are multiple interactions. All the properties of a general interaction (between two characters) will be contained within the Interaction superclass, and then classes can be created for different types of interactions. The superclass allows for extensibility in that more specific types can be implemented by extending the superclass, but still maintain those properties. 
@@ -32,6 +33,7 @@ Aninda: I think it is good design to have a general superclass for each componen
 Lucy: Many methods are encapsulated. The frontend and backend communicate purely through the controller, allowing for very little dependency between the two.
 
 ##Part 2
+
 What feature/design problem are you most excited to work on?
 
 Aninda: I am excited to work on the player’s interactions with other characters because there are many different possible interactions and these interactions dictate how the game runs.
@@ -61,5 +63,3 @@ Do you have use cases for errors that might occur?
 Aninda: Yes, we have use cases for errors, such as when the user tries to create blank players or load games by a name that does not exist. This allows our code to be more robust towards errors.
 
 Lucy: Yes, we take into account erroneous settings inputted by the game creator in the game authoring environment. Such cases are replaced with default values if detected as wrong. 
-
-
