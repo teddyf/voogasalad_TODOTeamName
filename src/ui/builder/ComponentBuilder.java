@@ -4,10 +4,9 @@ import javafx.scene.Node;
 
 public abstract class ComponentBuilder {
 
-	public ComponentBuilder() {
-		
-	}
-	
-	public abstract Node createComponent(ComponentProperties properties);
+    public ComponentBuilder() {
+    }
+
+    public abstract Node createComponent(ComponentProperties properties);
 
 }
