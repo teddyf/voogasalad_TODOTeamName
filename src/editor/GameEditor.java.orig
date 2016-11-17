@@ -1,6 +1,9 @@
 package editor;
 
+<<<<<<< HEAD
 import javafx.scene.Group;
+=======
+>>>>>>> 727a06f49d4b5bc47faeccafe5e6e215327883cc
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

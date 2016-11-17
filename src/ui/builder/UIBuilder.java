@@ -11,9 +11,13 @@ import java.util.ResourceBundle;
 public class UIBuilder {
 	
 	private ComponentBuilder buttonBuilder;
+    private ComponentBuilder imageViewBuilder;
+    private ComponentBuilder labelBuilder;
 	
 	public UIBuilder() {
 		buttonBuilder = new ButtonBuilder();
+        imageViewBuilder = new ImageViewBuilder();
+        labelBuilder = new LabelBuilder();
 	}
 	
 	public Node addComponent(Parent layout, Node component) {
@@ -45,6 +49,14 @@ public class UIBuilder {
 	public Node addNewButton(Parent layout, ComponentProperties properties) {
 		return addComponent(layout, buttonBuilder.createComponent(properties));
 	}
+
+	public Node addNewImageView(Parent layout, ComponentProperties properties) {
+		return addComponent(layout, imageViewBuilder.createComponent(properties));
+	}
+
+    public Node addNewLabel(Parent layout, ComponentProperties properties) {
+        return addComponent(layout, labelBuilder.createComponent(properties));
+    }
 
 	public void initWindow(Stage currStage, String propertiesFilePath) {
         ResourceBundle resources = ResourceBundle.getBundle(propertiesFilePath);
