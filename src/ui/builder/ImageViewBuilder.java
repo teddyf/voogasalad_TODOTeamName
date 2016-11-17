@@ -6,6 +6,8 @@ import javafx.scene.image.ImageView;
 
 /**
  * @author Robert Steilberg
+ *
+ * This class builds JavaFX ImageViews.
  */
 public class ImageViewBuilder extends ComponentBuilder {
 
@@ -25,6 +27,4 @@ public class ImageViewBuilder extends ComponentBuilder {
         imageView.setFitHeight(properties.height);
         return imageView;
     }
-
-
 }

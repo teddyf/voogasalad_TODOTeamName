@@ -1,5 +1,10 @@
 package ui.builder;
 
+/**
+ * @author Harshil Garg, Robert Steilberg
+ *
+ * This class holds information used to build JavaFX objects.
+ */
 public class ComponentProperties {
 
     protected String id;
@@ -58,5 +63,4 @@ public class ComponentProperties {
         this.size = size;
         return this;
     }
-	
 }

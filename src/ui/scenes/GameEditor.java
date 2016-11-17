@@ -1,5 +1,6 @@
-package editor;
+package ui.scenes;
 
+import editor.Screen;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,35 +18,33 @@ import java.util.ResourceBundle;
  */
 public class GameEditor extends Scene {
 
-    private static final String EDITOR_RESOURCES = "resources/gameeditor";
+    private static final String EDITOR_RESOURCES = "resources/properties/gameeditor";
     private Stage myStage;
+    private UILauncher myLauncher;
     private Parent myRoot;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
 
-    public GameEditor(Stage stage, Parent root) {
+    public GameEditor(Stage stage, UILauncher launcher, Parent root) {
         super(root);
         myStage = stage;
+        myLauncher = launcher;
         myRoot = root;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         initEditor();
+        myStage.setOnCloseRequest(e -> {
+            // closing the window takes you back to main menu
+            e.consume();
+            myLauncher.launchMenu();
+        });
     }
 
     /**
      * Initializes the game editor window
      */
     private void initEditor() {
-        myStage.setTitle(myResources.getString("windowTitle"));
-        myStage.setHeight(Integer.parseInt(myResources.getString("windowHeight")));
-        myStage.setWidth(Integer.parseInt(myResources.getString("windowWidth")));
-        myStage.centerOnScreen();
-        
+        myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         myBuilder.addComponent(myRoot,new Screen(Integer.parseInt(myResources.getString("screenWidth")),Integer.parseInt(myResources.getString("screenHeight"))).getRoot());
-        
-        myStage.show();
-        myBuilder.initWindow(myStage,EDITOR_RESOURCES);
     }
-
-
 }
