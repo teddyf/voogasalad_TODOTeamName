@@ -17,16 +17,31 @@ public class GridPaneNode {
     private String name;
     private ImageView imageView;
     
-    private final String DEFAULT_IMAGE_PATH = "resources/Photos/Sprites/Declaration/Grass/Default.png";
+    private final String DEFAULT_IMAGE_PATH = "/resources/Default.png";
     
     public GridPaneNode(int row, int col, String name){
         this.row = row;
         this.col = col;
         this.name = name;
+        this.imageView = new ImageView();
         extractName(name);
-        this.imageView = new ImageView(new Image(DEFAULT_IMAGE_PATH));
+        setInitialImage();
     }
     
+    public void setImageCoord(double x, double y){
+        imageView.setX(x);
+        imageView.setY(y);
+    }
+    
+    public void setImageSize(double x, double y){
+        this.imageView.setFitWidth(x);
+        this.imageView.setFitHeight(y);
+    }
+    
+    private void setInitialImage(){
+        Image image = new Image(DEFAULT_IMAGE_PATH);
+        imageView.setImage(image);
+    }
     private void extractName(String a){
         String[] nameSplit = a.split("\\.");
         this.type = nameSplit[0];
@@ -51,6 +66,10 @@ public class GridPaneNode {
     
     public String getType(){
         return type;
+    }
+    
+    public ImageView getImage(){
+        return imageView;
     }
     
     //Setters
