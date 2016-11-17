@@ -1,8 +1,8 @@
 package ui;
 
-import editor.GameEditor;
-import engine.GameEngine;
-import menu.MainMenu;
+import ui.scenes.GameEditor;
+import ui.scenes.GameEngine;
+import ui.scenes.MainMenu;
 import javafx.scene.Group;
 import javafx.stage.Stage;
 
@@ -22,11 +22,6 @@ public class UILauncher {
     public UILauncher(Stage stage) {
         myStage = stage;
         myStage.setResizable(false);
-        myStage.setOnCloseRequest(e -> {
-            // closing the window takes you back to main menu
-            e.consume();
-            launchMenu();
-        });
     }
 
     /**
@@ -43,7 +38,7 @@ public class UILauncher {
      * Navigates to the game editor
      */
     public void launchEditor() {
-        GameEditor editor = new GameEditor(myStage, new Group());
+        GameEditor editor = new GameEditor(myStage, this,  new Group());
         myStage.setScene(editor);
     }
 

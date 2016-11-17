@@ -1,5 +1,6 @@
-package engine;
+package ui.scenes;
 
+import engine.FileBrowser;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,7 +19,7 @@ import java.util.ResourceBundle;
  */
 public class GameEngine extends Scene {
 
-    private static final String ENGINE_RESOURCES = "resources/gameengine";
+    private static final String ENGINE_RESOURCES = "resources/properties/gameengine";
     private Stage myStage;
     private UILauncher myLauncher;
     private Parent myRoot;
@@ -32,6 +33,11 @@ public class GameEngine extends Scene {
         myRoot = root;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+        myStage.setOnCloseRequest(e -> {
+            // closing the window takes you back to main menu
+            e.consume();
+            myLauncher.launchMenu();
+        });
     }
 
     /**
