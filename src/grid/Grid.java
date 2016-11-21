@@ -28,7 +28,7 @@ public class Grid implements IGrid {
 
         for(int i = 0; i < numRows; i++) {
             for(int j = 0; j < numColumns; j++) {
-                myGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK);
+                myGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK, i, j);
             }
         }
     }
