@@ -5,8 +5,8 @@ import editor.backend.Item;
 import player.Player;
 
 /**
- * Created by Bill Xiong on 11/20/16.
  * defines interactions between item and enemies
+ * @author Bill Xiong
  */
 public class ItemEnemyInteraction extends AbstractInteraction{
     private Item item;
