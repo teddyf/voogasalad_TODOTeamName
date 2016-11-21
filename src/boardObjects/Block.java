@@ -1,64 +1,82 @@
 package boardObjects;
 
-import editor.backend.IBlock;
 import editor.backend.Interaction;
 import grid.BlockType;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * The general type of object which may be placed on the board.
  *
- * @author Filip Mazurek
+ * @author Filip Mazurek, Daniel Chai
  */
-public abstract class Block implements IBlock {
+public abstract class Block {
+	private BlockType myBlockType;
+	private String myName;
+	private double myIdentifier;
 
-//    private BlockType myBlockType; // this might not really be needed
-    private int myRow;
-    private int myColumn;
-    private String myName;
-    private double myIdentifier;
-    private boolean walkableStatus;
-    private List<Interaction> myInteractions;
+	private int myRow;
+	private int myCol;
 
-    public Block(String name) {
-        myName = name;
-    }
+	private boolean walkableStatus;
+	private List<Interaction> myInteractions;
 
-    private List<Interaction> getInteractions() {
-        return new ArrayList<>(myInteractions);
-    }
+	public Block(String name, BlockType blockType, int row, int col) {
+		myName = name;
+		myBlockType = blockType;
+		myRow = row;
+		myCol = col;
+		myInteractions = new ArrayList<Interaction>();
+	}
 
-    public String getName() {
-        return myName;
-    }
-    
-    public int getRow() {
-    	return myRow;
-    }
-    
-    public int getCol() {
-    	return myColumn;
-    }
+	public BlockType getBlockType() {
+		return myBlockType;
+	}
 
-    protected boolean addInteraction(Interaction someInteraction) {
-        return myInteractions.add(someInteraction);
-    }
+	public String getName() {
+		return myName;
+	}
 
-    protected void clearInteractions() {
-        myInteractions.clear();
-    }
+	public double getIdentifier() {
+		return myIdentifier;
+	}
 
-    protected boolean removeInteraction(Interaction someInteraction) {
-        return myInteractions.remove(someInteraction);
-    }
+	public int getRow() {
+		return myRow;
+	}
 
-    protected void setWalkableStatus(boolean status) {
-        walkableStatus = status;
-    }
+	public int getCol() {
+		return myCol;
+	}
 
-    public boolean isWalkable() {
-        return walkableStatus;
-    }
+	public boolean isWalkable() {
+		return walkableStatus;
+	}
+
+	public List<Interaction> getInteractions() {
+		return Collections.unmodifiableList(myInteractions);
+	}
+
+	protected boolean addInteraction(Interaction someInteraction) {
+		return myInteractions.add(someInteraction);
+	}
+
+	protected void clearInteractions() {
+		myInteractions.clear();
+	}
+
+	protected boolean removeInteraction(Interaction someInteraction) {
+		return myInteractions.remove(someInteraction);
+	}
+
+	protected void setBlockType(BlockType blockType) {
+		myBlockType = blockType;
+	}
+
+	protected void setWalkableStatus(boolean status) {
+		walkableStatus = status;
+	}
+
 }
