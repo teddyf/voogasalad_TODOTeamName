@@ -16,11 +16,22 @@ public abstract class AbstractInteraction implements Interaction{
     private Item item;
     private Block block;
     private Player player;
-    public AbstractInteraction(Item item, Block block, Player player){
+    public AbstractInteraction(){
+
+    }
+    public AbstractInteraction(Item item, Block block, Player player) {
         this.item = item;
         this.block = block;
         this.player = player;
     }
-    
+    protected Item getItem(){
+        return item;
+    }
+    protected Block getBlock(){
+        return block;
+    }
+    protected Player getPlayer(){
+        return player;
+    }
     public abstract void act();
 }
