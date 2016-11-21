@@ -5,8 +5,8 @@ import editor.backend.Item;
 import player.Player;
 
 /**
- * Created by Bill Xiong on 11/20/16.
- * defines interactions betwen player and enemy
+ * defines interactions between player and enemy
+ * @author Bill Xiong
  */
 public class PlayerEnemyInteraction extends AbstractInteraction{
     private EnemyBlock enemy;
