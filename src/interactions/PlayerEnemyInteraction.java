@@ -1,6 +1,6 @@
 package interactions;
 
-import boardObjects.Enemy;
+import boardObjects.EnemyBlock;
 import editor.backend.Item;
 import player.Player;
 
@@ -9,9 +9,9 @@ import player.Player;
  * @author Bill Xiong
  */
 public class PlayerEnemyInteraction extends AbstractInteraction{
-    private Enemy enemy;
+    private EnemyBlock enemy;
     private Player player;
-    public PlayerEnemyInteraction(Enemy enemy, Player player) {
+    public PlayerEnemyInteraction(EnemyBlock enemy, Player player) {
         this.enemy = enemy;
         this.player = player;
     }
