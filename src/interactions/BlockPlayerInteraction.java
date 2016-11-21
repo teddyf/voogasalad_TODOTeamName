@@ -6,8 +6,11 @@ import player.Player;
 
 public class BlockPlayerInteraction extends AbstractInteraction{
 
-    public BlockPlayerInteraction(Item item, Block block, Player player) {
-       super(item, block, player);
+    private Block block;
+    private Player player;
+    public BlockPlayerInteraction(Block block, Player player) {
+        this.block = block;
+        this.player = player;
     }
 
     public void act(){
