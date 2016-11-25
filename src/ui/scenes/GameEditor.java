@@ -1,11 +1,14 @@
 package ui.scenes;
 
+import grid.*;
 import editor.Screen;
 import editor.SidePanel;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
@@ -30,6 +33,7 @@ public class GameEditor extends Scene {
     private UIBuilder myBuilder;
     private Group mySideMenuRegion;
     private ResourceBundle myResources;
+    private GridPane gridPane;
 
     public GameEditor(Stage stage, UILauncher launcher, Parent root) {
         super(root);
@@ -38,6 +42,13 @@ public class GameEditor extends Scene {
         myRoot = root;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
+        gridPane =
+                new GridPane(Integer.parseInt(myResources.getString("gridCellsWide")),
+                              Integer.parseInt(myResources.getString("gridCellsHeight")),
+                              Integer.parseInt(myResources.getString("gridWidth")),
+                              Integer.parseInt(myResources.getString("gridHeight")),
+                              Integer.parseInt(myResources.getString("gridX")),
+                              Integer.parseInt(myResources.getString("gridY")));
         initEditor();
         initRegions();
         initSideMenu();
@@ -48,10 +59,12 @@ public class GameEditor extends Scene {
         });
     }
 
+
     /**
      * Initializes the game editor window
      */
     private void initEditor() {
+        setGridControl();
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         myBuilder.addComponent(myRoot,new Screen(Integer.parseInt(myResources.getString("screenWidth")),Integer.parseInt(myResources.getString("screenHeight"))).getRoot());
     }
@@ -71,4 +84,44 @@ public class GameEditor extends Scene {
      private void initSideMenu() {
      	SidePanel sideMenu = new SidePanel(mySideMenuRegion);
      }
+     
+     /**
+      * Sets Grid Control
+      */
+     private void setGridControl () {
+         ColorAdjust hoverOpacity = new ColorAdjust();
+         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
+         int updateX = Integer.parseInt(myResources.getString("updateX"));
+         int updateY = Integer.parseInt(myResources.getString("updateY"));
+         int updateWidth = Integer.parseInt(myResources.getString("updateWidth"));
+         int widthInputX = Integer.parseInt(myResources.getString("inputWidthX"));
+         int widthInputY = Integer.parseInt(myResources.getString("inputWidthY"));
+         int widthInputWidth = Integer.parseInt(myResources.getString("inputWidthWidth"));
+         String widthInputText = myResources.getString("inputWidthText");
+         int heightInputX = Integer.parseInt(myResources.getString("inputHeightX"));
+         int heightInputY = Integer.parseInt(myResources.getString("inputHeightY"));
+         int heightInputWidth = Integer.parseInt(myResources.getString("inputHeightWidth"));
+         String heightInputText = myResources.getString("inputHeightText");
+         Node widthInputField =
+                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
+                                              widthInputWidth);
+         Node heightInputField =
+                 myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
+                                              heightInputWidth);
+         String updatePath = myResources.getString("updatePath");
+         Node updateButton =
+                 myBuilder.addCustomButton(myRoot, updatePath, updateX, updateY, updateWidth);
+         updateButton.setOnMouseClicked(e -> {
+             myBuilder.removeComponent(myRoot, gridPane.getGroup());
+             TextField xText = (TextField) widthInputField;
+             TextField yText = (TextField) heightInputField;
+             int xInput = Integer.parseInt(xText.getText());
+             int yInput = Integer.parseInt(yText.getText());
+             gridPane.resizeReset(xInput, yInput);
+             myBuilder.addComponent(myRoot, gridPane.getGroup());
+         });
+         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
+         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
+     }
+     
 }
