@@ -1,8 +1,10 @@
 package ui.scenes;
 
-import editor.Screen;
-import editor.SidePanel;
+<<<<<<< HEAD:src/editor/GameEditor.java
 import javafx.scene.Group;
+=======
+import editor.Screen;
+>>>>>>> a2b962f60feaac1557094e3dfa8049b968217901:src/ui/scenes/GameEditor.java
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -39,13 +41,16 @@ public class GameEditor extends Scene {
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         initEditor();
+<<<<<<< HEAD:src/editor/GameEditor.java
         initRegions();
         initSideMenu();
+=======
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             e.consume();
             myLauncher.launchMenu();
         });
+>>>>>>> a2b962f60feaac1557094e3dfa8049b968217901:src/ui/scenes/GameEditor.java
     }
 
     /**
@@ -55,20 +60,25 @@ public class GameEditor extends Scene {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         myBuilder.addComponent(myRoot,new Screen(Integer.parseInt(myResources.getString("screenWidth")),Integer.parseInt(myResources.getString("screenHeight"))).getRoot());
     }
+<<<<<<< HEAD:src/editor/GameEditor.java
     
     private void initRegions() {
-     	mySideMenuRegion = createRegion(800, 0);
-     	myBuilder.addComponent(myRoot, mySideMenuRegion);
-     }
-     
- 	private Group createRegion(int layoutX, int layoutY ) {
- 		Group region = new Group();
- 		region.setLayoutX(layoutX);
- 		region.setLayoutY(layoutY);
- 		return region;
- 	}
- 
-     private void initSideMenu() {
-     	SidePanel sideMenu = new SidePanel(mySideMenuRegion);
-     }
+    	mySideMenuRegion = createRegion(800, 0);
+    	myBuilder.addComponent(myRoot, mySideMenuRegion);
+    }
+    
+	private Group createRegion(int layoutX, int layoutY ) {
+		Group region = new Group();
+		region.setLayoutX(layoutX);
+		region.setLayoutY(layoutY);
+		return region;
+	}
+
+    private void initSideMenu() {
+    	SidePanel sideMenu = new SidePanel(mySideMenuRegion);
+    }
+
 }
+=======
+}
+>>>>>>> a2b962f60feaac1557094e3dfa8049b968217901:src/ui/scenes/GameEditor.java
