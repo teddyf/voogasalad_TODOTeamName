@@ -1,12 +1,10 @@
 package grid;
-
 import java.util.Enumeration;
 import java.util.ResourceBundle;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.regex.Pattern;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 public class GridPaneNode {
     private int row;
     private int col;
@@ -17,7 +15,7 @@ public class GridPaneNode {
     private String name;
     private ImageView imageView;
     
-    private final String DEFAULT_IMAGE_PATH = "/resources/Default.png";
+    private final String DEFAULT_IMAGE_PATH = "resources/Default.png";
     
     public GridPaneNode(int row, int col, String name){
         this.row = row;
@@ -55,6 +53,14 @@ public class GridPaneNode {
         return sol;
     }
     
+    public void swap(GridPaneNode node, int typeNum){
+        this.imageView = node.getImage();
+        this.imageNum = node.getImageNum();
+        this.type = node.getType();
+        this.typeNum = typeNum;
+        this.name = type+"."+typeNum+"."+imageNum;
+    }
+    
     //Getters
     public int getRow(){
         return row;
@@ -79,11 +85,14 @@ public class GridPaneNode {
         extractName(a);
     }
     
+    public int getImageNum(){
+        return this.imageNum;
+    }
+    
     public String toString(){
         String sol = "row: " + row + "\ncol: " + col + "\nname: " + type;
         return sol;
     }
     
-
     
 }

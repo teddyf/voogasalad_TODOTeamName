@@ -25,7 +25,7 @@ public class Screen {
 
 	private void makeScreen(){				
 		
-		BackgroundFill backgroundColor = new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY);
+		BackgroundFill backgroundColor = new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY);
 		Background background = new Background(backgroundColor);
 		
 		root.setBackground(background);
