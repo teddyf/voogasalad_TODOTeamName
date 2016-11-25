@@ -47,6 +47,24 @@ public class UIBuilder {
         return component;
     }
 
+<<<<<<< HEAD
+	public Node removeComponent(Parent layout, Node component) {
+		if (layout instanceof Pane) {
+			Pane pane = (Pane) layout;
+			pane.getChildren().remove(component);
+		} else if (layout instanceof Group) {
+			Group pane = (Group) layout;
+			pane.getChildren().remove(component);
+		} else {
+			return null;
+		}
+		return component;
+	}
+	
+	public Node addNewButton(Parent layout, ComponentProperties properties) {
+		return addComponent(layout, buttonBuilder.createComponent(properties));
+	}
+=======
     /**
      * Removes a JavaFX node from the specified Group or Pane
      *
@@ -66,6 +84,7 @@ public class UIBuilder {
         }
         return component;
     }
+>>>>>>> a2b962f60feaac1557094e3dfa8049b968217901
 
     /**
      * Create a new JavaFX Button and adds it to the given Group or Pane

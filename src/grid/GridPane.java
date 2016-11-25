@@ -5,15 +5,15 @@ public class GridPane {
     //name & identifier & row/column
     private List<GridPaneNode> blockList;
     private List<GridPaneNode> clicked;
-    private Map<Integer, Map<Integer, GridPaneNode>> renderMap;
+    private Map<Double, Map<Double, GridPaneNode>> renderMap;
     
     private int gridWidth;
     private int gridHeight;
     private int renderWidth;
     private int renderHeight;
     
-    
     private String DEFAULT = "DEFAULT.1.2.3";
+    
     
     public GridPane(int gridWidth, int gridHeight, int renderWidth, int renderHeight){
         this.gridWidth = gridWidth;
@@ -23,19 +23,19 @@ public class GridPane {
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
         initializeGrid();
-        this.renderMap = new HashMap<Integer,Map<Integer,GridPaneNode>>();
+        this.renderMap = new HashMap<Double,Map<Double,GridPaneNode>>();
         setRenderMap();
         
     }
     
-    private int getXRender(GridPaneNode node){
-        int cellWidth = renderWidth/gridWidth;
+    private double getXRender(GridPaneNode node){
+        double cellWidth = 0.0+renderWidth/gridWidth;
         int sol = node.getCol();
         return sol*cellWidth;
     }
     
-    private int getYRender(GridPaneNode node){
-        int cellHeight = renderHeight/gridHeight;
+    private double getYRender(GridPaneNode node){
+        double cellHeight = 0.0+renderHeight/gridHeight;
         int sol = node.getRow();
         return sol*cellHeight;
     }
@@ -52,13 +52,15 @@ public class GridPane {
     public void setRenderMap(){
         for(int i = 0; i < blockList.size(); i++){
             GridPaneNode node = blockList.get(i);
-            int x = getXRender(node);
-            int y = getYRender(node);
+            double x = getXRender(node);
+            double y = getYRender(node);
+            node.setImageSize(0.0+renderWidth/gridWidth,0.0+renderHeight/gridHeight);
+            node.setImageCoord(x,y);
             if(renderMap.containsKey(x)){
                 renderMap.get(x).put(y, node);
             }
             else{
-                renderMap.put(x, new HashMap<Integer,GridPaneNode>());
+                renderMap.put(x, new HashMap<Double,GridPaneNode>());
                 renderMap.get(x).put(y, node);
             }
         }
@@ -81,7 +83,9 @@ public class GridPane {
         this.blockList = list;
     }
     
+    public Map<Double,Map<Double,GridPaneNode>> getRenderMap(){
+        return renderMap;
+    }
     
-
     
 }

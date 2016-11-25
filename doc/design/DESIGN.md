@@ -160,8 +160,7 @@ Classes:
 12. Define properties for the user’s sprite
 13. Player character interacts with a switch
 14. User wants to create a win condition based on Player location
-15. User wants to see available games
-16. Player achieves new highscore
+15. User wanoieves new highscore
 17. Transition between different scenes, such as map and battle scene.
 18. Define player’s items and their interactions, such as potions, etc.
 19. Allow user to change attributes of different items dynamically, such as hp, speed, etc.
