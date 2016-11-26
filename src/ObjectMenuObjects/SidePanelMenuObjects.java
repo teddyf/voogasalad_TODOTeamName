@@ -5,6 +5,7 @@ import java.util.*;
 public class SidePanelMenuObjects {
     private List<GameObjects> obstacles;
     private List<GameObjects> decorations;
+    private GameObjects selected;
     
     public SidePanelMenuObjects(){
         obstacles  = new ArrayList<GameObjects>();
@@ -30,4 +31,13 @@ public class SidePanelMenuObjects {
     public List<GameObjects> getDecorations(){
         return decorations;
     }
+    
+    public void select(GameObjects obj){
+        selected = obj;
+    }
+    
+    public GameObjects getSelected(){
+        return selected;
+    }
+    
 }

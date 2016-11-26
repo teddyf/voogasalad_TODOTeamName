@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 
 public abstract class GameObjects {
     
+    protected String type;
     protected List<GridPaneNode> list;
     protected ImageView imageView;
     
@@ -26,5 +27,9 @@ public abstract class GameObjects {
     
     public ImageView getImage(){
         return imageView;
+    }
+    
+    public String getType(){
+        return type;
     }
 }

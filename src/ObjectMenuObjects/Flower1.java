@@ -11,6 +11,7 @@ public class Flower1 extends GameObjects{
         super();
         Image image = new Image(PATH+".png");
         this.imageView.setImage(image);
+        type = "flower";
     }
 
     @Override
