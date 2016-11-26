@@ -1,28 +1,30 @@
 package ObjectMenuObjects;
 import java.util.*;
 import grid.*;
+import javafx.scene.image.ImageView;
 
 
 public abstract class GameObjects {
     
-    protected String name; 
     protected List<GridPaneNode> list;
+    protected ImageView imageView;
     
-    public GameObjects(String name){
-        this.name = name;
+    public GameObjects(){
         list = new ArrayList<GridPaneNode>();
         populateList();
+        this.imageView = new ImageView();
     }
     public List<GridPaneNode> getList(){
         return list;
     }
     
     protected String reName(String a, int count){
-        String[] nameSplit = a.split("\\.");
-        String type = nameSplit[0];
-        return type+count;
+        return a+"."+count+".png";
     }
     
     public abstract void populateList();
     
+    public ImageView getImage(){
+        return imageView;
+    }
 }

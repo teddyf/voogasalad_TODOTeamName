@@ -11,14 +11,20 @@ import javafx.scene.control.TabPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
+import grid.*;
+import ObjectMenuObjects.*;
+import ui.builder.*;
 
 public class SidePanel {
     private static final String SIDEPANEL_RESOURCES = "resources/sidepanel";
     private Group myRegion;
     private ResourceBundle myResources;
+    private UIBuilder myBuilder;
+    private SidePanelMenuObjects handler;
 
     public SidePanel (Group region) {
+        myBuilder = new UIBuilder();
+        handler = new SidePanelMenuObjects();
         myRegion = region;
         myResources = Resources.getBundle(SIDEPANEL_RESOURCES);
         initSidePanel();
@@ -31,8 +37,13 @@ public class SidePanel {
         return tab;
     }
     
-    private void populateTab(String label){
-        
+    private void populatePane(String label){
+        if(label.equals("Decoration")){
+            populateDecorationPane();
+        }
+        else if(label.equals("Obstacle")){
+            populateObstaclePane();
+        }    
     }
 
     private ScrollPane createScrollPane (Node content) {
@@ -51,5 +62,13 @@ public class SidePanel {
         tp.getTabs().addAll(decTab, objTab, switchTab, npcTab);
         tp.setSide(Side.TOP);
         myRegion.getChildren().add(tp);
+    }
+    
+    private void populateDecorationPane(){
+        
+    }
+    
+    private void populateObstaclePane(){
+        
     }
 }
