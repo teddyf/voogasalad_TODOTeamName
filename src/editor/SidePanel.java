@@ -1,5 +1,6 @@
 package editor;
 
+import java.util.*;
 import java.util.ResourceBundle;
 import sun.security.tools.policytool.Resources;
 import javafx.geometry.Side;
@@ -8,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -37,13 +39,14 @@ public class SidePanel {
         return tab;
     }
     
-    private void populatePane(String label){
-        if(label.equals("Decoration")){
-            populateDecorationPane();
+    private void populatePane(ScrollPane pane){
+        List<GameObjects> list = handler.getDecorations();
+        int buffer = 0;
+        for(GameObjects obj: list){
+            Node node = myBuilder.addCustomButton(pane, obj.getPath(), buffer, 0, 50);
+            node.setOnMouseClicked(e->{handler.select(obj);});
+            buffer += 50;
         }
-        else if(label.equals("Obstacle")){
-            populateObstaclePane();
-        }    
     }
 
     private ScrollPane createScrollPane (Node content) {
@@ -53,10 +56,14 @@ public class SidePanel {
 
     private void initSidePanel () {
         TabPane tp = new TabPane();
+        ScrollPane decPane = createScrollPane(new Rectangle(20, 20, Color.ALICEBLUE));
+        ScrollPane objPane = createScrollPane(new Rectangle(20, 20, Color.ANTIQUEWHITE));
         Tab decTab =
-                createTab("decoration", createScrollPane(new Rectangle(20, 20, Color.ALICEBLUE)));
+                createTab("decoration", decPane);
+        populatePane(decPane);
         Tab objTab =
                 createTab("obstacle", createScrollPane(new Rectangle(20, 20, Color.ANTIQUEWHITE)));
+        populatePane(objPane);
         Tab switchTab = createTab("switch", createScrollPane(new Rectangle(20, 20, Color.AZURE)));
         Tab npcTab = createTab("NPC", createScrollPane(new Rectangle(20, 20, Color.BISQUE)));
         tp.getTabs().addAll(decTab, objTab, switchTab, npcTab);
@@ -64,11 +71,4 @@ public class SidePanel {
         myRegion.getChildren().add(tp);
     }
     
-    private void populateDecorationPane(){
-        
-    }
-    
-    private void populateObstaclePane(){
-        
-    }
 }

@@ -20,5 +20,10 @@ public class Flower1 extends GameObjects{
         GridPaneNode tempNode = new GridPaneNode(0,0,name);
         list.add(tempNode);
     }
+    
+    @Override
+    public String getPath(){
+        return PATH+".png";
+    }
 
 }

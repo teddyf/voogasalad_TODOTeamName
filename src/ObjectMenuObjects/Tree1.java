@@ -24,5 +24,9 @@ public class Tree1 extends GameObjects{
         }
         
     }
+    
+    public String getPath(){
+        return PATH+".png";
+    }
 
 }
