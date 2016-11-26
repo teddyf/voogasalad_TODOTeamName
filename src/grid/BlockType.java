@@ -8,5 +8,6 @@ package grid;
 public enum BlockType {
     DECORATION,
     OBSTACLE,
-    COMMUNICATOR
+    COMMUNICATOR,
+    ENEMY
 }

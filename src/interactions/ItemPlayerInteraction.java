@@ -17,6 +17,6 @@ public class ItemPlayerInteraction extends AbstractInteraction{
     }
 
     public void act(){
-
+        defaultItemPlayer(item, player);
     }
 }

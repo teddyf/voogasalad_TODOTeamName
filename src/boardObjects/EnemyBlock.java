@@ -6,10 +6,10 @@ package boardObjects;
  */
 public class EnemyBlock extends CommunicatorBlock implements NotWalkable {
     private double health;
-
-	public EnemyBlock(String name, int row, int col, double health) {
+    private final double MAX_HEALTH = 100;
+	public EnemyBlock(String name, int row, int col) {
         super(name, row, col);
-        this.health = health;
+        this.health = MAX_HEALTH;
     }
     public double getHealth(){
         return health;
