@@ -1,7 +1,6 @@
 package ui.scenes;
 
 import grid.*;
-import editor.Screen;
 import editor.SidePanel;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -64,11 +63,6 @@ public class GameEditor extends Scene {
      */
     private void initEditor () {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        
-        myBuilder.addComponent(myRoot,
-                               new Screen(Integer.parseInt(myResources.getString("screenWidth")),
-                                          Integer.parseInt(myResources.getString("screenHeight")))
-                                                  .getRoot());
                                                   
         setGridControl();
     }
