@@ -81,8 +81,7 @@ public class SidePanel {
             node.setOnMouseEntered(e -> node.setEffect(hoverOpacity));
             node.setOnMouseExited(e -> node.setEffect(null));
             node.setOnMouseClicked(e -> {
-                handler.select(obj);
-            });
+                handler.select(obj);System.out.println(handler.getSelected());});
             buffer += 50;
         }
         ScrollPane scrollPane = new ScrollPane(content);
@@ -104,6 +103,10 @@ public class SidePanel {
         tp.getTabs().addAll(decTab, objTab, switchTab, npcTab);
         tp.setSide(Side.TOP);
         myRegion.getChildren().add(tp);
+    }
+    
+    public SidePanelMenuObjects getHandler(){
+        return handler;
     }
 
 }

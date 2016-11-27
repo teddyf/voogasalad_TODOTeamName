@@ -21,7 +21,4 @@ public class Flower1 extends GameObjects{
         GridPaneNode tempNode = new GridPaneNode(0,0,name);
         list.add(tempNode);
     }
-    
-
-
 }

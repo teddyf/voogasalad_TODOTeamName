@@ -60,7 +60,8 @@ public class GridPaneNode {
     }
     
     public void swap(GridPaneNode node, int typeNum){
-        this.imageView = node.getImage();
+        Image image = new Image(node.getType()+".png");
+        this.imageView.setImage(image);
         this.imageNum = node.getImageNum();
         this.type = node.getType();
         //this.typeNum = typeNum;
@@ -96,7 +97,7 @@ public class GridPaneNode {
     }
     
     public String toString(){
-        String sol = "row: " + row + "\ncol: " + col + "\nname: " + type;
+        String sol = "row: " + row + "\ncol: " + col + "\ntype: " + type;
         return sol;
     }
     
