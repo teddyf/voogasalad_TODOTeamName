@@ -34,6 +34,7 @@ public class GameEditor extends Scene {
     private Group mySideMenuRegion;
     private ResourceBundle myResources;
     private GridPane gridPane;
+    private SidePanel sideMenu;
 
     public GameEditor (Stage stage, UILauncher launcher, Parent root) {
         super(root);
@@ -85,7 +86,7 @@ public class GameEditor extends Scene {
     }
 
     private void initSideMenu () {
-        SidePanel sideMenu = new SidePanel(mySideMenuRegion);
+        sideMenu = new SidePanel(mySideMenuRegion);
     }
 
     /**
@@ -105,6 +106,10 @@ public class GameEditor extends Scene {
         int heightInputY = Integer.parseInt(myResources.getString("inputHeightY"));
         int heightInputWidth = Integer.parseInt(myResources.getString("inputHeightWidth"));
         String heightInputText = myResources.getString("inputHeightText");
+        int swapX = Integer.parseInt(myResources.getString("swapX"));
+        int swapY = Integer.parseInt(myResources.getString("swapY"));
+        int swapWidth = Integer.parseInt(myResources.getString("swapWidth"));
+        String swapPath = myResources.getString("swapPath");
         Node widthInputField =
                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
                                              widthInputWidth);
@@ -125,6 +130,11 @@ public class GameEditor extends Scene {
         });
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
+        Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
+        swapButton.setOnMouseClicked(e->{gridPane.swap(sideMenu.getHandler().getSelected().getList());
+        System.out.println(gridPane.getClicked());});
+        swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
+        swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
     }
 
 }
