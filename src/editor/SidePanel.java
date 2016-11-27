@@ -6,6 +6,7 @@ import sun.security.tools.policytool.Resources;
 import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;

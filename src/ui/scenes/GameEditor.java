@@ -59,7 +59,6 @@ public class GameEditor extends Scene {
             myLauncher.launchMenu();
         });
     }
-
     /**
      * Initializes the game editor window
      */

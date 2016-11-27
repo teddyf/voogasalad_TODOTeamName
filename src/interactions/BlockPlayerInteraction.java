@@ -14,6 +14,6 @@ public class BlockPlayerInteraction extends AbstractInteraction{
     }
 
     public void act(){
-
+        defaultBlockPlayer(block, player);
     }
 }

@@ -17,6 +17,6 @@ public class ItemEnemyInteraction extends AbstractInteraction{
     }
 
     public void act(){
-
+        defaultItemEnemy(item, enemy);
     }
 }

@@ -73,7 +73,11 @@ public class GridPane {
             double y = getYRender(node);
             node.setImageSize(0.0+renderWidth/gridWidth,0.0+renderHeight/gridHeight);
             node.setImageCoord(x,y);
-            node.getImage().setOnMouseClicked(e->{click(node);System.out.println(getClicked());});
+            node.getImage().setOnMouseClicked(e->{
+                click(node);
+                node.displayOptions();
+                System.out.println(getClicked());
+            });
             node.getImage().setOnMouseEntered(e -> node.getImage().setEffect(hoverOpacity));
             node.getImage().setOnMouseExited(e -> node.getImage().setEffect(null));
             
@@ -82,7 +86,7 @@ public class GridPane {
                 renderMap.get(x).put(y, node);
             }
             else{
-                renderMap.put(x, new HashMap<Double,GridPaneNode>());
+                renderMap.put(x, new HashMap<>());
                 renderMap.get(x).put(y, node);
             }
         }
@@ -99,7 +103,7 @@ public class GridPane {
         reset();
     }
     
-    public void click(GridPaneNode node){
+    private void click(GridPaneNode node){
         if(clicked.contains(node)){
             clicked.remove(node);
         }
