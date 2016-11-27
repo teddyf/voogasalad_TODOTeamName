@@ -3,7 +3,9 @@ package ui.builder;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.ResourceBundle;
 
@@ -43,6 +45,10 @@ public class UIBuilder {
         }
         else if (layout instanceof Group) {
             Group pane = (Group) layout;
+            pane.getChildren().add(component);
+        }
+        else if (layout instanceof VBox){
+             VBox pane = (VBox) layout;
             pane.getChildren().add(component);
         }
         else {

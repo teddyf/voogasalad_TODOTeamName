@@ -2,6 +2,12 @@ package grid;
 import java.util.*;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
+
+/**
+ * 
+ * @author Teddy Franceschi
+ *
+ */
 public class GridPane {
     //name & identifier & row/column
     
@@ -113,6 +119,14 @@ public class GridPane {
         this.renderMap = new HashMap<Double,Map<Double,GridPaneNode>>();
         initializeGrid();
         setRenderMap();
+    }
+    
+    public void swap(List<GridPaneNode> list){
+        for(int i = 0; i < list.size(); i++){
+            for(int j = 0; j < clicked.size(); j++){
+                clicked.get(j).swap(list.get(i),list.get(i).getImageNum());
+            }
+        }
     }
     
     public List<GridPaneNode> getNodeList(){

@@ -13,13 +13,19 @@ public class GridPaneNode {
 
     private String type;
     private int imageNum;
-    private int typeNum;
+    //private int typeNum;
     private String name;
     private ImageView imageView;
     private Block block;
     private BlockType blockType;
     private final String DEFAULT_IMAGE_PATH = "resources/Default.png";
     
+    /**
+     * Constructor for GridPaneNode 
+     * @param row Row for node to be placed
+     * @param col Column for node to be placed
+     * @param name Name of node
+     */
     public GridPaneNode(int row, int col, String name){
         this.row = row;
         this.col = col;
@@ -69,8 +75,8 @@ public class GridPaneNode {
     private void extractName(String a){
         String[] nameSplit = a.split("\\.");
         this.type = nameSplit[0];
-        this.imageNum = Integer.parseInt(nameSplit[2]);
-        this.typeNum = Integer.parseInt(nameSplit[1]);
+        this.imageNum = Integer.parseInt(nameSplit[1]);
+        //this.typeNum = Integer.parseInt(nameSplit[2]);
     }
     
     
@@ -80,10 +86,11 @@ public class GridPaneNode {
     }
     
     public void swap(GridPaneNode node, int typeNum){
-        this.imageView = node.getImage();
+        Image image = new Image(node.getType()+".png");
+        this.imageView.setImage(image);
         this.imageNum = node.getImageNum();
         this.type = node.getType();
-        this.typeNum = typeNum;
+        //this.typeNum = typeNum;
         this.name = type+"."+typeNum+"."+imageNum;
     }
     
@@ -115,7 +122,7 @@ public class GridPaneNode {
         return this.imageNum;
     }
     public String toString(){
-        String sol = "row: " + row + "\ncol: " + col + "\nname: " + type;
+        String sol = "row: " + row + "\ncol: " + col + "\ntype: " + type;
         return sol;
     }
 }
