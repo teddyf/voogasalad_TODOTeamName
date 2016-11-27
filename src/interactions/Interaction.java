@@ -1,4 +1,4 @@
-package editor.backend;
+package interactions;
 
 import javafx.scene.text.Text;
 
