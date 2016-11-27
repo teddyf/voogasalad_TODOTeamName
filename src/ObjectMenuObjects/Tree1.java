@@ -9,6 +9,7 @@ public class Tree1 extends GameObjects{
         Image image = new Image(PATH+".png");
         this.imageView.setImage(image);
         type = "tree";
+        path = "resources/images/Sprites/Obstacle/Tree/tree1";
     }
 
     @Override
@@ -25,8 +26,4 @@ public class Tree1 extends GameObjects{
         
     }
     
-    public String getPath(){
-        return PATH+".png";
-    }
-
 }

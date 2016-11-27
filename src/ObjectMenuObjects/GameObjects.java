@@ -37,4 +37,8 @@ public abstract class GameObjects {
     public String getPath(){
         return path+".png";
     }
+    
+    public String toString(){
+        return type;
+    }
 }

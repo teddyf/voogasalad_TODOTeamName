@@ -12,6 +12,7 @@ public class Flower1 extends GameObjects{
         Image image = new Image(PATH+".png");
         this.imageView.setImage(image);
         type = "flower";
+        path = "resources/images/Sprites/Declaration/Flower/flower1";
     }
 
     @Override
@@ -21,9 +22,6 @@ public class Flower1 extends GameObjects{
         list.add(tempNode);
     }
     
-    @Override
-    public String getPath(){
-        return PATH+".png";
-    }
+
 
 }
