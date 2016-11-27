@@ -16,7 +16,9 @@ public class SidePanelMenuObjects {
     
     private void populateObstacles(){
         Tree1 tree1 = new Tree1();
+        Tree2 tree2 = new Tree2();
         obstacles.add(tree1);
+        obstacles.add(tree2);
     }
     
     private void populateDecorations(){

@@ -9,6 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -17,6 +19,7 @@ import javafx.stage.Stage;
 import grid.*;
 import ObjectMenuObjects.*;
 import ui.builder.*;
+
 
 public class SidePanel {
     private static final String SIDEPANEL_RESOURCES = "resources/sidepanel";
@@ -39,41 +42,47 @@ public class SidePanel {
         tab.setContent(scrollPane);
         return tab;
     }
-    
-   @Deprecated
-    private void populatePane(ScrollPane pane, String label){
+
+    @Deprecated
+    private void populatePane (ScrollPane pane, String label) {
         List<GameObjects> list;
-        if(label.equals("decoration")){
+        if (label.equals("decoration")) {
             list = handler.getDecorations();
         }
-        else{
+        else {
             list = handler.getObstacles();
         }
         int buffer = 0;
-        for(GameObjects obj: list){
+        for (GameObjects obj : list) {
             Node node = myBuilder.addCustomButton(pane, obj.getPath(), buffer, 0, 50);
             System.out.println("here");
             System.out.println(node);
-            node.setOnMouseClicked(e->{handler.select(obj);});
+            node.setOnMouseClicked(e -> {
+                handler.select(obj);
+            });
             buffer += 50;
         }
     }
 
     private ScrollPane createScrollPane (String label) {
-        VBox content = new VBox();
+        ColorAdjust hoverOpacity = new ColorAdjust();
+        hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
+        HBox content = new HBox();
         List<GameObjects> list;
-        if(label.equals("decoration")){
+        if (label.equals("decoration")) {
             list = handler.getDecorations();
         }
-        else{
+        else {
             list = handler.getObstacles();
         }
         int buffer = 0;
-        for(GameObjects obj: list){
+        for (GameObjects obj : list) {
             Node node = myBuilder.addCustomButton(content, obj.getPath(), 20, 0, 50);
-            System.out.println("here");
-            System.out.println(node);
-            node.setOnMouseClicked(e->{handler.select(obj);});
+            node.setOnMouseEntered(e -> node.setEffect(hoverOpacity));
+            node.setOnMouseExited(e -> node.setEffect(null));
+            node.setOnMouseClicked(e -> {
+                handler.select(obj);
+            });
             buffer += 50;
         }
         ScrollPane scrollPane = new ScrollPane(content);
@@ -96,5 +105,5 @@ public class SidePanel {
         tp.setSide(Side.TOP);
         myRegion.getChildren().add(tp);
     }
-    
+
 }
