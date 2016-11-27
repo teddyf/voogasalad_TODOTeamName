@@ -16,7 +16,7 @@ public class PlayerEnemyInteraction extends AbstractInteraction{
         this.player = player;
     }
     public void act(){
-
+        defaultPlayerEnemy(player, enemy);
     }
 
 }

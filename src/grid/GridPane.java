@@ -2,6 +2,12 @@ package grid;
 import java.util.*;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
+
+/**
+ * 
+ * @author Teddy Franceschi
+ *
+ */
 public class GridPane {
     //name & identifier & row/column
     
@@ -67,7 +73,11 @@ public class GridPane {
             double y = getYRender(node);
             node.setImageSize(0.0+renderWidth/gridWidth,0.0+renderHeight/gridHeight);
             node.setImageCoord(x,y);
-            node.getImage().setOnMouseClicked(e->{click(node);System.out.println(getClicked());});
+            node.getImage().setOnMouseClicked(e->{
+                click(node);
+                node.displayOptions();
+                System.out.println(getClicked());
+            });
             node.getImage().setOnMouseEntered(e -> node.getImage().setEffect(hoverOpacity));
             node.getImage().setOnMouseExited(e -> node.getImage().setEffect(null));
             
@@ -76,7 +86,7 @@ public class GridPane {
                 renderMap.get(x).put(y, node);
             }
             else{
-                renderMap.put(x, new HashMap<Double,GridPaneNode>());
+                renderMap.put(x, new HashMap<>());
                 renderMap.get(x).put(y, node);
             }
         }
@@ -93,7 +103,7 @@ public class GridPane {
         reset();
     }
     
-    public void click(GridPaneNode node){
+    private void click(GridPaneNode node){
         if(clicked.contains(node)){
             clicked.remove(node);
         }
@@ -109,6 +119,14 @@ public class GridPane {
         this.renderMap = new HashMap<Double,Map<Double,GridPaneNode>>();
         initializeGrid();
         setRenderMap();
+    }
+    
+    public void swap(List<GridPaneNode> list){
+        for(int i = 0; i < list.size(); i++){
+            for(int j = 0; j < clicked.size(); j++){
+                clicked.get(j).swap(list.get(i),list.get(i).getImageNum());
+            }
+        }
     }
     
     public List<GridPaneNode> getNodeList(){
