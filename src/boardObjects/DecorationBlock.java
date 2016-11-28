@@ -5,17 +5,13 @@ import grid.BlockType;
 /**
  * A board object which should have no interaction with the player character.
  *
- * @author Filip Mazurek
+ * @author Filip Mazurek, Daniel Chai
  */
-public class DecorationBlock extends Block implements Walkable{
-    private static final BlockType myBlockType= BlockType.DECORATION;
+public class DecorationBlock extends Block implements Walkable {
 
-
-    public DecorationBlock(String name) {
-        super(name);
-        setWalkableStatus(IS_WALKABLE);
-    }
-
-
+	public DecorationBlock(String name, int row, int col) {
+		super(name, BlockType.DECORATION, row, col);
+		setWalkableStatus(IS_WALKABLE);
+	}
 
 }
