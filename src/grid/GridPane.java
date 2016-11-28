@@ -117,29 +117,15 @@ public class GridPane {
         setRenderMap();
     }
     
-    /*
-    public void swap(List<GridPaneNode> list){
-        for(int i = 0; i < list.size(); i++){
-            for(int j = 0; j < clicked.size(); j++){
-                clicked.get(j).swap(list.get(i),list.get(i).getImageNum());
-            }
-        }
-        clicked = new ArrayList<GridPaneNode>();
-    }
-    */
-    
    
     public void swap(List<GridPaneNode> list){
-        //System.out.println(clicked);
         getObjectNeighbors(list);
-        //System.out.println(clicked);
         for(int i = 0; i < clicked.size(); i++){
             for(int j = 0; j < list.size(); j++){
                 int xPos = clicked.get(i).getCol()+list.get(j).getCol();
                 int yPos = clicked.get(i).getRow()+list.get(j).getRow();
                 GridPaneNode temp = renderMap.get(getXRender(xPos)).get(getYRender(yPos));
                 temp.swap(list.get(j), list.get(j).getImageNum());
-                //System.out.println(temp);
             }
         }
         clicked = new ArrayList<GridPaneNode>();
@@ -160,9 +146,6 @@ public class GridPane {
     
     
    private void checkNeighbors(List<Integer> xCoords, List<Integer> yCoords, int objSize){
-       System.out.println(xCoords);
-       System.out.println(yCoords); 
-       int count = 0;
        for(int i = 0; i < clicked.size(); i++){
            GridPaneNode temp = clicked.get(i);
            for(int j = 0; j < xCoords.size(); j++){
