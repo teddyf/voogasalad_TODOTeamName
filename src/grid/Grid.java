@@ -22,19 +22,19 @@ public class Grid implements IGrid {
     private int myNumColumns;
     private Block[][] myGrid;
     private ShallowBlock[][] myShallowGrid;
-    private double currentIdentification; // to use for connected block images, to make it easier for front end display
 
     public Grid(int numRows, int numColumns) {
         myBlockPaths = ResourceBundle.getBundle(myBlockPathsPath);
-        currentIdentification = 0;
         myNumRows = numRows;
         myNumColumns = numColumns;
 
         myGrid = new Block[numRows][numColumns];
+        myShallowGrid = new ShallowBlock[numRows][numColumns];
+
         for(int i = 0; i < numRows; i++) {
             for(int j = 0; j < numColumns; j++) {
                 myGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK, i, j);
-                myShallowGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK, i, j); // should be a bunch of shallow blocks(?)
+                myShallowGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK, i, j);
             }
         }
     }
@@ -44,6 +44,8 @@ public class Grid implements IGrid {
             Class<?> blockClass = Class.forName(myBlockPaths.getString(someType.toString()));
             Constructor<?> ctor = blockClass.getDeclaredConstructor(List.class);
             Block blockObject = createBoardObject(blockClass, ctor, parameters, row, col);
+            myGrid[row][col] = blockObject;
+            myShallowGrid[row][col] = blockObject;
         }
         catch (ClassNotFoundException e) {
             // TODO: custom exception that there is no such block type (may be bad path in properties)
