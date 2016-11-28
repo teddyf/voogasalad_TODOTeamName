@@ -1,6 +1,5 @@
 package ui.scenes.editor;
 
-import editor.Screen;
 import editor.SidePanel;
 import grid.GridPane;
 import javafx.scene.Group;
@@ -103,10 +102,10 @@ public class GridUI {
                 util.getIntProperty(myResources, "gridHeight"),
                 util.getIntProperty(myResources, "gridX"),
                 util.getIntProperty(myResources, "gridY"));
-        myBuilder.addComponent(myRoot,
-                new Screen(Integer.parseInt(myResources.getString("screenWidth")),
-                        Integer.parseInt(myResources.getString("screenHeight")))
-                        .getRoot());
+//        myBuilder.addComponent(myRoot,
+//                new Screen(Integer.parseInt(myResources.getString("screenWidth")),
+//                        Integer.parseInt(myResources.getString("screenHeight")))
+//                        .getRoot());
         setGridControl();
         initRegions();
         initSideMenu();

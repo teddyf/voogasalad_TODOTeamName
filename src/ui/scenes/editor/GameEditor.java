@@ -1,6 +1,5 @@
 package ui.scenes.editor;
 
-import editor.Screen;
 import grid.*;
 import editor.SidePanel;
 import javafx.scene.Group;

@@ -7,6 +7,7 @@ public class SidePanelMenuObjects {
     private List<GameObjects> decorations;
     private GameObjects selected;
     
+    
     public SidePanelMenuObjects(){
         obstacles  = new ArrayList<GameObjects>();
         decorations = new ArrayList<GameObjects>();
@@ -15,15 +16,16 @@ public class SidePanelMenuObjects {
     }
     
     private void populateObstacles(){
-        Tree1 tree1 = new Tree1();
-        Tree2 tree2 = new Tree2();
-        obstacles.add(tree1);
-        obstacles.add(tree2);
+        obstacles.add(new Tree1());
     }
     
     private void populateDecorations(){
-        Flower1 flower1 = new Flower1();
-        decorations.add(flower1);
+        decorations.add(new Flower1());
+        decorations.add(new Flower2());
+        decorations.add(new Grass1());
+        decorations.add(new Weed1());
+        decorations.add(new Dirt1());
+        
     }
     
     public List<GameObjects> getObstacles(){
@@ -31,6 +33,10 @@ public class SidePanelMenuObjects {
     }
     
     public List<GameObjects> getDecorations(){
+        return decorations;
+    }
+    
+    public List<GameObjects> getDecorationsHBoxList(){
         return decorations;
     }
     
