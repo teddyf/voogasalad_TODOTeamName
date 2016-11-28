@@ -43,6 +43,7 @@ public class SidePanel {
         Tab tab = new Tab();
         tab.setText(myResources.getString(label));
         tab.setContent(scrollPane);
+        tab.setClosable(false);
         return tab;
     }
 
