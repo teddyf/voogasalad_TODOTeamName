@@ -154,8 +154,8 @@ public class GridPane {
            GridPaneNode temp = clicked.get(i);
            for(int j = 0; j < xCoords.size(); j++){
                if(temp.getCol()==xCoords.get(j) && temp.getRow()==yCoords.get(j) && j%objSize!=0){
-                   System.out.println("here");
-                   System.out.println(temp);
+//                   System.out.println("here");
+//                   System.out.println(temp);
                    clicked.remove(i);
                }
            }

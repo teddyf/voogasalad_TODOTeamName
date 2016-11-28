@@ -60,7 +60,6 @@ public class SidePanel {
         for (GameObjects obj : list) {
             Node node = myBuilder.addCustomButton(pane, obj.getPath(), buffer, 0, 50);
             System.out.println("here");
-            System.out.println(node);
             node.setOnMouseClicked(e -> {
                 handler.select(obj);
             });
