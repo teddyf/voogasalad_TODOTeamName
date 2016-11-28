@@ -130,6 +130,31 @@ public class GridPane {
         }
         clicked = new ArrayList<GridPaneNode>();
     }
+    */
+    
+    private void getObjectNeighbors(List<GridPaneNode> list){
+        ArrayList<Integer> xPos = new ArrayList<Integer>();
+        ArrayList<Integer> yPos = new ArrayList<Integer>();
+        for(int i = 0; i < clicked.size(); i++){
+            for(int j = 0; j < list.size(); j++){
+                xPos.add(clicked.get(i).getCol()+list.get(j).getCol());
+                yPos.add(clicked.get(i).getCol()+list.get(j).getCol());
+            }
+            checkNeighbors(xPos,yPos);
+        }
+    }
+    
+    
+   private void checkNeighbors(List<Integer> xCoords, List<Integer> yCoords){
+       for(int i = 0; i < clicked.size(); i++){
+           GridPaneNode temp = clicked.get(i);
+           for(int j = 0; j < xCoords.size(); j++){
+               if(temp.getCol()==xCoords.get(j) && temp.getRow()==yCoords.get(j)){
+                   clicked.remove(i);
+               }
+           }
+       }
+   }
     
     
     private void getObjectNeighbors(List<GridPaneNode> list){
