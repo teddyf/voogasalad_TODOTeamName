@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Filip Mazurek, Daniel Chai
  */
-public abstract class Block {
+public abstract class Block implements ShallowBlock {
 	private BlockType myBlockType;
 	private String myName;
 	private double myIdentifier;

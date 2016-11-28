@@ -2,6 +2,7 @@ package grid;
 
 import boardObjects.Block;
 import boardObjects.DecorationBlock;
+import boardObjects.ShallowBlock;
 
 import java.lang.reflect.Constructor;
 
@@ -17,6 +18,7 @@ public class Grid implements IGrid {
     private int myNumRows;
     private int myNumColumns;
     private Block[][] myGrid;
+    private ShallowBlock[][] myShallowGrid;
     private double currentIdentification; // to use for connected block images, to make it easier for front end display
 
     public Grid(int numRows, int numColumns) {
@@ -29,6 +31,7 @@ public class Grid implements IGrid {
         for(int i = 0; i < numRows; i++) {
             for(int j = 0; j < numColumns; j++) {
                 myGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK, i, j);
+                myShallowGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK, i, j); // should be a bunch of shallow blocks(?)
             }
         }
     }
@@ -49,10 +52,9 @@ public class Grid implements IGrid {
         return myGrid[row][col];
     }
 
-    //TODO: implement giving out a shallow representation
-//    public ShallowBlock[][] getGridForRendering() {
-//        return myShallowRepresentation;
-//    }
+    public ShallowBlock[][] getGridForRendering() {
+        return myShallowGrid;
+    }
 
     public void setBlock(int row, int col, String name, BlockType someType) {
 //      Class<Block> clazz = Block.class;
