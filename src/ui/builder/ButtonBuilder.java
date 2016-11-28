@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 /**
  * @author Robert Steilberg
  *         <p>
- *         This class builds JavaFX Buttons.
+ *         This class builds JavaFX buttons.
  */
 public class ButtonBuilder extends ComponentBuilder {
 

@@ -11,12 +11,13 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+
 import java.util.ResourceBundle;
 
 
 /**
  * @author Robert Steilberg
- *
+ *         <p>
  *         This class handles the game editor that is used to build games.
  */
 public class GameEditor extends Scene {
@@ -38,38 +39,21 @@ public class GameEditor extends Scene {
         myRoot = root;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
-//        myGridPane =
-//                new GridPane(Integer.parseInt(myResources.getString("gridCellsWide")),
-//                             Integer.parseInt(myResources.getString("gridCellsHeight")),
-//                             Integer.parseInt(myResources.getString("gridWidth")),
-//                             Integer.parseInt(myResources.getString("gridHeight")),
-//                             Integer.parseInt(myResources.getString("gridX")),
-//                             Integer.parseInt(myResources.getString("gridY")));
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             e.consume();
             myLauncher.launchMenu();
         });
-        initEditor();
-
-
-
     }
+
     /**
      * Initializes the game editor window
      */
-    private void initEditor () {
+    public void initEditor() {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        GridUI grid = new GridUI(myRoot);
+        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, EDITOR_RESOURCES);
+
+        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), EDITOR_RESOURCES);
         grid.initGrid();
-
-//        myBuilder.addComponent(myRoot,
-//                               new Screen(Integer.parseInt(myResources.getString("screenWidth")),
-//                                          Integer.parseInt(myResources.getString("screenHeight")))
-//                                                  .getRoot());
-
     }
-
-
-
 }

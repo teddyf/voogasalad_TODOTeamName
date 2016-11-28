@@ -2,50 +2,40 @@ package ui.scenes.editor;
 
 import editor.SidePanel;
 import grid.GridPane;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
-import javafx.stage.Stage;
-import ui.UILauncher;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
 
 /**
- * @author Robert Steilberg
+ * @author Teddy Franceschi, Robert Steilberg
+ *         <p>
+ *         This class initializes the grid-based UI used to create the overworld.
  */
 public class GridUI {
 
-    private static final String EDITOR_RESOURCES = "resources/properties/gameeditor";
     private ResourceBundle myResources;
     private GridPane myGridPane;
     private UIBuilder myBuilder;
     private Parent myRoot;
-    private Group mySideMenuRegion;
-    private SidePanel sideMenu;
+    private SidePanel myItemMenu;
 
-    GridUI(Parent root) {
+    GridUI(Parent root, SidePanel itemMenu, String resourcesPath) {
         myRoot = root;
-        myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
+        myItemMenu = itemMenu;
+        myResources = ResourceBundle.getBundle(resourcesPath);
         myBuilder = new UIBuilder();
     }
 
-    private void initRegions () {
-        mySideMenuRegion = myBuilder.addRegion(800, 0);
-        myBuilder.addComponent(myRoot, mySideMenuRegion);
-    }
-
-    private void initSideMenu () {
-        sideMenu = new SidePanel(mySideMenuRegion);
-    }
-
     /**
-     * Sets Grid Control
+     * Configures grid event handlers that allow the user to add and remove
+     * objects from it.
      */
-    private void setGridControl() {
+    private void initGridControl() {
         PropertiesUtilities util = new PropertiesUtilities();
         ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(util.getDoubleProperty(myResources, "buttonHoverOpacity"));
@@ -85,14 +75,14 @@ public class GridUI {
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
-        swapButton.setOnMouseClicked(e -> {
-            myGridPane.swap(sideMenu.getHandler().getSelected().getList());
-            System.out.println(myGridPane.getClicked());
-        });
+        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected().getList()));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
     }
 
+    /**
+     * Creates the grid and then calls a method to add functionality.
+     */
     public void initGrid() {
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(
@@ -102,13 +92,7 @@ public class GridUI {
                 util.getIntProperty(myResources, "gridHeight"),
                 util.getIntProperty(myResources, "gridX"),
                 util.getIntProperty(myResources, "gridY"));
-//        myBuilder.addComponent(myRoot,
-//                new Screen(Integer.parseInt(myResources.getString("screenWidth")),
-//                        Integer.parseInt(myResources.getString("screenHeight")))
-//                        .getRoot());
-        setGridControl();
-        initRegions();
-        initSideMenu();
+        initGridControl();
     }
 
 }

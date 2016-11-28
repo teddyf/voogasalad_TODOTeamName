@@ -39,6 +39,7 @@ public class UILauncher {
      */
     public void launchEditor() {
         GameEditor editor = new GameEditor(myStage, this,  new Group());
+        editor.initEditor();
         myStage.setScene(editor);
     }
 
