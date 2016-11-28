@@ -10,7 +10,7 @@ public interface ShallowBlock {
 
     int getRow();
 
-    int getColumn();
+    int getCol();
 
     String getName();
 }
