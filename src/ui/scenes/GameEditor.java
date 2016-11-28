@@ -88,7 +88,12 @@ public class GameEditor extends Scene {
     private void initSideMenu () {
         sideMenu = new SidePanel(mySideMenuRegion);
     }
-
+    
+//    private void addPaneListener() {
+//    	sideMenu.getHandler().getSelected().getList().addListener((observable, oldValue, newValue)->{
+//    		gridPane.swap(sideMenu.getHandler().getSelected().getList());
+//		});
+//    }
     /**
      * Sets Grid Control
      */
@@ -135,6 +140,7 @@ public class GameEditor extends Scene {
         System.out.println(gridPane.getClicked());});
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
+//        addPaneListener();
     }
 
 }
