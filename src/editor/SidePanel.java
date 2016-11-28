@@ -1,8 +1,9 @@
 package editor;
 
 import java.util.*;
-import java.util.ResourceBundle;
+
 import sun.security.tools.policytool.Resources;
+import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -68,7 +70,13 @@ public class SidePanel {
     private ScrollPane createScrollPane (String label) {
         ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
-        HBox content = new HBox();
+        
+        FlowPane content = new FlowPane();
+        content.setPrefWrapLength(300);
+        content.setHgap(20);
+        content.setVgap(20);
+        content.setPadding(new Insets(20, 20, 20, 20));
+        
         List<GameObjects> list;
         if (label.equals("decoration")) {
             list = handler.getDecorations();
