@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
-
+import ui.GridPaneNode;
 import java.util.ResourceBundle;
 
 
