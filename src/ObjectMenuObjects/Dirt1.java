@@ -12,12 +12,13 @@ public class Dirt1 extends GameObjects {
 	        this.imageView.setImage(image);
 	        type = "flower";
 	        path = PATH;
+	        blockType = BlockType.DECORATION;
 	    }
 
 	    @Override
 	    public void populateList () {
 	        String name = reName(PATH,1);
-	        GridPaneNode tempNode = new GridPaneNode(0,0,name, BlockType.DECORATION);
+	        GridPaneNode tempNode = new GridPaneNode(0,0,name);
 	        list.add(tempNode);
 	    }
 }
