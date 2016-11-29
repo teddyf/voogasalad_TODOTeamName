@@ -145,8 +145,10 @@ public class GridPane {
                 GridPaneNode temp = renderMap.get(getXRender(xPos)).get(getYRender(yPos));
                 temp.swap(list.get(j), list.get(j).getImageNum());
             }
+            clicked.get(i).getImage().setEffect(null);
         }
         clicked = new ArrayList<GridPaneNode>();
+        
     }
 
     private void getObjectNeighbors (List<GridPaneNode> list) {
