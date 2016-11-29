@@ -14,6 +14,7 @@ import javafx.util.Pair;
 import resources.properties.PropertiesUtilities;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.menu.MenuEvents;
 
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -35,15 +36,20 @@ public class SizeChooserUI extends Scene {
     private PropertiesUtilities myUtil;
     private GameEditor myEditor;
 
-    SizeChooserUI(Stage stage, Parent root, GameEditor editor, UIBuilder builder) {
+    SizeChooserUI(Stage stage, Parent root, GameEditor editor, UILauncher launcher, UIBuilder builder) {
         super(root, Color.web("#0585B2"));
         myStage = stage;
         myRoot = root;
+        myEditor = editor;
         myBuilder = builder;
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER_RESOURCES);
         myUtil = new PropertiesUtilities();
         root.getStylesheets().add(CSS_FILE_NAME);
-        myEditor = editor;
+        myStage.setOnCloseRequest(e -> {
+            // closing the window takes you back to main menu
+            e.consume();
+            launcher.launchMenu();
+        });
     }
 
     private boolean invalidValue(TextField width, TextField height) {

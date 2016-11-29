@@ -33,21 +33,21 @@ public class GameEditor extends Scene {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
-        myStage.setOnCloseRequest(e -> {
-            // closing the window prompts save and takes you back to main menu
-            e.consume();
-            MenuEvents events = new MenuEvents(myStage,myLauncher,myResources);
-            events.newVOOGA();
-        });
     }
 
-    protected void launchEditor(int width, int height) {
+    void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
         menuBar.initMenuBar();
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
         grid.initGrid(width,height);
+        myStage.setOnCloseRequest(e -> {
+            // closing the window prompts save and takes you back to main menu
+            e.consume();
+            MenuEvents events = new MenuEvents(myStage,myLauncher,myResources);
+            events.newVOOGA();
+        });
         myStage.setScene(this);
     }
 
@@ -55,8 +55,7 @@ public class GameEditor extends Scene {
      * Initializes the game editor window
      */
     public void initEditor() {
-        // use alert and get W and H
-        SizeChooserUI sizeChooser = new SizeChooserUI(myStage,new Group(),this,myBuilder);
+        SizeChooserUI sizeChooser = new SizeChooserUI(myStage,new Group(),this,myLauncher,myBuilder);
         sizeChooser.promptUserForSize();
     }
 }
