@@ -89,8 +89,6 @@ public class GridUI {
         myGridPane = new GridPane(
                 gridWidth,
                 gridHeight,
-                //util.getIntProperty(myResources, "gridCellsWide"),
-                //util.getIntProperty(myResources, "gridCellsHeight"),
                 util.getIntProperty(myResources, "gridWidth"),
                 util.getIntProperty(myResources, "gridHeight"),
                 util.getIntProperty(myResources, "gridX"),
