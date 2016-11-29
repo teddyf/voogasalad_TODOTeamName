@@ -23,12 +23,14 @@ public class UIBuilder {
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
+    private ComponentBuilder alertBuilder;
 
     public UIBuilder() {
         buttonBuilder = new ButtonBuilder();
         imageViewBuilder = new ImageViewBuilder();
         labelBuilder = new LabelBuilder();
         textFieldBuilder = new TextFieldBuilder();
+        alertBuilder = new AlertBuilder();
     }
 
     /**
@@ -128,20 +130,20 @@ public class UIBuilder {
         return addComponent(layout, imageViewBuilder.createComponent(properties));
     }
 
-    /**
-     * Create a new JavaFX Label and adds it to the given Group or Pane
-     *
-     * @param layout     the Group or Pane to which the Label will be added
-     * @param properties the ComponentProperties object containing information
-     *                   about the Label
-     * @return the newly added Label as a node
-     */
-    public Node addNewLabel(Parent layout, ComponentProperties properties) {
-        return addComponent(layout, labelBuilder.createComponent(properties));
-    }
+//    /**
+//     * Create a new JavaFX Label and adds it to the given Group or Pane
+//     *
+//     * @param layout     the Group or Pane to which the Label will be added
+//     * @param properties the ComponentProperties object containing information
+//     *                   about the Label
+//     * @return the newly added Label as a node
+//     */
+//    public Node addNewLabel(Parent layout, ComponentProperties properties) {
+//        return addComponent(layout, labelBuilder.createComponent(properties));
+//    }
 
     /**
-     * Create a new JavaFX Label and add it to the given Group or Pane
+     * Create a customized JavaFX Label and add it to the given Group or Pane
      *
      * @param layout the Group or Pane to which the Label will be added
      * @param text   Text to be set in properties
@@ -149,8 +151,44 @@ public class UIBuilder {
      * @param y      Sets the Y for properties
      * @return
      */
-    public Node addCustomLabel(Parent layout, String text, int x, int y) {
-        return addNewLabel(layout, new ComponentProperties(x, y).text(text));
+    public Node addCustomLabel(Parent layout, String text, int x, int y, String font, int size) {
+        return addComponent(layout, labelBuilder.createComponent(new ComponentProperties(x, y)
+                .text(text)
+                .font(font)
+                .size(size)));
+    }
+
+//    /**
+//     * Create a new JavaFX text field and add it to the given Group or Pane
+//     *
+//     * @param layout     the Group or Pane to which the Label will be added
+//     * @param properties the ComponentProperties object containing information about the text field
+//     * @return
+//     */
+//    private Node addNewTextField(Parent layout, ComponentProperties properties) {
+//        return addComponent(layout, textFieldBuilder.createComponent(properties));
+//    }
+
+    /**
+     * Create a customized JavaFX text field and add it to the given Group or Pane
+     *
+     * @param layout is the Group or Parent to which the text field is added
+     * @param text   is the text to be displayed in the text field
+     * @param x      is the X position of the text field
+     * @param y      is the Y position of the text field
+     * @param width  is the width of the text field
+     * @return the properly formatted text field
+     */
+    public Node addCustomTextField(Parent layout, String text, int x, int y, int width) {
+        return addComponent(layout, textFieldBuilder.createComponent(new ComponentProperties(x, y)
+                .width(width)
+                .text(text)));
+    }
+
+    public Node addNewAlert(String header, String content) {
+        return alertBuilder.createComponent(new ComponentProperties()
+                .header(header)
+                .content(content));
     }
 
     /**
@@ -169,26 +207,4 @@ public class UIBuilder {
         currStage.show();
     }
 
-    /**
-     * Create a new JavaFX text field and add it to the given Group or Pane
-     *
-     * @param layout     the Group or Pane to which the Label will be added
-     * @param properties the ComponentProperties object containing information about the text field
-     * @return
-     */
-    public Node addNewTextField(Parent layout, ComponentProperties properties) {
-        return addComponent(layout, textFieldBuilder.createComponent(properties));
-    }
-
-    /**
-     * @param layout
-     * @param text
-     * @param x
-     * @param y
-     * @param width
-     * @return
-     */
-    public Node addCustomTextField(Parent layout, String text, int x, int y, int width) {
-        return addNewTextField(layout, new ComponentProperties(x, y).width(width).text(text));
-    }
 }
