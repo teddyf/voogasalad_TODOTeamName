@@ -1,31 +1,16 @@
 package block;
 
 /**
- * A simplified representation of a block. This is all that the front end needs to successfully display a block,
- * and so no more information or control is given.
+ * A shallow block interface. This interface provides access to only the basic information within a block, and does not
+ * allow any modification access.
  *
  * @author Filip Mazurek
  */
-public class ShallowBlock {
-    private int myRow;
-    private int myColumn;
-    private String myName;
+public interface ShallowBlock {
 
-    public ShallowBlock(int row, int col, String name) {
-        myRow = row;
-        myColumn = col;
-        myName = name;
-    }
+    int getRow();
 
-    public int getRow() {
-        return myRow;
-    }
+    int getCol();
 
-    public int getColumn() {
-        return myColumn;
-    }
-
-    public String getName() {
-        return myName;
-    }
+    String getName();
 }

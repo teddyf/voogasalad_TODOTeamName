@@ -1,6 +1,6 @@
-package boardObjects;
+package block;
 
-import grid.BlockType;
+import block.BlockType;
 
 /**
  * A special type of block which may be connected to a switch. On player interaction with a switch, the gate will change

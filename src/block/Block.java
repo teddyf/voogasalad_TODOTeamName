@@ -1,8 +1,5 @@
 package block;
 
-import block.BlockType;
-import block.ShallowBlock;
-import editor.backend.IBlock;
 import interactions.Interaction;
 import java.util.ArrayList;
 import java.util.Collections;
