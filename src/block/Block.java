@@ -12,20 +12,17 @@ import java.util.List;
  * @author Filip Mazurek, Daniel Chai, Aninda Manocha
  */
 public abstract class Block implements ShallowBlock {
+
     private BlockType myBlockType;
     private String myName;
-    private double myIdentifier;
     private int myRow;
     private int myCol;
     private boolean walkableStatus;
     private List<Interaction> myInteractions;
 
-    //	public Block(String name, BlockType blockType, double id, int row, int col) {
     public Block(String name, BlockType blockType, int row, int col) {
-
         myBlockType = blockType;
         myName = name;
-//        myIdentifier = id;
         myRow = row;
         myCol = col;
         myInteractions = new ArrayList<>();
@@ -45,10 +42,6 @@ public abstract class Block implements ShallowBlock {
 
     public String getName() {
         return myName;
-    }
-
-    public double getIdentifier() {
-        return myIdentifier;
     }
 
     public int getRow() {
@@ -89,6 +82,4 @@ public abstract class Block implements ShallowBlock {
     protected void setWalkableStatus(boolean status) {
         walkableStatus = status;
     }
-
-
 }

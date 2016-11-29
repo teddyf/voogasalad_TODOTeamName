@@ -28,7 +28,7 @@ public class UILauncher {
      * Navigates to the game engine
      */
     public void launchEngine() {
-        GameEngine engine = new GameEngine(myStage, this, new Group());
+        GameEngine engine = new GameEngine(myStage, new Group(), this);
         if (engine.init()) { // successfully opened a game file
             myStage.setScene(engine);
         }
@@ -38,16 +38,15 @@ public class UILauncher {
      * Navigates to the game editor
      */
     public void launchEditor() {
-        GameEditor editor = new GameEditor(myStage, this,  new Group());
+        GameEditor editor = new GameEditor(myStage, new Group(), this);
         editor.initEditor();
-        myStage.setScene(editor);
     }
 
     /**
      * Navigates to the main menu
      */
     public void launchMenu() {
-        myMainMenu = new MainMenu(myStage, this, new Group());
+        myMainMenu = new MainMenu(myStage, new Group(), this);
         myStage.setScene(myMainMenu);
     }
 
