@@ -1,8 +1,9 @@
 package editor;
 
 import java.util.*;
-import java.util.ResourceBundle;
+
 import sun.security.tools.policytool.Resources;
+import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -10,19 +11,21 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import ObjectMenuObjects.*;
 import ui.builder.*;
 
 
-public class SidePanel {
+public class EditorSidePanel extends SidePanelBuilder {
     private static final String SIDEPANEL_RESOURCES = "resources/sidepanel";
     private Group myRegion;
     private ResourceBundle myResources;
     private UIBuilder myBuilder;
     private SidePanelMenuObjects handler;
 
-    public SidePanel (Group region) {
+    public EditorSidePanel (Group region) {
+    	super(region, SIDEPANEL_RESOURCES);
         myBuilder = new UIBuilder();
         handler = new SidePanelMenuObjects();
         myRegion = region;
@@ -30,12 +33,6 @@ public class SidePanel {
         initSidePanel();
     }
 
-    private Tab createTab (String label, ScrollPane scrollPane) {
-        Tab tab = new Tab();
-        tab.setText(myResources.getString(label));
-        tab.setContent(scrollPane);
-        return tab;
-    }
 
     @Deprecated
     private void populatePane (ScrollPane pane, String label) {
@@ -50,7 +47,6 @@ public class SidePanel {
         for (GameObjects obj : list) {
             Node node = myBuilder.addCustomButton(pane, obj.getPath(), buffer, 0, 50);
             System.out.println("here");
-            System.out.println(node);
             node.setOnMouseClicked(e -> {
                 handler.select(obj);
             });
@@ -61,7 +57,13 @@ public class SidePanel {
     private ScrollPane createScrollPane (String label) {
         ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
-        HBox content = new HBox();
+        
+        FlowPane content = new FlowPane();
+        content.setPrefWrapLength(300);
+        content.setHgap(20);
+        content.setVgap(20);
+        content.setPadding(new Insets(20, 20, 20, 20));
+        
         List<GameObjects> list;
         if (label.equals("decoration")) {
             list = handler.getDecorations();
