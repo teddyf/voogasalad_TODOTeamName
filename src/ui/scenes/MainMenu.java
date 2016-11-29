@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import resources.properties.PropertiesUtilities;
 import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
@@ -23,67 +24,51 @@ import java.util.ResourceBundle;
  */
 public class MainMenu extends Scene {
 
-    private static final String MAINMENU_RESOURCES = "resources/properties/mainmenu";
-    private static final String CSS_FILE_NAME = "resources/styles/mainmenu.css";
+    private static final String MAINMENU_RESOURCES = "resources/properties/main-menu";
+    private static final String CSS_FILE_NAME = "resources/styles/main-menu.css";
     private Stage myStage;
     private UILauncher myLauncher;
     private Parent myRoot;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
+    private PropertiesUtilities myUtil;
 
-    public MainMenu(Stage stage, UILauncher launcher, Parent root) {
+    public MainMenu(Stage stage, Parent root, UILauncher launcher) {
         super(root);
         myStage = stage;
+        myRoot = root;
         myBuilder = new UIBuilder();
         myLauncher = launcher;
-        myRoot = root;
         myResources = ResourceBundle.getBundle(MAINMENU_RESOURCES);
+        myUtil = new PropertiesUtilities();
         root.getStylesheets().add(CSS_FILE_NAME);
         myStage.setOnCloseRequest(e -> myStage.hide());
         initMenu();
     }
 
     /**
-     * Adds a button to the main menu
-     *
-     * @param xPos  is the x position of the button
-     * @param yPos  is the y position of the button
-     * @param path  is the path to the button's image
-     * @param width is the width of the button
-     * @return the button
-     */
-    private Node addButton(int xPos, int yPos, String path, int width) {
-        return myBuilder.addNewImageView(myRoot, new ComponentProperties(xPos, yPos)
-                .path(path)
-                .preserveRatio(true)
-                .width(width)
-                .id(myResources.getString("buttonCSSid")));
-    }
-
-    /**
      * Initializes the navigational buttons in the main menu
      */
     private void setButtons() {
-        ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
         // create build button
-        int xPos = Integer.parseInt(myResources.getString("buildButtonX"));
-        int yPos = Integer.parseInt(myResources.getString("buildButtonY"));
+        String buttonCSSid = myResources.getString("buttonCSSid");
+        int xPos = myUtil.getIntProperty(myResources, "buildButtonX");
+        int yPos = myUtil.getIntProperty(myResources, "buildButtonY");
         String path = myResources.getString("buildButtonPath");
-        int width = Integer.parseInt(myResources.getString("buttonWidth"));
-        Node buildButton = addButton(xPos, yPos, path, width);
+        int width = myUtil.getIntProperty(myResources, "buttonWidth");
+        Node buildButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         buildButton.setOnMouseClicked(e -> myLauncher.launchEditor());
         // create play button
-        xPos = Integer.parseInt(myResources.getString("playButtonX"));
-        yPos = Integer.parseInt(myResources.getString("playButtonY"));
+        xPos = myUtil.getIntProperty(myResources, "playButtonX");
+        yPos = myUtil.getIntProperty(myResources, "playButtonY");
         path = myResources.getString("playButtonPath");
-        Node playButton = addButton(xPos, yPos, path, width);
+        Node playButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         playButton.setOnMouseClicked(e -> myLauncher.launchEngine());
         // create exit button
-        xPos = Integer.parseInt(myResources.getString("exitButtonX"));
-        yPos = Integer.parseInt(myResources.getString("exitButtonY"));
+        xPos = myUtil.getIntProperty(myResources, "exitButtonX");
+        yPos = myUtil.getIntProperty(myResources, "exitButtonY");
         path = myResources.getString("exitButtonPath");
-        Node exitButton = addButton(xPos, yPos, path, width);
+        Node exitButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         exitButton.setOnMouseClicked(e -> myStage.hide());
     }
 
@@ -93,18 +78,18 @@ public class MainMenu extends Scene {
     private void setText() {
         Font.loadFont(myResources.getString("externalFont"), 12);
         // create title
-        int xPos = Integer.parseInt(myResources.getString("titleXPos"));
-        int yPos = Integer.parseInt(myResources.getString("titleYPos"));
+        int xPos = myUtil.getIntProperty(myResources, "titleXPos");
+        int yPos = myUtil.getIntProperty(myResources, "titleYPos");
         String text = myResources.getString("titleText");
         String font = myResources.getString("font");
-        int size = Integer.parseInt(myResources.getString("titleSize"));
-        myBuilder.addCustomLabel(myRoot,text,xPos,yPos,font,size);
+        int size = myUtil.getIntProperty(myResources, "titleSize");
+        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
         // create subtitle
-        xPos = Integer.parseInt(myResources.getString("subtitleXPos"));
-        yPos = Integer.parseInt(myResources.getString("subtitleYPos"));
+        xPos = myUtil.getIntProperty(myResources, "subtitleXPos");
+        yPos = myUtil.getIntProperty(myResources, "subtitleYPos");
         text = myResources.getString("subtitleText");
-        size = Integer.parseInt(myResources.getString("subtitleSize"));
-        myBuilder.addCustomLabel(myRoot,text,xPos,yPos,font,size);
+        size = myUtil.getIntProperty(myResources, "subtitleSize");
+        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
     }
 
     /**
@@ -112,7 +97,7 @@ public class MainMenu extends Scene {
      */
     private void setBackground() {
         String path = myResources.getString("backgroundPath");
-        int width = Integer.parseInt(myResources.getString("backgroundWidth"));
+        int width = myUtil.getIntProperty(myResources,"backgroundWidth");
         myBuilder.addNewImageView(myRoot, new ComponentProperties(0, 0)
                 .path(path)
                 .preserveRatio(true)

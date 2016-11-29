@@ -1,5 +1,6 @@
 package ui.scenes.editor;
 
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -18,18 +19,18 @@ import java.util.ResourceBundle;
  */
 public class GameEditor extends Scene {
 
-    private static final String EDITOR_RESOURCES = "resources/properties/gameeditor";
+    private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
     private Stage myStage;
-    private UILauncher myLauncher;
     private Parent myRoot;
+    private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
 
-    public GameEditor(Stage stage, UILauncher launcher, Parent root) {
-        super(root,Color.web("#4B84AF"));
+    public GameEditor(Stage stage, Parent root, UILauncher launcher) {
+        super(root,Color.web("#0585B2"));
         myStage = stage;
-        myLauncher = launcher;
         myRoot = root;
+        myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         myStage.setOnCloseRequest(e -> {
@@ -40,15 +41,22 @@ public class GameEditor extends Scene {
         });
     }
 
-    /**
-     * Initializes the game editor window
-     */
-    public void initEditor() {
+    protected void launchEditor(int size) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
         menuBar.initMenuBar();
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
-        grid.initGrid(4,4);
+        grid.initGrid(size,size);
+        myStage.setScene(this);
+    }
+
+    /**
+     * Initializes the game editor window
+     */
+    public void initEditor() {
+        // use alert and get W and H
+        SizeChooserUI sizeChooser = new SizeChooserUI(myStage,new Group(),this,myBuilder);
+        sizeChooser.promptUserForSize();
     }
 }
