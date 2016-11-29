@@ -1,8 +1,7 @@
 package interactions;
 
-import boardObjects.EnemyBlock;
+import block.EnemyBlock;
 import editor.backend.Item;
-import player.Player;
 
 /**
  * defines interactions between item and enemies

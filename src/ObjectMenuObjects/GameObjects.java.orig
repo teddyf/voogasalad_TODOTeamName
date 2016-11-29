@@ -1,6 +1,14 @@
 package ObjectMenuObjects;
+
 import java.util.*;
 
+<<<<<<< HEAD
+import grid.*;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
+=======
+>>>>>>> c19f44982f4f452c3d9f4e7f89543b42cd79e23d
 import javafx.scene.image.ImageView;
 import ui.GridPaneNode;
 
@@ -9,11 +17,13 @@ public abstract class GameObjects {
     
     protected String path;
     protected String type;
+//    protected ListProperty<GridPaneNode> list;
     protected List<GridPaneNode> list;
     protected ImageView imageView;
     
     public GameObjects(){
-        list = new ArrayList<GridPaneNode>();
+//        list = new SimpleListProperty<GridPaneNode>(FXCollections.observableArrayList());
+    	list = new ArrayList<GridPaneNode>();
         populateList();
         this.imageView = new ImageView();
     }

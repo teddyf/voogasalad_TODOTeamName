@@ -1,6 +1,4 @@
-package boardObjects;
-
-import grid.BlockType;
+package block;
 
 /**
  * A board object which in general should not allow the player character to step on or otherwise

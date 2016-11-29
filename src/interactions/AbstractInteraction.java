@@ -1,8 +1,8 @@
 package interactions;
 
-import boardObjects.Block;
-import boardObjects.EnemyBlock;
-import editor.backend.Interaction;
+import block.Block;
+import block.EnemyBlock;
+import interactions.Interaction;
 import editor.backend.Item;
 import player.Player;
 

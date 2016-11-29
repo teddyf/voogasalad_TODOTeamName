@@ -43,7 +43,7 @@ public class GameEditor extends Scene {
      */
     public void initEditor() {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,EDITOR_RESOURCES);
+        MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,EDITOR_RESOURCES);
         menuBar.initMenuBar();
 
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, EDITOR_RESOURCES);

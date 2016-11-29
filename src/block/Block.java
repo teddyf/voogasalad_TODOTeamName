@@ -1,8 +1,6 @@
-package boardObjects;
+package block;
 
-import editor.backend.Interaction;
-import grid.BlockType;
-
+import interactions.Interaction;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +10,7 @@ import java.util.List;
  *
  * @author Filip Mazurek, Daniel Chai
  */
-public abstract class Block {
+public abstract class Block implements ShallowBlock {
 	private BlockType myBlockType;
 	private String myName;
 	private double myIdentifier;
