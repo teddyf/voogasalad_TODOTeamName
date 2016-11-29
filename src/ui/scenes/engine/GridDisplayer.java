@@ -1,6 +1,6 @@
 package ui.scenes.engine;
 
-import grid.GridPane;
+import ui.GridPane;
 
 public class GridDisplayer {
 	private GridPane myGridPane;
