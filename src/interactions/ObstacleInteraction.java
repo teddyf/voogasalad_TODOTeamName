@@ -1,7 +1,7 @@
 package interactions;
 
-import boardObjects.Block;
-import boardObjects.ObstacleBlock;
+import block.Block;
+import block.ObstacleBlock;
 import player.Player;
 
 /**

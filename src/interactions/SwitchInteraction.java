@@ -1,6 +1,6 @@
 package interactions;
 
-import boardObjects.SwitchBlock;
+import block.SwitchBlock;
 import player.Player;
 
 /**

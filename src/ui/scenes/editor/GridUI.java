@@ -1,7 +1,7 @@
 package ui.scenes.editor;
 
 import editor.SidePanel;
-import grid.GridPane;
+import ui.GridPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;

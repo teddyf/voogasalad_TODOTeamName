@@ -1,14 +1,14 @@
 package engine;
 
-import boardObjects.Block;
+import block.Block;
 import engine.backend.GameStatus;
-import grid.IGrid;
+import grid.Grid;
 import player.Player;
 
 public class GameInstance implements IGameInstance {
 	
 	private Player myPlayer;
-	private IGrid myGrid;
+	private Grid myGrid;
 	private int myScore;
 	private GameStatus myStatus;
 	
@@ -20,7 +20,7 @@ public class GameInstance implements IGameInstance {
 		return myPlayer;
 	}
 	
-	public IGrid getGrid() {
+	public Grid getGrid() {
 		return myGrid;
 	}
 	
@@ -60,6 +60,14 @@ public class GameInstance implements IGameInstance {
 				break;
 			case LEFT:
 				newBlock = myGrid.getBlock(row, col-1);
+				break;
+			case NORTHEAST:
+				break;
+			case NORTHWEST:
+				break;
+			case SOUTHEAST:
+				break;
+			case SOUTHWEST:
 				break;
 			case TALK:
 			default:

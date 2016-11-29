@@ -1,6 +1,6 @@
 package interactions;
 
-import boardObjects.Block;
+import block.Block;
 import javafx.scene.text.Text;
 
 public interface Interaction {

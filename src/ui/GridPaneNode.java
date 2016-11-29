@@ -1,10 +1,6 @@
-package grid;
-import java.util.Enumeration;
-import java.util.ResourceBundle;
-import java.util.AbstractMap.SimpleEntry;
-import java.util.regex.Pattern;
+package ui;
 
-import boardObjects.*;
+import block.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 public class GridPaneNode {

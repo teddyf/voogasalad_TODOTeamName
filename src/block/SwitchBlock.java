@@ -1,6 +1,7 @@
-package boardObjects;
+package block;
 
-import grid.BlockType;
+import block.GateBlock;
+import block.BlockType;
 
 import java.util.HashSet;
 import java.util.Set;

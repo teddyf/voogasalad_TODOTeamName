@@ -1,6 +1,4 @@
-package boardObjects;
-
-import grid.BlockType;
+package block;
 
 /**
  * A board object with which the player character will have some active interaction (i.e. pressing 'A'

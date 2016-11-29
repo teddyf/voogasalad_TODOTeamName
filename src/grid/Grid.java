@@ -1,8 +1,10 @@
 package grid;
 
-import boardObjects.Block;
-import boardObjects.DecorationBlock;
-import boardObjects.ShallowBlock;
+import block.Block;
+import block.BlockType;
+import block.DecorationBlock;
+import block.ShallowBlock;
+
 import java.lang.reflect.Constructor;
 import java.util.List;
 import java.util.ResourceBundle;
