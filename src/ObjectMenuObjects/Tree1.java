@@ -15,8 +15,8 @@ public class Tree1 extends GameObjects{
     @Override
     public void populateList () {
         int count = 1;
-        for(int i = 0; i < 2 ;i++){
-            for(int j = 0; j < 3; j++){
+        for(int i = 0; i < 3 ;i++){
+            for(int j = 0; j < 2; j++){
                 String name = reName(PATH,count);
                 GridPaneNode tempNode = new GridPaneNode(i,j,name);
                 list.add(tempNode);
