@@ -1,8 +1,8 @@
 package ui.scenes;
-
 import ui.GridPane;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
@@ -52,59 +52,15 @@ public class GameEngine extends Scene {
             return false;
         }*/
     	
-    	setUpGrid();
+    	setUpPane();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
-    	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;
     }
     
-    private void setUpGrid() {
-
-    	gridPane =
-                new GridPane(Integer.parseInt(myResources.getString("gridCellsWide")),
-                             Integer.parseInt(myResources.getString("gridCellsHeight")),
-                             Integer.parseInt(myResources.getString("gridWidth")),
-                             Integer.parseInt(myResources.getString("gridHeight")),
-                             Integer.parseInt(myResources.getString("gridX")),
-                             Integer.parseInt(myResources.getString("gridY")));
-    	
-    	myBuilder.addComponent(myRoot, gridPane.getGroup());
-    	
-    	/*ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
-        
-        int updateX = Integer.parseInt(myResources.getString("updateX"));
-        int updateY = Integer.parseInt(myResources.getString("updateY"));
-        int updateWidth = Integer.parseInt(myResources.getString("updateWidth"));
-        int widthInputX = Integer.parseInt(myResources.getString("inputWidthX"));
-        int widthInputY = Integer.parseInt(myResources.getString("inputWidthY"));
-        int widthInputWidth = Integer.parseInt(myResources.getString("inputWidthWidth"));
-        String widthInputText = myResources.getString("inputWidthText");
-        int heightInputX = Integer.parseInt(myResources.getString("inputHeightX"));
-        int heightInputY = Integer.parseInt(myResources.getString("inputHeightY"));
-        int heightInputWidth = Integer.parseInt(myResources.getString("inputHeightWidth"));
-        String heightInputText = myResources.getString("inputHeightText");
-        String updatePath = myResources.getString("updatePath");
-
-        Node widthInputField =
-                myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                                             widthInputWidth);
-        Node heightInputField =
-                myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                                             heightInputWidth);
-        
-        
-        Node updateButton =
-                myBuilder.addCustomButton(myRoot, updatePath, updateX, updateY, updateWidth);
-        updateButton.setOnMouseClicked(e -> {
-            myBuilder.removeComponent(myRoot, gridPane.getGroup());
-            TextField xText = (TextField) widthInputField;
-            TextField yText = (TextField) heightInputField;
-            int xInput = Integer.parseInt(xText.getText());
-            int yInput = Integer.parseInt(yText.getText());
-            gridPane.resizeReset(xInput, yInput);
-            myBuilder.addComponent(myRoot, gridPane.getGroup());
-        });*/
-
+    private void setUpPane() {
+    	Pane pane = new Pane();
+    	myBuilder.addComponent(myRoot, pane);
+    	Character character = new Character(this);
+		pane.getChildren().add(character.getCharacterImageView());
     }
 }
