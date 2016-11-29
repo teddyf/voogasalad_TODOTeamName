@@ -24,10 +24,10 @@ public class GridUI {
     private Parent myRoot;
     private SidePanel myItemMenu;
 
-    GridUI(Parent root, SidePanel itemMenu, String resourcesPath) {
+    GridUI(Parent root, SidePanel itemMenu, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
-        myResources = ResourceBundle.getBundle(resourcesPath);
+        myResources = resources;
         myBuilder = new UIBuilder();
     }
 
@@ -82,7 +82,8 @@ public class GridUI {
     }
 
     /**
-     * Creates the grid and then calls a method to add functionality.
+     * Creates a grid of specified width and height, and then adds
+     * functionality to the grid
      */
     public void initGrid(int gridWidth, int gridHeight) {
         PropertiesUtilities util = new PropertiesUtilities();
@@ -95,9 +96,9 @@ public class GridUI {
                 util.getIntProperty(myResources, "gridY"));
         initGridControl();
     }
-    
+
     /**
-     * Creates the grid and then calls a method to add functionality.
+     * Creates a grid and then adds functionality to it
      */
     public void initGrid() {
         PropertiesUtilities util = new PropertiesUtilities();
