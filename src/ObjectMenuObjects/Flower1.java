@@ -1,7 +1,6 @@
 package ObjectMenuObjects;
 
-import java.util.*;
-import grid.GridPaneNode;
+import ui.GridPaneNode;
 import javafx.scene.image.Image;
 
 public class Flower1 extends GameObjects{

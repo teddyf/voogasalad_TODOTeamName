@@ -1,6 +1,6 @@
 package ObjectMenuObjects;
-import grid.*;
 import javafx.scene.image.Image;
+import ui.GridPaneNode;
 
 public class Tree2 extends GameObjects{
     private final String PATH = "resources/images/Sprites/Obstacle/Tree/tree1";

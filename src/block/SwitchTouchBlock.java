@@ -1,6 +1,7 @@
-package boardObjects;
+package block;
 
-import grid.BlockType;
+import block.SwitchBlock;
+import block.BlockType;
 
 /**
  * A switch that is activated on pressing the main interaction button by the player character.

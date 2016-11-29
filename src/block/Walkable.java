@@ -1,4 +1,4 @@
-package boardObjects;
+package block;
 
 /**
  * @author Filip Mazurek
