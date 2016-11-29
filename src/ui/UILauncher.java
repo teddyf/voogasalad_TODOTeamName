@@ -1,6 +1,6 @@
 package ui;
 
-import ui.scenes.GameEditor;
+import ui.scenes.editor.GameEditor;
 import ui.scenes.GameEngine;
 import ui.scenes.MainMenu;
 import javafx.scene.Group;
@@ -39,6 +39,7 @@ public class UILauncher {
      */
     public void launchEditor() {
         GameEditor editor = new GameEditor(myStage, this,  new Group());
+        editor.initEditor();
         myStage.setScene(editor);
     }
 
