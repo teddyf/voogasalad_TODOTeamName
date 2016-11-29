@@ -1,4 +1,4 @@
-package grid;
+package block;
 
 /**
  * Enumeration to allow easier communication between the front end and the back end.

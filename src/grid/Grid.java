@@ -1,9 +1,8 @@
 package grid;
 
-import boardObjects.Block;
-import boardObjects.DecorationBlock;
-
-import java.lang.reflect.Constructor;
+import block.Block;
+import block.BlockType;
+import block.DecorationBlock;
 
 
 /**

@@ -1,4 +1,4 @@
-package grid;
+package block;
 
 /**
  * A simplified representation of a block. This is all that the front end needs to successfully display a block,

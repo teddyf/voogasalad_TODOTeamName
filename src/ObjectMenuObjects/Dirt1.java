@@ -1,6 +1,6 @@
 package ObjectMenuObjects;
 
-import grid.GridPaneNode;
+import ui.GridPaneNode;
 import javafx.scene.image.Image;
 
 public class Dirt1 extends GameObjects {

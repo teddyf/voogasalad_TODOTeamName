@@ -1,7 +1,6 @@
-package boardObjects;
+package block;
 
 import editor.backend.Interaction;
-import grid.BlockType;
 
 import java.util.ArrayList;
 import java.util.Collections;

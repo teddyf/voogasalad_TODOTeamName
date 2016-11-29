@@ -1,9 +1,9 @@
-package grid;
+package ui;
 
 import java.util.*;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
-
+import ui.GridPaneNode;
 
 /**
  * 

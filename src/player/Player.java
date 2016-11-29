@@ -10,21 +10,28 @@ import editor.backend.Item;
 import editor.backend.Status;
 
 /**
- * This
+ * This is the class that holds all of the information corresponding to the player
+ * @author Aninda Manocha
  */
 
 public class Player implements IPlayer {
 	
 	private String myName;
+	private PlayerDirection myDirection;
 	private int myRow;
 	private int myCol;
+	private List<PlayerAttribute> myAttributes;
 	private List<Item> myInventory;
 	private List<Battle> myBattleHistory;
 	private List<Interaction> myInteractionHistory;
 	private List<Status> myStatus;
 	
-	public Player(String name) {
+	public Player(String name, int row, int col) {
 		myName = name;
+		myDirection = PlayerDirection.NORTH;
+		myRow = row;
+		myCol = col;
+		myAttributes = new ArrayList<PlayerAttribute>();
 		myInventory = new ArrayList<Item>();
 		myBattleHistory = new ArrayList<Battle>();
 		myInteractionHistory = new ArrayList<Interaction>();
@@ -34,6 +41,10 @@ public class Player implements IPlayer {
 	public String getPlayerName() {
 		return myName;
 	}
+
+	public PlayerDirection getDirection() {
+		return myDirection;
+	}
 	
 	public int getRow() {
 		return myRow;
@@ -41,6 +52,10 @@ public class Player implements IPlayer {
 	
 	public int getCol() {
 		return myCol;
+	}
+
+	public List<PlayerAttribute> getAttributes() {
+		return myAttributes;
 	}
 	
 	public List<Item> getInventory() {
@@ -58,13 +73,21 @@ public class Player implements IPlayer {
 	public List<Status> getPlayerStatus() {
 		return myStatus;
 	}
-	
+
+	public void setDirection(PlayerDirection direction) {
+		myDirection = direction;
+	}
+
 	public void setRow(int row) {
 		myRow = row;
 	}
 	
 	public void setCol(int col) {
 		myCol = col;
+	}
+
+	public void addAttribute(PlayerAttribute attribute) {
+		myAttributes.add(attribute);
 	}
 	
 	public void addItem(Item item) {

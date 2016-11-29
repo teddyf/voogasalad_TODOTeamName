@@ -3,7 +3,6 @@ package interactions;
  * defines interactions between item and players
  * @author Bill Xiong
  */
-import boardObjects.Block;
 import editor.backend.Item;
 import player.Player;
 
