@@ -2,8 +2,8 @@ package xml;
 
 import java.util.ArrayList;
 
-import boardObjects.Block;
-import grid.BlockType;
+import block.Block;
+import block.BlockType;
 import grid.Grid;
 
 /**

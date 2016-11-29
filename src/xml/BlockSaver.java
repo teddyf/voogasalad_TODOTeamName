@@ -1,13 +1,13 @@
 package xml;
 
-import boardObjects.Block;
-import boardObjects.CommunicatorBlock;
-import boardObjects.DecorationBlock;
-import boardObjects.EnemyBlock;
-import boardObjects.GateBlock;
-import boardObjects.ObstacleBlock;
-import boardObjects.SwitchFloorBlock;
-import boardObjects.SwitchTouchBlock;
+import block.Block;
+import block.CommunicatorBlock;
+import block.DecorationBlock;
+import block.EnemyBlock;
+import block.GateBlock;
+import block.ObstacleBlock;
+import block.SwitchFloorBlock;
+import block.SwitchTouchBlock;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
