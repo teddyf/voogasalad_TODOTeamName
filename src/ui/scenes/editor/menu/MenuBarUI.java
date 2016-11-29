@@ -32,7 +32,11 @@ public class MenuBarUI {
         myBuilder = new UIBuilder();
     }
 
-    private void createMenuBar() {
+    /**
+     * Creates the menu bar at the top of the screen which encompasses basic
+     * editor functionality (i.e. opening and saving game files)
+     */
+    public void initMenuBar() {
         myMenuBar = new MenuBar();
         myMenuBar.prefWidthProperty().bind(myStage.widthProperty());
         MenuEvents events = new MenuEvents(myStage, myLauncher, myResources);
@@ -45,10 +49,6 @@ public class MenuBarUI {
 
         myMenuBar.getMenus().addAll(firstMenu, secondMenu, thirdMenu);
         myBuilder.addComponent(myRoot, myMenuBar);
-    }
-
-    public void initMenuBar() {
-        createMenuBar();
     }
 
 }

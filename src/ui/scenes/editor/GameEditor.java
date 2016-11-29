@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.menu.MenuBarUI;
+import ui.scenes.editor.menu.MenuEvents;
 
 import java.util.ResourceBundle;
 
@@ -33,9 +34,10 @@ public class GameEditor extends Scene {
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         myStage.setOnCloseRequest(e -> {
-            // closing the window takes you back to main menu
+            // closing the window prompts save and takes you back to main menu
             e.consume();
-            myLauncher.launchMenu();
+            MenuEvents events = new MenuEvents(myStage,myLauncher,myResources);
+            events.newVOOGA();
         });
     }
 
@@ -46,9 +48,8 @@ public class GameEditor extends Scene {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
         menuBar.initMenuBar();
-
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
-        grid.initGrid();
+        grid.initGrid(4,4);
     }
 }

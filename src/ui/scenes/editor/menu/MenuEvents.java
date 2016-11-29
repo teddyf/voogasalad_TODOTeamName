@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 
 /**
  * @author Robert Steilberg
+ *         <p>
+ *         This class adds items to each of the editor menus and configures their actions.
  */
 public class MenuEvents {
 
@@ -18,13 +20,17 @@ public class MenuEvents {
     private UILauncher myLauncher;
     private ResourceBundle myResources;
 
-    MenuEvents(Stage stage, UILauncher launcher, ResourceBundle resources) {
+    public MenuEvents(Stage stage, UILauncher launcher, ResourceBundle resources) {
         myStage = stage;
         myLauncher = launcher;
         myResources = resources;
-
     }
 
+    /**
+     * Gets the path to a file to save
+     *
+     * @return a File object containing the path
+     */
     private File saveGameFile() {
         File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile != null) {
@@ -33,6 +39,11 @@ public class MenuEvents {
         return null;
     }
 
+    /**
+     * Gets the path to a file to open
+     *
+     * @return a File object containing the path
+     */
     private File openGameFile() {
         File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile != null) { // user clicked cancel
@@ -41,16 +52,20 @@ public class MenuEvents {
         return null;
     }
 
-    private void newVOOGA() {
+    /**
+     * Initializes a fresh instance of the VOOGA editor, prompting the user
+     * to save their current progress beforehand.
+     */
+    public void newVOOGA() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText("Do you want to save the changes made to the current game?");
         alert.setContentText("Your changes will be lost if you don't save them.");
         ButtonType save = new ButtonType("Save");
         ButtonType noSave = new ButtonType("Don't Save");
-        ButtonType cancel = new ButtonType("Cancexl");
-        alert.getButtonTypes().setAll(cancel,noSave,save);
+        ButtonType cancel = new ButtonType("Cancel");
+        alert.getButtonTypes().setAll(cancel, noSave, save);
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == save){
+        if (result.get() == save) {
             File savedFile = saveGameFile();
             if (savedFile != null) {
                 // save file
@@ -61,10 +76,22 @@ public class MenuEvents {
         }
     }
 
+    /**
+     * Adds sub-items and their actions to the third menu of the
+     * screen.
+     *
+     * @param thirdMenu is the menu to which events are added
+     */
     public void addThirdMenuEvents(Menu thirdMenu) {
 
     }
 
+    /**
+     * Adds sub-items and their actions to the second menu of the
+     * screen.
+     *
+     * @param secondMenu is the menu to which events are added
+     */
     public void addSecondMenuEvents(Menu secondMenu) {
         MenuItem itemUndo = new MenuItem("Undo");
 //        itemUndo.setOnAction(e -> undo());
@@ -87,6 +114,12 @@ public class MenuEvents {
         secondMenu.getItems().add(itemDelete);
     }
 
+    /**
+     * Adds sub-items and their actions to the first menu of the
+     * screen.
+     *
+     * @param firstMenu is the menu to which events are added
+     */
     public void addFirstMenuEvents(Menu firstMenu) {
 
         MenuItem itemNew = new MenuItem("New");
