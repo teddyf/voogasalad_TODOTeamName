@@ -29,9 +29,7 @@ public abstract class Block implements ShallowBlock {
 		myInteractions = new ArrayList<>();
 	}
 	public void interactWithPlayer(){
-		for(Interaction i : myInteractions){
-			i.act();
-		}
+		myInteractions.forEach(Interaction::act);
 	}
 	public BlockType getBlockType() {
 		return myBlockType;
