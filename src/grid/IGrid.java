@@ -1,6 +1,6 @@
 package grid;
 
-import boardObjects.Block;
+import block.Block;
 
 public interface IGrid {
 	public int getNumRows();

@@ -1,7 +1,6 @@
 package interactions;
 
-import boardObjects.Block;
-import editor.backend.Item;
+import block.Block;
 import player.Player;
 
 public class BlockPlayerInteraction extends AbstractInteraction{

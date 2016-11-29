@@ -1,6 +1,6 @@
 package ObjectMenuObjects;
 
-import grid.GridPaneNode;
+import ui.GridPaneNode;
 import javafx.scene.image.Image;
 
 public class Weed1 extends GameObjects {

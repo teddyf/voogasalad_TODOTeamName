@@ -1,7 +1,8 @@
 package ObjectMenuObjects;
 import java.util.*;
-import grid.*;
+
 import javafx.scene.image.ImageView;
+import ui.GridPaneNode;
 
 
 public abstract class GameObjects {

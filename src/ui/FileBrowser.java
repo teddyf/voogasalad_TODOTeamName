@@ -1,4 +1,4 @@
-package engine;
+package ui;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;

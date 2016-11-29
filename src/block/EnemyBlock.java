@@ -1,4 +1,4 @@
-package boardObjects;
+package block;
 
 /**
  * Created by Bill Xiong on 11/20/16.
