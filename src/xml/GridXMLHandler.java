@@ -59,8 +59,8 @@ public class GridXMLHandler {
 		
 		for (int i = 0; i < blockList.size(); i++) {
 			Block currBlock = blockList.get(i);
-			grid.setBlock(currBlock.getRow(), currBlock.getCol(), currBlock.getName(), 
-					currBlock.getBlockType(), new ArrayList<Object>());
+//			grid.setBlock(currBlock.getRow(), currBlock.getCol(), currBlock.getName(),
+//					currBlock.getBlockType(), new ArrayList<Object>());
 		}
 		
 		return grid;
@@ -81,7 +81,7 @@ public class GridXMLHandler {
 		Grid grid = new Grid(3, 3);
 		for (int row = 0; row < grid.getNumRows(); row++) {
 			for (int col = 0; col < grid.getNumCols(); col++) {
-				grid.setBlock(row, col, "", BlockType.COMMUNICATOR, new ArrayList<Object>());
+//				grid.setBlock(row, col, "", BlockType.COMMUNICATOR, new ArrayList<Object>());
 			}
 		}
 		
