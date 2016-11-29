@@ -7,6 +7,10 @@
 out/
 local.properties
 
+# Eclipse Ignore #
+##################
+.classpath
+
 # Generic Android ignores #
 ###########################
 bin/

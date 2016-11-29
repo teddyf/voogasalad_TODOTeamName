@@ -14,30 +14,16 @@ import player.Player;
  * @author Filip Mazurek
  */
 public abstract class AbstractInteraction implements Interaction{
-    //enums hold default interactions for users to choose from. 
-    public enum BlockPlayer{
-
+    //enums hold default interactions for users to choose from.
+    private Player player;
+    public AbstractInteraction(Player player){
+        this.player = player;
     }
-    public enum ItemEnemy{
-
+    public AbstractInteraction(){
+        this.player = null;
     }
-    public enum ItemPlayer{
-
-    }
-    public enum PlayerEnemy{
-
-    }
-    protected void defaultBlockPlayer(Block block, Player player){
-
-    }
-    protected void defaultItemEnemy(Item item, EnemyBlock enemy){
-
-    }
-    protected void defaultItemPlayer(Item item, Player player){
-
-    }
-    protected void defaultPlayerEnemy(Player player, EnemyBlock enemy){
-
+    protected Player getPlayer(){
+        return player;
     }
     public abstract void act();
 }

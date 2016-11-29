@@ -12,8 +12,6 @@ public class GridPaneNode {
     //private int typeNum;
     private String name;
     private ImageView imageView;
-    private Block block;
-    private BlockType blockType;
     private final String DEFAULT_IMAGE_PATH = "resources/Default.png";
     
     /**
@@ -27,31 +25,14 @@ public class GridPaneNode {
         this.col = col;
         this.name = name;
         this.imageView = new ImageView();
-        extractName(name);
         setInitialImage();
         //default, hard coded values for now
-        blockType = BlockType.DECORATION;
-        block = new DecorationBlock("Decoration", row, col);
     }
     public void setImage(ImageView image){
         imageView = image;
     }
-    //use this method to update cell's information, names are hard coded
-    public void setBlockType(BlockType type){
-        blockType = type;
-        if(type == BlockType.DECORATION){
-            block = new DecorationBlock("Decoration", row, col);
-        }
-        else if(type == BlockType.COMMUNICATOR){
-            block = new CommunicatorBlock("Communicator", row, col);
-        }
-        else if(type == BlockType.OBSTACLE){
-            block = new ObstacleBlock("Obstacle", row, col);
-        }
-        else if(type == BlockType.ENEMY) {
-            block = new EnemyBlock("Enemy", row, col);
-        }
-    }
+
+    
     public void setImageCoord(double x, double y){
         imageView.setX(x);
         imageView.setY(y);
@@ -68,12 +49,6 @@ public class GridPaneNode {
         Image image = new Image(DEFAULT_IMAGE_PATH);
         imageView.setImage(image);
     }
-    private void extractName(String a){
-        String[] nameSplit = a.split("\\.");
-        this.type = nameSplit[0];
-        this.imageNum = Integer.parseInt(nameSplit[1]);
-        //this.typeNum = Integer.parseInt(nameSplit[2]);
-    }
     
     
     private String getPath(){
@@ -85,8 +60,6 @@ public class GridPaneNode {
         Image image = new Image(node.getName());
         this.imageView.setImage(image);
         this.imageNum = node.getImageNum();
-        this.type = node.getType();
-        //this.typeNum = typeNum;
         this.name = type;
     }
     
@@ -111,7 +84,6 @@ public class GridPaneNode {
     
     public void setName(String a){
         this.name = a;
-        extractName(a);
     }
     
     public String getName(){

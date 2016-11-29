@@ -2,6 +2,7 @@ package ObjectMenuObjects;
 
 import ui.GridPaneNode;
 import javafx.scene.image.Image;
+import block.*;
 
 public class Dirt1 extends GameObjects {
 	 private final String PATH = "resources/images/Sprites/Declaration/Grass/dirt";
@@ -11,6 +12,7 @@ public class Dirt1 extends GameObjects {
 	        this.imageView.setImage(image);
 	        type = "flower";
 	        path = PATH;
+	        blockType = BlockType.DECORATION;
 	    }
 
 	    @Override
