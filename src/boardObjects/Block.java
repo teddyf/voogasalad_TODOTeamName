@@ -28,9 +28,11 @@ public abstract class Block {
 		myBlockType = blockType;
 		myRow = row;
 		myCol = col;
-		myInteractions = new ArrayList<Interaction>();
+		myInteractions = new ArrayList<>();
 	}
-
+	public void interactWithPlayer(){
+		myInteractions.forEach(Interaction::act);
+	}
 	public BlockType getBlockType() {
 		return myBlockType;
 	}
@@ -78,5 +80,7 @@ public abstract class Block {
 	protected void setWalkableStatus(boolean status) {
 		walkableStatus = status;
 	}
+
+	protected abstract void interact();
 
 }

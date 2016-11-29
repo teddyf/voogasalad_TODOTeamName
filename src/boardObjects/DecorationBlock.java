@@ -13,5 +13,8 @@ public class DecorationBlock extends Block implements Walkable {
 		super(name, BlockType.DECORATION, row, col);
 		setWalkableStatus(IS_WALKABLE);
 	}
+	protected void interact(){
+
+	}
 
 }

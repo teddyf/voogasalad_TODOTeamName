@@ -17,4 +17,7 @@ public class EnemyBlock extends CommunicatorBlock implements NotWalkable {
     public void setHealth(double val){
         health = val;
     }
+    protected void interact(){
+
+    }
 }
