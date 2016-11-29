@@ -84,12 +84,14 @@ public class GridPane {
             node.setImageCoord(x, y);
             
             node.getImage().setOnMouseExited(e -> {if(!clicked.contains(node))node.getImage().setEffect(null);});
-            node.getImage().setOnMouseEntered(e -> node.getImage().setEffect(hoverOpacity));
+            node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});
             
             node.getImage().setOnMouseClicked(e -> {
                 node.getImage().setEffect(hoverOpacity);
                 click(node);
             });
+
+
             
 
             group.getChildren().add(node.getImage());
@@ -143,8 +145,10 @@ public class GridPane {
                 GridPaneNode temp = renderMap.get(getXRender(xPos)).get(getYRender(yPos));
                 temp.swap(list.get(j), list.get(j).getImageNum());
             }
+            clicked.get(i).getImage().setEffect(null);
         }
         clicked = new ArrayList<GridPaneNode>();
+        
     }
 
     private void getObjectNeighbors (List<GridPaneNode> list) {
