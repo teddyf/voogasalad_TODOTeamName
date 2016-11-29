@@ -22,15 +22,15 @@ public class GridPaneNode {
      * @param col Column for node to be placed
      * @param name Name of node
      */
-    public GridPaneNode(int row, int col, String name){
+    public GridPaneNode(int row, int col, String name, BlockType blockType){
         this.row = row;
         this.col = col;
         this.name = name;
         this.imageView = new ImageView();
-        extractName(name);
         setInitialImage();
         //default, hard coded values for now
         blockType = BlockType.DECORATION;
+        this.blockType = blockType;
         block = new DecorationBlock("Decoration", row, col);
     }
     public void setImage(ImageView image){
@@ -68,12 +68,6 @@ public class GridPaneNode {
         Image image = new Image(DEFAULT_IMAGE_PATH);
         imageView.setImage(image);
     }
-    private void extractName(String a){
-        String[] nameSplit = a.split("\\.");
-        this.type = nameSplit[0];
-        this.imageNum = Integer.parseInt(nameSplit[1]);
-        //this.typeNum = Integer.parseInt(nameSplit[2]);
-    }
     
     
     private String getPath(){
@@ -85,7 +79,8 @@ public class GridPaneNode {
         Image image = new Image(node.getName());
         this.imageView.setImage(image);
         this.imageNum = node.getImageNum();
-        this.type = node.getType();
+        this.block = node.block;
+        this.blockType = node.blockType;
         //this.typeNum = typeNum;
         this.name = type;
     }
@@ -111,7 +106,6 @@ public class GridPaneNode {
     
     public void setName(String a){
         this.name = a;
-        extractName(a);
     }
     
     public String getName(){

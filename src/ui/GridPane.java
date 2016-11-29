@@ -4,6 +4,7 @@ import java.util.*;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import ui.GridPaneNode;
+import block.*;
 
 /**
  * 
@@ -68,7 +69,7 @@ public class GridPane {
     private void initializeGrid () {
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
-                GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
+                GridPaneNode node = new GridPaneNode(i, j, DEFAULT, BlockType.DECORATION);
                 blockList.add(node);
             }
         }
