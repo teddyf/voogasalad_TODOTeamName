@@ -1,6 +1,4 @@
-package boardObjects;
-
-import grid.BlockType;
+package block;
 
 /**
  * A board object which should have no interaction with the player character.

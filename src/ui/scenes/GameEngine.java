@@ -1,6 +1,6 @@
 package ui.scenes;
 
-import grid.GridPane;
+import ui.GridPane;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

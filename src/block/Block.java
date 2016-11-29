@@ -1,8 +1,9 @@
-package boardObjects;
+package block;
 
+import block.BlockType;
+import block.ShallowBlock;
 import editor.backend.IBlock;
 import interactions.Interaction;
-import grid.BlockType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
