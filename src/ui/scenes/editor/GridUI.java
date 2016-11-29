@@ -36,6 +36,7 @@ public class GridUI {
      * objects from it.
      */
     private void initGridControl() {
+        myBuilder.addComponent(myRoot, myGridPane.getGroup());
         PropertiesUtilities util = new PropertiesUtilities();
         ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(util.getDoubleProperty(myResources, "buttonHoverOpacity"));
@@ -80,6 +81,21 @@ public class GridUI {
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
     }
 
+    /**
+     * Creates the grid and then calls a method to add functionality.
+     */
+    public void initGrid(int gridWidth, int gridHeight) {
+        PropertiesUtilities util = new PropertiesUtilities();
+        myGridPane = new GridPane(
+                gridWidth,
+                gridHeight,
+                util.getIntProperty(myResources, "gridWidth"),
+                util.getIntProperty(myResources, "gridHeight"),
+                util.getIntProperty(myResources, "gridX"),
+                util.getIntProperty(myResources, "gridY"));
+        initGridControl();
+    }
+    
     /**
      * Creates the grid and then calls a method to add functionality.
      */
