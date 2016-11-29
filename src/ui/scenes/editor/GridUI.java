@@ -84,6 +84,23 @@ public class GridUI {
     /**
      * Creates the grid and then calls a method to add functionality.
      */
+    public void initGrid(int gridWidth, int gridHeight) {
+        PropertiesUtilities util = new PropertiesUtilities();
+        myGridPane = new GridPane(
+                gridWidth,
+                gridHeight,
+                //util.getIntProperty(myResources, "gridCellsWide"),
+                //util.getIntProperty(myResources, "gridCellsHeight"),
+                util.getIntProperty(myResources, "gridWidth"),
+                util.getIntProperty(myResources, "gridHeight"),
+                util.getIntProperty(myResources, "gridX"),
+                util.getIntProperty(myResources, "gridY"));
+        initGridControl();
+    }
+    
+    /**
+     * Creates the grid and then calls a method to add functionality.
+     */
     public void initGrid() {
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(
