@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.menu.MenuBarUI;
 
 import java.util.ResourceBundle;
 
@@ -43,11 +44,11 @@ public class GameEditor extends Scene {
      */
     public void initEditor() {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,EDITOR_RESOURCES);
+        MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
         menuBar.initMenuBar();
 
-        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, EDITOR_RESOURCES);
-        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), EDITOR_RESOURCES);
+        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
+        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
         grid.initGrid();
     }
 }

@@ -20,10 +20,10 @@ public class ItemMenuUI {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
 
-    ItemMenuUI(Parent root, UIBuilder builder, String resourcesPath) {
+    ItemMenuUI(Parent root, UIBuilder builder, ResourceBundle resources) {
         myRoot = root;
         myBuilder = builder;
-        myResources = ResourceBundle.getBundle(resourcesPath);
+        myResources = resources;
     }
 
     /**

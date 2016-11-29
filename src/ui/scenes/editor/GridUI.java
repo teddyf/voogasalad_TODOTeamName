@@ -24,10 +24,10 @@ public class GridUI {
     private Parent myRoot;
     private SidePanel myItemMenu;
 
-    GridUI(Parent root, SidePanel itemMenu, String resourcesPath) {
+    GridUI(Parent root, SidePanel itemMenu, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
-        myResources = ResourceBundle.getBundle(resourcesPath);
+        myResources = resources;
         myBuilder = new UIBuilder();
     }
 
