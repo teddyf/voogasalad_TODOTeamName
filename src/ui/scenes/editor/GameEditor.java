@@ -41,13 +41,13 @@ public class GameEditor extends Scene {
         });
     }
 
-    protected void launchEditor(int size) {
+    protected void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
         menuBar.initMenuBar();
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
-        grid.initGrid(size,size);
+        grid.initGrid(width,height);
         myStage.setScene(this);
     }
 
