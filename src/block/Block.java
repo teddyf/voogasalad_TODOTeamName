@@ -1,6 +1,7 @@
 package block;
 
 import interactions.Interaction;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,73 +12,74 @@ import java.util.List;
  * @author Filip Mazurek, Daniel Chai, Aninda Manocha
  */
 public abstract class Block implements ShallowBlock {
-	private BlockType myBlockType;
-	private String myName;
-	private int myRow;
-	private int myCol;
-	private boolean walkableStatus;
-	private List<Interaction> myInteractions;
 
-	public Block(String name, BlockType blockType, int row, int col) {
+    private BlockType myBlockType;
+    private String myName;
+    private int myRow;
+    private int myCol;
+    private boolean walkableStatus;
+    private List<Interaction> myInteractions;
+
+    public Block(String name, BlockType blockType, int row, int col) {
         myBlockType = blockType;
-	    myName = name;
-	    myRow = row;
-		myCol = col;
-		myInteractions = new ArrayList<>();
-	}
-	public void interactWithPlayer(){
-		for(Interaction i : myInteractions){
-			i.act();
-		}
-	}
-	/*****GETTERS*****/
+        myName = name;
+        myRow = row;
+        myCol = col;
+        myInteractions = new ArrayList<>();
+    }
 
-	public BlockType getBlockType() {
-		return myBlockType;
-	}
+    public void interactWithPlayer() {
+        for (Interaction i : myInteractions) {
+            i.act();
+        }
+    }
 
-	public String getName() {
-		return myName;
-	}
+    /*****GETTERS*****/
 
-	public int getRow() {
-		return myRow;
-	}
+    public BlockType getBlockType() {
+        return myBlockType;
+    }
 
-	public int getCol() {
-		return myCol;
-	}
+    public String getName() {
+        return myName;
+    }
 
-	public boolean isWalkable() {
-		return walkableStatus;
-	}
+    public int getRow() {
+        return myRow;
+    }
 
-	//Interactions methods
-	public List<Interaction> getInteractions() {
-		return Collections.unmodifiableList(myInteractions);
-	}
+    public int getCol() {
+        return myCol;
+    }
 
-	protected boolean addInteraction(Interaction someInteraction) {
-		return myInteractions.add(someInteraction);
-	}
+    public boolean isWalkable() {
+        return walkableStatus;
+    }
 
-	protected void clearInteractions() {
-		myInteractions.clear();
-	}
+    //Interactions methods
+    public List<Interaction> getInteractions() {
+        return Collections.unmodifiableList(myInteractions);
+    }
 
-	protected boolean removeInteraction(Interaction someInteraction) {
-		return myInteractions.remove(someInteraction);
-	}
+    protected boolean addInteraction(Interaction someInteraction) {
+        return myInteractions.add(someInteraction);
+    }
 
-	/*****SETTERS******/
+    protected void clearInteractions() {
+        myInteractions.clear();
+    }
 
-	protected void setBlockType(BlockType blockType) {
-		myBlockType = blockType;
-	}
+    protected boolean removeInteraction(Interaction someInteraction) {
+        return myInteractions.remove(someInteraction);
+    }
 
-	protected void setWalkableStatus(boolean status) {
-		walkableStatus = status;
-	}
+    /*****SETTERS******/
 
+    protected void setBlockType(BlockType blockType) {
+        myBlockType = blockType;
+    }
 
+    protected void setWalkableStatus(boolean status) {
+        walkableStatus = status;
+    }
 }

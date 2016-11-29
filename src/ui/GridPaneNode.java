@@ -12,8 +12,6 @@ public class GridPaneNode {
     //private int typeNum;
     private String name;
     private ImageView imageView;
-    private Block block;
-    private BlockType blockType;
     private final String DEFAULT_IMAGE_PATH = "resources/Default.png";
     
     /**
@@ -22,36 +20,19 @@ public class GridPaneNode {
      * @param col Column for node to be placed
      * @param name Name of node
      */
-    public GridPaneNode(int row, int col, String name, BlockType blockType){
+    public GridPaneNode(int row, int col, String name){
         this.row = row;
         this.col = col;
         this.name = name;
         this.imageView = new ImageView();
         setInitialImage();
         //default, hard coded values for now
-        blockType = BlockType.DECORATION;
-        this.blockType = blockType;
-        block = new DecorationBlock("Decoration", row, col);
     }
     public void setImage(ImageView image){
         imageView = image;
     }
-    //use this method to update cell's information, names are hard coded
-    public void setBlockType(BlockType type){
-        blockType = type;
-        if(type == BlockType.DECORATION){
-            block = new DecorationBlock("Decoration", row, col);
-        }
-        else if(type == BlockType.COMMUNICATOR){
-            block = new CommunicatorBlock("Communicator", row, col);
-        }
-        else if(type == BlockType.OBSTACLE){
-            block = new ObstacleBlock("Obstacle", row, col);
-        }
-        else if(type == BlockType.ENEMY) {
-            block = new EnemyBlock("Enemy", row, col);
-        }
-    }
+
+    
     public void setImageCoord(double x, double y){
         imageView.setX(x);
         imageView.setY(y);
@@ -79,9 +60,6 @@ public class GridPaneNode {
         Image image = new Image(node.getName());
         this.imageView.setImage(image);
         this.imageNum = node.getImageNum();
-        this.block = node.block;
-        this.blockType = node.blockType;
-        //this.typeNum = typeNum;
         this.name = type;
     }
     
