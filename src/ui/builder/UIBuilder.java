@@ -119,7 +119,7 @@ public class UIBuilder {
     }
 
     /**
-     * Create a new JavaFX ImageView and adds it to the given Group or Pane
+     * Creates a new JavaFX ImageView and adds it to the given Group or Pane
      *
      * @param layout     the Group or Pane to which the ImageView will be added
      * @param properties the ComponentProperties object containing information
@@ -128,6 +128,26 @@ public class UIBuilder {
      */
     public Node addNewImageView(Parent layout, ComponentProperties properties) {
         return addComponent(layout, imageViewBuilder.createComponent(properties));
+    }
+
+    /**
+     * Creates a new JavaFX ImageView, sets its position, image path, width, and CSS id,
+     * and adds it to the given Group or Pane
+     *
+     * @param layout is the Group or Pane to which the ImageView is added
+     * @param xPos   is the X position of the ImageView
+     * @param yPos   is the Y position of the ImageView
+     * @param path   is the image path
+     * @param width  is the width of the ImageView
+     * @param id     is the CSS ID
+     * @return
+     */
+    public Node addCustomImageView(Parent layout, int xPos, int yPos, String path, int width, String id) {
+        return addNewImageView(layout, new ComponentProperties(xPos, yPos)
+                .path(path)
+                .preserveRatio(true)
+                .width(width)
+                .id(id));
     }
 
 //    /**
