@@ -3,7 +3,7 @@ package player;
 import java.util.List;
 
 import editor.backend.Battle;
-import editor.backend.Interaction;
+import interactions.Interaction;
 import editor.backend.Item;
 import editor.backend.Status;
 
