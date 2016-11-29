@@ -28,8 +28,8 @@ public class EditorController {
     public void addGrid(int row, int col) {
         Grid newGrid = new Grid(row, col);
         gridWorld.addGrid(newGrid);
-        gridWorld.setCurrentGrid();
-        currentGrid = gridWorld.getCurrentGrid();
+        gridWorld.updateGrid();
+        currentGrid = newGrid;
     }
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
