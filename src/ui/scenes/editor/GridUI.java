@@ -36,6 +36,7 @@ public class GridUI {
      * objects from it.
      */
     private void initGridControl() {
+        myBuilder.addComponent(myRoot, myGridPane.getGroup());
         PropertiesUtilities util = new PropertiesUtilities();
         ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(util.getDoubleProperty(myResources, "buttonHoverOpacity"));
