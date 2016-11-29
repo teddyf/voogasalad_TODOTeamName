@@ -1,7 +1,9 @@
 package xml;
 
+import java.util.ArrayList;
+
 import boardObjects.Block;
-import boardObjects.CommunicatorBlock;
+import grid.BlockType;
 import grid.Grid;
 
 /**
@@ -11,28 +13,38 @@ import grid.Grid;
  */
 public class GridSaver {
 	private BlockSaver blockSaver;
-	private String mySavedGrid;
+	private StringBuilder mySavedGrid;
 	
 	public GridSaver() {
 		blockSaver = new BlockSaver();
-		mySavedGrid = "";
+		mySavedGrid = new StringBuilder();
 	}
 	
 	public String saveGrid(Grid grid) {
 		for (int row = 0; row < grid.getNumRows(); row++) {
 			for (int col = 0; col < grid.getNumCols(); col++) {
 				Block block = grid.getBlock(row, col);
-				mySavedGrid += blockSaver.saveBlock(block);
+				String savedBlock = blockSaver.saveBlock(block);
+				mySavedGrid.append(savedBlock);
 			}
 		}
 		
-		return mySavedGrid;
+		return mySavedGrid.toString();
 	}
 	
+	/**
+	 * For testing purposes.
+	 */
 	public static void main(String[] args) {
-		BlockSaver blockSaver = new BlockSaver();
-		Block block = new CommunicatorBlock("Test Block", 0, 0);
+		GridSaver gridSaver = new GridSaver();
+		Grid grid = new Grid(3, 3);
 		
-		blockSaver.saveBlock(block);
+		for (int row = 0; row < grid.getNumRows(); row++) {
+			for (int col = 0; col < grid.getNumCols(); col++) {
+				grid.setBlock(row, col, "", BlockType.COMMUNICATOR, new ArrayList<Object>());
+			}
+		}
+		
+		System.out.println(gridSaver.saveGrid(grid));
 	}
 }
