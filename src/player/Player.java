@@ -2,11 +2,14 @@ package player;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import editor.backend.Battle; 
 import editor.backend.Interaction;
 import editor.backend.Item;
 import editor.backend.Status;
+
+/**
+ * This
+ */
 
 public class Player implements IPlayer {
 	
