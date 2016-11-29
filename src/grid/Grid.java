@@ -2,8 +2,10 @@ package grid;
 
 import boardObjects.Block;
 import boardObjects.DecorationBlock;
-
+import boardObjects.ShallowBlock;
 import java.lang.reflect.Constructor;
+import java.util.List;
+import java.util.ResourceBundle;
 
 
 /**
@@ -12,53 +14,75 @@ import java.lang.reflect.Constructor;
  * @author Filip Mazurek
  */
 public class Grid implements IGrid {
-    private static final String DEFAULT_BLOCK = "DEFAULT";
 
+    private ResourceBundle myBlockPaths;
+    private String myBlockPathsPath = "resources/properties/blockPaths";
+    private static final String DEFAULT_BLOCK = "DEFAULT";
     private int myNumRows;
     private int myNumColumns;
     private Block[][] myGrid;
-    private double currentIdentification; // to use for connected block images, to make it easier for front end display
+    private ShallowBlock[][] myShallowGrid;
 
     public Grid(int numRows, int numColumns) {
-        currentIdentification = 0;
+        myBlockPaths = ResourceBundle.getBundle(myBlockPathsPath);
         myNumRows = numRows;
         myNumColumns = numColumns;
 
         myGrid = new Block[numRows][numColumns];
+        myShallowGrid = new ShallowBlock[numRows][numColumns];
 
         for(int i = 0; i < numRows; i++) {
             for(int j = 0; j < numColumns; j++) {
                 myGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK, i, j);
+                myShallowGrid[i][j] = new DecorationBlock(DEFAULT_BLOCK, i, j);
             }
         }
     }
 
-    public int getNumRows() {
-    	return myNumRows;
+    public void setBlock(int row, int col, String name, BlockType someType, List<Object> parameters) {
+        try {
+            Class<?> blockClass = Class.forName(myBlockPaths.getString(someType.toString()));
+            Constructor<?> ctor = blockClass.getDeclaredConstructor(List.class);
+            Block blockObject = createBoardObject(blockClass, ctor, parameters, row, col);
+            myGrid[row][col] = blockObject;
+            myShallowGrid[row][col] = blockObject;
+        }
+        catch (ClassNotFoundException e) {
+            // TODO: custom exception that there is no such block type (may be bad path in properties)
+        }
+        catch (NoSuchMethodException e) {
+            // TODO: no such constructor
+        }
     }
-    
+
+    private Block createBoardObject(Class<?> commandClass, Constructor<?> ctor, List<Object> parameters, int row, int col) {
+        try {
+            Object blockObject = ctor.newInstance();
+            return (Block) blockObject;
+        }
+        catch (Exception e) {
+            // TODO: can't create a new block
+        }
+        return new DecorationBlock(DEFAULT_BLOCK, row, col); // TODO: better default? Currently just place a default square
+    }
+
+    public int getNumRows() {
+        return myNumRows;
+    }
+
     public int getNumCols() {
-    	return myNumColumns;
+        return myNumColumns;
     }
 
     public IGrid getGrid() {
-    	return this;
+        return this;
     }
-    
+
     public Block getBlock(int row, int col) {
         return myGrid[row][col];
     }
 
-    //TODO: implement giving out a shallow representation
-//    public ShallowBlock[][] getGridForRendering() {
-//        return myShallowRepresentation;
-//    }
-
-    public void setBlock(int row, int col, String name, BlockType someType) {
-//      Class<Block> clazz = Block.class;
-//      Constructor<Block> ctor = clazz.getConstructor(Block.class);
-//      Block instance = ctor.newInstance(5);
-          // TODO: make the block class by reflection
-
-  }
+    public ShallowBlock[][] getGridForRendering() {
+        return myShallowGrid;
+    }
 }
