@@ -9,5 +9,6 @@ public enum BlockType {
     DECORATION,
     OBSTACLE,
     COMMUNICATOR,
-    ENEMY
+    ENEMY,
+    PORTAL
 }
