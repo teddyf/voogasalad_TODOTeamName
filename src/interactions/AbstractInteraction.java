@@ -2,7 +2,7 @@ package interactions;
 
 import block.Block;
 import block.EnemyBlock;
-import editor.backend.Interaction;
+import interactions.Interaction;
 import editor.backend.Item;
 import player.Player;
 
