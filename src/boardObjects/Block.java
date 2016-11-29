@@ -31,7 +31,9 @@ public abstract class Block implements ShallowBlock {
 		myInteractions = new ArrayList<>();
 	}
 	public void interactWithPlayer(){
-		myInteractions.forEach(Interaction::act);
+		for(Interaction i : myInteractions){
+			i.act();
+		}
 	}
 	public BlockType getBlockType() {
 		return myBlockType;
@@ -81,6 +83,5 @@ public abstract class Block implements ShallowBlock {
 		walkableStatus = status;
 	}
 
-	protected abstract void interact();
 
 }

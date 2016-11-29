@@ -7,10 +7,7 @@ package boardObjects;
  * @author Filip Mazurek
  */
 public interface ShallowBlock {
-
     int getRow();
-
     int getCol();
-
     String getName();
 }

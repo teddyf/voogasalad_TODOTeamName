@@ -14,8 +14,4 @@ public class ObstacleBlock extends Block implements NotWalkable {
         super(name, BlockType.OBSTACLE, row, col);
         setWalkableStatus(IS_WALKABLE);
     }
-    protected void interact(){
-
-    }
-
 }

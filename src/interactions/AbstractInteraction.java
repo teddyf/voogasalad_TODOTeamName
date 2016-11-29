@@ -14,5 +14,15 @@ import player.Player;
  */
 public abstract class AbstractInteraction implements Interaction{
     //enums hold default interactions for users to choose from.
+    private Player player;
+    public AbstractInteraction(Player player){
+        this.player = player;
+    }
+    public AbstractInteraction(){
+        this.player = null;
+    }
+    protected Player getPlayer(){
+        return player;
+    }
     public abstract void act();
 }
