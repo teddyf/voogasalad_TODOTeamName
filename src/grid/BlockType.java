@@ -7,8 +7,11 @@ package grid;
  * @author Filip Mazurek
  */
 public enum BlockType {
-    DECORATION,
-    OBSTACLE,
     COMMUNICATOR,
-    ENEMY
+    DECORATION,
+    ENEMY,
+    GATE,
+    OBSTACLE,
+    SWITCH_FLOOR,
+    SWITCH_TOUCH
 }
