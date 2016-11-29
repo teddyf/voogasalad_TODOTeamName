@@ -11,6 +11,7 @@ public class Tree1 extends GameObjects{
         this.imageView.setImage(image);
         type = "tree1";
         path = "resources/images/Sprites/Obstacle/Tree/tree1";
+        blockType = BlockType.OBSTACLE;
     }
 
     @Override
@@ -19,7 +20,7 @@ public class Tree1 extends GameObjects{
         for(int i = 0; i < 3 ;i++){
             for(int j = 0; j < 2; j++){
                 String name = reName(PATH,count);
-                GridPaneNode tempNode = new GridPaneNode(i,j,name,BlockType.OBSTACLE);
+                GridPaneNode tempNode = new GridPaneNode(i,j,name);
                 list.add(tempNode);
                 count++;
             }

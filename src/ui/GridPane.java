@@ -69,7 +69,7 @@ public class GridPane {
     private void initializeGrid () {
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
-                GridPaneNode node = new GridPaneNode(i, j, DEFAULT, BlockType.DECORATION);
+                GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
                 blockList.add(node);
             }
         }
