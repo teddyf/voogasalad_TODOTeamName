@@ -25,9 +25,13 @@ public abstract class Block implements ShallowBlock {
 	    myIdentifier = id;
 		myRow = row;
 		myCol = col;
-		myInteractions = new ArrayList<Interaction>();
+		myInteractions = new ArrayList<>();
 	}
-
+	public void interactWithPlayer(){
+		for(Interaction i : myInteractions){
+			i.act();
+		}
+	}
 	/*****GETTERS*****/
 
 	public BlockType getBlockType() {
@@ -80,5 +84,6 @@ public abstract class Block implements ShallowBlock {
 	protected void setWalkableStatus(boolean status) {
 		walkableStatus = status;
 	}
+
 
 }

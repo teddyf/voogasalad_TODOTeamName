@@ -1,7 +1,6 @@
 package grid;
 
 import block.*;
-
 import java.lang.reflect.Constructor;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -9,20 +8,16 @@ import java.util.ResourceBundle;
 
 /**
  * The rectangular grid in which all the block objects may be placed.
- *
  * @author Filip Mazurek, Aninda Manocha
  */
 public class Grid implements IGrid {
 
-    private ResourceBundle myBlockPaths;
-    private String myBlockPathsPath = "resources/properties/blockPaths";
     private int myNumRows;
     private int myNumColumns;
     private Block[][] myGrid;
     private ShallowBlock[][] myShallowGrid;
 
     public Grid(int numRows, int numColumns) {
-        myBlockPaths = ResourceBundle.getBundle(myBlockPathsPath);
         myNumRows = numRows;
         myNumColumns = numColumns;
         myGrid = new Block[numRows][numColumns];

@@ -1,6 +1,7 @@
 package ObjectMenuObjects;
 
 import ui.GridPaneNode;
+import block.BlockType;
 import javafx.scene.image.Image;
 
 public class Grass1 extends GameObjects {
@@ -16,7 +17,7 @@ public class Grass1 extends GameObjects {
 	    @Override
 	    public void populateList () {
 	        String name = reName(PATH,1);
-	        GridPaneNode tempNode = new GridPaneNode(0,0,name);
+	        GridPaneNode tempNode = new GridPaneNode(0,0,name,BlockType.DECORATION);
 	        list.add(tempNode);
 	    }
 }

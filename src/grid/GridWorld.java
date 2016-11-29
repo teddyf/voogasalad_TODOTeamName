@@ -10,11 +10,13 @@ import java.util.List;
 
 public class GridWorld {
     private List<Grid> grids;
-    private int currentGrid;
+    private int currentIndex;
+    private Grid currentGrid;
 
     public GridWorld() {
         grids = new ArrayList<Grid>();
-        currentGrid = 0;
+        currentIndex = 0;
+        
     }
 
     public void addGrid(Grid grid) {
@@ -25,7 +27,7 @@ public class GridWorld {
         return grids.get(currentGrid);
     }
 
-    public void setCurrentGrid() {
-        currentGrid++;
+    public void setCurrentGrid(int index) {
+        currentGrid = index;
     }
 }

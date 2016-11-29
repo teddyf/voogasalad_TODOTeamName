@@ -12,11 +12,7 @@ import java.util.ResourceBundle;
 public class BlockFactory {
 
     public static final String DEFAULT_BLOCK = "DEFAULT";
-    private ResourceBundle myBlockPaths;
-
-    public BlockFactory() {
-        myBlockPaths = ResourceBundle.getBundle("resources/properties/blockPaths");
-    }
+    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/blockPaths");
 
     public Block createBlock(String name, BlockType blockType, int row, int col) {
         try {

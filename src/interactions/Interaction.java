@@ -1,7 +1,11 @@
 package interactions;
 
+import block.Block;
 import javafx.scene.text.Text;
 
 public interface Interaction {
-    public void act();
+    default void act(){
+        //default does nothing
+    }
+
 }
