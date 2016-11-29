@@ -90,7 +90,7 @@ public class SidePanel {
             node.setOnMouseEntered(e -> node.setEffect(hoverOpacity));
             node.setOnMouseExited(e -> node.setEffect(null));
             node.setOnMouseClicked(e -> {
-                handler.select(obj);System.out.println(handler.getSelected());});
+                handler.select(obj); obj.getImage().setEffect(hoverOpacity);});
             buffer += 50;
         }
         ScrollPane scrollPane = new ScrollPane(content);

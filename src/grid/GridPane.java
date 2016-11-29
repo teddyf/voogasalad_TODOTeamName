@@ -84,12 +84,14 @@ public class GridPane {
             node.setImageCoord(x, y);
             
             node.getImage().setOnMouseExited(e -> {if(!clicked.contains(node))node.getImage().setEffect(null);});
-            node.getImage().setOnMouseEntered(e -> node.getImage().setEffect(hoverOpacity));
+            node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});
             
             node.getImage().setOnMouseClicked(e -> {
                 node.getImage().setEffect(hoverOpacity);
                 click(node);
             });
+
+
             
 
             group.getChildren().add(node.getImage());
