@@ -88,23 +88,6 @@ public class MainMenu extends Scene {
     }
 
     /**
-     * Adds a label to the main menu
-     *
-     * @param xPos is the x position of the label
-     * @param yPos is the y position of the label
-     * @param text is the text of the label
-     * @param font is the font of the label
-     * @param size is the font size of the label
-     * @return the label
-     */
-    private Node addLabel(int xPos, int yPos, String text, String font, int size) {
-        return myBuilder.addNewLabel(myRoot, new ComponentProperties(xPos, yPos)
-                .text(text)
-                .font(font)
-                .size(size));
-    }
-
-    /**
      * Sets the text of the main menu
      */
     private void setText() {
@@ -115,13 +98,13 @@ public class MainMenu extends Scene {
         String text = myResources.getString("titleText");
         String font = myResources.getString("font");
         int size = Integer.parseInt(myResources.getString("titleSize"));
-        addLabel(xPos,yPos,text,font,size);
+        myBuilder.addCustomLabel(myRoot,text,xPos,yPos,font,size);
         // create subtitle
         xPos = Integer.parseInt(myResources.getString("subtitleXPos"));
         yPos = Integer.parseInt(myResources.getString("subtitleYPos"));
         text = myResources.getString("subtitleText");
         size = Integer.parseInt(myResources.getString("subtitleSize"));
-        addLabel(xPos,yPos,text,font,size);
+        myBuilder.addCustomLabel(myRoot,text,xPos,yPos,font,size);
     }
 
     /**
