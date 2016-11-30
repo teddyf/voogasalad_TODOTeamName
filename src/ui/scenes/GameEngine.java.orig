@@ -3,6 +3,7 @@ package ui.scenes;
 import engine.EngineController;
 import ui.FileBrowser;
 import ui.GridPane;
+import ui.GridPaneNode;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -36,6 +37,8 @@ public class GameEngine extends Scene {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private GridPane gridPane;
+    private GridDisplayer myGridDisplayer;
+    private Group gridRegion;
     
     private EngineController myController;
     
@@ -48,6 +51,7 @@ public class GameEngine extends Scene {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+        gridRegion = myBuilder.addRegion(-50, -50);
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             e.consume();
@@ -90,27 +94,19 @@ public class GameEngine extends Scene {
                              Integer.parseInt(myResources.getString("gridHeight")),
                              Integer.parseInt(myResources.getString("gridX")),
                              Integer.parseInt(myResources.getString("gridY")));
+<<<<<<< HEAD
+    	myGridDisplayer = new GridDisplayer(gridPane);
+//    	gridRegion.getChildren().add(myGridDisplayer.updateDisplay(30, 30));
+    	myBuilder.addComponent(myRoot, gridRegion);
+=======
 
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
     	
     	gd = new GridDisplayer(gridPane);
     	
-    	System.out.println(gridPane.getWidth());
-    	System.out.println(gridPane.getHeight());
-    	
-    	Character player = new Character();
-    	player.setColumn((int)(gridPane.getWidth()-1) /2);
-    	player.setRow(((int)gridPane.getHeight()-1) /2);
-
     	myBuilder.addComponent(myRoot, gridPane.getGroup());
-    	
-//    	Group g = new Group();
-//    	g.getChildren().add(player.getCharacterImageView());
-    	player.getCharacterImageView().setLayoutX(Integer.parseInt(myResources.getString("windowWidth"))/2);
-    	player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("windowHeight"))/2);
-    	myBuilder.addComponent(myRoot, player.getCharacterImageView());
-    	
+>>>>>>> 7f606a85fbe6471eb7601a426302f4c0f67e642b
     	
     	/*ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));

@@ -1,6 +1,6 @@
 package ui.scenes.editor;
 
-import editor.SidePanel;
+import editor.EditorSidePanel;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import resources.properties.PropertiesUtilities;
@@ -32,13 +32,13 @@ public class ItemMenuUI {
      *
      * @return the item menu, already with proper placement
      */
-    public SidePanel initItemMenu() {
+    public EditorSidePanel initItemMenu() {
         PropertiesUtilities util = new PropertiesUtilities();
         int itemMenuXPos = util.getIntProperty(myResources, "itemMenuXPos");
         int itemMenuYPos = util.getIntProperty(myResources, "itemMenuYPos");
         Group itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
         myBuilder.addComponent(myRoot, itemMenuRegion);
-        SidePanel sideMenu = new SidePanel(itemMenuRegion);
+        EditorSidePanel sideMenu = new EditorSidePanel(itemMenuRegion);
         return sideMenu;
     }
 }
