@@ -19,6 +19,7 @@ public class GridPane {
     private Group group;
     private List<GridPaneNode> blockList;
     private List<GridPaneNode> clicked;
+    private GridPaneNode[][] grid;
     private Map<Double, Map<Double, GridPaneNode>> renderMap;
 
     private double gridWidth;
@@ -39,10 +40,9 @@ public class GridPane {
                      int renderTopLeftX,
                      int renderTopLeftY) {
         this.group = new Group();
+        grid = new GridPaneNode[gridHeight][gridWidth];
         hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(-.1);
-        highlight = new ColorAdjust();
-        highlight.setSaturation(-.3);
         this.renderTopLeftX = renderTopLeftX;
         this.renderTopLeftY = renderTopLeftY;
         this.gridWidth = gridWidth;
@@ -51,13 +51,12 @@ public class GridPane {
         this.renderHeight = renderHeight;
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
-        this.renderMap = new HashMap<Double, Map<Double, GridPaneNode>>();
         initializeGrid();
         setRenderMap();
     }
 
     private double getXRender (int a) {
-        double cellWidth = 0.0 + renderWidth / gridWidth;
+        double cellWidth = renderWidth / gridWidth;
         int sol = a;
         return sol * cellWidth + renderTopLeftX;
     }
@@ -73,6 +72,7 @@ public class GridPane {
             for (int j = 0; j < gridHeight; j++) {
                 GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
                 blockList.add(node);
+                grid[j][i] = node;
             }
         }
     }
@@ -83,25 +83,15 @@ public class GridPane {
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
             double y = getYRender(node.getRow());
-            node.setImageSize(0.0 + renderWidth / gridWidth, 0.0 + renderHeight / gridHeight);
-            node.setImageCoord(x, y);
-            
+            node.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
+            node.setImageCoord(x, y);          
             node.getImage().setOnMouseExited(e -> {if(!clicked.contains(node))node.getImage().setEffect(null);});
-            node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});
-            
+            node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});           
             node.getImage().setOnMouseClicked(e -> {
                 node.getImage().setEffect(hoverOpacity);
                 click(node);
             });
-
             group.getChildren().add(node.getImage());
-            if (renderMap.containsKey(x)) {
-                renderMap.get(x).put(y, node);
-            }
-            else {
-                renderMap.put(x, new HashMap<Double, GridPaneNode>());
-                renderMap.get(x).put(y, node);
-            }
         }
     }
 
@@ -151,7 +141,7 @@ public class GridPane {
             for (int j = 0; j < list.size(); j++) {
                 int xPos = clicked.get(i).getCol() + list.get(j).getCol();
                 int yPos = clicked.get(i).getRow() + list.get(j).getRow();
-                GridPaneNode temp = renderMap.get(getXRender(xPos)).get(getYRender(yPos));
+                GridPaneNode temp = grid[xPos][yPos];
                 temp.swap(list.get(j), list.get(j).getImageNum());
                 control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
             }
@@ -163,7 +153,11 @@ public class GridPane {
         return copy;
         
     }
-
+    
+    /**
+     * Gets neighbors if object is placed
+     * @param list
+     */
     private void getObjectNeighbors (List<GridPaneNode> list) {
         ArrayList<Integer> xPos = new ArrayList<Integer>();
         ArrayList<Integer> yPos = new ArrayList<Integer>();
@@ -176,6 +170,12 @@ public class GridPane {
         }
     }
 
+    /**
+     * Removes neighbors in clicked if object would contain both
+     * @param xCoords
+     * @param yCoords
+     * @param objSize
+     */
     private void checkNeighbors (List<Integer> xCoords, List<Integer> yCoords, int objSize) {
         for (int i = 0; i < clicked.size(); i++) {
             GridPaneNode temp = clicked.get(i);
@@ -188,6 +188,12 @@ public class GridPane {
         }
     }
     
+    /**
+     * Converts backend block to front end grid
+     * @param row
+     * @param col
+     * @param name
+     */
     public void blockToGridPane(int row, int col,String name){
         GridPaneNode temp = new GridPaneNode(row,col,name);
         blockList.add(temp);
@@ -201,9 +207,6 @@ public class GridPane {
         this.blockList = list;
     }
 
-    public Map<Double, Map<Double, GridPaneNode>> getRenderMap () {
-        return renderMap;
-    }
 
     public Group getGroup () {
         return group;
