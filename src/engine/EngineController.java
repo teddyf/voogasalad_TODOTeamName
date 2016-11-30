@@ -21,7 +21,7 @@ public class EngineController {
 
     public EngineController() {
         xmlHandler = new GridXMLHandler();
-        gameInstance = new GameInstance(xmlHandler);
+//        gameInstance = new GameInstance(xmlHandler);
         gameInstances = new ArrayList<GameInstance>();
     }
 
@@ -45,8 +45,8 @@ public class EngineController {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         Player player = gridWorldAndPlayer.getPlayer();
         GridWorld gridWorld = gridWorldAndPlayer.getGridWorld();
-        gameInstance
-        changeGrid();
+//        gameInstance
+//        changeGrid();
 
     }
 }

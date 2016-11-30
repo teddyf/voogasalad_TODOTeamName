@@ -50,6 +50,8 @@ public class GameEditor extends Scene {
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), editorController, myResources);
         grid.initGrid(width,height);
 
+//        editorController.saveEditor("f")
+
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
