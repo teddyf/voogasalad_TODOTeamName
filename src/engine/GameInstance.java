@@ -51,12 +51,12 @@ public class GameInstance extends Observable implements IGameInstance {
 	}
 	
 	public void setPlayer(Player player) {
-
+	    myPlayer = player;
 	}
 
 	public void resetPlayer() {
 
-	}*/
+	}
 	
 	public void processInput(UserInstruction input) {
 		Block newBlock = null; //TODO

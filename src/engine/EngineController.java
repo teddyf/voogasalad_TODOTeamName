@@ -21,8 +21,11 @@ public class EngineController {
 
     public EngineController() {
         xmlHandler = new GridXMLHandler();
-        gameInstance = new GameInstance(xmlHandler);
         gameInstances = new ArrayList<GameInstance>();
+    }
+
+    public EngineController(Player player, GridWorld gridWorld) {
+        gameInstance = new GameInstance(player, gridWorld);
     }
 
     public void keyListener(UserInstruction input) {
@@ -41,12 +44,10 @@ public class EngineController {
         xmlHandler.saveContents(file, gameInstance.getGridWorld(), gameInstance.getPlayer());
     }
 
-    public void loadEditor(String file) {
+    public void loadEngine(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         Player player = gridWorldAndPlayer.getPlayer();
         GridWorld gridWorld = gridWorldAndPlayer.getGridWorld();
-        gameInstance
-        changeGrid();
-
+        gameInstance = new GameInstance(player, gridWorld);
     }
 }
