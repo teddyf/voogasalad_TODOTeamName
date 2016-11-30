@@ -5,12 +5,17 @@ import ui.FileBrowser;
 import ui.GridPane;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 
 import java.io.File;
 import java.util.ResourceBundle;
+
+import engine.EngineController;
+import engine.UserInstruction;
 
 /**
  * @author Robert Steilberg
@@ -28,6 +33,8 @@ public class GameEngine extends Scene {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private GridPane gridPane;
+    
+    private EngineController myController;
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
         super(root);
@@ -41,6 +48,7 @@ public class GameEngine extends Scene {
             e.consume();
             myLauncher.launchMenu();
         });
+        myController = new EngineController();
     }
 
     /**
@@ -65,6 +73,8 @@ public class GameEngine extends Scene {
     }
     
     private void setUpGrid() {
+    	
+    	setUpKeys();
 
     	gridPane =
                 new GridPane(Integer.parseInt(myResources.getString("gridCellsWide")),
@@ -112,5 +122,29 @@ public class GameEngine extends Scene {
             myBuilder.addComponent(myRoot, gridPane.getGroup());
         });*/
 
+    }
+    
+    private void setUpKeys() {
+    	setOnKeyPressed(e -> onKeyPress(e));
+    }
+    
+    private void onKeyPress(KeyEvent e) {
+    	KeyCode code = e.getCode();
+    	switch (code) {
+    		case UP:
+    			myController.keyListener(UserInstruction.UP);
+    			break;
+    		case DOWN:
+    			myController.keyListener(UserInstruction.DOWN);
+    			break;
+    		case LEFT:
+    			myController.keyListener(UserInstruction.LEFT);
+    			break;
+    		case RIGHT:
+    			myController.keyListener(UserInstruction.RIGHT);
+    			break;
+    		default:
+    			break;
+    	}
     }
 }
