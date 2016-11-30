@@ -219,5 +219,13 @@ public class GridPane {
     public double getBlockSize() {
     	return renderWidth/gridWidth;
     }
+    
+    public double getWidth() {
+    	return gridWidth;
+    }
+    
+    public double getHeight() {
+    	return gridHeight;
+    }
 
 }

@@ -93,12 +93,16 @@ public class GridUI {
     }
     
     public void loadGrid(){
+        System.out.println(myGridPane.getNodeList());
         int colMax = myController.getCol();
         int rowMax = myController.getRow();
         myGridPane.loadReset();
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
+                System.out.println("here");
+                System.out.println(myController.getBlock(i,j));
                 myGridPane.blockToGridPane(i, j, myController.getBlock(i, j));
+
             }
         }
         myGridPane.setRenderMap();
