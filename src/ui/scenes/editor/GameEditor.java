@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 public class GameEditor extends Scene {
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
+    private static final String CSS_FILE_NAME = "resources/styles/game-editor.css";
     private Stage myStage;
     private Parent myRoot;
     private UILauncher myLauncher;
@@ -34,6 +35,7 @@ public class GameEditor extends Scene {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
+        root.getStylesheets().add(CSS_FILE_NAME);
     }
 
     void launchEditor(int width, int height) {
