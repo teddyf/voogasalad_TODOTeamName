@@ -58,23 +58,38 @@ public class EditorEvents {
     /**
      * Adds sub-items and their actions to the third menu of the
      * screen.
+     * <p>
+     * Note: Styles for the Menu are set here rather than in CSS because CSS
+     * only supports the :hover selector when the mouse is directly hovering
+     * over the object.
      *
      * @param thirdMenu is the menu to which events are added
      */
     public void addThirdMenuEvents(Menu thirdMenu) {
+        thirdMenu.setOnShowing(e -> thirdMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
+        thirdMenu.setOnHidden(e -> thirdMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
         // create test game menu option
         MenuItem itemTest = new MenuItem("Run Game");
         itemTest.setOnAction(e -> myIO.runGameInEditor());
-        thirdMenu.getItems().addAll(itemTest);
+        // create export game file menu option
+        MenuItem itemExport = new MenuItem("Export as Game");
+        itemExport.setOnAction(e -> myIO.saveGameFile());
+        thirdMenu.getItems().addAll(itemTest, itemExport);
     }
 
     /**
      * Adds sub-items and their actions to the second menu of the
      * screen.
+     * <p>
+     * Note: Styles for the Menu are set here rather than in CSS because CSS
+     * only supports the :hover selector when the mouse is directly hovering
+     * over the object.
      *
      * @param secondMenu is the menu to which events are added
      */
     public void addSecondMenuEvents(Menu secondMenu) {
+        secondMenu.setOnShowing(e -> secondMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
+        secondMenu.setOnHidden(e -> secondMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
         // create undo menu option
         MenuItem itemUndo = new MenuItem("Undo");
 //        itemUndo.setOnAction(e -> undo());
@@ -90,16 +105,22 @@ public class EditorEvents {
         // create delete object menu option
         MenuItem itemDelete = new MenuItem("Delete");
 //        itemUndo.setOnAction(e -> redo());
-        secondMenu.getItems().addAll(itemUndo,itemRedo,itemCopy,itemPaste,itemDelete);
+        secondMenu.getItems().addAll(itemUndo, itemRedo, itemCopy, itemPaste, itemDelete);
     }
 
     /**
      * Adds sub-items and their actions to the first menu of the
      * screen.
+     * <p>
+     * Note: Styles for the Menu are set here rather than in CSS because CSS
+     * only supports the :hover selector when the mouse is directly hovering
+     * over the object.
      *
      * @param firstMenu is the menu to which events are added
      */
     public void addFirstMenuEvents(Menu firstMenu) {
+        firstMenu.setOnShowing(e -> firstMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
+        firstMenu.setOnHidden(e -> firstMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
         // create new editor menu option
         MenuItem itemNew = new MenuItem("New Project");
         itemNew.setOnAction(e -> exitPrompt(true));
@@ -109,13 +130,10 @@ public class EditorEvents {
         // create save editor file menu option
         MenuItem itemSave = new MenuItem("Save Project As...");
         itemSave.setOnAction(e -> myIO.saveEditorFile());
-        // create export game file menu option
-        MenuItem itemExport = new MenuItem("Export as Game");
-        itemExport.setOnAction(e -> myIO.saveGameFile());
         // crate exit editor menu option
         MenuItem itemExit = new MenuItem("Exit Editor");
         itemExit.setOnAction(e -> exitPrompt(false));
-        firstMenu.getItems().addAll(itemNew,itemOpen,itemSave,itemExport,itemExit);
+        firstMenu.getItems().addAll(itemNew, itemOpen, itemSave, itemExit);
     }
 
 }

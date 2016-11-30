@@ -21,6 +21,7 @@ public class MenuBarUI {
     private Parent myRoot;
     private ResourceBundle myResources;
     private UIBuilder myBuilder;
+
     private EditorEvents myEditorEvents;
 
     public MenuBarUI(Stage stage, Parent root, EditorEvents editorEvents, ResourceBundle resources) {
@@ -29,6 +30,7 @@ public class MenuBarUI {
         myEditorEvents = editorEvents;
         myResources = resources;
         myBuilder = new UIBuilder();
+
     }
 
     /**
