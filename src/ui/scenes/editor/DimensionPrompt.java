@@ -15,19 +15,31 @@ import javafx.util.Pair;
  */
 public class DimensionPrompt {
 
+    /**
+     * Tests the values in two text fields to ensure that they are valid integers
+     * greater than 0 and less than or equal to maxDim
+     *
+     * @param width  is the first TextField to test
+     * @param height is the second TextField to test
+     * @param maxDim is the maximum size allowed
+     * @return true if the value is not an integer, false otherwise
+     */
     private boolean invalidValue(TextField width, TextField height, int maxDim) {
         try {
             int widthVal = Integer.parseInt(width.getText());
             int heightVal = Integer.parseInt(height.getText());
             boolean widthEmpty = width.getText().trim().isEmpty();
             boolean heightEmpty = height.getText().trim().isEmpty();
-            return widthEmpty || heightEmpty || widthVal > maxDim || widthVal <= 0 || heightVal > maxDim || heightVal <= 0;
+            return widthEmpty ||
+                    heightEmpty ||
+                    widthVal > maxDim ||
+                    widthVal <= 0 ||
+                    heightVal > maxDim ||
+                    heightVal <= 0;
         } catch (NumberFormatException e) { // non-integer value given
             return true;
         }
     }
-
-    // FIX CANCEL WITH CHAR ENTERED
 
     Dimension promptForDimensions(int maxDim) {
         Dialog<Pair<Integer, Integer>> dialog = new Dialog<>();
