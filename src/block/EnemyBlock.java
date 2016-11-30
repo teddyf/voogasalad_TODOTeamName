@@ -7,8 +7,8 @@ package block;
 public class EnemyBlock extends CommunicatorBlock implements NotWalkable {
     private double health;
     private final double MAX_HEALTH = 100;
-	public EnemyBlock(String name, int row, int col) {
-        super(name, row, col);
+	public EnemyBlock(String name, BlockType blockType, int row, int col) {
+        super(blockType, name, row, col);
         this.health = MAX_HEALTH;
     }
     public double getHealth(){

@@ -23,6 +23,10 @@ public abstract class SwitchBlock extends Block {
         for(GateBlock oneGate : myGates) {
             oneGate.toggleOpenStatus();
         }
+
+        // notify front end to change look of switch
+        setChanged();
+        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, getRow(), getCol()));
     }
 
     public void connectToGate(GateBlock gate) {

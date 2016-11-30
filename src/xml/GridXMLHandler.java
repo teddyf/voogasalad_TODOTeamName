@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import block.Block;
+import block.BlockType;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
@@ -75,7 +77,7 @@ public class GridXMLHandler {
 		Grid grid = new Grid(2, 2);
 		for (int row = 0; row < grid.getNumRows(); row++) {
 			for (int col = 0; col < grid.getNumCols(); col++) {
-				grid.setBlock(row, col, new CommunicatorBlock("Test Block", row, col));
+				grid.setBlock(row, col, new CommunicatorBlock(BlockType.COMMUNICATOR, "Test Block", row, col));
 			}
 		}
 		gridWorld.addGrid(grid);
