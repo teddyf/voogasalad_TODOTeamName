@@ -16,8 +16,8 @@ public abstract class Block extends Observable implements ShallowBlock {
 
     private BlockType myBlockType;
     private String myName;
-    protected int myRow;
-    protected int myCol;
+    private int myRow;
+    private int myCol;
     private boolean walkableStatus;
     private List<Interaction> myInteractions;
     private String myMessage;
