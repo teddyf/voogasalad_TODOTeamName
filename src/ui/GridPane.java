@@ -1,10 +1,12 @@
 package ui;
 
 import java.util.*;
+import ObjectMenuObjects.GameObjects;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import ui.GridPaneNode;
 import block.*;
+import editor.EditorController;
 
 /**
  * 
@@ -137,7 +139,8 @@ public class GridPane {
         setRenderMap();
     }
 
-    public void swap (List<GridPaneNode> list) {
+    public void swap (GameObjects obj, EditorController control) {
+        List<GridPaneNode> list = obj.getList();
         getObjectNeighbors(list);
         for (int i = 0; i < clicked.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
@@ -145,6 +148,7 @@ public class GridPane {
                 int yPos = clicked.get(i).getRow() + list.get(j).getRow();
                 GridPaneNode temp = renderMap.get(getXRender(xPos)).get(getYRender(yPos));
                 temp.swap(list.get(j), list.get(j).getImageNum());
+                control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
             }
             clicked.get(i).getImage().setEffect(null);
         }

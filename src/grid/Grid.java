@@ -48,6 +48,7 @@ public class Grid extends Observable implements IGrid {
     }
 
     public void setBlock(int row, int col, Block block) {
+        System.out.println("here");
         myGrid[row][col] = block;
         setChanged();
         notifyObservers(block);

@@ -4,7 +4,9 @@ import api.IGameInstance;
 import block.Block;
 import engine.backend.GameStatus;
 import grid.Grid;
+import grid.GridWorld;
 import player.Player;
+import xml.GridXMLHandler;
 
 /**
  * This class holds all of the information pertaining to a game instance
@@ -12,15 +14,17 @@ import player.Player;
  */
 
 public class GameInstance implements IGameInstance {
-	
-	private Player myPlayer;
+
+    private Player myPlayer;
+    private GridWorld myGridWorld;
 	private Grid myGrid;
 	private int myScore;
 	private GameStatus myStatus;
 	
-	public GameInstance(Player player, Grid grid) {
-	    myPlayer = player;
-	    myGrid = grid;
+	public GameInstance(GridXMLHandler xmlHandler) {
+	    //myPlayer = xmlHandler.getPlayer();
+	    //myGridWorld = xmlHandler.getGridWorld();
+	    //myGrid = myGridWorld;
 	    myScore = 0;
 		myStatus = new GameStatus();
 	}
