@@ -52,7 +52,7 @@ public class MenuEvents {
      * Initializes a fresh instance of the VOOGA editor, prompting the user
      * to save their current progress beforehand.
      */
-    public void newVOOGA() {
+    public void exitPrompt() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText("Do you want to save the changes made to the current game?");
         alert.setContentText("Your changes will be lost if you don't save them.");
@@ -119,7 +119,7 @@ public class MenuEvents {
     public void addFirstMenuEvents(Menu firstMenu) {
 
         MenuItem itemNew = new MenuItem("New");
-        itemNew.setOnAction(e -> newVOOGA());
+        itemNew.setOnAction(e -> exitPrompt());
         firstMenu.getItems().add(itemNew);
 
         MenuItem itemOpen = new MenuItem("Open");
@@ -131,7 +131,7 @@ public class MenuEvents {
         firstMenu.getItems().add(itemSave);
 
         MenuItem itemExit = new MenuItem("Exit");
-        itemExit.setOnAction(e -> myLauncher.launchMenu());
+        itemExit.setOnAction(e -> exitPrompt());
         firstMenu.getItems().add(itemExit);
 
     }

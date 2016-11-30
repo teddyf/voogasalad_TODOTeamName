@@ -92,11 +92,13 @@ public class GridUI {
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
     }
     
-    public void loadGrid(int rowMax, int colMax){
+    public void loadGrid(){
+        int colMax = myController.getCol();
+        int rowMax = myController.getRow();
         myGridPane.loadReset();
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
-                myGridPane.blockToGridPane(i, j, control.getBlock(i, j));
+                myGridPane.blockToGridPane(i, j, myController.getBlock(i, j));
             }
         }
         myGridPane.setRenderMap();
