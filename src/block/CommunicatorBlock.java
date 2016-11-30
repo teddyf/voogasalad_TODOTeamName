@@ -9,7 +9,10 @@ package block;
 public class CommunicatorBlock extends Block implements NotWalkable {
 	
     public CommunicatorBlock(BlockType blockType, String name, int row, int col) {
+
         super(name, BlockType.COMMUNICATOR, row, col);
         setWalkableStatus(IS_WALKABLE); // tentative. What about letters on the floor, etc.
     }
+
+
 }

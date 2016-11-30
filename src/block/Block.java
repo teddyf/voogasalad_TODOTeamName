@@ -1,19 +1,18 @@
 package block;
 
+import interactions.GiveMessageOnInteract;
 import interactions.Interaction;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * The general type of object which may be placed on the board.
  *
  * @author Filip Mazurek, Daniel Chai, Aninda Manocha
  */
-public abstract class Block implements ShallowBlock {
-
-
+public abstract class Block extends Observable implements ShallowBlock {
 
     private BlockType myBlockType;
     private String myName;
@@ -21,6 +20,7 @@ public abstract class Block implements ShallowBlock {
     private int myCol;
     private boolean walkableStatus;
     private List<Interaction> myInteractions;
+    private String myMessage;
 
     public Block(String name, BlockType blockType, int row, int col) {
         myBlockType = blockType;
@@ -30,10 +30,20 @@ public abstract class Block implements ShallowBlock {
         myInteractions = new ArrayList<>();
     }
 
-    public void interactWithPlayer() {
+    public void stepInteract() {
         for (Interaction i : myInteractions) {
-            i.act();
+            i.actOnStep();
         }
+    }
+    public void talkInteract(String message){
+        for(Interaction i : myInteractions){
+            i.actOnTalk(message);
+        }
+    }
+
+    public void doMessage() {
+        setChanged();
+        notifyObservers(new BlockUpdateNotification(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol));
     }
 
     /*****GETTERS*****/

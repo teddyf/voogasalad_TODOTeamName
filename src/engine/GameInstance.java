@@ -6,17 +6,22 @@ import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
 import player.Player;
+import player.PlayerDirection;
 import xml.GridXMLHandler;
 
 import java.util.Observable;
 
 /**
  * This class holds all of the information pertaining to a game instance
- * @author Aninda Manocha
+ * @author Aninda Manocha, Filip Mazurek
  */
 
 public class GameInstance extends Observable implements IGameInstance {
 
+    private static final PlayerDirection NORTH = PlayerDirection.NORTH;
+    private static final PlayerDirection SOUTH = PlayerDirection.SOUTH;
+    private static final PlayerDirection EAST = PlayerDirection.EAST;
+    private static final PlayerDirection WEST = PlayerDirection.WEST;
     private GridWorld myGridWorld;
 	private Grid myGrid;
 	private RenderedGrid myRenderedGrid;
@@ -61,18 +66,43 @@ public class GameInstance extends Observable implements IGameInstance {
 		Block newBlock = null; //TODO
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
+		PlayerDirection direction = myPlayer.getDirection();
 		switch (input) {
-			case UP: 
-				newBlock = myGrid.getBlock(row-1, col);
+			case UP:
+			    if(direction == NORTH) {
+                    newBlock = myGrid.getBlock(row - 1, col);
+                }
+                else {
+			        myPlayer.setDirection(PlayerDirection.NORTH);
+			        setChanged();
+                }
 				break;
-			case DOWN: 
-				newBlock = myGrid.getBlock(row+1, col);
+			case DOWN:
+			    if(direction == SOUTH) {
+                    newBlock = myGrid.getBlock(row+1, col);
+                }
+                else {
+			        myPlayer.setDirection(SOUTH);
+			        setChanged();
+                }
 				break;
 			case RIGHT:
-				newBlock = myGrid.getBlock(row, col+1);
+			    if(direction == EAST) {
+                    newBlock = myGrid.getBlock(row, col+1);
+                }
+                else {
+			        myPlayer.setDirection(EAST);
+			        setChanged();
+                }
 				break;
 			case LEFT:
-				newBlock = myGrid.getBlock(row, col-1);
+			    if(direction == WEST) {
+                    newBlock = myGrid.getBlock(row, col-1);
+                }
+                else {
+			        myPlayer.setDirection(WEST);
+			        setChanged();
+                }
 				break;
 			case NORTHEAST:
 				break;
@@ -83,17 +113,23 @@ public class GameInstance extends Observable implements IGameInstance {
 			case SOUTHWEST:
 				break;
 			case TALK:
+			    // TODO: talk interaction
+			    Block talkBlock = blockInFacedDirection(row, col, direction);
+                talkBlock.talkInteract("hello");
 			default:
-				//TODO: custom exception
 				break;
 		}
 		
 		if (inBounds(newBlock) && isWalkable(newBlock)) {
 			myPlayer.setRow(newBlock.getRow());
 			myPlayer.setCol(newBlock.getCol());
+
+			// TODO: do the step on interaction
+            // newBlock.doStepOnInteraction(myPlayer);
+
 			setChanged();
-			notifyObservers();
 		}
+        notifyObservers();
 	}
 
 	/**
@@ -116,4 +152,20 @@ public class GameInstance extends Observable implements IGameInstance {
 	private boolean isWalkable(Block block) {
 		return block.isWalkable();
 	}
+
+	private Block blockInFacedDirection(int row, int col, PlayerDirection direction) {
+	    switch (direction) {
+            case NORTH:
+                return myGrid.getBlock(row - 1, col);
+            case SOUTH:
+                return myGrid.getBlock(row+1, col);
+            case EAST:
+                return myGrid.getBlock(row, col+1);
+            case WEST:
+                return myGrid.getBlock(row, col-1);
+            default:
+                // TODO: throw custom exception--player is not facing in any direction
+                return null;
+        }
+    }
 }
