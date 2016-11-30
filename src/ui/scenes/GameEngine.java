@@ -5,6 +5,7 @@ import ui.FileBrowser;
 import ui.GridPane;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -65,12 +66,18 @@ public class GameEngine extends Scene {
         gameController.loadEngine(gameFile.getAbsolutePath());
 
     	
-    	setUpGrid();
+    	setUpPane();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
-    	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;
     }
     
+    private void setUpPane() {
+    	Pane pane = new Pane();
+    	myBuilder.addComponent(myRoot, pane);
+    	Character character = new Character(this);
+		pane.getChildren().add(character.getCharacterImageView());
+    }
+
     private void setUpGrid() {
     	
     	setUpKeys();
