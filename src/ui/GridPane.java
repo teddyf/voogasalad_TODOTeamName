@@ -80,7 +80,6 @@ public class GridPane {
 
     public void setRenderMap () {
     	group = new Group();
-    	System.out.println(blockList);
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
@@ -155,8 +154,7 @@ public class GridPane {
         }
         clicked = new ArrayList<GridPaneNode>();
         System.out.println(copy);
-        return copy;
-        
+        return copy;     
     }
     
     /**
