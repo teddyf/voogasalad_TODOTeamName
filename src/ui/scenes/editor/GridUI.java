@@ -92,6 +92,16 @@ public class GridUI {
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
     }
+    
+    public void loadGrid(int rowMax, int colMax){
+        myGridPane.loadReset();
+        for(int i = 0; i < rowMax; i++){
+            for(int j = 0; j < colMax; j++){
+                myGridPane.blockToGridPane(i, j, control.getBlock(i, j));
+            }
+        }
+        myGridPane.setRenderMap();
+    }
 
     /**
      * Creates a grid of specified width and height, and then adds

@@ -30,7 +30,7 @@ public class GridPane {
     private ColorAdjust hoverOpacity;
     private ColorAdjust highlight;
 
-    private String DEFAULT = "DEFAULT.1.2.3";
+    private String DEFAULT = "resources/Default.png";
 
     public GridPane (int gridWidth,
                      int gridHeight,
@@ -94,9 +94,6 @@ public class GridPane {
                 click(node);
             });
 
-
-            
-
             group.getChildren().add(node.getImage());
             if (renderMap.containsKey(x)) {
                 renderMap.get(x).put(y, node);
@@ -138,6 +135,13 @@ public class GridPane {
         initializeGrid();
         setRenderMap();
     }
+    
+    public void loadReset(){
+        this.group = new Group();
+        this.blockList = new ArrayList<GridPaneNode>();
+        this.clicked = new ArrayList<GridPaneNode>();
+        this.renderMap = new HashMap<Double, Map<Double, GridPaneNode>>();
+    }
 
     public void swap (GameObjects obj, EditorController control) {
         List<GridPaneNode> list = obj.getList();
@@ -178,6 +182,11 @@ public class GridPane {
                 }
             }
         }
+    }
+    
+    public void blockToGridPane(int row, int col,String name){
+        GridPaneNode temp = new GridPaneNode(row,col,name);
+        blockList.add(temp);
     }
 
     public List<GridPaneNode> getNodeList () {
