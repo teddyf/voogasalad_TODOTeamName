@@ -1,16 +1,14 @@
 
 package ui.scenes;
 
+import java.util.ArrayList;
 import java.util.Stack;
-import javafx.animation.PathTransition;
+
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
 import javafx.util.Duration;
 import ui.GridPane;
 
@@ -20,23 +18,23 @@ import ui.GridPane;
  */
 public class VoogaAnimation {
 	
-	Group group;
+	private GridPane grid;
 	
-	TranslateTransition current;
-	Stack<KeyCode> stack;
+	private TranslateTransition current;
+	private Stack<KeyCode> stack;
 	
-	boolean finished;
+	private boolean finished;
+	private double duration;
 	
-	public VoogaAnimation(Group element) {
-		group = element;
-		group.setLayoutY(200);
-		stack = new Stack<>();
+	public VoogaAnimation(GridPane grid) {
+		this.grid = grid;
+		
+		stack = new Stack<KeyCode>();
 		current = new TranslateTransition();
-		finished = true;
+		finished = false;
 	}
 	
 	public void handleKeyPress(KeyEvent e) {
-		System.out.println(e.getCode());
 		KeyCode code = e.getCode();
 		if (!stack.contains(code))
 			stack.push(code);
@@ -53,15 +51,13 @@ public class VoogaAnimation {
 	
 	public void process() {
 		if (!stack.isEmpty() && finished) {
-			System.out.println("uhfgf");
-			System.out.println(stack.peek());
-			current = buildPathTransition(stack.peek());
+			KeyCode code = stack.peek();
+			current = buildTransition(code);
 			current.setOnFinished(new EventHandler<ActionEvent>() {
 				
 				@Override
 				public void handle(ActionEvent event) {
 					finished = true;
-					process();
 				}
 			});
 			current.play();
@@ -69,9 +65,25 @@ public class VoogaAnimation {
 		}
 	}
 	
-	private TranslateTransition buildPathTransition(KeyCode code) {
-		TranslateTransition transition = new TranslateTransition(Duration.millis(2000), group);
-		transition.setByY(200);
+	private TranslateTransition buildTransition(KeyCode code) {
+		TranslateTransition transition = new TranslateTransition(Duration.millis(2000), grid.getGroup());
+		switch (code) {
+			case UP:
+				transition.setByY(grid.getBlockSize());
+				break;
+			case DOWN:
+				transition.setByY(-grid.getBlockSize());
+				break;
+			case RIGHT:
+				transition.setByX(-grid.getBlockSize());
+				break;
+			case LEFT:
+				transition.setByX(grid.getBlockSize());
+				break;
+			default:
+				break;
+			
+		}
 		return transition;
 	}
 }

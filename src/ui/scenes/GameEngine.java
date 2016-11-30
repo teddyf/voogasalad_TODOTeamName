@@ -95,7 +95,7 @@ public class GameEngine extends Scene {
 
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
-    	anim = new VoogaAnimation(gridPane.getGroup());
+    	anim = new VoogaAnimation(gridPane);
     	
     	//gd = new GridDisplayer(gridPane);
     	
