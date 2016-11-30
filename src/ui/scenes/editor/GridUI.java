@@ -3,7 +3,6 @@ package ui.scenes.editor;
 import editor.EditorController;
 import editor.SidePanel;
 import ui.GridPane;
-import ui.GridPaneNode;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
@@ -25,14 +24,14 @@ public class GridUI {
     private UIBuilder myBuilder;
     private Parent myRoot;
     private SidePanel myItemMenu;
-    private EditorController control;
+    private EditorController myController;
 
-    GridUI (Parent root, SidePanel itemMenu, ResourceBundle resources) {
+    GridUI (Parent root, SidePanel itemMenu, EditorController controller, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
         myResources = resources;
         myBuilder = new UIBuilder();
-        control = new EditorController();
+        myController = controller;
     }
 
     /**
@@ -88,9 +87,19 @@ public class GridUI {
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
         //TODO add interaction somewhere here as well
         swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected(),
-                                                          control));
+                myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
+    }
+    
+    public void loadGrid(int rowMax, int colMax){
+        myGridPane.loadReset();
+        for(int i = 0; i < rowMax; i++){
+            for(int j = 0; j < colMax; j++){
+                myGridPane.blockToGridPane(i, j, control.getBlock(i, j));
+            }
+        }
+        myGridPane.setRenderMap();
     }
 
     /**
@@ -106,7 +115,7 @@ public class GridUI {
                                   util.getIntProperty(myResources, "gridHeight"),
                                   util.getIntProperty(myResources, "gridX"),
                                   util.getIntProperty(myResources, "gridY"));
-        control.addGrid(gridHeight, gridWidth);
+        myController.addGrid(gridHeight, gridWidth);
         initGridControl();
     }
 

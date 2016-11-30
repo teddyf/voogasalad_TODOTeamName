@@ -1,21 +1,15 @@
 package ui.scenes.editor;
 
-import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import javafx.util.Pair;
 import resources.properties.PropertiesUtilities;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -35,63 +29,26 @@ public class SizeChooserUI extends Scene {
     private PropertiesUtilities myUtil;
     private GameEditor myEditor;
 
-    SizeChooserUI(Stage stage, Parent root, GameEditor editor, UIBuilder builder) {
+    SizeChooserUI(Stage stage, Parent root, GameEditor editor, UILauncher launcher, UIBuilder builder) {
         super(root, Color.web("#0585B2"));
         myStage = stage;
         myRoot = root;
+        myEditor = editor;
         myBuilder = builder;
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER_RESOURCES);
         myUtil = new PropertiesUtilities();
         root.getStylesheets().add(CSS_FILE_NAME);
-        myEditor = editor;
-    }
-
-    private boolean invalidValue(TextField width, TextField height) {
-        try {
-            int widthVal = Integer.parseInt(width.getText());
-            int heightVal = Integer.parseInt(height.getText());
-            return width.getText().trim().isEmpty() || height.getText().trim().isEmpty() || widthVal > 100 || heightVal > 100;
-        } catch (NumberFormatException e) {
-            return true;
-        }
+        myStage.setOnCloseRequest(e -> {
+            // closing the window takes you back to main menu
+            e.consume();
+            launcher.launchMenu();
+        });
     }
 
     private void setCustomSize() {
-        Dialog<Pair<Integer, Integer>> dialog = new Dialog<>();
-        dialog.setHeaderText("Please specify a custom width and height less than 100.");
-
-        ButtonType submitButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(submitButtonType, ButtonType.CANCEL);
-
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(20, 150, 10, 10));
-
-
-        TextField width = new TextField();
-        width.setPromptText("width");
-        TextField height = new TextField();
-        height.setPromptText("height");
-
-        grid.add(new Label("Width:"), 0, 0);
-        grid.add(width, 1, 0);
-        grid.add(new Label("Height:"), 0, 1);
-        grid.add(height, 1, 1);
-
-        Node submitButton = dialog.getDialogPane().lookupButton(submitButtonType);
-        submitButton.setDisable(true);
-
-        width.textProperty().addListener(e -> submitButton.setDisable(invalidValue(width, height)));
-        height.textProperty().addListener(e -> submitButton.setDisable(invalidValue(width, height)));
-        dialog.getDialogPane().setContent(grid);
-
-        dialog.showAndWait();
-        int widthVal = Integer.parseInt(width.getText());
-        int heightVal = Integer.parseInt(height.getText());
-        myEditor.launchEditor(widthVal, heightVal);
-
-
+        DimensionPrompt dimPrompt = new DimensionPrompt();
+        Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty(myResources,"maxDim"));
+        myEditor.launchEditor(result.width(), result.height());
     }
 
     private void setButtons() {
@@ -109,14 +66,14 @@ public class SizeChooserUI extends Scene {
         yPos = myUtil.getIntProperty(myResources, "medButtonY");
         path = myResources.getString("medButtonPath");
         Node medButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        int medSize = myUtil.getIntProperty(myResources, "smallSize");
+        int medSize = myUtil.getIntProperty(myResources, "medSize");
         medButton.setOnMouseClicked(e -> myEditor.launchEditor(medSize, medSize));
         // create large button
         xPos = myUtil.getIntProperty(myResources, "largeButtonX");
         yPos = myUtil.getIntProperty(myResources, "largeButtonY");
         path = myResources.getString("largeButtonPath");
         Node largeButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        int largeSize = myUtil.getIntProperty(myResources, "smallSize");
+        int largeSize = myUtil.getIntProperty(myResources, "largeSize");
         largeButton.setOnMouseClicked(e -> myEditor.launchEditor(largeSize, largeSize));
         // create custom button
         xPos = myUtil.getIntProperty(myResources, "customButtonX");
