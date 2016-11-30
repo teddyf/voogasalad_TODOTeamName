@@ -1,4 +1,4 @@
-package engine.backend;
+package engine;
 
 public class GameStatus {
 

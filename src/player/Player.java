@@ -3,6 +3,9 @@ package player;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import api.IPlayer;
 import editor.backend.Battle;
 import interactions.Interaction;
@@ -14,6 +17,7 @@ import editor.backend.Status;
  * @author Aninda Manocha
  */
 
+@XStreamAlias("player")
 public class Player implements IPlayer {
 	
 	private String myName;
