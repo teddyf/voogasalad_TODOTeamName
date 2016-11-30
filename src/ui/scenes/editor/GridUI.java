@@ -1,7 +1,7 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
-import editor.SidePanel;
+import editor.EditorSidePanel;
 import ui.GridPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -23,10 +23,10 @@ public class GridUI {
     private GridPane myGridPane;
     private UIBuilder myBuilder;
     private Parent myRoot;
-    private SidePanel myItemMenu;
+    private EditorSidePanel myItemMenu;
     private EditorController myController;
 
-    GridUI (Parent root, SidePanel itemMenu, EditorController controller, ResourceBundle resources) {
+    GridUI (Parent root, EditorSidePanel itemMenu, EditorController controller, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
         myResources = resources;
@@ -93,12 +93,16 @@ public class GridUI {
     }
     
     public void loadGrid(){
+        System.out.println(myGridPane.getNodeList());
         int colMax = myController.getCol();
         int rowMax = myController.getRow();
         myGridPane.loadReset();
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
+                System.out.println("here");
+                System.out.println(myController.getBlock(i,j));
                 myGridPane.blockToGridPane(i, j, myController.getBlock(i, j));
+
             }
         }
         myGridPane.setRenderMap();

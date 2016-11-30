@@ -1,7 +1,7 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
-import editor.SidePanel;
+import editor.EditorSidePanel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;

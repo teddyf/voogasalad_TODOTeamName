@@ -26,6 +26,8 @@ public class EngineController {
     }
 
     public EngineController(Player player, GridWorld gridWorld) {
+        xmlHandler = new GridXMLHandler();
+        gameInstances = new ArrayList<GameInstance>();
         gameInstance = new GameInstance(player, gridWorld);
     }
 
@@ -35,6 +37,16 @@ public class EngineController {
 
     public GameInstance getGameInstance() {
         return gameInstance;
+    }
+
+    /**
+     * Gets the block located in a specific row and column
+     * @param row - the specific row
+     * @param col - the specific column
+     * @return the block
+     */
+    public String getBlock(int row, int col) {
+        return gameInstance.getRenderedGrid().get(row, col);
     }
 
     public int getPlayerRow() {

@@ -7,31 +7,25 @@ import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
-import grid.*;
 import ObjectMenuObjects.*;
 import ui.builder.*;
 
 
-public class SidePanel {
+public class EditorSidePanel extends SidePanelBuilder {
     private static final String SIDEPANEL_RESOURCES = "resources/properties/item-panel";
     private Group myRegion;
     private ResourceBundle myResources;
     private UIBuilder myBuilder;
     private SidePanelMenuObjects handler;
 
-    public SidePanel (Group region) {
+    public EditorSidePanel (Group region) {
+    	super(region, SIDEPANEL_RESOURCES);
         myBuilder = new UIBuilder();
         handler = new SidePanelMenuObjects();
         myRegion = region;
@@ -39,21 +33,12 @@ public class SidePanel {
         initSidePanel();
     }
 
-    private Tab createTab (String label, ScrollPane scrollPane) {
-        Tab tab = new Tab();
-        tab.setText(myResources.getString(label));
-        tab.setContent(scrollPane);
-        tab.setClosable(false);
-        return tab;
-    }
 
     @Deprecated
     private void populatePane (ScrollPane pane, String label) {
         List<GameObjects> list;
         if (label.equals("decoration")) {
             list = handler.getDecorations();
-        }else if (label.equals("npc")) {
-        	list = handler.getPlayers();
         }
         else {
             list = handler.getObstacles();
@@ -82,8 +67,6 @@ public class SidePanel {
         List<GameObjects> list;
         if (label.equals("decoration")) {
             list = handler.getDecorations();
-        } else if (label.equals("npc")) {
-        	list = handler.getPlayers();
         }
         else {
             list = handler.getObstacles();

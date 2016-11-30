@@ -3,6 +3,7 @@ package ui.scenes;
 import engine.EngineController;
 import ui.FileBrowser;
 import ui.GridPane;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
 import java.util.ResourceBundle;
@@ -36,6 +38,8 @@ public class GameEngine extends Scene {
     private GridPane gridPane;
     
     private EngineController myController;
+    
+    private VoogaAnimation anim;
     
     private GridDisplayer gd;
 
@@ -77,7 +81,7 @@ public class GameEngine extends Scene {
     
     private void setUpGrid() {
     	
-    	EngineDisplayer ed = new EngineDisplayer(myController);
+    	//EngineDisplayer ed = new EngineDisplayer(myController);
     	
     	setUpKeys();
 
@@ -91,10 +95,25 @@ public class GameEngine extends Scene {
 
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
+    	anim = new VoogaAnimation(gridPane);
     	
-    	gd = new GridDisplayer(gridPane);
+    	//gd = new GridDisplayer(gridPane);
     	
+    	System.out.println(gridPane.getWidth());
+    	System.out.println(gridPane.getHeight());
+    	
+    	Character player = new Character();
+    	player.setColumn((int)(gridPane.getWidth()-1) /2);
+    	player.setRow(((int)gridPane.getHeight()-1) /2);
+
     	myBuilder.addComponent(myRoot, gridPane.getGroup());
+    	
+//    	Group g = new Group();
+//    	g.getChildren().add(player.getCharacterImageView());
+    	player.getCharacterImageView().setLayoutX(Integer.parseInt(myResources.getString("windowWidth"))/2);
+    	player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("windowHeight"))/2);
+    	myBuilder.addComponent(myRoot, player.getCharacterImageView());
+    	
     	
     	/*ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
@@ -135,28 +154,29 @@ public class GameEngine extends Scene {
     }
     
     private void setUpKeys() {
-    	setOnKeyPressed(e -> onKeyPress(e));
+    	setOnKeyPressed(e -> anim.handleKeyPress(e));
+    	setOnKeyReleased(e -> anim.handleKeyRelease(e));
     }
     
-    private void onKeyPress(KeyEvent e) {
-    	KeyCode code = e.getCode();
-    	switch (code) {
-    		case UP:
-    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
-    			//myController.keyListener(UserInstruction.UP);
-    			break;
-    		case DOWN:
-    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
-    			//myController.keyListener(UserInstruction.DOWN);
-    			break;
-    		case LEFT:
-    			//myController.keyListener(UserInstruction.LEFT);
-    			break;
-    		case RIGHT:
-    			//myController.keyListener(UserInstruction.RIGHT);
-    			break;
-    		default:
-    			break;
-    	}
-    }
+//    private void onKeyPress(KeyEvent e) {
+//    	KeyCode code = e.getCode();
+//    	switch (code) {
+//    		case UP:
+//    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
+//    			//myController.keyListener(UserInstruction.UP);
+//    			break;
+//    		case DOWN:
+//    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
+//    			//myController.keyListener(UserInstruction.DOWN);
+//    			break;
+//    		case LEFT:
+//    			//myController.keyListener(UserInstruction.LEFT);
+//    			break;
+//    		case RIGHT:
+//    			//myController.keyListener(UserInstruction.RIGHT);
+//    			break;
+//    		default:
+//    			break;
+//    	}
+//    }
 }
