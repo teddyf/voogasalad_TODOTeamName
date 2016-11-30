@@ -1,5 +1,7 @@
 package ui.builder;
 
+import javafx.scene.paint.Color;
+
 /**
  * @author Harshil Garg, Robert Steilberg
  *         <p>

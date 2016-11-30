@@ -25,7 +25,7 @@ import ui.builder.*;
 
 
 public class SidePanel {
-    private static final String SIDEPANEL_RESOURCES = "resources/sidepanel";
+    private static final String SIDEPANEL_RESOURCES = "resources/properties/item-panel";
     private Group myRegion;
     private ResourceBundle myResources;
     private UIBuilder myBuilder;
