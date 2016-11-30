@@ -80,6 +80,8 @@ public class GameInstance extends Observable implements IGameInstance {
 			case SOUTHWEST:
 				break;
 			case TALK:
+				newBlock.talkInteract("Hello");
+				break;
 			default:
 				//TODO: custom exception
 				break;
