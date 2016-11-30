@@ -1,9 +1,15 @@
 package engine;
 
+import api.IGameInstance;
 import block.Block;
 import engine.backend.GameStatus;
 import grid.Grid;
 import player.Player;
+
+/**
+ * This class holds all of the information pertaining to a game instance
+ *
+ */
 
 public class GameInstance implements IGameInstance {
 	
@@ -12,8 +18,11 @@ public class GameInstance implements IGameInstance {
 	private int myScore;
 	private GameStatus myStatus;
 	
-	public GameInstance() {
-		
+	public GameInstance(Player player, Grid grid) {
+	    myPlayer = player;
+	    myGrid = grid;
+	    myScore = 0;
+		myStatus = new GameStatus();
 	}
 	
 	public Player getPlayer() {
@@ -32,7 +41,7 @@ public class GameInstance implements IGameInstance {
 		return myStatus;
 	}
 	
-	public Player loadPlayer() {
+	/*public Player loadPlayer() {
 		return null;
 	}
 	
@@ -42,7 +51,7 @@ public class GameInstance implements IGameInstance {
 
 	public void resetPlayer() {
 
-	}
+	}*/
 	
 	public void movePlayer(UserInstruction input) {
 		Block newBlock = null; //TODO
@@ -80,14 +89,24 @@ public class GameInstance implements IGameInstance {
 			myPlayer.setCol(newBlock.getCol());
 		}
 	}
-	
+
+	/**
+	 * Determines if a block is within the bounds of the grid
+	 * @param block - the block
+	 * @return whether the block is in bounds
+	 */
 	private boolean inBounds(Block block) {
 		int row = myGrid.getNumRows();
 		int col = myGrid.getNumCols();
 		
 		return (block.getRow() >= 0 && block.getRow() < row && block.getCol() >= 0 && block.getCol() < col); 
 	}
-	
+
+    /**
+     * Determines if a block is walkable
+     * @param block - the block
+     * @return whether the block is walkable
+     */
 	private boolean isWalkable(Block block) {
 		return block.isWalkable();
 	}
