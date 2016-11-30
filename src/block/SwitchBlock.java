@@ -26,7 +26,7 @@ public abstract class SwitchBlock extends Block {
 
         // notify front end to change look of switch
         setChanged();
-        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, myRow, myCol));
+        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, getRow(), getCol()));
     }
 
     public void connectToGate(GateBlock gate) {
