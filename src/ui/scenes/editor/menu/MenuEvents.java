@@ -2,10 +2,9 @@ package ui.scenes.editor.menu;
 
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import ui.FileBrowser;
 import ui.UILauncher;
+import ui.scenes.editor.EditorIO;
 
-import java.io.File;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -18,35 +17,16 @@ public class MenuEvents {
 
     private Stage myStage;
     private UILauncher myLauncher;
+    private EditorIO myIO;
     private ResourceBundle myResources;
 
-    public MenuEvents(Stage stage, UILauncher launcher, ResourceBundle resources) {
+    public MenuEvents(Stage stage, UILauncher launcher, EditorIO IO, ResourceBundle resources) {
         myStage = stage;
         myLauncher = launcher;
+        myIO = IO;
         myResources = resources;
     }
 
-    /**
-     * Gets the path to a file to save
-     *
-     * @return a File object containing the path
-     */
-    private File saveGameFile() {
-        File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
-        System.out.println(gameFile.getAbsolutePath());
-
-        return gameFile;
-    }
-
-    /**
-     * Gets the path to a file to open
-     *
-     * @return a File object containing the path
-     */
-    private File openGameFile() {
-        File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
-        return gameFile;
-    }
 
     /**
      * Initializes a fresh instance of the VOOGA editor, prompting the user
@@ -62,9 +42,8 @@ public class MenuEvents {
         alert.getButtonTypes().setAll(cancel, noSave, save);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == save) {
-            File savedFile = saveGameFile();
-            if (savedFile != null) {
-                // save file
+            boolean savedFile = myIO.saveEditorFile();
+            if (savedFile) {
                 myLauncher.launchMenu();
             }
         } else if (result.get() == noSave) {
@@ -123,12 +102,16 @@ public class MenuEvents {
         firstMenu.getItems().add(itemNew);
 
         MenuItem itemOpen = new MenuItem("Open");
-        itemOpen.setOnAction(e -> openGameFile());
+        itemOpen.setOnAction(e -> myIO.openEditorFile());
         firstMenu.getItems().add(itemOpen);
 
         MenuItem itemSave = new MenuItem("Save");
-        itemSave.setOnAction(e -> saveGameFile());
+        itemSave.setOnAction(e -> myIO.saveEditorFile());
         firstMenu.getItems().add(itemSave);
+
+        MenuItem itemExport = new MenuItem("Export game");
+        itemExport.setOnAction(e -> myIO.saveGameFile());
+        firstMenu.getItems().add(itemExport);
 
         MenuItem itemExit = new MenuItem("Exit");
         itemExit.setOnAction(e -> exitPrompt());

@@ -6,6 +6,7 @@ import javafx.scene.control.MenuBar;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.EditorIO;
 
 import java.util.ResourceBundle;
 
@@ -23,12 +24,14 @@ public class MenuBarUI {
     private MenuBar myMenuBar;
     private UIBuilder myBuilder;
     private UILauncher myLauncher;
+    private EditorIO myIO;
 
-    public MenuBarUI(Stage stage, Parent root, UILauncher launcher, ResourceBundle resources) {
+    public MenuBarUI(Stage stage, Parent root, UILauncher launcher, EditorIO IO, ResourceBundle resources) {
         myStage = stage;
         myRoot = root;
         myResources = resources;
         myLauncher = launcher;
+        myIO = IO;
         myBuilder = new UIBuilder();
     }
 
@@ -39,7 +42,7 @@ public class MenuBarUI {
     public void initMenuBar() {
         myMenuBar = new MenuBar();
         myMenuBar.prefWidthProperty().bind(myStage.widthProperty());
-        MenuEvents events = new MenuEvents(myStage, myLauncher, myResources);
+        MenuEvents events = new MenuEvents(myStage, myLauncher, myIO, myResources);
         Menu firstMenu = new Menu(myResources.getString("firstMenu"));
         events.addFirstMenuEvents(firstMenu);
         Menu secondMenu = new Menu(myResources.getString("secondMenu"));

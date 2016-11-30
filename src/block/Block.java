@@ -1,5 +1,6 @@
 package block;
 
+import interactions.GiveMessageOnInteract;
 import interactions.Interaction;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,9 +30,14 @@ public abstract class Block extends Observable implements ShallowBlock {
         myInteractions = new ArrayList<>();
     }
 
-    public void interactWithPlayer() {
+    public void stepInteract() {
         for (Interaction i : myInteractions) {
-            i.act();
+            i.actOnStep();
+        }
+    }
+    public void talkInteract(String message){
+        for(Interaction i : myInteractions){
+            i.actOnTalk(message);
         }
     }
 
