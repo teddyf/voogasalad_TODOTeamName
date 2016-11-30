@@ -143,8 +143,9 @@ public class GridPane {
         this.renderMap = new HashMap<Double, Map<Double, GridPaneNode>>();
     }
 
-    public void swap (GameObjects obj, EditorController control) {
+    public List<GridPaneNode> swap (GameObjects obj, EditorController control) {
         List<GridPaneNode> list = obj.getList();
+        List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
         for (int i = 0; i < clicked.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
@@ -155,8 +156,11 @@ public class GridPane {
                 control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
             }
             clicked.get(i).getImage().setEffect(null);
+            copy = clicked;
         }
         clicked = new ArrayList<GridPaneNode>();
+        System.out.println(copy);
+        return copy;
         
     }
 

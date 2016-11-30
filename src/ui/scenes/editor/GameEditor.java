@@ -38,25 +38,26 @@ public class GameEditor extends Scene {
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
-        menuBar.initMenuBar();
-        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
-        // create editorController
 
-        // get controllers in here
-        // get filename from IO class
-        // call save/open within controller class
+        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
+
         EditorController editorController = new EditorController();
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), editorController, myResources);
         grid.initGrid(width,height);
 
-//        editorController.saveEditor("f")
+
+        EditorIO IO = new EditorIO(myStage,editorController,myResources);
+
+        MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,IO,myResources);
+        menuBar.initMenuBar();
+
+//        editorController.saveEngine("f") // exporting finished game
+//        EngineController loadedEngine = editorController.runEngine(); // running test
 
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
-            MenuEvents events = new MenuEvents(myStage,myLauncher,myResources);
-            events.newVOOGA();
+            new MenuEvents(myStage,myLauncher,IO,myResources).exitPrompt();
         });
         myStage.setScene(this);
     }
