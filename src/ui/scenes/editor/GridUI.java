@@ -1,5 +1,6 @@
 package ui.scenes.editor;
 
+import editor.EditorController;
 import editor.SidePanel;
 import ui.GridPane;
 import ui.GridPaneNode;
@@ -24,12 +25,14 @@ public class GridUI {
     private UIBuilder myBuilder;
     private Parent myRoot;
     private SidePanel myItemMenu;
+    private EditorController control;
 
     GridUI(Parent root, SidePanel itemMenu, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
         myResources = resources;
         myBuilder = new UIBuilder();
+        control = new EditorController();
     }
 
     /**
@@ -77,7 +80,7 @@ public class GridUI {
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
-        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected().getList()));
+        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected(),control));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
     }

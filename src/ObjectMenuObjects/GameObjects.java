@@ -37,6 +37,10 @@ public abstract class GameObjects {
         return type;
     }
     
+    public BlockType getBlockType(){
+        return blockType;
+    }
+    
     public String getPath(){
         return path+".png";
     }
