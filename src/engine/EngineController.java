@@ -18,6 +18,7 @@ public class EngineController {
     private GridXMLHandler xmlHandler;
     private GameInstance gameInstance;
     private List<GameInstance> gameInstances;
+    private int gameInstanceIndex;
 
     public EngineController() {
         xmlHandler = new GridXMLHandler();
@@ -30,6 +31,10 @@ public class EngineController {
 
     public void keyListener(UserInstruction input) {
         gameInstance.processInput(input);
+    }
+
+    public GameInstance getGameInstance() {
+        return gameInstance;
     }
 
     public int getPlayerRow() {

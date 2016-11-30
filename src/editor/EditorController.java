@@ -66,10 +66,20 @@ public class EditorController {
         currentGrid.getBlock(row, col).addInteraction(interaction);
     }
 
+    /*****METHODS FOR FRONTEND TO CALL*****/
+
+    /**
+     * Gets the row in which the player is located
+     * @return the row
+     */
     public int getRow() {
         return myNumRows;
     }
 
+    /**
+     * Gets the column in which the player is located
+     * @return the column
+     */
     public int getCol() {
         return myNumColumns;
     }
@@ -94,6 +104,6 @@ public class EditorController {
     }
 
     public EngineController runEngine() {
-        return new EngineController(player, gridWorld);
+        return (new EngineController(player, gridWorld));
     }
 }
