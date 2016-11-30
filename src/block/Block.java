@@ -13,6 +13,8 @@ import java.util.List;
  */
 public abstract class Block implements ShallowBlock {
 
+
+
     private BlockType myBlockType;
     private String myName;
     private int myRow;
@@ -61,7 +63,7 @@ public abstract class Block implements ShallowBlock {
         return Collections.unmodifiableList(myInteractions);
     }
 
-    protected boolean addInteraction(Interaction someInteraction) {
+    public boolean addInteraction(Interaction someInteraction) {
         return myInteractions.add(someInteraction);
     }
 

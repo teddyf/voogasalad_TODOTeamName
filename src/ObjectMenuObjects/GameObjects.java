@@ -15,10 +15,11 @@ public abstract class GameObjects {
     protected BlockType blockType;
     
     public GameObjects(){
-        list = new ArrayList<GridPaneNode>();
+        list = new ArrayList<>();
         populateList();
         this.imageView = new ImageView();
     }
+
     public List<GridPaneNode> getList(){
         return list;
     }
@@ -35,6 +36,10 @@ public abstract class GameObjects {
     
     public String getType(){
         return type;
+    }
+    
+    public BlockType getBlockType(){
+        return blockType;
     }
     
     public String getPath(){
