@@ -1,6 +1,5 @@
 package block;
 
-import interactions.GiveMessageOnInteract;
 import interactions.Interaction;
 import java.util.ArrayList;
 import java.util.Collections;

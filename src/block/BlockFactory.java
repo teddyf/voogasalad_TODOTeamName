@@ -28,6 +28,6 @@ public class BlockFactory {
             System.out.println(e.toString());
         }
         // TODO:  add to resource file
-        return new DecorationBlock(BlockType.DECORATION, "resources/Default.png", row, col); // TODO: better default? Currently just place a default square
+        return new DecorationBlock("resources/Default.png", row, col); // TODO: better default? Currently just place a default square
     }
 }

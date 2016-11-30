@@ -63,8 +63,8 @@ public class GridXMLHandler {
 		xstream.processAnnotations(Grid.class);
 		xstream.processAnnotations(Player.class);
 		
-		BlockAliasFactory factory = new BlockAliasFactory(xstream);
-		factory.setAlias();
+//		BlockAliasFactory factory = new BlockAliasFactory(xstream);
+//		factory.setAlias();
 	}
 	
 	/**
@@ -77,7 +77,7 @@ public class GridXMLHandler {
 		Grid grid = new Grid(2, 2);
 		for (int row = 0; row < grid.getNumRows(); row++) {
 			for (int col = 0; col < grid.getNumCols(); col++) {
-				grid.setBlock(row, col, new CommunicatorBlock(BlockType.COMMUNICATOR, "Test Block", row, col));
+				grid.setBlock(row, col, new CommunicatorBlock("Test Block", row, col));
 			}
 		}
 		gridWorld.addGrid(grid);

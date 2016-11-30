@@ -32,7 +32,7 @@ public class Grid extends Observable implements IGrid {
     private void initializeGrid() {
         for(int i = 0; i < myNumRows; i++) {
             for(int j = 0; j < myNumColumns; j++) {
-                myGrid[i][j] = new DecorationBlock(BlockType.DECORATION, "resources/Default.png", i, j);
+                myGrid[i][j] = new DecorationBlock("resources/Default.png", i, j);
             }
         }
     }
