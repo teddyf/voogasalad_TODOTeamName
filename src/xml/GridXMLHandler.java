@@ -1,18 +1,21 @@
 package xml;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
-import block.Block;
-import block.BlockType;
+import block.CommunicatorBlock;
 import grid.Grid;
+import grid.GridWorld;
+import player.Player;
 
 /**
- * Handles saving a grid of Blocks to XML.
- * Handles loading a  grid of Blocks from XML.
+ * Handles saving a GridWorld and PLayer to XML.
+ * Handles loading a GridWorld and Player from XML.
  * 
  * @author Daniel Chai
  */
@@ -25,50 +28,41 @@ public class GridXMLHandler {
 	}
 	
 	/**
-	 * Returns the XML String that represents a grid of blocks.
+	 * Saves the XML file representing a GridWorld and Player.
+	 * Returns the success/failure of the operation.
 	 */
-	public String saveGrid(Grid grid) {
-		Blocks blocks = new Blocks();
+	public boolean saveContents(String filePath, GridWorld gridWorld, Player player) {
+		String fileContent = xstream.toXML(new GridWorldAndPlayer(gridWorld, player));
 		
-		for (int row = 0; row < grid.getNumRows(); row++) {
-			for (int col = 0; col < grid.getNumCols(); col++) {
-				Block block = grid.getBlock(row, col);
-				blocks.addBlock(block);
-			}
+		try { 
+			File file = new File(filePath);
+			BufferedWriter out = new BufferedWriter(new FileWriter(file));
+			out.write(fileContent);
+			out.close();
+			
+			return true;
 		}
-		
-		return xstream.toXML(blocks);
+		catch (IOException ex) {
+			return false;
+		}
 	}
 	
 	/**
-	 * Returns the grid of blocks represented by a XML String.
+	 * Returns the GridWorld and Player represented by a XML file.
 	 */
-	public Grid loadGrid(String xmlConent) {
-		Blocks blocks = (Blocks)xstream.fromXML(xmlConent);
-		List<Block> blockList = blocks.getBlocks();
-		
-		if (blockList.size() == 0) {
-			return new Grid(0, 0);
-		}
-		
-		Block lastBlock = blockList.get(blockList.size() - 1);
-		int numRows = lastBlock.getRow() + 1;
-		int numCols = lastBlock.getCol() + 1;
-		
-		Grid grid = new Grid(numRows, numCols);
-		
-		for (int i = 0; i < blockList.size(); i++) {
-			Block currBlock = blockList.get(i);
-//			grid.setBlock(currBlock.getRow(), currBlock.getCol(), currBlock.getName(),
-//					currBlock.getBlockType(), new ArrayList<Object>());
-		}
-		
-		return grid;
+	public GridWorldAndPlayer loadContents(String filePath) {
+		File file = new File(filePath);
+		return (GridWorldAndPlayer)xstream.fromXML(file);
 	}
 	
 	private void initXStream() {
-		xstream.alias("blocks", Blocks.class);
-		xstream.addImplicitCollection(Blocks.class, "blockList");
+		xstream.processAnnotations(GridWorldAndPlayer.class);
+		xstream.processAnnotations(GridWorld.class);
+		xstream.processAnnotations(Grid.class);
+		xstream.processAnnotations(Player.class);
+		
+		BlockAliasFactory factory = new BlockAliasFactory(xstream);
+		factory.setAlias();
 	}
 	
 	/**
@@ -77,23 +71,18 @@ public class GridXMLHandler {
 	public static void main(String[] args) {
 		GridXMLHandler test = new GridXMLHandler();
 		
-		// makes test grid of blocks
-		Grid grid = new Grid(3, 3);
+		GridWorld gridWorld = new GridWorld();
+		Grid grid = new Grid(2, 2);
 		for (int row = 0; row < grid.getNumRows(); row++) {
 			for (int col = 0; col < grid.getNumCols(); col++) {
-//				grid.setBlock(row, col, "", BlockType.COMMUNICATOR, new ArrayList<Object>());
+				grid.setBlock(row, col, new CommunicatorBlock("Test Block", row, col));
 			}
 		}
+		gridWorld.addGrid(grid);
+		Player player = new Player("Test Player", 0, 0);
 		
-		// converts grid to xml
-		String xml = test.saveGrid(grid);
-		System.out.println(xml);
-		
-		// converts xml to new grid
-		// converts new grid to new xml
-		// checks xml is same as new xml
-		Grid newGrid = test.loadGrid(xml);
-		String newXml = test.saveGrid(newGrid);
-		System.out.println(xml.equals(newXml));
+		test.saveContents("data/gamefiles/test.xml", gridWorld, player);
+		GridWorldAndPlayer contents = test.loadContents("data/gamefiles/test.xml");
+		test.saveContents("data/gamefiles/test2.xml", contents.getGridWorld(), contents.getPlayer());
 	}
 }

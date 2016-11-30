@@ -60,7 +60,7 @@ public class GridPaneNode {
         Image image = new Image(node.getName());
         this.imageView.setImage(image);
         this.imageNum = node.getImageNum();
-        this.name = type;
+        this.name = node.getName();
     }
     
     //Getters
