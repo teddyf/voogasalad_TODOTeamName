@@ -28,13 +28,6 @@ public class EditorIO {
         myGrid = grid;
     }
 
-//    public void openGameFile() {
-//        File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("gameFilePath"));
-//        if (gameFile != null) {
-//            myEngineController.loadEngine(gameFile.getAbsolutePath());
-//        }
-//    }
-
     public boolean saveGameFile() {
         File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile != null) {
@@ -42,6 +35,14 @@ public class EditorIO {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public void openGameFile() {
+        File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
+        if (gameFile != null) {
+            myEngineController.loadEngine(gameFile.getAbsolutePath());
+            myGrid.loadGrid();
         }
     }
 
