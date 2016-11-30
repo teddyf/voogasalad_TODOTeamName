@@ -6,6 +6,7 @@ import block.BlockType;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
+import interactions.Interaction;
 
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
@@ -40,7 +41,9 @@ public class EditorController {
         Block block = blockFactory.createBlock(name, blockType, row, col);
         currentGrid.setBlock(row, col, block);
     }
-
+    public void addInteraction(int row, int col, Interaction interaction){
+        currentGrid.getBlock(row, col).addInteraction(interaction);
+    }
     public int getRow() {
         return myNumRows;
     }
