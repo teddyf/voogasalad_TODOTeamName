@@ -46,7 +46,7 @@ public class GridPaneNode {
     }
     
     private void setInitialImage(){
-        Image image = new Image(DEFAULT_IMAGE_PATH);
+        Image image = new Image(name);
         imageView.setImage(image);
     }
     

@@ -16,38 +16,28 @@ public class GridDisplayer {
 		myGridPaneRunnable = new GridPaneRunnable(gridPane);
 	}
 	
-//	public Group updateDisplay(int charPositionX, int charPositionY){
-//		Group displayGroup = new Group();
-//		GridPaneNode[][] displayGrid = myGridPaneRunnable.displayGrid(charPositionX, charPositionY);
-//		for (int i=0; i < displayGrid.length; i++) {
-//			Group rowGroup = new Group();
-//			for (int j=0; j<displayGrid[0].length; j++) {
-//				rowGroup.getChildren().add(displayGrid[i][j].getImage());
-//				System.out.println(displayGrid[i][j].getImageNum());
-//			}
-//			displayGroup.getChildren().add(rowGroup);
-//		}
-//		return displayGroup;
-//	}
-	
 	public void updateDisplay(Group gridRegion, PlayerDirection direction) {
 		switch (direction) {
 		case NORTH:
-			gridRegion.setTranslateX(CELL_SIZE);
+			gridRegion.setTranslateY(-CELL_SIZE);
 		case EAST:
-		
+			gridRegion.setTranslateX(-CELL_SIZE);
 		case WEST:
-		
+			gridRegion.setTranslateX(CELL_SIZE);
 		case SOUTH:
-		
+			gridRegion.setTranslateY(CELL_SIZE);
 		case NORTHWEST:
-			
+			gridRegion.setTranslateY(-CELL_SIZE);
+			gridRegion.setTranslateX(CELL_SIZE);
 		case NORTHEAST:
-			
+			gridRegion.setTranslateY(-CELL_SIZE);
+			gridRegion.setTranslateX(-CELL_SIZE);
 		case SOUTHWEST:
-			
+			gridRegion.setTranslateY(CELL_SIZE);
+			gridRegion.setTranslateX(CELL_SIZE);
 		case SOUTHEAST:
-			
+			gridRegion.setTranslateY(CELL_SIZE);
+			gridRegion.setTranslateX(-CELL_SIZE);
 		}
 	}
 	

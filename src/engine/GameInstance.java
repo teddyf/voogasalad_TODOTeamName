@@ -22,10 +22,10 @@ public class GameInstance extends Observable implements IGameInstance {
 	private int myScore;
 	private GameStatus myStatus;
 	
-	public GameInstance(GridXMLHandler xmlHandler) {
-	    //myPlayer = xmlHandler.getPlayer();
-	    //myGridWorld = xmlHandler.getGridWorld();
-	    //myGrid = myGridWorld;
+	public GameInstance(Player player, GridWorld gridWorld) {
+	    myPlayer = player;
+	    myGridWorld = gridWorld;
+	    myGrid = myGridWorld.getCurrentGrid();
 	    myScore = 0;
 		myStatus = new GameStatus();
 	}
@@ -33,7 +33,11 @@ public class GameInstance extends Observable implements IGameInstance {
 	public Player getPlayer() {
 		return myPlayer;
 	}
-	
+
+	public GridWorld getGridWorld() {
+	    return myGridWorld;
+    }
+
 	public Grid getGrid() {
 		return myGrid;
 	}
@@ -46,17 +50,13 @@ public class GameInstance extends Observable implements IGameInstance {
 		return myStatus;
 	}
 	
-	/*public Player loadPlayer() {
-		return null;
-	}
-	
-	public void savePlayer() {
-		
+	public void setPlayer(Player player) {
+	    myPlayer = player;
 	}
 
 	public void resetPlayer() {
 
-	}*/
+	}
 	
 	public void processInput(UserInstruction input) {
 		Block newBlock = null; //TODO

@@ -33,10 +33,13 @@ public class GameEngine extends Scene {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private GridPane gridPane;
+<<<<<<< HEAD
     private GridDisplayer myGridDisplayer;
     private Group gridRegion;
+=======
     
     private EngineController myController;
+>>>>>>> d234929b7eac83ec9e77275c7f032ee25187f07f
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
         super(root);
