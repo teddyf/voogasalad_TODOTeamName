@@ -23,7 +23,7 @@ public class Character {
 	public static final int INITIAL_COL = 0;
 	public static final int INITIAL_X = 0;
 	public static final int INITIAL_Y = 0;
-	private final String PATH = "resources/images/Sprites/Character/Pokemon/pokemon.gif";
+	private final String PATH = "resources/images/Sprites/Character/Pokemon/default.png";
 	Character(GameEngine gameEngine) {
 		buildCharacter();
 		gameEngine.setOnKeyPressed(e -> handleKeyInput(e.getCode()));

@@ -46,6 +46,8 @@ public class GameEditor extends Scene {
         MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
         menuBar.initMenuBar();
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
+        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources);
+        playerMenu.initPlayerMenu();
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
         grid.initGrid(width,height);
         myStage.setScene(this);
