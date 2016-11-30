@@ -3,6 +3,7 @@ package ui.scenes;
 import engine.EngineController;
 import ui.FileBrowser;
 import ui.GridPane;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
@@ -94,7 +95,21 @@ public class GameEngine extends Scene {
     	
     	gd = new GridDisplayer(gridPane);
     	
+    	System.out.println(gridPane.getWidth());
+    	System.out.println(gridPane.getHeight());
+    	
+    	Character player = new Character();
+    	player.setColumn((int)(gridPane.getWidth()-1) /2);
+    	player.setRow(((int)gridPane.getHeight()-1) /2);
+
     	myBuilder.addComponent(myRoot, gridPane.getGroup());
+    	
+//    	Group g = new Group();
+//    	g.getChildren().add(player.getCharacterImageView());
+    	player.getCharacterImageView().setLayoutX(Integer.parseInt(myResources.getString("windowWidth"))/2);
+    	player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("windowHeight"))/2);
+    	myBuilder.addComponent(myRoot, player.getCharacterImageView());
+    	
     	
     	/*ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
