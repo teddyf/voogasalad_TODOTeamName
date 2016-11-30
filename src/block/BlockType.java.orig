@@ -12,7 +12,13 @@ public enum BlockType {
     ENEMY,
     GATE,
     OBSTACLE,
-    PORTAL,
+<<<<<<< HEAD:src/grid/BlockType.java
+    COMMUNICATOR,
+    ENEMY,
+    PORTAL
+}
+=======
     SWITCH_FLOOR,
     SWITCH_TOUCH
 }
+>>>>>>> c19f44982f4f452c3d9f4e7f89543b42cd79e23d:src/block/BlockType.java
