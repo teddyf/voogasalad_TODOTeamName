@@ -18,6 +18,8 @@ public class EditorController {
     private BlockFactory blockFactory;
     private Grid currentGrid;
     private RenderedGrid renderedGrid;
+    private int myNumRows;
+    private int myNumColumns;
 
     public EditorController() {
         gridWorld = new GridWorld();
@@ -30,11 +32,21 @@ public class EditorController {
         gridWorld.updateGrid();
         currentGrid = newGrid;
         renderedGrid = new RenderedGrid(newGrid);
+        myNumRows =  currentGrid.getNumRows();
+        myNumColumns = currentGrid.getNumCols();
     }
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
         Block block = blockFactory.createBlock(name, blockType, row, col);
         currentGrid.setBlock(row, col, block);
+    }
+
+    public int getRow() {
+        return myNumRows;
+    }
+
+    public int getCol() {
+        return myNumColumns;
     }
 
     public String getBlock(int row, int col) {
