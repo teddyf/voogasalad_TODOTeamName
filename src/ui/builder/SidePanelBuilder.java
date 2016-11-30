@@ -8,7 +8,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 
 public class SidePanelBuilder {
-    private static final String SIDEPANEL_RESOURCES = "resources/sidepanel";
     private Group myRegion;
     private ResourceBundle myResources;
     private UIBuilder myBuilder;

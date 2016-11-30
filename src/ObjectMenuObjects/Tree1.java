@@ -1,4 +1,5 @@
 package ObjectMenuObjects;
+import block.BlockType;
 import javafx.scene.image.Image;
 import ui.GridPaneNode;
 
@@ -10,6 +11,7 @@ public class Tree1 extends GameObjects{
         this.imageView.setImage(image);
         type = "tree1";
         path = "resources/images/Sprites/Obstacle/Tree/tree1";
+        blockType = BlockType.OBSTACLE;
     }
 
     @Override

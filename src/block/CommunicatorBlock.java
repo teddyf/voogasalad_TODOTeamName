@@ -12,6 +12,4 @@ public class CommunicatorBlock extends Block implements NotWalkable {
         super(name, BlockType.COMMUNICATOR, row, col);
         setWalkableStatus(IS_WALKABLE); // tentative. What about letters on the floor, etc.
     }
-
-
 }

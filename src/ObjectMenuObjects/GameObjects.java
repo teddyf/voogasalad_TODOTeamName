@@ -3,6 +3,7 @@ import java.util.*;
 
 import javafx.scene.image.ImageView;
 import ui.GridPaneNode;
+import block.*;
 
 
 public abstract class GameObjects {
@@ -11,12 +12,14 @@ public abstract class GameObjects {
     protected String type;
     protected List<GridPaneNode> list;
     protected ImageView imageView;
+    protected BlockType blockType;
     
     public GameObjects(){
-        list = new ArrayList<GridPaneNode>();
+        list = new ArrayList<>();
         populateList();
         this.imageView = new ImageView();
     }
+
     public List<GridPaneNode> getList(){
         return list;
     }
@@ -33,6 +36,10 @@ public abstract class GameObjects {
     
     public String getType(){
         return type;
+    }
+    
+    public BlockType getBlockType(){
+        return blockType;
     }
     
     public String getPath(){

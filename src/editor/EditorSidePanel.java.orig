@@ -17,8 +17,13 @@ import ObjectMenuObjects.*;
 import ui.builder.*;
 
 
+<<<<<<< HEAD:src/editor/EditorSidePanel.java
 public class EditorSidePanel extends SidePanelBuilder {
+    private static final String SIDEPANEL_RESOURCES = "resources/sidepanel";
+=======
+public class SidePanel {
     private static final String SIDEPANEL_RESOURCES = "resources/properties/item-panel";
+>>>>>>> 653e1ff5812fa483a5933f23f8a8ea9c417d2734:src/editor/SidePanel.java
     private Group myRegion;
     private ResourceBundle myResources;
     private UIBuilder myBuilder;

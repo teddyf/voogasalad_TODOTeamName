@@ -1,6 +1,7 @@
 package ObjectMenuObjects;
 
 import ui.GridPaneNode;
+import block.BlockType;
 import javafx.scene.image.Image;
 
 public class Grass1 extends GameObjects {
@@ -11,6 +12,7 @@ public class Grass1 extends GameObjects {
 	        this.imageView.setImage(image);
 	        type = "flower";
 	        path = PATH;
+	        blockType = BlockType.DECORATION;
 	    }
 
 	    @Override

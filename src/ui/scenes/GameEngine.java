@@ -21,21 +21,21 @@ import java.util.ResourceBundle;
  */
 public class GameEngine extends Scene {
 
-    private static final String ENGINE_RESOURCES = "resources/properties/gameengine";
+    private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 	private Stage myStage;
-    private UILauncher myLauncher;
     private Parent myRoot;
+    private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private GridPane gridPane;
     private GridDisplayer myGridDisplayer;
     private Group gridRegion;
 
-    public GameEngine(Stage stage, UILauncher launcher, Parent root) {
+    public GameEngine(Stage stage, Parent root, UILauncher launcher) {
         super(root);
         myStage = stage;
-        myLauncher = launcher;
         myRoot = root;
+        myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
         gridRegion = myBuilder.addRegion(-50, -50);
