@@ -39,6 +39,8 @@ public class GameEngine extends Scene {
     
     private EngineController myController;
     
+    private VoogaAnimation anim;
+    
     private GridDisplayer gd;
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
@@ -79,7 +81,7 @@ public class GameEngine extends Scene {
     
     private void setUpGrid() {
     	
-    	EngineDisplayer ed = new EngineDisplayer(myController);
+    	//EngineDisplayer ed = new EngineDisplayer(myController);
     	
     	setUpKeys();
 
@@ -93,8 +95,9 @@ public class GameEngine extends Scene {
 
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
+    	anim = new VoogaAnimation(gridPane);
     	
-    	gd = new GridDisplayer(gridPane);
+    	//gd = new GridDisplayer(gridPane);
     	
     	System.out.println(gridPane.getWidth());
     	System.out.println(gridPane.getHeight());
@@ -151,28 +154,29 @@ public class GameEngine extends Scene {
     }
     
     private void setUpKeys() {
-    	setOnKeyPressed(e -> onKeyPress(e));
+    	setOnKeyPressed(e -> anim.handleKeyPress(e));
+    	setOnKeyReleased(e -> anim.handleKeyRelease(e));
     }
     
-    private void onKeyPress(KeyEvent e) {
-    	KeyCode code = e.getCode();
-    	switch (code) {
-    		case UP:
-    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
-    			//myController.keyListener(UserInstruction.UP);
-    			break;
-    		case DOWN:
-    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
-    			//myController.keyListener(UserInstruction.DOWN);
-    			break;
-    		case LEFT:
-    			//myController.keyListener(UserInstruction.LEFT);
-    			break;
-    		case RIGHT:
-    			//myController.keyListener(UserInstruction.RIGHT);
-    			break;
-    		default:
-    			break;
-    	}
-    }
+//    private void onKeyPress(KeyEvent e) {
+//    	KeyCode code = e.getCode();
+//    	switch (code) {
+//    		case UP:
+//    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
+//    			//myController.keyListener(UserInstruction.UP);
+//    			break;
+//    		case DOWN:
+//    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
+//    			//myController.keyListener(UserInstruction.DOWN);
+//    			break;
+//    		case LEFT:
+//    			//myController.keyListener(UserInstruction.LEFT);
+//    			break;
+//    		case RIGHT:
+//    			//myController.keyListener(UserInstruction.RIGHT);
+//    			break;
+//    		default:
+//    			break;
+//    	}
+//    }
 }
