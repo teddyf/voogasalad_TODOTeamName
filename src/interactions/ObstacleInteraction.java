@@ -13,7 +13,7 @@ public class ObstacleInteraction extends AbstractInteraction{
     public ObstacleInteraction(ObstacleBlock o){
         obstacle = o;
     }
-    public void act(){
-        getCurrentAction().act();
+    public void actOnStep(){
+        getCurrentAction().actOnStep();
     }
 }

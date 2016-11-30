@@ -5,10 +5,11 @@ import ui.FileBrowser;
 import ui.GridPane;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 
@@ -35,6 +36,8 @@ public class GameEngine extends Scene {
     private GridPane gridPane;
     
     private EngineController myController;
+    
+    private GridDisplayer gd;
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
         super(root);
@@ -66,19 +69,15 @@ public class GameEngine extends Scene {
         gameController.loadEngine(gameFile.getAbsolutePath());
 
     	
-    	setUpPane();
+    	setUpGrid();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
+    	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;
     }
     
-    private void setUpPane() {
-    	Pane pane = new Pane();
-    	myBuilder.addComponent(myRoot, pane);
-    	Character character = new Character(this);
-		pane.getChildren().add(character.getCharacterImageView());
-    }
-
     private void setUpGrid() {
+    	
+    	EngineDisplayer ed = new EngineDisplayer(myController);
     	
     	setUpKeys();
 
@@ -89,6 +88,11 @@ public class GameEngine extends Scene {
                              Integer.parseInt(myResources.getString("gridHeight")),
                              Integer.parseInt(myResources.getString("gridX")),
                              Integer.parseInt(myResources.getString("gridY")));
+
+    	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
+    	//gridPane.setRenderMap();
+    	
+    	gd = new GridDisplayer(gridPane);
     	
     	myBuilder.addComponent(myRoot, gridPane.getGroup());
     	
@@ -138,16 +142,18 @@ public class GameEngine extends Scene {
     	KeyCode code = e.getCode();
     	switch (code) {
     		case UP:
-    			myController.keyListener(UserInstruction.UP);
+    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
+    			//myController.keyListener(UserInstruction.UP);
     			break;
     		case DOWN:
-    			myController.keyListener(UserInstruction.DOWN);
+    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
+    			//myController.keyListener(UserInstruction.DOWN);
     			break;
     		case LEFT:
-    			myController.keyListener(UserInstruction.LEFT);
+    			//myController.keyListener(UserInstruction.LEFT);
     			break;
     		case RIGHT:
-    			myController.keyListener(UserInstruction.RIGHT);
+    			//myController.keyListener(UserInstruction.RIGHT);
     			break;
     		default:
     			break;

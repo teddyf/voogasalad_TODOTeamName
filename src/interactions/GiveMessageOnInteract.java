@@ -14,7 +14,12 @@ public class GiveMessageOnInteract extends AbstractInteraction {
         communicator = block;
     }
     @Override
-    public void act(){
-        getCurrentAction().act();
+    public void actOnStep(){
+        //like an obstacle
+        //getCurrentAction().act();
+    }
+    public void actOnTalk(String message){
+        //add all the code to add message and stuff here
+
     }
 }
