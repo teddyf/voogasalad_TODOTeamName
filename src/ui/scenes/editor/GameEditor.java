@@ -1,5 +1,6 @@
 package ui.scenes.editor;
 
+import editor.EditorController;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -41,12 +42,14 @@ public class GameEditor extends Scene {
         menuBar.initMenuBar();
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
         // create editorController
-        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
 
         // get controllers in here
         // get filename from IO class
         // call save/open within controller class
+        EditorController editorController = new EditorController();
+        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), editorController, myResources);
         grid.initGrid(width,height);
+
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
