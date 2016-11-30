@@ -31,6 +31,9 @@ public class GateBlock extends Block {
             setWalkableStatus(OPEN);
             isOpen = OPEN;
         }
+        // notify front end to render the gate differently
+        setChanged();
+        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, myRow, myCol));
     }
 
 
