@@ -86,6 +86,7 @@ public class GridUI {
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
+        //TODO add interaction somewhere here as well
         swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected(),
                                                           control));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));

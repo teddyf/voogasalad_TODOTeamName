@@ -63,7 +63,7 @@ public abstract class Block implements ShallowBlock {
         return Collections.unmodifiableList(myInteractions);
     }
 
-    protected boolean addInteraction(Interaction someInteraction) {
+    public boolean addInteraction(Interaction someInteraction) {
         return myInteractions.add(someInteraction);
     }
 
