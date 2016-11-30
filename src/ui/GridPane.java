@@ -1,9 +1,7 @@
 package ui;
 
 import java.util.*;
-
 import ObjectMenuObjects.GameObjects;
-import ObjectMenuObjects.Player1;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import ui.GridPaneNode;
@@ -80,8 +78,8 @@ public class GridPane {
     }
 
     public void setRenderMap () {
+    	group = new Group();
         for (int i = 0; i < blockList.size(); i++) {
-
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
             double y = getYRender(node.getRow());
@@ -149,7 +147,6 @@ public class GridPane {
         List<GridPaneNode> list = obj.getList();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
-        System.out.println(list);
         for (int i = 0; i < clicked.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
                 int xPos = clicked.get(i).getCol() + list.get(j).getCol();
@@ -161,23 +158,12 @@ public class GridPane {
             clicked.get(i).getImage().setEffect(null);
             copy = clicked;
         }
-        
-        if (obj instanceof Player1) {
-    		control.addPlayer(obj.getPath(),clicked.get(0).getRow(),clicked.get(0).getCol());
-    		/*System.out.println("add player!");
-    		System.out.println("row: "+clicked.get(0).getRow());
-    		System.out.println("col: "+clicked.get(0).getCol());*/
-    	}
-        
         clicked = new ArrayList<GridPaneNode>();
         System.out.println(copy);
-        
-       
-        
         return copy;
         
     }
- 
+
     private void getObjectNeighbors (List<GridPaneNode> list) {
         ArrayList<Integer> xPos = new ArrayList<Integer>();
         ArrayList<Integer> yPos = new ArrayList<Integer>();
@@ -225,6 +211,10 @@ public class GridPane {
 
     public List<GridPaneNode> getClicked () {
         return clicked;
+    }
+    
+    public double getBlockSize() {
+    	return renderWidth/gridWidth;
     }
 
 }
