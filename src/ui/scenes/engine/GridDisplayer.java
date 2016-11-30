@@ -7,6 +7,7 @@ import ui.GridPane;
 import ui.GridPaneNode;
 
 public class GridDisplayer {
+	private final int CELL_SIZE = 10;
 	private GridPaneRunnable myGridPaneRunnable;
 	private Group myGroupGrid;
 	
@@ -32,7 +33,7 @@ public class GridDisplayer {
 	public void updateDisplay(Group gridRegion, PlayerDirection direction) {
 		switch (direction) {
 		case NORTH:
-			
+			gridRegion.setTranslateX(CELL_SIZE);
 		case EAST:
 		
 		case WEST:

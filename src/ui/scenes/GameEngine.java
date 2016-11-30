@@ -74,7 +74,7 @@ public class GameEngine extends Scene {
                              Integer.parseInt(myResources.getString("gridX")),
                              Integer.parseInt(myResources.getString("gridY")));
     	myGridDisplayer = new GridDisplayer(gridPane);
-    	gridRegion.getChildren().add(myGridDisplayer.updateDisplay(30, 30));
+//    	gridRegion.getChildren().add(myGridDisplayer.updateDisplay(30, 30));
     	myBuilder.addComponent(myRoot, gridRegion);
     	
     	/*ColorAdjust hoverOpacity = new ColorAdjust();
