@@ -8,7 +8,8 @@ import grid.GridWorld;
 import grid.RenderedGrid;
 
 /**
- * This is the controller for the game editor. It allows the backend and frontend to talk to each other
+ * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
+ * is being created.
  * @author Aninda Manocha, Filip Mazurek
  */
 
