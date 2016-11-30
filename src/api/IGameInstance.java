@@ -1,7 +1,7 @@
 package api;
 
 import engine.UserInstruction;
-import engine.backend.GameStatus;
+import engine.GameStatus;
 import grid.Grid;
 import player.Player;
 
@@ -37,8 +37,8 @@ public interface IGameInstance {
 	public GameStatus getGameStatus();
 
 	/**
-	 * Moves the player based on the user input
+	 * Processes the user input and moves the player based on the input
 	 * @param input - the user input
 	 */
-	public void movePlayer(UserInstruction input);
+	public void processInput(UserInstruction input);
 }

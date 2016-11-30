@@ -14,6 +14,10 @@ public class EngineController {
 
     public EngineController() {
         xmlHandler = new GridXMLHandler();
-        //gameInstance = new GameInstance();
+        gameInstance = new GameInstance(xmlHandler);
+    }
+
+    public void keyListener(UserInstruction input) {
+        gameInstance.processInput(input);
     }
 }

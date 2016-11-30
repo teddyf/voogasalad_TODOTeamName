@@ -6,6 +6,7 @@ import block.BlockType;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
+import player.Player;
 import interactions.Interaction;
 
 /**
@@ -21,6 +22,7 @@ public class EditorController {
     private RenderedGrid renderedGrid;
     private int myNumRows;
     private int myNumColumns;
+    private Player player;
 
     public EditorController() {
         gridWorld = new GridWorld();
@@ -41,9 +43,20 @@ public class EditorController {
         Block block = blockFactory.createBlock(name, blockType, row, col);
         currentGrid.setBlock(row, col, block);
     }
+
+    public void addPlayer(String name, int row, int col) {
+        player = new Player(name, row, col);
+    }
+
+    public void movePlayer(int row, int col) {
+        player.setRow(row);
+        player.setCol(col);
+    }
+
     public void addInteraction(int row, int col, Interaction interaction){
         currentGrid.getBlock(row, col).addInteraction(interaction);
     }
+
     public int getRow() {
         return myNumRows;
     }
