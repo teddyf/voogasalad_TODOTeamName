@@ -44,6 +44,7 @@ public class EditorController {
     public void addInteraction(int row, int col, Interaction interaction){
         currentGrid.getBlock(row, col).addInteraction(interaction);
     }
+
     public int getRow() {
         return myNumRows;
     }
