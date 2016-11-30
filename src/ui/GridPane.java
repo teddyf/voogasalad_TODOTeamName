@@ -148,7 +148,7 @@ public class GridPane {
                 int yPos = clicked.get(i).getRow() + list.get(j).getRow();
                 GridPaneNode temp = renderMap.get(getXRender(xPos)).get(getYRender(yPos));
                 temp.swap(list.get(j), list.get(j).getImageNum());
-                //control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
+                control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
             }
             clicked.get(i).getImage().setEffect(null);
         }
