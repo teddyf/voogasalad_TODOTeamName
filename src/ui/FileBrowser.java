@@ -10,9 +10,9 @@ import java.io.File;
  */
 public class FileBrowser {
 
-    public File openGameFile(Stage currStage, String path) {
+    public File openEditorFile(Stage currStage, String path) {
         FileChooser browser = new FileChooser();
-        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml");
+        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("EDITOR files (*.editor)", "*.editor");
         browser.getExtensionFilters().add(filter);
         browser.setInitialDirectory(new File(path));
         File chosenXMLFile = browser.showOpenDialog(currStage);
@@ -20,9 +20,9 @@ public class FileBrowser {
         return chosenXMLFile;
     }
 
-    public File saveGameFile(Stage currStage, String path) {
+    public File saveEditorFile(Stage currStage, String path) {
         FileChooser browser = new FileChooser();
-        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml");
+        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("EDITOR files (*.editor)", "*.editor");
         browser.getExtensionFilters().add(filter);
         browser.setInitialDirectory(new File(path));
         File chosenXMLFile = browser.showSaveDialog(currStage);
