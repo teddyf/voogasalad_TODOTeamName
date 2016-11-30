@@ -1,12 +1,12 @@
 
 package ui.scenes;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
@@ -20,19 +20,29 @@ public class VoogaAnimation {
 	
 	private GridPane grid;
 	
-	private TranslateTransition current;
 	private Stack<KeyCode> stack;
 	
 	private boolean finished;
 	private double duration;
+	private double pixelMovement;
+	private int maxSteps;
+	private int stepCount;
 	
+	private boolean first;
+	
+	private Timeline animation;
+
 	public VoogaAnimation(GridPane grid) {
 		this.grid = grid;
-		
-		stack = new Stack<KeyCode>();
-		current = new TranslateTransition();
-		finished = false;
+		stack = new Stack<>();
+		finished = true;
+		first = true;
+		duration = 400;
+		maxSteps = 800;
+		stepCount = 0;
+		pixelMovement = grid.getBlockSize()/maxSteps;
 	}
+	
 	
 	public void handleKeyPress(KeyEvent e) {
 		KeyCode code = e.getCode();
@@ -52,38 +62,44 @@ public class VoogaAnimation {
 	public void process() {
 		if (!stack.isEmpty() && finished) {
 			KeyCode code = stack.peek();
-			current = buildTransition(code);
-			current.setOnFinished(new EventHandler<ActionEvent>() {
-				
-				@Override
-				public void handle(ActionEvent event) {
-					finished = true;
-				}
-			});
-			current.play();
+				animate(code);
 			finished = false;
 		}
 	}
 	
-	private TranslateTransition buildTransition(KeyCode code) {
-		TranslateTransition transition = new TranslateTransition(Duration.millis(2000), grid.getGroup());
+	private void animate(KeyCode code) {
+		animation = new Timeline();
+		animation.setCycleCount(Timeline.INDEFINITE);
+		animation.getKeyFrames().add(new KeyFrame(Duration.millis(duration/maxSteps),
+				e -> move(code)));
+		animation.play();
+	}
+	
+	private void move(KeyCode code) {
+		Group group = grid.getGroup();
+		
+		if (stepCount == maxSteps) {
+			stepCount = 0;
+			animation.stop();
+			finished = true;
+			return;
+		}
 		switch (code) {
 			case UP:
-				transition.setByY(grid.getBlockSize());
+				group.setLayoutY(group.getLayoutY() + pixelMovement);
 				break;
 			case DOWN:
-				transition.setByY(-grid.getBlockSize());
+				group.setLayoutY(group.getLayoutY() - pixelMovement);
 				break;
 			case RIGHT:
-				transition.setByX(-grid.getBlockSize());
+				group.setLayoutX(group.getLayoutX() - pixelMovement);
 				break;
 			case LEFT:
-				transition.setByX(grid.getBlockSize());
+				group.setLayoutX(group.getLayoutX() + pixelMovement);
 				break;
 			default:
 				break;
-			
 		}
-		return transition;
+		stepCount++;
 	}
 }
