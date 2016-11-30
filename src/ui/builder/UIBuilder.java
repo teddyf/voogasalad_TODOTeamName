@@ -178,16 +178,16 @@ public class UIBuilder {
                 .size(size)));
     }
 
-//    /**
-//     * Create a new JavaFX text field and add it to the given Group or Pane
-//     *
-//     * @param layout     the Group or Pane to which the Label will be added
-//     * @param properties the ComponentProperties object containing information about the text field
-//     * @return
-//     */
-//    private Node addNewTextField(Parent layout, ComponentProperties properties) {
-//        return addComponent(layout, textFieldBuilder.createComponent(properties));
-//    }
+    /**
+     * Create a new JavaFX text field and add it to the given Group or Pane
+     *
+     * @param layout     the Group or Pane to which the Label will be added
+     * @param properties the ComponentProperties object containing information about the text field
+     * @return
+     */
+    public Node addNewTextField(Parent layout, ComponentProperties properties) {
+        return addComponent(layout, textFieldBuilder.createComponent(properties));
+    }
 
     /**
      * Create a customized JavaFX text field and add it to the given Group or Pane

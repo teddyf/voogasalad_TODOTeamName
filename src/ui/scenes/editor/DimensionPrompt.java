@@ -1,10 +1,12 @@
 package ui.scenes.editor;
 
-import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
+import ui.builder.ComponentProperties;
+import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
 
@@ -17,9 +19,11 @@ import java.util.ResourceBundle;
  */
 public class DimensionPrompt {
 
+    private Parent myRoot;
     private static ResourceBundle myResources;
 
-    DimensionPrompt(ResourceBundle resources) {
+    DimensionPrompt(Parent root, ResourceBundle resources) {
+        myRoot = root;
         myResources = resources;
     }
 
@@ -49,6 +53,15 @@ public class DimensionPrompt {
         }
     }
 
+    /**
+     * Creates a grid used to position two TextFields
+     *
+     * @param hGap        is the horizontal gap between each grid cell
+     * @param vGap        is the vertical gap between each grid cell
+     * @param topField    is the top-most TextField of the grid
+     * @param bottomField is the bottom-most TextField of the grid
+     * @return the grid with the TextFields added
+     */
     private GridPane createGrid(int hGap, int vGap, TextField topField, TextField bottomField) {
         GridPane grid = new GridPane();
         grid.setHgap(hGap);
@@ -60,7 +73,16 @@ public class DimensionPrompt {
         return grid;
     }
 
-    private Dialog<Pair<Integer, Integer>> twoFieldDialog(int maxDim,TextField topField, TextField bottomField) {
+    /**
+     * Creates a dialog with two fields; the dialog can be submitted only when the two fields contain
+     * legal integers according to maxDim
+     *
+     * @param maxDim      is the largest allowed dimension
+     * @param topField    is the top-most field of the dialog
+     * @param bottomField is the bottom-most field of the dialog
+     * @return the dialog
+     */
+    private Dialog<Pair<Integer, Integer>> twoFieldDialog(int maxDim, TextField topField, TextField bottomField) {
         Dialog<Pair<Integer, Integer>> dialog = new Dialog<>();
         dialog.setHeaderText(myResources.getString("dimHeader"));
         ButtonType submitButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
@@ -72,26 +94,26 @@ public class DimensionPrompt {
         return dialog;
     }
 
+    /**
+     * Creates a dialog and prompts the user to enter a width and height to be used as dimensions;
+     * the user-specified width and height are validated to ensure that they are legal integers.
+     *
+     * @param maxDim is the largest allowed dimension
+     * @return a Dimension object holding the width and height given by the user
+     */
     Dimension promptForDimensions(int maxDim) {
-        TextField widthField = new TextField();
-        widthField.setPromptText(myResources.getString("topFieldPromptText"));
-        TextField heightField = new TextField();
-        heightField.setPromptText(myResources.getString("bottomFieldPromptText"));
-
-        Dialog dimDialog = twoFieldDialog(maxDim,widthField,heightField);
-
-        GridPane dialogGrid = createGrid(10,10,widthField,heightField);
-
-
-        dimDialog.getDialogPane().setContent(dialogGrid);
-
-        dimDialog.showAndWait();
-        try {
-            int widthVal = Integer.parseInt(widthField.getText());
-            int heightVal = Integer.parseInt(heightField.getText());
-            return new Dimension(widthVal, heightVal);
-        } catch (NumberFormatException e) {
-            return null;
-        }
+        UIBuilder builder = new UIBuilder();
+        TextField widthField = (TextField) builder.addNewTextField(myRoot, new ComponentProperties()
+                .text(myResources.getString("topFieldPromptText"))
+                .width(200));
+        TextField heightField = (TextField) builder.addNewTextField(myRoot, new ComponentProperties()
+                .text(myResources.getString("bottomFieldPromptText"))
+                .width(200));
+        Dialog dimDialog = twoFieldDialog(maxDim, widthField, heightField);
+        dimDialog.getDialogPane().setContent(createGrid(10, 10, widthField, heightField));
+        if (dimDialog.showAndWait().get() == ButtonType.CANCEL) return null; // user clicked cancel
+        int widthVal = Integer.parseInt(widthField.getText());
+        int heightVal = Integer.parseInt(heightField.getText());
+        return new Dimension(widthVal, heightVal);
     }
 }

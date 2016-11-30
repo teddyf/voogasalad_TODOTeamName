@@ -1,12 +1,11 @@
-package ui.scenes.editor.menu;
+package ui.scenes.editor;
 
 import javafx.scene.Parent;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.stage.Stage;
-import ui.UILauncher;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.EditorIO;
+import ui.scenes.editor.EditorEvents;
 
 import java.util.ResourceBundle;
 
@@ -21,17 +20,14 @@ public class MenuBarUI {
     private Stage myStage;
     private Parent myRoot;
     private ResourceBundle myResources;
-    private MenuBar myMenuBar;
     private UIBuilder myBuilder;
-    private UILauncher myLauncher;
-    private EditorIO myIO;
+    private EditorEvents myEditorEvents;
 
-    public MenuBarUI(Stage stage, Parent root, UILauncher launcher, EditorIO IO, ResourceBundle resources) {
+    public MenuBarUI(Stage stage, Parent root, EditorEvents editorEvents, ResourceBundle resources) {
         myStage = stage;
         myRoot = root;
+        myEditorEvents = editorEvents;
         myResources = resources;
-        myLauncher = launcher;
-        myIO = IO;
         myBuilder = new UIBuilder();
     }
 
@@ -40,18 +36,16 @@ public class MenuBarUI {
      * editor functionality (i.e. opening and saving game files)
      */
     public void initMenuBar() {
-        myMenuBar = new MenuBar();
-        myMenuBar.prefWidthProperty().bind(myStage.widthProperty());
-        MenuEvents events = new MenuEvents(myStage, myLauncher, myIO, myResources);
+        MenuBar menu = new MenuBar();
+        menu.prefWidthProperty().bind(myStage.widthProperty());
         Menu firstMenu = new Menu(myResources.getString("firstMenu"));
-        events.addFirstMenuEvents(firstMenu);
+        myEditorEvents.addFirstMenuEvents(firstMenu);
         Menu secondMenu = new Menu(myResources.getString("secondMenu"));
-        events.addSecondMenuEvents(secondMenu);
+        myEditorEvents.addSecondMenuEvents(secondMenu);
         Menu thirdMenu = new Menu(myResources.getString("thirdMenu"));
-        events.addThirdMenuEvents(thirdMenu);
-
-        myMenuBar.getMenus().addAll(firstMenu, secondMenu, thirdMenu);
-        myBuilder.addComponent(myRoot, myMenuBar);
+        myEditorEvents.addThirdMenuEvents(thirdMenu);
+        menu.getMenus().addAll(firstMenu, secondMenu, thirdMenu);
+        myBuilder.addComponent(myRoot, menu);
     }
 
 }

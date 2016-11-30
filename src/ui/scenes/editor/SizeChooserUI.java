@@ -45,14 +45,20 @@ public class SizeChooserUI extends Scene {
         });
     }
 
+    /**
+     * Prompts the user to choose a custom size for the initial overworld
+     */
     private void setCustomSize() {
-        DimensionPrompt dimPrompt = new DimensionPrompt(myResources);
+        DimensionPrompt dimPrompt = new DimensionPrompt(myRoot,myResources);
         Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty(myResources,"maxDim"));
         if (result != null) {
             myEditor.launchEditor(result.width(), result.height());
         }
     }
 
+    /**
+     * Creates the buttons
+     */
     private void setButtons() {
         String buttonCSSid = myResources.getString("buttonCSSid");
         // create small button
@@ -85,9 +91,11 @@ public class SizeChooserUI extends Scene {
         customButton.setOnMouseClicked(e -> setCustomSize());
     }
 
+    /**
+     * Sets the text in the window
+     */
     private void setText() {
         Font.loadFont(myResources.getString("externalFont"), 12);
-        // create prompt
         int xPos = myUtil.getIntProperty(myResources, "promptXPos");
         int yPos = myUtil.getIntProperty(myResources, "promptYPos");
         String text = myResources.getString("promptText");
@@ -121,6 +129,9 @@ public class SizeChooserUI extends Scene {
 
     }
 
+    /**
+     * Creates a window that prompts the user to choose an initial overworld size
+     */
     public void promptUserForSize() {
         myBuilder.initWindow(myStage, SIZE_CHOOSER_RESOURCES);
         setButtons();
