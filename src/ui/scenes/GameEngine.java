@@ -1,11 +1,13 @@
 package ui.scenes;
 
 import ui.GridPane;
+import ui.GridPaneNode;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.engine.GridDisplayer;
 
 import java.util.ResourceBundle;
 
@@ -25,6 +27,7 @@ public class GameEngine extends Scene {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private GridPane gridPane;
+    private GridDisplayer myGridDisplayer;
 
     public GameEngine(Stage stage, UILauncher launcher, Parent root) {
         super(root);
@@ -67,7 +70,13 @@ public class GameEngine extends Scene {
                              Integer.parseInt(myResources.getString("gridHeight")),
                              Integer.parseInt(myResources.getString("gridX")),
                              Integer.parseInt(myResources.getString("gridY")));
-    	
+    	for (GridPaneNode g : gridPane.getNodeList()) {
+//    		System.out.printf("row %d, col %d", g.getRow(), g.getCol());
+    		System.out.println(g.getImageNum());
+//    		System.out.println("col" + g.getCol());
+    	}
+    	myGridDisplayer = new GridDisplayer(gridPane);
+    	myGridDisplayer.updateDisplay(15, 15);
     	myBuilder.addComponent(myRoot, gridPane.getGroup());
     	
     	/*ColorAdjust hoverOpacity = new ColorAdjust();
