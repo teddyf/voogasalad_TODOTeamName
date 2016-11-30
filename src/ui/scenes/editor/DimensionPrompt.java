@@ -60,8 +60,12 @@ public class DimensionPrompt {
         dialog.getDialogPane().setContent(grid);
 
         dialog.showAndWait();
-        int widthVal = Integer.parseInt(width.getText());
-        int heightVal = Integer.parseInt(height.getText());
-        return new Dimension(widthVal, heightVal);
+        try {
+            int widthVal = Integer.parseInt(width.getText());
+            int heightVal = Integer.parseInt(height.getText());
+            return new Dimension(widthVal, heightVal);
+        } catch (NumberFormatException e) {
+            return null;
+        }
     }
 }
