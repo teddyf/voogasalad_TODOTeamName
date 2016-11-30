@@ -15,6 +15,7 @@ public class SwitchInteraction extends AbstractInteraction {
     }
     public void act() {
         //add event handler to the group
+        switchBlock.toggleGates();
         getCurrentAction().act();
     }
 }
