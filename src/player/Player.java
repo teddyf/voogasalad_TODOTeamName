@@ -1,7 +1,11 @@
 package player;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import api.IPlayer;
 import editor.backend.Battle;
 import interactions.Interaction;
@@ -13,6 +17,7 @@ import editor.backend.Status;
  * @author Aninda Manocha
  */
 
+@XStreamAlias("player")
 public class Player implements IPlayer {
 	
 	private String myName;
@@ -30,11 +35,11 @@ public class Player implements IPlayer {
 		myDirection = PlayerDirection.NORTH;
 		myRow = row;
 		myCol = col;
-		myAttributes = new ArrayList<PlayerAttribute>();
-		myInventory = new ArrayList<Item>();
-		myBattleHistory = new ArrayList<Battle>();
-		myInteractionHistory = new ArrayList<Interaction>();
-		myStatus = new ArrayList<Status>();
+		myAttributes = new ArrayList<>();
+		myInventory = new ArrayList<>();
+		myBattleHistory = new ArrayList<>();
+		myInteractionHistory = new ArrayList<>();
+		myStatus = new ArrayList<>();
 	}
 
 	public String getPlayerName() {
@@ -54,7 +59,7 @@ public class Player implements IPlayer {
 	}
 
 	public List<PlayerAttribute> getAttributes() {
-		return myAttributes;
+		return Collections.unmodifiableList(myAttributes);
 	}
 	
 	public List<Item> getInventory() {

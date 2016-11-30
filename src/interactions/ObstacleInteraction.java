@@ -14,6 +14,6 @@ public class ObstacleInteraction extends AbstractInteraction{
         obstacle = o;
     }
     public void act(){
-        //do nothing
+        getCurrentAction().act();
     }
 }

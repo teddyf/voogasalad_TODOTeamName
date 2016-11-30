@@ -1,5 +1,6 @@
 package ui.scenes.editor;
 
+import editor.EditorController;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -33,23 +34,36 @@ public class GameEditor extends Scene {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
+    }
+
+    void launchEditor(int width, int height) {
+        myBuilder.initWindow(myStage, EDITOR_RESOURCES);
+        MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
+        menuBar.initMenuBar();
+        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
+<<<<<<< HEAD
+        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources);
+        playerMenu.initPlayerMenu();
+        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
+=======
+        // create editorController
+
+        // get controllers in here
+        // get filename from IO class
+        // call save/open within controller class
+        EditorController editorController = new EditorController();
+        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), editorController, myResources);
+>>>>>>> master
+        grid.initGrid(width,height);
+
+//        editorController.saveEditor("f")
+
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
             MenuEvents events = new MenuEvents(myStage,myLauncher,myResources);
             events.newVOOGA();
         });
-    }
-
-    protected void launchEditor(int width, int height) {
-        myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
-        menuBar.initMenuBar();
-        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
-        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources);
-        playerMenu.initPlayerMenu();
-        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
-        grid.initGrid(width,height);
         myStage.setScene(this);
     }
 
@@ -57,8 +71,7 @@ public class GameEditor extends Scene {
      * Initializes the game editor window
      */
     public void initEditor() {
-        // use alert and get W and H
-        SizeChooserUI sizeChooser = new SizeChooserUI(myStage,new Group(),this,myBuilder);
+        SizeChooserUI sizeChooser = new SizeChooserUI(myStage,new Group(),this,myLauncher,myBuilder);
         sizeChooser.promptUserForSize();
     }
 }
