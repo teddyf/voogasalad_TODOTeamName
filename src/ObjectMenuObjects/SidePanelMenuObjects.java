@@ -5,18 +5,25 @@ import java.util.*;
 public class SidePanelMenuObjects {
     private List<GameObjects> obstacles;
     private List<GameObjects> decorations;
+    private List<GameObjects> players;
     private GameObjects selected;
     
     
     public SidePanelMenuObjects(){
         obstacles  = new ArrayList<GameObjects>();
         decorations = new ArrayList<GameObjects>();
+        players = new ArrayList<GameObjects>();
         populateObstacles();
+        populatePlayers();
         populateDecorations();
     }
     
     private void populateObstacles(){
         obstacles.add(new Tree1());
+    }
+    
+    private void populatePlayers() {
+    	players.add(new Player1());
     }
     
     private void populateDecorations(){
@@ -27,13 +34,17 @@ public class SidePanelMenuObjects {
         decorations.add(new Dirt1());
         
     }
-    
+
     public List<GameObjects> getObstacles(){
         return obstacles;
     }
     
     public List<GameObjects> getDecorations(){
         return decorations;
+    }
+    
+    public List<GameObjects> getPlayers() {
+    	return players;
     }
     
     public List<GameObjects> getDecorationsHBoxList(){
