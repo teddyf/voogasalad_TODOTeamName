@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import block.Block;
-import block.BlockType;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
@@ -63,8 +61,8 @@ public class GridXMLHandler {
 		xstream.processAnnotations(Grid.class);
 		xstream.processAnnotations(Player.class);
 		
-//		BlockAliasFactory factory = new BlockAliasFactory(xstream);
-//		factory.setAlias();
+		BlockAliasFactory factory = new BlockAliasFactory(xstream);
+		factory.setAlias();
 	}
 	
 	/**
