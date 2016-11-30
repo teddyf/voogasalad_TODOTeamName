@@ -48,7 +48,9 @@ public class SizeChooserUI extends Scene {
     private void setCustomSize() {
         DimensionPrompt dimPrompt = new DimensionPrompt();
         Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty(myResources,"maxDim"));
-        myEditor.launchEditor(result.width(), result.height());
+        if (result != null) {
+            myEditor.launchEditor(result.width(), result.height());
+        }
     }
 
     private void setButtons() {
@@ -93,29 +95,29 @@ public class SizeChooserUI extends Scene {
         int size = myUtil.getIntProperty(myResources, "promptSize");
         myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
 
-        // create small size text
-        String CSSid = myResources.getString("dimCSSid");
-        size = myUtil.getIntProperty(myResources, "dimTextSize");
-        xPos = myUtil.getIntProperty(myResources, "smallTextX");
-        yPos = myUtil.getIntProperty(myResources, "dimTextY");
-        String dim = myResources.getString("smallSize");
-        text = dim + "X" + dim;
-        Node label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
-        label.setId(CSSid);
-
-        // create medium size text
-        xPos = myUtil.getIntProperty(myResources, "medTextX");
-        dim = myResources.getString("medSize");
-        text = dim + "X" + dim;
-        label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
-        label.setId(CSSid);
-
-        // create large size text
-        xPos = myUtil.getIntProperty(myResources, "largeTextX");
-        dim = myResources.getString("largeSize");
-        text = dim + "X" + dim;
-        label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
-        label.setId(CSSid);
+//        // create small size text
+//        String CSSid = myResources.getString("dimCSSid");
+//        size = myUtil.getIntProperty(myResources, "dimTextSize");
+//        xPos = myUtil.getIntProperty(myResources, "smallTextX");
+//        yPos = myUtil.getIntProperty(myResources, "dimTextY");
+//        String dim = myResources.getString("smallSize");
+//        text = dim + "X" + dim;
+//        Node label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
+//        label.setId(CSSid);
+//
+//        // create medium size text
+//        xPos = myUtil.getIntProperty(myResources, "medTextX");
+//        dim = myResources.getString("medSize");
+//        text = dim + "X" + dim;
+//        label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
+//        label.setId(CSSid);
+//
+//        // create large size text
+//        xPos = myUtil.getIntProperty(myResources, "largeTextX");
+//        dim = myResources.getString("largeSize");
+//        text = dim + "X" + dim;
+//        label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
+//        label.setId(CSSid);
 
     }
 
