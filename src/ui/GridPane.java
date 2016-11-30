@@ -139,6 +139,7 @@ public class GridPane {
 
     public void swap (List<GridPaneNode> list) {
         getObjectNeighbors(list);
+        System.out.println(list);
         for (int i = 0; i < clicked.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
                 int xPos = clicked.get(i).getCol() + list.get(j).getCol();
