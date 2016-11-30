@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.StatusDisplayUI;
+import ui.scenes.editor.StatsDisplayUI;
 import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
@@ -115,7 +115,7 @@ public class GameEngine extends Scene {
     	player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("gridHeight"))/2);
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     	
-    	StatusDisplayUI statusUI = new StatusDisplayUI(myRoot,myBuilder,myResources);
+    	StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
     	statusUI.initPlayerMenu();
     }
     

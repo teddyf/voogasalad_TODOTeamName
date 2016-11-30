@@ -38,7 +38,7 @@ import ObjectMenuObjects.GameObjects;
  *         <p>
  *         This class initializes player status ui.
  */
-public class StatusDisplayUI {
+public class StatsDisplayUI {
 
     private Parent myRoot;
     private UIBuilder myBuilder;
@@ -46,7 +46,7 @@ public class StatusDisplayUI {
     private VBox vbox;
     private PropertiesUtilities util = new PropertiesUtilities();
 
-    public StatusDisplayUI(Parent root, UIBuilder builder, ResourceBundle resources) {
+    public StatsDisplayUI(Parent root, UIBuilder builder, ResourceBundle resources) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
@@ -71,8 +71,7 @@ public class StatusDisplayUI {
         vbox.setPadding(new Insets(10, 10, 10, 10));
         
         
-        vbox.getChildren().add(new Label("Status"));
-        vbox.getChildren().add(new Label("Status"));
+        vbox.getChildren().add(new Label("User Stats"));
     }
     
 }
