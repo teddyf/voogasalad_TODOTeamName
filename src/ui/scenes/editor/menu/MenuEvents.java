@@ -109,6 +109,10 @@ public class MenuEvents {
         itemSave.setOnAction(e -> myIO.saveEditorFile());
         firstMenu.getItems().add(itemSave);
 
+        MenuItem itemExport = new MenuItem("Export game");
+        itemExport.setOnAction(e -> myIO.saveGameFile());
+        firstMenu.getItems().add(itemExport);
+
         MenuItem itemExit = new MenuItem("Exit");
         itemExit.setOnAction(e -> exitPrompt());
         firstMenu.getItems().add(itemExit);

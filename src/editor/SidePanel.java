@@ -52,6 +52,8 @@ public class SidePanel {
         List<GameObjects> list;
         if (label.equals("decoration")) {
             list = handler.getDecorations();
+        }else if (label.equals("npc")) {
+        	list = handler.getPlayers();
         }
         else {
             list = handler.getObstacles();
@@ -80,6 +82,8 @@ public class SidePanel {
         List<GameObjects> list;
         if (label.equals("decoration")) {
             list = handler.getDecorations();
+        } else if (label.equals("npc")) {
+        	list = handler.getPlayers();
         }
         else {
             list = handler.getObstacles();
