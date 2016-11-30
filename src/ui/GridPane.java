@@ -40,7 +40,7 @@ public class GridPane {
                      int renderTopLeftX,
                      int renderTopLeftY) {
         this.group = new Group();
-        grid = new GridPaneNode[gridHeight][gridWidth];
+        
         hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(-.1);
         this.renderTopLeftX = renderTopLeftX;
@@ -68,6 +68,7 @@ public class GridPane {
     }
 
     private void initializeGrid () {
+        grid = new GridPaneNode[(int)gridHeight][(int)gridWidth];
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
                 GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
@@ -79,12 +80,13 @@ public class GridPane {
 
     public void setRenderMap () {
     	group = new Group();
+    	System.out.println(blockList);
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
             double y = getYRender(node.getRow());
             node.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
-            node.setImageCoord(x, y);          
+            node.setImageCoord(x, y);
             node.getImage().setOnMouseExited(e -> {if(!clicked.contains(node))node.getImage().setEffect(null);});
             node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});           
             node.getImage().setOnMouseClicked(e -> {
@@ -121,16 +123,19 @@ public class GridPane {
         this.group = new Group();
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
-        this.renderMap = new HashMap<Double, Map<Double, GridPaneNode>>();
         initializeGrid();
         setRenderMap();
     }
     
-    public void loadReset(){
+    public void loadReset(int height, int width){
+        
+        this.gridWidth = width;
+        this.gridHeight = height;
+        
         this.group = new Group();
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
-        this.renderMap = new HashMap<Double, Map<Double, GridPaneNode>>();
+        this.grid = new GridPaneNode[height][width];
     }
 
     public List<GridPaneNode> swap (GameObjects obj, EditorController control) {
