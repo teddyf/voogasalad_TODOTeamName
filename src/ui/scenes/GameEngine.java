@@ -3,14 +3,13 @@ package ui.scenes;
 import engine.EngineController;
 import ui.FileBrowser;
 import ui.GridPane;
-import ui.GridPaneNode;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 import ui.scenes.engine.GridDisplayer;
@@ -36,10 +35,10 @@ public class GameEngine extends Scene {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private GridPane gridPane;
-    private GridDisplayer myGridDisplayer;
-    private Group gridRegion;
     
     private EngineController myController;
+    
+    private GridDisplayer gd;
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
         super(root);
@@ -48,7 +47,6 @@ public class GameEngine extends Scene {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
-        gridRegion = myBuilder.addRegion(-50, -50);
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             e.consume();
@@ -72,19 +70,15 @@ public class GameEngine extends Scene {
         gameController.loadEngine(gameFile.getAbsolutePath());
 
     	
-    	setUpPane();
+    	setUpGrid();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
+    	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;
     }
     
-    private void setUpPane() {
-    	Pane pane = new Pane();
-    	myBuilder.addComponent(myRoot, pane);
-    	Character character = new Character(this);
-		pane.getChildren().add(character.getCharacterImageView());
-    }
-
     private void setUpGrid() {
+    	
+    	EngineDisplayer ed = new EngineDisplayer(myController);
     	
     	setUpKeys();
 
@@ -95,9 +89,13 @@ public class GameEngine extends Scene {
                              Integer.parseInt(myResources.getString("gridHeight")),
                              Integer.parseInt(myResources.getString("gridX")),
                              Integer.parseInt(myResources.getString("gridY")));
-    	myGridDisplayer = new GridDisplayer(gridPane);
-//    	gridRegion.getChildren().add(myGridDisplayer.updateDisplay(30, 30));
-    	myBuilder.addComponent(myRoot, gridRegion);
+
+    	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
+    	//gridPane.setRenderMap();
+    	
+    	gd = new GridDisplayer(gridPane);
+    	
+    	myBuilder.addComponent(myRoot, gridPane.getGroup());
     	
     	/*ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
@@ -145,16 +143,18 @@ public class GameEngine extends Scene {
     	KeyCode code = e.getCode();
     	switch (code) {
     		case UP:
-    			myController.keyListener(UserInstruction.UP);
+    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
+    			//myController.keyListener(UserInstruction.UP);
     			break;
     		case DOWN:
-    			myController.keyListener(UserInstruction.DOWN);
+    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
+    			//myController.keyListener(UserInstruction.DOWN);
     			break;
     		case LEFT:
-    			myController.keyListener(UserInstruction.LEFT);
+    			//myController.keyListener(UserInstruction.LEFT);
     			break;
     		case RIGHT:
-    			myController.keyListener(UserInstruction.RIGHT);
+    			//myController.keyListener(UserInstruction.RIGHT);
     			break;
     		default:
     			break;

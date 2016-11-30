@@ -1,11 +1,7 @@
 package ui;
 
 import java.util.*;
-<<<<<<< HEAD
-
-=======
 import ObjectMenuObjects.GameObjects;
->>>>>>> 653e1ff5812fa483a5933f23f8a8ea9c417d2734
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import ui.GridPaneNode;
@@ -34,7 +30,7 @@ public class GridPane {
     private ColorAdjust hoverOpacity;
     private ColorAdjust highlight;
 
-    private String DEFAULT = "DEFAULT.1.2.3";
+    private String DEFAULT = "resources/Default.png";
 
     public GridPane (int gridWidth,
                      int gridHeight,
@@ -82,8 +78,8 @@ public class GridPane {
     }
 
     public void setRenderMap () {
+    	group = new Group();
         for (int i = 0; i < blockList.size(); i++) {
-
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
             double y = getYRender(node.getRow());
@@ -97,9 +93,6 @@ public class GridPane {
                 node.getImage().setEffect(hoverOpacity);
                 click(node);
             });
-
-
-            
 
             group.getChildren().add(node.getImage());
             if (renderMap.containsKey(x)) {
@@ -142,9 +135,17 @@ public class GridPane {
         initializeGrid();
         setRenderMap();
     }
+    
+    public void loadReset(){
+        this.group = new Group();
+        this.blockList = new ArrayList<GridPaneNode>();
+        this.clicked = new ArrayList<GridPaneNode>();
+        this.renderMap = new HashMap<Double, Map<Double, GridPaneNode>>();
+    }
 
-    public void swap (GameObjects obj, EditorController control) {
+    public List<GridPaneNode> swap (GameObjects obj, EditorController control) {
         List<GridPaneNode> list = obj.getList();
+        List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
         for (int i = 0; i < clicked.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
@@ -155,8 +156,11 @@ public class GridPane {
                 control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
             }
             clicked.get(i).getImage().setEffect(null);
+            copy = clicked;
         }
         clicked = new ArrayList<GridPaneNode>();
+        System.out.println(copy);
+        return copy;
         
     }
 
@@ -183,6 +187,11 @@ public class GridPane {
             }
         }
     }
+    
+    public void blockToGridPane(int row, int col,String name){
+        GridPaneNode temp = new GridPaneNode(row,col,name);
+        blockList.add(temp);
+    }
 
     public List<GridPaneNode> getNodeList () {
         return blockList;
@@ -204,12 +213,17 @@ public class GridPane {
         return clicked;
     }
     
+<<<<<<< HEAD
     public double getGridHeight(){
     	return gridHeight;
     }
     
     public double getGridWidth(){
     	return gridWidth;
+=======
+    public double getBlockSize() {
+    	return renderWidth/gridWidth;
+>>>>>>> 7f606a85fbe6471eb7601a426302f4c0f67e642b
     }
 
 }
