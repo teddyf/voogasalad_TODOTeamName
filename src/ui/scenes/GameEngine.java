@@ -1,5 +1,7 @@
 package ui.scenes;
 
+import engine.EngineController;
+import ui.FileBrowser;
 import ui.GridPane;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,6 +9,7 @@ import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 
+import java.io.File;
 import java.util.ResourceBundle;
 
 /**
@@ -47,10 +50,13 @@ public class GameEngine extends Scene {
      * @return true if initialization was successful and a valid game file was chosen
      */
     public boolean init() {
-        /*File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile == null) { // user clicked cancel
             return false;
-        }*/
+        }
+
+        EngineController gameController = new EngineController();
+
     	
     	setUpGrid();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);

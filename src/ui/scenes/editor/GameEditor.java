@@ -1,6 +1,7 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
+import engine.EngineController;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -50,7 +51,12 @@ public class GameEditor extends Scene {
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), editorController, myResources);
         grid.initGrid(width,height);
 
+
 //        editorController.saveEditor("f")
+//        editorController.loadEditor("f")
+
+        // saving a gamefile
+
 
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
