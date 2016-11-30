@@ -33,10 +33,9 @@ public class MenuEvents {
      */
     private File saveGameFile() {
         File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
-        if (gameFile != null) {
-            return gameFile;
-        }
-        return null;
+        System.out.println(gameFile.getAbsolutePath());
+
+        return gameFile;
     }
 
     /**
@@ -46,10 +45,7 @@ public class MenuEvents {
      */
     private File openGameFile() {
         File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
-        if (gameFile != null) { // user clicked cancel
-            return gameFile;
-        }
-        return null;
+        return gameFile;
     }
 
     /**

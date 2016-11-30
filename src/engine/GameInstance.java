@@ -2,25 +2,30 @@ package engine;
 
 import api.IGameInstance;
 import block.Block;
-import engine.backend.GameStatus;
 import grid.Grid;
+import grid.GridWorld;
 import player.Player;
+import xml.GridXMLHandler;
+
+import java.util.Observable;
 
 /**
  * This class holds all of the information pertaining to a game instance
- *
+ * @author Aninda Manocha
  */
 
-public class GameInstance implements IGameInstance {
-	
-	private Player myPlayer;
+public class GameInstance extends Observable implements IGameInstance {
+
+    private Player myPlayer;
+    private GridWorld myGridWorld;
 	private Grid myGrid;
 	private int myScore;
 	private GameStatus myStatus;
 	
-	public GameInstance(Player player, Grid grid) {
+	public GameInstance(Player player, GridWorld gridWorld) {
 	    myPlayer = player;
-	    myGrid = grid;
+	    myGridWorld = gridWorld;
+	    myGrid = myGridWorld.getCurrentGrid();
 	    myScore = 0;
 		myStatus = new GameStatus();
 	}
@@ -28,7 +33,11 @@ public class GameInstance implements IGameInstance {
 	public Player getPlayer() {
 		return myPlayer;
 	}
-	
+
+	public GridWorld getGridWorld() {
+	    return myGridWorld;
+    }
+
 	public Grid getGrid() {
 		return myGrid;
 	}
@@ -41,19 +50,15 @@ public class GameInstance implements IGameInstance {
 		return myStatus;
 	}
 	
-	/*public Player loadPlayer() {
-		return null;
-	}
-	
-	public void savePlayer() {
-		
+	public void setPlayer(Player player) {
+
 	}
 
 	public void resetPlayer() {
 
-	}*/
+	}
 	
-	public void movePlayer(UserInstruction input) {
+	public void processInput(UserInstruction input) {
 		Block newBlock = null; //TODO
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
@@ -87,6 +92,8 @@ public class GameInstance implements IGameInstance {
 		if (inBounds(newBlock) && isWalkable(newBlock)) {
 			myPlayer.setRow(newBlock.getRow());
 			myPlayer.setCol(newBlock.getCol());
+			setChanged();
+			notifyObservers();
 		}
 	}
 
