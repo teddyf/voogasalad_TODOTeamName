@@ -62,8 +62,8 @@ public class GameEngine extends Scene {
         if (gameFile == null) { // user clicked cancel
             return false;
         }
-
         EngineController gameController = new EngineController();
+        gameController.loadEngine(gameFile.getAbsolutePath());
 
     	
     	setUpGrid();

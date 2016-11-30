@@ -96,7 +96,7 @@ public class GridUI {
         myGridPane.loadReset();
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
-                myGridPane.blockToGridPane(i, j, control.getBlock(i, j));
+                myGridPane.blockToGridPane(i, j, myController.getBlock(i, j));
             }
         }
         myGridPane.setRenderMap();

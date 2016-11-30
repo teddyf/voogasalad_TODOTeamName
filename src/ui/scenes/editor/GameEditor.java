@@ -1,7 +1,6 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
-import engine.EngineController;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -52,17 +51,16 @@ public class GameEditor extends Scene {
         grid.initGrid(width,height);
 
 
-//        editorController.saveEditor("f")
-//        editorController.loadEditor("f")
-
-        // saving a gamefile
-
+//        editorController.saveEditor("f") // saving editor state
+//        editorController.loadEditor("f") // loading editor state
+//        editorController.saveEngine("f") // exporting finished game
+//        EngineController loadedEngine = editorController.runEngine(); // running test
 
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
             MenuEvents events = new MenuEvents(myStage,myLauncher,myResources);
-            events.newVOOGA();
+            events.exitPrompt();
         });
         myStage.setScene(this);
     }
