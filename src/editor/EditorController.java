@@ -3,6 +3,7 @@ package editor;
 import block.Block;
 import block.BlockFactory;
 import block.BlockType;
+import engine.EngineController;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
@@ -86,6 +87,13 @@ public class EditorController {
         player = gridWorldAndPlayer.getPlayer();
         gridWorld = gridWorldAndPlayer.getGridWorld();
         changeGrid();
-        
+    }
+
+    public void saveEngine(String file) {
+        xmlHandler.saveContents(file, gridWorld, player);
+    }
+
+    public EngineController runEngine() {
+        return new EngineController(player, gridWorld);
     }
 }
