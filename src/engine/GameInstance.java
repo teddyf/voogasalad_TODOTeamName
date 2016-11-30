@@ -4,6 +4,7 @@ import api.IGameInstance;
 import block.Block;
 import grid.Grid;
 import grid.GridWorld;
+import grid.RenderedGrid;
 import player.Player;
 import xml.GridXMLHandler;
 
@@ -16,22 +17,20 @@ import java.util.Observable;
 
 public class GameInstance extends Observable implements IGameInstance {
 
-    private Player myPlayer;
     private GridWorld myGridWorld;
 	private Grid myGrid;
+	private RenderedGrid myRenderedGrid;
+    private Player myPlayer;
 	private int myScore;
 	private GameStatus myStatus;
 	
 	public GameInstance(Player player, GridWorld gridWorld) {
-	    myPlayer = player;
 	    myGridWorld = gridWorld;
 	    myGrid = myGridWorld.getCurrentGrid();
+	    myRenderedGrid = new RenderedGrid(myGrid);
+        myPlayer = player;
 	    myScore = 0;
 		myStatus = new GameStatus();
-	}
-	
-	public Player getPlayer() {
-		return myPlayer;
 	}
 
 	public GridWorld getGridWorld() {
@@ -41,17 +40,21 @@ public class GameInstance extends Observable implements IGameInstance {
 	public Grid getGrid() {
 		return myGrid;
 	}
-	
+
+	public RenderedGrid getRenderedGrid() {
+	    return myRenderedGrid;
+    }
+
+    public Player getPlayer() {
+        return myPlayer;
+    }
+
 	public int getScore() {
 		return myScore;
 	}
 
 	public GameStatus getGameStatus() {
 		return myStatus;
-	}
-	
-	public void setPlayer(Player player) {
-	    myPlayer = player;
 	}
 	
 	public void processInput(UserInstruction input) {

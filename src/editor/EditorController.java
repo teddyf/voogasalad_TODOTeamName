@@ -19,19 +19,19 @@ import xml.GridXMLHandler;
  */
 
 public class EditorController {
-    private GridWorld gridWorld;
     private BlockFactory blockFactory;
+    private GridXMLHandler xmlHandler;
+    private GridWorld gridWorld;
     private Grid currentGrid;
     private RenderedGrid renderedGrid;
     private int myNumRows;
     private int myNumColumns;
     private Player player;
-    private GridXMLHandler xmlHandler;
 
     public EditorController() {
-        gridWorld = new GridWorld();
         blockFactory = new BlockFactory();
         xmlHandler = new GridXMLHandler();
+        gridWorld = new GridWorld();
     }
 
     public void addGrid(int row, int col) {
@@ -84,6 +84,12 @@ public class EditorController {
         return myNumColumns;
     }
 
+    /**
+     * Gets the block located in a specific row and column
+     * @param row - the specific row
+     * @param col - the specific column
+     * @return the block
+     */
     public String getBlock(int row, int col) {
         return renderedGrid.get(row, col);
     }
