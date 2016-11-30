@@ -46,7 +46,7 @@ public class GameEditor extends Scene {
         grid.initGrid(width,height);
 
 
-        EditorIO IO = new EditorIO(myStage,editorController,myResources);
+        EditorIO IO = new EditorIO(myStage,editorController,grid,myResources);
 
         MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,IO,myResources);
         menuBar.initMenuBar();

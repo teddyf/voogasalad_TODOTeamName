@@ -14,11 +14,13 @@ public class EditorIO {
 
     private Stage myStage;
     private EditorController myEditorController;
+    private GridUI myGrid;
     private ResourceBundle myResources;
 
-    EditorIO(Stage stage, EditorController editorController, ResourceBundle resources) {
+    EditorIO(Stage stage, EditorController editorController, GridUI grid, ResourceBundle resources) {
         myStage = stage;
         myEditorController = editorController;
+        myGrid = grid;
         myResources = resources;
     }
 
@@ -46,6 +48,7 @@ public class EditorIO {
         File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile != null) {
             myEditorController.loadEditor(gameFile.getAbsolutePath());
+            myGrid.loadGrid();
         }
     }
 
