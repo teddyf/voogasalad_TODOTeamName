@@ -60,7 +60,8 @@ public class GameEditor extends Scene {
     }
 
     /**
-     * Initializes the game editor window
+     * Initializes the game editor window by prompting the user to choose an initial
+     * overworld size
      */
     public void initEditor() {
         SizeChooserUI sizeChooser = new SizeChooserUI(myStage, new Group(), this, myLauncher, myBuilder);
