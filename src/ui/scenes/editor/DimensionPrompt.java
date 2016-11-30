@@ -6,6 +6,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 
+import java.util.ResourceBundle;
+
 /**
  * @author Robert Steilberg
  *         <p>
@@ -14,6 +16,12 @@ import javafx.util.Pair;
  *         to ensure that they are correctly formatted integers.
  */
 public class DimensionPrompt {
+
+    private static ResourceBundle myResources;
+
+    DimensionPrompt(ResourceBundle resources) {
+        myResources = resources;
+    }
 
     /**
      * Tests the values in two text fields to ensure that they are valid integers
@@ -41,40 +49,46 @@ public class DimensionPrompt {
         }
     }
 
-    Dimension promptForDimensions(int maxDim) {
-        Dialog<Pair<Integer, Integer>> dialog = new Dialog<>();
-        dialog.setHeaderText("Please specify a custom width and height less than 100.");
+    private GridPane createGrid(int hGap, int vGap, TextField topField, TextField bottomField) {
+        GridPane grid = new GridPane();
+        grid.setHgap(hGap);
+        grid.setVgap(vGap);
+        grid.add(new Label(myResources.getString("topFieldLabel")), 0, 0);
+        grid.add(topField, 1, 0);
+        grid.add(new Label(myResources.getString("bottomFieldLabel")), 0, 1);
+        grid.add(bottomField, 1, 1);
+        return grid;
+    }
 
+    private Dialog<Pair<Integer, Integer>> twoFieldDialog(int maxDim,TextField topField, TextField bottomField) {
+        Dialog<Pair<Integer, Integer>> dialog = new Dialog<>();
+        dialog.setHeaderText(myResources.getString("dimHeader"));
         ButtonType submitButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(submitButtonType, ButtonType.CANCEL);
-
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(20, 150, 10, 10));
-
-
-        TextField width = new TextField();
-        width.setPromptText("width");
-        TextField height = new TextField();
-        height.setPromptText("height");
-
-        grid.add(new Label("Width:"), 0, 0);
-        grid.add(width, 1, 0);
-        grid.add(new Label("Height:"), 0, 1);
-        grid.add(height, 1, 1);
-
         Node submitButton = dialog.getDialogPane().lookupButton(submitButtonType);
+        topField.textProperty().addListener(e -> submitButton.setDisable(invalidValue(topField, bottomField, maxDim)));
+        bottomField.textProperty().addListener(e -> submitButton.setDisable(invalidValue(topField, bottomField, maxDim)));
         submitButton.setDisable(true);
+        return dialog;
+    }
 
-        width.textProperty().addListener(e -> submitButton.setDisable(invalidValue(width, height, maxDim)));
-        height.textProperty().addListener(e -> submitButton.setDisable(invalidValue(width, height, maxDim)));
-        dialog.getDialogPane().setContent(grid);
+    Dimension promptForDimensions(int maxDim) {
+        TextField widthField = new TextField();
+        widthField.setPromptText(myResources.getString("topFieldPromptText"));
+        TextField heightField = new TextField();
+        heightField.setPromptText(myResources.getString("bottomFieldPromptText"));
 
-        dialog.showAndWait();
+        Dialog dimDialog = twoFieldDialog(maxDim,widthField,heightField);
+
+        GridPane dialogGrid = createGrid(10,10,widthField,heightField);
+
+
+        dimDialog.getDialogPane().setContent(dialogGrid);
+
+        dimDialog.showAndWait();
         try {
-            int widthVal = Integer.parseInt(width.getText());
-            int heightVal = Integer.parseInt(height.getText());
+            int widthVal = Integer.parseInt(widthField.getText());
+            int heightVal = Integer.parseInt(heightField.getText());
             return new Dimension(widthVal, heightVal);
         } catch (NumberFormatException e) {
             return null;
