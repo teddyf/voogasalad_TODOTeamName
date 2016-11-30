@@ -15,6 +15,6 @@ public class GiveMessageOnInteract extends AbstractInteraction {
     }
     @Override
     public void act(){
-
+        getCurrentAction().act();
     }
 }
