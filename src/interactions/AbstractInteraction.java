@@ -11,7 +11,7 @@ import player.PlayerAttribute;
  * All interactions are to be used as classes that are going to be composed with board objects.
  * These board objects will interact with the player as dictated by the interaction class(es)
  * with which they are composed.
- * @author Filip Mazurek
+ * @author Filip Mazurek, Bill Xiong
  */
 public abstract class AbstractInteraction implements Interaction{
     private PlayerAttribute player;
@@ -20,29 +20,28 @@ public abstract class AbstractInteraction implements Interaction{
     //default methods
     private Interaction increaseAttribute;
     private Interaction decreaseAttribute;
-    private Interaction communicate;
     private Interaction doNothing;
-    private Interaction currentAction;
+    private Interaction currentStepAction;
     public AbstractInteraction(PlayerAttribute player){
         this.player = player;
         increaseAttribute = player::increase;
         decreaseAttribute = player::decrease;
-        //TODO change communicate later
-        communicate = () -> {};
+
         doNothing = () -> {};
-        currentAction = doNothing;
+        currentStepAction = doNothing;
     }
     public AbstractInteraction(){
         this.player = null;
     }
     protected Interaction getCurrentAction(){
-        return currentAction;
+        return currentStepAction;
     }
     public void setCurrentAction(Interaction action){
-        currentAction = action;
+        currentStepAction = action;
     }
     protected PlayerAttribute getPlayer(){
         return player;
     }
-    public abstract void act();
+    public abstract void actOnStep();
+    //public abstract void actOnTalk();
 }

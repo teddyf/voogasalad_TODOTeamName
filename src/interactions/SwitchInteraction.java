@@ -13,9 +13,9 @@ public class SwitchInteraction extends AbstractInteraction {
     public SwitchInteraction(SwitchBlock block){
         switchBlock = block;
     }
-    public void act() {
+    public void actOnStep() {
         //add event handler to the group
         switchBlock.toggleGates();
-        getCurrentAction().act();
+        getCurrentAction().actOnStep();
     }
 }

@@ -1,6 +1,8 @@
 package ui.scenes.editor;
 
+import com.sun.xml.internal.ws.api.pipe.Engine;
 import editor.EditorController;
+import engine.EngineController;
 import javafx.stage.Stage;
 import ui.FileBrowser;
 
@@ -14,12 +16,31 @@ public class EditorIO {
 
     private Stage myStage;
     private EditorController myEditorController;
+    private EngineController myEngineController;
     private ResourceBundle myResources;
 
-    EditorIO(Stage stage, EditorController editorController, ResourceBundle resources) {
+    EditorIO(Stage stage, EditorController editorController, EngineController engineController, ResourceBundle resources) {
         myStage = stage;
         myEditorController = editorController;
+        myEngineController = engineController;
         myResources = resources;
+    }
+
+//    public void openGameFile() {
+//        File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("gameFilePath"));
+//        if (gameFile != null) {
+//            myEngineController.loadEngine(gameFile.getAbsolutePath());
+//        }
+//    }
+
+    public boolean saveGameFile() {
+        File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
+        if (gameFile != null) {
+            myEngineController.saveEngine(gameFile.getAbsolutePath());
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

@@ -1,6 +1,7 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
+import engine.EngineController;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -48,7 +49,7 @@ public class GameEditor extends Scene {
         grid.initGrid(width,height);
 
 
-        EditorIO IO = new EditorIO(myStage,editorController,myResources);
+        EditorIO IO = new EditorIO(myStage,editorController,new EngineController(),myResources);
 
         MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,IO,myResources);
         menuBar.initMenuBar();
