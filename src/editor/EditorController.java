@@ -78,7 +78,7 @@ public class EditorController {
     }
 
     public void saveEditor(String file) {
-        xmlHandler.saveContents(gridWorld, player);
+        xmlHandler.saveContents(file, gridWorld, player);
     }
 
     public void loadEditor(String file) {
