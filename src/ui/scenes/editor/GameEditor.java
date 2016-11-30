@@ -40,7 +40,12 @@ public class GameEditor extends Scene {
         MenuBarUI menuBar = new MenuBarUI(myStage,myRoot,myLauncher,myResources);
         menuBar.initMenuBar();
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
+        // create editorController
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myResources);
+
+        // get controllers in here
+        // get filename from IO class
+        // call save/open within controller class
         grid.initGrid(width,height);
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
