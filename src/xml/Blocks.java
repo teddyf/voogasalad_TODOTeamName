@@ -7,6 +7,8 @@ import block.Block;
 
 /**
  * Wrapper class on a list of Blocks used for XStream.
+ * No longer used, but kept for reference.
+ * @deprecated
  * 
  * @author Daniel Chai
  */

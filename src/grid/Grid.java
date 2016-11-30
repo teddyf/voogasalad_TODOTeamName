@@ -4,16 +4,20 @@ import api.IGrid;
 import block.*;
 import java.util.Observable;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 /**
  * The rectangular grid in which all the block objects may be placed.
- * @author Filip Mazurek, Aninda Manocha
+ * @author Filip Mazurek, Aninda Manocha, Daniel Chai
  */
 
+@XStreamAlias("grid")
 public class Grid extends Observable implements IGrid {
-
     private int myNumRows;
     private int myNumColumns;
+    
+    @XStreamImplicit
     private Block[][] myGrid;
 
     public Grid(int numRows, int numColumns) {
