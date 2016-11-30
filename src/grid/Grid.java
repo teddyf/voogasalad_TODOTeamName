@@ -3,6 +3,7 @@ package grid;
 import api.IGrid;
 import block.*;
 import java.util.Observable;
+import java.util.ResourceBundle;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
@@ -14,6 +15,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 @XStreamAlias("grid")
 public class Grid extends Observable implements IGrid {
+    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
     private int myNumRows;
     private int myNumColumns;
     
@@ -30,7 +32,7 @@ public class Grid extends Observable implements IGrid {
     private void initializeGrid() {
         for(int i = 0; i < myNumRows; i++) {
             for(int j = 0; j < myNumColumns; j++) {
-                myGrid[i][j] = new DecorationBlock(BlockFactory.DEFAULT_BLOCK, i, j);
+                myGrid[i][j] = new DecorationBlock(BlockType.DECORATION, "resources/Default.png", i, j);
             }
         }
     }

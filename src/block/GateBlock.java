@@ -13,7 +13,7 @@ public class GateBlock extends Block {
     private static final boolean CLOSED = false;
     private boolean isOpen;
 
-    public GateBlock(String name, int row, int col) {
+    public GateBlock(String name, BlockType blockType, int row, int col) {
         super(name, BlockType.GATE, row, col);
         setWalkableStatus(CLOSED);
         isOpen = CLOSED;
