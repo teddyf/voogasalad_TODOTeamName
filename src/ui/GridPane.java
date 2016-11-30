@@ -195,5 +195,13 @@ public class GridPane {
     public List<GridPaneNode> getClicked () {
         return clicked;
     }
+    
+    public double getGridHeight(){
+    	return gridHeight;
+    }
+    
+    public double getGridWidth(){
+    	return gridWidth;
+    }
 
 }

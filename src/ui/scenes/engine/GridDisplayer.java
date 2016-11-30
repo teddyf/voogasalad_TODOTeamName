@@ -8,8 +8,6 @@ import ui.builder.UIBuilder;
 
 public class GridDisplayer {
 	private GridPaneRunnable myGridPaneRunnable;
-//	private Group myParent;
-//	private UIBuilder myUIBuilder;
 	private Group myGroupGrid;
 	
 	public GridDisplayer(GridPane gridPane) {
@@ -17,7 +15,8 @@ public class GridDisplayer {
 		myGridPaneRunnable = new GridPaneRunnable(gridPane);
 	}
 	
-	public void updateDisplay(int charPositionX, int charPositionY){
+	public Group updateDisplay(int charPositionX, int charPositionY){
+		Group displayGroup = new Group();
 		GridPaneNode[][] displayGrid = myGridPaneRunnable.displayGrid(charPositionX, charPositionY);
 		for (int i=0; i < displayGrid.length; i++) {
 			Group rowGroup = new Group();
@@ -25,8 +24,9 @@ public class GridDisplayer {
 				rowGroup.getChildren().add(displayGrid[i][j].getImage());
 				System.out.println(displayGrid[i][j].getImageNum());
 			}
-			myGroupGrid.getChildren().add(rowGroup);
+			displayGroup.getChildren().add(rowGroup);
 		}
+		return displayGroup;
 	}
 	
 	public Group getGroupGrid(){

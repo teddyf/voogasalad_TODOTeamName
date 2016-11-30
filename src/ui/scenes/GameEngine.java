@@ -2,6 +2,7 @@ package ui.scenes;
 
 import ui.GridPane;
 import ui.GridPaneNode;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -28,6 +29,7 @@ public class GameEngine extends Scene {
     private ResourceBundle myResources;
     private GridPane gridPane;
     private GridDisplayer myGridDisplayer;
+    private Group gridRegion;
 
     public GameEngine(Stage stage, UILauncher launcher, Parent root) {
         super(root);
@@ -36,6 +38,7 @@ public class GameEngine extends Scene {
         myRoot = root;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+        gridRegion = myBuilder.addRegion(-50, -50);
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             e.consume();
@@ -70,14 +73,9 @@ public class GameEngine extends Scene {
                              Integer.parseInt(myResources.getString("gridHeight")),
                              Integer.parseInt(myResources.getString("gridX")),
                              Integer.parseInt(myResources.getString("gridY")));
-    	for (GridPaneNode g : gridPane.getNodeList()) {
-//    		System.out.printf("row %d, col %d", g.getRow(), g.getCol());
-    		System.out.println(g.getImageNum());
-//    		System.out.println("col" + g.getCol());
-    	}
     	myGridDisplayer = new GridDisplayer(gridPane);
-    	myGridDisplayer.updateDisplay(15, 15);
-    	myBuilder.addComponent(myRoot, gridPane.getGroup());
+    	gridRegion.getChildren().add(myGridDisplayer.updateDisplay(30, 30));
+    	myBuilder.addComponent(myRoot, gridRegion);
     	
     	/*ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
