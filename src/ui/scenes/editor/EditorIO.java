@@ -20,11 +20,12 @@ public class EditorIO {
     private EngineController myEngineController;
     private ResourceBundle myResources;
 
-    EditorIO(Stage stage, EditorController editorController, EngineController engineController, ResourceBundle resources) {
+    EditorIO(Stage stage, EditorController editorController, EngineController engineController, ResourceBundle resources, GridUI grid) {
         myStage = stage;
         myEditorController = editorController;
         myEngineController = engineController;
         myResources = resources;
+        myGrid = grid;
     }
 
 //    public void openGameFile() {
@@ -37,7 +38,7 @@ public class EditorIO {
     public boolean saveGameFile() {
         File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile != null) {
-            myEngineController.saveEngine(gameFile.getAbsolutePath());
+            myEditorController.saveEngine(gameFile.getAbsolutePath());
             return true;
         } else {
             return false;
