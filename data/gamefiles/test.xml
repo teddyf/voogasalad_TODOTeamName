@@ -6,40 +6,40 @@
       <myNumRows>2</myNumRows>
       <myNumColumns>2</myNumColumns>
       <block.Block-array>
-        <block.CommunicatorBlock>
+        <block>
           <myBlockType>COMMUNICATOR</myBlockType>
           <myName>Test Block</myName>
           <myRow>0</myRow>
           <myCol>0</myCol>
           <walkableStatus>false</walkableStatus>
           <myInteractions/>
-        </block.CommunicatorBlock>
-        <block.CommunicatorBlock>
+        </block>
+        <block>
           <myBlockType>COMMUNICATOR</myBlockType>
           <myName>Test Block</myName>
           <myRow>0</myRow>
           <myCol>1</myCol>
           <walkableStatus>false</walkableStatus>
           <myInteractions/>
-        </block.CommunicatorBlock>
+        </block>
       </block.Block-array>
       <block.Block-array>
-        <block.CommunicatorBlock>
+        <block>
           <myBlockType>COMMUNICATOR</myBlockType>
           <myName>Test Block</myName>
           <myRow>1</myRow>
           <myCol>0</myCol>
           <walkableStatus>false</walkableStatus>
           <myInteractions/>
-        </block.CommunicatorBlock>
-        <block.CommunicatorBlock>
+        </block>
+        <block>
           <myBlockType>COMMUNICATOR</myBlockType>
           <myName>Test Block</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
           <walkableStatus>false</walkableStatus>
           <myInteractions/>
-        </block.CommunicatorBlock>
+        </block>
       </block.Block-array>
     </grid>
   </gridWorld>

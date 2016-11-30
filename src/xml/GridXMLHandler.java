@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.ResourceBundle;
 
 import com.thoughtworks.xstream.XStream;
@@ -21,8 +22,6 @@ import player.Player;
  * @author Daniel Chai
  */
 public class GridXMLHandler {
-	private static final String BLOCK_PATHS = "resources/properties/block-paths";
-	
 	private XStream xstream;
 	
 	public GridXMLHandler() {
@@ -63,6 +62,9 @@ public class GridXMLHandler {
 		xstream.processAnnotations(GridWorld.class);
 		xstream.processAnnotations(Grid.class);
 		xstream.processAnnotations(Player.class);
+		
+		BlockAliasFactory factory = new BlockAliasFactory(xstream);
+		factory.setAlias();
 	}
 	
 	/**
@@ -81,8 +83,8 @@ public class GridXMLHandler {
 		gridWorld.addGrid(grid);
 		Player player = new Player("Test Player", 0, 0);
 		
-		test.saveContents("/data/gamefiles/test.xml", gridWorld, player);
+		test.saveContents("data/gamefiles/test.xml", gridWorld, player);
 		GridWorldAndPlayer contents = test.loadContents("data/gamefiles/test.xml");
-		test.saveContents("/data/gamefiles/test2.xml", contents.getGridWorld(), contents.getPlayer());
+		test.saveContents("data/gamefiles/test2.xml", contents.getGridWorld(), contents.getPlayer());
 	}
 }
