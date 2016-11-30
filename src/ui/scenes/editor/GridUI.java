@@ -1,5 +1,6 @@
 package ui.scenes.editor;
 
+import editor.EditorController;
 import editor.SidePanel;
 import ui.GridPane;
 import ui.GridPaneNode;
@@ -9,8 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-
 import java.util.ResourceBundle;
+
 
 /**
  * @author Teddy Franceschi, Robert Steilberg
@@ -24,19 +25,21 @@ public class GridUI {
     private UIBuilder myBuilder;
     private Parent myRoot;
     private SidePanel myItemMenu;
+    private EditorController control;
 
-    GridUI(Parent root, SidePanel itemMenu, ResourceBundle resources) {
+    GridUI (Parent root, SidePanel itemMenu, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
         myResources = resources;
         myBuilder = new UIBuilder();
+        control = new EditorController();
     }
 
     /**
      * Configures grid event handlers that allow the user to add and remove
      * objects from it.
      */
-    private void initGridControl() {
+    private void initGridControl () {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
         PropertiesUtilities util = new PropertiesUtilities();
         ColorAdjust hoverOpacity = new ColorAdjust();
@@ -58,26 +61,33 @@ public class GridUI {
         String swapPath = myResources.getString("swapPath");
         Node widthInputField =
                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                        widthInputWidth);
+                                             widthInputWidth);
         Node heightInputField =
                 myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                        heightInputWidth);
+                                             heightInputWidth);
         String updatePath = myResources.getString("updatePath");
         Node updateButton =
                 myBuilder.addCustomButton(myRoot, updatePath, updateX, updateY, updateWidth);
         updateButton.setOnMouseClicked(e -> {
-            myBuilder.removeComponent(myRoot, myGridPane.getGroup());
             TextField xText = (TextField) widthInputField;
             TextField yText = (TextField) heightInputField;
-            int xInput = Integer.parseInt(xText.getText());
-            int yInput = Integer.parseInt(yText.getText());
-            myGridPane.resizeReset(xInput, yInput);
-            myBuilder.addComponent(myRoot, myGridPane.getGroup());
+            try{
+                int xInput = Integer.parseInt(xText.getText());
+                int yInput = Integer.parseInt(yText.getText());
+                myBuilder.removeComponent(myRoot, myGridPane.getGroup());
+                myGridPane.resizeReset(xInput, yInput);
+                myBuilder.addComponent(myRoot, myGridPane.getGroup());               
+            }
+            catch(Exception exc){
+                myBuilder.addNewAlert("Invalid Resize", "Please enter an inter value for row and column count");
+            }
+                   
         });
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
-        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected().getList()));
+        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected(),
+                                                          control));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
     }
@@ -86,30 +96,31 @@ public class GridUI {
      * Creates a grid of specified width and height, and then adds
      * functionality to the grid
      */
-    public void initGrid(int gridWidth, int gridHeight) {
+    public void initGrid (int gridWidth, int gridHeight) {
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(
-                gridWidth,
-                gridHeight,
-                util.getIntProperty(myResources, "gridWidth"),
-                util.getIntProperty(myResources, "gridHeight"),
-                util.getIntProperty(myResources, "gridX"),
-                util.getIntProperty(myResources, "gridY"));
+                                  gridWidth,
+                                  gridHeight,
+                                  util.getIntProperty(myResources, "gridWidth"),
+                                  util.getIntProperty(myResources, "gridHeight"),
+                                  util.getIntProperty(myResources, "gridX"),
+                                  util.getIntProperty(myResources, "gridY"));
+        control.addGrid(gridHeight, gridWidth);
         initGridControl();
     }
 
     /**
      * Creates a grid and then adds functionality to it
      */
-    public void initGrid() {
+    public void initGrid () {
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(
-                util.getIntProperty(myResources, "gridCellsWide"),
-                util.getIntProperty(myResources, "gridCellsHeight"),
-                util.getIntProperty(myResources, "gridWidth"),
-                util.getIntProperty(myResources, "gridHeight"),
-                util.getIntProperty(myResources, "gridX"),
-                util.getIntProperty(myResources, "gridY"));
+                                  util.getIntProperty(myResources, "gridCellsWide"),
+                                  util.getIntProperty(myResources, "gridCellsHeight"),
+                                  util.getIntProperty(myResources, "gridWidth"),
+                                  util.getIntProperty(myResources, "gridHeight"),
+                                  util.getIntProperty(myResources, "gridX"),
+                                  util.getIntProperty(myResources, "gridY"));
         initGridControl();
     }
 
