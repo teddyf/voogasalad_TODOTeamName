@@ -6,6 +6,7 @@ import block.BlockType;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
+import player.Player;
 
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
@@ -20,6 +21,7 @@ public class EditorController {
     private RenderedGrid renderedGrid;
     private int myNumRows;
     private int myNumColumns;
+    private Player player;
 
     public EditorController() {
         gridWorld = new GridWorld();
@@ -39,6 +41,15 @@ public class EditorController {
     public void addBlock(String name, BlockType blockType, int row, int col) {
         Block block = blockFactory.createBlock(name, blockType, row, col);
         currentGrid.setBlock(row, col, block);
+    }
+
+    public void addPlayer(String name, int row, int col) {
+        player = new Player(name, row, col);
+    }
+
+    public void movePlayer(int row, int col) {
+        player.setRow(row);
+        player.setCol(col);
     }
 
     public int getRow() {
