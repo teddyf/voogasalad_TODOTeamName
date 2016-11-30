@@ -8,7 +8,7 @@
       <block.Block-array>
         <block>
           <myBlockType>DECORATION</myBlockType>
-          <myName>DEFAULT</myName>
+          <myName>resources/Default.png</myName>
           <myRow>0</myRow>
           <myCol>0</myCol>
           <walkableStatus>true</walkableStatus>
@@ -16,7 +16,7 @@
         </block>
         <block>
           <myBlockType>DECORATION</myBlockType>
-          <myName>DEFAULT</myName>
+          <myName>resources/Default.png</myName>
           <myRow>0</myRow>
           <myCol>1</myCol>
           <walkableStatus>true</walkableStatus>
@@ -34,7 +34,7 @@
         </block>
         <block>
           <myBlockType>DECORATION</myBlockType>
-          <myName>DEFAULT</myName>
+          <myName>resources/Default.png</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
           <walkableStatus>true</walkableStatus>
