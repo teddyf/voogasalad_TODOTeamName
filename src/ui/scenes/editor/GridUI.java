@@ -2,6 +2,7 @@ package ui.scenes.editor;
 
 import editor.EditorController;
 import editor.EditorSidePanel;
+import javafx.scene.shape.Rectangle;
 import ui.GridPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -108,11 +109,22 @@ public class GridUI {
         myGridPane.setRenderMap();
     }
 
+    private void addGridBackground() {
+        Rectangle background = new Rectangle();
+        background.setLayoutX(14);
+        background.setLayoutY(43);
+        background.setWidth(621);
+        background.setHeight(621);
+        background.setId("border");
+        myBuilder.addComponent(myRoot,background);
+    }
+
     /**
      * Creates a grid of specified width and height, and then adds
      * functionality to the grid
      */
     public void initGrid (int gridWidth, int gridHeight) {
+        addGridBackground();
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(
                                   gridWidth,
@@ -121,7 +133,6 @@ public class GridUI {
                                   util.getIntProperty(myResources, "gridHeight"),
                                   util.getIntProperty(myResources, "gridX"),
                                   util.getIntProperty(myResources, "gridY"));
-        myGridPane.getGroup().setId("LOL");
         myController.addGrid(gridHeight, gridWidth);
         initGridControl();
     }
@@ -130,6 +141,7 @@ public class GridUI {
      * Creates a grid and then adds functionality to it
      */
     public void initGrid () {
+        addGridBackground();
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(
                                   util.getIntProperty(myResources, "gridCellsWide"),
