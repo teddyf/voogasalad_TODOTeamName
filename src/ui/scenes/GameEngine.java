@@ -2,12 +2,9 @@ package ui.scenes;
 import ui.GridPane;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-<<<<<<< HEAD
 import javafx.scene.layout.Pane;
-=======
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
->>>>>>> master
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
@@ -68,13 +65,13 @@ public class GameEngine extends Scene {
         return true;
     }
     
-<<<<<<< HEAD
     private void setUpPane() {
     	Pane pane = new Pane();
     	myBuilder.addComponent(myRoot, pane);
     	Character character = new Character(this);
 		pane.getChildren().add(character.getCharacterImageView());
-=======
+    }
+
     private void setUpGrid() {
     	
     	setUpKeys();
@@ -125,7 +122,6 @@ public class GameEngine extends Scene {
             myBuilder.addComponent(myRoot, gridPane.getGroup());
         });*/
 
->>>>>>> master
     }
     
     private void setUpKeys() {

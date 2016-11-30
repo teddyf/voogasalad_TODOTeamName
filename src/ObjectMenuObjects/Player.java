@@ -4,9 +4,9 @@ import javafx.scene.image.Image;
 import ui.GridPaneNode;
 import block.BlockType;
 
-public class Player1 extends GameObjects {
+public class Player extends GameObjects {
 	 private final String PATH = "resources/images/Sprites/Character/Pokemon/default";
-	    public Player1() {
+	    public Player() {
 	        super();
 	        Image image = new Image(PATH+".png");
 	        imageView.setImage(image);

@@ -2,7 +2,6 @@ package engine;
 
 import api.IGameInstance;
 import block.Block;
-import engine.backend.GameStatus;
 import grid.Grid;
 import grid.GridWorld;
 import player.Player;

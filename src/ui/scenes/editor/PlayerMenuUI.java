@@ -1,5 +1,6 @@
 package ui.scenes.editor;
 
+import editor.EditorController;
 import editor.SidePanel;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -46,12 +47,14 @@ public class PlayerMenuUI {
     private ArrayList<String> playerImagePathList = new ArrayList<String>();
     private PropertiesUtilities util = new PropertiesUtilities();
     private String chosenImageFilePath;
+    private EditorController editorController;
 
-    PlayerMenuUI(Parent root, UIBuilder builder, ResourceBundle resources) {
+    PlayerMenuUI(Parent root, UIBuilder builder, ResourceBundle resources,EditorController editorController) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
         vbox = new VBox();
+        this.editorController = editorController;
     }
 
     /**
@@ -94,6 +97,7 @@ public class PlayerMenuUI {
     		
     		button.setOnAction(new EventHandler<ActionEvent>() {
     		    @Override public void handle(ActionEvent e) {
+    		    	editorController.addPlayer(path,1,1);
     		    	chosenImageFilePath = path;
     		    }
     		});
