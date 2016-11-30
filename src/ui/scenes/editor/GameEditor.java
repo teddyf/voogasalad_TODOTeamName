@@ -47,8 +47,8 @@ public class GameEditor extends Scene {
         // get filename from IO class
         // call save/open within controller class
         EditorController editorController = new EditorController();
-        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources,editorController);
-        playerMenu.initPlayerMenu();
+        //PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources,editorController);
+        //playerMenu.initPlayerMenu();
         GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), editorController, myResources);
         grid.initGrid(width,height);
 

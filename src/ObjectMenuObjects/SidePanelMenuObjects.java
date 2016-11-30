@@ -23,7 +23,7 @@ public class SidePanelMenuObjects {
     }
     
     private void populatePlayers() {
-    	players.add(new Player());
+    	players.add(new Player1());
     }
     
     private void populateDecorations(){
