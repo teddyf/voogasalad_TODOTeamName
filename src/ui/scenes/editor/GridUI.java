@@ -27,7 +27,7 @@ public class GridUI {
     private EditorSidePanel myItemMenu;
     private EditorController myController;
 
-    GridUI (Parent root, EditorSidePanel itemMenu, EditorController controller, ResourceBundle resources) {
+    public GridUI (Parent root, EditorSidePanel itemMenu, EditorController controller, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
         myResources = resources;

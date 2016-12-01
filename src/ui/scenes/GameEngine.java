@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.GridUI;
+import ui.scenes.editor.ItemMenuUI;
 import ui.scenes.editor.StatsDisplayUI;
 import ui.scenes.engine.GridDisplayer;
 

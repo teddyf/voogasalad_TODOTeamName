@@ -20,7 +20,7 @@ public class ItemMenuUI {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
 
-    ItemMenuUI(Parent root, UIBuilder builder, ResourceBundle resources) {
+    public ItemMenuUI(Parent root, UIBuilder builder, ResourceBundle resources) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
