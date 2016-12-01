@@ -1,42 +1,15 @@
 package ui.scenes.editor;
 
-import editor.EditorController;
-import editor.EditorSidePanel;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.geometry.Side;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-
-import ObjectMenuObjects.GameObjects;
 
 /**
  * @author Pim Chuaylua
