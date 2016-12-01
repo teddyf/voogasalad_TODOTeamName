@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
  * The rectangular grid in which all the block objects may be placed.
@@ -15,7 +16,9 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 @XStreamAlias("grid")
 public class Grid extends Observable implements IGrid {
-    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
+	@XStreamOmitField
+	private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
+	
     private int myNumRows;
     private int myNumColumns;
     
@@ -32,7 +35,7 @@ public class Grid extends Observable implements IGrid {
     private void initializeGrid() {
         for(int i = 0; i < myNumRows; i++) {
             for(int j = 0; j < myNumColumns; j++) {
-                myGrid[i][j] = new DecorationBlock(BlockType.DECORATION, "resources/Default.png", i, j);
+                myGrid[i][j] = new DecorationBlock("resources/Default.png", i, j);
             }
         }
     }

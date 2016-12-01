@@ -10,7 +10,7 @@ import block.BlockType;
  */
 public class SwitchFloorBlock extends SwitchBlock implements Walkable {
 
-    public SwitchFloorBlock(String name, BlockType blockType, int row, int col) {
+    public SwitchFloorBlock(String name, int row, int col) {
         super(name, BlockType.SWITCH_FLOOR, row, col);
         setWalkableStatus(IS_WALKABLE);
     }
