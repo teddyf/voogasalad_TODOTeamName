@@ -10,6 +10,7 @@ import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
+import ui.GridForEngine;
 import ui.GridPane;
 
 /**
@@ -18,7 +19,7 @@ import ui.GridPane;
  */
 public class VoogaAnimation {
 	
-	private GridPane grid;
+	private GridForEngine grid;
 	
 	private Stack<KeyCode> stack;
 	
@@ -32,15 +33,15 @@ public class VoogaAnimation {
 	
 	private Timeline animation;
 
-	public VoogaAnimation(GridPane grid) {
-		this.grid = grid;
+	public VoogaAnimation(GridForEngine grid2) {
+		this.grid = grid2;
 		stack = new Stack<>();
 		finished = true;
 		first = true;
 		duration = 400;
 		maxSteps = 800;
 		stepCount = 0;
-		pixelMovement = grid.getBlockSize()/maxSteps;
+		pixelMovement = grid2.getBlockSize()/maxSteps;
 	}
 	
 	

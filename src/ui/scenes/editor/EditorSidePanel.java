@@ -1,7 +1,8 @@
-package editor;
+package ui.scenes.editor;
 
 import java.util.*;
 
+import javafx.scene.layout.Pane;
 import sun.security.tools.policytool.Resources;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
@@ -12,53 +13,33 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import ObjectMenuObjects.*;
 import ui.builder.*;
 
-
-<<<<<<< HEAD:src/editor/EditorSidePanel.java
-public class EditorSidePanel extends SidePanelBuilder {
-    private static final String SIDEPANEL_RESOURCES = "resources/sidepanel";
-=======
-public class SidePanel {
-    private static final String SIDEPANEL_RESOURCES = "resources/properties/item-panel";
->>>>>>> 653e1ff5812fa483a5933f23f8a8ea9c417d2734:src/editor/SidePanel.java
-    private Group myRegion;
+/**
+ * @author Nisa, Pim
+ */
+public class EditorSidePanel {
+    private static final String ITEMPANEL_RESOURCES_PATH = "resources/properties/item-panel";
+    private Pane myRegion;
     private ResourceBundle myResources;
     private UIBuilder myBuilder;
     private SidePanelMenuObjects handler;
 
-    public EditorSidePanel (Group region) {
-    	super(region, SIDEPANEL_RESOURCES);
+    public EditorSidePanel (Pane region) {
         myBuilder = new UIBuilder();
         handler = new SidePanelMenuObjects();
         myRegion = region;
-        myResources = Resources.getBundle(SIDEPANEL_RESOURCES);
+        myResources = Resources.getBundle(ITEMPANEL_RESOURCES_PATH);
         initSidePanel();
     }
 
-
-    @Deprecated
-    private void populatePane (ScrollPane pane, String label) {
-        List<GameObjects> list;
-        if (label.equals("decoration")) {
-            list = handler.getDecorations();
-        }else if (label.equals("npc")) {
-        	list = handler.getPlayers();
-        }
-        else {
-            list = handler.getObstacles();
-        }
-        int buffer = 0;
-        for (GameObjects obj : list) {
-            Node node = myBuilder.addCustomButton(pane, obj.getPath(), buffer, 0, 50);
-            System.out.println("here");
-            node.setOnMouseClicked(e -> {
-                handler.select(obj);
-            });
-            buffer += 50;
-        }
+    public Tab createTab (String label, ScrollPane scrollPane) {
+        Tab tab = new Tab();
+        tab.setText(myResources.getString(label));
+        tab.setContent(scrollPane);
+        tab.setClosable(false);
+        return tab;
     }
 
     private ScrollPane createScrollPane (String label) {
@@ -110,7 +91,7 @@ public class SidePanel {
         myRegion.getChildren().add(tp);
     }
     
-    public SidePanelMenuObjects getHandler(){
+    SidePanelMenuObjects getHandler(){
         return handler;
     }
 
