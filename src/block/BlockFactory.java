@@ -17,8 +17,8 @@ public class BlockFactory {
         System.out.println("is this working");
         try {
             Class<?> blockClass = Class.forName(myBlockPaths.getString(blockType.toString()));
-            Constructor<?> constructor = blockClass.getDeclaredConstructor(BlockType.class, String.class, int.class, int.class);
-            Object block = constructor.newInstance(blockType, name, row, col);
+            Constructor<?> constructor = blockClass.getDeclaredConstructor(String.class, int.class, int.class);
+            Object block = constructor.newInstance(name, row, col);
             System.out.println("PRINTTTT " + ((Block)block).getName());
             return (Block) block;
         }
