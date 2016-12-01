@@ -2,6 +2,7 @@ package ui.scenes.editor;
 
 import java.util.*;
 
+import javafx.scene.layout.Pane;
 import sun.security.tools.policytool.Resources;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
@@ -20,12 +21,12 @@ import ui.builder.*;
  */
 public class EditorSidePanel {
     private static final String ITEMPANEL_RESOURCES_PATH = "resources/properties/item-panel";
-    private Group myRegion;
+    private Pane myRegion;
     private ResourceBundle myResources;
     private UIBuilder myBuilder;
     private SidePanelMenuObjects handler;
 
-    public EditorSidePanel (Group region) {
+    public EditorSidePanel (Pane region) {
         myBuilder = new UIBuilder();
         handler = new SidePanelMenuObjects();
         myRegion = region;
@@ -87,7 +88,6 @@ public class EditorSidePanel {
         Tab npcTab = createTab("NPC", npcPane);
         tp.getTabs().addAll(decTab, objTab, switchTab, npcTab);
         tp.setSide(Side.TOP);
-        myRegion.setStyle("-fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);");
         myRegion.getChildren().add(tp);
     }
     
