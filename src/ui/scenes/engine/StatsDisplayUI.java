@@ -1,4 +1,4 @@
-package ui.scenes.editor;
+package ui.scenes.engine;
 
 import javafx.geometry.Insets;
 import javafx.scene.Group;

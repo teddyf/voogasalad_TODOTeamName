@@ -1,5 +1,5 @@
 
-package ui.scenes;
+package ui.scenes.engine;
 
 import java.util.ResourceBundle;
 import java.util.Stack;
@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
-import ui.GridForEngine;
 import ui.GridPane;
 import ui.builder.UIBuilder;
 
@@ -34,7 +33,7 @@ public class VoogaAnimation {
 	private double pixelMovement;
 	private int maxSteps;
 	private int stepCount;
-	private Character player;
+	private PlayerUI player;
 	private Parent root;
 	private UIBuilder uiBuilder;
 	private ResourceBundle myResources;
@@ -43,7 +42,7 @@ public class VoogaAnimation {
 	
 	private Timeline animation;
 
-	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder) {
+	public VoogaAnimation(Parent root, GridForEngine grid2, PlayerUI player, UIBuilder uiBuilder) {
 		this.root = root;
 		this.grid = grid2;
 		this.player = player;
@@ -98,8 +97,6 @@ public class VoogaAnimation {
 		System.out.println(imageFileName);
 		//uiBuilder.removeComponent(root, player.getCharacterImageView());
 		player.setCharacterImage(IMAGE_RESOURCE + imageFileName);
-		//player.getCharacterImageView().setLayoutX(Integer.parseInt(myResources.getString("gridWidth"))/2);
-		//player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("gridHeight"))/2);
 		player.setCharacterImageSize(grid.getBlockSize());
 		player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
     	player.getCharacterImageView().setLayoutY(gridY+grid.getBlockSize()*player.getRowCharacter());

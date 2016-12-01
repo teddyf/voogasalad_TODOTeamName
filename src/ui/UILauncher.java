@@ -1,7 +1,7 @@
 package ui;
 
 import ui.scenes.editor.GameEditor;
-import ui.scenes.GameEngine;
+import ui.scenes.engine.GameEngine;
 import ui.scenes.MainMenu;
 import javafx.scene.Group;
 import javafx.stage.Stage;
