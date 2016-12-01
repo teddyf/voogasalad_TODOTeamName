@@ -75,6 +75,7 @@ public class GameEngine extends Scene {
         myController.loadEngine(gameFile.getAbsolutePath());
         initGrid();
     	loadGrid();
+    	setUpGrid();
 
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
     	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
@@ -86,7 +87,7 @@ public class GameEngine extends Scene {
     	//EngineDisplayer ed = new EngineDisplayer(myController);
     	
     	setUpKeys();
-    	initGrid();
+    	//initGrid();
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
     	Character player = new Character();
@@ -101,7 +102,7 @@ public class GameEngine extends Scene {
     	System.out.println(grid.getHeight());
     	
 
-    	myBuilder.addComponent(myRoot, grid.getGroup());
+    	//myBuilder.addComponent(myRoot, grid.getGroup());
     	
 //    	Group g = new Group();
 //    	g.getChildren().add(player.getCharacterImageView());
@@ -111,8 +112,8 @@ public class GameEngine extends Scene {
     	player.getCharacterImageView().setLayoutY(windowHeight/2);
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     	
-    	StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
-    	statusUI.initPlayerMenu();
+    	//StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
+    	//statusUI.initPlayerMenu();
     }
     
     private void setUpKeys() {
