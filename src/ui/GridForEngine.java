@@ -4,14 +4,16 @@ import java.util.*;
 import ObjectMenuObjects.GameObjects;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
+import ui.GridPaneNode;
+import block.*;
 import editor.EditorController;
 
 /**
- * 
+ * Will replace this class with a better grid for engine
  * @author Teddy Franceschi
  *
  */
-public class GridPane {
+public class GridForEngine {
     // name & identifier & row/column
 
     private Group group;
@@ -31,7 +33,7 @@ public class GridPane {
 
     private String DEFAULT = "resources/Default.png";
 
-    public GridPane (int gridWidth,
+    public GridForEngine (int gridWidth,
                      int gridHeight,
                      int renderWidth,
                      int renderHeight,
@@ -77,27 +79,18 @@ public class GridPane {
     }
 
     public void setRenderMap () {
-    	group = new Group();
+        group = new Group();
+        ArrayList<Double> data = new ArrayList<Double>();
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
             double y = getYRender(node.getRow());
             node.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
             node.setImageCoord(x, y);
-            node.getImage().setOnMouseExited(e -> {if(!clicked.contains(node))node.getImage().setEffect(null);});
-            node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});           
-            node.getImage().setOnMouseClicked(e -> {
-                node.getImage().setEffect(hoverOpacity);
-                click(node);
-            });
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
-        }
-        System.out.println("grid status");
-        for(int i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[i].length; j++){
-                System.out.println(grid[i][j]);
-            }
+            data.add(x);
+            data.add(y);
         }
     }
 
@@ -131,7 +124,7 @@ public class GridPane {
         setRenderMap();
     }
     
-    public void loadReset(double height, double width){
+    public void loadReset(int height, int width){
         
         this.gridWidth = width;
         this.gridHeight = height;
@@ -139,17 +132,18 @@ public class GridPane {
         this.group = new Group();
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
+        this.grid = new GridPaneNode[height][width];
     }
 
     public List<GridPaneNode> swap (GameObjects obj, EditorController control) {
         List<GridPaneNode> list = obj.getList();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
+        System.out.println(blockList);
         for (int i = 0; i < clicked.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
                 int xPos = clicked.get(i).getCol() + list.get(j).getCol();
                 int yPos = clicked.get(i).getRow() + list.get(j).getRow();
-                System.out.println(grid.length);
                 GridPaneNode temp = grid[xPos][yPos];
                 temp.swap(list.get(j), list.get(j).getImageNum());
                 control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
@@ -157,8 +151,8 @@ public class GridPane {
             clicked.get(i).getImage().setEffect(null);
             copy = clicked;
         }
-        
         clicked = new ArrayList<GridPaneNode>();
+        System.out.println(copy);
         return copy;     
     }
     
@@ -225,31 +219,23 @@ public class GridPane {
     }
     
     public double getGridHeight(){
-    	return gridHeight;
+        return gridHeight;
     }
     
     public double getGridWidth(){
-    	return gridWidth;
+        return gridWidth;
     }
     
     public double getBlockSize() {
-    	return renderWidth/gridWidth;
+        return renderWidth/gridWidth;
     }
     
     public double getWidth() {
-    	return gridWidth;
+        return gridWidth;
     }
     
     public double getHeight() {
-    	return gridHeight;
-    }
-    
-    public void debug(){
-        for(int i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[i].length; j++){
-                System.out.println(grid[i][j]);
-            }
-        }
+        return gridHeight;
     }
 
 }

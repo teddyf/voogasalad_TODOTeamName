@@ -2,6 +2,7 @@ package ui.scenes;
 
 import engine.EngineController;
 import ui.FileBrowser;
+import ui.GridForEngine;
 import ui.GridPane;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -31,12 +32,12 @@ import engine.UserInstruction;
 public class GameEngine extends Scene {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
-	private Stage myStage;
+    private Stage myStage;
     private Parent myRoot;
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
-    private GridPane gridPane;
+    private GridForEngine grid;
     
     private EngineController myController;
     
@@ -57,6 +58,7 @@ public class GameEngine extends Scene {
             myLauncher.launchMenu();
         });
         myController = new EngineController();
+        
     }
 
     /**
@@ -70,11 +72,10 @@ public class GameEngine extends Scene {
         if (gameFile == null) { // user clicked cancel
             return false;
         }
-        EngineController gameController = new EngineController();
-        gameController.loadEngine(gameFile.getAbsolutePath());
+        myController.loadEngine(gameFile.getAbsolutePath());
+        initGrid();
+    	loadGrid();
 
-    	
-    	setUpGrid();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
     	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;
@@ -85,35 +86,26 @@ public class GameEngine extends Scene {
     	//EngineDisplayer ed = new EngineDisplayer(myController);
     	
     	setUpKeys();
-    	
-    	int gridCellsWidth = Integer.parseInt(myResources.getString("gridCellsWide"));
-    	int gridCellsHeight = Integer.parseInt(myResources.getString("gridCellsHeight"));
-    	int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
-    	int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
-    	int gridX = Integer.parseInt(myResources.getString("gridX"));
-    	int gridY = Integer.parseInt(myResources.getString("gridY"));
-    	int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
-    	int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
-    	
-    	gridPane = new GridPane(gridCellsWidth,gridCellsHeight,gridWidth ,gridHeight,gridX,gridY);
-
-    	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower1.1NEW.png"));
+    	initGrid();
+    	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
-    	anim = new VoogaAnimation(gridPane);
+    	anim = new VoogaAnimation(grid);
     	
     	//gd = new GridDisplayer(gridPane);
     	
-    	System.out.println(gridPane.getWidth());
-    	System.out.println(gridPane.getHeight());
+    	System.out.println(grid.getWidth());
+    	System.out.println(grid.getHeight());
     	
     	Character player = new Character();
-    	player.setColumn((int)(gridPane.getWidth()-1) /2);
-    	player.setRow(((int)gridPane.getHeight()-1) /2);
+    	player.setColumn((int)(grid.getWidth()-1) /2);
+    	player.setRow(((int)grid.getHeight()-1) /2);
 
-    	myBuilder.addComponent(myRoot, gridPane.getGroup());
+    	myBuilder.addComponent(myRoot, grid.getGroup());
     	
 //    	Group g = new Group();
 //    	g.getChildren().add(player.getCharacterImageView());
+    	int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
+        int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
     	player.getCharacterImageView().setLayoutX(windowWidth/2);
     	player.getCharacterImageView().setLayoutY(windowHeight/2);
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
@@ -125,6 +117,31 @@ public class GameEngine extends Scene {
     private void setUpKeys() {
     	setOnKeyPressed(e -> anim.handleKeyPress(e));
     	setOnKeyReleased(e -> anim.handleKeyRelease(e));
+    }
+    
+    private void initGrid(){
+        int gridCellsWidth = Integer.parseInt(myResources.getString("gridCellsWide"));
+        int gridCellsHeight = Integer.parseInt(myResources.getString("gridCellsHeight"));
+        int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
+        int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
+        int gridX = Integer.parseInt(myResources.getString("gridX"));
+        int gridY = Integer.parseInt(myResources.getString("gridY"));
+        grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight, gridX, gridY);
+    }
+    
+    public void loadGrid(){
+        int colMax = myController.getGameInstance().getGrid().getNumCols();
+        int rowMax = myController.getGameInstance().getGrid().getNumRows();
+        grid.loadReset(rowMax, colMax);
+        myBuilder.removeComponent(myRoot, grid.getGroup());
+        for(int i = 0; i < rowMax; i++){
+            for(int j = 0; j < colMax; j++){
+                grid.blockToGridPane(i, j, myController.getBlock(i, j));
+
+            }
+        }
+        grid.setRenderMap();
+        myBuilder.addComponent(myRoot, grid.getGroup());
     }
     
 //    private void onKeyPress(KeyEvent e) {
