@@ -77,7 +77,7 @@ public class GameEngine extends Scene {
         myController.loadEngine(gameFile.getAbsolutePath());
         initGrid();
     	loadGrid();
-
+        //setUpGrid();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
     	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;

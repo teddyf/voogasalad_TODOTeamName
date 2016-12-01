@@ -65,6 +65,7 @@ public class EditorController {
 
     public void addPlayer(String name, int row, int col) {
         player = new Player(name, row, col);
+        System.out.println("player is added");
     }
 
     public void movePlayer(int row, int col) {
