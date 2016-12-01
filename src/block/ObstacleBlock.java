@@ -9,7 +9,7 @@ package block;
 public class ObstacleBlock extends Block implements NotWalkable {
 
     public ObstacleBlock(String name, int row, int col) {
-        super(name, BlockType.OBSTACLE, row, col);
+        super(name, row, col);
         setWalkableStatus(IS_WALKABLE);
     }
 }

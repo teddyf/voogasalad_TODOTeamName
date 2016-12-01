@@ -22,10 +22,14 @@ import ui.builder.UIBuilder;
  *
  */
 public class VoogaAnimation {
+<<<<<<< HEAD
 	private static final String IMAGE_RESOURCE = "resources/images/sprites/Character/Pokemon/";
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
+	private GridPane grid;
+=======
 	
 	private GridForEngine grid;
+>>>>>>> 8091dc61891758bdc5105273d1a090cb6fd8da9a
 	
 	private Stack<KeyCode> stack;
 	
@@ -43,12 +47,17 @@ public class VoogaAnimation {
 	
 	private Timeline animation;
 
-	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder) {
+<<<<<<< HEAD
+	public VoogaAnimation(Parent root, GridPane grid, Character player, UIBuilder uiBuilder) {
 		this.root = root;
-		this.grid = grid2;
+		this.grid = grid;
 		this.player = player;
 		this.uiBuilder = uiBuilder;
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+=======
+	public VoogaAnimation(GridForEngine grid2) {
+		this.grid = grid2;
+>>>>>>> 8091dc61891758bdc5105273d1a090cb6fd8da9a
 		stack = new Stack<>();
 		finished = true;
 		first = true;
