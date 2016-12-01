@@ -14,4 +14,8 @@ statusPanelPosY = 0
 playerImageSize = 50
 
 
+<<<<<<< HEAD
+gameFilePath = data/gamefiles
+=======
 gameFilePath = ./data
+>>>>>>> 8e0ab8224bdf09971e9744142e750545d909b94a
