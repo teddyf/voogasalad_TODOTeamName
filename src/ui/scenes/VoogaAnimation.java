@@ -93,11 +93,16 @@ public class VoogaAnimation {
 	}
 	
 	private void changePlayerImage(String imageFileName){
+		int gridX = Integer.parseInt(myResources.getString("gridX"));
+        int gridY = Integer.parseInt(myResources.getString("gridY"));
 		System.out.println(imageFileName);
-		uiBuilder.removeComponent(root, player.getCharacterImageView());
+		//uiBuilder.removeComponent(root, player.getCharacterImageView());
 		player.setCharacterImage(IMAGE_RESOURCE + imageFileName);
-		player.getCharacterImageView().setLayoutX(Integer.parseInt(myResources.getString("gridWidth"))/2);
-		player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("gridHeight"))/2);
+		//player.getCharacterImageView().setLayoutX(Integer.parseInt(myResources.getString("gridWidth"))/2);
+		//player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("gridHeight"))/2);
+		player.setCharacterImageSize(grid.getBlockSize());
+		player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
+    	player.getCharacterImageView().setLayoutY(gridY+grid.getBlockSize()*player.getRowCharacter());
 		uiBuilder.addComponent(root, player.getCharacterImageView());
 	}
 	

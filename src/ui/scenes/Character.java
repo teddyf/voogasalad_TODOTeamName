@@ -27,9 +27,9 @@ public class Character {
 	
 	/*setting size of character image
 	 * */
-	public void setCharacterImageSize(int blockSize) {
-		characterImage.setFitHeight(blockSize);
-		characterImage.setFitWidth(blockSize); 
+	public void setCharacterImageSize(double d) {
+		characterImage.setFitHeight(d);
+		characterImage.setFitWidth(d); 
 	}
 	
 	/*setting character image

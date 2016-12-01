@@ -1,7 +1,9 @@
 package ui;
 
 import java.util.*;
+
 import ObjectMenuObjects.GameObjects;
+import ObjectMenuObjects.Player1;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import editor.EditorController;
@@ -158,7 +160,12 @@ public class GridPane {
                 GridPaneNode temp = grid[xPos][yPos];
                 System.out.println(temp);
                 temp.swap(list.get(j), list.get(j).getImageNum());
-                control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
+                
+                if (obj instanceof Player1) {
+                	control.addPlayer(temp.getName(),temp.getRow(), temp.getCol());
+                }else {
+                	control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
+                }   
             }
             clicked.get(i).getImage().setEffect(null);
             copy = clicked;

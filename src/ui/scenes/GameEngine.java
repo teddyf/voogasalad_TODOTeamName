@@ -91,9 +91,8 @@ public class GameEngine extends Scene {
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
     	Character player = new Character();
-    	player.setColumn((int)(grid.getWidth()-1) /2);
-    	player.setRow(((int)grid.getHeight()-1) /2);
-    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+    	setUpPlayer(player);
+
     	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
     	
     	//gd = new GridDisplayer(gridPane);
@@ -106,14 +105,26 @@ public class GameEngine extends Scene {
     	
 //    	Group g = new Group();
 //    	g.getChildren().add(player.getCharacterImageView());
-    	int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
-        int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
-    	player.getCharacterImageView().setLayoutX(windowWidth/2);
-    	player.getCharacterImageView().setLayoutY(windowHeight/2);
+        
+    	
+    	System.out.println("col: "+myController.getPlayerColumn());
+    	System.out.println("row: "+myController.getPlayerRow());
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     	
     	//StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
     	//statusUI.initPlayerMenu();
+    }
+    
+    private void setUpPlayer(Character player) {
+    	player.setColumn(myController.getPlayerColumn());
+    	player.setRow(myController.getPlayerRow());
+    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+    	int gridX = Integer.parseInt(myResources.getString("gridX"));
+        int gridY = Integer.parseInt(myResources.getString("gridY"));
+        
+        player.setCharacterImageSize(grid.getBlockSize());
+    	player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*myController.getPlayerColumn());
+    	player.getCharacterImageView().setLayoutY(gridY+grid.getBlockSize()*myController.getPlayerRow());
     }
     
     private void setUpKeys() {
