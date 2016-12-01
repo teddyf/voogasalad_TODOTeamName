@@ -2,6 +2,7 @@ package ui.scenes.editor;
 
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.layout.Pane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 
@@ -35,7 +36,7 @@ public class ItemMenuUI {
         PropertiesUtilities util = new PropertiesUtilities();
         int itemMenuXPos = util.getIntProperty(myResources, "itemMenuXPos");
         int itemMenuYPos = util.getIntProperty(myResources, "itemMenuYPos");
-        Group itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
+        Pane itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
         myBuilder.addComponent(myRoot, itemMenuRegion);
         return new EditorSidePanel(itemMenuRegion);
     }

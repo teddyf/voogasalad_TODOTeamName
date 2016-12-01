@@ -42,7 +42,7 @@ public class StatsDisplayUI {
     	int itemMenuXPos = util.getIntProperty(myResources, "statusPanelPosX");
         int itemMenuYPos = util.getIntProperty(myResources, "statusPanelPosY");
         
-        Group itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
+        Pane itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
         Pane canvas = new Pane();
         canvas.setStyle("-fx-background-color: yellow;");
         canvas.setPrefSize(300,1000);

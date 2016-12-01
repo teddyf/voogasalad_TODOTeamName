@@ -4,8 +4,6 @@ import java.util.*;
 import ObjectMenuObjects.GameObjects;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
-import ui.GridPaneNode;
-import block.*;
 import editor.EditorController;
 
 /**
