@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.StatsDisplayUI;
+import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
 import java.util.ResourceBundle;
@@ -38,6 +40,8 @@ public class GameEngine extends Scene {
     
     private EngineController myController;
     
+    private VoogaAnimation anim;
+    
     private GridDisplayer gd;
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
@@ -62,7 +66,7 @@ public class GameEngine extends Scene {
      * @return true if initialization was successful and a valid game file was chosen
      */
     public boolean init() {
-        File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile == null) { // user clicked cancel
             return false;
         }
@@ -78,22 +82,26 @@ public class GameEngine extends Scene {
     
     private void setUpGrid() {
     	
-    	EngineDisplayer ed = new EngineDisplayer(myController);
+    	//EngineDisplayer ed = new EngineDisplayer(myController);
     	
     	setUpKeys();
-
-    	gridPane =
-                new GridPane(Integer.parseInt(myResources.getString("gridCellsWide")),
-                             Integer.parseInt(myResources.getString("gridCellsHeight")),
-                             Integer.parseInt(myResources.getString("gridWidth")),
-                             Integer.parseInt(myResources.getString("gridHeight")),
-                             Integer.parseInt(myResources.getString("gridX")),
-                             Integer.parseInt(myResources.getString("gridY")));
+    	
+    	int gridCellsWidth = Integer.parseInt(myResources.getString("gridCellsWide"));
+    	int gridCellsHeight = Integer.parseInt(myResources.getString("gridCellsHeight"));
+    	int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
+    	int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
+    	int gridX = Integer.parseInt(myResources.getString("gridX"));
+    	int gridY = Integer.parseInt(myResources.getString("gridY"));
+    	int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
+    	int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
+    	
+    	gridPane = new GridPane(gridCellsWidth,gridCellsHeight,gridWidth ,gridHeight,gridX,gridY);
 
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
+    	anim = new VoogaAnimation(gridPane);
     	
-    	gd = new GridDisplayer(gridPane);
+    	//gd = new GridDisplayer(gridPane);
     	
     	System.out.println(gridPane.getWidth());
     	System.out.println(gridPane.getHeight());
@@ -106,72 +114,38 @@ public class GameEngine extends Scene {
     	
 //    	Group g = new Group();
 //    	g.getChildren().add(player.getCharacterImageView());
-    	player.getCharacterImageView().setLayoutX(Integer.parseInt(myResources.getString("windowWidth"))/2);
-    	player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("windowHeight"))/2);
+    	player.getCharacterImageView().setLayoutX(windowWidth/2);
+    	player.getCharacterImageView().setLayoutY(windowHeight/2);
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     	
-    	
-    	/*ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
-        
-        int updateX = Integer.parseInt(myResources.getString("updateX"));
-        int updateY = Integer.parseInt(myResources.getString("updateY"));
-        int updateWidth = Integer.parseInt(myResources.getString("updateWidth"));
-        int widthInputX = Integer.parseInt(myResources.getString("inputWidthX"));
-        int widthInputY = Integer.parseInt(myResources.getString("inputWidthY"));
-        int widthInputWidth = Integer.parseInt(myResources.getString("inputWidthWidth"));
-        String widthInputText = myResources.getString("inputWidthText");
-        int heightInputX = Integer.parseInt(myResources.getString("inputHeightX"));
-        int heightInputY = Integer.parseInt(myResources.getString("inputHeightY"));
-        int heightInputWidth = Integer.parseInt(myResources.getString("inputHeightWidth"));
-        String heightInputText = myResources.getString("inputHeightText");
-        String updatePath = myResources.getString("updatePath");
-
-        Node widthInputField =
-                myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                                             widthInputWidth);
-        Node heightInputField =
-                myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                                             heightInputWidth);
-        
-        
-        Node updateButton =
-                myBuilder.addCustomButton(myRoot, updatePath, updateX, updateY, updateWidth);
-        updateButton.setOnMouseClicked(e -> {
-            myBuilder.removeComponent(myRoot, gridPane.getGroup());
-            TextField xText = (TextField) widthInputField;
-            TextField yText = (TextField) heightInputField;
-            int xInput = Integer.parseInt(xText.getText());
-            int yInput = Integer.parseInt(yText.getText());
-            gridPane.resizeReset(xInput, yInput);
-            myBuilder.addComponent(myRoot, gridPane.getGroup());
-        });*/
-
+    	StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
+    	statusUI.initPlayerMenu();
     }
     
     private void setUpKeys() {
-    	setOnKeyPressed(e -> onKeyPress(e));
+    	setOnKeyPressed(e -> anim.handleKeyPress(e));
+    	setOnKeyReleased(e -> anim.handleKeyRelease(e));
     }
     
-    private void onKeyPress(KeyEvent e) {
-    	KeyCode code = e.getCode();
-    	switch (code) {
-    		case UP:
-    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
-    			//myController.keyListener(UserInstruction.UP);
-    			break;
-    		case DOWN:
-    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
-    			//myController.keyListener(UserInstruction.DOWN);
-    			break;
-    		case LEFT:
-    			//myController.keyListener(UserInstruction.LEFT);
-    			break;
-    		case RIGHT:
-    			//myController.keyListener(UserInstruction.RIGHT);
-    			break;
-    		default:
-    			break;
-    	}
-    }
+//    private void onKeyPress(KeyEvent e) {
+//    	KeyCode code = e.getCode();
+//    	switch (code) {
+//    		case UP:
+//    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
+//    			//myController.keyListener(UserInstruction.UP);
+//    			break;
+//    		case DOWN:
+//    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
+//    			//myController.keyListener(UserInstruction.DOWN);
+//    			break;
+//    		case LEFT:
+//    			//myController.keyListener(UserInstruction.LEFT);
+//    			break;
+//    		case RIGHT:
+//    			//myController.keyListener(UserInstruction.RIGHT);
+//    			break;
+//    		default:
+//    			break;
+//    	}
+//    }
 }

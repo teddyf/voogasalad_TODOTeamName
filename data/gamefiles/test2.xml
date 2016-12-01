@@ -7,6 +7,8 @@
       <myNumColumns>2</myNumColumns>
       <block.Block-array>
         <block>
+          <changed>false</changed>
+          <obs/>
           <myBlockType>COMMUNICATOR</myBlockType>
           <myName>Test Block</myName>
           <myRow>0</myRow>
@@ -15,6 +17,8 @@
           <myInteractions/>
         </block>
         <block>
+          <changed>false</changed>
+          <obs/>
           <myBlockType>COMMUNICATOR</myBlockType>
           <myName>Test Block</myName>
           <myRow>0</myRow>
@@ -25,6 +29,8 @@
       </block.Block-array>
       <block.Block-array>
         <block>
+          <changed>false</changed>
+          <obs/>
           <myBlockType>COMMUNICATOR</myBlockType>
           <myName>Test Block</myName>
           <myRow>1</myRow>
@@ -33,6 +39,8 @@
           <myInteractions/>
         </block>
         <block>
+          <changed>false</changed>
+          <obs/>
           <myBlockType>COMMUNICATOR</myBlockType>
           <myName>Test Block</myName>
           <myRow>1</myRow>

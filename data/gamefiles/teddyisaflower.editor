@@ -627,7 +627,7 @@
                     <object/>
                   </entry>
                   <entry>
-                    <string>ui.scenes.editor.menu.MenuEvents</string>
+                    <string>ui.scenes.editor.EditorEvents</string>
                     <object/>
                   </entry>
                   <entry>
@@ -8155,7 +8155,7 @@
                     <object/>
                   </entry>
                   <entry>
-                    <string>ui.scenes.editor.menu.MenuBarUI</string>
+                    <string>ui.scenes.editor.MenuBarUI</string>
                     <object/>
                   </entry>
                   <entry>
@@ -15653,7 +15653,7 @@
                   <object/>
                 </entry>
                 <entry>
-                  <string>ui.scenes.editor.menu.MenuBarUI</string>
+                  <string>ui.scenes.editor.MenuBarUI</string>
                   <object/>
                 </entry>
                 <entry>
@@ -15845,7 +15845,7 @@
                   <object/>
                 </entry>
                 <entry>
-                  <string>ui.scenes.editor.menu.MenuEvents</string>
+                  <string>ui.scenes.editor.EditorEvents</string>
                   <object/>
                 </entry>
                 <entry>
@@ -17956,8 +17956,8 @@
                 <java-class>grid.RenderedGrid</java-class>
                 <java-class>ui.scenes.editor.EditorIO</java-class>
                 <java-class>engine.EngineController</java-class>
-                <java-class>ui.scenes.editor.menu.MenuBarUI</java-class>
-                <java-class>ui.scenes.editor.menu.MenuEvents</java-class>
+                <java-class>ui.scenes.editor.MenuBarUI</java-class>
+                <java-class>ui.scenes.editor.EditorEvents</java-class>
                 <java-class>ui.FileBrowser</java-class>
                 <java-class>com.thoughtworks.xstream.io.xml.XmlFriendlyWriter</java-class>
                 <java-class>com.thoughtworks.xstream.io.ExtendedHierarchicalStreamWriter</java-class>
