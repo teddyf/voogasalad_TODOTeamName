@@ -97,6 +97,7 @@ public class GridUI {
         int colMax = myController.getCol();
         int rowMax = myController.getRow();
         myGridPane.loadReset(rowMax, colMax);
+        myBuilder.removeComponent(myRoot, myGridPane.getGroup());
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
                 System.out.println(myController.getBlock(i,j));

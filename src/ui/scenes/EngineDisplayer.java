@@ -5,10 +5,14 @@ import java.util.Observer;
 
 import engine.EngineController;
 import engine.GameInstance;
+import resources.properties.PropertiesUtilities;
+import ui.GridForEngine;
+import ui.GridPane;
 
 public class EngineDisplayer implements Observer {
 	
 	private EngineController ec;
+	private GridForEngine grid;
 
 	public EngineDisplayer(EngineController ec) {
 		this.ec = ec;
@@ -20,5 +24,6 @@ public class EngineDisplayer implements Observer {
 			System.out.println("hi");
 		}
 	}
+	
 
 }

@@ -9,11 +9,11 @@ import block.*;
 import editor.EditorController;
 
 /**
- * 
+ * Will replace this class with a better grid for engine
  * @author Teddy Franceschi
  *
  */
-public class GridPane {
+public class GridForEngine {
     // name & identifier & row/column
 
     private Group group;
@@ -33,7 +33,7 @@ public class GridPane {
 
     private String DEFAULT = "resources/Default.png";
 
-    public GridPane (int gridWidth,
+    public GridForEngine (int gridWidth,
                      int gridHeight,
                      int renderWidth,
                      int renderHeight,
@@ -79,21 +79,18 @@ public class GridPane {
     }
 
     public void setRenderMap () {
-    	group = new Group();
+        group = new Group();
+        ArrayList<Double> data = new ArrayList<Double>();
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
             double y = getYRender(node.getRow());
             node.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
             node.setImageCoord(x, y);
-            node.getImage().setOnMouseExited(e -> {if(!clicked.contains(node))node.getImage().setEffect(null);});
-            node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});           
-            node.getImage().setOnMouseClicked(e -> {
-                node.getImage().setEffect(hoverOpacity);
-                click(node);
-            });
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
+            data.add(x);
+            data.add(y);
         }
     }
 
@@ -222,23 +219,23 @@ public class GridPane {
     }
     
     public double getGridHeight(){
-    	return gridHeight;
+        return gridHeight;
     }
     
     public double getGridWidth(){
-    	return gridWidth;
+        return gridWidth;
     }
     
     public double getBlockSize() {
-    	return renderWidth/gridWidth;
+        return renderWidth/gridWidth;
     }
     
     public double getWidth() {
-    	return gridWidth;
+        return gridWidth;
     }
     
     public double getHeight() {
-    	return gridHeight;
+        return gridHeight;
     }
 
 }
