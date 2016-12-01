@@ -1,6 +1,5 @@
 package block;
 
-import interactions.GiveMessageOnInteract;
 import interactions.Interaction;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,8 +15,8 @@ public abstract class Block extends Observable implements ShallowBlock {
 
     private BlockType myBlockType;
     private String myName;
-    protected int myRow;
-    protected int myCol;
+    private int myRow;
+    private int myCol;
     private boolean walkableStatus;
     private List<Interaction> myInteractions;
     private String myMessage;

@@ -1,7 +1,6 @@
 package block;
 
 import java.lang.reflect.Constructor;
-import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -15,15 +14,20 @@ public class BlockFactory {
     private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
 
     public Block createBlock(String name, BlockType blockType, int row, int col) {
+        System.out.println("is this working");
         try {
             Class<?> blockClass = Class.forName(myBlockPaths.getString(blockType.toString()));
-            Constructor<?> constructor = blockClass.getDeclaredConstructor(List.class);
-            Object block = constructor.newInstance(name, blockType, row, col);
+            Constructor<?> constructor = blockClass.getDeclaredConstructor(BlockType.class, String.class, int.class, int.class);
+            Object block = constructor.newInstance(blockType, name, row, col);
+            System.out.println("PRINTTTT " + ((Block)block).getName());
             return (Block) block;
         }
         catch (Exception e) {
             // TODO: can't create a new block
+            System.out.println("EXCEPTION");
+            System.out.println(e.toString());
         }
-        return new DecorationBlock(DEFAULT_BLOCK, row, col); // TODO: better default? Currently just place a default square
+        // TODO:  add to resource file
+        return new DecorationBlock("resources/Default.png", row, col); // TODO: better default? Currently just place a default square
     }
 }

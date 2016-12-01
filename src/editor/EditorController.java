@@ -3,6 +3,7 @@ package editor;
 import block.Block;
 import block.BlockFactory;
 import block.BlockType;
+import block.DecorationBlock;
 import engine.EngineController;
 import grid.Grid;
 import grid.GridWorld;
@@ -19,19 +20,19 @@ import xml.GridXMLHandler;
  */
 
 public class EditorController {
-    private GridWorld gridWorld;
     private BlockFactory blockFactory;
+    private GridXMLHandler xmlHandler;
+    private GridWorld gridWorld;
     private Grid currentGrid;
     private RenderedGrid renderedGrid;
     private int myNumRows;
     private int myNumColumns;
     private Player player;
-    private GridXMLHandler xmlHandler;
 
     public EditorController() {
-        gridWorld = new GridWorld();
         blockFactory = new BlockFactory();
         xmlHandler = new GridXMLHandler();
+        gridWorld = new GridWorld();
     }
 
     public void addGrid(int row, int col) {
@@ -50,7 +51,16 @@ public class EditorController {
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
         Block block = blockFactory.createBlock(name, blockType, row, col);
+        System.out.println("NAME " + name);
+        System.out.println("BLOCK " + block.getName());
         currentGrid.setBlock(row, col, block);
+        System.out.println("GRID");
+        for(int i = 0; i < myNumRows; i++) {
+            for(int j = 0; j < myNumColumns; j++) {
+                //System.out.println(currentGrid.getBlock(i,j).getName());
+                //System.out.println(renderedGrid.get(i,j));
+            }
+        }
     }
 
     public void addPlayer(String name, int row, int col) {
@@ -84,6 +94,12 @@ public class EditorController {
         return myNumColumns;
     }
 
+    /**
+     * Gets the block located in a specific row and column
+     * @param row - the specific row
+     * @param col - the specific column
+     * @return the block
+     */
     public String getBlock(int row, int col) {
         return renderedGrid.get(row, col);
     }

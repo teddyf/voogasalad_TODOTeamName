@@ -14,5 +14,5 @@ public enum UserInstruction {
 	NORTHWEST,
 	SOUTHEAST,
 	SOUTHWEST,
-	TALK;
+	TALK
 }

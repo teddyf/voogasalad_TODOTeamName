@@ -1,7 +1,8 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
-import editor.SidePanel;
+import editor.EditorSidePanel;
+import javafx.scene.shape.Rectangle;
 import ui.GridPane;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -23,10 +24,10 @@ public class GridUI {
     private GridPane myGridPane;
     private UIBuilder myBuilder;
     private Parent myRoot;
-    private SidePanel myItemMenu;
+    private EditorSidePanel myItemMenu;
     private EditorController myController;
 
-    GridUI (Parent root, SidePanel itemMenu, EditorController controller, ResourceBundle resources) {
+    GridUI (Parent root, EditorSidePanel itemMenu, EditorController controller, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
         myResources = resources;
@@ -93,15 +94,29 @@ public class GridUI {
     }
     
     public void loadGrid(){
+        System.out.println(myGridPane.getNodeList());
         int colMax = myController.getCol();
         int rowMax = myController.getRow();
         myGridPane.loadReset();
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
+                System.out.println("here");
+                System.out.println(myController.getBlock(i,j));
                 myGridPane.blockToGridPane(i, j, myController.getBlock(i, j));
+
             }
         }
         myGridPane.setRenderMap();
+    }
+
+    private void addGridBackground() {
+        Rectangle background = new Rectangle();
+        background.setLayoutX(14);
+        background.setLayoutY(43);
+        background.setWidth(621);
+        background.setHeight(621);
+        background.setId("border");
+        myBuilder.addComponent(myRoot,background);
     }
 
     /**
@@ -109,6 +124,7 @@ public class GridUI {
      * functionality to the grid
      */
     public void initGrid (int gridWidth, int gridHeight) {
+        addGridBackground();
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(
                                   gridWidth,
@@ -125,6 +141,7 @@ public class GridUI {
      * Creates a grid and then adds functionality to it
      */
     public void initGrid () {
+        addGridBackground();
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(
                                   util.getIntProperty(myResources, "gridCellsWide"),

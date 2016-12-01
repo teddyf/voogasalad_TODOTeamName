@@ -33,8 +33,6 @@ public class GateBlock extends Block {
         }
         // notify front end to render the gate differently
         setChanged();
-        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, myRow, myCol));
+        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, getRow(), getCol()));
     }
-
-
 }
