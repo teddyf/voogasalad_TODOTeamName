@@ -1,8 +1,7 @@
-package ui.scenes;
+package ui.scenes.engine;
 
 import engine.EngineController;
 import ui.FileBrowser;
-import ui.GridForEngine;
 import ui.GridPane;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -14,8 +13,6 @@ import javafx.stage.Stage;
 import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.StatsDisplayUI;
-import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
 import java.util.ResourceBundle;
@@ -44,6 +41,7 @@ public class GameEngine extends Scene {
     private VoogaAnimation anim;
     
     private GridDisplayer gd;
+    private PlayerUI player;
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
         super(root);
@@ -84,36 +82,29 @@ public class GameEngine extends Scene {
     
     private void setUpGrid() {
     	
-    	//EngineDisplayer ed = new EngineDisplayer(myController);
-    	
     	setUpKeys();
-    	//initGrid();
-    	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
-    	//gridPane.setRenderMap();
-    	Character player = new Character();
-    	player.setColumn((int)(grid.getWidth()-1) /2);
-    	player.setRow(((int)grid.getHeight()-1) /2);
-    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+    	setUpPlayer();
     	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
     	
-    	//gd = new GridDisplayer(gridPane);
-    	
-    	System.out.println(grid.getWidth());
-    	System.out.println(grid.getHeight());
-    	
-
-    	//myBuilder.addComponent(myRoot, grid.getGroup());
-    	
-//    	Group g = new Group();
-//    	g.getChildren().add(player.getCharacterImageView());
-    	int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
-        int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
-    	player.getCharacterImageView().setLayoutX(windowWidth/2);
-    	player.getCharacterImageView().setLayoutY(windowHeight/2);
-    	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     	
     	//StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
     	//statusUI.initPlayerMenu();
+    }
+    
+    private void setUpPlayer() {
+    	player = new PlayerUI();
+    	int gridX = Integer.parseInt(myResources.getString("gridX"));
+        int gridY = Integer.parseInt(myResources.getString("gridY"));
+        int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
+        int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
+        
+    	player.setColumn(myController.getPlayerColumn());
+    	player.setRow(myController.getPlayerRow());
+    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png"); 
+        player.setCharacterImageSize(grid.getBlockSize());
+    	player.setPosX(gridX+grid.getBlockSize()*myController.getPlayerColumn());
+    	player.setPosY(gridY+grid.getBlockSize()*myController.getPlayerRow());
+    	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     }
     
     private void setUpKeys() {
@@ -146,25 +137,4 @@ public class GameEngine extends Scene {
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
     
-//    private void onKeyPress(KeyEvent e) {
-//    	KeyCode code = e.getCode();
-//    	switch (code) {
-//    		case UP:
-//    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.NORTH);
-//    			//myController.keyListener(UserInstruction.UP);
-//    			break;
-//    		case DOWN:
-//    			gd.updateDisplay(gridPane.getGroup(), PlayerDirection.SOUTH);
-//    			//myController.keyListener(UserInstruction.DOWN);
-//    			break;
-//    		case LEFT:
-//    			//myController.keyListener(UserInstruction.LEFT);
-//    			break;
-//    		case RIGHT:
-//    			//myController.keyListener(UserInstruction.RIGHT);
-//    			break;
-//    		default:
-//    			break;
-//    	}
-//    }
 }
