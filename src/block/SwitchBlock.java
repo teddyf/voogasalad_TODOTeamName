@@ -14,8 +14,8 @@ import java.util.Set;
 public abstract class SwitchBlock extends Block {
     private Set<GateBlock> myGates;
 
-    public SwitchBlock(String name, BlockType blockType, int row, int col) {
-        super(name, blockType, row, col);
+    public SwitchBlock(String name, int row, int col) {
+        super(name, row, col);
         myGates = new HashSet<>();
     }
 

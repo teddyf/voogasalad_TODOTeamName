@@ -14,7 +14,7 @@ public class GateBlock extends Block {
     private boolean isOpen;
 
     public GateBlock(String name, int row, int col) {
-        super(name, BlockType.GATE, row, col);
+        super(name, row, col);
         setWalkableStatus(CLOSED);
         isOpen = CLOSED;
         // TODO: Should I place walkable status here? Or do with a separate method call? Maybe a way to clean this up
