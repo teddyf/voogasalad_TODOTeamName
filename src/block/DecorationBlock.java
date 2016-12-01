@@ -8,7 +8,7 @@ package block;
 public class DecorationBlock extends Block implements Walkable {
 
 	public DecorationBlock(String name, int row, int col) {
-		super(name, BlockType.DECORATION, row, col);
+		super(name, row, col);
 		setWalkableStatus(IS_WALKABLE);
 	}
 
