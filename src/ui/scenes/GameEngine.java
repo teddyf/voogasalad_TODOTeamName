@@ -96,16 +96,17 @@ public class GameEngine extends Scene {
 
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
-    	anim = new VoogaAnimation(gridPane);
+    	Character player = new Character();
+    	player.setColumn((int)(gridPane.getWidth()-1) /2);
+    	player.setRow(((int)gridPane.getHeight()-1) /2);
+    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+    	anim = new VoogaAnimation(myRoot, gridPane, player, myBuilder);
     	
     	//gd = new GridDisplayer(gridPane);
     	
     	System.out.println(gridPane.getWidth());
     	System.out.println(gridPane.getHeight());
     	
-    	Character player = new Character();
-    	player.setColumn((int)(gridPane.getWidth()-1) /2);
-    	player.setRow(((int)gridPane.getHeight()-1) /2);
 
     	myBuilder.addComponent(myRoot, gridPane.getGroup());
     	
