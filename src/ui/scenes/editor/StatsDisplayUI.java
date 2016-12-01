@@ -22,8 +22,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 
@@ -65,11 +70,14 @@ public class StatsDisplayUI {
         int itemMenuYPos = util.getIntProperty(myResources, "statusPanelPosY");
         
         Group itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
+        Pane canvas = new Pane();
+        canvas.setStyle("-fx-background-color: yellow;");
+        canvas.setPrefSize(300,1000);
+        itemMenuRegion.getChildren().add(canvas);
+        
         myBuilder.addComponent(myRoot, itemMenuRegion);
         itemMenuRegion.getChildren().add(vbox);
-        
         vbox.setPadding(new Insets(10, 10, 10, 10));
-        
         
         vbox.getChildren().add(new Label("User Stats"));
     }

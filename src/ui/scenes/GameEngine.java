@@ -85,14 +85,17 @@ public class GameEngine extends Scene {
     	//EngineDisplayer ed = new EngineDisplayer(myController);
     	
     	setUpKeys();
-
-    	gridPane =
-                new GridPane(Integer.parseInt(myResources.getString("gridCellsWide")),
-                             Integer.parseInt(myResources.getString("gridCellsHeight")),
-                             Integer.parseInt(myResources.getString("gridWidth")),
-                             Integer.parseInt(myResources.getString("gridHeight")),
-                             Integer.parseInt(myResources.getString("gridX")),
-                             Integer.parseInt(myResources.getString("gridY")));
+    	
+    	int gridCellsWidth = Integer.parseInt(myResources.getString("gridCellsWide"));
+    	int gridCellsHeight = Integer.parseInt(myResources.getString("gridCellsHeight"));
+    	int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
+    	int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
+    	int gridX = Integer.parseInt(myResources.getString("gridX"));
+    	int gridY = Integer.parseInt(myResources.getString("gridY"));
+    	int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
+    	int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
+    	
+    	gridPane = new GridPane(gridCellsWidth,gridCellsHeight,gridWidth ,gridHeight,gridX,gridY);
 
     	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
     	//gridPane.setRenderMap();
@@ -111,8 +114,8 @@ public class GameEngine extends Scene {
     	
 //    	Group g = new Group();
 //    	g.getChildren().add(player.getCharacterImageView());
-    	player.getCharacterImageView().setLayoutX(Integer.parseInt(myResources.getString("gridWidth"))/2);
-    	player.getCharacterImageView().setLayoutY(Integer.parseInt(myResources.getString("gridHeight"))/2);
+    	player.getCharacterImageView().setLayoutX(windowWidth/2);
+    	player.getCharacterImageView().setLayoutY(windowHeight/2);
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     	
     	StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
