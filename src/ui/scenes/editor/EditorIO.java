@@ -32,6 +32,7 @@ public class EditorIO {
         myGrid = grid;
     }
 
+
     /**
      * Saves an editor file that can be re-opened later for editing
      *
@@ -60,6 +61,7 @@ public class EditorIO {
         }
         return false;
     }
+
 
     /**
      * Exports a game file that can be played with the engine

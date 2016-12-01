@@ -13,8 +13,8 @@ public class GateBlock extends Block {
     private static final boolean CLOSED = false;
     private boolean isOpen;
 
-    public GateBlock(String name, BlockType blockType, int row, int col) {
-        super(name, BlockType.GATE, row, col);
+    public GateBlock(String name, int row, int col) {
+        super(name, row, col);
         setWalkableStatus(CLOSED);
         isOpen = CLOSED;
         // TODO: Should I place walkable status here? Or do with a separate method call? Maybe a way to clean this up

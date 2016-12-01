@@ -1,6 +1,5 @@
 package block;
 
-import interactions.GiveMessageOnInteract;
 import interactions.Interaction;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +13,6 @@ import java.util.Observable;
  */
 public abstract class Block extends Observable implements ShallowBlock {
 
-    private BlockType myBlockType;
     private String myName;
     private int myRow;
     private int myCol;
@@ -22,8 +20,7 @@ public abstract class Block extends Observable implements ShallowBlock {
     private List<Interaction> myInteractions;
     private String myMessage;
 
-    public Block(String name, BlockType blockType, int row, int col) {
-        myBlockType = blockType;
+    public Block(String name,  int row, int col) {
         myName = name;
         myRow = row;
         myCol = col;
@@ -47,10 +44,6 @@ public abstract class Block extends Observable implements ShallowBlock {
     }
 
     /*****GETTERS*****/
-
-    public BlockType getBlockType() {
-        return myBlockType;
-    }
 
     public String getName() {
         return myName;
@@ -86,10 +79,6 @@ public abstract class Block extends Observable implements ShallowBlock {
     }
 
     /*****SETTERS******/
-
-    protected void setBlockType(BlockType blockType) {
-        myBlockType = blockType;
-    }
 
     protected void setWalkableStatus(boolean status) {
         walkableStatus = status;
