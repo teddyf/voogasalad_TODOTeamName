@@ -95,6 +95,12 @@ public class GridPane {
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
+        System.out.println("grid status");
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[i].length; j++){
+                System.out.println(grid[i][j]);
+            }
+        }
     }
 
     public void resizeReset (double x, double y) {
@@ -127,7 +133,7 @@ public class GridPane {
         setRenderMap();
     }
     
-    public void loadReset(int height, int width){
+    public void loadReset(double height, double width){
         
         this.gridWidth = width;
         this.gridHeight = height;
@@ -135,18 +141,17 @@ public class GridPane {
         this.group = new Group();
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
-        this.grid = new GridPaneNode[height][width];
     }
 
     public List<GridPaneNode> swap (GameObjects obj, EditorController control) {
         List<GridPaneNode> list = obj.getList();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
-        System.out.println(blockList);
         for (int i = 0; i < clicked.size(); i++) {
             for (int j = 0; j < list.size(); j++) {
                 int xPos = clicked.get(i).getCol() + list.get(j).getCol();
                 int yPos = clicked.get(i).getRow() + list.get(j).getRow();
+                System.out.println(grid.length);
                 GridPaneNode temp = grid[xPos][yPos];
                 temp.swap(list.get(j), list.get(j).getImageNum());
                 control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
@@ -154,8 +159,8 @@ public class GridPane {
             clicked.get(i).getImage().setEffect(null);
             copy = clicked;
         }
+        
         clicked = new ArrayList<GridPaneNode>();
-        System.out.println(copy);
         return copy;     
     }
     
@@ -239,6 +244,14 @@ public class GridPane {
     
     public double getHeight() {
     	return gridHeight;
+    }
+    
+    public void debug(){
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[i].length; j++){
+                System.out.println(grid[i][j]);
+            }
+        }
     }
 
 }
