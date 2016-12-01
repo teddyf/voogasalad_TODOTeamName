@@ -40,8 +40,8 @@ public class UIBuilder {
      * @param layoutY is the y coordinate of the region
      * @return the new region as a Group
      */
-    public Group addRegion(int layoutX, int layoutY) {
-        Group region = new Group();
+    public Pane addRegion(int layoutX, int layoutY) {
+        Pane region = new Pane();
         region.setLayoutX(layoutX);
         region.setLayoutY(layoutY);
         return region;
