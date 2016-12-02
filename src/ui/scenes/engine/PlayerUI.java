@@ -1,4 +1,4 @@
-package ui.scenes;
+package ui.scenes.engine;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
  *
  */
 
-public class Character {
+public class PlayerUI {
 	
 	private ImageView characterImage;
 	private int curRow;
@@ -17,7 +17,7 @@ public class Character {
 
 	private final String PATH = "resources/images/Sprites/Character/Pokemon/default.png";
 	
-	public Character() {
+	public PlayerUI() {
 		buildCharacter();
 	}
 	 
@@ -27,9 +27,9 @@ public class Character {
 	
 	/*setting size of character image
 	 * */
-	public void setCharacterImageSize(int blockSize) {
-		characterImage.setFitHeight(blockSize);
-		characterImage.setFitWidth(blockSize); 
+	public void setCharacterImageSize(double d) {
+		characterImage.setFitHeight(d);
+		characterImage.setFitWidth(d); 
 	}
 	
 	/*setting character image
@@ -48,6 +48,14 @@ public class Character {
 	
 	public void setRow(int row) {
 		curRow = row;
+	}
+	
+	public void setPosX(double d) {
+		getCharacterImageView().setLayoutX(d);
+	}
+	
+	public void setPosY(double posY) {
+		getCharacterImageView().setLayoutY(posY);
 	}
 	
 	public int getRowCharacter() {

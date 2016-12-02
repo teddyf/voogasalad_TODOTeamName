@@ -1,4 +1,4 @@
-package ui;
+package ui.scenes.engine;
 
 import java.util.*;
 import ObjectMenuObjects.GameObjects;
@@ -236,6 +236,14 @@ public class GridForEngine {
     
     public double getHeight() {
         return gridHeight;
+    }
+    
+    public void setTopX(int topX) {
+    	renderTopLeftX=topX;
+    }
+    
+    public void setTopY(int topY) {
+    	renderTopLeftY=topY;
     }
 
 }
