@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
  *
  */
 
-public class PlayerUI extends Observable {
+public class Character extends Observable {
 	
 	private ImageView characterImage;
 	private int curRow;
@@ -21,7 +21,7 @@ public class PlayerUI extends Observable {
 	private double size;
 	private String name;
 	
-	public PlayerUI(GameEngine gameEngine) {
+	public Character(GameEngine gameEngine) {
 		this.addObserver(gameEngine);
 	}
 

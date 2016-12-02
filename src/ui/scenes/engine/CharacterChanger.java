@@ -11,16 +11,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
-public class PlayerChanger {
+/*
+ * 
+ * This class is to create menu for users to change player pic in engine
+ * @author pim chuaylua
+ * */
+
+public class CharacterChanger {
 	
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 	private ResourceBundle myResources;
 	private Group group;
 	private VBox vbox;
 	private FlowPane flowPane;
-	private PlayerUI player;
+	private Character player;
 	
-	PlayerChanger(PlayerUI player) {
+	CharacterChanger(Character player) {
 		this.player=player;
 		init();
 	}

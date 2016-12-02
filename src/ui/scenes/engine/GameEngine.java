@@ -32,19 +32,17 @@ import engine.UserInstruction;
 public class GameEngine extends Scene implements Observer {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
+    private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
+    
     private Stage myStage;
     private Parent myRoot;
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private GridForEngine grid;
-    
     private EngineController myController;
-    
     private VoogaAnimation anim;
-    
-    private GridDisplayer gd;
-    private PlayerUI player;
+    private Character player;
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
         super(root);
@@ -53,6 +51,7 @@ public class GameEngine extends Scene implements Observer {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+        myRoot.getStylesheets().add(CSS_FILE_NAME);
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             e.consume();
@@ -77,6 +76,7 @@ public class GameEngine extends Scene implements Observer {
         initGrid();
     	loadGrid();
     	setUpGrid();
+    	setUpSidePanel();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
         return true;
     }
@@ -85,15 +85,20 @@ public class GameEngine extends Scene implements Observer {
     	setUpKeys();
     	setUpPlayer();
     	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
-    	StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
-    	statusUI.initPlayerChanger(player);
-    	statusUI.initSideMenu();
+    }
+    
+    private void setUpSidePanel() {
+    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources);
+    	engineSidePanel.initPlayerChanger(player);
+    	engineSidePanel.initSidePanel();
+    	engineSidePanel.initStats();
     }
     
     private void setUpPlayer() {
-    	player = new PlayerUI(this);
     	int gridX = Integer.parseInt(myResources.getString("gridX"));
         int gridY = Integer.parseInt(myResources.getString("gridY"));
+        
+    	player = new Character(this);
     	player.setColumn(myController.getPlayerColumn());
     	player.setRow(myController.getPlayerRow());
     	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png"); 
