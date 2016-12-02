@@ -5,7 +5,7 @@ package block;
  * interaction (i.e. pressing 'A' or stepping on a switch which elicits a
  * response.
  *
- * @author Filip Mazurek, Daniel Chai
+ * @author Filip Mazurek, Daniel Chai, Aninda Manocha
  */
 public class CommunicatorBlock extends Block implements NotWalkable {
 

@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
 import java.util.ResourceBundle;
@@ -74,7 +75,6 @@ public class GameEngine extends Scene {
         initGrid();
     	loadGrid();
     	setUpGrid();
-
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
     	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;
