@@ -861,7 +861,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/Sprites/Declaration/Flower/flower1.1.png</myName>
           <myRow>3</myRow>
           <myCol>19</myCol>
           <walkableStatus>true</walkableStatus>
@@ -870,7 +870,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/Sprites/Declaration/Flower/flower1.1.png</myName>
           <myRow>3</myRow>
           <myCol>20</myCol>
           <walkableStatus>true</walkableStatus>
@@ -879,7 +879,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/Sprites/Declaration/Flower/flower1.1.png</myName>
           <myRow>3</myRow>
           <myCol>21</myCol>
           <walkableStatus>true</walkableStatus>
@@ -1088,7 +1088,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/Sprites/Declaration/Flower/flower1.1.png</myName>
           <myRow>4</myRow>
           <myCol>19</myCol>
           <walkableStatus>true</walkableStatus>
@@ -1106,7 +1106,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/Sprites/Declaration/Flower/flower1.1.png</myName>
           <myRow>4</myRow>
           <myCol>21</myCol>
           <walkableStatus>true</walkableStatus>
@@ -1315,7 +1315,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/Sprites/Declaration/Flower/flower1.1.png</myName>
           <myRow>5</myRow>
           <myCol>19</myCol>
           <walkableStatus>true</walkableStatus>
@@ -1324,7 +1324,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/Sprites/Declaration/Flower/flower1.1.png</myName>
           <myRow>5</myRow>
           <myCol>20</myCol>
           <walkableStatus>true</walkableStatus>
@@ -1333,7 +1333,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/Sprites/Declaration/Flower/flower1.1.png</myName>
           <myRow>5</myRow>
           <myCol>21</myCol>
           <walkableStatus>true</walkableStatus>
@@ -5682,15 +5682,4 @@
       </block.Block-array>
     </grid>
   </gridWorld>
-  <player>
-    <myName>resources/images/Sprites/Character/Pokemon/default.1.png</myName>
-    <myDirection>NORTH</myDirection>
-    <myRow>6</myRow>
-    <myCol>17</myCol>
-    <myAttributes/>
-    <myInventory/>
-    <myBattleHistory/>
-    <myInteractionHistory/>
-    <myStatus/>
-  </player>
 </root>
