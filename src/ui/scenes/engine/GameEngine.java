@@ -16,6 +16,8 @@ import ui.builder.UIBuilder;
 import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 import engine.UserInstruction;
@@ -27,7 +29,7 @@ import engine.UserInstruction;
  *
  *         Dependencies: FileBrowser.java
  */
-public class GameEngine extends Scene {
+public class GameEngine extends Scene implements Observer {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
     private Stage myStage;
@@ -76,34 +78,29 @@ public class GameEngine extends Scene {
     	loadGrid();
     	setUpGrid();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
-    	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;
     }
     
     private void setUpGrid() {
-    	
     	setUpKeys();
     	setUpPlayer();
     	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
-    	
-    	
-    	//StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
-    	//statusUI.initPlayerMenu();
+    	StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
+    	statusUI.initPlayerChanger(player);
+    	statusUI.initSideMenu();
     }
     
     private void setUpPlayer() {
-    	player = new PlayerUI();
+    	player = new PlayerUI(this);
     	int gridX = Integer.parseInt(myResources.getString("gridX"));
         int gridY = Integer.parseInt(myResources.getString("gridY"));
-        int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
-        int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
-        
     	player.setColumn(myController.getPlayerColumn());
     	player.setRow(myController.getPlayerRow());
     	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png"); 
         player.setCharacterImageSize(grid.getBlockSize());
     	player.setPosX(gridX+grid.getBlockSize()*myController.getPlayerColumn());
     	player.setPosY(gridY+grid.getBlockSize()*myController.getPlayerRow());
+    	player.setName("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     }
     
@@ -136,5 +133,9 @@ public class GameEngine extends Scene {
         grid.setRenderMap();
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
-    
+
+	@Override
+	public void update(Observable o, Object arg) {
+		myBuilder.addComponent(myRoot, player.getCharacterImageView());
+	}  
 }

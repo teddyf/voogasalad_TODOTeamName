@@ -37,14 +37,14 @@ public class StatsDisplayUI {
      *
      * @return the item menu, already with proper placement
      */
-    public void initPlayerMenu() {
+    public void initSideMenu() {
     	
     	int itemMenuXPos = util.getIntProperty(myResources, "statusPanelPosX");
         int itemMenuYPos = util.getIntProperty(myResources, "statusPanelPosY");
         
         Pane itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
         Pane canvas = new Pane();
-        canvas.setStyle("-fx-background-color: yellow;");
+        canvas.setStyle("-fx-background-color: grey;");
         canvas.setPrefSize(300,1000);
         itemMenuRegion.getChildren().add(canvas);
         
@@ -52,7 +52,11 @@ public class StatsDisplayUI {
         itemMenuRegion.getChildren().add(vbox);
         vbox.setPadding(new Insets(10, 10, 10, 10));
         
-        vbox.getChildren().add(new Label("User Stats"));
+        vbox.getChildren().add(new Label("User Stats"));  
+    }
+    
+    public void initPlayerChanger(PlayerUI player) {
+    	vbox.getChildren().add(new PlayerChanger(player).getGroup());
     }
     
 }
