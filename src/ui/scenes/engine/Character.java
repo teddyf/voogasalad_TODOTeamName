@@ -28,7 +28,7 @@ public class Character extends Observable {
 	/*setting size of character image
 	 * */
 	public void setCharacterImageSize(double size) {
-		this.size=size;
+		this.size = size;
 		characterImage.setFitHeight(size);
 		characterImage.setFitWidth(size); 
 	}
@@ -69,6 +69,10 @@ public class Character extends Observable {
 	public void setPosY(double posY) {
 		getCharacterImageView().setLayoutY(posY);
 		this.posY=posY;
+	}
+
+	public double getSize() {
+		return size;
 	}
 	
 	public int getRowCharacter() {
