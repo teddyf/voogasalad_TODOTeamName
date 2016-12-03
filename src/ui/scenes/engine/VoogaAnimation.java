@@ -59,14 +59,15 @@ public class VoogaAnimation implements Observer {
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
 		stack = new Stack<UserInstruction>();
 		finished = true;
-		duration = 800;
-		maxSteps = 800;
+		duration = 200;
+		maxSteps = 200;
 		stepCount = 0;
 		this.ec= ec;
 		pixelMovement = grid2.getBlockSize()/maxSteps;
 		keyBindings = new HashMap<KeyCode, UserInstruction>();
 		setDefaultKeyBindings();
 		gridLayout = grid.getGroup();
+		ec.addObserver(this);
 	}
 
 	private void setDefaultKeyBindings() {
@@ -98,18 +99,20 @@ public class VoogaAnimation implements Observer {
 	}
 
 	private void changePlayerImage(String imageFileName){
-		int gridX = Integer.parseInt(myResources.getString("gridX"));
-        int gridY = Integer.parseInt(myResources.getString("gridY"));
+		//int gridX = Integer.parseInt(myResources.getString("gridX"));
+        //int gridY = Integer.parseInt(myResources.getString("gridY"));
 		System.out.println(imageFileName);
-		//uiBuilder.removeComponent(root, player.getCharacterImageView());
+		uiBuilder.removeComponent(root, player.getCharacterImageView());
 		player.setCharacterImage(IMAGE_RESOURCE + imageFileName);
 		player.setCharacterImageSize(grid.getBlockSize());
-		player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
-    	player.getCharacterImageView().setLayoutY(gridY+grid.getBlockSize()*player.getRowCharacter());
+		//player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
+    	//player.getCharacterImageView().setLayoutY(gridY+grid.getBlockSize()*player.getRowCharacter());
 		uiBuilder.addComponent(root, player.getCharacterImageView());
+		player.getCharacterImageView().setLayoutX(350);
+		player.getCharacterImageView().setLayoutY(350);
 	}
 	
-//	need to clean this up later
+/*//	need to clean this up later
 	private void changePlayerWalkingDirection(UserInstruction instruction, String playerNumber){
 		switch (instruction) {
 		case UP:
@@ -125,9 +128,9 @@ public class VoogaAnimation implements Observer {
 			changePlayerImage(playerNumber + "WestWalking.png");
 			break;
 		}
-	}
+	}*/
 	
-	private void changePlayerFacingDirection(UserInstruction instruction, String playerNumber) {
+/*	private void changePlayerFacingDirection(UserInstruction instruction, String playerNumber) {
 		switch (instruction) {
 		case UP:
 			changePlayerImage(playerNumber + "NorthFacing.png");
@@ -142,15 +145,16 @@ public class VoogaAnimation implements Observer {
 			changePlayerImage(playerNumber + "WestFacing.png");
 			break;
 		}
-	}
+	}*/
 
 	@Override
 	public void update(Observable observable, Object value) {
 		System.out.println("hi3");
-		if (observable instanceof GameInstance) {
+		//if (observable instanceof GameInstance) {
+			System.out.println("wat28");
 			PlayerUpdate update = (PlayerUpdate) value;
 			updatePlayer(update);
-		}
+		//}
 	}
 
 	private void updatePlayer(PlayerUpdate update) {
@@ -164,8 +168,10 @@ public class VoogaAnimation implements Observer {
 
 	private void processMove(UserInstruction key) {
 		if (!keyBindings.values().contains(key)) {
+			System.out.println("wat1");
 			return;
 		}
+		System.out.println("wat2");
 		finished = false;
 		animateMove(key);
 	}
@@ -176,15 +182,12 @@ public class VoogaAnimation implements Observer {
 		animation.getKeyFrames().add(new KeyFrame(Duration.millis(duration/maxSteps),
 				e -> move(instruction)));
 		animation.play();
+		System.out.println("wat3");
 	}
 
 	private void move(UserInstruction instruction) {
-		if (stepCount == maxSteps) {
-			stepCount = 0;
-			animation.stop();
-			finished = true;
+		if (isAnimationOver())
 			return;
-		}
 		double locationX = gridLayout.getLayoutX();
 		double locationY = gridLayout.getLayoutY();
 		switch (instruction) {
@@ -203,6 +206,7 @@ public class VoogaAnimation implements Observer {
 		}
 		gridLayout.setLayoutX(locationX);
 		gridLayout.setLayoutY(locationY);
+		System.out.println("wat5");
 		stepCount++;
 	}
 
@@ -222,7 +226,36 @@ public class VoogaAnimation implements Observer {
 		animation.play();
 	}
 
-	private void direct(UserInstruction key) {
+	private void direct(UserInstruction instruction) {
+		String playerNumber = "Player1";
+		//gridLayout.setLayoutY(gridLayout.getLayoutY() + 1000);
+		if (isAnimationOver())
+			return;
 
+		switch (instruction) {
+			case UP:
+				changePlayerImage(playerNumber + "NorthFacing.png");
+				break;
+			case DOWN:
+				changePlayerImage(playerNumber + "SouthFacing.png");
+				break;
+			case RIGHT:
+				changePlayerImage(playerNumber + "EastFacing.png");
+				break;
+			case LEFT:
+				changePlayerImage(playerNumber + "WestFacing.png");
+				break;
+		}
+		stepCount = stepCount + 10;
+	}
+
+	private boolean isAnimationOver() {
+		if (stepCount >= maxSteps) {
+			stepCount = 0;
+			animation.stop();
+			finished = true;
+			return true;
+		}
+		return false;
 	}
 }

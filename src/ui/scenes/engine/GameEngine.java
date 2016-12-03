@@ -105,6 +105,8 @@ public class GameEngine extends Scene implements Observer {
     	System.out.println(player.getColumnCharacter());
     	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
         player.setCharacterImageSize(grid.getBlockSize());
+        player.setPosX(350);
+        player.setPosY(350);
     	player.setName("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     }

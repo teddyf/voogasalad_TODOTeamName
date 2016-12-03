@@ -31,6 +31,7 @@ public class EngineController extends Observable implements Observer {
         xmlHandler = new GridXMLHandler();
         gameInstances = new ArrayList<GameInstance>();
         gameInstance = new GameInstance(player, gridWorld);
+        gameInstance.addObserver(this);
     }
 
     /**
@@ -74,6 +75,7 @@ public class EngineController extends Observable implements Observer {
         Player player = gridWorldAndPlayer.getPlayer();
         GridWorld gridWorld = gridWorldAndPlayer.getGridWorld();
         gameInstance = new GameInstance(player, gridWorld);
+        gameInstance.addObserver(this);
     }
 
     /**

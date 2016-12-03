@@ -67,6 +67,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		int col = myPlayer.getCol();
 		PlayerUpdate playerUpdate = null;
 		PlayerDirection direction = myPlayer.getDirection();
+		System.out.println(direction);
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
@@ -103,6 +104,8 @@ public class GameInstance extends Observable implements IGameInstance {
 			default:
 				break;
 		}
+		System.out.println("r u gonna update");
+		System.out.println(playerUpdate == null);
         notifyObservers(playerUpdate);
 	}
 
