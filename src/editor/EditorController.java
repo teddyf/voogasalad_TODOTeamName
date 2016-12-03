@@ -3,7 +3,6 @@ package editor;
 import block.Block;
 import block.BlockFactory;
 import block.BlockType;
-import block.DecorationBlock;
 import engine.EngineController;
 import grid.Grid;
 import grid.GridWorld;
@@ -51,10 +50,7 @@ public class EditorController {
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
         Block block = blockFactory.createBlock(name, blockType, row, col);
-        System.out.println("NAME " + name);
-        System.out.println("BLOCK " + block.getName());
         currentGrid.setBlock(row, col, block);
-        System.out.println("GRID");
         for(int i = 0; i < myNumRows; i++) {
             for(int j = 0; j < myNumColumns; j++) {
                 //System.out.println(currentGrid.getBlock(i,j).getName());
@@ -65,7 +61,7 @@ public class EditorController {
 
     public void addPlayer(String name, int row, int col) {
         player = new Player(name, row, col);
-        System.out.println("player is added");
+        System.out.println("player added");
     }
 
     public void movePlayer(int row, int col) {
@@ -105,10 +101,20 @@ public class EditorController {
         return renderedGrid.get(row, col);
     }
 
+    /**
+     * Saves the editor by taking in the name of the file to contain the information and calling the data handling
+     * method
+     * @param file - the name of the file containing the editor information
+     */
     public void saveEditor(String file) {
         xmlHandler.saveContents(file, gridWorld, player);
     }
 
+    /**
+     * Loads an editor that is stored in a specific file by calling the data handling method and storing the grid world
+     * and player
+     * @param file - the specific file
+     */
     public void loadEditor(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         player = gridWorldAndPlayer.getPlayer();
@@ -116,6 +122,10 @@ public class EditorController {
         changeGrid();
     }
 
+    /**
+     *
+     * @param file
+     */
     public void saveEngine(String file) {
         xmlHandler.saveContents(file, gridWorld, player);
     }

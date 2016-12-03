@@ -59,6 +59,7 @@ public class GameEngine extends Scene implements Observer {
         });
         myController = new EngineController();
         
+        
     }
 
     /**
@@ -84,7 +85,8 @@ public class GameEngine extends Scene implements Observer {
     private void setUpGrid() {
     	setUpKeys();
     	setUpPlayer();
-    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
+    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController);
+    	myController.addObserver(anim);
     }
     
     private void setUpSidePanel() {
@@ -99,12 +101,12 @@ public class GameEngine extends Scene implements Observer {
         int gridY = Integer.parseInt(myResources.getString("gridY"));
         
     	player = new Character(this);
-    	player.setColumn(myController.getPlayerColumn());
-    	player.setRow(myController.getPlayerRow());
-    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png"); 
+    	System.out.println(player.getRowCharacter());
+    	System.out.println(player.getColumnCharacter());
+    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
         player.setCharacterImageSize(grid.getBlockSize());
-    	player.setPosX(gridX+grid.getBlockSize()*myController.getPlayerColumn());
-    	player.setPosY(gridY+grid.getBlockSize()*myController.getPlayerRow());
+        player.setPosX(350);
+        player.setPosY(350);
     	player.setName("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
     }
