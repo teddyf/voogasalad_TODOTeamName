@@ -66,6 +66,5 @@ public class EngineController {
         Player player = gridWorldAndPlayer.getPlayer();
         GridWorld gridWorld = gridWorldAndPlayer.getGridWorld();
         gameInstance = new GameInstance(player, gridWorld);
-        System.out.println("player and world");
     }
 }

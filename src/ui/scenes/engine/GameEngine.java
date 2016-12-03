@@ -100,7 +100,9 @@ public class GameEngine extends Scene {
         
     	player.setColumn(myController.getPlayerColumn());
     	player.setRow(myController.getPlayerRow());
-    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png"); 
+    	System.out.println(player.getRowCharacter());
+    	System.out.println(player.getColumnCharacter());
+    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
         player.setCharacterImageSize(grid.getBlockSize());
     	player.setPosX(gridX+grid.getBlockSize()*myController.getPlayerColumn());
     	player.setPosY(gridY+grid.getBlockSize()*myController.getPlayerRow());
