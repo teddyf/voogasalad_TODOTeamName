@@ -1,9 +1,14 @@
 
 package ui.scenes.engine;
 
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
+import engine.EngineController;
+import engine.GameInstance;
+import engine.UserInstruction;
 import player.PlayerDirection;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -20,7 +25,7 @@ import ui.builder.UIBuilder;
  * @author Harshil Garg, Nisakorn Valyasevi
  *
  */
-public class VoogaAnimation {
+public class VoogaAnimation implements Observer {
 	private static final String IMAGE_RESOURCE = "resources/images/sprites/Character/Pokemon/";
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 	
@@ -38,11 +43,11 @@ public class VoogaAnimation {
 	private UIBuilder uiBuilder;
 	private ResourceBundle myResources;
 	
-	private boolean first;
+	private EngineController ec;
 	
 	private Timeline animation;
 
-	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder) {
+	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec) {
 		this.root = root;
 		this.grid = grid2;
 		this.player = player;
@@ -50,27 +55,28 @@ public class VoogaAnimation {
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
 		stack = new Stack<>();
 		finished = true;
-		first = true;
 		duration = 800;
 		maxSteps = 800;
 		stepCount = 0;
+		this.ec= ec;
 		pixelMovement = grid2.getBlockSize()/maxSteps;
 	}
 	
 	
 	public void handleKeyPress(KeyEvent e) {
 		KeyCode code = e.getCode();
-		if (!stack.contains(code))
-			stack.push(code);
-		process();
+		ec.keyListener(UserInstruction.DOWN);
+//		if (!stack.contains(code))
+//			stack.push(code);
+//		process();
 			
 	}
 	
 	public void handleKeyRelease(KeyEvent e) {
 		KeyCode	code = e.getCode();
-		if (stack.contains(code)) {
-			stack.remove(code);
-		}
+//		if (stack.contains(code)) {
+//			stack.remove(code);
+//		}
 	}
 	
 	public void process() {
@@ -164,5 +170,13 @@ public class VoogaAnimation {
 				break;
 		}
 		stepCount++;
+	}
+
+
+	@Override
+	public void update(Observable o, Object arg) {
+		if (o instanceof GameInstance) {
+			System.out.println("HI");
+		}
 	}
 }

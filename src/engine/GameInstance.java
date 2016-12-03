@@ -66,11 +66,13 @@ public class GameInstance extends Observable implements IGameInstance {
 		Block newBlock = null; //TODO
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
+		boolean move = false;
 		PlayerDirection direction = myPlayer.getDirection();
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
                     newBlock = myGrid.getBlock(row - 1, col);
+                    move = true;
                 }
                 else {
 			        myPlayer.setDirection(PlayerDirection.NORTH);
@@ -78,8 +80,10 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case DOWN:
+				System.out.println("yolo");
 			    if(direction == SOUTH) {
                     newBlock = myGrid.getBlock(row+1, col);
+                    move = true;
                 }
                 else {
 			        myPlayer.setDirection(SOUTH);
@@ -89,6 +93,7 @@ public class GameInstance extends Observable implements IGameInstance {
 			case RIGHT:
 			    if(direction == EAST) {
                     newBlock = myGrid.getBlock(row, col+1);
+                    move = true;
                 }
                 else {
 			        myPlayer.setDirection(EAST);
@@ -98,6 +103,7 @@ public class GameInstance extends Observable implements IGameInstance {
 			case LEFT:
 			    if(direction == WEST) {
                     newBlock = myGrid.getBlock(row, col-1);
+                    move = true;
                 }
                 else {
 			        myPlayer.setDirection(WEST);
@@ -120,13 +126,13 @@ public class GameInstance extends Observable implements IGameInstance {
 				break;
 		}
 		
-		if (inBounds(newBlock) && isWalkable(newBlock)) {
+		if (move && inBounds(newBlock) && isWalkable(newBlock)) {
 			myPlayer.setRow(newBlock.getRow());
 			myPlayer.setCol(newBlock.getCol());
 
 			// TODO: do the step on interaction
             // newBlock.doStepOnInteraction(myPlayer);
-
+			System.out.println("hi");
 			setChanged();
 		}
         notifyObservers();

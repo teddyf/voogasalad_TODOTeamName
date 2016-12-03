@@ -59,6 +59,7 @@ public class GameEngine extends Scene implements Observer {
         });
         myController = new EngineController();
         
+        
     }
 
     /**
@@ -84,7 +85,8 @@ public class GameEngine extends Scene implements Observer {
     private void setUpGrid() {
     	setUpKeys();
     	setUpPlayer();
-    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
+    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController);
+    	myController.getGameInstance().addObserver(anim);
     }
     
     private void setUpSidePanel() {

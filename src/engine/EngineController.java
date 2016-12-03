@@ -32,6 +32,7 @@ public class EngineController {
     }
 
     public void keyListener(UserInstruction input) {
+    	if (gameInstance == null)System.out.println("hi");
         gameInstance.processInput(input);
     }
 
