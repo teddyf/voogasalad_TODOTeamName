@@ -24,9 +24,6 @@ public class EngineController extends Observable implements Observer {
     private GameInstance gameInstance;
     private List<GameInstance> gameInstances;
     private int gameInstanceIndex;
-    private int playerRow;
-    private int playerColumn;
-    private int playerDirection;
 
     public EngineController() {
         xmlHandler = new GridXMLHandler();
@@ -51,18 +48,6 @@ public class EngineController extends Observable implements Observer {
      */
     public String getBlock(int row, int col) {
         return gameInstance.getRenderedGrid().get(row, col);
-    }
-
-    public int getPlayerRow() {
-        return gameInstance.getPlayer().getRow();
-    }
-
-    public int getPlayerColumn() {
-        return gameInstance.getPlayer().getCol();
-    }
-
-    public PlayerDirection getPlayerDirection() {
-        return gameInstance.getPlayer().getDirection();
     }
 
     public void saveEngine(String file) {
