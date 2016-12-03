@@ -1,13 +1,13 @@
 
 package ui.scenes.engine;
 
-import java.util.Observable;
-import java.util.Observer;
-import java.util.ResourceBundle;
-import java.util.Stack;
+import java.security.UnresolvedPermission;
+import java.util.*;
 
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import engine.EngineController;
 import engine.GameInstance;
+import engine.PlayerUpdate;
 import engine.UserInstruction;
 import player.PlayerDirection;
 import javafx.animation.KeyFrame;
@@ -31,13 +31,14 @@ public class VoogaAnimation implements Observer {
 	
 	private GridForEngine grid;
 	
-	private Stack<KeyCode> stack;
+	private Stack<UserInstruction> stack;
 	
 	private boolean finished;
 	private double duration;
 	private double pixelMovement;
 	private int maxSteps;
 	private int stepCount;
+
 	private Character player;
 	private Parent root;
 	private UIBuilder uiBuilder;
@@ -47,53 +48,69 @@ public class VoogaAnimation implements Observer {
 	
 	private Timeline animation;
 
+	private HashMap<KeyCode, UserInstruction> keyBindings;
+
+	private Group gridLayout;
 	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec) {
 		this.root = root;
 		this.grid = grid2;
 		this.player = player;
 		this.uiBuilder = uiBuilder;
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
-		stack = new Stack<>();
+		stack = new Stack<UserInstruction>();
 		finished = true;
 		duration = 800;
 		maxSteps = 800;
 		stepCount = 0;
 		this.ec= ec;
 		pixelMovement = grid2.getBlockSize()/maxSteps;
+		keyBindings = new HashMap<KeyCode, UserInstruction>();
+		setDefaultKeyBindings();
+		gridLayout = grid.getGroup();
+	}
+
+	private void setDefaultKeyBindings() {
+		keyBindings.put(KeyCode.UP, UserInstruction.UP);
+		keyBindings.put(KeyCode.DOWN, UserInstruction.DOWN);
+		keyBindings.put(KeyCode.LEFT, UserInstruction.LEFT);
+		keyBindings.put(KeyCode.RIGHT, UserInstruction.RIGHT);
+	}
+
+	private UserInstruction convertKeyCode(KeyCode code) {
+		return keyBindings.get(code);
 	}
 	
 	
 	public void handleKeyPress(KeyEvent e) {
-		KeyCode code = e.getCode();
-		ec.keyListener(UserInstruction.DOWN);
-//		if (!stack.contains(code))
-//			stack.push(code);
-//		process();
-			
+		UserInstruction instruction = convertKeyCode(e.getCode());
+		if (!stack.contains(instruction))
+			stack.push(instruction);
+		if (!stack.isEmpty() && finished)
+			ec.keyListener(instruction);
 	}
-	
+
 	public void handleKeyRelease(KeyEvent e) {
-		KeyCode	code = e.getCode();
-//		if (stack.contains(code)) {
-//			stack.remove(code);
-//		}
+		UserInstruction instruction = convertKeyCode(e.getCode());
+		if (stack.contains(instruction)) {
+			stack.remove(instruction);
+		}
 	}
 	
 	public void process() {
 		if (!stack.isEmpty() && finished) {
-			KeyCode code = stack.peek();
-				changePlayerWalkingDirection(code, "Player1"); //TODO:no hardcode playernumber
-				animate(code);
-				changePlayerFacingDirection(code, "Player1");
+			UserInstruction instruction = stack.peek();
+				changePlayerWalkingDirection(instruction, "Player1"); //TODO:no hardcode playernumber
+				animate(instruction);
+				changePlayerFacingDirection(instruction, "Player1");
 			finished = false;
 		}
 	}
 	
-	private void animate(KeyCode code) {
+	private void animate(UserInstruction instruction) {
 		animation = new Timeline();
 		animation.setCycleCount(Timeline.INDEFINITE);
 		animation.getKeyFrames().add(new KeyFrame(Duration.millis(duration/maxSteps),
-				e -> move(code)));
+				e -> move(instruction)));
 		animation.play();
 	}
 	
@@ -110,8 +127,8 @@ public class VoogaAnimation implements Observer {
 	}
 	
 //	need to clean this up later
-	private void changePlayerWalkingDirection(KeyCode code, String playerNumber){
-		switch (code) {
+	private void changePlayerWalkingDirection(UserInstruction instruction, String playerNumber){
+		switch (instruction) {
 		case UP:
 			changePlayerImage(playerNumber + "NorthWalking.png");
 			break;
@@ -127,8 +144,8 @@ public class VoogaAnimation implements Observer {
 		}
 	}
 	
-	private void changePlayerFacingDirection(KeyCode code, String playerNumber) {
-		switch (code) {
+	private void changePlayerFacingDirection(UserInstruction instruction, String playerNumber) {
+		switch (instruction) {
 		case UP:
 			changePlayerImage(playerNumber + "NorthFacing.png");
 			break;
@@ -144,7 +161,7 @@ public class VoogaAnimation implements Observer {
 		}
 	}
 	
-	private void move(KeyCode code) {
+	private void move(UserInstruction instruction) {
 		Group group = grid.getGroup();
 		
 		if (stepCount == maxSteps) {
@@ -153,7 +170,7 @@ public class VoogaAnimation implements Observer {
 			finished = true;
 			return;
 		}
-		switch (code) {
+		switch (instruction) {
 			case UP:
 				group.setLayoutY(group.getLayoutY() + pixelMovement);
 				break;
@@ -174,9 +191,64 @@ public class VoogaAnimation implements Observer {
 
 
 	@Override
-	public void update(Observable o, Object arg) {
-		if (o instanceof GameInstance) {
-			System.out.println("HI");
+	public void update(Observable observable, Object value) {
+		if (observable instanceof GameInstance) {
+			PlayerUpdate update = (PlayerUpdate) value;
+			updatePlayer(update);
 		}
+	}
+
+	private void updatePlayer(PlayerUpdate update) {
+		UserInstruction lastKeyPressed = stack.peek();
+		if (update == PlayerUpdate.ROW || update == PlayerUpdate.COLUMN) {
+			if (lastKeyPressed == UserInstruction.UP)
+				moveUpward();
+			else if (lastKeyPressed == UserInstruction.DOWN)
+				moveDownward();
+			else if (lastKeyPressed == UserInstruction.LEFT)
+				moveLeftward();
+			else if (lastKeyPressed == UserInstruction.RIGHT)
+				moveRightward();
+		}
+		if (update == PlayerUpdate.DIRECTION) {
+			if (lastKeyPressed == UserInstruction.UP)
+				directUpward();
+			else if (lastKeyPressed == UserInstruction.DOWN)
+				directDownward();
+			else if (lastKeyPressed == UserInstruction.LEFT)
+				directLeftward();
+			else if (lastKeyPressed == UserInstruction.RIGHT)
+				directRightward();
+		}
+	}
+
+	private void method() {
+		if (!stack.isEmpty() && finished) {
+			UserInstruction instruction = stack.peek();
+			changePlayerWalkingDirection(instruction, "Player1"); //TODO:no hardcode playernumber
+			animate(instruction);
+			changePlayerFacingDirection(instruction, "Player1");
+			finished = false;
+		}
+	}
+
+	private void move(UserInstruction key) {
+		if (!keyBindings.values().contains(key)) {
+			return;
+		}
+		double locationX = gridLayout.getLayoutX();
+		double locationY = gridLayout.getLayoutY();
+		switch (key) {
+			case UP:
+				locationY += pixelMovement;
+			case DOWN:
+				locationY -= pixelMovement;
+			case LEFT:
+				locationX += pixelMovement;
+			case RIGHT:
+				locationX -= pixelMovement;
+		}
+		gridLayout.setLayoutX(locationX);
+		gridLayout.setLayoutY(locationY);
 	}
 }

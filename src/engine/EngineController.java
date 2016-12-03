@@ -7,7 +7,6 @@ import java.util.Observer;
 
 import grid.GridWorld;
 import player.Player;
-import player.PlayerDirection;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
@@ -22,9 +21,6 @@ public class EngineController extends Observable implements Observer {
     private GameInstance gameInstance;
     private List<GameInstance> gameInstances;
     private int gameInstanceIndex;
-    private int playerRow;
-    private int playerColumn;
-    private int playerDirection;
 
     public EngineController() {
         xmlHandler = new GridXMLHandler();
@@ -43,7 +39,6 @@ public class EngineController extends Observable implements Observer {
      * @param input - the user input
      */
     public void keyListener(UserInstruction input) {
-    	if (gameInstance == null)System.out.println("hi");
         gameInstance.processInput(input);
     }
 
@@ -61,7 +56,7 @@ public class EngineController extends Observable implements Observer {
     public void saveEngine(String file) {
         xmlHandler.saveContents(file, gameInstance.getGridWorld(), gameInstance.getPlayer());
     }
-    
+
     public GameInstance getGameInstance() {
 		return gameInstance;
 	}
