@@ -18,7 +18,7 @@ public abstract class Block extends Observable implements IBlock {
     private String myName;
     private int myRow;
     private int myCol;
-    private boolean walkableStatus;
+    private boolean isWalkable;
     private List<Interaction> myInteractions;
     private String myMessage;
 
@@ -26,6 +26,7 @@ public abstract class Block extends Observable implements IBlock {
         myName = name;
         myRow = row;
         myCol = col;
+        isWalkable = false;
         myInteractions = new ArrayList<>();
     }
 
@@ -45,6 +46,10 @@ public abstract class Block extends Observable implements IBlock {
         notifyObservers(new BlockUpdateNotification(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol));
     }
 
+    public boolean link(Block block) {
+        return false;
+    }
+
     /*****GETTERS*****/
 
     public String getName() {
@@ -60,7 +65,7 @@ public abstract class Block extends Observable implements IBlock {
     }
 
     public boolean isWalkable() {
-        return walkableStatus;
+        return isWalkable;
     }
 
     //Interactions methods
@@ -83,6 +88,6 @@ public abstract class Block extends Observable implements IBlock {
     /*****SETTERS******/
 
     protected void setWalkableStatus(boolean status) {
-        walkableStatus = status;
+        isWalkable = status;
     }
 }
