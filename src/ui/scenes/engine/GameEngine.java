@@ -13,8 +13,11 @@ import javafx.stage.Stage;
 import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 import engine.UserInstruction;
@@ -26,22 +29,20 @@ import engine.UserInstruction;
  *
  *         Dependencies: FileBrowser.java
  */
-public class GameEngine extends Scene {
+public class GameEngine extends Scene implements Observer {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
+    private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
+    
     private Stage myStage;
     private Parent myRoot;
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private GridForEngine grid;
-    
     private EngineController myController;
-    
     private VoogaAnimation anim;
-    
-    private GridDisplayer gd;
-    private PlayerUI player;
+    private Character player;
 
     public GameEngine(Stage stage, Parent root, UILauncher launcher) {
         super(root);
@@ -50,12 +51,14 @@ public class GameEngine extends Scene {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+        myRoot.getStylesheets().add(CSS_FILE_NAME);
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             e.consume();
             myLauncher.launchMenu();
         });
         myController = new EngineController();
+        
         
     }
 
@@ -74,37 +77,64 @@ public class GameEngine extends Scene {
         initGrid();
     	loadGrid();
     	setUpGrid();
-
+    	setUpSidePanel();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
-    	//myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         return true;
     }
     
     private void setUpGrid() {
-    	
     	setUpKeys();
     	setUpPlayer();
-    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
-    	
-    	
-    	//StatsDisplayUI statusUI = new StatsDisplayUI(myRoot,myBuilder,myResources);
-    	//statusUI.initPlayerMenu();
+    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController);
+    	myController.addObserver(anim);
+    }
+    
+    private void setUpSidePanel() {
+    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources);
+    	engineSidePanel.initPlayerChanger(player);
+    	engineSidePanel.initSidePanel();
+    	engineSidePanel.initStats();
     }
     
     private void setUpPlayer() {
-    	player = new PlayerUI();
     	int gridX = Integer.parseInt(myResources.getString("gridX"));
         int gridY = Integer.parseInt(myResources.getString("gridY"));
-        int windowWidth = Integer.parseInt(myResources.getString("windowWidth"));
-        int windowHeight = Integer.parseInt(myResources.getString("windowHeight"));
         
-    	player.setColumn(myController.getPlayerColumn());
-    	player.setRow(myController.getPlayerRow());
-    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png"); 
+    	player = new Character(this);
+    	System.out.println(player.getRowCharacter());
+    	System.out.println(player.getColumnCharacter());
+    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
         player.setCharacterImageSize(grid.getBlockSize());
-    	player.setPosX(gridX+grid.getBlockSize()*myController.getPlayerColumn());
-    	player.setPosY(gridY+grid.getBlockSize()*myController.getPlayerRow());
+
+        int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
+        int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
+
+        player.setPosX(gridWidth/2 - player.getSize()/2);
+        player.setPosY(gridHeight/2 - player.getSize()/2);
+    	player.setName("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
+
+        //setup grid
+        double ypixel = myController.getPlayerRow()*grid.getBlockSize();
+        double xpixel = myController.getPlayerColumn()*grid.getBlockSize();
+
+        double a = 0;
+        double b = 0;
+        //Find central block
+        if (grid.getWidth() %2 != 0){
+            a = ((grid.getWidth()-1)/2 - myController.getPlayerColumn())*grid.getBlockSize();
+        } else {
+            a = (grid.getWidth()/2 - 0.5 - myController.getPlayerColumn())*grid.getBlockSize();
+        }
+
+        if (grid.getHeight() %2 != 0){
+            b = ((grid.getHeight()-1)/2 - myController.getPlayerRow())*grid.getBlockSize();
+        } else {
+            b = (grid.getHeight()/2 - 0.5 - myController.getPlayerRow())*grid.getBlockSize();
+        }
+
+        grid.getGroup().setLayoutX(grid.getGroup().getLayoutX() + a);
+        grid.getGroup().setLayoutY(grid.getGroup().getLayoutY() + b);
     }
     
     private void setUpKeys() {
@@ -136,5 +166,9 @@ public class GameEngine extends Scene {
         grid.setRenderMap();
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
-    
+
+	@Override
+	public void update(Observable o, Object arg) {
+		myBuilder.addComponent(myRoot, player.getCharacterImageView());
+	}  
 }

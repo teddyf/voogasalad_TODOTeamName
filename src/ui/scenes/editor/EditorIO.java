@@ -69,6 +69,7 @@ public class EditorIO {
      * @return true if export successful, false otherwise
      */
     public boolean saveGameFile() {
+        System.out.println("saving game");
         File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile != null) {
             myEditorController.saveEngine(gameFile.getAbsolutePath());

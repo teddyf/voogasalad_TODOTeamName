@@ -1,5 +1,6 @@
 package block;
 
+import api.IBlock;
 import interactions.Interaction;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +12,8 @@ import java.util.Observable;
  *
  * @author Filip Mazurek, Daniel Chai, Aninda Manocha
  */
-public abstract class Block extends Observable implements ShallowBlock {
+
+public abstract class Block extends Observable implements IBlock {
 
     private String myName;
     private int myRow;
@@ -61,7 +63,7 @@ public abstract class Block extends Observable implements ShallowBlock {
         return walkableStatus;
     }
 
-    //Interactions methodsanindo
+    //Interactions methods
     public List<Interaction> getInteractions() {
         return Collections.unmodifiableList(myInteractions);
     }
