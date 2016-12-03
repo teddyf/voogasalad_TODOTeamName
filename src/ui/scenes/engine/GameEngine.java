@@ -105,10 +105,36 @@ public class GameEngine extends Scene implements Observer {
     	System.out.println(player.getColumnCharacter());
     	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
         player.setCharacterImageSize(grid.getBlockSize());
-        player.setPosX(350);
-        player.setPosY(350);
+
+        int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
+        int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
+
+        player.setPosX(gridWidth/2 - player.getSize()/2);
+        player.setPosY(gridHeight/2 - player.getSize()/2);
     	player.setName("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
+
+        //setup grid
+        double ypixel = myController.getPlayerRow()*grid.getBlockSize();
+        double xpixel = myController.getPlayerColumn()*grid.getBlockSize();
+
+        double a = 0;
+        double b = 0;
+        //Find central block
+        if (grid.getWidth() %2 != 0){
+            a = ((grid.getWidth()-1)/2 - myController.getPlayerColumn())*grid.getBlockSize();
+        } else {
+            a = (grid.getWidth()/2 - 0.5 - myController.getPlayerColumn())*grid.getBlockSize();
+        }
+
+        if (grid.getHeight() %2 != 0){
+            b = ((grid.getHeight()-1)/2 - myController.getPlayerRow())*grid.getBlockSize();
+        } else {
+            b = (grid.getHeight()/2 - 0.5 - myController.getPlayerRow())*grid.getBlockSize();
+        }
+
+        grid.getGroup().setLayoutX(grid.getGroup().getLayoutX() + a);
+        grid.getGroup().setLayoutY(grid.getGroup().getLayoutY() + b);
     }
     
     private void setUpKeys() {

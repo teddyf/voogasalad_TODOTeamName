@@ -99,8 +99,8 @@ public class VoogaAnimation implements Observer {
 	}
 
 	private void changePlayerImage(String imageFileName){
-		//int gridX = Integer.parseInt(myResources.getString("gridX"));
-        //int gridY = Integer.parseInt(myResources.getString("gridY"));
+		int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
+        int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
 		System.out.println(imageFileName);
 		uiBuilder.removeComponent(root, player.getCharacterImageView());
 		player.setCharacterImage(IMAGE_RESOURCE + imageFileName);
@@ -108,8 +108,8 @@ public class VoogaAnimation implements Observer {
 		//player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
     	//player.getCharacterImageView().setLayoutY(gridY+grid.getBlockSize()*player.getRowCharacter());
 		uiBuilder.addComponent(root, player.getCharacterImageView());
-		player.getCharacterImageView().setLayoutX(350);
-		player.getCharacterImageView().setLayoutY(350);
+		player.getCharacterImageView().setLayoutX(gridWidth/2 - player.getSize()/2);
+		player.getCharacterImageView().setLayoutY(gridHeight/2 - player.getSize()/2);
 	}
 	
 /*//	need to clean this up later
