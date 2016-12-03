@@ -1,6 +1,7 @@
 
 package ui.scenes.engine;
 
+import java.security.UnresolvedPermission;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -8,6 +9,7 @@ import java.util.Stack;
 
 import engine.EngineController;
 import engine.GameInstance;
+import engine.PlayerUpdate;
 import engine.UserInstruction;
 import player.PlayerDirection;
 import javafx.animation.KeyFrame;
@@ -66,17 +68,17 @@ public class VoogaAnimation implements Observer {
 	public void handleKeyPress(KeyEvent e) {
 		KeyCode code = e.getCode();
 		ec.keyListener(UserInstruction.DOWN);
-//		if (!stack.contains(code))
-//			stack.push(code);
-//		process();
+		if (!stack.contains(code))
+			stack.push(code);
+		process();
 			
 	}
 	
 	public void handleKeyRelease(KeyEvent e) {
 		KeyCode	code = e.getCode();
-//		if (stack.contains(code)) {
-//			stack.remove(code);
-//		}
+		if (stack.contains(code)) {
+			stack.remove(code);
+		}
 	}
 	
 	public void process() {
@@ -176,7 +178,32 @@ public class VoogaAnimation implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		if (o instanceof GameInstance) {
-			System.out.println("HI");
+			PlayerUpdate update = (PlayerUpdate) arg;
+			if (update == PlayerUpdate.POSITION) {
+				//controller.
+			}
+			if (update == PlayerUpdate.DIRECTION) {
+
+			}
 		}
+	}
+
+	private UserInstruction convertKeyCode(KeyCode code) {
+		UserInstruction instruction = null;
+		switch (code) {
+			case UP:
+				instruction = UserInstruction.UP;
+				break;
+			case DOWN:
+				instruction = UserInstruction.DOWN;
+				break;
+			case LEFT:
+				instruction = UserInstruction.LEFT;
+				break;
+			case RIGHT:
+				instruction = UserInstruction.RIGHT;
+				break;
+		}
+		return instruction;
 	}
 }

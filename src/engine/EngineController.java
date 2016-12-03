@@ -9,6 +9,8 @@ import player.Player;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
+import player.PlayerDirection;
+
 /**
  * This is the controller for the game engine. It allows the backend and frontend to talk to each other while the game
  * is being played.
@@ -33,7 +35,6 @@ public class EngineController {
     }
 
     public void keyListener(UserInstruction input) {
-    	if (gameInstance == null)System.out.println("hi");
         gameInstance.processInput(input);
     }
 
@@ -58,7 +59,11 @@ public class EngineController {
     public void saveEngine(String file) {
         xmlHandler.saveContents(file, gameInstance.getGridWorld(), gameInstance.getPlayer());
     }
-    
+
+    public PlayerDirection getDirection() {
+        return gameInstance.getPlayer().getDirection();
+    }
+
     public GameInstance getGameInstance() {
 		return gameInstance;
 	}
