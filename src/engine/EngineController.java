@@ -2,6 +2,7 @@ package engine;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
 
 import grid.GridWorld;
 import player.Player;
@@ -36,10 +37,6 @@ public class EngineController {
         gameInstance.processInput(input);
     }
 
-    public GameInstance getGameInstance() {
-        return gameInstance;
-    }
-
     /**
      * Gets the block located in a specific row and column
      * @param row - the specific row
@@ -67,5 +64,9 @@ public class EngineController {
         Player player = gridWorldAndPlayer.getPlayer();
         GridWorld gridWorld = gridWorldAndPlayer.getGridWorld();
         gameInstance = new GameInstance(player, gridWorld);
+    }
+    
+    public void addObserver(Observer observer) {
+    	gameInstance.addObserver(observer);
     }
 }
