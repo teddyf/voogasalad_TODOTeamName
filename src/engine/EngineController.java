@@ -60,7 +60,7 @@ public class EngineController {
     }
     
     public GameInstance getGameInstance() {
-		return mygameInstance;
+		return gameInstance;
 	}
 	
 
