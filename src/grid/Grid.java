@@ -53,11 +53,14 @@ public class Grid extends Observable implements IGrid {
     }
 
     public Block getBlock(int row, int col) {
-        return myGrid[row][col];
+        if (row < 0 || row >= myNumRows || col < 0 || col >= myNumColumns) {
+            return null;
+        } else {
+            return myGrid[row][col];
+        }
     }
 
     public void setBlock(int row, int col, Block block) {
-        System.out.println("here");
         myGrid[row][col] = block;
         setChanged();
         notifyObservers(block);
