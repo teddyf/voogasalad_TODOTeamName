@@ -67,7 +67,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
 		boolean move = false;
-		String update = "";
+		PlayerUpdate playerUpdate = PlayerUpdate.POSITION;
 		PlayerDirection direction = myPlayer.getDirection();
 		switch (input) {
 			case UP:
@@ -76,19 +76,18 @@ public class GameInstance extends Observable implements IGameInstance {
                     move = true;
                 } else {
 			        myPlayer.setDirection(PlayerDirection.NORTH);
-                    update = "direction";
+                    playerUpdate = PlayerUpdate.DIRECTION;
                     setChanged();
                 }
 				break;
 			case DOWN:
-				System.out.println("yolo");
-			    if(direction == SOUTH) {
+				if(direction == SOUTH) {
                     newBlock = myGrid.getBlock(row+1, col);
                     move = true;
                 }
 			    else {
 			        myPlayer.setDirection(PlayerDirection.SOUTH);
-                    update = "direction";
+                    playerUpdate = PlayerUpdate.DIRECTION;
                     setChanged();
                 }
 				break;
@@ -98,7 +97,7 @@ public class GameInstance extends Observable implements IGameInstance {
                     move = true;
                 } else {
 			        myPlayer.setDirection(PlayerDirection.EAST);
-                    update = "direction";
+                    playerUpdate = PlayerUpdate.DIRECTION;
                     setChanged();
                 }
 				break;
@@ -108,7 +107,7 @@ public class GameInstance extends Observable implements IGameInstance {
                     move = true;
                 } else {
 			        myPlayer.setDirection(PlayerDirection.WEST);
-			        update = "direction";
+			        playerUpdate = PlayerUpdate.DIRECTION;
 			        setChanged();
                 }
 				break;
@@ -135,10 +134,9 @@ public class GameInstance extends Observable implements IGameInstance {
 
 			// TODO: do the step on interaction
             // newBlock.doStepOnInteraction(myPlayer);
-			update = "movement";
-			setChanged();
+            setChanged();
 		}
-        notifyObservers(update);
+        notifyObservers(playerUpdate);
 
 		return input;
 	}
