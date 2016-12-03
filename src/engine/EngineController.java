@@ -54,6 +54,14 @@ public class EngineController extends Observable implements Observer {
         return gameInstance.getRenderedGrid().get(row, col);
     }
 
+    public int getPlayerRow() {
+        return gameInstance.getPlayer().getRow();
+    }
+
+    public int getPlayerColumn() {
+        return gameInstance.getPlayer().getCol();
+    }
+
     public GameInstance getGameInstance() {
 		return gameInstance;
 	}
