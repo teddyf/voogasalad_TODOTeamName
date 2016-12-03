@@ -39,7 +39,6 @@ public interface IGameInstance {
 	/**
 	 * Processes the user input and moves the player based on the input
 	 * @param input - the user input
-     * @return the user input (to be sent back to the frontend)
 	 */
-	public UserInstruction processInput(UserInstruction input);
+	public void processInput(UserInstruction input);
 }

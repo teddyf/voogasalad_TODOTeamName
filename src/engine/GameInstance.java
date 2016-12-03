@@ -7,7 +7,7 @@ import grid.GridWorld;
 import grid.RenderedGrid;
 import player.Player;
 import player.PlayerDirection;
-import xml.GridXMLHandler;
+import player.PlayerUpdate;
 
 import java.util.Observable;
 
@@ -62,62 +62,39 @@ public class GameInstance extends Observable implements IGameInstance {
 		return myStatus;
 	}
 	
-	public UserInstruction processInput(UserInstruction input) {
-		Block newBlock = null; //TODO
+	public void processInput(UserInstruction input) {
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
-		boolean move = false;
-		PlayerUpdate playerUpdate = PlayerUpdate.DIRECTION;
+		PlayerUpdate playerUpdate = null;
 		PlayerDirection direction = myPlayer.getDirection();
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
-                    newBlock = myGrid.getBlock(row - 1, col);
-                    move = true;
-                    playerUpdate = PlayerUpdate.ROW;
+                    playerUpdate = handleMovement(row-1, col, PlayerUpdate.ROW);
                 } else {
-			        myPlayer.setDirection(PlayerDirection.NORTH);
-                    setChanged();
+			        playerUpdate = handleDirection(PlayerDirection.NORTH);
                 }
 				break;
 			case DOWN:
 				if(direction == SOUTH) {
-                    newBlock = myGrid.getBlock(row+1, col);
-                    move = true;
-                    playerUpdate = PlayerUpdate.ROW;
-                }
-			    else {
-			        myPlayer.setDirection(PlayerDirection.SOUTH);
-                    setChanged();
+                    playerUpdate = handleMovement(row+1, col, PlayerUpdate.ROW);
+                } else {
+                    playerUpdate = handleDirection(PlayerDirection.SOUTH);
                 }
 				break;
 			case RIGHT:
 			    if(direction == EAST) {
-                    newBlock = myGrid.getBlock(row, col+1);
-                    move = true;
-                    playerUpdate = PlayerUpdate.COLUMN;
+                    playerUpdate = handleMovement(row, col+1, PlayerUpdate.COLUMN);
                 } else {
-			        myPlayer.setDirection(PlayerDirection.EAST);
-                    setChanged();
+                    playerUpdate = handleDirection(PlayerDirection.EAST);
                 }
 				break;
 			case LEFT:
 			    if(direction == WEST) {
-                    newBlock = myGrid.getBlock(row, col-1);
-                    move = true;
-                    playerUpdate = PlayerUpdate.COLUMN;
+                    playerUpdate = handleMovement(row, col-1, PlayerUpdate.COLUMN);
                 } else {
-			        myPlayer.setDirection(PlayerDirection.WEST);
-			        setChanged();
+                    playerUpdate = handleDirection(PlayerDirection.WEST);
                 }
-				break;
-			case NORTHEAST:
-				break;
-			case NORTHWEST:
-				break;
-			case SOUTHEAST:
-				break;
-			case SOUTHWEST:
 				break;
 			case TALK:
 			    // TODO: talk interaction
@@ -126,20 +103,39 @@ public class GameInstance extends Observable implements IGameInstance {
 			default:
 				break;
 		}
-		
-		if (move && inBounds(newBlock) && isWalkable(newBlock)) {
+        notifyObservers(playerUpdate);
+	}
 
-			myPlayer.setRow(newBlock.getRow());
-			myPlayer.setCol(newBlock.getCol());
+    /**
+     * Handles the case where the player moves
+     * @param row - the row of the player after it moves
+     * @param col - the column of the player after it moves
+     * @param playerUpdate - the player update type depending on whether the row or column changes (ROW or COLUMN)
+     * @return the player update type
+     */
+	private PlayerUpdate handleMovement(int row, int col, PlayerUpdate playerUpdate) {
+        Block newBlock = myGrid.getBlock(row, col);
+        if (inBounds(newBlock) && isWalkable(newBlock)) {
+            myPlayer.setRow(newBlock.getRow());
+            myPlayer.setCol(newBlock.getCol());
 
-			// TODO: do the step on interaction
+            // TODO: do the step on interaction
             // newBlock.doStepOnInteraction(myPlayer);
             setChanged();
-		}
-        notifyObservers(playerUpdate);
+        }
+        return playerUpdate;
+    }
 
-		return input;
-	}
+    /**
+     * Handles the case where the player changes direction
+     * @param direction - the new direction the player will face
+     * @return the player update type (DIRECTION)
+     */
+    private PlayerUpdate handleDirection(PlayerDirection direction) {
+        myPlayer.setDirection(direction);
+        setChanged();
+	    return PlayerUpdate.DIRECTION;
+    }
 
 	/**
 	 * Determines if a block is within the bounds of the grid

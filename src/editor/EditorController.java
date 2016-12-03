@@ -3,7 +3,6 @@ package editor;
 import block.Block;
 import block.BlockFactory;
 import block.BlockType;
-import block.DecorationBlock;
 import engine.EngineController;
 import grid.Grid;
 import grid.GridWorld;
@@ -51,10 +50,7 @@ public class EditorController {
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
         Block block = blockFactory.createBlock(name, blockType, row, col);
-        System.out.println("NAME " + name);
-        System.out.println("BLOCK " + block.getName());
         currentGrid.setBlock(row, col, block);
-        System.out.println("GRID");
         for(int i = 0; i < myNumRows; i++) {
             for(int j = 0; j < myNumColumns; j++) {
                 //System.out.println(currentGrid.getBlock(i,j).getName());
