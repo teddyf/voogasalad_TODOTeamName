@@ -62,8 +62,7 @@ public class EditorController {
     public boolean linkBlocks(int row1, int col1, int row2, int col2) {
         Block block1 = currentGrid.getBlock(row1, col1);
         Block block2 = currentGrid.getBlock(row2, col2);
-        BlockLinker blockLinker = new BlockLinker();
-        return blockLinker.linkBlocks(block1, block2);
+        return (block1.link(block2) || block2.link(block2));
     }
 
     public void addPlayer(String name, int row, int col) {

@@ -2,6 +2,8 @@ package block;
 
 import api.IBlock;
 import interactions.Interaction;
+import player.Player;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -30,9 +32,9 @@ public abstract class Block extends Observable implements IBlock {
         myInteractions = new ArrayList<>();
     }
 
-    public void stepInteract() {
+    public void stepInteract(Player player) {
         for (Interaction i : myInteractions) {
-            i.actOnStep();
+            i.actOnStep(player);
         }
     }
     public void talkInteract(String message){
