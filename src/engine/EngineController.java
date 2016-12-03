@@ -2,10 +2,12 @@ package engine;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 import java.util.Observer;
 
 import grid.GridWorld;
 import player.Player;
+import player.PlayerDirection;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
@@ -17,11 +19,14 @@ import player.PlayerDirection;
  * @author Aninda Manocha
  */
 
-public class EngineController {
+public class EngineController extends Observable implements Observer {
     private GridXMLHandler xmlHandler;
     private GameInstance gameInstance;
     private List<GameInstance> gameInstances;
     private int gameInstanceIndex;
+    private int playerRow;
+    private int playerColumn;
+    private int playerDirection;
 
     public EngineController() {
         xmlHandler = new GridXMLHandler();
@@ -56,6 +61,10 @@ public class EngineController {
         return gameInstance.getPlayer().getCol();
     }
 
+    public PlayerDirection getPlayerDirection() {
+        return gameInstance.getPlayer().getDirection();
+    }
+
     public void saveEngine(String file) {
         xmlHandler.saveContents(file, gameInstance.getGridWorld(), gameInstance.getPlayer());
     }
@@ -78,5 +87,12 @@ public class EngineController {
     
     public void addObserver(Observer observer) {
     	gameInstance.addObserver(observer);
+    }
+
+    public void update(Observable observableValue, Object value) {
+        if (observableValue instanceof GameInstance) {
+            setChanged();
+            notifyObservers(value);
+        }
     }
 }

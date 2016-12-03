@@ -6,6 +6,7 @@ package engine;
  */
 
 public enum PlayerUpdate {
-    POSITION,
+    ROW,
+    COLUMN,
     DIRECTION;
 }

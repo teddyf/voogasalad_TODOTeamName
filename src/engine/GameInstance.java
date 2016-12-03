@@ -67,16 +67,16 @@ public class GameInstance extends Observable implements IGameInstance {
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
 		boolean move = false;
-		PlayerUpdate playerUpdate = PlayerUpdate.POSITION;
+		PlayerUpdate playerUpdate = PlayerUpdate.DIRECTION;
 		PlayerDirection direction = myPlayer.getDirection();
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
                     newBlock = myGrid.getBlock(row - 1, col);
                     move = true;
+                    playerUpdate = PlayerUpdate.ROW;
                 } else {
 			        myPlayer.setDirection(PlayerDirection.NORTH);
-                    playerUpdate = PlayerUpdate.DIRECTION;
                     setChanged();
                 }
 				break;
@@ -84,10 +84,10 @@ public class GameInstance extends Observable implements IGameInstance {
 				if(direction == SOUTH) {
                     newBlock = myGrid.getBlock(row+1, col);
                     move = true;
+                    playerUpdate = PlayerUpdate.ROW;
                 }
 			    else {
 			        myPlayer.setDirection(PlayerDirection.SOUTH);
-                    playerUpdate = PlayerUpdate.DIRECTION;
                     setChanged();
                 }
 				break;
@@ -95,9 +95,9 @@ public class GameInstance extends Observable implements IGameInstance {
 			    if(direction == EAST) {
                     newBlock = myGrid.getBlock(row, col+1);
                     move = true;
+                    playerUpdate = PlayerUpdate.COLUMN;
                 } else {
 			        myPlayer.setDirection(PlayerDirection.EAST);
-                    playerUpdate = PlayerUpdate.DIRECTION;
                     setChanged();
                 }
 				break;
@@ -105,9 +105,9 @@ public class GameInstance extends Observable implements IGameInstance {
 			    if(direction == WEST) {
                     newBlock = myGrid.getBlock(row, col-1);
                     move = true;
+                    playerUpdate = PlayerUpdate.COLUMN;
                 } else {
 			        myPlayer.setDirection(PlayerDirection.WEST);
-			        playerUpdate = PlayerUpdate.DIRECTION;
 			        setChanged();
                 }
 				break;
