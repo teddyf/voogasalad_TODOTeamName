@@ -62,7 +62,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		return myStatus;
 	}
 	
-	public void processInput(UserInstruction input) {
+	public UserInstruction processInput(UserInstruction input) {
 		Block newBlock = null; //TODO
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
@@ -73,10 +73,8 @@ public class GameInstance extends Observable implements IGameInstance {
 			    if(direction == NORTH) {
                     newBlock = myGrid.getBlock(row - 1, col);
                     move = true;
-                }
-                else {
+                } else {
 			        myPlayer.setDirection(PlayerDirection.NORTH);
-			        setChanged();
                 }
 				break;
 			case DOWN:
@@ -85,29 +83,24 @@ public class GameInstance extends Observable implements IGameInstance {
                     newBlock = myGrid.getBlock(row+1, col);
                     move = true;
                 }
-                else {
+			    else {
 			        myPlayer.setDirection(SOUTH);
-			        setChanged();
                 }
 				break;
 			case RIGHT:
 			    if(direction == EAST) {
                     newBlock = myGrid.getBlock(row, col+1);
                     move = true;
-                }
-                else {
+                } else {
 			        myPlayer.setDirection(EAST);
-			        setChanged();
                 }
 				break;
 			case LEFT:
 			    if(direction == WEST) {
                     newBlock = myGrid.getBlock(row, col-1);
                     move = true;
-                }
-                else {
+                } else {
 			        myPlayer.setDirection(WEST);
-			        setChanged();
                 }
 				break;
 			case NORTHEAST:
@@ -127,6 +120,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		}
 		
 		if (move && inBounds(newBlock) && isWalkable(newBlock)) {
+
 			myPlayer.setRow(newBlock.getRow());
 			myPlayer.setCol(newBlock.getCol());
 
@@ -136,6 +130,8 @@ public class GameInstance extends Observable implements IGameInstance {
 			setChanged();
 		}
         notifyObservers();
+
+		return input;
 	}
 
 	/**
@@ -144,10 +140,11 @@ public class GameInstance extends Observable implements IGameInstance {
 	 * @return whether the block is in bounds
 	 */
 	private boolean inBounds(Block block) {
-		int row = myGrid.getNumRows();
-		int col = myGrid.getNumCols();
-		
-		return (block.getRow() >= 0 && block.getRow() < row && block.getCol() >= 0 && block.getCol() < col); 
+		if (block == null) {
+		    return false;
+        } else {
+		    return true;
+        }
 	}
 
     /**
