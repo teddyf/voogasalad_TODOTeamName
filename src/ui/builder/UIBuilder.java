@@ -19,18 +19,18 @@ import java.util.ResourceBundle;
  */
 public class UIBuilder {
 
+    private ComponentBuilder alertBuilder;
     private ComponentBuilder buttonBuilder;
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
-    private ComponentBuilder alertBuilder;
 
     public UIBuilder() {
+        alertBuilder = new AlertBuilder();
         buttonBuilder = new ButtonBuilder();
         imageViewBuilder = new ImageViewBuilder();
         labelBuilder = new LabelBuilder();
         textFieldBuilder = new TextFieldBuilder();
-        alertBuilder = new AlertBuilder();
     }
 
     /**

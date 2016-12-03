@@ -17,12 +17,15 @@ import ObjectMenuObjects.*;
 import ui.builder.*;
 
 /**
- * @author Nisa, Pim
+ * @author Nisa, Pim, Aninda Manocha
  */
+
 public class EditorSidePanel {
+
+    private ResourceBundle myResources;
     private static final String ITEMPANEL_RESOURCES_PATH = "resources/properties/item-panel";
     private Pane myRegion;
-    private ResourceBundle myResources;
+
     private UIBuilder myBuilder;
     private SidePanelMenuObjects handler;
 
