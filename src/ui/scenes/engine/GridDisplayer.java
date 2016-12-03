@@ -18,26 +18,18 @@ public class GridDisplayer {
 	
 	public void updateDisplay(Group gridRegion, PlayerDirection direction) {
 		switch (direction) {
-		case NORTH:
-			gridRegion.setTranslateY(-CELL_SIZE);
-		case EAST:
-			gridRegion.setTranslateX(-CELL_SIZE);
-		case WEST:
-			gridRegion.setTranslateX(CELL_SIZE);
-		case SOUTH:
-			gridRegion.setTranslateY(CELL_SIZE);
-		case NORTHWEST:
-			gridRegion.setTranslateY(-CELL_SIZE);
-			gridRegion.setTranslateX(CELL_SIZE);
-		case NORTHEAST:
-			gridRegion.setTranslateY(-CELL_SIZE);
-			gridRegion.setTranslateX(-CELL_SIZE);
-		case SOUTHWEST:
-			gridRegion.setTranslateY(CELL_SIZE);
-			gridRegion.setTranslateX(CELL_SIZE);
-		case SOUTHEAST:
-			gridRegion.setTranslateY(CELL_SIZE);
-			gridRegion.setTranslateX(-CELL_SIZE);
+			case NORTH:
+				gridRegion.setTranslateY(-CELL_SIZE);
+				break;
+			case EAST:
+				gridRegion.setTranslateX(-CELL_SIZE);
+				break;
+			case WEST:
+				gridRegion.setTranslateX(CELL_SIZE);
+				break;
+			case SOUTH:
+				gridRegion.setTranslateY(CELL_SIZE);
+				break;
 		}
 	}
 	
