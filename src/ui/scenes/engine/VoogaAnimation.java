@@ -33,7 +33,7 @@ public class VoogaAnimation {
 	private double pixelMovement;
 	private int maxSteps;
 	private int stepCount;
-	private PlayerUI player;
+	private Character player;
 	private Parent root;
 	private UIBuilder uiBuilder;
 	private ResourceBundle myResources;
@@ -42,7 +42,7 @@ public class VoogaAnimation {
 	
 	private Timeline animation;
 
-	public VoogaAnimation(Parent root, GridForEngine grid2, PlayerUI player, UIBuilder uiBuilder) {
+	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder) {
 		this.root = root;
 		this.grid = grid2;
 		this.player = player;
