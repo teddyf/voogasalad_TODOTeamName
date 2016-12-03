@@ -67,6 +67,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
 		boolean move = false;
+		String update = "";
 		PlayerDirection direction = myPlayer.getDirection();
 		switch (input) {
 			case UP:
@@ -75,6 +76,8 @@ public class GameInstance extends Observable implements IGameInstance {
                     move = true;
                 } else {
 			        myPlayer.setDirection(PlayerDirection.NORTH);
+                    update = "direction";
+                    setChanged();
                 }
 				break;
 			case DOWN:
@@ -84,7 +87,9 @@ public class GameInstance extends Observable implements IGameInstance {
                     move = true;
                 }
 			    else {
-			        myPlayer.setDirection(SOUTH);
+			        myPlayer.setDirection(PlayerDirection.SOUTH);
+                    update = "direction";
+                    setChanged();
                 }
 				break;
 			case RIGHT:
@@ -92,7 +97,9 @@ public class GameInstance extends Observable implements IGameInstance {
                     newBlock = myGrid.getBlock(row, col+1);
                     move = true;
                 } else {
-			        myPlayer.setDirection(EAST);
+			        myPlayer.setDirection(PlayerDirection.EAST);
+                    update = "direction";
+                    setChanged();
                 }
 				break;
 			case LEFT:
@@ -100,7 +107,9 @@ public class GameInstance extends Observable implements IGameInstance {
                     newBlock = myGrid.getBlock(row, col-1);
                     move = true;
                 } else {
-			        myPlayer.setDirection(WEST);
+			        myPlayer.setDirection(PlayerDirection.WEST);
+			        update = "direction";
+			        setChanged();
                 }
 				break;
 			case NORTHEAST:
@@ -126,10 +135,10 @@ public class GameInstance extends Observable implements IGameInstance {
 
 			// TODO: do the step on interaction
             // newBlock.doStepOnInteraction(myPlayer);
-			System.out.println("hi");
+			update = "movement";
 			setChanged();
 		}
-        notifyObservers();
+        notifyObservers(update);
 
 		return input;
 	}
