@@ -13,10 +13,11 @@ public class PlayerAttribute implements IPlayerAttribute {
     private double myIncrement;
     private double myDecrement;
 
-    public PlayerAttribute(String name, double amount, double increment) {
+    public PlayerAttribute(String name, double amount, double increment, double decrement) {
         myName = name;
         myAmount = amount;
         myIncrement = increment;
+        myDecrement = decrement;
     }
 
     public void increase() {
