@@ -1,4 +1,4 @@
-package engine;
+package player;
 
 /**
  * The enum type for the player update
