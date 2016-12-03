@@ -58,6 +58,11 @@ public class EngineController {
     public void saveEngine(String file) {
         xmlHandler.saveContents(file, gameInstance.getGridWorld(), gameInstance.getPlayer());
     }
+    
+    public GameInstance getGameInstance() {
+		return mygameInstance;
+	}
+	
 
     public void loadEngine(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
