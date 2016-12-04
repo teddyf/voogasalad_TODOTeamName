@@ -7,14 +7,10 @@ import player.Player;
  * Specific switch interaction for the touch switches.
  * @author Filip Mazurek
  */
-public class SwitchTouchInteraction extends SwitchInteraction{
+public class SwitchTouchInteraction extends SwitchInteraction implements TalkInteraction{
 
-    public SwitchTouchInteraction(SwitchBlock sBlock) {
-        super(sBlock);
+    public SwitchTouchInteraction(SwitchBlock switchBlock) {
+        super(switchBlock);
     }
 
-    @Override
-    public void actOnTalk(Player player) {
-        act();
-    }
 }

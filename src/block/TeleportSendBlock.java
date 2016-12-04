@@ -1,6 +1,7 @@
 package block;
 
 import interactions.Interaction;
+import interactions.StepInteraction;
 import interactions.TeleportInteraction;
 
 /**
@@ -19,19 +20,24 @@ public abstract class TeleportSendBlock extends Block {
     @Override
     public boolean link(Block receiver) {
         if(receiver instanceof TeleportReceiveBlock) {
+            unlink(receiver);
             myReceiveBlock = (TeleportReceiveBlock) receiver;
-
-            for(Interaction i : getInteractions()) { // if a new destination is set, ensure old one is erased
-                if(i instanceof TeleportInteraction) {
-                    removeInteraction(i);
-                }
-            }
-
-            addInteraction(new TeleportInteraction(receiver.getRow(), receiver.getCol()));
+            addStepInteraction(new TeleportInteraction(receiver.getRow(), receiver.getCol()));
             return true;
         }
         return false;
     }
 
-
+    public boolean unlink(Block receiver) {
+        if (receiver.equals(myReceiveBlock)) {
+            for(StepInteraction interaction : getStepInteractions()) { // if a new destination is set, ensure old one is erased
+                if(interaction instanceof TeleportInteraction) {
+                    removeStepInteraction(interaction);
+                }
+            }
+            myReceiveBlock = null;
+            return true;
+        }
+        return false;
+    }
 }

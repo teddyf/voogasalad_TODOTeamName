@@ -93,7 +93,6 @@ public class EngineController extends Observable implements Observer {
      * @param value - the player update type
      */
     public void update(Observable observableValue, Object value) {
-        System.out.println("yo");
         if (observableValue instanceof GameInstance) {
             setChanged();
             notifyObservers(value);

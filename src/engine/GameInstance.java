@@ -121,9 +121,6 @@ public class GameInstance extends Observable implements IGameInstance {
         if (inBounds(newBlock) && isWalkable(newBlock)) {
             myPlayer.setRow(newBlock.getRow());
             myPlayer.setCol(newBlock.getCol());
-
-            // TODO: do the step on interaction
-            newBlock.stepInteract(myPlayer);
             setChanged();
         }
         return playerUpdate;
@@ -175,6 +172,14 @@ public class GameInstance extends Observable implements IGameInstance {
             default:
                 // TODO: throw custom exception--player is not facing in any direction
                 return null;
+        }
+    }
+
+    public void handleInteraction() {
+        Block newBlock = myGrid.getBlock(myPlayer.getRow(), myPlayer.getCol());
+        if (newBlock.stepInteract(myPlayer) || newBlock.talkInteract(myPlayer)) {
+            setChanged();
+            notifyObservers(PlayerUpdate.INTERACTION);
         }
     }
 }

@@ -32,6 +32,15 @@ public abstract class SwitchBlock extends Block {
             myGates.add((GateBlock) block);
             return true;
         }
-            return false;
+        return false;
+    }
+
+    @Override
+    public boolean unlink(Block block) {
+        if (block instanceof GateBlock) {
+            myGates.remove(block);
+            return true;
+        }
+        return false;
     }
 }
