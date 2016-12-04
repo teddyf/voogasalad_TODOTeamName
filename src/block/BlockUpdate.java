@@ -5,12 +5,12 @@ package block;
  *
  * @author Filip Mazurek
  */
-public class BlockUpdateNotification {
+public class BlockUpdate {
     public BlockUpdateType myUpdateType;
     public int myRow;
     public int myColumn;
 
-    public BlockUpdateNotification(BlockUpdateType updateType, int row, int col) {
+    public BlockUpdate(BlockUpdateType updateType, int row, int col) {
         myUpdateType = updateType;
         myRow = row;
         myColumn = col;

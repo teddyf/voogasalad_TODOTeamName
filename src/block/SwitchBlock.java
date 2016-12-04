@@ -23,7 +23,7 @@ public abstract class SwitchBlock extends Block {
 
         // notify front end to change look of switch
         setChanged();
-        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, getRow(), getCol()));
+        notifyObservers(new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol()));
     }
 
     @Override
