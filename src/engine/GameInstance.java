@@ -98,9 +98,9 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case TALK:
-			    // TODO: talk interaction
+			    // TODO: better talk interaction
 			    Block talkBlock = blockInFacedDirection(row, col, direction);
-                talkBlock.talkInteract("hello");
+                talkBlock.talkInteract(myPlayer);
 			default:
 				break;
 		}

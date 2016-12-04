@@ -15,6 +15,7 @@ public class TeleportInteraction extends Interaction {
         myDestinationCol = col;
     }
 
+    @Override
     public void actOnStep(Player player) {
         player.setRow(myDestinationRow);
         player.setCol(myDestinationCol);

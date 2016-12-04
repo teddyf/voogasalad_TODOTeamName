@@ -39,9 +39,10 @@ public abstract class Block extends Observable implements IBlock {
         }
         return (myInteractions.size() > 0);
     }
-    public boolean talkInteract(String message){
+
+    public boolean talkInteract(Player player){
         for(Interaction i : myInteractions){
-            i.actOnTalk(message);
+            i.actOnTalk(player);
         }
         return (myInteractions.size() > 0);
     }

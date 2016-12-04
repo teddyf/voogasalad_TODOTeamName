@@ -34,6 +34,4 @@ public abstract class SwitchBlock extends Block {
         }
             return false;
     }
-
-
 }
