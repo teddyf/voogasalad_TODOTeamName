@@ -14,7 +14,7 @@ import player.PlayerAttribute;
  * @author Filip Mazurek, Bill Xiong
  */
 public abstract class AbstractInteraction implements Interaction{
-    private PlayerAttribute player;
+//    private PlayerAttribute player;
 
     //enums hold default interactions for users to choose from.
     //default methods
@@ -22,26 +22,26 @@ public abstract class AbstractInteraction implements Interaction{
     private Interaction decreaseAttribute;
     private Interaction doNothing;
     private Interaction currentStepAction;
-    public AbstractInteraction(PlayerAttribute player){
-        this.player = player;
-        increaseAttribute = player::increase;
-        decreaseAttribute = player::decrease;
+//    public AbstractInteraction(Player player){
+//        this.player = player;
+//        increaseAttribute = player::increase;
+//        decreaseAttribute = player::decrease;
 
-        doNothing = () -> {};
-        currentStepAction = doNothing;
+//        doNothing = () -> {};
+//        currentStepAction = doNothing;
+//    }
+    public AbstractInteraction(Player player){
+//        this.player = null;
     }
-    public AbstractInteraction(){
-        this.player = null;
-    }
-    protected Interaction getCurrentAction(){
-        return currentStepAction;
-    }
-    public void setCurrentAction(Interaction action){
-        currentStepAction = action;
-    }
-    protected PlayerAttribute getPlayer(){
-        return player;
-    }
+//    protected Interaction getCurrentAction(){
+//        return currentStepAction;
+//    }
+//    public void setCurrentAction(Interaction action){
+//        currentStepAction = action;
+//    }
+//    protected PlayerAttribute getPlayer(){
+//        return player;
+//    }
     public abstract void actOnStep();
     //public abstract void actOnTalk();
 }

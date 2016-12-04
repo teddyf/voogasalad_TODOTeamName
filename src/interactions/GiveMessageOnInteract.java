@@ -1,6 +1,7 @@
 package interactions;
 
 import block.CommunicatorBlock;
+import player.Player;
 
 /**
  * When interacted with by the player (e.g. pressing 'A' interaction button), give a message
@@ -8,18 +9,18 @@ import block.CommunicatorBlock;
  *
  * @author Filip Mazurek
  */
-public class GiveMessageOnInteract extends AbstractInteraction {
-    private CommunicatorBlock communicator;
-    public GiveMessageOnInteract(CommunicatorBlock block){
-        communicator = block;
-    }
-    @Override
-    public void actOnStep(){
-        //like an obstacle
-        //getCurrentAction().act();
-    }
-    public void actOnTalk(String message){
-        //add all the code to add message and stuff here
-
-    }
-}
+//public class GiveMessageOnInteract extends AbstractInteraction {
+//    private CommunicatorBlock communicator;
+//    public GiveMessageOnInteract(CommunicatorBlock block){
+//        communicator = block;
+//    }
+//    @Override
+//    public void actOnStep(Player player){
+//        //like an obstacle
+//        getCurrentAction().act();
+//    }
+//    public void actOnTalk(String message){
+//        //add all the code to add message and stuff here
+//
+//    }
+//}

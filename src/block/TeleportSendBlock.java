@@ -1,5 +1,8 @@
 package block;
 
+import interactions.Interaction;
+import interactions.TeleportInteraction;
+
 /**
  * This send block sends the player to its corresponding receive block by changing the player position
  * @author Aninda Manocha, Filip Mazurek
@@ -17,6 +20,14 @@ public abstract class TeleportSendBlock extends Block {
     public boolean link(Block receiver) {
         if(receiver instanceof TeleportReceiveBlock) {
             myReceiveBlock = (TeleportReceiveBlock) receiver;
+
+            for(Interaction i : getInteractions()) { // if a new destination is set, ensure old one is erased
+                if(i instanceof TeleportInteraction) {
+                    removeInteraction(i);
+                }
+            }
+
+            addInteraction(new TeleportInteraction(receiver.getRow(), receiver.getCol()));
             return true;
         }
         return false;
