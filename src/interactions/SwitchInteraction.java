@@ -5,3 +5,6 @@ package interactions;
  * end, as well as force the front end to redraw the gate so that the user may see the change.
  * @author Filip Mazurek
  */
+public class SwitchInteraction extends Interaction {
+    
+}

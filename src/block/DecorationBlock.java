@@ -5,11 +5,11 @@ package block;
  *
  * @author Filip Mazurek, Daniel Chai, Aninda Manocha
  */
-public class DecorationBlock extends Block implements Walkable {
+public class DecorationBlock extends Block {
 
 	public DecorationBlock(String name, int row, int col) {
 		super(name, row, col);
-		setWalkableStatus(IS_WALKABLE);
+		setWalkableStatus(true);
 	}
 
 }

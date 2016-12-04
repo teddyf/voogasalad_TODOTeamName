@@ -15,5 +15,8 @@ public enum BlockType {
     PORTAL,
     SWITCH_FLOOR,
     SWITCH_TOUCH,
+    TELEPORT_RECEIVE,
+    TELEPORT_SEND,
+
     ITEM_KEY
 }

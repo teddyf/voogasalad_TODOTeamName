@@ -6,11 +6,11 @@ package block;
  * 
  * @author Ryan Anders
  */
-public class ItemKeyBlock extends ItemBlock implements Walkable {
+public class ItemKeyBlock extends ItemBlock {
 
 	public ItemKeyBlock(String name, int row, int col) {
 		super(name, row, col);
-		setWalkableStatus(IS_WALKABLE);
+		setWalkableStatus(true);
 	}
 
 }
