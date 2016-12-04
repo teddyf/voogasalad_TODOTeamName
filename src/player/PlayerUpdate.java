@@ -8,5 +8,6 @@ package player;
 public enum PlayerUpdate {
     ROW,
     COLUMN,
-    DIRECTION;
+    DIRECTION,
+    INTERACTION;
 }
