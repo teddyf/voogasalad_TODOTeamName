@@ -7,14 +7,10 @@ import player.Player;
  * Specific switch interaction for the floor switches.
  * @author Filip Mazurek
  */
-public class SwitchFloorInteraction extends SwitchInteraction{
 
-    public SwitchFloorInteraction(SwitchBlock sBlock) {
-        super(sBlock);
-    }
+public class SwitchFloorInteraction extends SwitchInteraction implements StepInteraction{
 
-    @Override
-    public void actOnStep(Player player) {
-        act();
+    public SwitchFloorInteraction(SwitchBlock switchBlock) {
+        super(switchBlock);
     }
 }

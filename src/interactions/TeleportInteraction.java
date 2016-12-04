@@ -6,7 +6,7 @@ import player.Player;
  * Allows the player to be teleported to a destination block from a teleporter.
  * @author Filip Mazurek
  */
-public class TeleportInteraction extends Interaction {
+public class TeleportInteraction implements StepInteraction {
     private int myDestinationRow;
     private int myDestinationCol;
 
@@ -16,7 +16,7 @@ public class TeleportInteraction extends Interaction {
     }
 
     @Override
-    public void actOnStep(Player player) {
+    public void act(Player player) {
         player.setRow(myDestinationRow);
         player.setCol(myDestinationCol);
     }

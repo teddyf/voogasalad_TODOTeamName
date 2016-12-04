@@ -177,8 +177,9 @@ public class GameInstance extends Observable implements IGameInstance {
 
     public void handleInteraction() {
         Block newBlock = myGrid.getBlock(myPlayer.getRow(), myPlayer.getCol());
-        newBlock.stepInteract(myPlayer);
-        setChanged();
-        notifyObservers(PlayerUpdate.INTERACTION);
+        if (newBlock.stepInteract(myPlayer) || newBlock.talkInteract(myPlayer)) {
+            setChanged();
+            notifyObservers(PlayerUpdate.INTERACTION);
+        }
     }
 }
