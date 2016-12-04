@@ -37,9 +37,9 @@ public abstract class Block extends Observable implements IBlock {
             i.actOnStep(player);
         }
     }
-    public void talkInteract(String message){
+    public void talkInteract(Player player){
         for(Interaction i : myInteractions){
-            i.actOnTalk(message);
+            i.actOnTalk(player);
         }
     }
 

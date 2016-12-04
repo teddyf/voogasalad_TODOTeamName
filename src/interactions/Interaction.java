@@ -15,7 +15,7 @@ public abstract class Interaction {
     public void actOnStep(Player player) {
         // do nothing
     }
-    public void actOnTalk(String message){
+    public void actOnTalk(Player player){
         // do nothing
     }
 }
