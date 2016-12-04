@@ -66,6 +66,8 @@ public class UILauncher {
      */
     public void launchMenu() {
         myMainMenu = new MainMenu(myStage, new Group(), this);
+        st.add(myMainMenu);
+        pathSt.add(myMainMenu.getPath());
         myStage.setScene(myMainMenu);
     }
 
@@ -96,8 +98,8 @@ public class UILauncher {
     public void goToPrevScene(UIBuilder builder){
         st.pop();
         pathSt.pop();
-        String path = pathSt.peek();
         myStage.setScene(st.peek());
+        String path = pathSt.peek();       
         builder.initWindow(myStage,path);
     }
     

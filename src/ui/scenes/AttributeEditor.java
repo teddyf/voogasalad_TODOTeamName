@@ -73,7 +73,7 @@ public class AttributeEditor extends Scene{
             double amount = Double.parseDouble(amountTF.getText());
             double inc = Double.parseDouble(incTF.getText());
             double dec = Double.parseDouble(decTF.getText());
-            
+            editorController.addPlayerAttribute(name, amount, inc, dec);
         });
           
         myStage.setOnCloseRequest(e->{
