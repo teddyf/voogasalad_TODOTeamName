@@ -66,6 +66,10 @@ public class EngineController extends Observable implements Observer {
 		return gameInstance;
 	}
 
+	public void checkInteraction() {
+
+    }
+
     /**
      * Saves the status of a game by saving the grid world and player in a file
      * @param file - the path of the file that will contain the game
@@ -93,7 +97,6 @@ public class EngineController extends Observable implements Observer {
      * @param value - the player update type
      */
     public void update(Observable observableValue, Object value) {
-        System.out.println("yo");
         if (observableValue instanceof GameInstance) {
             setChanged();
             notifyObservers(value);

@@ -21,6 +21,7 @@ public abstract class Block extends Observable implements IBlock {
     private int myRow;
     private int myCol;
     private boolean isWalkable;
+    private List<Interaction> myStepInteractions;
     private List<Interaction> myInteractions;
     private String myMessage;
 
@@ -32,15 +33,17 @@ public abstract class Block extends Observable implements IBlock {
         myInteractions = new ArrayList<>();
     }
 
-    public void stepInteract(Player player) {
+    public boolean stepInteract(Player player) {
         for (Interaction i : myInteractions) {
             i.actOnStep(player);
         }
+        return (myInteractions.size() > 0);
     }
-    public void talkInteract(String message){
+    public boolean talkInteract(String message){
         for(Interaction i : myInteractions){
             i.actOnTalk(message);
         }
+        return (myInteractions.size() > 0);
     }
 
     public void doMessage() {

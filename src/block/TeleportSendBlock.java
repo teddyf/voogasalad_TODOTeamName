@@ -19,19 +19,22 @@ public abstract class TeleportSendBlock extends Block {
     @Override
     public boolean link(Block receiver) {
         if(receiver instanceof TeleportReceiveBlock) {
+            unlink(receiver);
             myReceiveBlock = (TeleportReceiveBlock) receiver;
-
-            for(Interaction i : getInteractions()) { // if a new destination is set, ensure old one is erased
-                if(i instanceof TeleportInteraction) {
-                    removeInteraction(i);
-                }
-            }
-
             addInteraction(new TeleportInteraction(receiver.getRow(), receiver.getCol()));
             return true;
         }
         return false;
     }
 
-
+    public void unlink(Block receiver) {
+        if (receiver.equals(myReceiveBlock)) {
+            for(Interaction i : getInteractions()) { // if a new destination is set, ensure old one is erased
+                if(i instanceof TeleportInteraction) {
+                    removeInteraction(i);
+                }
+            }
+            myReceiveBlock = null;
+        }
+    }
 }

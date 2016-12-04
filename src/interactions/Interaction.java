@@ -18,4 +18,6 @@ public abstract class Interaction {
     public void actOnTalk(String message){
         // do nothing
     }
+
+    public void act()
 }
