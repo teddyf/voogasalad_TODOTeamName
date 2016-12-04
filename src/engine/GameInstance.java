@@ -2,6 +2,7 @@ package engine;
 
 import api.IGameInstance;
 import block.Block;
+import block.BlockUpdate;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
@@ -9,6 +10,8 @@ import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
 /**
@@ -28,6 +31,7 @@ public class GameInstance extends Observable implements IGameInstance {
     private Player myPlayer;
 	private int myScore;
 	private GameStatus myStatus;
+	private List<BlockUpdate> blockUpdates;
 	
 	public GameInstance(Player player, GridWorld gridWorld) {
 	    myGridWorld = gridWorld;
@@ -36,6 +40,7 @@ public class GameInstance extends Observable implements IGameInstance {
         myPlayer = player;
 	    myScore = 0;
 		myStatus = new GameStatus();
+		blockUpdates = new ArrayList<>();
 	}
 
 	public GridWorld getGridWorld() {
@@ -61,6 +66,10 @@ public class GameInstance extends Observable implements IGameInstance {
 	public GameStatus getGameStatus() {
 		return myStatus;
 	}
+
+	public List<BlockUpdate> getBlockUpdates() {
+	    return blockUpdates;
+    }
 	
 	public void processInput(UserInstruction input) {
 		int row = myPlayer.getRow();
@@ -178,6 +187,7 @@ public class GameInstance extends Observable implements IGameInstance {
     public void handleInteraction() {
         Block newBlock = myGrid.getBlock(myPlayer.getRow(), myPlayer.getCol());
         if (newBlock.stepInteract(myPlayer) || newBlock.talkInteract(myPlayer)) {
+            blockUpdates = newBlock.getBlockUpdates();
             setChanged();
             notifyObservers(PlayerUpdate.INTERACTION);
         }
