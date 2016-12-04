@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import block.BlockUpdate;
 import grid.GridWorld;
 import player.Player;
 import xml.GridWorldAndPlayer;
@@ -52,6 +53,14 @@ public class EngineController extends Observable implements Observer {
      */
     public String getBlock(int row, int col) {
         return gameInstance.getRenderedGrid().get(row, col);
+    }
+
+    public void checkInteractions() { //called by frontend if there is a movement update
+        gameInstance.handleInteraction();
+    }
+
+    public List<BlockUpdate> getBlockUpdates() { //what the frontend calls when it receives interaction update
+        return gameInstance.getBlockUpdates();
     }
 
     public int getPlayerRow() {
