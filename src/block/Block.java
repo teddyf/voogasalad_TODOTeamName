@@ -2,6 +2,8 @@ package block;
 
 import api.IBlock;
 import interactions.Interaction;
+import interactions.StepInteraction;
+import interactions.TalkInteraction;
 import player.Player;
 
 import java.util.ArrayList;
@@ -21,7 +23,8 @@ public abstract class Block extends Observable implements IBlock {
     private int myRow;
     private int myCol;
     private boolean isWalkable;
-    private List<Interaction> myInteractions;
+    private List<StepInteraction> myStepInteractions;
+    private List<TalkInteraction> myTalkInteractions;
     private String myMessage;
 
     public Block(String name,  int row, int col) {
@@ -29,18 +32,22 @@ public abstract class Block extends Observable implements IBlock {
         myRow = row;
         myCol = col;
         isWalkable = false;
-        myInteractions = new ArrayList<>();
+        myStepInteractions = new ArrayList<>();
+        myTalkInteractions = new ArrayList<>();
     }
 
-    public void stepInteract(Player player) {
-        for (Interaction i : myInteractions) {
-            i.actOnStep(player);
+    public boolean stepInteract(Player player) {
+        for (Interaction interaction : myStepInteractions) {
+            interaction.act(player);
         }
+        return (myStepInteractions.size() > 0);
     }
-    public void talkInteract(String message){
-        for(Interaction i : myInteractions){
-            i.actOnTalk(message);
+
+    public boolean talkInteract(Player player){
+        for(Interaction interaction : myTalkInteractions) {
+            interaction.act(player);
         }
+        return (myTalkInteractions.size() > 0);
     }
 
     public void doMessage() {
@@ -49,6 +56,10 @@ public abstract class Block extends Observable implements IBlock {
     }
 
     public boolean link(Block block) {
+        return false;
+    }
+
+    public boolean unlink(Block block) {
         return false;
     }
 
@@ -71,20 +82,28 @@ public abstract class Block extends Observable implements IBlock {
     }
 
     //Interactions methods
-    public List<Interaction> getInteractions() {
-        return Collections.unmodifiableList(myInteractions);
+    public List<StepInteraction> getStepInteractions() {
+        return Collections.unmodifiableList(myStepInteractions);
     }
 
-    public boolean addInteraction(Interaction someInteraction) {
-        return myInteractions.add(someInteraction);
+    public boolean addStepInteraction(StepInteraction stepInteraction) {
+        return myStepInteractions.add(stepInteraction);
     }
 
-    protected void clearInteractions() {
-        myInteractions.clear();
+    protected boolean removeStepInteraction(StepInteraction stepInteraction) {
+        return myStepInteractions.remove(stepInteraction);
     }
 
-    protected boolean removeInteraction(Interaction someInteraction) {
-        return myInteractions.remove(someInteraction);
+    public List<TalkInteraction> getTalkInteractions() {
+        return Collections.unmodifiableList(myTalkInteractions);
+    }
+
+    public boolean addTalkInteraction(TalkInteraction talkInteraction) {
+        return myTalkInteractions.add(talkInteraction);
+    }
+
+    protected boolean removeTalkInteraction(TalkInteraction talkInteraction) {
+        return myTalkInteractions.remove(talkInteraction);
     }
 
     /*****SETTERS******/

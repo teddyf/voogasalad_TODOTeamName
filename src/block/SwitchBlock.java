@@ -1,8 +1,5 @@
 package block;
 
-import block.GateBlock;
-import block.BlockType;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,11 +26,21 @@ public abstract class SwitchBlock extends Block {
         notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, getRow(), getCol()));
     }
 
-    public void connectToGate(GateBlock gate) {
-        myGates.add(gate);
+    @Override
+    public boolean link(Block block) {
+        if(block instanceof GateBlock) {
+            myGates.add((GateBlock) block);
+            return true;
+        }
+        return false;
     }
 
-    public void disconnectFromGate(GateBlock gate) {
-        myGates.remove(gate);
+    @Override
+    public boolean unlink(Block block) {
+        if (block instanceof GateBlock) {
+            myGates.remove(block);
+            return true;
+        }
+        return false;
     }
 }
