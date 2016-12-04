@@ -9,6 +9,7 @@ import grid.GridWorld;
 import grid.RenderedGrid;
 import player.Player;
 import interactions.Interaction;
+import player.PlayerAttribute;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
@@ -74,6 +75,11 @@ public class EditorController {
     public void addPlayer(String name, int row, int col) {
         player = new Player(name, row, col);
         System.out.println("player added");
+    }
+
+    public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
+        PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
+        player.addAttribute(playerAttribute);
     }
 
     public void movePlayer(int row, int col) {
