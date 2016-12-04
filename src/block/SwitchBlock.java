@@ -29,11 +29,12 @@ public abstract class SwitchBlock extends Block {
         notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, getRow(), getCol()));
     }
 
-    public void connectToGate(GateBlock gate) {
-        myGates.add(gate);
-    }
-
-    public void disconnectFromGate(GateBlock gate) {
-        myGates.remove(gate);
+    @Override
+    public boolean link(Block block) {
+        if(block instanceof GateBlock) {
+            myGates.add((GateBlock) block);
+            return true;
+        }
+            return false;
     }
 }

@@ -1,21 +1,7 @@
 package interactions;
 
-import block.SwitchBlock;
-import player.Player;
-
 /**
- * The interaction that allows toggling of gates whenever the switch is used.
- *
+ * Add ability for a switch to interact with a gate to open it. This will for the gate to become walkable in the back
+ * end, as well as force the front end to redraw the gate so that the user may see the change.
  * @author Filip Mazurek
  */
-public class SwitchInteraction extends AbstractInteraction {
-    private SwitchBlock switchBlock;
-    public SwitchInteraction(SwitchBlock block){
-        switchBlock = block;
-    }
-    public void actOnStep() {
-        //add event handler to the group
-        switchBlock.toggleGates();
-        getCurrentAction().actOnStep();
-    }
-}
