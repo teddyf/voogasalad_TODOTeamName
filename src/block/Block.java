@@ -45,7 +45,7 @@ public abstract class Block extends Observable implements IBlock {
 
     public void doMessage() {
         setChanged();
-        notifyObservers(new BlockUpdateNotification(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol));
+        notifyObservers(new BlockUpdate(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol));
     }
 
     public boolean link(Block block) {
