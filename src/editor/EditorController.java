@@ -81,10 +81,6 @@ public class EditorController {
         player.setCol(col);
     }
 
-    public void addInteraction(int row, int col, Interaction interaction){
-        currentGrid.getBlock(row, col).addInteraction(interaction);
-    }
-
     /*****METHODS FOR FRONTEND TO CALL*****/
 
     /**
