@@ -55,8 +55,6 @@ public class CharacterEditor extends Scene{
         myBuilder.initWindow(myStage, PATH);
         addDefaultPlayers();
         
-        EditorController editorController = new EditorController();
-        
         Node backButton = buildButton("backX","backY","backWidth","backText");
         backButton.setOnMouseClicked(e->{
         });
@@ -113,7 +111,7 @@ public class CharacterEditor extends Scene{
           
         myStage.setOnCloseRequest(e->{
             e.consume();
-            myLauncher.goToPrevScene(myBuilder);
+            myLauncher.goToPrevEditor(myBuilder);
         });
         myStage.setScene(this);   
     }
