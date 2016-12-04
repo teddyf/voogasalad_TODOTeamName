@@ -66,9 +66,6 @@ public class UILauncher {
      */
     public void launchMenu() {
         myMainMenu = new MainMenu(myStage, new Group(), this);
-        prevScene = myMainMenu;
-        st.add(prevScene);
-        pathSt.add(myMainMenu.getPath());
         myStage.setScene(myMainMenu);
     }
 
