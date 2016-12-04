@@ -89,6 +89,10 @@ public class GameEngine extends Scene implements Observer {
     	myController.addObserver(anim);
     }
     
+    public String getPath(){
+        return ENGINE_RESOURCES;
+    }
+    
     private void setUpSidePanel() {
     	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources);
     	engineSidePanel.initPlayerChanger(player);
@@ -147,4 +151,6 @@ public class GameEngine extends Scene implements Observer {
 	public void update(Observable o, Object arg) {
 		myBuilder.addComponent(myRoot, player.getCharacterImageView());
 	}  
+	
+	
 }

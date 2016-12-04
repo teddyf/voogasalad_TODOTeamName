@@ -29,6 +29,7 @@ public class GameEditor extends Scene {
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
+    
 
     public GameEditor(Stage stage, Parent root, UILauncher launcher) {
         super(root, Color.web("#0585B2"));
@@ -71,9 +72,10 @@ public class GameEditor extends Scene {
         sizeChooser.promptUserForSize();
     }
     
+    
     private void initPlayerButton(){
         ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(1);
+        hoverOpacity.setBrightness(-.3);
         int playerX = Integer.parseInt(myResources.getString("playerX"));
         int playerY = Integer.parseInt(myResources.getString("playerY"));
         int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
@@ -88,5 +90,9 @@ public class GameEditor extends Scene {
         playerButton.setOnMouseExited(e->{
             playerButton.setEffect(null);
         });
+    }
+    
+    public String getPath(){
+        return EDITOR_RESOURCES;
     }
 }

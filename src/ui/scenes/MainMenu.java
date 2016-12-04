@@ -113,4 +113,8 @@ public class MainMenu extends Scene {
         setText();
         setButtons();
     }
+    
+    public String getPath(){
+        return MAINMENU_RESOURCES;
+    }
 }
