@@ -2,6 +2,8 @@ package block;
 
 import api.IBlock;
 import interactions.Interaction;
+import player.Player;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,7 +20,7 @@ public abstract class Block extends Observable implements IBlock {
     private String myName;
     private int myRow;
     private int myCol;
-    private boolean walkableStatus;
+    private boolean isWalkable;
     private List<Interaction> myInteractions;
     private String myMessage;
 
@@ -26,12 +28,13 @@ public abstract class Block extends Observable implements IBlock {
         myName = name;
         myRow = row;
         myCol = col;
+        isWalkable = false;
         myInteractions = new ArrayList<>();
     }
 
-    public void stepInteract() {
+    public void stepInteract(Player player) {
         for (Interaction i : myInteractions) {
-            i.actOnStep();
+            i.actOnStep(player);
         }
     }
     public void talkInteract(String message){
@@ -43,6 +46,10 @@ public abstract class Block extends Observable implements IBlock {
     public void doMessage() {
         setChanged();
         notifyObservers(new BlockUpdateNotification(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol));
+    }
+
+    public boolean link(Block block) {
+        return false;
     }
 
     /*****GETTERS*****/
@@ -60,7 +67,7 @@ public abstract class Block extends Observable implements IBlock {
     }
 
     public boolean isWalkable() {
-        return walkableStatus;
+        return isWalkable;
     }
 
     //Interactions methods
@@ -83,6 +90,6 @@ public abstract class Block extends Observable implements IBlock {
     /*****SETTERS******/
 
     protected void setWalkableStatus(boolean status) {
-        walkableStatus = status;
+        isWalkable = status;
     }
 }

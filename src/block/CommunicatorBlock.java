@@ -7,11 +7,10 @@ package block;
  *
  * @author Filip Mazurek, Daniel Chai, Aninda Manocha
  */
-public class CommunicatorBlock extends Block implements NotWalkable {
+public class CommunicatorBlock extends Block {
 
 	public CommunicatorBlock(String name, int row, int col) {
 		super(name, row, col);
-		setWalkableStatus(IS_WALKABLE); 		// tentative. What about letters on the floor, etc.
 	}
 
 }

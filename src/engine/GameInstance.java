@@ -123,21 +123,10 @@ public class GameInstance extends Observable implements IGameInstance {
             myPlayer.setCol(newBlock.getCol());
 
             // TODO: do the step on interaction
-            // newBlock.doStepOnInteraction(myPlayer);
+            newBlock.stepInteract(myPlayer);
             setChanged();
         }
         return playerUpdate;
-    }
-
-    /**
-     * Handles the case where the player changes direction
-     * @param direction - the new direction the player will face
-     * @return the player update type (DIRECTION)
-     */
-    private PlayerUpdate handleDirection(PlayerDirection direction) {
-        myPlayer.setDirection(direction);
-        setChanged();
-	    return PlayerUpdate.DIRECTION;
     }
 
 	/**
@@ -161,6 +150,17 @@ public class GameInstance extends Observable implements IGameInstance {
 	private boolean isWalkable(Block block) {
 		return block.isWalkable();
 	}
+
+    /**
+     * Handles the case where the player changes direction
+     * @param direction - the new direction the player will face
+     * @return the player update type (DIRECTION)
+     */
+    private PlayerUpdate handleDirection(PlayerDirection direction) {
+        myPlayer.setDirection(direction);
+        setChanged();
+        return PlayerUpdate.DIRECTION;
+    }
 
 	private Block blockInFacedDirection(int row, int col, PlayerDirection direction) {
 	    switch (direction) {

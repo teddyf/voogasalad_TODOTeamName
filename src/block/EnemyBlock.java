@@ -4,7 +4,7 @@ package block;
  * Created by Bill Xiong on 11/20/16.
  * class for putting enemies on the board
  */
-public class EnemyBlock extends CommunicatorBlock implements NotWalkable {
+public class EnemyBlock extends CommunicatorBlock {
     private double health;
     private final double MAX_HEALTH = 100;
 	public EnemyBlock(String name, int row, int col) {
