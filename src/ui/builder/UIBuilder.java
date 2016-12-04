@@ -221,6 +221,8 @@ public class UIBuilder {
      */
     public void initWindow(Stage currStage, String propertiesFilePath) {
         ResourceBundle resources = ResourceBundle.getBundle(propertiesFilePath);
+        System.out.println(Integer.parseInt(resources.getString("windowHeight")));
+        System.out.println(Integer.parseInt(resources.getString("windowWidth")));
         currStage.setHeight(Integer.parseInt(resources.getString("windowHeight")));
         currStage.setWidth(Integer.parseInt(resources.getString("windowWidth")));
         currStage.centerOnScreen();

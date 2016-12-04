@@ -78,7 +78,7 @@ public class AttributeEditor extends Scene{
           
         myStage.setOnCloseRequest(e->{
             e.consume();
-            myLauncher.goToPrevScene(myBuilder);
+            myLauncher.goToPrevCharEditor(myBuilder);
         });
         myStage.setScene(this);   
     }

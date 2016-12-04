@@ -24,17 +24,14 @@ public class UILauncher {
 
     private Stage myStage;
     private MainMenu myMainMenu;
-    private Scene prevScene;
     EditorController myController;
-    Stack<Scene> st;
-    Stack<String> pathSt;
+    private Scene prevEditor;
+    private Scene prevCharEditor;
 
     public UILauncher(Stage stage) {
         myStage = stage;
         myStage.setResizable(false);
         myController = new EditorController();
-        st = new Stack<Scene>();
-        pathSt = new Stack<String>();
     }
 
     /**
@@ -42,9 +39,6 @@ public class UILauncher {
      */
     public void launchEngine() {
         GameEngine engine = new GameEngine(myStage, new Group(), this);
-        prevScene = engine;
-        st.add(engine);
-        pathSt.add(engine.getPath());
         if (engine.init()) { // successfully opened a game file
             myStage.setScene(engine);
         }
@@ -55,10 +49,9 @@ public class UILauncher {
      */
     public void launchEditor() {
         GameEditor editor = new GameEditor(myStage, new Group(), this);
-        prevScene = editor;
-        pathSt.add(editor.getPath());
-        st.add(editor);
+        
         editor.initEditor();
+        prevEditor = editor;
     }
 
     /**
@@ -66,24 +59,18 @@ public class UILauncher {
      */
     public void launchMenu() {
         myMainMenu = new MainMenu(myStage, new Group(), this);
-        st.add(myMainMenu);
-        pathSt.add(myMainMenu.getPath());
         myStage.setScene(myMainMenu);
     }
 
     public void launchCharacterMenu(){
         CharacterEditor charEdit = new CharacterEditor(myStage, new Group(), this, myController);
-        prevScene = charEdit;
-        st.add(prevScene);
-        pathSt.add(charEdit.getPath());
         myStage.setScene(charEdit);
+        prevCharEditor = charEdit;
     }
     
     public void launchAttributePopup(){
         AttributeEditor attEdit = new AttributeEditor(myStage, new Group(),this, myController);
         //prevScene = attEdit;
-        st.add(attEdit);
-        pathSt.add(attEdit.getPath());
         myStage.setScene(attEdit);
     }
 
@@ -95,11 +82,15 @@ public class UILauncher {
         launchMenu();
     }
     
-    public void goToPrevScene(UIBuilder builder){
-        st.pop();
-        pathSt.pop();
-        myStage.setScene(st.peek());
-        String path = pathSt.peek();       
+    public void goToPrevEditor(UIBuilder builder){  
+        myStage.setScene(prevEditor);
+        String path = ((GameEditor) prevEditor).getPath();
+        builder.initWindow(myStage,path);
+    }
+    
+    public void goToPrevCharEditor(UIBuilder builder){
+        myStage.setScene(prevCharEditor);
+        String path = ((CharacterEditor) prevCharEditor).getPath();
         builder.initWindow(myStage,path);
     }
     
