@@ -6,5 +6,5 @@ package interactions;
  * @author Filip Mazurek
  */
 public class SwitchInteraction extends Interaction {
-    
+
 }

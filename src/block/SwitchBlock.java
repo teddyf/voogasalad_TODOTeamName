@@ -1,8 +1,5 @@
 package block;
 
-import block.GateBlock;
-import block.BlockType;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,4 +34,6 @@ public abstract class SwitchBlock extends Block {
         }
             return false;
     }
+
+
 }
