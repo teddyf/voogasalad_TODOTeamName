@@ -26,6 +26,7 @@ public class GridUI {
     private Parent myRoot;
     private EditorSidePanel myItemMenu;
     private EditorController myController;
+    private ColorAdjust hoverOpacity;
 
     GridUI(Parent root, EditorSidePanel itemMenu, EditorController controller, ResourceBundle resources) {
         myRoot = root;
@@ -33,6 +34,7 @@ public class GridUI {
         myResources = resources;
         myBuilder = new UIBuilder();
         myController = controller;
+        hoverOpacity = new ColorAdjust();
     }
 
     /**
@@ -42,7 +44,6 @@ public class GridUI {
     private void initGridControl() {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
         PropertiesUtilities util = new PropertiesUtilities();
-        ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(util.getDoubleProperty(myResources, "buttonHoverOpacity"));
         int updateX = util.getIntProperty(myResources, "updateX");
         int updateY = util.getIntProperty(myResources, "updateY");
@@ -82,6 +83,7 @@ public class GridUI {
             }
 
         });
+
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
@@ -90,6 +92,7 @@ public class GridUI {
                 myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
+        //Node linkButton = buildButton("linkX", "linkY", "linkWidth", "linkPath");
     }
 
     public void loadGrid() {
@@ -121,6 +124,30 @@ public class GridUI {
         border.setHeight(util.getIntProperty(myResources, "gridHeight") + util.getIntProperty(myResources, "borderSize") * 2);
         border.setId("grid-border");
         myBuilder.addComponent(myRoot, border);
+    }
+    
+    /**
+     * Builds a button from string input
+     * @param xPos X-position of button
+     * @param yPos Y-Position of button
+     * @param width width of button
+     * @param path Image path of button
+     * @return
+     */
+    private Node buildButton(String xPos, String yPos, String width, String path){
+        int x = Integer.parseInt(myResources.getString(xPos));
+        int y = Integer.parseInt(myResources.getString(yPos));
+        int girth = Integer.parseInt(myResources.getString(width));
+        String route = myResources.getString(path);
+        Node node = myBuilder.addCustomButton(myRoot, route, x, y, girth);
+        node.setOnMouseEntered(e->{
+            node.setEffect(hoverOpacity);
+        });
+        node.setOnMouseExited(e->{
+            node.setEffect(null);
+        });
+        return node;
+        
     }
 
     /**

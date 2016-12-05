@@ -32,7 +32,7 @@ public class GridPane {
     private ColorAdjust hoverOpacity;
     private ColorAdjust highlight;
 
-    private String DEFAULT = "resources/Default.png";
+    private String DEFAULT = "resources/images/tiles/decorations/grass-";
 
     public GridPane (int gridWidth,
                      int gridHeight,
@@ -55,6 +55,16 @@ public class GridPane {
         initializeGrid();
         setRenderMap();
     }
+    
+    private String defaultText(){
+        int suffix = randomNumber(1,4);
+        return DEFAULT+suffix+".png";
+    }
+    
+    private int randomNumber(int min, int max) {
+        Random rand = new Random();
+        return rand.nextInt((max - min) + 1) + min;
+    }
 
     private double getXRender (int a) {
         double cellWidth = renderWidth / gridWidth;
@@ -72,7 +82,7 @@ public class GridPane {
         grid = new GridPaneNode[(int)gridHeight][(int)gridWidth];
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
-                GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
+                GridPaneNode node = new GridPaneNode(i, j, defaultText());
                 blockList.add(node);
                 grid[j][i] = node;
             }
@@ -260,6 +270,10 @@ public class GridPane {
             }
             checkNeighbors(xPos, yPos, list.size());
         }
+    }
+    
+    private boolean buildLink(GridPaneNode node1, GridPaneNode node2, EditorController controller){
+        return controller.linkBlocks(node1.getRow(), node1.getCol(), node2.getRow(), node2.getCol());
     }
 
     /**
