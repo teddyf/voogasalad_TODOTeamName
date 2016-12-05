@@ -6,14 +6,13 @@ import javafx.scene.layout.Pane;
 import sun.security.tools.policytool.Resources;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.FlowPane;
-import ObjectMenuObjects.*;
+import ui.scenes.editor.objects.*;
 import ui.builder.*;
 
 /**
@@ -22,18 +21,18 @@ import ui.builder.*;
 
 public class EditorSidePanel {
 
-    private ResourceBundle myResources;
-    private static final String ITEMPANEL_RESOURCES_PATH = "resources/properties/item-panel";
-    private Pane myRegion;
+    private static final String ITEM_PANEL_RESOURCES_PATH = "resources/properties/item-panel";
 
+    private ResourceBundle myResources;
+    private Pane myRegion;
     private UIBuilder myBuilder;
-    private SidePanelMenuObjects handler;
+    private ItemPanelObjects myItemPanelObjects;
 
     public EditorSidePanel (Pane region) {
         myBuilder = new UIBuilder();
-        handler = new SidePanelMenuObjects();
+        myItemPanelObjects = new ItemPanelObjects();
         myRegion = region;
-        myResources = Resources.getBundle(ITEMPANEL_RESOURCES_PATH);
+        myResources = Resources.getBundle(ITEM_PANEL_RESOURCES_PATH);
         initSidePanel();
     }
 
@@ -57,12 +56,12 @@ public class EditorSidePanel {
         
         List<GameObjects> list;
         if (label.equals("decoration")) {
-            list = handler.getDecorations();
+            list = myItemPanelObjects.getDecorations();
         } else if (label.equals("npc")) {
-        	list = handler.getPlayers();
+        	list = myItemPanelObjects.getPlayers();
         }
         else {
-            list = handler.getObstacles();
+            list = myItemPanelObjects.getObstacles();
         }
         int buffer = 0;
         for (GameObjects obj : list) {
@@ -70,7 +69,7 @@ public class EditorSidePanel {
             node.setOnMouseEntered(e -> node.setEffect(hoverOpacity));
             node.setOnMouseExited(e -> node.setEffect(null));
             node.setOnMouseClicked(e -> {
-                handler.select(obj); obj.getImage().setEffect(hoverOpacity);});
+                myItemPanelObjects.select(obj); obj.getImage().setEffect(hoverOpacity);});
             buffer += 50;
         }
         ScrollPane scrollPane = new ScrollPane(content);
@@ -94,8 +93,8 @@ public class EditorSidePanel {
         myRegion.getChildren().add(tp);
     }
     
-    SidePanelMenuObjects getHandler(){
-        return handler;
+    ItemPanelObjects getMyItemPanelObjects(){
+        return myItemPanelObjects;
     }
 
 }

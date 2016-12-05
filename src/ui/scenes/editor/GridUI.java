@@ -37,7 +37,7 @@ public class GridUI {
 
     /**
      * Configures grid event handlers that allow the user to add and remove
-     * objects from it.
+     * ui.scenes.editor.objects from it.
      */
     private void initGridControl() {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
@@ -86,7 +86,7 @@ public class GridUI {
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
         //TODO add interaction somewhere here as well
-        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected(),
+        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getMyItemPanelObjects().getSelected(),
                 myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));

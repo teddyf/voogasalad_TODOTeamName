@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 /**
  * @author Robert Steilberg
  *         <p>
- *         This class initializes tab-based UI used to choose objects to place
+ *         This class initializes tab-based UI used to choose ui.scenes.editor.objects to place
  *         on the overworld grid editor.
  */
 public class ItemMenuUI {
@@ -27,7 +27,7 @@ public class ItemMenuUI {
     }
 
     /**
-     * Creates the tab-based menu that will hold the objects to be added to the
+     * Creates the tab-based menu that will hold the ui.scenes.editor.objects to be added to the
      * overworld grid.
      *
      * @return the item menu, already with proper placement

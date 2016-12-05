@@ -1,4 +1,4 @@
-package ObjectMenuObjects;
+package ui.scenes.editor.objects;
 
 import java.util.*;
 

@@ -1,15 +1,14 @@
-package ObjectMenuObjects;
-import grid.*;
+package ui.scenes.editor.objects;
 import java.util.*;
 
-public class SidePanelMenuObjects {
+public class ItemPanelObjects {
     private List<GameObjects> obstacles;
     private List<GameObjects> decorations;
     private List<GameObjects> players;
     private GameObjects selected;
     
     
-    public SidePanelMenuObjects(){
+    public ItemPanelObjects(){
         obstacles  = new ArrayList<GameObjects>();
         decorations = new ArrayList<GameObjects>();
         players = new ArrayList<GameObjects>();

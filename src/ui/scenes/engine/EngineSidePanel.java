@@ -39,7 +39,7 @@ public class EngineSidePanel {
     }
 
     /**
-     * Creates the tab-based menu that will hold the objects to be added to the
+     * Creates the tab-based menu that will hold the ui.scenes.editor.objects to be added to the
      * overworld grid.
      *
      * @return the item menu, already with proper placement
