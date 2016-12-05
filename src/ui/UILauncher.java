@@ -48,7 +48,7 @@ public class UILauncher {
      * Navigates to the game editor
      */
     public void launchEditor() {
-        GameEditor editor = new GameEditor(myStage, new Group(), this);
+        GameEditor editor = new GameEditor(myStage, new Group(), this, myController);
         
         editor.initEditor();
         prevEditor = editor;

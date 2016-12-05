@@ -29,10 +29,12 @@ public class GameEditor extends Scene {
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
+    private EditorController myController;
     
 
-    public GameEditor(Stage stage, Parent root, UILauncher launcher) {
+    public GameEditor(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
         super(root, Color.web("#0585B2"));
+        myController = controller;
         myStage = stage;
         myRoot = root;
         myLauncher = launcher;
@@ -44,12 +46,12 @@ public class GameEditor extends Scene {
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
-        EditorController editorController = new EditorController();
-        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), editorController, myResources);
+
+        GridUI grid = new GridUI(myRoot, itemMenu.initItemMenu(), myController, myResources);
         grid.initGrid(width, height);
 //        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources, editorController);
 //        playerMenu.initPlayerMenu();
-        EditorIO IO = new EditorIO(myStage, editorController, new EngineController(), myResources, grid);
+        EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
         EditorEvents events = new EditorEvents(myLauncher, IO, myResources);
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();

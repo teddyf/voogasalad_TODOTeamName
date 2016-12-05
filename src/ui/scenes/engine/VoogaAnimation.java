@@ -1,18 +1,14 @@
 
 package ui.scenes.engine;
 
-import java.security.UnresolvedPermission;
 import java.util.*;
 
 //import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import engine.EngineController;
-import engine.GameInstance;
 import player.PlayerUpdate;
 import engine.UserInstruction;
-import player.PlayerDirection;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
@@ -25,7 +21,7 @@ import ui.builder.UIBuilder;
  *
  */
 public class VoogaAnimation implements Observer {
-	private static final String IMAGE_RESOURCE = "resources/images/sprites/Character/Pokemon/";
+	private static final String IMAGE_RESOURCE = "resources/images/tiles/Character/Pokemon/";
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 	
 	private GridForEngine grid;
