@@ -92,7 +92,7 @@ public class GridUI {
                 myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
-        Node linkButton = buildButton("linkX", "linkY", "linkWidth", "linkPath");
+        //Node linkButton = buildButton("linkX", "linkY", "linkWidth", "linkPath");
     }
 
     public void loadGrid() {
