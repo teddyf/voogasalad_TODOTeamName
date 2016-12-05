@@ -1,7 +1,10 @@
 package ui;
 
 import java.util.*;
+
+import block.BlockType;
 import ObjectMenuObjects.GameObjects;
+import ObjectMenuObjects.Player1;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import editor.EditorController;
@@ -90,13 +93,13 @@ public class GridPane {
                 node.getImage().setEffect(hoverOpacity);
                 click(node);
             });
-            System.out.println("col: " + node.getCol());
-            System.out.println("row: " + node.getRow());
-            System.out.println("length: " + grid.length);
+            //System.out.println("col: " + node.getCol());
+            //System.out.println("row: " + node.getRow());
+            //System.out.println("length: " + grid.length);
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
-        System.out.println("grid status");
+        //System.out.println("grid status");
         /*
         for(int i = 0; i < grid.length; i++){
             for(int j = 0; j < grid[i].length; j++){
@@ -159,6 +162,7 @@ public class GridPane {
                 System.out.println(temp);
                 temp.swap(list.get(j), list.get(j).getImageNum());
                 control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
+                setPlayer(temp,obj,control);
             }
             clicked.get(i).getImage().setEffect(null);
             copy = clicked;
@@ -166,6 +170,13 @@ public class GridPane {
         
         clicked = new ArrayList<GridPaneNode>();
         return copy;     
+    }
+    
+    private void setPlayer(GridPaneNode temp,GameObjects gameObject, EditorController control) {
+    	if (gameObject instanceof Player1) {
+        	control.addPlayer(temp.getName(),temp.getRow(), temp.getCol());
+        	control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getRow(), temp.getCol());   
+    	}
     }
     
     /**

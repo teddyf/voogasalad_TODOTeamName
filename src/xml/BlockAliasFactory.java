@@ -28,7 +28,6 @@ public class BlockAliasFactory {
 			String key = keys.nextElement();
 			
 			try {
-				System.out.println("xstream " + blockTypes.getString(key));
 				Class<?> blockClass = Class.forName(blockTypes.getString(key));
 				xstream.alias(BLOCK_ALIAS, blockClass);
 			} catch (ClassNotFoundException e) {

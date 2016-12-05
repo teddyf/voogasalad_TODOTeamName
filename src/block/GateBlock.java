@@ -1,7 +1,5 @@
 package block;
 
-import block.BlockType;
-
 /**
  * A special type of block which may be connected to a switch. On player interaction with a switch, the gate will change
  * states between open and closed.
@@ -22,7 +20,7 @@ public class GateBlock extends Block {
 
     /* Changes whether the gate is open or closed. Difference in how it looks and whether the player can walk through it
      */
-    public void toggleOpenStatus() {
+    public BlockUpdate toggleOpenStatus() {
         if(this.isWalkable()) {
             setWalkableStatus(CLOSED);
             isOpen = CLOSED;
@@ -32,7 +30,6 @@ public class GateBlock extends Block {
             isOpen = OPEN;
         }
         // notify front end to render the gate differently
-        setChanged();
-        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, getRow(), getCol()));
+        return new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol());
     }
 }

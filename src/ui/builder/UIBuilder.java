@@ -19,18 +19,18 @@ import java.util.ResourceBundle;
  */
 public class UIBuilder {
 
+    private ComponentBuilder alertBuilder;
     private ComponentBuilder buttonBuilder;
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
-    private ComponentBuilder alertBuilder;
 
     public UIBuilder() {
+        alertBuilder = new AlertBuilder();
         buttonBuilder = new ButtonBuilder();
         imageViewBuilder = new ImageViewBuilder();
         labelBuilder = new LabelBuilder();
         textFieldBuilder = new TextFieldBuilder();
-        alertBuilder = new AlertBuilder();
     }
 
     /**
@@ -221,6 +221,8 @@ public class UIBuilder {
      */
     public void initWindow(Stage currStage, String propertiesFilePath) {
         ResourceBundle resources = ResourceBundle.getBundle(propertiesFilePath);
+        System.out.println(Integer.parseInt(resources.getString("windowHeight")));
+        System.out.println(Integer.parseInt(resources.getString("windowWidth")));
         currStage.setHeight(Integer.parseInt(resources.getString("windowHeight")));
         currStage.setWidth(Integer.parseInt(resources.getString("windowWidth")));
         currStage.centerOnScreen();

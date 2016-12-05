@@ -3,8 +3,10 @@ package ui.scenes.editor;
 import editor.EditorController;
 import engine.EngineController;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
@@ -27,6 +29,7 @@ public class GameEditor extends Scene {
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
+    
 
     public GameEditor(Stage stage, Parent root, UILauncher launcher) {
         super(root, Color.web("#0585B2"));
@@ -50,7 +53,8 @@ public class GameEditor extends Scene {
         EditorEvents events = new EditorEvents(myLauncher, IO, myResources);
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
-//        EngineController loadedEngine = editorController.runEngine(); // running test
+        initPlayerButton();
+        //        EngineController loadedEngine = editorController.runEngine(); // running test
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
@@ -66,5 +70,29 @@ public class GameEditor extends Scene {
     public void initEditor() {
         SizeChooserUI sizeChooser = new SizeChooserUI(myStage, new Group(), this, myLauncher, myBuilder);
         sizeChooser.promptUserForSize();
+    }
+    
+    
+    private void initPlayerButton(){
+        ColorAdjust hoverOpacity = new ColorAdjust();
+        hoverOpacity.setBrightness(-.3);
+        int playerX = Integer.parseInt(myResources.getString("playerX"));
+        int playerY = Integer.parseInt(myResources.getString("playerY"));
+        int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
+        String playerText = myResources.getString("playerLabel");
+        Node playerButton = myBuilder.addCustomButton(myRoot, playerText, playerX, playerY, playerWidth);
+        playerButton.setOnMouseClicked(e->{
+            myLauncher.launchCharacterMenu();
+        });
+        playerButton.setOnMouseEntered(e->{
+            playerButton.setEffect(hoverOpacity);
+        });
+        playerButton.setOnMouseExited(e->{
+            playerButton.setEffect(null);
+        });
+    }
+    
+    public String getPath(){
+        return EDITOR_RESOURCES;
     }
 }

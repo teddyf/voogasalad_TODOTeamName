@@ -14,5 +14,9 @@ public enum BlockType {
     OBSTACLE,
     PORTAL,
     SWITCH_FLOOR,
-    SWITCH_TOUCH
+    SWITCH_TOUCH,
+    TELEPORT_RECEIVE,
+    TELEPORT_SEND,
+
+    ITEM_KEY
 }

@@ -1,16 +1,16 @@
 package block;
 
-import block.GateBlock;
-import block.BlockType;
-
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  * A top-level switch class which may interact with board objects which respond to a switch.
  *
- * @author Filip Mazurek
+ * @author Filip Mazurek, Aninda Manocha
  */
+
 public abstract class SwitchBlock extends Block {
     private Set<GateBlock> myGates;
 
@@ -19,21 +19,30 @@ public abstract class SwitchBlock extends Block {
         myGates = new HashSet<>();
     }
 
-    public void toggleGates() {
+    public List<BlockUpdate> toggleGates() {
+        List<BlockUpdate> blockUpdates = new ArrayList<>();
         for(GateBlock oneGate : myGates) {
-            oneGate.toggleOpenStatus();
+            blockUpdates.add(oneGate.toggleOpenStatus());
+
         }
-
-        // notify front end to change look of switch
-        setChanged();
-        notifyObservers(new BlockUpdateNotification(BlockUpdateType.RE_RENDER, getRow(), getCol()));
+        return blockUpdates;
     }
 
-    public void connectToGate(GateBlock gate) {
-        myGates.add(gate);
+    @Override
+    public boolean link(Block block) {
+        if(block instanceof GateBlock) {
+            myGates.add((GateBlock) block);
+            return true;
+        }
+        return false;
     }
 
-    public void disconnectFromGate(GateBlock gate) {
-        myGates.remove(gate);
+    @Override
+    public boolean unlink(Block block) {
+        if (block instanceof GateBlock) {
+            myGates.remove(block);
+            return true;
+        }
+        return false;
     }
 }

@@ -7,11 +7,7 @@ package player;
 
 public enum PlayerDirection {
     NORTH,
-    NORTHEAST,
     EAST,
-    SOUTHEAST,
     SOUTH,
-    SOUTHWEST,
-    WEST,
-    NORTHWEST;
+    WEST;
 }
