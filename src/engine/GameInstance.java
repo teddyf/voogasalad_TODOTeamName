@@ -113,8 +113,6 @@ public class GameInstance extends Observable implements IGameInstance {
 			default:
 				break;
 		}
-		System.out.println("r u gonna update");
-		System.out.println(playerUpdate == null);
         notifyObservers(playerUpdate);
 	}
 
@@ -190,6 +188,7 @@ public class GameInstance extends Observable implements IGameInstance {
             blockUpdates = newBlock.getBlockUpdates();
             setChanged();
             notifyObservers(PlayerUpdate.INTERACTION);
+            // frontend needs to call getRow(), getCol(), getBlockUpdates()
         }
     }
 }

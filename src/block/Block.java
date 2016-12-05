@@ -25,8 +25,8 @@ public abstract class Block extends Observable implements IBlock {
     private boolean isWalkable;
     private List<StepInteraction> myStepInteractions;
     private List<TalkInteraction> myTalkInteractions;
-    private String myMessage;
     private List<BlockUpdate> blockUpdates;
+    private String myMessage;
 
     public Block(String name,  int row, int col) {
         myName = name;
@@ -110,6 +110,10 @@ public abstract class Block extends Observable implements IBlock {
 
     public List<BlockUpdate> getBlockUpdates() {
         return blockUpdates;
+    }
+
+    public String getMessage() {
+        return myMessage;
     }
 
     /*****SETTERS******/
