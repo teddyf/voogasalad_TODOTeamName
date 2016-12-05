@@ -20,6 +20,9 @@ public class SidePanelMenuObjects {
     
     private void populateObstacles(){
         obstacles.add(new Tree1());
+        obstacles.add(new Rock1());
+        obstacles.add(new Water1());
+        obstacles.add(new Sign1());
     }
     
     private void populatePlayers() {
@@ -27,12 +30,16 @@ public class SidePanelMenuObjects {
     }
     
     private void populateDecorations(){
+        decorations.add(new Grass1());
+        decorations.add(new Bridge1());
+        decorations.add(new Dirt1());
         decorations.add(new Flower1());
         decorations.add(new Flower2());
-        decorations.add(new Grass1());
+        decorations.add(new Flower3());
+        decorations.add(new Sand1());
+        decorations.add(new Snow1());
         decorations.add(new Weed1());
-        decorations.add(new Dirt1());
-        
+        decorations.add(new Weed2());
     }
 
     public List<GameObjects> getObstacles(){

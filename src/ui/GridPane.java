@@ -87,12 +87,7 @@ public class GridPane {
             double y = getYRender(node.getRow());
             node.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
             node.setImageCoord(x, y);
-            node.getImage().setOnMouseExited(e -> {if(!clicked.contains(node))node.getImage().setEffect(null);});
-            node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});           
-            node.getImage().setOnMouseClicked(e -> {
-                node.getImage().setEffect(hoverOpacity);
-                click(node);
-            });
+            makeClickable(node);
             //System.out.println("col: " + node.getCol());
             //System.out.println("row: " + node.getRow());
             //System.out.println("length: " + grid.length);
@@ -108,12 +103,84 @@ public class GridPane {
         }
         */
     }
+    
+    public void resize(){
+        grid = new GridPaneNode[(int)gridHeight][(int)gridWidth];
+        System.out.println(blockList.size());
+        for(int i = 0; i < blockList.size(); i++){
+            GridPaneNode temp = blockList.get(i);
+            temp.setImageSize(renderWidth/gridWidth, renderHeight/gridHeight);
+            //System.out.println(getXRender(temp.getCol()) + "," + temp.getRow());
+            temp.setImageCoord(getXRender(temp.getCol()), getYRender(temp.getRow()));
+            blockList.set(i, temp);
+            grid[temp.getRow()][temp.getCol()] = temp;
+        }
+        group = new Group();
+        for(int i = 0; i < blockList.size(); i++){
+            group.getChildren().add(blockList.get(i).getImage());
+        }
+    }
 
-    public void resizeReset (double x, double y) {
-        this.gridWidth = x;
-        this.gridHeight = y;
-        reset();
+    private void resizeResetLess(double x, double y){
+        int count = 0;
+        System.out.println(blockList);
+        for(int i = 0; i < blockList.size(); i++){
+            GridPaneNode temp = blockList.get(i);
+            //System.out.println(temp);
+            if(temp.getCol() >= x || temp.getRow() >= y){
+                //System.out.println("removed");
+                System.out.println(temp.getCol() + "," + temp.getRow());
+                blockList.remove(i);
+                i--;
+            }
+            count++;
+        }
+        //System.out.println(count);
+        //System.out.println("ney");
+        //System.out.println(blockList.size());
+        gridWidth = x;
+        gridHeight = y;
+        System.out.println(blockList);
+        resize();
+    }
+    
+    private void resizeResetMore (double x, double y) {
+        int count = 0;
+        System.out.println(x-gridWidth);
+        System.out.println(x-gridHeight);
+        for(int i = (int) gridWidth; i < x; i++){
+            for(int j = 0; j < y; j++){
+                count++;
+                GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
+                makeClickable(node);
+                blockList.add(node);
+                
+            }
+        }
+        
+        for(int i = 0; i < x; i++){
+            for(int j = (int)gridHeight; j < y; j++){
+                count++;
+                GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
+                makeClickable(node);
+                blockList.add(node);
+                //System.out.println(count);
+            }
+        }
+        
+        gridWidth = x;
+        gridHeight = y;
 
+        resize();
+    }
+    
+    public void resizeReset(double x, double y){
+        if(gridHeight-y<0 || gridWidth-x<0){
+            resizeResetMore(x,y);
+        }
+        else if(gridHeight-y>0||gridWidth-x>0){
+            resizeResetLess(x,y);
+        }
     }
 
     public void resetKeepSize () {
@@ -259,6 +326,15 @@ public class GridPane {
                 System.out.println(grid[i][j]);
             }
         }
+    }
+    
+    public void makeClickable(GridPaneNode node){
+        node.getImage().setOnMouseExited(e -> {if(!clicked.contains(node))node.getImage().setEffect(null);});
+        node.getImage().setOnMouseEntered(e -> {node.getImage().setEffect(hoverOpacity);});           
+        node.getImage().setOnMouseClicked(e -> {
+            node.getImage().setEffect(hoverOpacity);
+            click(node);
+        });
     }
 
 }
