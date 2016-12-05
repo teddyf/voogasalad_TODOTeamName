@@ -2,25 +2,16 @@ package ui.scenes.engine;
 
 import engine.EngineController;
 import ui.FileBrowser;
-import ui.GridPane;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
-import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
-
-import engine.UserInstruction;
 
 /**
  * @author Robert Steilberg
@@ -107,7 +98,7 @@ public class GameEngine extends Scene implements Observer {
     	player = new Character(this);
     	System.out.println(player.getRowCharacter());
     	System.out.println(player.getColumnCharacter());
-    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+    	player.setCharacterImage("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
         player.setCharacterImageSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
@@ -115,7 +106,7 @@ public class GameEngine extends Scene implements Observer {
 
         player.setPosX(gridWidth/2 - player.getSize()/2);
         player.setPosY(gridHeight/2 - player.getSize()/2);
-    	player.setName("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+    	player.setName("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
 
         //setup grid
