@@ -161,7 +161,7 @@ public class GridPane {
         for(int i = (int) gridWidth; i < x; i++){
             for(int j = 0; j < y; j++){
                 count++;
-                GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
+                GridPaneNode node = new GridPaneNode(i, j, defaultText());
                 makeClickable(node);
                 blockList.add(node);
                 
@@ -171,7 +171,7 @@ public class GridPane {
         for(int i = 0; i < x; i++){
             for(int j = (int)gridHeight; j < y; j++){
                 count++;
-                GridPaneNode node = new GridPaneNode(i, j, DEFAULT);
+                GridPaneNode node = new GridPaneNode(i, j, defaultText());
                 makeClickable(node);
                 blockList.add(node);
                 //System.out.println(count);
