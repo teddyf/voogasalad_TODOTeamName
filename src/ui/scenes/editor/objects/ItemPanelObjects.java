@@ -1,68 +1,65 @@
 package ui.scenes.editor.objects;
+
 import java.util.*;
 
 public class ItemPanelObjects {
-    private List<GameObjects> obstacles;
-    private List<GameObjects> decorations;
-    private List<GameObjects> players;
+    private List<GameObjects> groundObjs;
+    private List<GameObjects> decorObjs;
+    private List<GameObjects> obstacleObjs;
+
     private GameObjects selected;
-    
-    
-    public ItemPanelObjects(){
-        obstacles  = new ArrayList<GameObjects>();
-        decorations = new ArrayList<GameObjects>();
-        players = new ArrayList<GameObjects>();
-        populateObstacles();
-        populatePlayers();
-        populateDecorations();
-    }
-    
-    private void populateObstacles(){
-        obstacles.add(new Tree1());
-        obstacles.add(new Rock1());
-        obstacles.add(new Water1());
-        obstacles.add(new Sign1());
-    }
-    
-    private void populatePlayers() {
-    	players.add(new Player1());
-    }
-    
-    private void populateDecorations(){
-        decorations.add(new Grass1());
-        decorations.add(new Bridge1());
-        decorations.add(new Dirt1());
-        decorations.add(new Flower1());
-        decorations.add(new Flower2());
-        decorations.add(new Flower3());
-        decorations.add(new Sand1());
-        decorations.add(new Snow1());
-        decorations.add(new Weed1());
-        decorations.add(new Weed2());
+
+
+    public ItemPanelObjects() {
+        groundObjs = new ArrayList<GameObjects>();
+        decorObjs = new ArrayList<GameObjects>();
+        obstacleObjs = new ArrayList<GameObjects>();
+        populateGroundObjs();
+        populateDecorObjs();
+        populateObstacleObjs();
     }
 
-    public List<GameObjects> getObstacles(){
-        return obstacles;
+    private void populateGroundObjs() {
+        groundObjs.add(new Grass1());
+        groundObjs.add(new Dirt1());
+        groundObjs.add(new Sand1());
+        groundObjs.add(new Snow1());
+        groundObjs.add(new Water1());
     }
-    
-    public List<GameObjects> getDecorations(){
-        return decorations;
+
+    private void populateDecorObjs() {
+        decorObjs.add(new Weed1());
+        decorObjs.add(new Weed2());
+        decorObjs.add(new Flower1());
+        decorObjs.add(new Flower2());
+        decorObjs.add(new Flower3());
+        decorObjs.add(new Bridge1());
     }
-    
-    public List<GameObjects> getPlayers() {
-    	return players;
+
+    private void populateObstacleObjs() {
+        obstacleObjs.add(new Tree1());
+        obstacleObjs.add(new Rock1());
+        obstacleObjs.add(new Sign1());
     }
-    
-    public List<GameObjects> getDecorationsHBoxList(){
-        return decorations;
+
+    public List<GameObjects> getGroundObjs() {
+        return groundObjs;
     }
-    
-    public void select(GameObjects obj){
+
+    public List<GameObjects> getObstacleObjs() {
+        return obstacleObjs;
+    }
+
+    public List<GameObjects> getDecorObjs() {
+        return decorObjs;
+    }
+
+    public void select(GameObjects obj) {
         selected = obj;
     }
-    
-    public GameObjects getSelected(){
+
+    public GameObjects getSelected() {
         return selected;
     }
-    
+
 }

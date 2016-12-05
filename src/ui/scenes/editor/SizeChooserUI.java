@@ -132,7 +132,7 @@ public class SizeChooserUI extends Scene {
     /**
      * Creates a window that prompts the user to choose an initial overworld size
      */
-    public void promptUserForSize() {
+    void promptUserForSize() {
         myBuilder.initWindow(myStage, SIZE_CHOOSER_RESOURCES);
         setButtons();
         setText();

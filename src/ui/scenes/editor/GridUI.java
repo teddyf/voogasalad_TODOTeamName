@@ -24,11 +24,11 @@ public class GridUI {
     private GridPane myGridPane;
     private UIBuilder myBuilder;
     private Parent myRoot;
-    private EditorSidePanel myItemMenu;
+    private ItemPanel myItemMenu;
     private EditorController myController;
     private ColorAdjust hoverOpacity;
 
-    GridUI(Parent root, EditorSidePanel itemMenu, EditorController controller, ResourceBundle resources) {
+    GridUI(Parent root, ItemPanel itemMenu, EditorController controller, ResourceBundle resources) {
         myRoot = root;
         myItemMenu = itemMenu;
         myResources = resources;
