@@ -1,14 +1,14 @@
-package ObjectMenuObjects;
+package ui.scenes.editor.objects;
 
 import ui.GridPaneNode;
 import block.BlockType;
 import javafx.scene.image.Image;
 
-public class Flower2 extends GameObjects {
+public class Dirt1 extends GameObjects {
 
-    private final String PATH = "resources/images/tiles/decorations/flower-2";
+    private final String PATH = "resources/images/tiles/decorations/dirt-1";
 
-    public Flower2() {
+    public Dirt1() {
         super();
         Image image = new Image(PATH + ".png");
         imageView.setImage(image);

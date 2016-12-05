@@ -1,4 +1,4 @@
-package ObjectMenuObjects;
+package ui.scenes.editor.objects;
 
 import block.BlockType;
 import javafx.scene.image.Image;

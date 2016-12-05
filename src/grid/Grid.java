@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
- * The rectangular grid in which all the block objects may be placed.
+ * The rectangular grid in which all the block ui.scenes.editor.objects may be placed.
  * @author Filip Mazurek, Aninda Manocha, Daniel Chai
  */
 
