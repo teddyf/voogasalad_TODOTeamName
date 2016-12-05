@@ -93,13 +93,13 @@ public class GridPane {
                 node.getImage().setEffect(hoverOpacity);
                 click(node);
             });
-            System.out.println("col: " + node.getCol());
-            System.out.println("row: " + node.getRow());
-            System.out.println("length: " + grid.length);
+            //System.out.println("col: " + node.getCol());
+            //System.out.println("row: " + node.getRow());
+            //System.out.println("length: " + grid.length);
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
-        System.out.println("grid status");
+        //System.out.println("grid status");
         /*
         for(int i = 0; i < grid.length; i++){
             for(int j = 0; j < grid[i].length; j++){

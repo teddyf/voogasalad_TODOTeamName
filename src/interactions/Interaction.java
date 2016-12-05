@@ -1,6 +1,9 @@
 package interactions;
 
+import block.BlockUpdate;
 import player.Player;
+
+import java.util.List;
 
 /**
  * All interactions are to be used as classes that are going to be composed with board objects.
@@ -11,5 +14,5 @@ import player.Player;
  */
 
 public interface Interaction {
-    void act(Player player);
+    List<BlockUpdate> act(Player player);
 }

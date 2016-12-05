@@ -1,13 +1,17 @@
 package interactions;
 
+import block.BlockUpdate;
 import block.SwitchBlock;
 import player.Player;
+
+import java.util.List;
 
 /**
  * Add ability for a switch to interact with a gate to open it. This will for the gate to become walkable in the back
  * end, as well as force the front end to redraw the gate so that the user may see the change.
- * @author Filip Mazurek
+ * @author Filip Mazurek, Aninda Manocha
  */
+
 public abstract class SwitchInteraction implements Interaction{
     SwitchBlock mySwitchBlock;
 
@@ -15,7 +19,7 @@ public abstract class SwitchInteraction implements Interaction{
         mySwitchBlock = switchBlock;
     }
 
-    public void act(Player player) {
-        mySwitchBlock.toggleGates();
+    public List<BlockUpdate> act(Player player) {
+        return mySwitchBlock.toggleGates();
     }
 }

@@ -26,6 +26,7 @@ public abstract class Block extends Observable implements IBlock {
     private List<StepInteraction> myStepInteractions;
     private List<TalkInteraction> myTalkInteractions;
     private String myMessage;
+    private List<BlockUpdate> blockUpdates;
 
     public Block(String name,  int row, int col) {
         myName = name;
@@ -34,18 +35,19 @@ public abstract class Block extends Observable implements IBlock {
         isWalkable = false;
         myStepInteractions = new ArrayList<>();
         myTalkInteractions = new ArrayList<>();
+        blockUpdates = new ArrayList<>();
     }
 
     public boolean stepInteract(Player player) {
         for (Interaction interaction : myStepInteractions) {
-            interaction.act(player);
+            blockUpdates.addAll(interaction.act(player));
         }
         return (myStepInteractions.size() > 0);
     }
 
     public boolean talkInteract(Player player){
         for(Interaction interaction : myTalkInteractions) {
-            interaction.act(player);
+            blockUpdates.addAll(interaction.act(player));
         }
         return (myTalkInteractions.size() > 0);
     }
@@ -104,6 +106,10 @@ public abstract class Block extends Observable implements IBlock {
 
     protected boolean removeTalkInteraction(TalkInteraction talkInteraction) {
         return myTalkInteractions.remove(talkInteraction);
+    }
+
+    public List<BlockUpdate> getBlockUpdates() {
+        return blockUpdates;
     }
 
     /*****SETTERS******/
