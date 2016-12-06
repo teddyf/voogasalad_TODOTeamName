@@ -7,6 +7,7 @@ public class ItemPanelObjects {
     private List<GameObject> decorObjs;
     private List<GameObject> obstacleObjs;
     private List<GameObject> switchObjs;
+    private List<GameObject> teleObjs;
 
     private GameObject selected = null;
 
@@ -16,6 +17,7 @@ public class ItemPanelObjects {
         decorObjs = new ArrayList<GameObject>();
         obstacleObjs = new ArrayList<GameObject>();
         switchObjs = new ArrayList<GameObject>();
+        teleObjs = new ArrayList<GameObject>();
         populateGroundObjs();
         populateDecorObjs();
         populateObstacleObjs();
@@ -54,7 +56,7 @@ public class ItemPanelObjects {
         teleObjs.add(new Tele1());
     }
     
-    public List<GameObjects> getTeleObjs(){
+    public List<GameObject> getTeleObjs(){
         return teleObjs;
     }
 
