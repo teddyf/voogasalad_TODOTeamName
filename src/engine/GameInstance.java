@@ -191,4 +191,10 @@ public class GameInstance extends Observable implements IGameInstance {
             // frontend needs to call getRow(), getCol(), getBlockUpdates()
         }
     }
+
+    public void changeGrid(int index) {
+        myGridWorld.setCurrentIndex(index);
+        myGrid = myGridWorld.getCurrentGrid();
+        myRenderedGrid = new RenderedGrid(myGrid);
+    }
 }

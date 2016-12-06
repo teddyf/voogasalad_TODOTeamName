@@ -37,14 +37,14 @@ public class EditorController {
         gridWorld = new GridWorld();
     }
 
-    public void addGrid(int row, int col) {
-        Grid newGrid = new Grid(row, col);
+    // TODO: Frontend needs to change grids afterward
+    public void addGrid(int numRows, int numCols) {
+        Grid newGrid = new Grid(gridWorld.getNumGrids(), numRows, numCols);
         gridWorld.addGrid(newGrid);
-        gridWorld.updateGrid();
-        changeGrid();
     }
 
-    public void changeGrid() {
+    public void changeGrid(int index) {
+        gridWorld.setCurrentIndex(index);
         currentGrid = gridWorld.getCurrentGrid();
         renderedGrid = new RenderedGrid(currentGrid);
         myNumRows =  currentGrid.getNumRows();
@@ -74,20 +74,24 @@ public class EditorController {
         return false;
     }
 
-    public boolean linkBlocks(int row1, int col1, int row2, int col2) {
-        Block block1 = currentGrid.getBlock(row1, col1);
-        Block block2 = currentGrid.getBlock(row2, col2);
-        return (block1.link(block2) || block2.link(block2));
+    public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
+        Grid grid1 = gridWorld.getGrid(index1);
+        Grid grid2 = gridWorld.getGrid(index2);
+        Block block1 = grid1.getBlock(row1, col1);
+        Block block2 = grid2.getBlock(row2, col2);
+        return (block1.link(block2, index2) || block2.link(block1, index1));
     }
 
-    public boolean unlinkBlocks(int row1, int col1, int row2, int col2) {
-        Block block1 = currentGrid.getBlock(row1, col1);
-        Block block2 = currentGrid.getBlock(row2, col2);
+    public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
+        Grid grid1 = gridWorld.getGrid(index1);
+        Grid grid2 = gridWorld.getGrid(index2);
+        Block block1 = grid1.getBlock(row1, col1);
+        Block block2 = grid2.getBlock(row2, col2);
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
     public void addPlayer(String name, int row, int col) {
-        player = new Player(name, row, col);
+        player = new Player(name, row, col, currentGrid.getIndex());
 
         System.out.println(name + " " + row + " " + col);
         System.out.println("player added");
@@ -125,7 +129,7 @@ public class EditorController {
                 colOffset = amount;
                 break;
         }
-        Grid newGrid = new Grid(newNumRows, newNumCols);
+        Grid newGrid = new Grid(gridWorld.getCurrentIndex(), newNumRows, newNumCols);
         renderedGrid = new RenderedGrid(newGrid);
         for (int r = rowOffset; r < newNumRows; r++) {
             for (int c = colOffset; c < newNumCols; c++) {
@@ -159,7 +163,7 @@ public class EditorController {
                 colOffset = amount;
                 break;
         }
-        Grid newGrid = new Grid(newNumRows, newNumCols);
+        Grid newGrid = new Grid(gridWorld.getCurrentIndex(), newNumRows, newNumCols);
         renderedGrid = new RenderedGrid(newGrid);
         for (int r = 0; r < myNumRows; r++) {
             for (int c = 0; c < myNumColumns; c++) {
@@ -217,7 +221,7 @@ public class EditorController {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         player = gridWorldAndPlayer.getPlayer();
         gridWorld = gridWorldAndPlayer.getGridWorld();
-        changeGrid();
+        changeGrid(gridWorld.getCurrentIndex());
     }
 
     /**

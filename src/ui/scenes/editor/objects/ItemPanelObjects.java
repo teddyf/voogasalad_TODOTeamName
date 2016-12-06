@@ -6,6 +6,7 @@ public class ItemPanelObjects {
     private List<GameObjects> groundObjs;
     private List<GameObjects> decorObjs;
     private List<GameObjects> obstacleObjs;
+    private List<GameObjects> switchObjs;
 
     private GameObjects selected;
 
@@ -14,9 +15,11 @@ public class ItemPanelObjects {
         groundObjs = new ArrayList<GameObjects>();
         decorObjs = new ArrayList<GameObjects>();
         obstacleObjs = new ArrayList<GameObjects>();
+        switchObjs = new ArrayList<GameObjects>();
         populateGroundObjs();
         populateDecorObjs();
         populateObstacleObjs();
+        populateSwitchObjs();
     }
 
     private void populateGroundObjs() {
@@ -41,6 +44,10 @@ public class ItemPanelObjects {
         obstacleObjs.add(new Rock1());
         obstacleObjs.add(new Sign1());
     }
+    
+    private void populateSwitchObjs(){
+        switchObjs.add(new Switch1());
+    }
 
     public List<GameObjects> getGroundObjs() {
         return groundObjs;
@@ -52,6 +59,10 @@ public class ItemPanelObjects {
 
     public List<GameObjects> getDecorObjs() {
         return decorObjs;
+    }
+    
+    public List<GameObjects> getSwitchObjs() {
+        return switchObjs;
     }
 
     public void select(GameObjects obj) {

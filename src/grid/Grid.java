@@ -18,14 +18,15 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 public class Grid extends Observable implements IGrid {
 	@XStreamOmitField
 	private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
-	
+	private int myIndex;
     private int myNumRows;
     private int myNumColumns;
     
     @XStreamImplicit
     private Block[][] myGrid;
 
-    public Grid(int numRows, int numColumns) {
+    public Grid(int index, int numRows, int numColumns) {
+        myIndex = index;
         myNumRows = numRows;
         myNumColumns = numColumns;
         myGrid = new Block[numRows][numColumns];
@@ -46,6 +47,10 @@ public class Grid extends Observable implements IGrid {
 
     public int getNumCols() {
         return myNumColumns;
+    }
+
+    public int getIndex() {
+        return myIndex;
     }
 
     public Grid getGrid() {
