@@ -7,6 +7,7 @@ public class ItemPanelObjects {
     private List<GameObjects> decorObjs;
     private List<GameObjects> obstacleObjs;
     private List<GameObjects> switchObjs;
+    private List<GameObjects> teleObjs;
 
     private GameObjects selected;
 
@@ -16,10 +17,12 @@ public class ItemPanelObjects {
         decorObjs = new ArrayList<GameObjects>();
         obstacleObjs = new ArrayList<GameObjects>();
         switchObjs = new ArrayList<GameObjects>();
+        teleObjs = new ArrayList<GameObjects>();
         populateGroundObjs();
         populateDecorObjs();
         populateObstacleObjs();
         populateSwitchObjs();
+        populateTeleObjs();
     }
 
     private void populateGroundObjs() {
@@ -47,6 +50,14 @@ public class ItemPanelObjects {
     
     private void populateSwitchObjs(){
         switchObjs.add(new Switch1());
+    }
+    
+    private void populateTeleObjs(){
+        teleObjs.add(new Tele1());
+    }
+    
+    public List<GameObjects> getTeleObjs(){
+        return teleObjs;
     }
 
     public List<GameObjects> getGroundObjs() {

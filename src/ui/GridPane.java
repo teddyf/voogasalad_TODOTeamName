@@ -31,6 +31,7 @@ public class GridPane {
     private int renderTopLeftY;
     private ColorAdjust hoverOpacity;
     private ColorAdjust highlight;
+    private GridObjectMap gridMap;
 
     private String DEFAULT = "resources/images/tiles/decorations/grass-";
 
@@ -79,6 +80,7 @@ public class GridPane {
     }
 
     private void initializeGrid () {
+        gridMap = new GridObjectMap((int)gridWidth, (int)gridHeight);
         grid = new GridPaneNode[(int)gridHeight][(int)gridWidth];
         for (int i = 0; i < gridWidth; i++) {
             for (int j = 0; j < gridHeight; j++) {
@@ -236,7 +238,6 @@ public class GridPane {
                 int xPos = clicked.get(i).getCol() + list.get(j).getCol();
                 int yPos = clicked.get(i).getRow() + list.get(j).getRow();
                 GridPaneNode temp = grid[xPos][yPos];
-                System.out.println(temp);
                 temp.swap(list.get(j), list.get(j).getImageNum());
                 control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
                 setPlayer(temp,obj,control);
@@ -247,6 +248,32 @@ public class GridPane {
         
         clicked = new ArrayList<GridPaneNode>();
         return copy;     
+    }
+    
+    public List<GridPaneNode> swapBeta (GameObjects obj, EditorController control) {
+        List<GridPaneNode> list = obj.getList();
+        List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
+        getObjectNeighbors(list);
+        for (int i = 0; i < clicked.size(); i++) {
+            
+            for (int j = 0; j < list.size(); j++) {
+                int xPos = clicked.get(i).getCol() + list.get(j).getCol();
+                int yPos = clicked.get(i).getRow() + list.get(j).getRow();
+                GridPaneNode temp = grid[xPos][yPos];
+                temp.swap(list.get(j), list.get(j).getImageNum());
+                control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
+                setPlayer(temp,obj,control);
+            }
+            clicked.get(i).getImage().setEffect(null);
+            copy = clicked;
+        }
+        
+        clicked = new ArrayList<GridPaneNode>();
+        return copy;     
+    }
+    
+    public void addObjToMap(List<GridPaneNode> list){
+        
     }
     
     private void setPlayer(GridPaneNode temp,GameObjects gameObject, EditorController control) {

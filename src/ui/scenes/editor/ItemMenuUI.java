@@ -70,6 +70,9 @@ public class ItemMenuUI {
             case "Switches":
                 list = myItemPanelObjects.getSwitchObjs();
                 break;
+            case "Teleporter":
+                list = myItemPanelObjects.getTeleObjs();
+                break;
             default:
                 list = null;
                 break;
@@ -106,7 +109,9 @@ public class ItemMenuUI {
         Tab obstacleTab = createTab("Obstacles", obstaclePane);
         ScrollPane switchPane = createScrollPane("Switches");
         Tab switchTab = createTab("Switches", switchPane);
-        itemPanel.getTabs().addAll(groundTab, decorTab, obstacleTab, switchTab);
+        ScrollPane telePane = createScrollPane("Teleporter");
+        Tab teleTab = createTab("Teleporter", telePane);
+        itemPanel.getTabs().addAll(groundTab, decorTab, obstacleTab, switchTab, teleTab);
         myBuilder.addComponent(myRoot,itemPanel);
         return myItemPanelObjects;
     }

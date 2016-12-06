@@ -33,32 +33,64 @@ public class GridObjectMap {
         }
     }
     
-    public void storeObject(List<Point> a){
-        for(int i = 0; i < a.size(); i++){
-            for( int j = 0; j < a.size(); i++){
+    public void storeObject(List<GridPaneNode> a){
+        ArrayList<Point> temp = new ArrayList<Point>();
+        for(int i = 0; i < a.size();i++){
+            temp.add(nodeToPoint(a.get(i)));
+        }
+        for(int i = 0; i < temp.size(); i++){
+            for( int j = 0; j < temp.size(); i++){
                 if(i!=j){
-                    if(data.containsKey(a.get(i))){
-                        data.get(a.get(i)).add(a.get(j));
+                    if(data.containsKey(temp.get(i))){
+                        data.get(temp.get(i)).add(temp.get(j));
                     }
                 }
             }
         }
     }
     
-    public void collisionRemoval(Point a){
+    public void collisionRemoval(int row, int col){
+        Point a = new Point(row,col);
         ArrayList<Point>temp = data.get(a);
         for(int i = 0; i < temp.size(); i++){
             data.put(temp.get(i),new ArrayList<Point>());
         }
     }
     
-    public boolean checkCollision(List<Point> a){
-        for(int i = 0; i < a.size(); i++){
-            if(!data.get(a.get(i)).isEmpty()){
+    public boolean checkCollision(List<GridPaneNode> a){
+        ArrayList<Point> temp = new ArrayList<Point>();
+        for(int i = 0; i < a.size();i++){
+            temp.add(nodeToPoint(a.get(i)));
+        }
+        for(int i = 0; i < temp.size(); i++){
+            if(!data.get(temp.get(i)).isEmpty()){
                 return true;
             }
         }
         return false;
+    }
+    
+    public void resizeAdd(int row, int col){
+        Point a = new Point(row,col);
+        if(!data.containsKey(a)){
+            data.put(a, new ArrayList<Point>());
+        }
+    }
+    
+    public void resizeRemove(int row, int col){
+        Point a = new Point(row,col);
+        if(data.containsKey(a)){
+            if(data.get(a).isEmpty()){
+                data.remove(a);
+            }
+            else{
+                collisionRemoval((int)a.getY(), (int)a.getX());
+            }
+        }
+    }
+    
+    private Point nodeToPoint(GridPaneNode node){
+        return new Point(node.getCol(), node.getRow());
     }
     
 }
