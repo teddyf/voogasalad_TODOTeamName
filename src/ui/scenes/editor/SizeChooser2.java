@@ -6,6 +6,8 @@ import resources.properties.PropertiesUtilities;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
 import ui.builder.ComponentProperties;
@@ -17,7 +19,7 @@ import ui.builder.UIBuilder;
 public class SizeChooser2 extends Scene {
 	
 	public static final String SIZE_CHOOSER_RESOURCES = "resources/properties/size-chooser-2";
-	private static final String CSS_FILE_NAME = "resources/styles/size-chooser-3.css"; 
+	private static final String CSS_FILE_NAME = "resources/styles/size-chooser-2.css"; 
 	
 	private String [] labelsProperties = {"XPos", "YPos", "Size", "Text", "Id"};
 	private String [] labels = {"header", "prompt", "title", "description", "dimensions"};
@@ -33,6 +35,9 @@ public class SizeChooser2 extends Scene {
 	private UIBuilder myBuilder;
 	private ResourceBundle myResources;
 	private PropertiesUtilities myUtil;
+	
+	private TextField rows;
+	private TextField columns;
 	
 	public SizeChooser2(GameEditor editor, Parent root) {
 		super(root, Color.web("#282828"));
@@ -77,12 +82,18 @@ public class SizeChooser2 extends Scene {
 			int height = myUtil.getIntProperty(myResources, input + inputsProperties[3]);
 	        String text = myUtil.getStringProperty(myResources, input + inputsProperties[4]);
 	        String id = myUtil.getStringProperty(myResources, input + inputsProperties[5]);
-	        myBuilder.addNewTextField(myRoot, new ComponentProperties(xPos, yPos)
+	        TextField field = (TextField) (myBuilder.addNewTextField(myRoot, new ComponentProperties(xPos, yPos)
 	                .text(text)
 	                .width(width)
 	                .height(height)
 	                .color(Color.WHITE)
-	                .id(id));
+	                .id(id)));
+	        
+	        if (input.equals("rows")) {
+	        	rows = field;
+	        } else if (input.equals("columns")) {
+	        	columns = field;
+	        }
 		}
 	}
 	
@@ -93,12 +104,41 @@ public class SizeChooser2 extends Scene {
 			int width = myUtil.getIntProperty(myResources, button + buttonsProperties[2]);
 	        String text = myUtil.getStringProperty(myResources, button + buttonsProperties[3]);
 	        String id = myUtil.getStringProperty(myResources, button + buttonsProperties[4]);
-	        myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos)
+	        Button myButton = (Button) (myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos)
 	                .text(text)
 	                .width(width)
 	                .color(Color.WHITE)
-	                .id(id));
+	                .id(id)));
+	        if (button.equals("create")) {
+	        	System.out.println("cancer");
+	        	myButton.setOnMouseClicked(e -> launchEditor(rows.getText(), columns.getText(), 500));
+	        }
 		}
+	}
+	
+	private void launchEditor(String row, String column, int maxDim) {
+		System.out.println("wtf1");
+		if (validateDimensions(row, column, maxDim)) {
+			System.out.println("wtf");
+			myEditor.launchEditor(Integer.parseInt(row), Integer.parseInt(column));
+		}
+	}
+	
+	private boolean validateDimensions(String row, String column, int maxDim) {
+		try {
+            int widthVal = Integer.parseInt(row);
+            int heightVal = Integer.parseInt(column);
+            boolean widthEmpty = row.trim().isEmpty();
+            boolean heightEmpty = column.trim().isEmpty();
+            return !(widthEmpty ||
+                    heightEmpty ||
+                    widthVal > maxDim ||
+                    widthVal <= 0 ||
+                    heightVal > maxDim ||
+                    heightVal <= 0);
+        } catch (NumberFormatException e) {
+            return true;
+        }
 	}
 
 }
