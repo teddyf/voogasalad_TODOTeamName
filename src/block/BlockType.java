@@ -13,11 +13,9 @@ public enum BlockType {
     GATE,
     OBSTACLE,
     PLAYER_SPAWN,
-    PORTAL,
     SWITCH_FLOOR,
     SWITCH_TOUCH,
-    TELEPORT_RECEIVE,
-    TELEPORT_SEND,
+    TELEPORT,
 
     ITEM_KEY
 }

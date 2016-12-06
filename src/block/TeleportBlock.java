@@ -9,20 +9,20 @@ import interactions.TeleportInteraction;
  * @author Aninda Manocha, Filip Mazurek
  */
 
-public abstract class TeleportSendBlock extends Block {
-    private TeleportReceiveBlock myReceiveBlock;
+public abstract class TeleportBlock extends Block {
+    private TeleportBlock myReceiveBlock;
 
-    public TeleportSendBlock(String name, int row, int col) {
+    public TeleportBlock(String name, int row, int col) {
         super(name, row, col);
         setWalkableStatus(true);
     }
 
     @Override
-    public boolean link(Block receiver) {
-        if(receiver instanceof TeleportReceiveBlock) {
+    public boolean link(Block receiver, int gridIndex) {
+        if(receiver instanceof TeleportBlock) {
             unlink(receiver);
-            myReceiveBlock = (TeleportReceiveBlock) receiver;
-            addStepInteraction(new TeleportInteraction(receiver.getRow(), receiver.getCol()));
+            myReceiveBlock = (TeleportBlock) receiver;
+            addStepInteraction(new TeleportInteraction(receiver.getRow(), receiver.getCol(), gridIndex));
             return true;
         }
         return false;

@@ -57,7 +57,7 @@ public abstract class Block extends Observable implements IBlock {
         notifyObservers(new BlockUpdate(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol));
     }
 
-    public boolean link(Block block) {
+    public boolean link(Block block, int gridIndex) {
         return false;
     }
 
