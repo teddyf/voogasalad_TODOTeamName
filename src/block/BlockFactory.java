@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.util.ResourceBundle;
 
 /**
- * This class generates block objects
+ * This class generates block ui.scenes.editor.objects
  * @author Aninda Manocha, Filip Mazurek
  */
 

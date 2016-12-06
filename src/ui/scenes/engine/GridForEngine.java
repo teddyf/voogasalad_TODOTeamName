@@ -1,11 +1,10 @@
 package ui.scenes.engine;
 
 import java.util.*;
-import ObjectMenuObjects.GameObjects;
+import ui.scenes.editor.objects.GameObjects;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import ui.GridPaneNode;
-import block.*;
 import editor.EditorController;
 
 /**

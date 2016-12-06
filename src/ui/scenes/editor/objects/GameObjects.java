@@ -1,4 +1,4 @@
-package ObjectMenuObjects;
+package ui.scenes.editor.objects;
 
 import java.util.*;
 
@@ -6,7 +6,9 @@ import javafx.scene.image.ImageView;
 import ui.GridPaneNode;
 import block.*;
 
-
+/**
+ * @author Nisa, Pim, Teddy
+ */
 public abstract class GameObjects {
 
     protected String path;

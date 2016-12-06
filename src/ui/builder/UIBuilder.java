@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 /**
  * @author Harshil Garg, Robert Steilberg
  *         <p>
- *         This class is used to build JavaFX objects and add them to the stage.
+ *         This class is used to build JavaFX ui.scenes.editor.objects and add them to the stage.
  *         <p>
  *         Dependencies: ComponentBuilder, ButtonBuilder, ImageViewBuilder, LabelBuilder
  */

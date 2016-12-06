@@ -3,8 +3,8 @@ package ui;
 import java.util.*;
 
 import block.BlockType;
-import ObjectMenuObjects.GameObjects;
-import ObjectMenuObjects.Player1;
+import ui.scenes.editor.objects.GameObjects;
+import ui.scenes.editor.objects.Player1;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import editor.EditorController;

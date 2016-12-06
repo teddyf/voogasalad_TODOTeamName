@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * A top-level switch class which may interact with board objects which respond to a switch.
+ * A top-level switch class which may interact with board ui.scenes.editor.objects which respond to a switch.
  *
  * @author Filip Mazurek, Aninda Manocha
  */
