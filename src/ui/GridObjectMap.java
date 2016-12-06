@@ -33,7 +33,7 @@ public class GridObjectMap {
         }
     }
     
-    public void storeObject(List<GridPaneNode> a){
+    public boolean storeObject(List<GridPaneNode> a){
         ArrayList<Point> temp = new ArrayList<Point>();
         for(int i = 0; i < a.size();i++){
             temp.add(nodeToPoint(a.get(i)));
@@ -47,6 +47,7 @@ public class GridObjectMap {
                 }
             }
         }
+        return true;
     }
     
     public void collisionRemoval(int row, int col){
@@ -57,13 +58,10 @@ public class GridObjectMap {
         }
     }
     
-    public boolean checkCollision(List<GridPaneNode> a){
-        ArrayList<Point> temp = new ArrayList<Point>();
-        for(int i = 0; i < a.size();i++){
-            temp.add(nodeToPoint(a.get(i)));
-        }
-        for(int i = 0; i < temp.size(); i++){
-            if(!data.get(temp.get(i)).isEmpty()){
+    public boolean available(int x, int y){
+        Point temp = new Point(x,y);
+        if(data.containsKey(temp)){
+            if(data.get(temp).isEmpty()){
                 return true;
             }
         }

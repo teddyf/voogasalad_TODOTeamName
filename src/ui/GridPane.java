@@ -260,6 +260,7 @@ public class GridPane {
                 int xPos = clicked.get(i).getCol() + list.get(j).getCol();
                 int yPos = clicked.get(i).getRow() + list.get(j).getRow();
                 GridPaneNode temp = grid[xPos][yPos];
+                //TODO add dimension checker
                 temp.swap(list.get(j), list.get(j).getImageNum());
                 control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(), temp.getCol());
                 setPlayer(temp,obj,control);
@@ -272,8 +273,23 @@ public class GridPane {
         return copy;     
     }
     
-    public void addObjToMap(List<GridPaneNode> list){
+    private boolean addObjToMap(List<GridPaneNode> list, GridPaneNode objRoot){
+        int xPos = objRoot.getCol();
+        int yPos = objRoot.getRow();
+        List<GridPaneNode> temp = new ArrayList<GridPaneNode>();
+        for(int i = 0; i < list.size(); i++){
+            int xRef = xPos+list.get(i).getCol();
+            int yRef = yPos+list.get(i).getRow();
+            if(!gridMap.available(xRef,yRef)){
+                return false;
+            }
+            temp.add(grid[xRef][yRef]);
+        }
+        gridMap.storeObject(temp);
+        return true;
         
+        
+        //TODO add dimension checker
     }
     
     private void setPlayer(GridPaneNode temp,GameObjects gameObject, EditorController control) {
