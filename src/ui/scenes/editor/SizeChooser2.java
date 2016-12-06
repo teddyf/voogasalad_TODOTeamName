@@ -2,13 +2,12 @@ package ui.scenes.editor;
 
 import java.util.ResourceBundle;
 
-import javafx.scene.Group;
+import resources.properties.PropertiesUtilities;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import resources.properties.PropertiesUtilities;
+
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
@@ -21,7 +20,13 @@ public class SizeChooser2 extends Scene {
 	private static final String CSS_FILE_NAME = "resources/styles/size-chooser-3.css"; 
 	
 	private String [] labelsProperties = {"XPos", "YPos", "Size", "Text", "Id"};
-	private String [] labels = {"header", "prompt"};
+	private String [] labels = {"header", "prompt", "title", "description", "dimensions"};
+	
+	private String [] inputsProperties = {"XPos", "YPos", "Width", "Height", "Text", "Id"};
+	private String [] inputs = {"title-field", "description-field", "rows", "columns"};
+	
+	private String [] buttonsProperties = {"XPos", "YPos", "Width", "Text", "Id"};
+	private String [] buttons = {"create"};
 	
 	private GameEditor myEditor;
 	private Parent myRoot;
@@ -44,8 +49,8 @@ public class SizeChooser2 extends Scene {
 	}
 
 	private void initialize() {
-		setButtons();
-		
+		setButton();
+		setInputs();
 		setLabels();
 	}
 	
@@ -63,12 +68,37 @@ public class SizeChooser2 extends Scene {
 	                .id(id));
 		}
 	}
-
 	
-	private void setButtons() {
-		
+	private void setInputs() {
+		for (String input : inputs) {
+			int xPos = myUtil.getIntProperty(myResources, input + inputsProperties[0]);
+			int yPos = myUtil.getIntProperty(myResources, input + inputsProperties[1]);
+			int width = myUtil.getIntProperty(myResources, input + inputsProperties[2]);
+			int height = myUtil.getIntProperty(myResources, input + inputsProperties[3]);
+	        String text = myUtil.getStringProperty(myResources, input + inputsProperties[4]);
+	        String id = myUtil.getStringProperty(myResources, input + inputsProperties[5]);
+	        myBuilder.addNewTextField(myRoot, new ComponentProperties(xPos, yPos)
+	                .text(text)
+	                .width(width)
+	                .height(height)
+	                .color(Color.WHITE)
+	                .id(id));
+		}
 	}
 	
-	
+	private void setButton() {
+		for (String button : buttons) {
+			int xPos = myUtil.getIntProperty(myResources, button + buttonsProperties[0]);
+			int yPos = myUtil.getIntProperty(myResources, button + buttonsProperties[1]);
+			int width = myUtil.getIntProperty(myResources, button + buttonsProperties[2]);
+	        String text = myUtil.getStringProperty(myResources, button + buttonsProperties[3]);
+	        String id = myUtil.getStringProperty(myResources, button + buttonsProperties[4]);
+	        myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos)
+	                .text(text)
+	                .width(width)
+	                .color(Color.WHITE)
+	                .id(id));
+		}
+	}
 
 }
