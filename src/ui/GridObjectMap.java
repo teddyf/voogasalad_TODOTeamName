@@ -23,7 +23,7 @@ public class GridObjectMap {
         }
     }
     
-    public ArrayList<Point> sharesObjectWith(int x,int y){
+    private ArrayList<Point> sharesObjectWith(int x,int y){
         try{
             ArrayList<Point> neighbors = data.get(new Point(x,y));
             return neighbors;
@@ -31,6 +31,20 @@ public class GridObjectMap {
         catch(Exception e){
             return new ArrayList<Point>();
         }
+    }
+    
+    public ArrayList<ArrayList<Integer>> sharesObjWith(int x, int y){
+        ArrayList<Point> neighbors = sharesObjectWith(x,y);
+        ArrayList<Integer> xs = new ArrayList<Integer>();
+        ArrayList<Integer> ys = new ArrayList<Integer>();
+        for(int i = 0; i < neighbors.size(); i++){
+            xs.add((int)neighbors.get(i).getX());
+            ys.add((int)neighbors.get(i).getY());
+        }
+        ArrayList<ArrayList<Integer>> sol = new ArrayList<ArrayList<Integer>>();
+        sol.add(xs);
+        sol.add(ys);
+        return sol;
     }
     
     public boolean storeObject(List<GridPaneNode> a){
@@ -82,11 +96,7 @@ public class GridObjectMap {
                 data.remove(a);
             }
             else{
-                Point del = new Point(row,col);
-                ArrayList<Point>temp = data.get(del);
-                for(int i = 0; i < temp.size(); i++){
-                    data.remove(temp.get(i));
-                }
+                collisionRemoval(row,col);
             }
         }
     }

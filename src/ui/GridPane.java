@@ -32,6 +32,7 @@ public class GridPane {
     private ColorAdjust hoverOpacity;
     private ColorAdjust highlight;
     private GridObjectMap gridMap;
+    private GridPaneNode def;
 
     private String DEFAULT = "resources/images/tiles/decorations/grass-";
 
@@ -53,6 +54,7 @@ public class GridPane {
         this.renderHeight = renderHeight;
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
+        def = new GridPaneNode(0,0,defaultText());
         initializeGrid();
         setRenderMap();
     }
@@ -125,7 +127,7 @@ public class GridPane {
             // System.out.println(getXRender(temp.getCol()) + "," + temp.getRow());
             temp.setImageCoord(getXRender(temp.getCol()), getYRender(temp.getRow()));
             blockList.set(i, temp);
-            grid[temp.getRow()][temp.getCol()] = temp;
+            grid[temp.getCol()][temp.getRow()] = temp;
         }
         group = new Group();
         for (int i = 0; i < blockList.size(); i++) {
@@ -134,8 +136,6 @@ public class GridPane {
     }
 
     private void resizeResetLess (double x, double y) {
-        int count = 0;
-        System.out.println(blockList);
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode temp = blockList.get(i);
             // System.out.println(temp);
@@ -146,14 +146,12 @@ public class GridPane {
                 gridMap.resizeRemove(temp.getRow(), temp.getCol());
                 i--;
             }
-            count++;
         }
-        // System.out.println(count);
-        // System.out.println("ney");
-        // System.out.println(blockList.size());
+        for(int i = 0; i < blockList.size();i++){
+            setEmptyToDefault(blockList.get(i));
+        }
         gridWidth = x;
         gridHeight = y;
-        System.out.println(blockList);
         resize();
     }
 
@@ -193,6 +191,12 @@ public class GridPane {
         }
         else if (gridHeight - y > 0 || gridWidth - x > 0) {
             resizeResetLess(x, y);
+        }
+    }
+    
+    private void setEmptyToDefault(GridPaneNode node){
+        if(gridMap.available(node.getCol(),node.getRow())){
+            node.swap(def, node.getImageNum());
         }
     }
 
@@ -316,6 +320,19 @@ public class GridPane {
                 yPos.add(clicked.get(i).getRow() + list.get(j).getRow());
             }
             checkNeighbors(xPos, yPos, list.size());
+        }
+    }
+    
+    public void delete(List<GridPaneNode> list){
+        ArrayList<ArrayList<Integer>> deleted = new ArrayList<ArrayList<Integer>>();
+        for(int i = 0; i < list.size(); i++){
+            GridPaneNode temp = list.get(i);
+            deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
+            gridMap.collisionRemoval(temp.getRow(), temp.getCol());
+        }
+        for(int i = 0; i < deleted.get(0).size(); i++){
+            GridPaneNode node = grid[deleted.get(0).get(i)][ deleted.get(1).get(i)];
+            node.swap(def,node.getImageNum());
         }
     }
 
