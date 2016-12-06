@@ -29,7 +29,7 @@ public abstract class SwitchBlock extends Block {
     }
 
     @Override
-    public boolean link(Block block) {
+    public boolean link(Block block, int gridIndex) {
         if(block instanceof GateBlock) {
             myGates.add((GateBlock) block);
             return true;

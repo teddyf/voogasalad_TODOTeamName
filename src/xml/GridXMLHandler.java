@@ -72,14 +72,14 @@ public class GridXMLHandler {
 		GridXMLHandler test = new GridXMLHandler();
 		
 		GridWorld gridWorld = new GridWorld();
-		Grid grid = new Grid(2, 2);
+		Grid grid = new Grid(0,2, 2); // grid of index 0
 		for (int row = 0; row < grid.getNumRows(); row++) {
 			for (int col = 0; col < grid.getNumCols(); col++) {
 				grid.setBlock(row, col, new CommunicatorBlock("Test Block", row, col));
 			}
 		}
 		gridWorld.addGrid(grid);
-		Player player = new Player("Test Player", 0, 0);
+		Player player = new Player("Test Player", 0, 0, 0);
 		
 		test.saveContents("data/gamefiles/test.xml", gridWorld, player);
 		GridWorldAndPlayer contents = test.loadContents("data/gamefiles/test.xml");

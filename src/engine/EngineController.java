@@ -51,6 +51,10 @@ public class EngineController extends Observable implements Observer {
         gameInstance.handleInteraction();
     }
 
+    public void changeGrid(int index) {
+        gameInstance.changeGrid(index);
+    }
+
     /**
      * Gets the block located in a specific row and column in the grid. The frontend calls this method in order to
      * render a grid block by block.
@@ -76,6 +80,10 @@ public class EngineController extends Observable implements Observer {
 
     public int getPlayerColumn() {
         return gameInstance.getPlayer().getCol();
+    }
+
+    public int getPlayerGridIndex() {
+        return gameInstance.getPlayer().getGridIndex();
     }
 
     public GameInstance getGameInstance() {
