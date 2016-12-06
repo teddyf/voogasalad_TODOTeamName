@@ -39,12 +39,12 @@ public class GridObjectMap {
             temp.add(nodeToPoint(a.get(i)));
         }
         for(int i = 0; i < temp.size(); i++){
-            for( int j = 0; j < temp.size(); i++){
-                if(i!=j){
+            for( int j = 0; j < temp.size(); j++){
+                //if(i!=j){
                     if(data.containsKey(temp.get(i))){
                         data.get(temp.get(i)).add(temp.get(j));
                     }
-                }
+               // }
             }
         }
         return true;
@@ -82,13 +82,21 @@ public class GridObjectMap {
                 data.remove(a);
             }
             else{
-                collisionRemoval((int)a.getY(), (int)a.getX());
+                Point del = new Point(row,col);
+                ArrayList<Point>temp = data.get(del);
+                for(int i = 0; i < temp.size(); i++){
+                    data.remove(temp.get(i));
+                }
             }
         }
     }
     
     private Point nodeToPoint(GridPaneNode node){
         return new Point(node.getCol(), node.getRow());
+    }
+    
+    public String toString(){
+        return data.toString();
     }
     
 }
