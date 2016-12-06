@@ -69,8 +69,12 @@ public class GameEditor extends Scene {
      * overworld size
      */
     public void initEditor() {
-        SizeChooserUI sizeChooser = new SizeChooserUI(myStage, new Group(), this, myLauncher, myBuilder);
-        sizeChooser.promptUserForSize();
+        //SizeChooserUI sizeChooser = new SizeChooserUI(myStage, new Group(), this, myLauncher, myBuilder);
+        //sizeChooser.promptUserForSize();
+        
+       SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
+       myBuilder.initWindow(myStage, SizeChooser2.SIZE_CHOOSER_RESOURCES);
+       myStage.setScene(sizeChooser);
     }
     
     

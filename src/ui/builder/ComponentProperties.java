@@ -21,6 +21,7 @@ public class ComponentProperties {
     protected int size;
     protected String header;
     protected String content;
+    protected Color color;
 
     public ComponentProperties() {
     }
@@ -78,5 +79,10 @@ public class ComponentProperties {
     public ComponentProperties content(String content) {
         this.content = content;
         return this;
+    }
+    
+    public ComponentProperties color(Color color) {
+    	this.color = color;
+    	return this;
     }
 }

@@ -2,7 +2,7 @@ package ui;
 
 import java.util.*;
 import block.BlockType;
-import ui.scenes.editor.objects.GameObjects;
+import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.Player1;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;

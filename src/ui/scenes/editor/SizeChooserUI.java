@@ -29,7 +29,7 @@ public class SizeChooserUI extends Scene {
     private PropertiesUtilities myUtil;
     private GameEditor myEditor;
 
-    SizeChooserUI(Stage stage, Parent root, GameEditor editor, UILauncher launcher, UIBuilder builder) {
+    public SizeChooserUI(Stage stage, Parent root, GameEditor editor, UILauncher launcher, UIBuilder builder) {
         super(root, Color.web("#0585B2"));
         myStage = stage;
         myRoot = root;
@@ -38,11 +38,6 @@ public class SizeChooserUI extends Scene {
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER_RESOURCES);
         myUtil = new PropertiesUtilities();
         root.getStylesheets().add(CSS_FILE_NAME);
-        myStage.setOnCloseRequest(e -> {
-            // closing the window takes you back to main menu
-            e.consume();
-            launcher.launchMenu();
-        });
     }
 
     /**
