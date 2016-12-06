@@ -98,8 +98,8 @@ public class GridUI {
         linkButton.setOnMouseClicked(e->{
             List<GridPaneNode> selected = myGridPane.getClicked();
             if(selected.size()==2){
-                System.out.println("herro");
                 myGridPane.buildLink(selected.get(0),selected.get(1),myController);
+                
             }
         });
     }

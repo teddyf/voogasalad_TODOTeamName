@@ -275,6 +275,7 @@ public class GridPane {
     public boolean buildLink(GridPaneNode node1, GridPaneNode node2, EditorController controller){
         return controller.linkBlocks(node1.getRow(), node1.getCol(), node2.getRow(), node2.getCol());
     }
+    
 
     /**
      * Removes neighbors in clicked if object would contain both

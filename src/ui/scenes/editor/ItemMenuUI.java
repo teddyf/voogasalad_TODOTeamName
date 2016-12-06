@@ -29,6 +29,7 @@ public class ItemMenuUI {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private ItemPanelObjects myItemPanelObjects;
+    
 
     ItemMenuUI(Parent root, UIBuilder builder, ResourceBundle resources) {
         myRoot = root;
@@ -66,6 +67,9 @@ public class ItemMenuUI {
             case "Obstacles":
                 list = myItemPanelObjects.getObstacleObjs();
                 break;
+            case "Switches":
+                list = myItemPanelObjects.getSwitchObjs();
+                break;
             default:
                 list = null;
                 break;
@@ -100,7 +104,9 @@ public class ItemMenuUI {
         Tab decorTab = createTab("Decor", decorPane);
         ScrollPane obstaclePane = createScrollPane("Obstacles");
         Tab obstacleTab = createTab("Obstacles", obstaclePane);
-        itemPanel.getTabs().addAll(groundTab, decorTab, obstacleTab);
+        ScrollPane switchPane = createScrollPane("Switches");
+        Tab switchTab = createTab("Switches", switchPane);
+        itemPanel.getTabs().addAll(groundTab, decorTab, obstacleTab, switchTab);
         myBuilder.addComponent(myRoot,itemPanel);
         return myItemPanelObjects;
     }
