@@ -24,17 +24,19 @@ public class Player implements IPlayer {
 	private PlayerDirection myDirection;
 	private int myRow;
 	private int myCol;
+	private int myGridIndex;
 	private List<PlayerAttribute> myAttributes;
 	private List<Item> myInventory;
 	private List<Battle> myBattleHistory;
 	private List<Interaction> myInteractionHistory;
 	private List<Status> myStatus;
 	
-	public Player(String name, int row, int col) {
+	public Player(String name, int row, int col, int gridIndex) {
 		myName = name;
 		myDirection = PlayerDirection.NORTH;
 		myRow = row;
 		myCol = col;
+		myGridIndex = gridIndex;
 		myAttributes = new ArrayList<>();
 		myInventory = new ArrayList<>();
 		myBattleHistory = new ArrayList<>();
@@ -56,6 +58,10 @@ public class Player implements IPlayer {
 	
 	public int getCol() {
 		return myCol;
+	}
+
+	public int getGridIndex() {
+		return myGridIndex;
 	}
 
 	public List<PlayerAttribute> getAttributes() {
@@ -88,6 +94,10 @@ public class Player implements IPlayer {
 	
 	public void setCol(int col) {
 		myCol = col;
+	}
+
+	public void setGridIndex(int gridIndex) {
+		myGridIndex = gridIndex;
 	}
 
 	public void addAttribute(PlayerAttribute attribute) {
