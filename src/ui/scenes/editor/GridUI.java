@@ -173,6 +173,7 @@ public class GridUI {
                 util.getIntProperty(myResources, "gridX"),
                 util.getIntProperty(myResources, "gridY"));
         myController.addGrid(gridHeight, gridWidth);
+        myController.changeGrid(0);
         initGridControl();
     }
 
