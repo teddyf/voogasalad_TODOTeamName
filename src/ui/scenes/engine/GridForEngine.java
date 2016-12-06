@@ -1,7 +1,7 @@
 package ui.scenes.engine;
 
 import java.util.*;
-import ui.scenes.editor.objects.GameObjects;
+import ui.scenes.editor.objects.GameObject;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
 import ui.GridPaneNode;
@@ -134,8 +134,8 @@ public class GridForEngine {
         this.grid = new GridPaneNode[height][width];
     }
 
-    public List<GridPaneNode> swap (GameObjects obj, EditorController control) {
-        List<GridPaneNode> list = obj.getList();
+    public List<GridPaneNode> swap (GameObject obj, EditorController control) {
+        List<GridPaneNode> list = obj.getImageTiles();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
         System.out.println(blockList);

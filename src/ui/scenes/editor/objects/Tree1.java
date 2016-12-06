@@ -4,16 +4,16 @@ import block.BlockType;
 import javafx.scene.image.Image;
 import ui.GridPaneNode;
 
-public class Tree1 extends GameObjects {
+public class Tree1 extends GameObject {
 
     private final String PATH = "resources/images/tiles/obstacles/tree-1";
 
     public Tree1() {
         super();
         Image image = new Image(PATH + ".png");
-        this.imageView.setImage(image);
-        path = PATH;
-        blockType = BlockType.OBSTACLE;
+        this.myImageView.setImage(image);
+        myIconPath = PATH;
+        myBlockType = BlockType.OBSTACLE;
     }
 
     @Override
@@ -21,9 +21,9 @@ public class Tree1 extends GameObjects {
         int count = 1;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
-                String name = reName(PATH, count);
+                String name = rename(PATH, count);
                 GridPaneNode tempNode = new GridPaneNode(i, j, name);
-                list.add(tempNode);
+                myImageTiles.add(tempNode);
                 count++;
             }
         }
