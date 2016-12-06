@@ -3,13 +3,15 @@ package ui.scenes.editor;
 import editor.EditorController;
 import javafx.scene.shape.Rectangle;
 import ui.GridPane;
+import ui.GridPaneNode;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -92,7 +94,14 @@ public class GridUI {
                 myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
-        //Node linkButton = buildButton("linkX", "linkY", "linkWidth", "linkPath");
+        Node linkButton = buildButton("linkX", "linkY", "linkWidth", "linkPath");
+        linkButton.setOnMouseClicked(e->{
+            List<GridPaneNode> selected = myGridPane.getClicked();
+            if(selected.size()==2){
+                System.out.println("herro");
+                myGridPane.buildLink(selected.get(0),selected.get(1),myController);
+            }
+        });
     }
 
     public void loadGrid() {
