@@ -99,6 +99,7 @@ public class GridUI {
             List<GridPaneNode> selected = myGridPane.getClicked();
             if(selected.size()==2){
                 myGridPane.buildLink(selected.get(0),selected.get(1),myController);
+                
             }
         });
     }
