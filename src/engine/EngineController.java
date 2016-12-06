@@ -92,7 +92,7 @@ public class EngineController extends Observable implements Observer {
 
     /**
      * Saves the status of a game by saving the grid world and player in a file
-     * @param file - the path of the file that will contain the game
+     * @param file - the myIconPath of the file that will contain the game
      */
     public void saveEngine(String file) {
         xmlHandler.saveContents(file, gameInstance.getGridWorld(), gameInstance.getPlayer());
@@ -100,7 +100,7 @@ public class EngineController extends Observable implements Observer {
 
     /**
      * Loads a game file containing a grid world and player
-     * @param file - the path of the file that contains the game
+     * @param file - the myIconPath of the file that contains the game
      */
     public void loadEngine(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);

@@ -140,7 +140,7 @@ public class GridUI {
      * @param xPos X-position of button
      * @param yPos Y-Position of button
      * @param width width of button
-     * @param path Image path of button
+     * @param path Image myIconPath of button
      * @return
      */
     private Node buildButton(String xPos, String yPos, String width, String path){

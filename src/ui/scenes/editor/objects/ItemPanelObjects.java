@@ -3,19 +3,19 @@ package ui.scenes.editor.objects;
 import java.util.*;
 
 public class ItemPanelObjects {
-    private List<GameObjects> groundObjs;
-    private List<GameObjects> decorObjs;
-    private List<GameObjects> obstacleObjs;
-    private List<GameObjects> switchObjs;
+    private List<GameObject> groundObjs;
+    private List<GameObject> decorObjs;
+    private List<GameObject> obstacleObjs;
+    private List<GameObject> switchObjs;
 
-    private GameObjects selected;
+    private GameObject selected = null;
 
 
     public ItemPanelObjects() {
-        groundObjs = new ArrayList<GameObjects>();
-        decorObjs = new ArrayList<GameObjects>();
-        obstacleObjs = new ArrayList<GameObjects>();
-        switchObjs = new ArrayList<GameObjects>();
+        groundObjs = new ArrayList<GameObject>();
+        decorObjs = new ArrayList<GameObject>();
+        obstacleObjs = new ArrayList<GameObject>();
+        switchObjs = new ArrayList<GameObject>();
         populateGroundObjs();
         populateDecorObjs();
         populateObstacleObjs();
@@ -49,27 +49,27 @@ public class ItemPanelObjects {
         switchObjs.add(new Switch1());
     }
 
-    public List<GameObjects> getGroundObjs() {
+    public List<GameObject> getGroundObjs() {
         return groundObjs;
     }
 
-    public List<GameObjects> getObstacleObjs() {
+    public List<GameObject> getObstacleObjs() {
         return obstacleObjs;
     }
 
-    public List<GameObjects> getDecorObjs() {
+    public List<GameObject> getDecorObjs() {
         return decorObjs;
     }
     
-    public List<GameObjects> getSwitchObjs() {
+    public List<GameObject> getSwitchObjs() {
         return switchObjs;
     }
 
-    public void select(GameObjects obj) {
+    public void select(GameObject obj) {
         selected = obj;
     }
 
-    public GameObjects getSelected() {
+    public GameObject getSelected() {
         return selected;
     }
 
