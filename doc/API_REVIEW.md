@@ -12,7 +12,7 @@ How is your API/design encapsulating your implementation decisions?
 
 Aninda: Our API is organized by the general components, which illustrate what items/parts are important to our project. We have many different components, each of which is represented by a general superclass, and our API shows the methods for each component so that it is clear what each component generally does and what properties each component has. Our implementation of our game authoring environment depends on what components we choose to have the user create, so our API indicates what options the user has when creating game components.
 
-Lucy: The API encapsulates the creation of the actual objects and the UI. The only public methods on the backend available to the controller are methods that create towers, etc. On the frontend, the only public methods are update methods for dynamic updating of scores, tower placement, etc. 
+Lucy: The API encapsulates the creation of the actual ui.scenes.editor.objects and the UI. The only public methods on the backend available to the controller are methods that create towers, etc. On the frontend, the only public methods are update methods for dynamic updating of scores, tower placement, etc. 
 
 How is your part linked to other parts of the project?
 

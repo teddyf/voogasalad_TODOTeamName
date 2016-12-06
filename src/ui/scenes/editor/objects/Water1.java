@@ -1,19 +1,19 @@
-package ObjectMenuObjects;
+package ui.scenes.editor.objects;
 
 import block.BlockType;
 import javafx.scene.image.Image;
 import ui.GridPaneNode;
 
-public class Weed2 extends GameObjects {
+public class Water1 extends GameObjects {
 
-    private final String PATH = "resources/images/tiles/decorations/weed-2";
+    private final String PATH = "resources/images/tiles/obstacles/water-1";
 
-    public Weed2() {
+    public Water1() {
         super();
         Image image = new Image(PATH + ".png");
-        imageView.setImage(image);
+        this.imageView.setImage(image);
         path = PATH;
-        blockType = BlockType.DECORATION;
+        blockType = BlockType.OBSTACLE;
     }
 
     @Override

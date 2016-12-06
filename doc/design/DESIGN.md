@@ -17,9 +17,9 @@ William Xiong | wwx
 ====================
 
 ### Front end responsibilities:
-1. Handling placing the objects on the grid (user interaction)
-  * Menu that is easy to search for various objects ranging from obstacles to NPCs
-  * If certain objects need to be user defined, popup box prompts user to enter necessary information
+1. Handling placing the ui.scenes.editor.objects on the grid (user interaction)
+  * Menu that is easy to search for various ui.scenes.editor.objects ranging from obstacles to NPCs
+  * If certain ui.scenes.editor.objects need to be user defined, popup box prompts user to enter necessary information
 2. Be able to load a world and edit it using the same tools as building it.
 3. Defining user interactions
   * Chat dialogues
@@ -29,7 +29,7 @@ William Xiong | wwx
 6. Handle animations
 
 ### Back end responsibilities:
-* Handling placing objects on the grid (backend representation)
+* Handling placing ui.scenes.editor.objects on the grid (backend representation)
 * Object behaviors (obstacle, decoration, interactions, etc.) and their interactions
 * Interactions defined in separate classes
 * Saving / loading
@@ -149,7 +149,7 @@ Classes:
 1. Allow the users can zoom in and zoom out the map
 2. Allow the users can upload their own jpg/png/gif files, specify the object types and add those elements into the map
 3. Allow the users to use the scrollbar to go through the map
-4. Allow the users to change the grid position of the objects already in the map by dragging
+4. Allow the users to change the grid position of the ui.scenes.editor.objects already in the map by dragging
 5. Allow user to toggle through different background images for the game environment
 6. Have GIFs for animated characters
 7. Drag enemies to battle to overworld

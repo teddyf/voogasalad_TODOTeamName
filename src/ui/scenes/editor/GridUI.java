@@ -10,8 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-import java.util.ArrayList;
-import java.util.List;
+import ui.scenes.editor.objects.ItemPanelObjects;
+
 import java.util.ResourceBundle;
 
 
@@ -26,13 +26,13 @@ public class GridUI {
     private GridPane myGridPane;
     private UIBuilder myBuilder;
     private Parent myRoot;
-    private EditorSidePanel myItemMenu;
+    private ItemPanelObjects myEditorObjects;
     private EditorController myController;
     private ColorAdjust hoverOpacity;
 
-    GridUI(Parent root, EditorSidePanel itemMenu, EditorController controller, ResourceBundle resources) {
+    GridUI(Parent root, ItemPanelObjects editorObjects, EditorController controller, ResourceBundle resources) {
         myRoot = root;
-        myItemMenu = itemMenu;
+        myEditorObjects = editorObjects;
         myResources = resources;
         myBuilder = new UIBuilder();
         myController = controller;
@@ -41,7 +41,7 @@ public class GridUI {
 
     /**
      * Configures grid event handlers that allow the user to add and remove
-     * objects from it.
+     * ui.scenes.editor.objects from it.
      */
     private void initGridControl() {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
@@ -90,7 +90,7 @@ public class GridUI {
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
         //TODO add interaction somewhere here as well
-        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected(),
+        swapButton.setOnMouseClicked(e -> myGridPane.swap(myEditorObjects.getSelected(),
                 myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));

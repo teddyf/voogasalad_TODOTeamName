@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 /**
  * @author Harshil Garg, Robert Steilberg
  *         <p>
- *         This class holds information used to build JavaFX objects.
+ *         This class holds information used to build JavaFX ui.scenes.editor.objects.
  */
 public class ComponentProperties {
 
