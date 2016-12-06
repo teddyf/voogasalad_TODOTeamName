@@ -21,7 +21,9 @@ public class LabelBuilder extends ComponentBuilder {
         newLabel.setId(properties.id);
         newLabel.setLayoutX(properties.x);
         newLabel.setLayoutY(properties.y);
-        newLabel.setFont(new Font(properties.font,properties.size));
+        newLabel.setFont(new Font(properties.font, properties.size));
+        if (properties.color != null)
+        	newLabel.setTextFill(properties.color);
         return newLabel;
 	}
 }

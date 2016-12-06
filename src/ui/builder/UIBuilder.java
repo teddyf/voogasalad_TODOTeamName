@@ -150,17 +150,17 @@ public class UIBuilder {
                 .id(id));
     }
 
-//    /**
-//     * Create a new JavaFX Label and adds it to the given Group or Pane
-//     *
-//     * @param layout     the Group or Pane to which the Label will be added
-//     * @param properties the ComponentProperties object containing information
-//     *                   about the Label
-//     * @return the newly added Label as a node
-//     */
-//    public Node addNewLabel(Parent layout, ComponentProperties properties) {
-//        return addComponent(layout, labelBuilder.createComponent(properties));
-//    }
+    /**
+     * Create a new JavaFX Label and adds it to the given Group or Pane
+     *
+     * @param layout     the Group or Pane to which the Label will be added
+     * @param properties the ComponentProperties object containing information
+     *                   about the Label
+     * @return the newly added Label as a node
+     */
+    public Node addNewLabel(Parent layout, ComponentProperties properties) {
+        return addComponent(layout, labelBuilder.createComponent(properties));
+    }
 
     /**
      * Create a customized JavaFX Label and add it to the given Group or Pane
@@ -172,10 +172,10 @@ public class UIBuilder {
      * @return
      */
     public Node addCustomLabel(Parent layout, String text, int x, int y, String font, int size) {
-        return addComponent(layout, labelBuilder.createComponent(new ComponentProperties(x, y)
+        return addNewLabel(layout, new ComponentProperties(x, y)
                 .text(text)
                 .font(font)
-                .size(size)));
+                .size(size));
     }
 
     /**
