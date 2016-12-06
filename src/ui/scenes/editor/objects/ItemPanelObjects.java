@@ -20,6 +20,7 @@ public class ItemPanelObjects {
         populateDecorObjs();
         populateObstacleObjs();
         populateSwitchObjs();
+        populateTeleObjs();
     }
 
     private void populateGroundObjs() {
@@ -47,6 +48,14 @@ public class ItemPanelObjects {
     
     private void populateSwitchObjs(){
         switchObjs.add(new Switch1());
+    }
+    
+    private void populateTeleObjs(){
+        teleObjs.add(new Tele1());
+    }
+    
+    public List<GameObjects> getTeleObjs(){
+        return teleObjs;
     }
 
     public List<GameObject> getGroundObjs() {

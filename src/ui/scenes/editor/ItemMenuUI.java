@@ -84,6 +84,9 @@ public class ItemMenuUI {
             case "Switches":
                 list = myItemPanelObjects.getSwitchObjs();
                 break;
+            case "Teleporter":
+                list = myItemPanelObjects.getTeleObjs();
+                break;
             default:
                 throw new NullPointerException();
         }
