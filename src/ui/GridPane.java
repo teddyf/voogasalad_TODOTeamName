@@ -3,7 +3,7 @@ package ui;
 import java.util.*;
 
 import block.BlockType;
-import ui.scenes.editor.objects.GameObjects;
+import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.Player1;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
@@ -227,8 +227,8 @@ public class GridPane {
         grid = new GridPaneNode[(int)height][(int)width];
     }
 
-    public List<GridPaneNode> swap (GameObjects obj, EditorController control) {
-        List<GridPaneNode> list = obj.getList();
+    public List<GridPaneNode> swap (GameObject obj, EditorController control) {
+        List<GridPaneNode> list = obj.getImageTiles();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
         for (int i = 0; i < clicked.size(); i++) {
@@ -249,7 +249,7 @@ public class GridPane {
         return copy;     
     }
     
-    private void setPlayer(GridPaneNode temp,GameObjects gameObject, EditorController control) {
+    private void setPlayer(GridPaneNode temp, GameObject gameObject, EditorController control) {
     	if (gameObject instanceof Player1) {
         	control.addPlayer(temp.getName(),temp.getRow(), temp.getCol());
         	control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getRow(), temp.getCol());   

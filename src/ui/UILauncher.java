@@ -49,7 +49,11 @@ public class UILauncher {
      */
     public void launchEditor() {
         GameEditor editor = new GameEditor(myStage, new Group(), this, myController);
-        
+        myStage.setOnCloseRequest(e -> {
+            // closing the window takes you back to main menu
+           e.consume();
+           launchMenu();
+        });
         editor.initEditor();
         prevEditor = editor;
     }

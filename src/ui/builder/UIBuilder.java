@@ -113,7 +113,7 @@ public class UIBuilder {
      * @return
      */
     public Node addCustomButton(Parent layout, String text, int x, int y, int width) {
-        return addNewImageView(layout, new ComponentProperties(x, y).path(text)
+        return addNewButton(layout, new ComponentProperties(x, y).path(text)
                 .preserveRatio(true)
                 .width(width));
     }
@@ -131,13 +131,13 @@ public class UIBuilder {
     }
 
     /**
-     * Creates a new JavaFX ImageView, sets its position, image path, width, and CSS id,
+     * Creates a new JavaFX ImageView, sets its position, image myIconPath, width, and CSS id,
      * and adds it to the given Group or Pane
      *
      * @param layout is the Group or Pane to which the ImageView is added
      * @param xPos   is the X position of the ImageView
      * @param yPos   is the Y position of the ImageView
-     * @param path   is the image path
+     * @param path   is the image myIconPath
      * @param width  is the width of the ImageView
      * @param id     is the CSS ID
      * @return
@@ -150,17 +150,17 @@ public class UIBuilder {
                 .id(id));
     }
 
-//    /**
-//     * Create a new JavaFX Label and adds it to the given Group or Pane
-//     *
-//     * @param layout     the Group or Pane to which the Label will be added
-//     * @param properties the ComponentProperties object containing information
-//     *                   about the Label
-//     * @return the newly added Label as a node
-//     */
-//    public Node addNewLabel(Parent layout, ComponentProperties properties) {
-//        return addComponent(layout, labelBuilder.createComponent(properties));
-//    }
+    /**
+     * Create a new JavaFX Label and adds it to the given Group or Pane
+     *
+     * @param layout     the Group or Pane to which the Label will be added
+     * @param properties the ComponentProperties object containing information
+     *                   about the Label
+     * @return the newly added Label as a node
+     */
+    public Node addNewLabel(Parent layout, ComponentProperties properties) {
+        return addComponent(layout, labelBuilder.createComponent(properties));
+    }
 
     /**
      * Create a customized JavaFX Label and add it to the given Group or Pane
@@ -172,10 +172,10 @@ public class UIBuilder {
      * @return
      */
     public Node addCustomLabel(Parent layout, String text, int x, int y, String font, int size) {
-        return addComponent(layout, labelBuilder.createComponent(new ComponentProperties(x, y)
+        return addNewLabel(layout, new ComponentProperties(x, y)
                 .text(text)
                 .font(font)
-                .size(size)));
+                .size(size));
     }
 
     /**
@@ -216,7 +216,7 @@ public class UIBuilder {
      * in a properties file
      *
      * @param currStage          the JavaFX stage with which the window is created
-     * @param propertiesFilePath the path to the properties file containing the
+     * @param propertiesFilePath the myIconPath to the properties file containing the
      *                           window's parameters
      */
     public void initWindow(Stage currStage, String propertiesFilePath) {
