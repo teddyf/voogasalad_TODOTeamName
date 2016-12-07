@@ -56,13 +56,23 @@ public class ScrollAnimation {
         //left.setNode(null);
     }
 
-    private void traverseRight() {
+    public void traverseRight() {
         double duration = (group.getLayoutX() - xMin)/pixelsPerMillisecond;
         right = new TranslateTransition(Duration.millis(duration), group);
         right.setCycleCount(1);
         right.setInterpolator(Interpolator.LINEAR);
         right.setToX(xMin);
-        //right.setNode(group);
+        right.setNode(group);
     }
+
+    public void playRight() {
+        right.play();
+    }
+
+    public void stopRight() {
+        right.stop();
+    }
+
+
 
 }

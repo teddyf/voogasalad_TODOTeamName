@@ -228,6 +228,18 @@ public class GridUI {
         scrollAnimation.stopLeft();
     }
 
+    public void traverseRight() {
+        scrollAnimation.traverseRight();
+    }
+
+    public void traverseRightPlay() {
+        scrollAnimation.playRight();
+    }
+
+    public void traverseRightStop() {
+        scrollAnimation.stopRight();
+    }
+
     public GridPane getMyGridPane() {
         return myGridPane;
     }

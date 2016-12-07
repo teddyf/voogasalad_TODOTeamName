@@ -110,6 +110,16 @@ public class GameEditor extends Scene {
         button.setOnMouseEntered(e -> {grid.traverseLeft(); grid.traverseLeftPlay();});
         button.setOnMouseExited(e -> grid.traverseLeftStop());
         myBuilder.addComponent(myRoot, button);
+
+        Button button2 = new Button("hi click me pt 2");
+        button2.setLayoutX(100);
+        button2.setLayoutY(120);
+        button2.setOnMouseEntered(e -> {grid.traverseRight(); grid.traverseRightPlay();});
+        button2.setOnMouseExited(e -> grid.traverseRightStop());
+        myBuilder.addComponent(myRoot, button2);
+
+
+
     }
 
     /**
