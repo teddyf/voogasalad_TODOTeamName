@@ -332,7 +332,6 @@ public class GridPane {
             System.out.println(deleted);
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
-        System.out.println(deleted.get(0));
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i+=2) {            
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
