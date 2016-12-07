@@ -66,15 +66,17 @@ public class GridUI {
         initGridControl();
         scrollAnimation = new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(), myGridPane.getYMin());
 
+        GridScrollButton gsb = new GridScrollButton(myRoot);
+
         Button button = new Button("hi click me");
         button.setOnMouseEntered(e -> {scrollAnimation.left(); scrollAnimation.play();});
         button.setOnMouseExited(e -> scrollAnimation.stop());
-        button.setLayoutX(200);
+        button.setLayoutX(500);
         button.setLayoutY(120);
         myBuilder.addComponent(myRoot, button);
 
         Button button2 = new Button("hi click me pt 2");
-        button2.setLayoutX(100);
+        button2.setLayoutX(700);
         button2.setLayoutY(120);
         button2.setOnMouseEntered(e -> {scrollAnimation.right(); scrollAnimation.play();});
         button2.setOnMouseExited(e -> scrollAnimation.stop());

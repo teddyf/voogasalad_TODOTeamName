@@ -22,6 +22,7 @@ public class ComponentProperties {
     protected String header;
     protected String content;
     protected Color color;
+    protected double rotate;
 
     public ComponentProperties() {
     }
@@ -84,5 +85,10 @@ public class ComponentProperties {
     public ComponentProperties color(Color color) {
     	this.color = color;
     	return this;
+    }
+
+    public ComponentProperties rotate(double rotate) {
+        this.rotate = rotate;
+        return this;
     }
 }
