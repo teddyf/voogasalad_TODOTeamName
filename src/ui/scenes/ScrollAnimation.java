@@ -14,10 +14,10 @@ public class ScrollAnimation {
 
     private double pixelsPerMillisecond = 0.1;
 
-    private double xMax = 200;
-    private double xMin = -200;
-    private double yMax = 200;
-    private double yMin = -200;
+    private double xMax;
+    private double xMin;
+    private double yMax;
+    private double yMin;
 
     private Group group;
 
@@ -37,26 +37,37 @@ public class ScrollAnimation {
 
     public void left() {
         double duration = (xMax - group.getLayoutX())/pixelsPerMillisecond;
+        //double duration = 1000;
         setTransition(duration);
         transition.setToX(xMax);
     }
 
     public void right() {
         double duration = (group.getLayoutX() - xMin)/pixelsPerMillisecond;
+        //double duration = 1000;
         setTransition(duration);
         transition.setToX(xMin);
     }
 
     public void up() {
-        double duration = 0;
+        double duration = (yMax - group.getLayoutY())/pixelsPerMillisecond;
+        //double duration = 1000;
         setTransition(duration);
         transition.setToY(yMax);
     }
 
     public void down() {
-        double duration = 0;
+        double duration = (group.getLayoutY() - yMin)/pixelsPerMillisecond;;
+        //double duration = 1000;
         setTransition(duration);
         transition.setToY(yMin);
+    }
+
+    public void center() {
+        double duration = 1000;
+        setTransition(duration);
+        transition.setToX(0);
+        transition.setToY(0);
     }
 
     public void play() {
