@@ -8,16 +8,22 @@ import java.util.ResourceBundle;
  * This class encapsulates utilities for interfacing with properties files.
  */
 public class PropertiesUtilities {
+
+    private ResourceBundle resources;
+
+    public PropertiesUtilities(ResourceBundle resources) {
+        this.resources = resources;
+    }
 	
-	public String getStringProperty(ResourceBundle resources, String key) {
-		return resources.getString(key);
+	public String getStringProperty(String key) {
+        return resources.getString(key);
 	}
 
-    public double getDoubleProperty(ResourceBundle resources, String key) {
+    public double getDoubleProperty(String key) {
         return Double.parseDouble(resources.getString(key));
     }
 
-    public int getIntProperty(ResourceBundle resources, String key) {
+    public int getIntProperty(String key) {
         return Integer.parseInt(resources.getString(key));
     }
 }

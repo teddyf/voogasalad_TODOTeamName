@@ -92,34 +92,6 @@ public class GameEditor extends Scene {
                 /* New code */
         myStage.setScene(this);
 
-
-        final Rectangle rotatingRect = new Rectangle(200,200,100,60);
-        rotatingRect.setFill(Color.CORNFLOWERBLUE);
-        myBuilder.addComponent(myRoot, rotatingRect);
-
-        final RotateTransition rotate = new RotateTransition(Duration.seconds(1), rotatingRect);
-        rotate.setByAngle(360);
-        rotate.setCycleCount(Animation.INDEFINITE);
-        rotate.setInterpolator(Interpolator.LINEAR);
-        final TranslateTransition translate = new TranslateTransition(Duration.seconds(3), rotatingRect);
-        translate.setToX(400);
-        translate.setCycleCount(Animation.INDEFINITE);
-        translate.setInterpolator(Interpolator.LINEAR);
-
-        Button button = new Button("hi click me");
-        button.setOnMouseEntered(e -> {grid.traverseLeft(); grid.traverseLeftPlay();});
-        button.setOnMouseExited(e -> grid.traverseLeftStop());
-        myBuilder.addComponent(myRoot, button);
-
-        Button button2 = new Button("hi click me pt 2");
-        button2.setLayoutX(100);
-        button2.setLayoutY(120);
-        button2.setOnMouseEntered(e -> {grid.traverseRight(); grid.traverseRightPlay();});
-        button2.setOnMouseExited(e -> grid.traverseRightStop());
-        myBuilder.addComponent(myRoot, button2);
-
-
-
     }
 
     /**

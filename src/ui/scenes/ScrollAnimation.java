@@ -4,75 +4,67 @@ import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 import javafx.util.Duration;
+
 /**
  * Created by Harshil Garg on 12/7/2016
  */
 public class ScrollAnimation {
 
-    private TranslateTransition left;
-    //private TranslateTransition up;
-    private TranslateTransition right;
-    //private TranslateTransition down;
+    private TranslateTransition transition;
 
     private double pixelsPerMillisecond = 0.1;
 
-    int xMax = 200;
-    int xMin = -200;
+    private double xMax = 200;
+    private double xMin = -200;
+    private double yMax = 200;
+    private double yMin = -200;
 
     private Group group;
 
-    public ScrollAnimation(Group group) {
+    public ScrollAnimation(Group group, double xMin, double yMin) {
         this.group = group;
-        left = new TranslateTransition();
-        //up = new TranslateTransition();
-        right = new TranslateTransition();
-        //determineValues();
-
+        this.xMin = xMin;
+        this.xMax = -xMin;
+        this.yMin = yMin;
+        this.yMax = -yMin;
     }
 
-    public void traverseLeft() {
-        // Start position the layout is definitely (0, 0) of the grid
-        // For going left, we do setLayoutX(-someMaxValue)
-        // For going left, we do setLayoutX(someMaxValue)
-        // For going up, we do setLayoutY(someMaxValue)
-        // For going down, we do setLayoutY(-someMaxValue)
+    private void setTransition(double duration) {
+        transition = new TranslateTransition(Duration.millis(duration), group);
+        transition.setCycleCount(1);
+        transition.setInterpolator(Interpolator.LINEAR);
+    }
 
-        // Going left, means moving the grid to the right
-            //Get current layout x, and at start
+    public void left() {
         double duration = (xMax - group.getLayoutX())/pixelsPerMillisecond;
-        left = new TranslateTransition(Duration.millis(duration), group);
-        left.setCycleCount(1);
-        left.setInterpolator(Interpolator.LINEAR);
-        left.setToX(xMax);
-        left.setNode(group);
+        setTransition(duration);
+        transition.setToX(xMax);
     }
 
-    public void playLeft() {
-        left.play();
-    }
-
-    public void stopLeft() {
-        left.stop();
-        //left.setNode(null);
-    }
-
-    public void traverseRight() {
+    public void right() {
         double duration = (group.getLayoutX() - xMin)/pixelsPerMillisecond;
-        right = new TranslateTransition(Duration.millis(duration), group);
-        right.setCycleCount(1);
-        right.setInterpolator(Interpolator.LINEAR);
-        right.setToX(xMin);
-        right.setNode(group);
+        setTransition(duration);
+        transition.setToX(xMin);
     }
 
-    public void playRight() {
-        right.play();
+    public void up() {
+        double duration = 0;
+        setTransition(duration);
+        transition.setToY(yMax);
     }
 
-    public void stopRight() {
-        right.stop();
+    public void down() {
+        double duration = 0;
+        setTransition(duration);
+        transition.setToY(yMin);
     }
 
+    public void play() {
+        transition.play();
+    }
 
+    public void stop() {
+        transition.stop();
+    }
 
 }

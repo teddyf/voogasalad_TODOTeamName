@@ -45,7 +45,7 @@ public class SizeChooser2 extends Scene {
 		myRoot = root;
 		myEditor = editor;
 		myResources = ResourceBundle.getBundle(SIZE_CHOOSER_RESOURCES);
-        myUtil = new PropertiesUtilities();
+        myUtil = new PropertiesUtilities(myResources);
 		myBuilder = new UIBuilder();
 		
 		myRoot.getStylesheets().add(CSS_FILE_NAME);
@@ -61,11 +61,11 @@ public class SizeChooser2 extends Scene {
 	
 	private void setLabels() {
 		for (String label : labels) {
-			int xPos = myUtil.getIntProperty(myResources, label + labelsProperties[0]);
-			int yPos = myUtil.getIntProperty(myResources, label + labelsProperties[1]);
-			int size = myUtil.getIntProperty(myResources, label + labelsProperties[2]);
-	        String text = myUtil.getStringProperty(myResources, label + labelsProperties[3]);
-	        String id = myUtil.getStringProperty(myResources, label + labelsProperties[4]);
+			int xPos = myUtil.getIntProperty(label + labelsProperties[0]);
+			int yPos = myUtil.getIntProperty(label + labelsProperties[1]);
+			int size = myUtil.getIntProperty(label + labelsProperties[2]);
+	        String text = myUtil.getStringProperty(label + labelsProperties[3]);
+	        String id = myUtil.getStringProperty(label + labelsProperties[4]);
 	        myBuilder.addNewLabel(myRoot, new ComponentProperties(xPos, yPos)
 	                .text(text)
 	                .size(size)
@@ -76,12 +76,12 @@ public class SizeChooser2 extends Scene {
 	
 	private void setInputs() {
 		for (String input : inputs) {
-			int xPos = myUtil.getIntProperty(myResources, input + inputsProperties[0]);
-			int yPos = myUtil.getIntProperty(myResources, input + inputsProperties[1]);
-			int width = myUtil.getIntProperty(myResources, input + inputsProperties[2]);
-			int height = myUtil.getIntProperty(myResources, input + inputsProperties[3]);
-	        String text = myUtil.getStringProperty(myResources, input + inputsProperties[4]);
-	        String id = myUtil.getStringProperty(myResources, input + inputsProperties[5]);
+			int xPos = myUtil.getIntProperty(input + inputsProperties[0]);
+			int yPos = myUtil.getIntProperty(input + inputsProperties[1]);
+			int width = myUtil.getIntProperty(input + inputsProperties[2]);
+			int height = myUtil.getIntProperty(input + inputsProperties[3]);
+	        String text = myUtil.getStringProperty( input + inputsProperties[4]);
+	        String id = myUtil.getStringProperty(input + inputsProperties[5]);
 	        TextField field = (TextField) (myBuilder.addNewTextField(myRoot, new ComponentProperties(xPos, yPos)
 	                .text(text)
 	                .width(width)
@@ -99,11 +99,11 @@ public class SizeChooser2 extends Scene {
 	
 	private void setButton() {
 		for (String button : buttons) {
-			int xPos = myUtil.getIntProperty(myResources, button + buttonsProperties[0]);
-			int yPos = myUtil.getIntProperty(myResources, button + buttonsProperties[1]);
-			int width = myUtil.getIntProperty(myResources, button + buttonsProperties[2]);
-	        String text = myUtil.getStringProperty(myResources, button + buttonsProperties[3]);
-	        String id = myUtil.getStringProperty(myResources, button + buttonsProperties[4]);
+			int xPos = myUtil.getIntProperty(button + buttonsProperties[0]);
+			int yPos = myUtil.getIntProperty( button + buttonsProperties[1]);
+			int width = myUtil.getIntProperty(button + buttonsProperties[2]);
+	        String text = myUtil.getStringProperty(button + buttonsProperties[3]);
+	        String id = myUtil.getStringProperty(button + buttonsProperties[4]);
 	        Button myButton = (Button) (myBuilder.addNewButton(myRoot, new ComponentProperties(xPos, yPos)
 	                .text(text)
 	                .width(width)

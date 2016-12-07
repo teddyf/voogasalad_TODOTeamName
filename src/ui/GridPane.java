@@ -11,11 +11,10 @@ import editor.EditorController;
 
 /**
  * 
- * @author Teddy Franceschi
+ * @author Teddy Franceschi, Harshil Garg
  *
  */
 public class GridPane {
-    // name & identifier & row/column
 
     private final int WRAP = 10;
     private final int CELL_PIXELS = 50;
@@ -24,7 +23,6 @@ public class GridPane {
     private List<GridPaneNode> blockList;
     private List<GridPaneNode> clicked;
     private GridPaneNode[][] grid;
-    private Map<Double, Map<Double, GridPaneNode>> renderMap;
 
     private double gridWidth;
     private double gridHeight;
@@ -32,20 +30,19 @@ public class GridPane {
     private double renderHeight;
     private int renderTopLeftX;
     private int renderTopLeftY;
+
     private ColorAdjust hoverOpacity;
-    private ColorAdjust highlight;
     private GridObjectMap gridMap;
     private GridPaneNode def;
 
     private String DEFAULT = "resources/images/tiles/decorations/grass-";
 
-    public GridPane (int gridWidth,
-                     int gridHeight,
-                     int renderWidth,
-                     int renderHeight,
-                     int renderTopLeftX,
-                     int renderTopLeftY) {
-        this.group = new Group();
+    public GridPane (int gridWidth, int gridHeight, int renderWidth,
+                     int renderHeight, int renderTopLeftX, int renderTopLeftY) {
+
+        group = new Group();
+        blockList = new ArrayList<GridPaneNode>();
+        clicked = new ArrayList<GridPaneNode>();
 
         hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(-.1);
@@ -57,8 +54,6 @@ public class GridPane {
         this.renderTopLeftX = renderTopLeftX;
         this.renderTopLeftY = renderTopLeftY;
 
-        this.blockList = new ArrayList<GridPaneNode>();
-        this.clicked = new ArrayList<GridPaneNode>();
         def = new GridPaneNode(0, 0, defaultText());
         initializeGrid();
         setRenderMap();
@@ -76,7 +71,7 @@ public class GridPane {
     }
 
     private double getXRender (int column) {
-        double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP  - renderWidth/CELL_PIXELS);;
+        double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP  - renderWidth/CELL_PIXELS);
         return column * CELL_PIXELS + renderTopLeftX + offset;
     }
 
@@ -107,10 +102,10 @@ public class GridPane {
             double y = getYRender(node.getRow());
             node.setImageSize(CELL_PIXELS, CELL_PIXELS);
             node.setImageCoord(x, y);
-            if (node.getCol() >= WRAP/2
-                    && node.getCol() < gridWidth + WRAP/2
-                    && node.getRow() >= WRAP/2
-                    && node.getRow() < gridHeight + WRAP/2)
+            if (node.getCol() >= WRAP / 2
+                    && node.getCol() < gridWidth + WRAP / 2
+                    && node.getRow() >= WRAP / 2
+                    && node.getRow() < gridHeight + WRAP / 2)
                 makeClickable(node);
             else
                 node.getImage().setEffect(hoverOpacity);
@@ -120,14 +115,6 @@ public class GridPane {
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
-        // System.out.println("grid status");
-        /*
-         * for(int i = 0; i < grid.length; i++){
-         * for(int j = 0; j < grid[i].length; j++){
-         * System.out.println(grid[i][j]);
-         * }
-         * }
-         */
     }
 
     public void resize () {
@@ -439,6 +426,14 @@ public class GridPane {
             node.getImage().setEffect(hoverOpacity);
             click(node);
         });
+    }
+
+    public double getXMin() {
+        return -0.5 * CELL_PIXELS * (gridWidth + WRAP  - renderWidth/CELL_PIXELS);
+    }
+
+    public double getYMin() {
+        return -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
     }
 
 

@@ -47,12 +47,12 @@ public class ItemMenuUI {
      * @return the Rectangle representing the border
      */
     private void addBorder() {
-        PropertiesUtilities util = new PropertiesUtilities();
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
         Rectangle border = new Rectangle();
-        border.setLayoutX(util.getIntProperty(myResources, "itemMenuX") - util.getIntProperty(myResources, "borderSize"));
-        border.setLayoutY(util.getIntProperty(myResources, "itemMenuY") - util.getIntProperty(myResources, "borderSize"));
-        border.setWidth(util.getIntProperty(myResources, "itemMenuWidth") + util.getIntProperty(myResources, "borderSize") * 2);
-        border.setHeight(util.getIntProperty(myResources, "itemMenuHeight") + util.getIntProperty(myResources, "borderSize") * 2);
+        border.setLayoutX(util.getIntProperty("itemMenuX") - util.getIntProperty("borderSize"));
+        border.setLayoutY(util.getIntProperty("itemMenuY") - util.getIntProperty("borderSize"));
+        border.setWidth(util.getIntProperty("itemMenuWidth") + util.getIntProperty("borderSize") * 2);
+        border.setHeight(util.getIntProperty("itemMenuHeight") + util.getIntProperty("borderSize") * 2);
         border.setId("grid-border");
         myBuilder.addComponent(myRoot, border);
     }
@@ -64,11 +64,11 @@ public class ItemMenuUI {
      * @return the ScrollPane, populated with its content
      */
     private ScrollPane createScrollPane(String label) {
-        PropertiesUtilities util = new PropertiesUtilities();
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
         ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
         FlowPane itemPane = new FlowPane();
-        int padding = util.getIntProperty(myResources, "contentPadding");
+        int padding = util.getIntProperty("contentPadding");
         itemPane.setHgap(padding);
         itemPane.setVgap(padding);
         itemPane.setPadding(new Insets(padding, padding, padding, padding));
@@ -96,7 +96,7 @@ public class ItemMenuUI {
             String imgPath = gameObj.getIconPath();
             ImageView objectIcon = (ImageView) myBuilder.addNewImageView(itemPane, new ComponentProperties()
                     .path(imgPath)
-                    .width(util.getIntProperty(myResources, "itemWidth"))
+                    .width(util.getIntProperty("itemWidth"))
                     .preserveRatio(true)
                     .id("game-object"));
             gameObj.setIcon(objectIcon);
@@ -151,12 +151,12 @@ public class ItemMenuUI {
      * @return the item panel
      */
     private TabPane createItemPanel() {
-        PropertiesUtilities util = new PropertiesUtilities();
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
         TabPane itemPanel = new TabPane();
-        itemPanel.setLayoutX(util.getIntProperty(myResources, "itemMenuX"));
-        itemPanel.setLayoutY(util.getIntProperty(myResources, "itemMenuY"));
-        itemPanel.setMinWidth(util.getIntProperty(myResources, "itemMenuWidth"));
-        itemPanel.setMinHeight(util.getIntProperty(myResources, "itemMenuHeight"));
+        itemPanel.setLayoutX(util.getIntProperty( "itemMenuX"));
+        itemPanel.setLayoutY(util.getIntProperty( "itemMenuY"));
+        itemPanel.setMinWidth(util.getIntProperty( "itemMenuWidth"));
+        itemPanel.setMinHeight(util.getIntProperty( "itemMenuHeight"));
         return itemPanel;
     }
 
