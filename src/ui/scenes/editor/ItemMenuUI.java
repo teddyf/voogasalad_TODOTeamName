@@ -31,6 +31,8 @@ public class ItemMenuUI {
     private ResourceBundle myResources;
     private ItemPanelObjects myItemPanelObjects;
 
+    private TabPane itemPanel;
+
     ItemMenuUI(Parent root, UIBuilder builder, ResourceBundle resources) {
         myRoot = root;
         myBuilder = builder;
@@ -158,17 +160,20 @@ public class ItemMenuUI {
         return itemPanel;
     }
 
+    public void addItemPanel() {
+        myBuilder.addComponent(myRoot, itemPanel);
+    }
+
     /**
      * Creates the tab-based menu that will hold the ui.scenes.editor.objects to be added to the
      * overworld grid.
      *
      * @return the item menu, properly placed on the grid
      */
-    ItemPanelObjects getItemPanelObjects() {
-        TabPane itemPanel = createItemPanel();
+    public ItemPanelObjects getItemPanelObjects() {
+        itemPanel = createItemPanel();
         addTabs(itemPanel);
         addBorder();
-        myBuilder.addComponent(myRoot, itemPanel);
         return myItemPanelObjects;
     }
 }
