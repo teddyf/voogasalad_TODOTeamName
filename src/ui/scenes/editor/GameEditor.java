@@ -11,9 +11,32 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.TranslateTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ResourceBundle;
-
+import javafx.scene.control.Button;
 
 /**
  * @author Robert Steilberg
@@ -56,13 +79,37 @@ public class GameEditor extends Scene {
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
         initPlayerButton();
+    System.out.println(grid.getMyGridPane().getGroup().getLayoutX());
+        System.out.println(grid.getMyGridPane().getGroup().getLayoutY());
+
         //        EngineController loadedEngine = editorController.runEngine(); // running test
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
             events.exitPrompt(false);
         });
+
+                /* New code */
         myStage.setScene(this);
+
+
+        final Rectangle rotatingRect = new Rectangle(200,200,100,60);
+        rotatingRect.setFill(Color.CORNFLOWERBLUE);
+        myBuilder.addComponent(myRoot, rotatingRect);
+
+        final RotateTransition rotate = new RotateTransition(Duration.seconds(1), rotatingRect);
+        rotate.setByAngle(360);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        final TranslateTransition translate = new TranslateTransition(Duration.seconds(3), rotatingRect);
+        translate.setToX(400);
+        translate.setCycleCount(Animation.INDEFINITE);
+        translate.setInterpolator(Interpolator.LINEAR);
+
+        Button button = new Button("hi click me");
+        button.setOnMouseEntered(e -> {grid.traverseLeft(); grid.traverseLeftPlay();});
+        button.setOnMouseExited(e -> grid.traverseLeftStop());
+        myBuilder.addComponent(myRoot, button);
     }
 
     /**

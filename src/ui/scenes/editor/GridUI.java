@@ -10,7 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
+import ui.scenes.ScrollAnimation;
 import ui.scenes.editor.objects.ItemPanelObjects;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.KeyCode;
 import java.util.*;
 
 
@@ -28,6 +31,8 @@ public class GridUI {
     private ItemPanelObjects myEditorObjects;
     private EditorController myController;
     private ColorAdjust hoverOpacity;
+
+    private ScrollAnimation scrollAnimation;
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
     private static final String CSS_FILE_NAME = "resources/styles/game-editor.css";
@@ -186,6 +191,7 @@ public class GridUI {
         myController.addGrid(gridHeight, gridWidth);
         myController.changeGrid(0);
         initGridControl();
+        scrollAnimation = new ScrollAnimation(myGridPane.getGroup());
     }
 
 //    /**
@@ -203,5 +209,27 @@ public class GridUI {
 //                                  util.getIntProperty(myResources, "gridY"));
 //        initGridControl();
 //    }
+
+    public void hi() {
+
+            myGridPane.getGroup().setLayoutY(myGridPane.getGroup().getLayoutY() - 100);
+
+    }
+
+    public void traverseLeft() {
+        scrollAnimation.traverseLeft();
+    }
+
+    public void traverseLeftPlay() {
+        scrollAnimation.playLeft();
+    }
+
+    public void traverseLeftStop() {
+        scrollAnimation.stopLeft();
+    }
+
+    public GridPane getMyGridPane() {
+        return myGridPane;
+    }
 
 }
