@@ -234,6 +234,7 @@ public class GridPane {
         grid = new GridPaneNode[(int) height][(int) width];
     }
 
+    @Deprecated
     public List<GridPaneNode> swapBeta (GameObject obj, EditorController control) {
         List<GridPaneNode> list = obj.getImageTiles();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
@@ -268,7 +269,7 @@ public class GridPane {
                     // TODO add dimension checker
                     temp.swap(list.get(j), list.get(j).getImageNum());
                     control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(),
-                                     temp.getCol());
+                                  temp.getCol());
                     setPlayer(temp, obj, control);
                 }
             }
@@ -324,28 +325,29 @@ public class GridPane {
     }
 
     public void delete (List<GridPaneNode> list) {
-        ArrayList<ArrayList<Integer>> deleted = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> deleted = new ArrayList<Integer>();
         for (int i = 0; i < list.size(); i++) {
             GridPaneNode temp = list.get(i);
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
+            System.out.println(deleted);
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
+        System.out.println(deleted.get(0));
         if (!deleted.isEmpty()) {
-            for (int i = 0; i < deleted.get(0).size(); i++) {
-                GridPaneNode node = grid[deleted.get(0).get(i)][deleted.get(1).get(i)];
+            for (int i = 0; i < deleted.size(); i+=2) {            
+                GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
                 node.swap(def, node.getImageNum());
-            }
-
-            
+            }        
         }
         clicked = new ArrayList<GridPaneNode>();
+        System.out.println(gridMap);
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
         return controller.linkBlocks(node1.getRow(), node1.getCol(), node2.getRow(), node2.getCol(),
                                      0, 0);
     }
-
+    
     /**
      * Removes neighbors in clicked if object would contain both
      * 
