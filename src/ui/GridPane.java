@@ -17,6 +17,9 @@ import editor.EditorController;
 public class GridPane {
     // name & identifier & row/column
 
+    private final int WRAP = 10;
+    private final int CELL_PIXELS = 50;
+
     private Group group;
     private List<GridPaneNode> blockList;
     private List<GridPaneNode> clicked;
@@ -46,12 +49,14 @@ public class GridPane {
 
         hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(-.1);
-        this.renderTopLeftX = renderTopLeftX;
-        this.renderTopLeftY = renderTopLeftY;
+
         this.gridWidth = gridWidth;
         this.gridHeight = gridHeight;
         this.renderWidth = renderWidth;
         this.renderHeight = renderHeight;
+        this.renderTopLeftX = renderTopLeftX;
+        this.renderTopLeftY = renderTopLeftY;
+
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
         def = new GridPaneNode(0, 0, defaultText());
@@ -66,26 +71,27 @@ public class GridPane {
 
     private int randomNumber (int min, int max) {
         Random rand = new Random();
-        return rand.nextInt((max - min) + 1) + min;
+        //return rand.nextInt((max - min) + 1) + min;
+        return 1;
     }
 
-    private double getXRender (int a) {
-        double cellWidth = renderWidth / gridWidth;
-        int sol = a;
-        return sol * cellWidth + renderTopLeftX;
+    private double getXRender (int column) {
+        double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP  - renderWidth/CELL_PIXELS);;
+        return column * CELL_PIXELS + renderTopLeftX + offset;
     }
 
-    private double getYRender (int a) {
-        double cellHeight = 0.0 + renderHeight / gridHeight;
-        int sol = a;
-        return sol * cellHeight + renderTopLeftY;
+    private double getYRender (int row) {
+        double offset = -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
+        return row * CELL_PIXELS + renderTopLeftY + offset;
     }
 
     private void initializeGrid () {
-        gridMap = new GridObjectMap((int) gridWidth, (int) gridHeight);
-        grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
-        for (int i = 0; i < gridWidth; i++) {
-            for (int j = 0; j < gridHeight; j++) {
+        int columns = (int) gridWidth + WRAP;
+        int rows = (int) gridHeight + WRAP;
+        gridMap = new GridObjectMap(columns, rows);
+        grid = new GridPaneNode[columns][rows];
+        for (int i = 0; i < columns; i++) {
+            for (int j = 0; j < rows; j++) {
                 GridPaneNode node = new GridPaneNode(i, j, defaultText());
                 blockList.add(node);
                 grid[j][i] = node;
@@ -99,9 +105,15 @@ public class GridPane {
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
             double y = getYRender(node.getRow());
-            node.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
+            node.setImageSize(CELL_PIXELS, CELL_PIXELS);
             node.setImageCoord(x, y);
-            makeClickable(node);
+            if (node.getCol() >= WRAP/2
+                    && node.getCol() < gridWidth + WRAP/2
+                    && node.getRow() >= WRAP/2
+                    && node.getRow() < gridHeight + WRAP/2)
+                makeClickable(node);
+            else
+                node.getImage().setEffect(hoverOpacity);
             // System.out.println("col: " + node.getCol());
             // System.out.println("row: " + node.getRow());
             // System.out.println("length: " + grid.length);
@@ -427,5 +439,6 @@ public class GridPane {
             click(node);
         });
     }
+
 
 }

@@ -10,12 +10,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
+import ui.scenes.ScrollAnimation;
 import ui.scenes.editor.objects.ItemPanelObjects;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.KeyCode;
 import java.util.*;
 
 
 /**
- * @author Teddy Franceschi, Robert Steilberg
+ * @author Teddy Franceschi, Robert Steilberg, Harshil Garg
  *         <p>
  *         This class initializes the grid-based UI used to create the overworld.
  */
@@ -29,10 +32,15 @@ public class GridUI {
     private EditorController myController;
     private ColorAdjust hoverOpacity;
 
-    GridUI(Parent root, ItemPanelObjects editorObjects, EditorController controller, ResourceBundle resources) {
+    private ScrollAnimation scrollAnimation;
+
+    private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
+    private static final String CSS_FILE_NAME = "resources/styles/game-editor.css";
+
+    public GridUI(Parent root, ItemPanelObjects editorObjects, EditorController controller) {
         myRoot = root;
         myEditorObjects = editorObjects;
-        myResources = resources;
+        myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         myBuilder = new UIBuilder();
         myController = controller;
         hoverOpacity = new ColorAdjust();
@@ -172,17 +180,18 @@ public class GridUI {
      * functionality to the grid
      */
     public void initGrid(int gridWidth, int gridHeight) {
-        addGridBorder();
+        //addGridBorder();
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(gridWidth,
                 gridHeight,
-                util.getIntProperty(myResources, "gridWidth"),
-                util.getIntProperty(myResources, "gridHeight"),
+                util.getIntProperty(myResources, "windowWidth"),
+                util.getIntProperty(myResources, "windowHeight"),
                 util.getIntProperty(myResources, "gridX"),
                 util.getIntProperty(myResources, "gridY"));
         myController.addGrid(gridHeight, gridWidth);
         myController.changeGrid(0);
         initGridControl();
+        scrollAnimation = new ScrollAnimation(myGridPane.getGroup());
     }
 
 //    /**
@@ -200,5 +209,39 @@ public class GridUI {
 //                                  util.getIntProperty(myResources, "gridY"));
 //        initGridControl();
 //    }
+
+    public void hi() {
+
+            myGridPane.getGroup().setLayoutY(myGridPane.getGroup().getLayoutY() - 100);
+
+    }
+
+    public void traverseLeft() {
+        scrollAnimation.traverseLeft();
+    }
+
+    public void traverseLeftPlay() {
+        scrollAnimation.playLeft();
+    }
+
+    public void traverseLeftStop() {
+        scrollAnimation.stopLeft();
+    }
+
+    public void traverseRight() {
+        scrollAnimation.traverseRight();
+    }
+
+    public void traverseRightPlay() {
+        scrollAnimation.playRight();
+    }
+
+    public void traverseRightStop() {
+        scrollAnimation.stopRight();
+    }
+
+    public GridPane getMyGridPane() {
+        return myGridPane;
+    }
 
 }
