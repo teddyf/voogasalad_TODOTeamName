@@ -15,7 +15,7 @@ import java.util.*;
 
 
 /**
- * @author Teddy Franceschi, Robert Steilberg
+ * @author Teddy Franceschi, Robert Steilberg, Harshil Garg
  *         <p>
  *         This class initializes the grid-based UI used to create the overworld.
  */
@@ -29,10 +29,13 @@ public class GridUI {
     private EditorController myController;
     private ColorAdjust hoverOpacity;
 
-    GridUI(Parent root, ItemPanelObjects editorObjects, EditorController controller, ResourceBundle resources) {
+    private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
+    private static final String CSS_FILE_NAME = "resources/styles/game-editor.css";
+
+    public GridUI(Parent root, ItemPanelObjects editorObjects, EditorController controller) {
         myRoot = root;
         myEditorObjects = editorObjects;
-        myResources = resources;
+        myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         myBuilder = new UIBuilder();
         myController = controller;
         hoverOpacity = new ColorAdjust();
@@ -172,12 +175,12 @@ public class GridUI {
      * functionality to the grid
      */
     public void initGrid(int gridWidth, int gridHeight) {
-        addGridBorder();
+        //addGridBorder();
         PropertiesUtilities util = new PropertiesUtilities();
         myGridPane = new GridPane(gridWidth,
                 gridHeight,
-                util.getIntProperty(myResources, "gridWidth"),
-                util.getIntProperty(myResources, "gridHeight"),
+                util.getIntProperty(myResources, "windowWidth"),
+                util.getIntProperty(myResources, "windowHeight"),
                 util.getIntProperty(myResources, "gridX"),
                 util.getIntProperty(myResources, "gridY"));
         myController.addGrid(gridHeight, gridWidth);
