@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import api.IPlayer;
 import editor.backend.Battle;
@@ -21,6 +22,8 @@ import editor.backend.Status;
 
 @XStreamAlias("player")
 public class Player implements IPlayer {
+	@XStreamOmitField
+	private static final int DEFAULT_HEALTH = 100;
 	
 	private String myName;
 	private PlayerDirection myDirection;
@@ -32,6 +35,7 @@ public class Player implements IPlayer {
 	private List<Battle> myBattleHistory;
 	private List<Interaction> myInteractionHistory;
 	private List<Status> myStatus;
+	private int health;
 	
 	public Player(String name, int row, int col, int gridIndex) {
 		myName = name;
@@ -44,6 +48,8 @@ public class Player implements IPlayer {
 		myBattleHistory = new ArrayList<>();
 		myInteractionHistory = new ArrayList<>();
 		myStatus = new ArrayList<>();
+		
+		health = DEFAULT_HEALTH;
 	}
 
 	public String getPlayerName() {
@@ -124,5 +130,13 @@ public class Player implements IPlayer {
 	
 	public void addStatus(Status status) {
 		myStatus.add(status);
+	}
+	
+	public void setHealth(int health) {
+		this.health = health;
+	}
+	
+	public int getHealth() {
+		return health;
 	}
 }
