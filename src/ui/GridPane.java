@@ -54,7 +54,7 @@ public class GridPane {
         this.renderHeight = renderHeight;
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
-        def = new GridPaneNode(0,0,defaultText());
+        def = new GridPaneNode(0, 0, defaultText());
         initializeGrid();
         setRenderMap();
     }
@@ -147,7 +147,7 @@ public class GridPane {
                 i--;
             }
         }
-        for(int i = 0; i < blockList.size();i++){
+        for (int i = 0; i < blockList.size(); i++) {
             setEmptyToDefault(blockList.get(i));
         }
         gridWidth = x;
@@ -193,9 +193,9 @@ public class GridPane {
             resizeResetLess(x, y);
         }
     }
-    
-    private void setEmptyToDefault(GridPaneNode node){
-        if(gridMap.available(node.getCol(),node.getRow())){
+
+    private void setEmptyToDefault (GridPaneNode node) {
+        if (gridMap.available(node.getCol(), node.getRow())) {
             node.swap(def, node.getImageNum());
         }
     }
@@ -322,18 +322,23 @@ public class GridPane {
             checkNeighbors(xPos, yPos, list.size());
         }
     }
-    
-    public void delete(List<GridPaneNode> list){
+
+    public void delete (List<GridPaneNode> list) {
         ArrayList<ArrayList<Integer>> deleted = new ArrayList<ArrayList<Integer>>();
-        for(int i = 0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             GridPaneNode temp = list.get(i);
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
-        for(int i = 0; i < deleted.get(0).size(); i++){
-            GridPaneNode node = grid[deleted.get(0).get(i)][ deleted.get(1).get(i)];
-            node.swap(def,node.getImageNum());
+        if (!deleted.isEmpty()) {
+            for (int i = 0; i < deleted.get(0).size(); i++) {
+                GridPaneNode node = grid[deleted.get(0).get(i)][deleted.get(1).get(i)];
+                node.swap(def, node.getImageNum());
+            }
+
+            
         }
+        clicked = new ArrayList<GridPaneNode>();
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {

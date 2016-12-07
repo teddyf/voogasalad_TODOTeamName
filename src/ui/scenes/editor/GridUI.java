@@ -12,7 +12,6 @@ import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.objects.ItemPanelObjects;
 import java.util.*;
-import java.util.ResourceBundle;
 
 
 /**
@@ -101,6 +100,15 @@ public class GridUI {
                 myGridPane.buildLink(selected.get(0),selected.get(1),myController);
                 
             }
+        });
+        
+        Node deleteButton = buildButton("deleteX","deleteY","deleteWidth","deletePath");
+        deleteButton.setOnMouseClicked(e->{
+            List<GridPaneNode> selected = myGridPane.getClicked();
+            for(int i = 0; i <  selected.size(); i++){
+                selected.get(i).getImage().setEffect(null);
+            }
+            myGridPane.delete(myGridPane.getClicked());
         });
     }
 
