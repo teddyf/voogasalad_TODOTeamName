@@ -24,7 +24,7 @@ public class GridScrollButton {
     }
 
     public void setUpButtons() {
-        "resources/images/tiles/decorations/dirt-1";
+       // "resources/images/tiles/decorations/dirt-1";
     }
 
 }
