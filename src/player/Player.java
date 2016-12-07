@@ -1,8 +1,10 @@
 package player;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
@@ -25,7 +27,7 @@ public class Player implements IPlayer {
 	private int myRow;
 	private int myCol;
 	private int myGridIndex;
-	private List<PlayerAttribute> myAttributes;
+	private Map<String, PlayerAttribute> myAttributes;
 	private List<Item> myInventory;
 	private List<Battle> myBattleHistory;
 	private List<Interaction> myInteractionHistory;
@@ -37,7 +39,7 @@ public class Player implements IPlayer {
 		myRow = row;
 		myCol = col;
 		myGridIndex = gridIndex;
-		myAttributes = new ArrayList<>();
+		myAttributes = new HashMap<>();
 		myInventory = new ArrayList<>();
 		myBattleHistory = new ArrayList<>();
 		myInteractionHistory = new ArrayList<>();
@@ -64,8 +66,8 @@ public class Player implements IPlayer {
 		return myGridIndex;
 	}
 
-	public List<PlayerAttribute> getAttributes() {
-		return Collections.unmodifiableList(myAttributes);
+	public Collection<PlayerAttribute> getAttributes() {
+		return myAttributes.values();
 	}
 	
 	public List<Item> getInventory() {
@@ -100,8 +102,12 @@ public class Player implements IPlayer {
 		myGridIndex = gridIndex;
 	}
 
-	public void addAttribute(PlayerAttribute attribute) {
-		myAttributes.add(attribute);
+	public void addAttribute(String key, PlayerAttribute attribute) {
+		myAttributes.put(key, attribute);
+	}
+	
+	public PlayerAttribute getAttribute(String key) {
+		return myAttributes.get(key);
 	}
 	
 	public void addItem(Item item) {

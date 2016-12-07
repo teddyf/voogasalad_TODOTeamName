@@ -1,5 +1,6 @@
 package api;
 
+import java.util.Collection;
 import java.util.List;
 
 import editor.backend.Battle;
@@ -44,7 +45,7 @@ public interface IPlayer {
 	 * Gets a list of all of the attributes of the player
 	 * @return the list of attributes
 	 */
-	public List<PlayerAttribute> getAttributes();
+	public Collection<PlayerAttribute> getAttributes();
 
  	/**
 	 * Gets the list of all items that the player possesses
@@ -92,7 +93,7 @@ public interface IPlayer {
 	 * Adds an attribute to the list of attributes
 	 * @param attribute the attribute to add
 	 */
-	public void addAttribute(PlayerAttribute attribute);
+	public void addAttribute(String key, PlayerAttribute attribute);
 
 	/**
 	 * Adds an item to the inventory 
