@@ -33,18 +33,14 @@ public class GridObjectMap {
         }
     }
     
-    public ArrayList<ArrayList<Integer>> sharesObjWith(int x, int y){
+    public ArrayList<Integer> sharesObjWith(int x, int y){
         ArrayList<Point> neighbors = sharesObjectWith(x,y);
-        ArrayList<Integer> xs = new ArrayList<Integer>();
-        ArrayList<Integer> ys = new ArrayList<Integer>();
+        ArrayList<Integer> points = new ArrayList<Integer>();
         for(int i = 0; i < neighbors.size(); i++){
-            xs.add((int)neighbors.get(i).getX());
-            ys.add((int)neighbors.get(i).getY());
+            points.add((int)neighbors.get(i).getX());
+            points.add((int)neighbors.get(i).getY());
         }
-        ArrayList<ArrayList<Integer>> sol = new ArrayList<ArrayList<Integer>>();
-        sol.add(xs);
-        sol.add(ys);
-        return sol;
+        return points;
     }
     
     public boolean storeObject(List<GridPaneNode> a){

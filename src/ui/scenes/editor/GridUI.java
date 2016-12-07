@@ -188,7 +188,7 @@ public class GridUI {
 //    /**
 //     * Creates a grid and then adds functionality to it
 //     */
-//    public void initGrid () {
+//    public void initGrid () {;p[
 //        addGridBackground();
 //        PropertiesUtilities util = new PropertiesUtilities();
 //        myGridPane = new GridPane(
