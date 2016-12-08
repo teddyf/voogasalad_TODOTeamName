@@ -12,10 +12,8 @@ public enum BlockType {
     ENEMY,
     GATE,
     OBSTACLE,
-    PLAYER_SPAWN,
     SWITCH_FLOOR,
     SWITCH_TOUCH,
     TELEPORT,
-
     ITEM_KEY
 }

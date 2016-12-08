@@ -10,47 +10,41 @@ import grid.GridGrowthDirection;
 import grid.GridWorld;
 import grid.RenderedGrid;
 import player.Player;
-import interactions.Interaction;
 import player.PlayerAttribute;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
 /**
- * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
- * is being created.
- * @author Aninda Manocha, Filip Mazurek
+ * Created by anindamanocha on 12/8/16.
  */
 
-public class EditorController {
+public class EditorModel {
     private BlockFactory blockFactory;
     private GridXMLHandler xmlHandler;
     private GridWorld gridWorld;
     private Grid currentGrid;
-    private RenderedGrid renderedGrid;
-    private int myNumRows;
-    private int myNumColumns;
     private Player player;
 
-    private final EditorModel myModel;
-
-    public EditorController() {
-        myModel = new EditorModel();
-
+    public EditorModel() {
         blockFactory = new BlockFactory();
         xmlHandler = new GridXMLHandler();
         gridWorld = new GridWorld();
     }
 
     public void addGrid(int numRows, int numCols) {
-        myModel.addGrid(numRows, numCols);
+        Grid newGrid = new Grid(gridWorld.getNumGrids(), numRows, numCols);
+        gridWorld.addGrid(newGrid);
+        changeGrid(gridWorld.getNumGrids()-1);
     }
 
     public void changeGrid(int index) {
-        myModel.changeGrid(index);
+        gridWorld.setCurrentIndex(index);
+        currentGrid = gridWorld.getCurrentGrid();
     }
 
-    public void addBlock(String name, BlockType blockType, int row, int col) {
-        myModel.createBlock(name, blockType, row, col);
+    public void createBlock(String name, BlockType blockType, int row, int col) {
+        Block block = blockFactory.createBlock(name, blockType, row, col);
+        currentGrid.setBlock(row, col, block);
     }
 
     public boolean addMessage(String message, int row, int col) {
@@ -102,8 +96,8 @@ public class EditorController {
      * @param amount: positive int of how much the grid should shrink
      */
     public void shrinkGrid(GridGrowthDirection direction, int amount) {
-        int newNumRows = myNumRows;
-        int newNumCols = myNumColumns;
+        int newNumRows = currentGrid.getNumRows();
+        int newNumCols = currentGrid.getNumCols();
         int rowOffset = 0;
         int colOffset = 0;
         switch (direction) {
@@ -121,13 +115,13 @@ public class EditorController {
                 }
                 break;
             case SOUTH:
-                newNumRows = myNumRows - amount;
+                newNumRows = currentGrid.getNumRows() - amount;
                 if(player.getRow() < newNumRows) {
                     //TODO warning message
                 }
                 break;
             case EAST:
-                newNumCols = myNumColumns - amount;
+                newNumCols = currentGrid.getNumCols() - amount;
                 if(player.getCol() < newNumCols) {
                     //TODO warning message
                 }
@@ -144,48 +138,42 @@ public class EditorController {
         }
 
         Grid newGrid = new Grid(gridWorld.getCurrentIndex(), newNumRows - rowOffset, newNumCols - colOffset);
-        renderedGrid = new RenderedGrid(newGrid);
         for (int r = rowOffset; r < newNumRows; r++) {
             for (int c = colOffset; c < newNumCols; c++) {
                 newGrid.setBlock(r, c, currentGrid.getBlock(r, c));
             }
         }
         currentGrid = newGrid;
-        myNumRows = currentGrid.getNumRows();
-        myNumColumns = currentGrid.getNumCols();
     }
 
     public void growGrid(GridGrowthDirection direction, int amount) {
-        int newNumRows = myNumRows;
-        int newNumCols = myNumColumns;
+        int newNumRows = currentGrid.getNumRows();
+        int newNumCols = currentGrid.getNumCols();
         int rowOffset = 0;
         int colOffset = 0;
         switch (direction) {
             case NORTH:
-                newNumRows = myNumRows + amount;
+                newNumRows = currentGrid.getNumRows() + amount;
                 rowOffset = amount;
                 break;
             case SOUTH:
-                newNumRows = myNumRows + amount;
+                newNumRows = currentGrid.getNumRows() + amount;
                 break;
             case EAST:
-                newNumCols = myNumColumns + amount;
+                newNumCols = currentGrid.getNumCols() + amount;
                 break;
             case WEST:
-                newNumCols = myNumColumns + amount;
+                newNumCols = currentGrid.getNumCols() + amount;
                 colOffset = amount;
                 break;
         }
         Grid newGrid = new Grid(gridWorld.getCurrentIndex(), newNumRows, newNumCols);
-        renderedGrid = new RenderedGrid(newGrid);
-        for (int r = 0; r < myNumRows; r++) {
-            for (int c = 0; c < myNumColumns; c++) {
+        for (int r = 0; r < currentGrid.getNumRows(); r++) {
+            for (int c = 0; c < currentGrid.getNumCols(); c++) {
                 newGrid.setBlock(r + rowOffset, c + colOffset, currentGrid.getBlock(r, c));
             }
         }
         currentGrid = newGrid;
-        myNumRows = currentGrid.getNumRows();
-        myNumColumns = currentGrid.getNumCols();
     }
 
     /*****METHODS FOR FRONTEND TO CALL*****/
@@ -195,7 +183,7 @@ public class EditorController {
      * @return the row
      */
     public int getRow() {
-        return myNumRows;
+        return player.getRow();
     }
 
     /**
@@ -203,7 +191,7 @@ public class EditorController {
      * @return the column
      */
     public int getCol() {
-        return myNumColumns;
+        return player.getCol();
     }
 
     /**
@@ -213,7 +201,7 @@ public class EditorController {
      * @return the block
      */
     public String getBlock(int row, int col) {
-        return myModel.getBlock(row, col);
+        return currentGrid.getBlock(row, col).getName();
     }
 
     /**
