@@ -25,6 +25,7 @@ public class ImageViewBuilder extends ComponentBuilder {
         imageView.setPreserveRatio(properties.preserveRatio);
         imageView.setFitWidth(properties.width);
         imageView.setFitHeight(properties.height);
+        imageView.setRotate(properties.rotate);
         return imageView;
     }
 }

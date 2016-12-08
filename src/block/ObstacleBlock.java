@@ -6,10 +6,9 @@ package block;
  *
  * @author Filip Mazurek, Daniel Chai
  */
-public class ObstacleBlock extends Block implements NotWalkable {
+public class ObstacleBlock extends Block {
 
     public ObstacleBlock(String name, int row, int col) {
         super(name, row, col);
-        setWalkableStatus(IS_WALKABLE);
     }
 }

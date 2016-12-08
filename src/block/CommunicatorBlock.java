@@ -1,17 +1,25 @@
 package block;
 
+import interactions.MessageInteraction;
+
 /**
  * A board object with which the player character will have some active
  * interaction (i.e. pressing 'A' or stepping on a switch which elicits a
  * response.
  *
- * @author Filip Mazurek, Daniel Chai
+ * @author Filip Mazurek, Aninda Manocha
  */
-public class CommunicatorBlock extends Block implements NotWalkable {
+public class CommunicatorBlock extends Block {
+
+    private String myMessage;
 
 	public CommunicatorBlock(String name, int row, int col) {
 		super(name, row, col);
-		setWalkableStatus(IS_WALKABLE); 		// tentative. What about letters on the floor, etc.
 	}
+
+	public void setMessage(String message) {
+	    addTalkInteraction(new MessageInteraction(this.getRow(), this.getCol()));
+	    myMessage = message;
+    }
 
 }

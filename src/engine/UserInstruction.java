@@ -10,9 +10,5 @@ public enum UserInstruction {
 	DOWN,
 	RIGHT,
 	LEFT,
-	NORTHEAST,
-	NORTHWEST,
-	SOUTHEAST,
-	SOUTHWEST,
-	TALK
+	TALK;
 }

@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
- * The rectangular grid in which all the block objects may be placed.
+ * The rectangular grid in which all the block ui.scenes.editor.objects may be placed.
  * @author Filip Mazurek, Aninda Manocha, Daniel Chai
  */
 
@@ -18,14 +18,15 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 public class Grid extends Observable implements IGrid {
 	@XStreamOmitField
 	private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
-	
+	private int myIndex;
     private int myNumRows;
     private int myNumColumns;
     
     @XStreamImplicit
     private Block[][] myGrid;
 
-    public Grid(int numRows, int numColumns) {
+    public Grid(int index, int numRows, int numColumns) {
+        myIndex = index;
         myNumRows = numRows;
         myNumColumns = numColumns;
         myGrid = new Block[numRows][numColumns];
@@ -48,16 +49,23 @@ public class Grid extends Observable implements IGrid {
         return myNumColumns;
     }
 
+    public int getIndex() {
+        return myIndex;
+    }
+
     public Grid getGrid() {
         return this;
     }
 
     public Block getBlock(int row, int col) {
-        return myGrid[row][col];
+        if (row < 0 || row >= myNumRows || col < 0 || col >= myNumColumns) {
+            return null;
+        } else {
+            return myGrid[row][col];
+        }
     }
 
     public void setBlock(int row, int col, Block block) {
-        System.out.println("here");
         myGrid[row][col] = block;
         setChanged();
         notifyObservers(block);

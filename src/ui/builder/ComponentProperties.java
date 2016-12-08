@@ -5,7 +5,7 @@ import javafx.scene.paint.Color;
 /**
  * @author Harshil Garg, Robert Steilberg
  *         <p>
- *         This class holds information used to build JavaFX objects.
+ *         This class holds information used to build JavaFX ui.scenes.editor.objects.
  */
 public class ComponentProperties {
 
@@ -21,6 +21,8 @@ public class ComponentProperties {
     protected int size;
     protected String header;
     protected String content;
+    protected Color color;
+    protected double rotate;
 
     public ComponentProperties() {
     }
@@ -77,6 +79,16 @@ public class ComponentProperties {
 
     public ComponentProperties content(String content) {
         this.content = content;
+        return this;
+    }
+    
+    public ComponentProperties color(Color color) {
+    	this.color = color;
+    	return this;
+    }
+
+    public ComponentProperties rotate(double rotate) {
+        this.rotate = rotate;
         return this;
     }
 }

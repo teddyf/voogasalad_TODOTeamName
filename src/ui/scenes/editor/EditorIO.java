@@ -48,7 +48,7 @@ public class EditorIO {
     }
 
     /**
-     * Gets the path to a file to open
+     * Gets the myIconPath to a file to open
      *
      * @return true if opening successful, false otherwise
      */
@@ -69,6 +69,7 @@ public class EditorIO {
      * @return true if export successful, false otherwise
      */
     public boolean saveGameFile() {
+        System.out.println("saving game");
         File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile != null) {
             myEditorController.saveEngine(gameFile.getAbsolutePath());
@@ -92,6 +93,7 @@ public class EditorIO {
     }
 
     public void runGameInEditor() {
+
         EngineController loadedEngine = myEditorController.runEngine();
         // TODO continue running game
     }

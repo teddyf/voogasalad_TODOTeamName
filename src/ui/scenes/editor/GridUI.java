@@ -1,64 +1,97 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
+import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 import ui.GridPane;
+import ui.GridPaneNode;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-
-import java.util.ResourceBundle;
+import ui.scenes.ScrollAnimation;
+import ui.scenes.editor.objects.ItemPanelObjects;
+import java.util.*;
 
 
 /**
- * @author Teddy Franceschi, Robert Steilberg
+ * @author Teddy Franceschi, Robert Steilberg, Harshil Garg
  *         <p>
  *         This class initializes the grid-based UI used to create the overworld.
  */
 public class GridUI {
 
-    private ResourceBundle myResources;
-    private GridPane myGridPane;
-    private UIBuilder myBuilder;
     private Parent myRoot;
-    private EditorSidePanel myItemMenu;
+    private ItemPanelObjects myEditorObjects;
     private EditorController myController;
 
-    GridUI(Parent root, EditorSidePanel itemMenu, EditorController controller, ResourceBundle resources) {
+    private ResourceBundle myResources;
+    private PropertiesUtilities myUtil;
+    private UIBuilder myBuilder;
+    private ColorAdjust hoverOpacity;
+
+    private GridPane myGridPane;
+
+    private ScrollAnimation scrollAnimation;
+
+    private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
+
+    public GridUI(Parent root, ItemPanelObjects editorObjects, EditorController controller) {
         myRoot = root;
-        myItemMenu = itemMenu;
-        myResources = resources;
-        myBuilder = new UIBuilder();
+        myEditorObjects = editorObjects;
         myController = controller;
+
+        myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
+        myUtil = new PropertiesUtilities(myResources);
+        myBuilder = new UIBuilder();
+        hoverOpacity = new ColorAdjust();
     }
+
+
+    /**
+     * Creates a grid of specified width and height, and then adds
+     * functionality to the grid.
+     */
+    public void initGrid(int width, int height) {
+        myGridPane = new GridPane(width,
+                height,
+                myUtil.getIntProperty("windowWidth"),
+                myUtil.getIntProperty("windowHeight"),
+                myUtil.getIntProperty("gridX"),
+                myUtil.getIntProperty("gridY"));
+        myController.addGrid(width, height);
+        myController.changeGrid(0);
+        initGridControl();
+        scrollAnimation = new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(), myGridPane.getYMin());
+
+        GridScrollButton gsb = new GridScrollButton(myRoot, scrollAnimation);
+    }
+
 
     /**
      * Configures grid event handlers that allow the user to add and remove
-     * objects from it.
+     * ui.scenes.editor.objects from it.
      */
     private void initGridControl() {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
-        PropertiesUtilities util = new PropertiesUtilities();
-        ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(util.getDoubleProperty(myResources, "buttonHoverOpacity"));
-        int updateX = util.getIntProperty(myResources, "updateX");
-        int updateY = util.getIntProperty(myResources, "updateY");
-        int updateWidth = util.getIntProperty(myResources, "updateWidth");
-        int widthInputX = util.getIntProperty(myResources, "inputWidthX");
-        int widthInputY = util.getIntProperty(myResources, "inputWidthY");
-        int widthInputWidth = util.getIntProperty(myResources, "inputWidthWidth");
-        String widthInputText = myResources.getString("inputWidthText");
-        int heightInputX = util.getIntProperty(myResources, "inputHeightX");
-        int heightInputY = util.getIntProperty(myResources, "inputHeightY");
-        int heightInputWidth = util.getIntProperty(myResources, "inputHeightWidth");
-        String heightInputText = myResources.getString("inputHeightText");
-        int swapX = util.getIntProperty(myResources, "swapX");
-        int swapY = util.getIntProperty(myResources, "swapY");
-        int swapWidth = util.getIntProperty(myResources, "swapWidth");
-        String swapPath = myResources.getString("swapPath");
+        hoverOpacity.setBrightness(myUtil.getDoubleProperty("buttonHoverOpacity"));
+        int updateX = myUtil.getIntProperty("updateX");
+        int updateY = myUtil.getIntProperty("updateY");
+        int updateWidth = myUtil.getIntProperty("updateWidth");
+        int widthInputX = myUtil.getIntProperty("inputWidthX");
+        int widthInputY = myUtil.getIntProperty("inputWidthY");
+        int widthInputWidth = myUtil.getIntProperty("inputWidthWidth");
+        String widthInputText = myUtil.getStringProperty("inputWidthText");
+        int heightInputX = myUtil.getIntProperty("inputHeightX");
+        int heightInputY = myUtil.getIntProperty("inputHeightY");
+        int heightInputWidth = myUtil.getIntProperty("inputHeightWidth");
+        String heightInputText = myUtil.getStringProperty("inputHeightText");
+        int swapX = myUtil.getIntProperty("swapX");
+        int swapY = myUtil.getIntProperty("swapY");
+        int swapWidth = myUtil.getIntProperty("swapWidth");
+        String swapPath = myUtil.getStringProperty("swapPath");
         Node widthInputField =
                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
                         widthInputWidth);
@@ -82,14 +115,32 @@ public class GridUI {
             }
 
         });
+
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
         //TODO add interaction somewhere here as well
-        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getHandler().getSelected(),
+        swapButton.setOnMouseClicked(e -> myGridPane.swap(myEditorObjects.getSelected(),
                 myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
+        Node linkButton = buildButton("linkX", "linkY", "linkWidth", "linkPath");
+        linkButton.setOnMouseClicked(e->{
+            List<GridPaneNode> selected = myGridPane.getClicked();
+            if(selected.size()==2){
+                myGridPane.buildLink(selected.get(0),selected.get(1),myController);
+                
+            }
+        });
+        
+        Node deleteButton = buildButton("deleteX","deleteY","deleteWidth","deletePath");
+        deleteButton.setOnMouseClicked(e->{
+            List<GridPaneNode> selected = myGridPane.getClicked();
+            for(int i = 0; i <  selected.size(); i++){
+                selected.get(i).getImage().setEffect(null);
+            }
+            myGridPane.delete(myGridPane.getClicked());
+        });
     }
 
     public void loadGrid() {
@@ -112,7 +163,7 @@ public class GridUI {
      * Adds a border to the grid based on the grid's position and size
      * by creating a Rectangle behind it
      */
-    private void addGridBorder() {
+/*    private void addGridBorder() {
         PropertiesUtilities util = new PropertiesUtilities();
         Rectangle border = new Rectangle();
         border.setLayoutX(util.getIntProperty(myResources, "gridX") - util.getIntProperty(myResources, "borderSize"));
@@ -121,39 +172,34 @@ public class GridUI {
         border.setHeight(util.getIntProperty(myResources, "gridHeight") + util.getIntProperty(myResources, "borderSize") * 2);
         border.setId("grid-border");
         myBuilder.addComponent(myRoot, border);
-    }
-
+    }*/
+    
     /**
-     * Creates a grid of specified width and height, and then adds
-     * functionality to the grid
+     * Builds a button from string input
+     * @param xPos X-position of button
+     * @param yPos Y-Position of button
+     * @param width width of button
+     * @param path Image myIconPath of button
+     * @return
      */
-    public void initGrid(int gridWidth, int gridHeight) {
-        addGridBorder();
-        PropertiesUtilities util = new PropertiesUtilities();
-        myGridPane = new GridPane(gridWidth,
-                gridHeight,
-                util.getIntProperty(myResources, "gridWidth"),
-                util.getIntProperty(myResources, "gridHeight"),
-                util.getIntProperty(myResources, "gridX"),
-                util.getIntProperty(myResources, "gridY"));
-        myController.addGrid(gridHeight, gridWidth);
-        initGridControl();
+    private Node buildButton(String xPos, String yPos, String width, String path){
+        int x = Integer.parseInt(myResources.getString(xPos));
+        int y = Integer.parseInt(myResources.getString(yPos));
+        int girth = Integer.parseInt(myResources.getString(width));
+        String route = myResources.getString(path);
+        Node node = myBuilder.addCustomButton(myRoot, route, x, y, girth);
+        node.setOnMouseEntered(e->{
+            node.setEffect(hoverOpacity);
+        });
+        node.setOnMouseExited(e->{
+            node.setEffect(null);
+        });
+        return node;
+        
     }
 
-//    /**
-//     * Creates a grid and then adds functionality to it
-//     */
-//    public void initGrid () {
-//        addGridBackground();
-//        PropertiesUtilities util = new PropertiesUtilities();
-//        myGridPane = new GridPane(
-//                                  util.getIntProperty(myResources, "gridCellsWide"),
-//                                  util.getIntProperty(myResources, "gridCellsHeight"),
-//                                  util.getIntProperty(myResources, "gridWidth"),
-//                                  util.getIntProperty(myResources, "gridHeight"),
-//                                  util.getIntProperty(myResources, "gridX"),
-//                                  util.getIntProperty(myResources, "gridY"));
-//        initGridControl();
-//    }
+    public GridPane getMyGridPane() {
+        return myGridPane;
+    }
 
 }
