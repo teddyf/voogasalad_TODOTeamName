@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import player.Player;
 
 public class MainTest extends Application {
-
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Player player = new Player("Player", 0, 0, 0);
