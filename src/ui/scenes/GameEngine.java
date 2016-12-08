@@ -93,7 +93,7 @@ public class GameEngine extends Scene {
     	Character player = new Character();
     	player.setColumn((int)(grid.getWidth()-1) /2);
     	player.setRow(((int)grid.getHeight()-1) /2);
-    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player2SouthFacing.png");
     	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
     	
     	//gd = new GridDisplayer(gridPane);

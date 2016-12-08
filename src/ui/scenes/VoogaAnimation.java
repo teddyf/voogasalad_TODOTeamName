@@ -77,9 +77,9 @@ public class VoogaAnimation {
 	public void process() {
 		if (!stack.isEmpty() && finished) {
 			KeyCode code = stack.peek();
-				changePlayerWalkingDirection(code, "Player1"); //TODO:no hardcode playernumber
+				changePlayerWalkingDirection(code, "Player2"); //TODO:no hardcode playernumber
 				animate(code);
-				changePlayerFacingDirection(code, "Player1");
+				changePlayerFacingDirection(code, "Player2");
 			finished = false;
 		}
 	}
