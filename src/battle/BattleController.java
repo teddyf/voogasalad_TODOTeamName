@@ -1,7 +1,7 @@
 package battle;
 
 /**
- * @author Daniel Chai, Bill Xiong
+ * @author Daniel Chai
  */
 public class BattleController {
 	private BattleView myView;

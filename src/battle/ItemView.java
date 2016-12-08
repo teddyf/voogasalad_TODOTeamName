@@ -29,7 +29,6 @@ public abstract class ItemView {
 		this.name.setLayoutX(x + BattleView.OFFSET);
 		this.name.setLayoutY(y + BattleView.OFFSET_Y);
 
-
 		itemHP.setLayoutX(x + BattleView.OFFSET);
 		itemHP.setLayoutY(y);
 		this.hp = hp;

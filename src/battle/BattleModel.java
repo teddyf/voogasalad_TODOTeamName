@@ -10,7 +10,7 @@ import javafx.util.Duration;
 import player.Player;
 
 /**
- * @author Daniel Chai, Bill Xiong
+ * @author Daniel Chai
  */
 public class BattleModel extends Observable implements BattleModelInView {
 	private static final int TIME_STEP = 1000;
