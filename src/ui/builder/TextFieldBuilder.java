@@ -9,7 +9,10 @@ public class TextFieldBuilder extends ComponentBuilder{
         textField.setLayoutX(properties.x);
         textField.setLayoutY(properties.y);
         textField.setPromptText(properties.text);
+        textField.setMinWidth(properties.width);
         textField.setMaxWidth(properties.width);
+        textField.setMinHeight(properties.height);
+        textField.setMaxHeight(properties.height);
         return textField;
     }
 }

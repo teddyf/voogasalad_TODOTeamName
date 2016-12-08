@@ -29,12 +29,13 @@ public class EngineSidePanel {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private VBox vbox;
-    private PropertiesUtilities util = new PropertiesUtilities();
+    private PropertiesUtilities util;
 
     public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
+        util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
     }
 
@@ -46,8 +47,8 @@ public class EngineSidePanel {
      */
     public void initSidePanel() {
 
-    	int itemMenuXPos = util.getIntProperty(myResources, "statusPanelPosX");
-        int itemMenuYPos = util.getIntProperty(myResources, "statusPanelPosY");
+    	int itemMenuXPos = util.getIntProperty("statusPanelPosX");
+        int itemMenuYPos = util.getIntProperty("statusPanelPosY");
         
         Pane itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
         Pane canvas = new Pane(); 

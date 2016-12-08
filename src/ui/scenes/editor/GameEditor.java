@@ -11,9 +11,32 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
+import javafx.animation.Animation;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.TranslateTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.StringBinding;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ResourceBundle;
-
+import javafx.scene.control.Button;
 
 /**
  * @author Robert Steilberg
@@ -46,8 +69,9 @@ public class GameEditor extends Scene {
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
-        GridUI grid = new GridUI(myRoot, itemMenu.getItemPanelObjects(), myController, myResources);
+        GridUI grid = new GridUI(myRoot, itemMenu.getItemPanelObjects(), myController);
         grid.initGrid(width, height);
+        itemMenu.addItemPanel();
 //        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources, editorController);
 //        playerMenu.initPlayerMenu();
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
@@ -55,13 +79,19 @@ public class GameEditor extends Scene {
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
         initPlayerButton();
+    System.out.println(grid.getMyGridPane().getGroup().getLayoutX());
+        System.out.println(grid.getMyGridPane().getGroup().getLayoutY());
+
         //        EngineController loadedEngine = editorController.runEngine(); // running test
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
             events.exitPrompt(false);
         });
+
+                /* New code */
         myStage.setScene(this);
+
     }
 
     /**

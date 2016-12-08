@@ -23,7 +23,7 @@ public class GridObjectMap {
         }
     }
     
-    public ArrayList<Point> sharesObjectWith(int x,int y){
+    private ArrayList<Point> sharesObjectWith(int x,int y){
         try{
             ArrayList<Point> neighbors = data.get(new Point(x,y));
             return neighbors;
@@ -33,32 +33,76 @@ public class GridObjectMap {
         }
     }
     
-    public void storeObject(List<Point> a){
-        for(int i = 0; i < a.size(); i++){
-            for( int j = 0; j < a.size(); i++){
-                if(i!=j){
-                    if(data.containsKey(a.get(i))){
-                        data.get(a.get(i)).add(a.get(j));
-                    }
-                }
-            }
+    public ArrayList<Integer> sharesObjWith(int x, int y){
+        ArrayList<Point> neighbors = sharesObjectWith(x,y);
+        ArrayList<Integer> points = new ArrayList<Integer>();
+        for(int i = 0; i < neighbors.size(); i++){
+            points.add((int)neighbors.get(i).getX());
+            points.add((int)neighbors.get(i).getY());
         }
+        return points;
     }
     
-    public void collisionRemoval(Point a){
+    public boolean storeObject(List<GridPaneNode> a){
+        ArrayList<Point> temp = new ArrayList<Point>();
+        for(int i = 0; i < a.size();i++){
+            temp.add(nodeToPoint(a.get(i)));
+        }
+        for(int i = 0; i < temp.size(); i++){
+            for( int j = 0; j < temp.size(); j++){
+                //if(i!=j){
+                    if(data.containsKey(temp.get(i))){
+                        data.get(temp.get(i)).add(temp.get(j));
+                    }
+               // }
+            }
+        }
+        return true;
+    }
+    
+    public void collisionRemoval(int row, int col){
+        Point a = new Point(row,col);
         ArrayList<Point>temp = data.get(a);
         for(int i = 0; i < temp.size(); i++){
             data.put(temp.get(i),new ArrayList<Point>());
         }
     }
     
-    public boolean checkCollision(List<Point> a){
-        for(int i = 0; i < a.size(); i++){
-            if(!data.get(a.get(i)).isEmpty()){
+    public boolean available(int x, int y){
+        Point temp = new Point(x,y);
+        if(data.containsKey(temp)){
+            if(data.get(temp).isEmpty()){
                 return true;
             }
         }
         return false;
+    }
+    
+    public void resizeAdd(int row, int col){
+        Point a = new Point(row,col);
+        if(!data.containsKey(a)){
+            data.put(a, new ArrayList<Point>());
+        }
+    }
+    
+    public void resizeRemove(int row, int col){
+        Point a = new Point(row,col);
+        if(data.containsKey(a)){
+            if(data.get(a).isEmpty()){
+                data.remove(a);
+            }
+            else{
+                collisionRemoval(row,col);
+            }
+        }
+    }
+    
+    private Point nodeToPoint(GridPaneNode node){
+        return new Point(node.getCol(), node.getRow());
+    }
+    
+    public String toString(){
+        return data.toString();
     }
     
 }
