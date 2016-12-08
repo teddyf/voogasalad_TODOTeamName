@@ -61,11 +61,12 @@ public class GridObjectMap {
     }
     
     public void collisionRemoval(int row, int col){
-        Point a = new Point(row,col);
+        Point a = new Point(col,row);
         ArrayList<Point>temp = data.get(a);
         for(int i = 0; i < temp.size(); i++){
             data.put(temp.get(i),new ArrayList<Point>());
         }
+        System.out.println("("+a.getX() + "," + a.getY() + ")");
     }
     
     public boolean available(int x, int y){
@@ -104,5 +105,39 @@ public class GridObjectMap {
     public String toString(){
         return data.toString();
     }
+    
+    public Map<Point,ArrayList<Point>> getMap(){
+        return data;
+    }
+    
+  
+    //Debugger methods for Deletion
+    public void visObjectMap(){
+        for(int i = 0; i < height; i++){
+            for(int j = 0; j < width; j++){
+                if(data.get(new Point(j,i)).isEmpty()){
+                    System.out.print("O");
+                }
+                else
+                    System.out.print("x");
+            }
+            System.out.println();
+        }
+        System.out.println();
+        visObjectMapNums();
+        System.out.println(data);
+    }
+    
+    public void visObjectMapNums(){
+        for(int i = 0; i < height; i++){
+            for(int j = 0; j < width; j++){
+                if(!data.get(new Point(j,i)).isEmpty()){
+                    System.out.print("("+i+","+j+")");
+                }
+            }
+        }
+        System.out.println();
+    }
+    
     
 }
