@@ -65,6 +65,13 @@ public class BattleView implements Observer {
 		BattleModel model = (BattleModel) o;
 		player.setHP(model.getPlayerHP());
 		enemy.setHP(model.getEnemyHP());
+		
+		if (model.checkPlayerLost()) {
+			System.out.println("player lost");
+		}
+		if (model.checkPlayerWon()) {
+			System.out.println("player won");
+		}
 	}
 
 	protected void setModel(BattleModelInView model) {

@@ -13,4 +13,8 @@ public interface BattleModelInView {
 	public void setPlayerHP(int playerHP);
 	
 	public void setEnemyHP(int enemyHP);
+	
+	public boolean checkPlayerWon();
+	
+	public boolean checkPlayerLost();
 }

@@ -19,6 +19,9 @@ public class BattleModel extends Observable implements BattleModelInView {
 	private EnemyBlock enemy;
 	private Timeline timeline;
 	
+	private boolean playerWon = false;
+	private boolean playerLost = false;
+	
 	public BattleModel(Player player, EnemyBlock enemy) {
 		this.player = player;
 		this.enemy = enemy;
@@ -38,6 +41,11 @@ public class BattleModel extends Observable implements BattleModelInView {
 	
 	@Override
 	public void setPlayerHP(int playerHP) {
+		if (playerHP <= 0) {
+			timeline.stop();
+			playerLost = true;
+		}
+		
 		player.setHealth(playerHP);
 		setChanged();
 		notifyObservers();
@@ -45,9 +53,24 @@ public class BattleModel extends Observable implements BattleModelInView {
 	
 	@Override
 	public void setEnemyHP(int enemyHP) {
+		if (enemyHP <= 0) {
+			timeline.stop();
+			playerWon = true;
+		}
+		
 		enemy.setHealth(enemyHP);
 		setChanged();
 		notifyObservers();
+	}
+	
+	@Override
+	public boolean checkPlayerWon() {
+		return playerWon;
+	}
+
+	@Override
+	public boolean checkPlayerLost() {
+		return playerLost;
 	}
 	
 	private void initTimeline() {
@@ -56,5 +79,5 @@ public class BattleModel extends Observable implements BattleModelInView {
 	    timeline.getKeyFrames().add(new KeyFrame(Duration.millis(TIME_STEP), 
 	    		e -> setPlayerHP(getPlayerHP() - BattleView.DAMAGE)));
 	    timeline.play();
-	}
+	}	
 }
