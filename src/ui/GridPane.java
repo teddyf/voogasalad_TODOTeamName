@@ -107,6 +107,9 @@ public class GridPane {
                 makeClickable(node);
             else
                 node.getImage().setEffect(hoverOpacity);
+            // System.out.println("col: " + node.getCol());
+            // System.out.println("row: " + node.getRow());
+            // System.out.println("length: " + grid.length);
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
@@ -147,10 +150,12 @@ public class GridPane {
     }
 
     private void resizeResetMore (double x, double y) {
+        int count = 0;
         System.out.println(x - gridWidth);
         System.out.println(x - gridHeight);
         for (int i = (int) gridWidth; i < x; i++) {
             for (int j = 0; j < y; j++) {
+                count++;
                 GridPaneNode node = new GridPaneNode(i, j, defaultText());
                 makeClickable(node);
                 blockList.add(node);
@@ -160,6 +165,7 @@ public class GridPane {
 
         for (int i = 0; i < x; i++) {
             for (int j = (int) gridHeight; j < y; j++) {
+                count++;
                 GridPaneNode node = new GridPaneNode(i, j, defaultText());
                 makeClickable(node);
                 blockList.add(node);
@@ -244,7 +250,6 @@ public class GridPane {
         }
         //System.out.println(gridMap);
         clicked = new ArrayList<GridPaneNode>();
-        gridMap.visObjectMap();
         return copy;
     }
 
@@ -261,7 +266,6 @@ public class GridPane {
             temp.add(grid[xRef][yRef]);
         }
         gridMap.storeObject(temp);
-        
         return true;
 
         // TODO add dimension checker
@@ -297,9 +301,10 @@ public class GridPane {
         for (int i = 0; i < list.size(); i++) {
             GridPaneNode temp = list.get(i);
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
+            System.out.println(deleted);
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
-        System.out.println(deleted.size()/2);
+        System.out.println(deleted.get(0));
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i+=2) {            
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
@@ -307,8 +312,7 @@ public class GridPane {
             }        
         }
         clicked = new ArrayList<GridPaneNode>();
-        //System.out.println(gridMap);
-        gridMap.visObjectMap();
+        System.out.println(gridMap);
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
