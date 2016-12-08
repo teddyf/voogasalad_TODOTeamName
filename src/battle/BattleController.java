@@ -1,5 +1,8 @@
 package battle;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
 /**
  * @author Daniel Chai, Bill Xiong
  */

@@ -3,6 +3,8 @@ package battle;
 import java.util.Observable;
 import java.util.Observer;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,21 +26,23 @@ public class BattleView implements Observer {
 	private final int ENEMY_X = BattleView.HEIGHT / 2;
 	private final int ENEMY_Y = 200;
 	private final int BUTTON_Y = 400;
-
+    protected static final int DAMAGE = 10;
 	private Scene scene;
 	private Group root;
 
+
 	private EnemyView enemy;
 	private PlayerView player;
-
+    private Button reduceHP;
 	public BattleView() {
 		root = new Group();
 		scene = new Scene(root, WIDTH, HEIGHT, BACKGROUND);
 		enemy = new EnemyView(100, ENEMY_X, ENEMY_Y);
 		player = new PlayerView(100, PLAYER_X, PLAYER_Y);
+        reduceHP = new Button();
 		addButtons(50, BUTTON_Y, "Reduce HP by 10");
-		addButtons(250, BUTTON_Y, "Reduce HP by 20");
-		addPlayers();
+        addPlayers();
+        addHandlers();
 	}
 
 	public Scene getScene() {
@@ -51,11 +55,18 @@ public class BattleView implements Observer {
 	}
 
 	private void addButtons(int x, int y, String text) {
-		Button button = new Button(text);
-		button.setLayoutX(x);
-		button.setLayoutY(y);
-		root.getChildren().add(button);
+        reduceHP.setText(text);
+		reduceHP.setLayoutX(x);
+		reduceHP.setLayoutY(y);
+		root.getChildren().add(reduceHP);
 	}
+	protected void addHandlers(){
+        reduceHP.setOnAction(actionEvent -> {
+            //TODO add update here
+            int d = enemy.getHP() - DAMAGE;
+            enemy.setHP(d);
+        });
+    }
 
 	@Override
 	public void update(Observable o, Object arg) {
