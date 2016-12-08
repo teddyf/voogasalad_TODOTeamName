@@ -267,8 +267,8 @@ public class GridPane {
                     GridPaneNode temp = grid[xPos][yPos];
                     // TODO add dimension checker
                     temp.swap(list.get(j), list.get(j).getImageNum());
-                    control.addBlock(temp.getName(), obj.getBlockType(), temp.getRow(),
-                                  temp.getCol());
+                    control.addBlock(temp.getName(), obj.getBlockType(), temp.getBackendRow(),
+                                  temp.getBackendCol());
                     setPlayer(temp, obj, control);
                 }
             }
@@ -300,9 +300,9 @@ public class GridPane {
 
     private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
         if (gameObject instanceof Player1) {
-            control.addPlayer(temp.getName(), temp.getRow(), temp.getCol());
-            control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getRow(),
-                             temp.getCol());
+            control.addPlayer(temp.getName(), temp.getBackendRow(), temp.getBackendCol());
+            control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getBackendRow(),
+                             temp.getBackendCol());
         }
     }
 
@@ -343,7 +343,7 @@ public class GridPane {
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        return controller.linkBlocks(node1.getRow(), node1.getCol(), node2.getRow(), node2.getCol(),
+        return controller.linkBlocks(node1.getBackendRow(), node1.getBackendCol(), node2.getBackendRow(), node2.getBackendCol(),
                                      0, 0);
     }
     
