@@ -6,6 +6,14 @@ import java.util.Observer;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 
 /**
@@ -14,7 +22,7 @@ import javafx.scene.paint.Color;
 public class BattleView implements Observer {
 	BattleModelInView model;
 
-	protected static final int WIDTH = 500;
+	protected static final int WIDTH = 1000;
 	protected static final int HEIGHT = 500;
 	protected static final int OFFSET = 40;
     protected static final int OFFSET_Y = 20;
@@ -23,24 +31,39 @@ public class BattleView implements Observer {
 	protected static final Color BACKGROUND = Color.AZURE;
 	protected static final int DAMAGE = 10;
 	
-	private final int PLAYER_X = BattleView.WIDTH / 2;
-	private final int PLAYER_Y = 50;
-	private final int ENEMY_X = BattleView.HEIGHT / 2;
+	private final int PLAYER_X = 300;
+	private final int PLAYER_Y = 200;
+	private final int ENEMY_X = 500;
 	private final int ENEMY_Y = 200;
-	private final int BUTTON_Y = 400;
 	
 	private Scene scene;
 	private Group root;
-
+	private ImageView backgroundView;
 	private EnemyView enemy;
 	private PlayerView player;
 	private Button reduceHP;
+	private HealthDisplay enemyHealth;
+	private HealthDisplay playerHealth;
+	
+	private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
 
-	public BattleView() {
+	public BattleView(String backgroundFilePath) {
 		root = new Group();
-		scene = new Scene(root, WIDTH, HEIGHT, BACKGROUND);
-		
-		addButtons(50, BUTTON_Y, "Reduce HP by 10");	
+		scene = new Scene(root, WIDTH, HEIGHT);
+		root.getStylesheets().add(CSS_FILE_NAME);
+		setBackground(backgroundFilePath);
+		addButtons(500, 200, "Reduce HP by 10");	
+	}
+	
+	private void setBackground(String filePath) {
+		Image image = new Image(filePath);
+        backgroundView = new ImageView();
+        backgroundView.setFitWidth(WIDTH);
+        backgroundView.setFitHeight(HEIGHT);
+        backgroundView.setImage(image);
+        backgroundView.setLayoutX(0);
+        backgroundView.setLayoutY(0);
+        root.getChildren().addAll(backgroundView);
 	}
 
 	public Scene getScene() {
@@ -70,24 +93,30 @@ public class BattleView implements Observer {
 		enemy.setHP(model.getEnemyHP());
 		
 		if (model.checkPlayerLost()) {
-            WinCondition lost = new WinCondition("You lost");
+            WinConditionView lost = new WinConditionView("You lost");
             lost.addToGroup(root);
 		}
 		if (model.checkPlayerWon()) {
-            WinCondition won = new WinCondition("You won");
+            WinConditionView won = new WinConditionView("You won");
             won.addToGroup(root);
 		}
+		
+		enemyHealth.update(enemy);
+		playerHealth.update(player);
 	}
 
 	protected void setModel(BattleModelInView model) {
 		this.model = model;
 		
-		enemy = new EnemyView(model.getEnemyHP(), ENEMY_X, ENEMY_Y);
-		player = new PlayerView(model.getPlayerHP(), PLAYER_X, PLAYER_Y);
+		enemy = new EnemyView(model.getEnemyHP(), ENEMY_X, ENEMY_Y,"resources/images/battles/pokemon-1.gif");
+		player = new PlayerView(model.getPlayerHP(), PLAYER_X, PLAYER_Y,"resources/images/battles/pokemon-2.gif");
 		
+		enemyHealth = new HealthDisplay(ENEMY_X+50,ENEMY_Y+200);
+		playerHealth = new HealthDisplay(PLAYER_X-50,PLAYER_Y+200);
+		
+		root.getChildren().addAll(enemyHealth.getGroup(),playerHealth.getGroup());
 		enemy.addToGroup(root);
 		player.addToGroup(root);
-		
 		addHandlers();
 	}
 }
