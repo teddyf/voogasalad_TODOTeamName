@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import ui.GridPaneNode;
 import block.BlockType;
 
-public class Player1 extends GameObject2 {
+public class Player1 extends GameObject {
 
     private final String PATH = "resources/images/tiles/decoration/grass-1";
 

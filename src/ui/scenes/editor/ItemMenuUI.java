@@ -1,6 +1,5 @@
 package ui.scenes.editor;
 
-import block.Block;
 import block.BlockType;
 
 import javafx.geometry.Insets;
@@ -12,8 +11,7 @@ import javafx.scene.layout.FlowPane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.objects.GameObject2;
-import ui.scenes.editor.objects.ItemPanelObjects;
+import ui.scenes.editor.objects.GameObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,9 +57,9 @@ public class ItemMenuUI {
 
     private ScrollPane createScrollPane(BlockType type) {
         FlowPane itemPane = getFlowPane();
-        List<GameObject2> list = myViewer.getObjects(type);
+        List<GameObject> list = myViewer.getObjects(type);
         System.out.println("b");
-        for (GameObject2 object : list) {
+        for (GameObject object : list) {
             String path = object.getIconPath();
             ImageView icon = (ImageView) myBuilder.addNewImageView(itemPane, new ComponentProperties()
                     .path(path)
@@ -139,7 +137,7 @@ public class ItemMenuUI {
         addTabs(itemPanel);
     }
 
-    public GameObject2 getSelected() {
+    public GameObject getSelected() {
         return myViewer.getSelected();
     }
 }

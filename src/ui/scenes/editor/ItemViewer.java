@@ -1,7 +1,7 @@
 package ui.scenes.editor;
 
 import block.BlockType;
-import ui.scenes.editor.objects.GameObject2;
+import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.SingleBlockGameObject;
 
 import java.io.File;
@@ -18,9 +18,9 @@ public class ItemViewer {
     private final String image_root_path = "resources/images/tiles/";
     private final String extension = ".png";
 
-    private GameObject2 selected = null;
+    private GameObject selected = null;
 
-    public List<GameObject2> getObjects(BlockType type) {
+    public List<GameObject> getObjects(BlockType type) {
         String directory = root_path + type.name().toLowerCase();
         System.out.println(directory);
         File file = new File(directory);
@@ -44,22 +44,22 @@ public class ItemViewer {
             }
         }
         System.out.println(filteredPaths);
-        List<GameObject2> items = new ArrayList<>();
+        List<GameObject> items = new ArrayList<>();
 
         for (int i = 0; i < filteredPaths.size(); i++) {
             String path = filteredPaths.get(i);
-            GameObject2 item = new SingleBlockGameObject(path, type);
+            GameObject item = new SingleBlockGameObject(path, type);
             items.add(item);
         }
         System.out.println(items);
         return items;
     }
 
-    public void select(GameObject2 obj) {
+    public void select(GameObject obj) {
         selected = obj;
     }
 
-    public GameObject2 getSelected() {
+    public GameObject getSelected() {
         return selected;
     }
 

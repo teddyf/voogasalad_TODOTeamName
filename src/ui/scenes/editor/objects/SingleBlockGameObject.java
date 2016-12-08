@@ -1,13 +1,12 @@
 package ui.scenes.editor.objects;
 
 import block.BlockType;
-import javafx.scene.image.Image;
 import ui.GridPaneNode;
 
 /**
  * Created by harshilgarg on 12/7/16.
  */
-public class SingleBlockGameObject extends GameObject2 {
+public class SingleBlockGameObject extends GameObject {
 
     public SingleBlockGameObject(String iconPath, BlockType blockType) {
         super(iconPath, blockType);
