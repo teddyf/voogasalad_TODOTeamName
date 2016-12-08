@@ -1,8 +1,6 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
-import javafx.scene.control.Button;
-import javafx.scene.shape.Rectangle;
 import ui.GridPane;
 import ui.GridPaneNode;
 import javafx.scene.Node;
@@ -11,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-import ui.scenes.ScrollAnimation;
 import ui.scenes.editor.objects.ItemPanelObjects;
 import java.util.*;
 
@@ -94,13 +91,13 @@ public class GridUI {
         String swapPath = myUtil.getStringProperty("swapPath");
         Node widthInputField =
                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                        widthInputWidth);
+                        widthInputWidth,20);
         Node heightInputField =
                 myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                        heightInputWidth);
+                        heightInputWidth,20);
         String updatePath = myResources.getString("updatePath");
         Node updateButton =
-                myBuilder.addCustomButton(myRoot, updatePath, updateX, updateY, updateWidth);
+                myBuilder.addCustomImageView(myRoot, updateX, updateY, updatePath, updateWidth, "");
         updateButton.setOnMouseClicked(e -> {
             TextField xText = (TextField) widthInputField;
             TextField yText = (TextField) heightInputField;
@@ -118,7 +115,7 @@ public class GridUI {
 
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
-        Node swapButton = myBuilder.addCustomButton(myRoot, swapPath, swapX, swapY, swapWidth);
+        Node swapButton = myBuilder.addCustomImageView(myRoot, swapX, swapY, swapPath, swapWidth, "");
         //TODO add interaction somewhere here as well
         swapButton.setOnMouseClicked(e -> myGridPane.swap(myEditorObjects.getSelected(),
                 myController));
@@ -188,7 +185,7 @@ public class GridUI {
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomButton(myRoot, route, x, y, girth);
+        Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
         node.setOnMouseEntered(e->{
             node.setEffect(hoverOpacity);
         });

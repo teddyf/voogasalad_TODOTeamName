@@ -1,4 +1,4 @@
-package ui.scenes;
+package ui.scenes.editor;
 
 import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;

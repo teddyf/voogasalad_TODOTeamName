@@ -71,6 +71,14 @@ public class GridPaneNode {
     public int getCol(){
         return col;
     }
+
+    public int getBackendRow() {
+        return getRow() - 5;
+    }
+
+    public int getBackendCol(){
+        return getCol() - 5;
+    }
     
     public String getType(){
         return type;

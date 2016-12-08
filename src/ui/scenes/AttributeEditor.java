@@ -104,7 +104,7 @@ public class AttributeEditor extends Scene{
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomTextField(myRoot, route, x, y, girth);
+        Node node = myBuilder.addCustomTextField(myRoot, route, x, y, girth,20);
         return node;
     }
     
