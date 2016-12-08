@@ -237,7 +237,7 @@ public class GridPane {
             clicked.get(i).getImage().setEffect(null);
             copy = clicked;
         }
-        System.out.println(gridMap);
+        //System.out.println(gridMap);
         clicked = new ArrayList<GridPaneNode>();
         return copy;
     }

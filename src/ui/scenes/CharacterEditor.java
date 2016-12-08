@@ -121,7 +121,7 @@ public class CharacterEditor extends Scene{
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomButton(myRoot, route, x, y, girth);
+        Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
         node.setOnMouseEntered(e->{
             node.setEffect(hoverOpacity);
         });
@@ -146,15 +146,14 @@ public class CharacterEditor extends Scene{
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomButton(myRoot, route, x, y, girth);
+        Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
+        
         return node;
     }
     
     private void addDefaultPlayers(){
-        imagePaths.add("resources/images/Sprites/Character/Pokemon/Player1NorthFacing.png");
-        imagePaths.add("resources/images/Sprites/Character/Pokemon/Player2NorthFacing.png");
-        imagePaths.add("resources/images/Sprites/Character/Pokemon/Player1SouthFacing.png");
-        imagePaths.add("resources/images/Sprites/Character/Pokemon/Player2SouthFacing.png");
+        imagePaths.add("resources/images/tiles/sprites/player-1-north-facing.png");
+        imagePaths.add("resources/images/tiles/sprites/player-1-south-facing.png");
     }
     
     

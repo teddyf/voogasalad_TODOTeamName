@@ -85,7 +85,7 @@ public class GameEditor extends Scene {
         int playerY = Integer.parseInt(myResources.getString("playerY"));
         int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
         String playerText = myResources.getString("playerLabel");
-        Node playerButton = myBuilder.addCustomButton(myRoot, playerText, playerX, playerY, playerWidth);
+        Node playerButton = myBuilder.addCustomImageView(myRoot, playerX, playerY, playerText, playerWidth, "");
         playerButton.setOnMouseClicked(e->{
             myLauncher.launchCharacterMenu();
         });
