@@ -17,12 +17,14 @@ public class EditorControls {
     private static ResourceBundle myResources;
     private static UIBuilder myBuilder;
     private static ItemMenuUI myItemMenu;
+    private static PlayerMenuUI myPlayerMenu;
 
-    EditorControls(Parent root, ResourceBundle resources, ItemMenuUI itemMenu) {
+    EditorControls(Parent root, ResourceBundle resources, ItemMenuUI itemMenu, PlayerMenuUI playerMenu) {
         myRoot = root;
         myResources = resources;
         myBuilder = new UIBuilder();
         myItemMenu = itemMenu;
+        myPlayerMenu = playerMenu;
     }
 
 
@@ -45,6 +47,13 @@ public class EditorControls {
         Tab playerTab = new Tab();
         playerTab.setText("Players");
         playerTab.setClosable(false);
+        playerTab.setOnSelectionChanged(e -> {
+            if (playerTab.isSelected()) {
+                myBuilder.addComponent(myRoot, myPlayerMenu.getPlayerPanel());
+            } else {
+                myBuilder.removeComponent(myRoot, myPlayerMenu.getPlayerPanel());
+            }
+        });
 
         sideTabs.setSide(Side.LEFT);
         sideTabs.getTabs().addAll(itemTab, playerTab);
