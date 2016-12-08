@@ -22,157 +22,58 @@ import xml.GridXMLHandler;
  */
 
 public class EditorController {
-    private BlockFactory blockFactory;
-    private GridXMLHandler xmlHandler;
-    private GridWorld gridWorld;
-    private Grid currentGrid;
-    private RenderedGrid renderedGrid;
-    private int myNumRows;
-    private int myNumColumns;
-    private Player player;
+
+    private final EditorModel myModel;
 
     public EditorController() {
-        blockFactory = new BlockFactory();
-        xmlHandler = new GridXMLHandler();
-        gridWorld = new GridWorld();
+        myModel = new EditorModel();
     }
 
-    // TODO: Frontend needs to change grids afterward
     public void addGrid(int numRows, int numCols) {
-        Grid newGrid = new Grid(gridWorld.getNumGrids(), numRows, numCols);
-        gridWorld.addGrid(newGrid);
+        myModel.addGrid(numRows, numCols);
     }
 
     public void changeGrid(int index) {
-        gridWorld.setCurrentIndex(index);
-        currentGrid = gridWorld.getCurrentGrid();
-        renderedGrid = new RenderedGrid(currentGrid);
-        myNumRows =  currentGrid.getNumRows();
-        myNumColumns = currentGrid.getNumCols();
+        myModel.changeGrid(index);
     }
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
-        if(blockType == BlockType.PLAYER_SPAWN) {
-            // TODO: delete the existing player spawn, tell the front end that the other spawn was deleted
-        }
-        Block block = blockFactory.createBlock(name, blockType, row, col);
-        currentGrid.setBlock(row, col, block);
-        for(int i = 0; i < myNumRows; i++) {
-            for(int j = 0; j < myNumColumns; j++) {
-                //System.out.println(currentGrid.getBlock(i,j).getName());
-                //System.out.println(renderedGrid.get(i,j));
-            }
-        }
+        myModel.addBlock(name, blockType, row, col);
     }
 
     public boolean addMessage(String message, int row, int col) {
-        Block block = currentGrid.getBlock(row, col);
-        if(block instanceof CommunicatorBlock) {
-            ((CommunicatorBlock) block).setMessage(message);
-            return true;
-        }
-        return false;
+        return addMessage(message, row, col);
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        Grid grid1 = gridWorld.getGrid(index1);
-        Grid grid2 = gridWorld.getGrid(index2);
-        Block block1 = grid1.getBlock(row1, col1);
-        Block block2 = grid2.getBlock(row2, col2);
-        return (block1.link(block2, index2) || block2.link(block1, index1));
+        return myModel.linkBlocks(row1, col1, index1, row2, col2, index2);
     }
 
     public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        Grid grid1 = gridWorld.getGrid(index1);
-        Grid grid2 = gridWorld.getGrid(index2);
-        Block block1 = grid1.getBlock(row1, col1);
-        Block block2 = grid2.getBlock(row2, col2);
-        return (block1.unlink(block2) || block2.unlink(block2));
+        return unlinkBlocks(row1, col1, index1, row2, col2, index2);
     }
 
-    public void addPlayer(String name, int row, int col) {
-        player = new Player(name, row, col, currentGrid.getIndex());
-
-        System.out.println(name + " " + row + " " + col);
-        System.out.println("player added");
+    public boolean addPlayer(String name, int row, int col) {
+        return myModel.addPlayer(name, row, col);
     }
 
     public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
-        PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
-        player.addAttribute(playerAttribute);
+        myModel.addPlayerAttribute(name, amount, increment, decrement);
     }
 
     public void movePlayer(int row, int col) {
-        player.setRow(row);
-        player.setCol(col);
+        myModel.movePlayer(row, col);
     }
 
     /** shrinks the grid the appropriate amount from the appropriate direction
      * @param amount: positive int of how much the grid should shrink
      */
     public void shrinkGrid(GridGrowthDirection direction, int amount) {
-        int newNumRows = myNumRows;
-        int newNumCols = myNumColumns;
-        int rowOffset = 0;
-        int colOffset = 0;
-        switch (direction) {
-            case NORTH:
-                rowOffset = amount;
-                break;
-            case SOUTH:
-                newNumRows = myNumRows - amount;
-                break;
-            case EAST:
-                newNumCols = myNumColumns - amount;
-                break;
-            case WEST:
-                colOffset = amount;
-                break;
-        }
-        Grid newGrid = new Grid(gridWorld.getCurrentIndex(), newNumRows, newNumCols);
-        renderedGrid = new RenderedGrid(newGrid);
-        for (int r = rowOffset; r < newNumRows; r++) {
-            for (int c = colOffset; c < newNumCols; c++) {
-                newGrid.setBlock(r, c, currentGrid.getBlock(r, c));
-            }
-        }
-        currentGrid = newGrid;
-        myNumRows = currentGrid.getNumRows();
-        myNumColumns = currentGrid.getNumCols();
-        // TODO: check if player is being deleted
+        myModel.shrinkGrid(direction, amount);
     }
 
     public void growGrid(GridGrowthDirection direction, int amount) {
-        int newNumRows = myNumRows;
-        int newNumCols = myNumColumns;
-        int rowOffset = 0;
-        int colOffset = 0;
-        switch (direction) {
-            case NORTH:
-                newNumRows = myNumRows + amount;
-                rowOffset = amount;
-                break;
-            case SOUTH:
-                newNumRows = myNumRows + amount;
-                break;
-            case EAST:
-                newNumCols = myNumColumns + amount;
-                break;
-            case WEST:
-                newNumCols = myNumColumns + amount;
-                colOffset = amount;
-                break;
-        }
-        Grid newGrid = new Grid(gridWorld.getCurrentIndex(), newNumRows, newNumCols);
-        renderedGrid = new RenderedGrid(newGrid);
-        for (int r = 0; r < myNumRows; r++) {
-            for (int c = 0; c < myNumColumns; c++) {
-                newGrid.setBlock(r + rowOffset, c + colOffset, currentGrid.getBlock(r, c));
-            }
-        }
-        currentGrid = newGrid;
-        myNumRows = currentGrid.getNumRows();
-        myNumColumns = currentGrid.getNumCols();
+        myModel.growGrid(direction, amount);
     }
 
     /*****METHODS FOR FRONTEND TO CALL*****/
@@ -182,7 +83,7 @@ public class EditorController {
      * @return the row
      */
     public int getRow() {
-        return myNumRows;
+        return myModel.getPlayer().getRow();
     }
 
     /**
@@ -190,7 +91,7 @@ public class EditorController {
      * @return the column
      */
     public int getCol() {
-        return myNumColumns;
+        return myModel.getPlayer().getCol();
     }
 
     /**
@@ -200,7 +101,7 @@ public class EditorController {
      * @return the block
      */
     public String getBlock(int row, int col) {
-        return renderedGrid.get(row, col);
+        return myModel.getBlock(row, col);
     }
 
     /**
@@ -209,7 +110,7 @@ public class EditorController {
      * @param file - the name of the file containing the editor information
      */
     public void saveEditor(String file) {
-        xmlHandler.saveContents(file, gridWorld, player);
+        myModel.saveEditor(file);
     }
 
     /**
@@ -218,10 +119,7 @@ public class EditorController {
      * @param file - the specific file
      */
     public void loadEditor(String file) {
-        GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
-        player = gridWorldAndPlayer.getPlayer();
-        gridWorld = gridWorldAndPlayer.getGridWorld();
-        changeGrid(gridWorld.getCurrentIndex());
+        myModel.loadEditor(file);
     }
 
     /**
@@ -229,11 +127,10 @@ public class EditorController {
      * @param file
      */
     public void saveEngine(String file) {
-        xmlHandler.saveContents(file, gridWorld, player);
-        System.out.println(player);
+        myModel.saveEngine(file);
     }
 
-    public EngineController runEngine() {
+    /*public EngineController runEngine() {
         return (new EngineController(player, gridWorld));
-    }
+    }*/
 }
