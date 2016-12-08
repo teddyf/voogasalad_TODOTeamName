@@ -9,6 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.ScrollAnimation;
@@ -63,6 +65,11 @@ public class GridUI {
                 myUtil.getIntProperty("gridY"));
         myController.addGrid(width, height);
         myController.changeGrid(0);
+        
+        // is this where it would be instantiated?
+        MultiGridUI myGridTabs = new MultiGridUI(myUtil.getIntProperty("windowWidth"), 20);
+        VBox layout = new VBox(10, myGridTabs.getRoot());
+        VBox.setVgrow(myGridTabs.getRoot(), Priority.ALWAYS);
         initGridControl();
         scrollAnimation = new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(), myGridPane.getYMin());
 

@@ -3,6 +3,7 @@ package ui.scenes.editor;
 import java.util.ResourceBundle;
 
 import editor.EditorController;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
@@ -17,7 +18,6 @@ public class MultiGridUI {
 	private Node root;
 	private Tab gridTab;
 	private int tabNum;
-	private boolean isFirst;
     private PropertiesUtilities myUtil;
 	private ResourceBundle myResources;
 	
@@ -62,7 +62,7 @@ public class MultiGridUI {
 		gridTab.setText("New Grid");
 		gridTab.setOnSelectionChanged(event -> {
 			//TODO: prompt user for new grid name
-			newGrid("New Grid", 100, new Parent(), );	
+			newGrid("New Grid", 100, new Group(), myResources);	
         });
 		tabs.getTabs().add(gridTab);
 	}
