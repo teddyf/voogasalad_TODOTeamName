@@ -15,7 +15,8 @@ public abstract class ItemView {
 	private Label itemHP;
 	// TODO change to ImageView
 	private Rectangle itemView;
-    private int hp;
+	private int hp;
+
 	public ItemView(int hp, int x, int y) {
 		itemHP = new Label("HP: " + hp);
 		itemView = new Rectangle(BattleView.RECTANGLE_WIDTH, BattleView.RECTANGLE_HEIGHT);
@@ -23,7 +24,12 @@ public abstract class ItemView {
 		itemView.setLayoutY(y);
 		itemHP.setLayoutX(x + BattleView.OFFSET);
 		itemHP.setLayoutY(y);
-        this.hp = hp;
+		this.hp = hp;
+	}
+	
+	protected void addToGroup(Group root) {
+		root.getChildren().add(itemHP);
+		root.getChildren().add(itemView);
 	}
 
 	protected void updateLoc(int x, int y) {
@@ -31,13 +37,10 @@ public abstract class ItemView {
 		itemView.setLayoutY(y);
 	}
 
-	protected void addItems(Group group) {
-		group.getChildren().add(itemView);
-		group.getChildren().add(itemHP);
+	protected int getHP() {
+		return hp;
 	}
-    protected int getHP(){
-        return hp;
-    }
+
 	protected Label getItemHP() {
 		return itemHP;
 	}
@@ -47,7 +50,7 @@ public abstract class ItemView {
 	}
 
 	protected void setHP(int hp) {
-        this.hp = hp;
+		this.hp = hp;
 		itemHP.setText("HP: " + hp);
 	}
 

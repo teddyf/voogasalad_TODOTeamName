@@ -1,8 +1,5 @@
 package battle;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-
 /**
  * @author Daniel Chai, Bill Xiong
  */
@@ -13,6 +10,11 @@ public class BattleController {
 	public BattleController(BattleView view, BattleModel model) {
 		myView = view;
 		myModel = model;
+		myView.setModel(myModel);
 		myModel.addObserver(myView);
+	}
+	
+	public BattleView getView() {
+		return myView;
 	}
 }

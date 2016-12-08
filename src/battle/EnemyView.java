@@ -1,6 +1,5 @@
 package battle;
 
-
 /**
  * Created by Bill Xiong on 12/7/16.
  * 

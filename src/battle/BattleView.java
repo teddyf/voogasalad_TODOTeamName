@@ -3,8 +3,6 @@ package battle;
 import java.util.Observable;
 import java.util.Observer;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +12,7 @@ import javafx.scene.paint.Color;
  * @author Daniel Chai, Bill Xiong
  */
 public class BattleView implements Observer {
+	BattleModelInView model;
 
 	protected static final int WIDTH = 500;
 	protected static final int HEIGHT = 500;
@@ -26,52 +25,55 @@ public class BattleView implements Observer {
 	private final int ENEMY_X = BattleView.HEIGHT / 2;
 	private final int ENEMY_Y = 200;
 	private final int BUTTON_Y = 400;
-    protected static final int DAMAGE = 10;
+	private static final int DAMAGE = 10;
 	private Scene scene;
 	private Group root;
 
-
 	private EnemyView enemy;
 	private PlayerView player;
-    private Button reduceHP;
+	private Button reduceHP;
+
 	public BattleView() {
 		root = new Group();
 		scene = new Scene(root, WIDTH, HEIGHT, BACKGROUND);
-		enemy = new EnemyView(100, ENEMY_X, ENEMY_Y);
-		player = new PlayerView(100, PLAYER_X, PLAYER_Y);
-        reduceHP = new Button();
-		addButtons(50, BUTTON_Y, "Reduce HP by 10");
-        addPlayers();
-        addHandlers();
+		
+		addButtons(50, BUTTON_Y, "Reduce HP by 10");	
 	}
 
 	public Scene getScene() {
 		return scene;
 	}
 
-	private void addPlayers() {
-		enemy.addItems(root);
-		player.addItems(root);
-	}
-
 	private void addButtons(int x, int y, String text) {
-        reduceHP.setText(text);
+		reduceHP = new Button();
+		reduceHP.setText(text);
 		reduceHP.setLayoutX(x);
 		reduceHP.setLayoutY(y);
 		root.getChildren().add(reduceHP);
 	}
-	protected void addHandlers(){
-        reduceHP.setOnAction(actionEvent -> {
-            //TODO add update here
-            int d = enemy.getHP() - DAMAGE;
-            enemy.setHP(d);
-        });
-    }
+
+	protected void addHandlers() {
+		reduceHP.setOnAction(actionEvent -> {
+			model.setEnemyHP(model.getEnemyHP() - DAMAGE);
+		});
+	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		BattleModel model = (BattleModel) o;
 		player.setHP(model.getPlayerHP());
 		enemy.setHP(model.getEnemyHP());
+	}
+
+	protected void setModel(BattleModelInView model) {
+		this.model = model;
+		
+		enemy = new EnemyView(model.getEnemyHP(), ENEMY_X, ENEMY_Y);
+		player = new PlayerView(model.getPlayerHP(), PLAYER_X, PLAYER_Y);
+		
+		enemy.addToGroup(root);
+		player.addToGroup(root);
+		
+		addHandlers();
 	}
 }
