@@ -33,7 +33,7 @@ public class EditorControls {
 
         Tab itemTab = new Tab();
         itemTab.setText("Items");
-        itemTab.setClosable(true);
+        itemTab.setClosable(false);
         itemTab.setOnSelectionChanged(e -> {
             if (itemTab.isSelected()) {
                 myBuilder.addComponent(myRoot, myItemMenu.getItemPanel());
