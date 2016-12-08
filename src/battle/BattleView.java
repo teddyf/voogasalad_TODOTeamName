@@ -68,14 +68,12 @@ public class BattleView implements Observer {
 		enemy.setHP(model.getEnemyHP());
 		
 		if (model.checkPlayerLost()) {
-            WinCondition lost = new WinCondition("you lost");
-            lost.addWinCondition(root);
-			System.out.println("player lost");
+            WinCondition lost = new WinCondition("You lost");
+            lost.addToGroup(root);
 		}
 		if (model.checkPlayerWon()) {
             WinCondition won = new WinCondition("You won");
-            won.addWinCondition(root);
-			System.out.println("player won");
+            won.addToGroup(root);
 		}
 	}
 
