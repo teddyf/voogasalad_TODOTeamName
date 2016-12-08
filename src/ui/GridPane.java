@@ -135,7 +135,7 @@ public class GridPane {
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode temp = blockList.get(i);
             if (temp.getCol() >= x || temp.getRow() >= y) {
-                System.out.println(temp.getCol() + "," + temp.getRow());
+                //System.out.println(temp.getCol() + "," + temp.getRow());
                 blockList.remove(i);
                 gridMap.resizeRemove(temp.getRow(), temp.getCol());
                 i--;
@@ -301,7 +301,7 @@ public class GridPane {
         for (int i = 0; i < list.size(); i++) {
             GridPaneNode temp = list.get(i);
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
-            System.out.println(deleted);
+            //System.out.println(deleted);
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
         if (!deleted.isEmpty()) {
@@ -311,7 +311,7 @@ public class GridPane {
             }        
         }
         clicked = new ArrayList<GridPaneNode>();
-        System.out.println(gridMap);
+        //System.out.println(gridMap);
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
