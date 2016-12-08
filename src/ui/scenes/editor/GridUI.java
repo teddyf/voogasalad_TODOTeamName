@@ -124,7 +124,8 @@ public class GridUI {
         linkButton.setOnMouseClicked(e->{
             List<GridPaneNode> selected = myGridPane.getClicked();
             if(selected.size()==2){
-                myGridPane.buildLink(selected.get(0),selected.get(1),myController);
+                System.out.print("LINK ");
+                System.out.println(myGridPane.buildLink(selected.get(0),selected.get(1),myController));
                 
             }
         });
