@@ -2,7 +2,6 @@ package ui.scenes.editor;
 
 import java.util.ResourceBundle;
 
-import editor.EditorController;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -10,8 +9,14 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import resources.properties.PropertiesUtilities;
 import ui.GridPane;
-import ui.scenes.editor.objects.ItemPanelObjects;
 
+/**
+ * 	Class containing a TabPane that will hold all of a user's grids and allow them to
+ * 	create, name, delete, and edit grids
+ * 
+ * @author Ryan Anders
+ *
+ */
 public class MultiGridUI {
 
 	private TabPane tabs;
@@ -71,5 +76,8 @@ public class MultiGridUI {
 		return root;
 	}
 
-}
+	public int getTabNum() {
+		return tabNum;
+	}
 
+}
