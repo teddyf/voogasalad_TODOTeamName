@@ -48,7 +48,7 @@ public class EditorIO {
     }
 
     /**
-     * Gets the path to a file to open
+     * Gets the myIconPath to a file to open
      *
      * @return true if opening successful, false otherwise
      */
@@ -93,6 +93,7 @@ public class EditorIO {
     }
 
     public void runGameInEditor() {
+
         EngineController loadedEngine = myEditorController.runEngine();
         // TODO continue running game
     }

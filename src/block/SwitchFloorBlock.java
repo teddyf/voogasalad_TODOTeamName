@@ -8,10 +8,10 @@ import block.BlockType;
  *
  * @author Filip Mazurek
  */
-public class SwitchFloorBlock extends SwitchBlock implements Walkable {
+public class SwitchFloorBlock extends SwitchBlock {
 
     public SwitchFloorBlock(String name, int row, int col) {
         super(name, row, col);
-        setWalkableStatus(IS_WALKABLE);
+        setWalkableStatus(true);
     }
 }

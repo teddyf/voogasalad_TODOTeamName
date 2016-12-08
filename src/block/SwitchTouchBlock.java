@@ -8,10 +8,9 @@ import block.BlockType;
  *
  * @author Filip Mazurek
  */
-public class SwitchTouchBlock extends SwitchBlock implements NotWalkable {
+public class SwitchTouchBlock extends SwitchBlock {
 
     public SwitchTouchBlock(String name, int row, int col) {
         super(name, row, col);
-        setWalkableStatus(IS_WALKABLE);
     }
 }

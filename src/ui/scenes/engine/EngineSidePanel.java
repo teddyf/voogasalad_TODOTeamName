@@ -29,25 +29,26 @@ public class EngineSidePanel {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private VBox vbox;
-    private PropertiesUtilities util = new PropertiesUtilities();
+    private PropertiesUtilities util;
 
     public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
+        util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
     }
 
     /**
-     * Creates the tab-based menu that will hold the objects to be added to the
+     * Creates the tab-based menu that will hold the ui.scenes.editor.objects to be added to the
      * overworld grid.
      *
      * @return the item menu, already with proper placement
      */
     public void initSidePanel() {
 
-    	int itemMenuXPos = util.getIntProperty(myResources, "statusPanelPosX");
-        int itemMenuYPos = util.getIntProperty(myResources, "statusPanelPosY");
+    	int itemMenuXPos = util.getIntProperty("statusPanelPosX");
+        int itemMenuYPos = util.getIntProperty("statusPanelPosY");
         
         Pane itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
         Pane canvas = new Pane(); 

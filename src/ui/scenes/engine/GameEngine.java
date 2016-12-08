@@ -2,25 +2,16 @@ package ui.scenes.engine;
 
 import engine.EngineController;
 import ui.FileBrowser;
-import ui.GridPane;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import player.PlayerDirection;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
-import ui.scenes.engine.GridDisplayer;
 
 import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
-
-import engine.UserInstruction;
 
 /**
  * @author Robert Steilberg
@@ -89,6 +80,10 @@ public class GameEngine extends Scene implements Observer {
     	myController.addObserver(anim);
     }
     
+    public String getPath(){
+        return ENGINE_RESOURCES;
+    }
+    
     private void setUpSidePanel() {
     	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources);
     	engineSidePanel.initPlayerChanger(player);
@@ -103,12 +98,38 @@ public class GameEngine extends Scene implements Observer {
     	player = new Character(this);
     	System.out.println(player.getRowCharacter());
     	System.out.println(player.getColumnCharacter());
-    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+    	player.setCharacterImage("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
         player.setCharacterImageSize(grid.getBlockSize());
-        player.setPosX(350);
-        player.setPosY(350);
-    	player.setName("resources/images/sprites/Character/Pokemon/Player1SouthFacing.png");
+
+        int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
+        int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
+
+        player.setPosX(gridWidth/2 - player.getSize()/2);
+        player.setPosY(gridHeight/2 - player.getSize()/2);
+    	player.setName("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
+
+        //setup grid
+        double ypixel = myController.getPlayerRow()*grid.getBlockSize();
+        double xpixel = myController.getPlayerColumn()*grid.getBlockSize();
+
+        double a = 0;
+        double b = 0;
+        //Find central block
+        if (grid.getWidth() %2 != 0){
+            a = ((grid.getWidth()-1)/2 - myController.getPlayerColumn())*grid.getBlockSize();
+        } else {
+            a = (grid.getWidth()/2 - 0.5 - myController.getPlayerColumn())*grid.getBlockSize();
+        }
+
+        if (grid.getHeight() %2 != 0){
+            b = ((grid.getHeight()-1)/2 - myController.getPlayerRow())*grid.getBlockSize();
+        } else {
+            b = (grid.getHeight()/2 - 0.5 - myController.getPlayerRow())*grid.getBlockSize();
+        }
+
+        grid.getGroup().setLayoutX(grid.getGroup().getLayoutX() + a);
+        grid.getGroup().setLayoutY(grid.getGroup().getLayoutY() + b);
     }
     
     private void setUpKeys() {
@@ -145,4 +166,6 @@ public class GameEngine extends Scene implements Observer {
 	public void update(Observable o, Object arg) {
 		myBuilder.addComponent(myRoot, player.getCharacterImageView());
 	}  
+	
+	
 }

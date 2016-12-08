@@ -38,8 +38,12 @@ public class GridWorld {
         return grids.get(currentIndex);
     }
 
-    public void updateGrid() {
-        currentIndex = grids.size() - 1;
+    public int getNumGrids() {
+        return grids.size();
+    }
+
+    public Grid getGrid(int index) {
+        return grids.get(index);
     }
 
     public void setCurrentIndex(int index) {

@@ -29,20 +29,15 @@ public class SizeChooserUI extends Scene {
     private PropertiesUtilities myUtil;
     private GameEditor myEditor;
 
-    SizeChooserUI(Stage stage, Parent root, GameEditor editor, UILauncher launcher, UIBuilder builder) {
+    public SizeChooserUI(Stage stage, Parent root, GameEditor editor, UILauncher launcher, UIBuilder builder) {
         super(root, Color.web("#0585B2"));
         myStage = stage;
         myRoot = root;
         myEditor = editor;
         myBuilder = builder;
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER_RESOURCES);
-        myUtil = new PropertiesUtilities();
+        myUtil = new PropertiesUtilities(myResources);
         root.getStylesheets().add(CSS_FILE_NAME);
-        myStage.setOnCloseRequest(e -> {
-            // closing the window takes you back to main menu
-            e.consume();
-            launcher.launchMenu();
-        });
     }
 
     /**
@@ -50,7 +45,7 @@ public class SizeChooserUI extends Scene {
      */
     private void setCustomSize() {
         DimensionPrompt dimPrompt = new DimensionPrompt(myRoot,myResources);
-        Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty(myResources,"maxDim"));
+        Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty("maxDim"));
         if (result != null) {
             myEditor.launchEditor(result.width(), result.height());
         }
@@ -62,30 +57,30 @@ public class SizeChooserUI extends Scene {
     private void setButtons() {
         String buttonCSSid = myResources.getString("buttonCSSid");
         // create small button
-        int xPos = myUtil.getIntProperty(myResources, "smallButtonX");
-        int yPos = myUtil.getIntProperty(myResources, "smallButtonY");
+        int xPos = myUtil.getIntProperty("smallButtonX");
+        int yPos = myUtil.getIntProperty( "smallButtonY");
         String path = myResources.getString("smallButtonPath");
-        int width = myUtil.getIntProperty(myResources, "buttonWidth");
+        int width = myUtil.getIntProperty("buttonWidth");
         Node smallButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        int smallSize = myUtil.getIntProperty(myResources, "smallSize");
+        int smallSize = myUtil.getIntProperty("smallSize");
         smallButton.setOnMouseClicked(e -> myEditor.launchEditor(smallSize, smallSize));
         // create medium button
-        xPos = myUtil.getIntProperty(myResources, "medButtonX");
-        yPos = myUtil.getIntProperty(myResources, "medButtonY");
+        xPos = myUtil.getIntProperty("medButtonX");
+        yPos = myUtil.getIntProperty( "medButtonY");
         path = myResources.getString("medButtonPath");
         Node medButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        int medSize = myUtil.getIntProperty(myResources, "medSize");
+        int medSize = myUtil.getIntProperty("medSize");
         medButton.setOnMouseClicked(e -> myEditor.launchEditor(medSize, medSize));
         // create large button
-        xPos = myUtil.getIntProperty(myResources, "largeButtonX");
-        yPos = myUtil.getIntProperty(myResources, "largeButtonY");
+        xPos = myUtil.getIntProperty("largeButtonX");
+        yPos = myUtil.getIntProperty( "largeButtonY");
         path = myResources.getString("largeButtonPath");
         Node largeButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        int largeSize = myUtil.getIntProperty(myResources, "largeSize");
+        int largeSize = myUtil.getIntProperty( "largeSize");
         largeButton.setOnMouseClicked(e -> myEditor.launchEditor(largeSize, largeSize));
         // create custom button
-        xPos = myUtil.getIntProperty(myResources, "customButtonX");
-        yPos = myUtil.getIntProperty(myResources, "customButtonY");
+        xPos = myUtil.getIntProperty("customButtonX");
+        yPos = myUtil.getIntProperty( "customButtonY");
         path = myResources.getString("customButtonPath");
         Node customButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         customButton.setOnMouseClicked(e -> setCustomSize());
@@ -96,11 +91,11 @@ public class SizeChooserUI extends Scene {
      */
     private void setText() {
         Font.loadFont(myResources.getString("externalFont"), 12);
-        int xPos = myUtil.getIntProperty(myResources, "promptXPos");
-        int yPos = myUtil.getIntProperty(myResources, "promptYPos");
+        int xPos = myUtil.getIntProperty( "promptXPos");
+        int yPos = myUtil.getIntProperty("promptYPos");
         String text = myResources.getString("promptText");
         String font = myResources.getString("font");
-        int size = myUtil.getIntProperty(myResources, "promptSize");
+        int size = myUtil.getIntProperty("promptSize");
         myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
 
 //        // create small size text
@@ -132,7 +127,7 @@ public class SizeChooserUI extends Scene {
     /**
      * Creates a window that prompts the user to choose an initial overworld size
      */
-    public void promptUserForSize() {
+    void promptUserForSize() {
         myBuilder.initWindow(myStage, SIZE_CHOOSER_RESOURCES);
         setButtons();
         setText();

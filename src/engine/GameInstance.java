@@ -2,6 +2,7 @@ package engine;
 
 import api.IGameInstance;
 import block.Block;
+import block.BlockUpdate;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
@@ -9,6 +10,8 @@ import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 
 /**
@@ -28,6 +31,7 @@ public class GameInstance extends Observable implements IGameInstance {
     private Player myPlayer;
 	private int myScore;
 	private GameStatus myStatus;
+	private List<BlockUpdate> blockUpdates;
 	
 	public GameInstance(Player player, GridWorld gridWorld) {
 	    myGridWorld = gridWorld;
@@ -36,6 +40,7 @@ public class GameInstance extends Observable implements IGameInstance {
         myPlayer = player;
 	    myScore = 0;
 		myStatus = new GameStatus();
+		blockUpdates = new ArrayList<>();
 	}
 
 	public GridWorld getGridWorld() {
@@ -61,6 +66,10 @@ public class GameInstance extends Observable implements IGameInstance {
 	public GameStatus getGameStatus() {
 		return myStatus;
 	}
+
+	public List<BlockUpdate> getBlockUpdates() {
+	    return blockUpdates;
+    }
 	
 	public void processInput(UserInstruction input) {
 		int row = myPlayer.getRow();
@@ -98,14 +107,12 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case TALK:
-			    // TODO: talk interaction
+			    // TODO: better talk interaction
 			    Block talkBlock = blockInFacedDirection(row, col, direction);
-                talkBlock.talkInteract("hello");
+                talkBlock.talkInteract(myPlayer);
 			default:
 				break;
 		}
-		System.out.println("r u gonna update");
-		System.out.println(playerUpdate == null);
         notifyObservers(playerUpdate);
 	}
 
@@ -121,23 +128,9 @@ public class GameInstance extends Observable implements IGameInstance {
         if (inBounds(newBlock) && isWalkable(newBlock)) {
             myPlayer.setRow(newBlock.getRow());
             myPlayer.setCol(newBlock.getCol());
-
-            // TODO: do the step on interaction
-            // newBlock.doStepOnInteraction(myPlayer);
             setChanged();
         }
         return playerUpdate;
-    }
-
-    /**
-     * Handles the case where the player changes direction
-     * @param direction - the new direction the player will face
-     * @return the player update type (DIRECTION)
-     */
-    private PlayerUpdate handleDirection(PlayerDirection direction) {
-        myPlayer.setDirection(direction);
-        setChanged();
-	    return PlayerUpdate.DIRECTION;
     }
 
 	/**
@@ -162,6 +155,17 @@ public class GameInstance extends Observable implements IGameInstance {
 		return block.isWalkable();
 	}
 
+    /**
+     * Handles the case where the player changes direction
+     * @param direction - the new direction the player will face
+     * @return the player update type (DIRECTION)
+     */
+    private PlayerUpdate handleDirection(PlayerDirection direction) {
+        myPlayer.setDirection(direction);
+        setChanged();
+        return PlayerUpdate.DIRECTION;
+    }
+
 	private Block blockInFacedDirection(int row, int col, PlayerDirection direction) {
 	    switch (direction) {
             case NORTH:
@@ -176,5 +180,21 @@ public class GameInstance extends Observable implements IGameInstance {
                 // TODO: throw custom exception--player is not facing in any direction
                 return null;
         }
+    }
+
+    public void handleInteraction() {
+        Block newBlock = myGrid.getBlock(myPlayer.getRow(), myPlayer.getCol());
+        if (newBlock.stepInteract(myPlayer) || newBlock.talkInteract(myPlayer)) {
+            blockUpdates = newBlock.getBlockUpdates();
+            setChanged();
+            notifyObservers(PlayerUpdate.INTERACTION);
+            // frontend needs to call getRow(), getCol(), getBlockUpdates()
+        }
+    }
+
+    public void changeGrid(int index) {
+        myGridWorld.setCurrentIndex(index);
+        myGrid = myGridWorld.getCurrentGrid();
+        myRenderedGrid = new RenderedGrid(myGrid);
     }
 }
