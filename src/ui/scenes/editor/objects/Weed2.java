@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Weed2 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/decorations/weed-2";
+    private final String PATH = "resources/images/tiles/decoration/weed-2";
 
     public Weed2() {
         super();

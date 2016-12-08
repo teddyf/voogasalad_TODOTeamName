@@ -1,7 +1,7 @@
 package ui;
 import java.util.*;
 import block.BlockType;
-import ui.scenes.editor.objects.GameObject;
+import ui.scenes.editor.objects.GameObject2;
 import ui.scenes.editor.objects.Player1;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
@@ -33,7 +33,7 @@ public class GridPane {
     private GridObjectMap gridMap;
     private GridPaneNode def;
 
-    private String DEFAULT = "resources/images/tiles/decorations/grass-";
+    private String DEFAULT = "resources/images/tiles/ground/grass-";
 
     public GridPane (int gridWidth, int gridHeight, int renderWidth,
                      int renderHeight, int renderTopLeftX, int renderTopLeftY) {
@@ -228,7 +228,7 @@ public class GridPane {
     }
 
 
-    public List<GridPaneNode> swap (GameObject obj, EditorController control) {
+    public List<GridPaneNode> swap (GameObject2 obj, EditorController control) {
         List<GridPaneNode> list = obj.getImageTiles();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
@@ -271,7 +271,7 @@ public class GridPane {
         // TODO add dimension checker
     }
 
-    private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
+    private void setPlayer (GridPaneNode temp, GameObject2 gameObject, EditorController control) {
         if (gameObject instanceof Player1) {
             control.addPlayer(temp.getName(), temp.getBackendRow(), temp.getBackendCol());
             control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getBackendRow(),

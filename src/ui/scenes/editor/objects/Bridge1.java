@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Bridge1 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/decorations/bridge-1";
+    private final String PATH = "resources/images/tiles/decoration/bridge-1";
 
     public Bridge1() {
         super();

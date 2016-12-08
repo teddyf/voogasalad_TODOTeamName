@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Tree1 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/obstacles/tree-1";
+    private final String PATH = "resources/images/tiles/obstacle/tree-1";
 
     public Tree1() {
         super();

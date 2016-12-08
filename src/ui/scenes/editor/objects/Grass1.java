@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 
 public class Grass1 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/decorations/grass-1";
+    private final String PATH = "resources/images/tiles/ground/grass-1";
 
     public Grass1() {
         super();

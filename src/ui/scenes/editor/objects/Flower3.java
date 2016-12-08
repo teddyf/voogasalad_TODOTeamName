@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Flower3 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/decorations/flower-3";
+    private final String PATH = "resources/images/tiles/decoration/flower-3";
 
     public Flower3() {
         super();

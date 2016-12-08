@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Water1 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/obstacles/water-1";
+    private final String PATH = "resources/images/tiles/obstacle/water-1";
 
     public Water1() {
         super();

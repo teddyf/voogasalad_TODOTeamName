@@ -73,9 +73,9 @@ public class GameEditor extends Scene {
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
+        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myResources);
 
-        GridUI grid = new GridUI(myRoot, itemMenu.getItemPanelObjects(), myController);
+        GridUI grid = new GridUI(myRoot, itemMenu, myController);
         grid.initGrid(width, height);
         itemMenu.init();
 

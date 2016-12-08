@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Sign1 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/obstacles/sign-1";
+    private final String PATH = "resources/images/tiles/obstacle/sign-1";
 
     public Sign1() {
         super();

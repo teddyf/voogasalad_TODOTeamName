@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Switch1 extends GameObject {
     
-    private final String PATH = "resources/images/tiles/Links/switch-1";
+    private final String PATH = "resources/images/tiles/switch_floor/switch-1";
 
     public Switch1(){
         super();

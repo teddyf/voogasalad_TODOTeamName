@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Tele1 extends GameObject{
 
-    private final String PATH = "resources/images/tiles/Teleporters/tele1";
+    private final String PATH = "resources/images/tiles/teleport/tele1";
     public Tele1(){
         super();
         Image image = new Image(PATH + ".png");

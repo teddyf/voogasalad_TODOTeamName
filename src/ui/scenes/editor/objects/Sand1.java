@@ -6,7 +6,7 @@ import ui.GridPaneNode;
 
 public class Sand1 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/decorations/sand-1";
+    private final String PATH = "resources/images/tiles/ground/sand-1";
 
     public Sand1() {
         super();
