@@ -1,11 +1,9 @@
-package ui.scenes.editor;
+package ui.scenes.editor.sidemenu;
 
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
-import player.PlayerAttribute;
 import editor.EditorController;
 import resources.properties.PropertiesUtilities;
 import javafx.geometry.Insets;
@@ -13,11 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
-import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.objects.GameObject;
 
 public class PlayerMenuUI implements Observer {
 	private Parent myRoot;
@@ -28,7 +23,7 @@ public class PlayerMenuUI implements Observer {
     private DraggableTabPane myPlayerPanel;
     private EditorController myEditorController;
 
-    PlayerMenuUI(Parent root, UIBuilder builder, ResourceBundle resources,EditorController editorController) {
+    public PlayerMenuUI(Parent root, UIBuilder builder, ResourceBundle resources,EditorController editorController) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;

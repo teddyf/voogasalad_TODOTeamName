@@ -1,14 +1,12 @@
-package ui.scenes.editor;
+package ui.scenes.editor.sidemenu;
 
 import java.util.Observable;
 
-import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

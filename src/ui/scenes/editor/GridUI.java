@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.sidemenu.ItemSideMenu;
+
 import java.util.*;
 
 
@@ -20,7 +22,7 @@ import java.util.*;
 public class GridUI {
 
     private Parent myRoot;
-    private ItemMenuUI myItemMenu;
+    private ItemSideMenu myItemMenu;
     private EditorController myController;
 
     private ResourceBundle myResources;
@@ -34,7 +36,7 @@ public class GridUI {
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
 
-    public GridUI(Parent root, ItemMenuUI itemMenu, EditorController controller) {
+    public GridUI(Parent root, ItemSideMenu itemMenu, EditorController controller) {
         myRoot = root;
         myItemMenu = itemMenu;
         myController = controller;

@@ -1,8 +1,7 @@
-package ui.scenes.editor;
+package ui.scenes.editor.sidemenu;
 
 import java.util.Observable;
 
-import editor.EditorController;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
