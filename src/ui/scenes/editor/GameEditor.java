@@ -2,10 +2,13 @@ package ui.scenes.editor;
 
 import editor.EditorController;
 import engine.EngineController;
+import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -36,6 +39,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.ResourceBundle;
+
 import javafx.scene.control.Button;
 
 /**
@@ -53,7 +57,7 @@ public class GameEditor extends Scene {
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private EditorController myController;
-    
+
 
     public GameEditor(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
         super(root, Color.web("#0585B2"));
@@ -66,12 +70,19 @@ public class GameEditor extends Scene {
         root.getStylesheets().add(CSS_FILE_NAME);
     }
 
+
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
+
         GridUI grid = new GridUI(myRoot, itemMenu.getItemPanelObjects(), myController);
         grid.initGrid(width, height);
-        itemMenu.addItemPanel();
+        itemMenu.init();
+
+        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu);
+        controls.addEditorControls();
+
+
 //        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources, editorController);
 //        playerMenu.initPlayerMenu();
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
@@ -79,8 +90,6 @@ public class GameEditor extends Scene {
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
         initPlayerButton();
-    System.out.println(grid.getMyGridPane().getGroup().getLayoutX());
-        System.out.println(grid.getMyGridPane().getGroup().getLayoutY());
 
         //        EngineController loadedEngine = editorController.runEngine(); // running test
         myStage.setOnCloseRequest(e -> {
@@ -101,14 +110,14 @@ public class GameEditor extends Scene {
     public void initEditor() {
         //SizeChooserUI sizeChooser = new SizeChooserUI(myStage, new Group(), this, myLauncher, myBuilder);
         //sizeChooser.promptUserForSize();
-        
-       SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
-       myBuilder.initWindow(myStage, SizeChooser2.SIZE_CHOOSER_RESOURCES);
-       myStage.setScene(sizeChooser);
+
+        SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
+        myBuilder.initWindow(myStage, SizeChooser2.SIZE_CHOOSER_RESOURCES);
+        myStage.setScene(sizeChooser);
     }
-    
-    
-    private void initPlayerButton(){
+
+
+    private void initPlayerButton() {
         ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(-.3);
         int playerX = Integer.parseInt(myResources.getString("playerX"));
@@ -116,18 +125,18 @@ public class GameEditor extends Scene {
         int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
         String playerText = myResources.getString("playerLabel");
         Node playerButton = myBuilder.addCustomButton(myRoot, playerText, playerX, playerY, playerWidth);
-        playerButton.setOnMouseClicked(e->{
+        playerButton.setOnMouseClicked(e -> {
             myLauncher.launchCharacterMenu();
         });
-        playerButton.setOnMouseEntered(e->{
+        playerButton.setOnMouseEntered(e -> {
             playerButton.setEffect(hoverOpacity);
         });
-        playerButton.setOnMouseExited(e->{
+        playerButton.setOnMouseExited(e -> {
             playerButton.setEffect(null);
         });
     }
-    
-    public String getPath(){
+
+    public String getPath() {
         return EDITOR_RESOURCES;
     }
 }
