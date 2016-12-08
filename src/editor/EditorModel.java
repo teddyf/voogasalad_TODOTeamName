@@ -8,7 +8,6 @@ import engine.EngineController;
 import grid.Grid;
 import grid.GridGrowthDirection;
 import grid.GridWorld;
-import grid.RenderedGrid;
 import player.Player;
 import player.PlayerAttribute;
 import xml.GridWorldAndPlayer;
@@ -42,7 +41,7 @@ public class EditorModel {
         currentGrid = gridWorld.getCurrentGrid();
     }
 
-    public void createBlock(String name, BlockType blockType, int row, int col) {
+    public void addBlock(String name, BlockType blockType, int row, int col) {
         Block block = blockFactory.createBlock(name, blockType, row, col);
         currentGrid.setBlock(row, col, block);
     }
@@ -178,20 +177,8 @@ public class EditorModel {
 
     /*****METHODS FOR FRONTEND TO CALL*****/
 
-    /**
-     * Gets the row in which the player is located
-     * @return the row
-     */
-    public int getRow() {
-        return player.getRow();
-    }
-
-    /**
-     * Gets the column in which the player is located
-     * @return the column
-     */
-    public int getCol() {
-        return player.getCol();
+    public Player getPlayer() {
+        return player;
     }
 
     /**
