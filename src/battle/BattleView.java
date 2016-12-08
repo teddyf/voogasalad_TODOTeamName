@@ -56,7 +56,8 @@ public class BattleView implements Observer {
 
 	protected void addHandlers() {
 		reduceHP.setOnAction(actionEvent -> {
-			model.setEnemyHP(model.getEnemyHP() - DAMAGE);
+            if(!(model.checkPlayerLost() || model.checkPlayerWon()))
+			    model.setEnemyHP(model.getEnemyHP() - DAMAGE);
 		});
 	}
 
@@ -67,9 +68,13 @@ public class BattleView implements Observer {
 		enemy.setHP(model.getEnemyHP());
 		
 		if (model.checkPlayerLost()) {
+            WinCondition lost = new WinCondition("you lost");
+            lost.addWinCondition(root);
 			System.out.println("player lost");
 		}
 		if (model.checkPlayerWon()) {
+            WinCondition won = new WinCondition("You won");
+            won.addWinCondition(root);
 			System.out.println("player won");
 		}
 	}
