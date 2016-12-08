@@ -313,8 +313,7 @@ public class GridPane {
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        return controller.linkBlocks(node1.getBackendRow(), node1.getBackendCol(), node2.getBackendRow(), node2.getBackendCol(),
-                                     0, 0);
+        return controller.linkBlocks(node1.getBackendRow(), node1.getBackendCol(), 0, node2.getBackendRow(), node2.getBackendCol(), 0);
     }
     
     /**

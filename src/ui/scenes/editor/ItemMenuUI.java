@@ -58,7 +58,6 @@ public class ItemMenuUI {
     private ScrollPane createScrollPane(BlockType type) {
         FlowPane itemPane = getFlowPane();
         List<GameObject> list = myViewer.getObjects(type);
-        System.out.println("b");
         for (GameObject object : list) {
             String path = object.getIconPath();
             ImageView icon = (ImageView) myBuilder.addNewImageView(itemPane, new ComponentProperties()
@@ -75,7 +74,6 @@ public class ItemMenuUI {
                 object.getIcon().setStyle("-fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);");
             });
         }
-        System.out.println("hi");
         return new ScrollPane(itemPane);
     }
 
