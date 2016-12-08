@@ -67,7 +67,7 @@ public class PlayerMenuUI implements Observer {
     private DraggableTabPane createPlayerPanel() {
         PropertiesUtilities util = new PropertiesUtilities(myResources);
         DraggableTabPane playerPanel = new DraggableTabPane();
-        //Panel.setLayoutX(util.getIntProperty( "itemMenuX"));
+        playerPanel.setLayoutX(util.getIntProperty( "itemMenuX"));
         playerPanel.setLayoutY(util.getIntProperty( "itemMenuY"));
         playerPanel.setMinWidth(util.getIntProperty( "itemMenuWidth"));
         playerPanel.setMinHeight(util.getIntProperty( "itemMenuHeight"));

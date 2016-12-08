@@ -41,6 +41,8 @@ public class PlayerAttributeUI extends Observable{
 		HBox nameBox = getCustomizedHBox();
 		Label nameLabel = new Label("Name");
 		nameTextField = new TextField();
+		nameLabel.setLayoutX(10);
+		nameLabel.setLayoutY(10);
 		nameBox.getChildren().addAll(nameLabel,nameTextField);
 		
 		//adding decrement box
@@ -57,7 +59,7 @@ public class PlayerAttributeUI extends Observable{
 		
 		//adding amount box
 		HBox amountBox = getCustomizedHBox();
-		Label amountLabel = new Label("Increment");
+		Label amountLabel = new Label("Amount");
 		amountTextField = new TextField();
 		amountBox.getChildren().addAll(amountLabel,amountTextField);
 		
