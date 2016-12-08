@@ -64,7 +64,7 @@ public abstract class SideMenu {
         myPanel.setMinHeight(myUtil.getIntProperty(myResourceName + "MenuHeight"));
     }
 
-    public DraggableTabPane getItemPanel() {
+    public DraggableTabPane getPanel() {
         return myPanel;
     }
 

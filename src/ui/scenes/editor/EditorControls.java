@@ -41,9 +41,9 @@ public class EditorControls {
         itemTab.setClosable(false);
         itemTab.setOnSelectionChanged(e -> {
             if (itemTab.isSelected()) {
-                myBuilder.addComponent(myRoot, myItemMenu.getItemPanel());
+                myBuilder.addComponent(myRoot, myItemMenu.getPanel());
             } else {
-                myBuilder.removeComponent(myRoot, myItemMenu.getItemPanel());
+                myBuilder.removeComponent(myRoot, myItemMenu.getPanel());
             }
         });
 
