@@ -20,12 +20,14 @@ public class BattleView implements Observer {
 	protected static final int RECTANGLE_WIDTH = 40;
 	protected static final int RECTANGLE_HEIGHT = 40;
 	protected static final Color BACKGROUND = Color.AZURE;
+	protected static final int DAMAGE = 10;
+	
 	private final int PLAYER_X = BattleView.WIDTH / 2;
 	private final int PLAYER_Y = 50;
 	private final int ENEMY_X = BattleView.HEIGHT / 2;
 	private final int ENEMY_Y = 200;
 	private final int BUTTON_Y = 400;
-	private static final int DAMAGE = 10;
+	
 	private Scene scene;
 	private Group root;
 
