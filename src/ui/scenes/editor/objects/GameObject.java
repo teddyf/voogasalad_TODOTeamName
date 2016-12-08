@@ -2,12 +2,13 @@ package ui.scenes.editor.objects;
 
 import java.util.*;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ui.GridPaneNode;
 import block.*;
 
 /**
- * @author Nisa, Pim, Teddy
+ * @author Nisa, Pim, Teddy, Harshil
  */
 public abstract class GameObject {
 
@@ -16,9 +17,11 @@ public abstract class GameObject {
     protected ImageView myImageView;
     protected BlockType myBlockType;
 
-    public GameObject() {
+    public GameObject(String iconPath, BlockType blockType) {
+        myIconPath = iconPath;
+        myBlockType = blockType;
+        myImageView = new ImageView(new Image(myIconPath));
         myImageTiles = new ArrayList<>();
-        myImageView = new ImageView();
         populateList();
     }
 
@@ -28,7 +31,7 @@ public abstract class GameObject {
         return myImageTiles;
     }
 
-    String rename(String a, int count) {
+    public String rename(String a, int count) {
         return a + "." + count + ".png";
     }
 
@@ -45,7 +48,7 @@ public abstract class GameObject {
     }
 
     public String getIconPath() {
-        return myIconPath + ".png";
+        return myIconPath;
     }
 
 }
