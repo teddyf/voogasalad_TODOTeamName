@@ -4,11 +4,9 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.shape.Rectangle;
 import resources.properties.PropertiesUtilities;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
@@ -31,7 +29,7 @@ public class ItemMenuUI {
     private ResourceBundle myResources;
     private ItemPanelObjects myItemPanelObjects;
 
-    private TabPane itemPanel;
+    private DraggableTabPane itemPanel;
 
     ItemMenuUI(Parent root, UIBuilder builder, ResourceBundle resources) {
         myRoot = root;
@@ -40,22 +38,22 @@ public class ItemMenuUI {
         myItemPanelObjects = new ItemPanelObjects();
     }
 
-    /**
-     * Adds a border to the grid based on the grid's position and size
-     * by creating a Rectangle behind it
-     *
-     * @return the Rectangle representing the border
-     */
-    private void addBorder() {
-        PropertiesUtilities util = new PropertiesUtilities();
-        Rectangle border = new Rectangle();
-        border.setLayoutX(util.getIntProperty(myResources, "itemMenuX") - util.getIntProperty(myResources, "borderSize"));
-        border.setLayoutY(util.getIntProperty(myResources, "itemMenuY") - util.getIntProperty(myResources, "borderSize"));
-        border.setWidth(util.getIntProperty(myResources, "itemMenuWidth") + util.getIntProperty(myResources, "borderSize") * 2);
-        border.setHeight(util.getIntProperty(myResources, "itemMenuHeight") + util.getIntProperty(myResources, "borderSize") * 2);
-        border.setId("grid-border");
-        myBuilder.addComponent(myRoot, border);
-    }
+//    /**
+//     * Adds a border to the grid based on the grid's position and size
+//     * by creating a Rectangle behind it
+//     *
+//     * @return the Rectangle representing the border
+//     */
+//    private void addBorder() {
+//        PropertiesUtilities util = new PropertiesUtilities(myResources);
+//        Rectangle border = new Rectangle();
+//        border.setLayoutX(util.getIntProperty("itemMenuX") - util.getIntProperty("borderSize"));
+//        border.setLayoutY(util.getIntProperty("itemMenuY") - util.getIntProperty("borderSize"));
+//        border.setWidth(util.getIntProperty("itemMenuWidth") + util.getIntProperty("borderSize") * 2);
+//        border.setHeight(util.getIntProperty("itemMenuHeight") + util.getIntProperty("borderSize") * 2);
+//        border.setId("grid-border");
+//        myBuilder.addComponent(myRoot, border);
+//    }
 
     /**
      * Gets the content for each scrollpane under each tab
@@ -64,11 +62,11 @@ public class ItemMenuUI {
      * @return the ScrollPane, populated with its content
      */
     private ScrollPane createScrollPane(String label) {
-        PropertiesUtilities util = new PropertiesUtilities();
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
         ColorAdjust hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
         FlowPane itemPane = new FlowPane();
-        int padding = util.getIntProperty(myResources, "contentPadding");
+        int padding = util.getIntProperty("contentPadding");
         itemPane.setHgap(padding);
         itemPane.setVgap(padding);
         itemPane.setPadding(new Insets(padding, padding, padding, padding));
@@ -96,7 +94,7 @@ public class ItemMenuUI {
             String imgPath = gameObj.getIconPath();
             ImageView objectIcon = (ImageView) myBuilder.addNewImageView(itemPane, new ComponentProperties()
                     .path(imgPath)
-                    .width(util.getIntProperty(myResources, "itemWidth"))
+                    .width(util.getIntProperty("itemWidth"))
                     .preserveRatio(true)
                     .id("game-object"));
             gameObj.setIcon(objectIcon);
@@ -131,7 +129,7 @@ public class ItemMenuUI {
      *
      * @param itemPanel is the Item Menu to which the tabs are added
      */
-    private void addTabs(TabPane itemPanel) {
+    private void addTabs(DraggableTabPane itemPanel) {
         ScrollPane groundPane = createScrollPane("Ground");
         Tab groundTab = createTab("Ground", groundPane);
         ScrollPane decorPane = createScrollPane("Decor");
@@ -150,18 +148,19 @@ public class ItemMenuUI {
      *
      * @return the item panel
      */
-    private TabPane createItemPanel() {
-        PropertiesUtilities util = new PropertiesUtilities();
-        TabPane itemPanel = new TabPane();
-        itemPanel.setLayoutX(util.getIntProperty(myResources, "itemMenuX"));
-        itemPanel.setLayoutY(util.getIntProperty(myResources, "itemMenuY"));
-        itemPanel.setMinWidth(util.getIntProperty(myResources, "itemMenuWidth"));
-        itemPanel.setMinHeight(util.getIntProperty(myResources, "itemMenuHeight"));
+    private DraggableTabPane createItemPanel() {
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
+        DraggableTabPane itemPanel = new DraggableTabPane();
+        itemPanel.setLayoutX(util.getIntProperty( "itemMenuX"));
+        itemPanel.setLayoutY(util.getIntProperty( "itemMenuY"));
+        itemPanel.setMinWidth(util.getIntProperty( "itemMenuWidth"));
+        itemPanel.setMinHeight(util.getIntProperty( "itemMenuHeight"));
         return itemPanel;
     }
 
-    public void addItemPanel() {
-        myBuilder.addComponent(myRoot, itemPanel);
+    DraggableTabPane getItemPanel() {
+//        myBuilder.addComponent(myRoot, itemPanel);
+        return itemPanel;
     }
 
     /**
@@ -171,9 +170,13 @@ public class ItemMenuUI {
      * @return the item menu, properly placed on the grid
      */
     public ItemPanelObjects getItemPanelObjects() {
+
+//        addBorder();
+        return myItemPanelObjects;
+    }
+
+    public void init() {
         itemPanel = createItemPanel();
         addTabs(itemPanel);
-        addBorder();
-        return myItemPanelObjects;
     }
 }

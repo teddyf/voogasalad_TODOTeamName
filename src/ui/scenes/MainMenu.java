@@ -40,7 +40,7 @@ public class MainMenu extends Scene {
         myBuilder = new UIBuilder();
         myLauncher = launcher;
         myResources = ResourceBundle.getBundle(MAINMENU_RESOURCES);
-        myUtil = new PropertiesUtilities();
+        myUtil = new PropertiesUtilities(myResources);
         root.getStylesheets().add(CSS_FILE_NAME);
         myStage.setOnCloseRequest(e -> myStage.hide());
         initMenu();
@@ -52,21 +52,21 @@ public class MainMenu extends Scene {
     private void setButtons() {
         // create build button
         String buttonCSSid = myResources.getString("buttonCSSid");
-        int xPos = myUtil.getIntProperty(myResources, "buildButtonX");
-        int yPos = myUtil.getIntProperty(myResources, "buildButtonY");
+        int xPos = myUtil.getIntProperty("buildButtonX");
+        int yPos = myUtil.getIntProperty("buildButtonY");
         String path = myResources.getString("buildButtonPath");
-        int width = myUtil.getIntProperty(myResources, "buttonWidth");
+        int width = myUtil.getIntProperty("buttonWidth");
         Node buildButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         buildButton.setOnMouseClicked(e -> myLauncher.launchEditor());
         // create play button
-        xPos = myUtil.getIntProperty(myResources, "playButtonX");
-        yPos = myUtil.getIntProperty(myResources, "playButtonY");
+        xPos = myUtil.getIntProperty("playButtonX");
+        yPos = myUtil.getIntProperty("playButtonY");
         path = myResources.getString("playButtonPath");
         Node playButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         playButton.setOnMouseClicked(e -> myLauncher.launchEngine());
         // create exit button
-        xPos = myUtil.getIntProperty(myResources, "exitButtonX");
-        yPos = myUtil.getIntProperty(myResources, "exitButtonY");
+        xPos = myUtil.getIntProperty("exitButtonX");
+        yPos = myUtil.getIntProperty("exitButtonY");
         path = myResources.getString("exitButtonPath");
         Node exitButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         exitButton.setOnMouseClicked(e -> myStage.hide());
@@ -78,17 +78,17 @@ public class MainMenu extends Scene {
     private void setText() {
         Font.loadFont(myResources.getString("externalFont"), 12);
         // create title
-        int xPos = myUtil.getIntProperty(myResources, "titleXPos");
-        int yPos = myUtil.getIntProperty(myResources, "titleYPos");
+        int xPos = myUtil.getIntProperty("titleXPos");
+        int yPos = myUtil.getIntProperty("titleYPos");
         String text = myResources.getString("titleText");
         String font = myResources.getString("font");
-        int size = myUtil.getIntProperty(myResources, "titleSize");
+        int size = myUtil.getIntProperty("titleSize");
         myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
         // create subtitle
-        xPos = myUtil.getIntProperty(myResources, "subtitleXPos");
-        yPos = myUtil.getIntProperty(myResources, "subtitleYPos");
+        xPos = myUtil.getIntProperty("subtitleXPos");
+        yPos = myUtil.getIntProperty("subtitleYPos");
         text = myResources.getString("subtitleText");
-        size = myUtil.getIntProperty(myResources, "subtitleSize");
+        size = myUtil.getIntProperty("subtitleSize");
         myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
     }
 
@@ -97,7 +97,7 @@ public class MainMenu extends Scene {
      */
     private void setBackground() {
         String path = myResources.getString("backgroundPath");
-        int width = myUtil.getIntProperty(myResources,"backgroundWidth");
+        int width = myUtil.getIntProperty("backgroundWidth");
         myBuilder.addNewImageView(myRoot, new ComponentProperties(0, 0)
                 .path(path)
                 .preserveRatio(true)
