@@ -1,8 +1,6 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
-import javafx.scene.control.Button;
-import javafx.scene.shape.Rectangle;
 import ui.GridPane;
 import ui.GridPaneNode;
 import javafx.scene.Node;
@@ -11,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-import ui.scenes.ScrollAnimation;
 import ui.scenes.editor.objects.ItemPanelObjects;
 import java.util.*;
 
