@@ -63,10 +63,10 @@ public class GridUI {
         String swapPath = myResources.getString("swapPath");
         Node widthInputField =
                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                        widthInputWidth);
+                        widthInputWidth,20);
         Node heightInputField =
                 myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                        heightInputWidth);
+                        heightInputWidth,20);
         String updatePath = myResources.getString("updatePath");
         Node updateButton =
                 myBuilder.addCustomImageView(myRoot, updateX, updateY, updatePath, updateWidth, "");
