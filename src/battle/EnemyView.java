@@ -6,7 +6,8 @@ package battle;
  * @author Bill Xiong
  */
 public class EnemyView extends ItemView {
+	private static final String ENEMY_NAME = "enemy";
 	public EnemyView(int hp, int x, int y) {
-		super(hp, x, y);
+		super(ENEMY_NAME, hp, x, y);
 	}
 }

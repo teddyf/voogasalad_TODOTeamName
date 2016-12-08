@@ -17,6 +17,7 @@ public class BattleView implements Observer {
 	protected static final int WIDTH = 500;
 	protected static final int HEIGHT = 500;
 	protected static final int OFFSET = 40;
+    protected static final int OFFSET_Y = 20;
 	protected static final int RECTANGLE_WIDTH = 40;
 	protected static final int RECTANGLE_HEIGHT = 40;
 	protected static final Color BACKGROUND = Color.AZURE;

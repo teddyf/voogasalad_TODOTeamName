@@ -6,7 +6,8 @@ package battle;
  * @author Bill Xiong
  */
 public class PlayerView extends ItemView {
+	private static final String PLAYER_NAME = "player";
 	public PlayerView(int hp, int x, int y) {
-		super(hp, x, y);
+		super(PLAYER_NAME, hp, x, y);
 	}
 }

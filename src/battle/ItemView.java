@@ -12,16 +12,24 @@ import javafx.scene.shape.Rectangle;
  * 
  */
 public abstract class ItemView {
+
 	private Label itemHP;
+	private Label name;
 	// TODO change to ImageView
 	private Rectangle itemView;
 	private int hp;
 
-	public ItemView(int hp, int x, int y) {
+	public ItemView(String name, int hp, int x, int y) {
 		itemHP = new Label("HP: " + hp);
 		itemView = new Rectangle(BattleView.RECTANGLE_WIDTH, BattleView.RECTANGLE_HEIGHT);
 		itemView.setLayoutX(x);
 		itemView.setLayoutY(y);
+
+		this.name = new Label(name);
+		this.name.setLayoutX(x + BattleView.OFFSET);
+		this.name.setLayoutY(y + BattleView.OFFSET_Y);
+
+
 		itemHP.setLayoutX(x + BattleView.OFFSET);
 		itemHP.setLayoutY(y);
 		this.hp = hp;
@@ -30,6 +38,7 @@ public abstract class ItemView {
 	protected void addToGroup(Group root) {
 		root.getChildren().add(itemHP);
 		root.getChildren().add(itemView);
+        root.getChildren().add(name);
 	}
 
 	protected void updateLoc(int x, int y) {
