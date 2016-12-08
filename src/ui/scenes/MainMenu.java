@@ -10,6 +10,7 @@ import resources.properties.PropertiesUtilities;
 import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.PopUp;
 
 import java.util.ResourceBundle;
 
@@ -58,6 +59,7 @@ public class MainMenu extends Scene {
         int width = myUtil.getIntProperty("buttonWidth");
         Node buildButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         buildButton.setOnMouseClicked(e -> myLauncher.launchEditor());
+        
         // create play button
         xPos = myUtil.getIntProperty("playButtonX");
         yPos = myUtil.getIntProperty("playButtonY");
