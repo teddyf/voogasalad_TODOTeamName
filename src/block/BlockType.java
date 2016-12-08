@@ -9,6 +9,7 @@ package block;
 public enum BlockType {
     COMMUNICATOR,
     DECORATION,
+    GROUND,
     ENEMY,
     GATE,
     OBSTACLE,
