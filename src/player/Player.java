@@ -1,11 +1,8 @@
 package player;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
@@ -16,10 +13,11 @@ import editor.backend.Item;
 import editor.backend.Status;
 
 /**
- * This is the class that holds all of the information corresponding to the player
+ * This is the class that holds all of the information corresponding to the
+ * player
+ * 
  * @author Aninda Manocha
  */
-
 @XStreamAlias("player")
 public class Player implements IPlayer {
 	@XStreamOmitField
@@ -30,20 +28,21 @@ public class Player implements IPlayer {
 	private int myRow;
 	private int myCol;
 	private int myGridIndex;
-	private Map<String, PlayerAttribute> myAttributes;
+	private List<PlayerAttribute> myAttributes;
 	private List<Item> myInventory;
 	private List<Battle> myBattleHistory;
 	private List<Interaction> myInteractionHistory;
 	private List<Status> myStatus;
-	private int health;
 	
+	private int health;
+
 	public Player(String name, int row, int col, int gridIndex) {
 		myName = name;
 		myDirection = PlayerDirection.NORTH;
 		myRow = row;
 		myCol = col;
 		myGridIndex = gridIndex;
-		myAttributes = new HashMap<>();
+		myAttributes = new ArrayList<>();
 		myInventory = new ArrayList<>();
 		myBattleHistory = new ArrayList<>();
 		myInteractionHistory = new ArrayList<>();
@@ -59,11 +58,11 @@ public class Player implements IPlayer {
 	public PlayerDirection getDirection() {
 		return myDirection;
 	}
-	
+
 	public int getRow() {
 		return myRow;
 	}
-	
+
 	public int getCol() {
 		return myCol;
 	}
@@ -72,10 +71,10 @@ public class Player implements IPlayer {
 		return myGridIndex;
 	}
 
-	public Collection<PlayerAttribute> getAttributes() {
-		return myAttributes.values();
+	public List<PlayerAttribute> getAttributes() {
+		return Collections.unmodifiableList(myAttributes);
 	}
-	
+
 	public List<Item> getInventory() {
 		return myInventory;
 	}
@@ -99,7 +98,7 @@ public class Player implements IPlayer {
 	public void setRow(int row) {
 		myRow = row;
 	}
-	
+
 	public void setCol(int col) {
 		myCol = col;
 	}
@@ -108,26 +107,22 @@ public class Player implements IPlayer {
 		myGridIndex = gridIndex;
 	}
 
-	public void addAttribute(String key, PlayerAttribute attribute) {
-		myAttributes.put(key, attribute);
+	public void addAttribute(PlayerAttribute attribute) {
+		myAttributes.add(attribute);
 	}
-	
-	public PlayerAttribute getAttribute(String key) {
-		return myAttributes.get(key);
-	}
-	
+
 	public void addItem(Item item) {
 		myInventory.add(item);
 	}
-	
+
 	public void addBattle(Battle battle) {
 		myBattleHistory.add(battle);
 	}
-	
+
 	public void addInteraction(Interaction interaction) {
 		myInteractionHistory.add(interaction);
 	}
-	
+
 	public void addStatus(Status status) {
 		myStatus.add(status);
 	}

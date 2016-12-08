@@ -73,7 +73,7 @@ public class AttributeEditor extends Scene{
             double amount = Double.parseDouble(amountTF.getText());
             double inc = Double.parseDouble(incTF.getText());
             double dec = Double.parseDouble(decTF.getText());
-            editorController.addPlayerAttribute(name, amount);
+            editorController.addPlayerAttribute(name, amount, inc, dec);
         });
           
         myStage.setOnCloseRequest(e->{
@@ -104,7 +104,7 @@ public class AttributeEditor extends Scene{
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomTextField(myRoot, route, x, y, girth);
+        Node node = myBuilder.addCustomTextField(myRoot, route, x, y, girth,20);
         return node;
     }
     

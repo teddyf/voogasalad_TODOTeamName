@@ -114,6 +114,8 @@ public class GameInstance extends Observable implements IGameInstance {
 				break;
 		}
         notifyObservers(playerUpdate);
+		
+
 	}
 
     /**

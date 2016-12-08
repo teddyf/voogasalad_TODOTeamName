@@ -1,25 +1,24 @@
 package ui.scenes.editor;
 
+import block.BlockType;
+
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.shape.Rectangle;
 import resources.properties.PropertiesUtilities;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.objects.GameObject;
-import ui.scenes.editor.objects.ItemPanelObjects;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * @author Nisa, Pim
+ * @author Nisa, Pim, Harshil
  *         <p>
  *         This class initializes tab-based UI used to choose ui.scenes.editor.objects to place
  *         on the overworld grid editor.
@@ -29,81 +28,50 @@ public class ItemMenuUI {
     private Parent myRoot;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
-    private ItemPanelObjects myItemPanelObjects;
+    private ItemViewer myViewer;
+    private PropertiesUtilities myUtil;
 
-    ItemMenuUI(Parent root, UIBuilder builder, ResourceBundle resources) {
+    private DraggableTabPane itemPanel;
+
+    private final BlockType [] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
+            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT};
+
+    public ItemMenuUI(Parent root, ResourceBundle resources) {
         myRoot = root;
-        myBuilder = builder;
         myResources = resources;
-        myItemPanelObjects = new ItemPanelObjects();
+        myUtil = new PropertiesUtilities(myResources);
+        myBuilder = new UIBuilder();
+        myViewer = new ItemViewer();
     }
 
-    /**
-     * Adds a border to the grid based on the grid's position and size
-     * by creating a Rectangle behind it
-     *
-     * @return the Rectangle representing the border
-     */
-    private void addBorder() {
-        PropertiesUtilities util = new PropertiesUtilities();
-        Rectangle border = new Rectangle();
-        border.setLayoutX(util.getIntProperty(myResources, "itemMenuX") - util.getIntProperty(myResources, "borderSize"));
-        border.setLayoutY(util.getIntProperty(myResources, "itemMenuY") - util.getIntProperty(myResources, "borderSize"));
-        border.setWidth(util.getIntProperty(myResources, "itemMenuWidth") + util.getIntProperty(myResources, "borderSize") * 2);
-        border.setHeight(util.getIntProperty(myResources, "itemMenuHeight") + util.getIntProperty(myResources, "borderSize") * 2);
-        border.setId("grid-border");
-        myBuilder.addComponent(myRoot, border);
-    }
-
-    /**
-     * Gets the content for each scrollpane under each tab
-     *
-     * @param label is the label used to determine which content to get
-     * @return the ScrollPane, populated with its content
-     */
-    private ScrollPane createScrollPane(String label) {
-        PropertiesUtilities util = new PropertiesUtilities();
-        ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
+    private FlowPane getFlowPane() {
         FlowPane itemPane = new FlowPane();
-        int padding = util.getIntProperty(myResources, "contentPadding");
+
+        int padding = myUtil.getIntProperty("contentPadding");
         itemPane.setHgap(padding);
         itemPane.setVgap(padding);
         itemPane.setPadding(new Insets(padding, padding, padding, padding));
-        List<GameObject> list;
-        switch (label) {
-            case "Ground":
-                list = myItemPanelObjects.getGroundObjs();
-                break;
-            case "Decor":
-                list = myItemPanelObjects.getDecorObjs();
-                break;
-            case "Obstacles":
-                list = myItemPanelObjects.getObstacleObjs();
-                break;
-            case "Switches":
-                list = myItemPanelObjects.getSwitchObjs();
-                break;
-            case "Teleporter":
-                list = myItemPanelObjects.getTeleObjs();
-                break;
-            default:
-                throw new NullPointerException();
-        }
-        for (GameObject gameObj : list) {
-            String imgPath = gameObj.getIconPath();
-            ImageView objectIcon = (ImageView) myBuilder.addNewImageView(itemPane, new ComponentProperties()
-                    .path(imgPath)
-                    .width(util.getIntProperty(myResources, "itemWidth"))
+
+        return itemPane;
+    }
+
+    private ScrollPane createScrollPane(BlockType type) {
+        FlowPane itemPane = getFlowPane();
+        List<GameObject> list = myViewer.getObjects(type);
+        for (GameObject object : list) {
+            String path = object.getIconPath();
+            ImageView icon = (ImageView) myBuilder.addNewImageView(itemPane, new ComponentProperties()
+                    .path(path)
+                    .width(myUtil.getIntProperty("itemWidth"))
                     .preserveRatio(true)
                     .id("game-object"));
-            gameObj.setIcon(objectIcon);
-            objectIcon.setOnMouseClicked(e -> {
-                if (myItemPanelObjects.getSelected() != null) {
-                    myItemPanelObjects.getSelected().getIcon().setStyle("-fx-effect: none");
+            object.setIcon(icon);
+            icon.setOnMouseClicked(e -> {
+                if (myViewer.getSelected() != null) {
+                    myViewer.getSelected().getIcon().setStyle("-fx-effect: none");
                 }
-                myItemPanelObjects.select(gameObj);
-                gameObj.getIcon().setStyle("-fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);");
+                myViewer.select(object);
+                object.getIcon().setStyle("-fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);");
             });
         }
         return new ScrollPane(itemPane);
@@ -129,16 +97,18 @@ public class ItemMenuUI {
      *
      * @param itemPanel is the Item Menu to which the tabs are added
      */
-    private void addTabs(TabPane itemPanel) {
-        ScrollPane groundPane = createScrollPane("Ground");
-        Tab groundTab = createTab("Ground", groundPane);
-        ScrollPane decorPane = createScrollPane("Decor");
-        Tab decorTab = createTab("Decor", decorPane);
-        ScrollPane obstaclePane = createScrollPane("Obstacles");
-        Tab obstacleTab = createTab("Obstacles", obstaclePane);
-        ScrollPane switchPane = createScrollPane("Switches");
-        Tab switchTab = createTab("Switches", switchPane);
-        itemPanel.getTabs().addAll(groundTab, decorTab, obstacleTab, switchTab);
+    private void addTabs(DraggableTabPane itemPanel) {
+        List<Tab> tabs = new ArrayList<>();
+        for (BlockType type : blockTypes) {
+            System.out.println(type);
+            if (createScrollPane(type) == null)
+                System.out.println("pen1");
+            if (type.name() == null)
+                System.out.println("pen2");
+            Tab tab = createTab(type.name().toLowerCase(), createScrollPane(type));
+            tabs.add(tab);
+        }
+        itemPanel.getTabs().addAll(tabs);
     }
 
     /**
@@ -146,27 +116,26 @@ public class ItemMenuUI {
      *
      * @return the item panel
      */
-    private TabPane createItemPanel() {
-        PropertiesUtilities util = new PropertiesUtilities();
-        TabPane itemPanel = new TabPane();
-        itemPanel.setLayoutX(util.getIntProperty(myResources, "itemMenuX"));
-        itemPanel.setLayoutY(util.getIntProperty(myResources, "itemMenuY"));
-        itemPanel.setMinWidth(util.getIntProperty(myResources, "itemMenuWidth"));
-        itemPanel.setMinHeight(util.getIntProperty(myResources, "itemMenuHeight"));
+    private DraggableTabPane createItemPanel() {
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
+        DraggableTabPane itemPanel = new DraggableTabPane();
+        itemPanel.setLayoutX(util.getIntProperty( "itemMenuX"));
+        itemPanel.setLayoutY(util.getIntProperty( "itemMenuY"));
+        itemPanel.setMinWidth(util.getIntProperty( "itemMenuWidth"));
+        itemPanel.setMinHeight(util.getIntProperty( "itemMenuHeight"));
         return itemPanel;
     }
 
-    /**
-     * Creates the tab-based menu that will hold the ui.scenes.editor.objects to be added to the
-     * overworld grid.
-     *
-     * @return the item menu, properly placed on the grid
-     */
-    ItemPanelObjects getItemPanelObjects() {
-        TabPane itemPanel = createItemPanel();
+    public DraggableTabPane getItemPanel() {
+        return itemPanel;
+    }
+
+    public void init() {
+        itemPanel = createItemPanel();
         addTabs(itemPanel);
-        addBorder();
-        myBuilder.addComponent(myRoot, itemPanel);
-        return myItemPanelObjects;
+    }
+
+    public GameObject getSelected() {
+        return myViewer.getSelected();
     }
 }
