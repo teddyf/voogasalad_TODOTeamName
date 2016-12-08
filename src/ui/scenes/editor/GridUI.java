@@ -128,7 +128,6 @@ public class GridUI {
             if(selected.size()==2){
                 System.out.print("LINK ");
                 System.out.println(myGridPane.buildLink(selected.get(0),selected.get(1),myController));
-                
             }
         });
         
