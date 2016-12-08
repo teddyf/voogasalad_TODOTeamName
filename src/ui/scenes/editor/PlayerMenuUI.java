@@ -18,7 +18,6 @@ import javafx.scene.layout.FlowPane;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.objects.GameObject;
-import ui.scenes.editor.objects.ItemPanelObjects;
 
 public class PlayerMenuUI implements Observer {
 	private Parent myRoot;
