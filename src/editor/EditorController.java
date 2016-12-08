@@ -97,9 +97,9 @@ public class EditorController {
         System.out.println("player added");
     }
 
-    public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
-        PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
-        player.addAttribute(playerAttribute);
+    public void addPlayerAttribute(String name, double amount) {
+        PlayerAttribute playerAttribute = new PlayerAttribute(name, amount);
+        player.addAttribute(name, playerAttribute);
     }
 
     public void movePlayer(int row, int col) {

@@ -11,6 +11,7 @@ import javafx.scene.shape.Rectangle;
  * @author Daniel Chai, Bill Xiong
  */
 public class BattleView {
+
 	protected static final int WIDTH = 500;
 	protected static final int HEIGHT = 500;
     protected static final int OFFSET = 40;
@@ -35,10 +36,10 @@ public class BattleView {
         enemy = new EnemyView(100, ENEMY_X, ENEMY_Y);
         player = new PlayerView(100, PLAYER_X, PLAYER_Y);
 		addButtons(50, BUTTON_Y, "Reduce HP by 10");
-        addButtons(250, BUTTON_Y, "Reduce HP by 20");
-        addPlayers();
+		addButtons(250, BUTTON_Y, "Reduce HP by 20");
+		addPlayers();
 	}
-	
+
 	public Scene getScene() {
 		return scene;
 	}

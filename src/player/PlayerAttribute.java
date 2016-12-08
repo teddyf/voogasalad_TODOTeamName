@@ -10,22 +10,18 @@ import api.IPlayerAttribute;
 public class PlayerAttribute implements IPlayerAttribute {
     private String myName;
     private double myAmount;
-    private double myIncrement;
-    private double myDecrement;
 
-    public PlayerAttribute(String name, double amount, double increment, double decrement) {
+    public PlayerAttribute(String name, double amount) {
         myName = name;
         myAmount = amount;
-        myIncrement = increment;
-        myDecrement = decrement;
     }
 
-    public void increase() {
-        myAmount += myIncrement;
+    public void increase(int change) {
+        myAmount += change;
     }
 
-    public void decrease() {
-        myAmount -= myDecrement;
+    public void decrease(int change) {
+        myAmount -= change;
     }
 
     public String getName() {
@@ -34,13 +30,5 @@ public class PlayerAttribute implements IPlayerAttribute {
 
     public double getAmount() {
         return myAmount;
-    }
-
-    public double getIncrement() {
-        return myIncrement;
-    }
-
-    public double getDecrement() {
-        return myDecrement;
     }
 }
