@@ -31,8 +31,6 @@
     -fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);
 }
 
-
-
 .tab-pane {
     /*-fx-tab-min-width:90px;*/
 }
@@ -74,4 +72,17 @@
 
 .scroll-pane > .viewport {
     -fx-background-color: #b8c4d1;
+}
+
+#control-tabs .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+#control-tabs {
+    -fx-tab-min-width: 100px;
+    -fx-tab-min-height: 40px;
+}
+
+#control-tabs .tab .tab-label {
+    -fx-font-size: 18px;
 }

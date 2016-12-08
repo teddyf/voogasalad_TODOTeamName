@@ -10,7 +10,6 @@ import editor.EditorController;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.util.*;
 
 /**
  * @author Harshil Garg, Robert Steilberg
