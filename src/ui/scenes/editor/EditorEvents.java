@@ -24,7 +24,7 @@ public class EditorEvents {
         myResources = resources;
     }
 
-    public boolean warnUser(String warningKey) {
+    public boolean createWarning(String warningKey) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText(myResources.getString("WARNING"));
         alert.setHeaderText(myResources.getString(warningKey));

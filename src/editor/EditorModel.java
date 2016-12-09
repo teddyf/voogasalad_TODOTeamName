@@ -5,6 +5,8 @@ import block.BlockFactory;
 import block.BlockType;
 import block.CommunicatorBlock;
 import engine.EngineController;
+import exceptions.BadPlayerPlacementException;
+import exceptions.NoPlayerException;
 import grid.Grid;
 import grid.GridGrowthDirection;
 import grid.GridWorld;
@@ -161,7 +163,10 @@ public class EditorModel {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
-    public boolean addPlayer(String name, int row, int col) {
+    public boolean addPlayer(String name, int row, int col) throws BadPlayerPlacementException {
+        if(!(currentGrid.getBlock(row, col).isWalkable())) {
+            throw new BadPlayerPlacementException(row, col);
+        }
         if(player == null) {
             player = new Player(name, row, col, currentGrid.getIndex());
             return true;
@@ -222,9 +227,11 @@ public class EditorModel {
      *
      * @param file
      */
-    public void saveEngine(String file) {
+    public void saveEngine(String file) throws NoPlayerException {
+        if (player == null) {
+            throw new NoPlayerException();
+        }
         xmlHandler.saveContents(file, gridWorld, player);
-        System.out.println(player);
     }
 
     public EngineController runEngine() {

@@ -6934,10 +6934,10 @@
     </grid>
   </gridWorld>
   <player>
-    <myName>a</myName>
+    <myName>player</myName>
     <myDirection>NORTH</myDirection>
-    <myRow>3</myRow>
-    <myCol>3</myCol>
+    <myRow>0</myRow>
+    <myCol>0</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>

@@ -4,7 +4,10 @@ import block.Block;
 import block.BlockFactory;
 import block.BlockType;
 import block.CommunicatorBlock;
+import editor.backend.Game;
 import engine.EngineController;
+import exceptions.BadPlayerPlacementException;
+import exceptions.NoPlayerException;
 import grid.Grid;
 import grid.GridGrowthDirection;
 import grid.GridWorld;
@@ -13,6 +16,7 @@ import player.Player;
 import interactions.Interaction;
 import player.PlayerAttribute;
 import ui.scenes.editor.GameEditor;
+import ui.scenes.editor.sidemenu.GameEditorAlerts;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
@@ -25,9 +29,15 @@ import xml.GridXMLHandler;
 public class EditorController {
 
     private final EditorModel myModel;
+    private GameEditorAlerts myAlerts;
 
     public EditorController() {
         myModel = new EditorModel();
+    }
+
+    // not backend's fault
+    public void setAlerts(GameEditorAlerts alerts) {
+        myAlerts = alerts;
     }
 
     public void addGrid(int numRows, int numCols) {
@@ -55,7 +65,13 @@ public class EditorController {
     }
 
     public boolean addPlayer(String name, int row, int col) {
-        return myModel.addPlayer(name, row, col);
+        try {
+            return myModel.addPlayer(name, row, col);
+        }
+        catch (BadPlayerPlacementException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+            return false;
+        }
     }
 
     public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
@@ -76,6 +92,8 @@ public class EditorController {
     public void growGrid(GridGrowthDirection direction, int amount) {
         myModel.growGrid(direction, amount);
     }
+
+
 
     /*****METHODS FOR FRONTEND TO CALL*****/
 
@@ -128,7 +146,11 @@ public class EditorController {
      * @param file
      */
     public void saveEngine(String file) {
-        myModel.saveEngine(file);
+        try {
+            myModel.saveEngine(file);
+        } catch (NoPlayerException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+        }
     }
 
     public EngineController runEngine() {
