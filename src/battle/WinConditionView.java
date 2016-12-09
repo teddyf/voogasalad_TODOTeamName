@@ -8,10 +8,10 @@ import javafx.scene.control.Label;
  * 
  * @author Bill Xiong
  */
-public class WinCondition {
+public class WinConditionView {
 	private Label label;
 
-	public WinCondition(String condition) {
+	public WinConditionView(String condition) {
 		label = new Label(condition);
 	}
 

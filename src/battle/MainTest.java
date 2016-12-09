@@ -12,7 +12,7 @@ public class MainTest extends Application {
 		Player player = new Player("Player", 0, 0, 0);
 		EnemyBlock enemy = new EnemyBlock("Enemy", 0, 0);
 		
-		BattleView view = new BattleView();
+		BattleView view = new BattleView("resources/images/battles/background/background-1.jpg");
 		BattleModel model = new BattleModel(player, enemy);
 		BattleController controller = new BattleController(view, model);
 		
