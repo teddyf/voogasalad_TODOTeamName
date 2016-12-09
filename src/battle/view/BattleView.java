@@ -88,17 +88,16 @@ public class BattleView implements Observer {
 	private void addButtons(int x, int y, String text) {
 		reduceHP = new BattleButton(text, x, y);
         reduceHP.addToGroup(root);
+        addReduceHandler();
 	}
 	private void addReduceHandler(){
-		EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent actionEvent) {
-				if(!(model.checkPlayerLost() || model.checkPlayerWon())) {
-					model.setEnemyHP(model.getEnemyHP() - (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH/difficulties.get(gameDifficulty));
-					model.setPlayerHP(model.getPlayerHP() - (Math.random()) * difficulties.get(gameDifficulty)/3.3);
-				}
-			}
-		}
+		EventHandler<ActionEvent> event = actionEvent -> {
+            if(!(model.checkPlayerLost() || model.checkPlayerWon())) {
+                model.setEnemyHP(model.getEnemyHP() - (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH/difficulties.get(gameDifficulty));
+                model.setPlayerHP(model.getPlayerHP() - (Math.random()) * difficulties.get(gameDifficulty)/3.3);
+            }
+        };
+		reduceHP.addHandler(event);
 	}
 
 
