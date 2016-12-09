@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 import ui.scenes.editor.sidemenu.*;
 
 /**
- * @author Robert Steilberg
+ * @author Robert Steilberg, Aninda Manocha
  *         <p>
  *         This class handles the game editor that is used to build games.
  */
@@ -31,7 +31,7 @@ public class GameEditor extends Scene implements GameEditorAlerts {
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
-    private ResourceBundle alertResources;
+    private ResourceBundle myAlertResources;
     private EditorController myController;
     private EditorEvents events;
 
@@ -43,7 +43,7 @@ public class GameEditor extends Scene implements GameEditorAlerts {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
-        alertResources = ResourceBundle.getBundle(ALERT_RESOURCES);
+        myAlertResources = ResourceBundle.getBundle(ALERT_RESOURCES);
         root.getStylesheets().add(CSS_FILE_NAME);
     }
 
@@ -64,7 +64,7 @@ public class GameEditor extends Scene implements GameEditorAlerts {
         controls.addEditorControls();
 
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
-        events = new EditorEvents(myLauncher, IO, myResources);
+        events = new EditorEvents(myLauncher, IO, myResources, myAlertResources);
         myController.setAlerts(this);
 
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
@@ -132,6 +132,6 @@ public class GameEditor extends Scene implements GameEditorAlerts {
 
     public void exceptionDisplay(String content) {
         System.out.println("CONTENT = " + content);
-        myBuilder.addNewAlert(alertResources.getString("EXCEPTION").toUpperCase(), content);
+        myBuilder.addNewAlert(myAlertResources.getString("EXCEPTION").toUpperCase(), content);
     }
 }

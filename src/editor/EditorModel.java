@@ -44,8 +44,7 @@ public class EditorModel {
         if (amount >= 0) {
             return growGrid(direction, amount);
         }
-        return false;
-        //return shrinkGrid(direction, amount);
+        return shrinkGrid(direction, amount);
     }
 
     private boolean deletePlayer() {
@@ -228,7 +227,7 @@ public class EditorModel {
      * @param file
      */
     public void saveEngine(String file) throws NoPlayerException {
-        if (player == null) {
+        if (player != null) {
             throw new NoPlayerException();
         }
         xmlHandler.saveContents(file, gridWorld, player);

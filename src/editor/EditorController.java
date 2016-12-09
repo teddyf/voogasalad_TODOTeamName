@@ -3,6 +3,7 @@ package editor;
 import block.BlockType;
 import engine.EngineController;
 import exceptions.BadPlayerPlacementException;
+import exceptions.DeletePlayerWarning;
 import exceptions.NoPlayerException;
 import grid.GridGrowthDirection;
 import ui.scenes.editor.sidemenu.GameEditorAlerts;
@@ -40,7 +41,7 @@ public class EditorController {
     }
 
     public boolean addMessage(String message, int row, int col) {
-        return addMessage(message, row, col);
+        return myModel.addMessage(message, row, col);
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
@@ -48,7 +49,7 @@ public class EditorController {
     }
 
     public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        return unlinkBlocks(row1, col1, index1, row2, col2, index2);
+        return myModel.unlinkBlocks(row1, col1, index1, row2, col2, index2);
     }
 
     public boolean addPlayer(String name, int row, int col) {
@@ -65,6 +66,10 @@ public class EditorController {
         myModel.addPlayerAttribute(name, amount, increment, decrement);
     }
 
+    public boolean deletePlayer() {
+        return myAlerts.warnUser((new DeletePlayerWarning()).getMessage());
+    }
+
     public void movePlayer(int row, int col) {
         myModel.movePlayer(row, col);
     }
@@ -72,15 +77,9 @@ public class EditorController {
     /** shrinks the grid the appropriate amount from the appropriate direction
      * @param amount: positive int of how much the grid should shrink
      */
-    public void shrinkGrid(GridGrowthDirection direction, int amount) {
-        //myModel.shrinkGrid(direction, amount);
+    public void changeGridSize(GridGrowthDirection direction, int amount) {
+        myModel.changeGridSize(direction, amount);
     }
-
-    public void growGrid(GridGrowthDirection direction, int amount) {
-        myModel.growGrid(direction, amount);
-    }
-
-
 
     /*****METHODS FOR FRONTEND TO CALL*****/
 
@@ -128,10 +127,6 @@ public class EditorController {
         myModel.loadEditor(file);
     }
 
-    /**
-     *
-     * @param file
-     */
     public void saveEngine(String file) {
         try {
             myModel.saveEngine(file);
