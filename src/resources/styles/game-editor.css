@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
 .menu-bar {
     -fx-background-color: #333333;
+    -fx-font-family: 'Roboto';
+    -fx-font-weight: 700;
+    -fx-font-size: 16px;
 }
 
 .menu-item {
     -fx-background-color: #333333;
+    -fx-font-family: 'Roboto';
+    -fx-font-weight: 700;
+    -fx-font-size: 14px;
 }
 
 .context-menu {
@@ -11,15 +18,11 @@
 }
 
 .menu-bar .label {
-    -fx-text-fill: #D9D9D9;
-}
-
-.menu:hover {
-    -fx-background-color: #737373;
+    -fx-text-fill: white;
 }
 
 .menu-item:hover {
-    -fx-background-color: #737373;
+    -fx-background-color: #f46036;
 }
 
 #grid-border {

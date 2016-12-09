@@ -3,6 +3,7 @@ import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,7 @@ public class EditorControls {
 
     private Parent myRoot;
     private ResourceBundle myResources;
+    private PropertiesUtilities myUtil;
     private UIBuilder myBuilder;
     private SideMenu myItemMenu;
     private SideMenu myPlayerMenu;
@@ -22,6 +24,7 @@ public class EditorControls {
     public EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu) {
         myRoot = root;
         myResources = resources;
+        myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
         myItemMenu = itemMenu;
         myPlayerMenu = new PlayerSideMenu(myRoot, myResources);
@@ -58,8 +61,8 @@ public class EditorControls {
         TabPane sideTabs = new TabPane();
         sideTabs.setSide(Side.LEFT);
         sideTabs.getTabs().addAll(tabs);
-        sideTabs.setLayoutX(1155);
-        sideTabs.setLayoutY(100);
+        sideTabs.setLayoutX(myUtil.getIntProperty("sideTabsX"));
+        sideTabs.setLayoutY(myUtil.getIntProperty("sideTabsY"));
         sideTabs.setId("control-tabs");
         sideTabs.getSelectionModel().select(tabs.get(tabs.size() - 1)); // select close tab as default
         return sideTabs;

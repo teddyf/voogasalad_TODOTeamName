@@ -28,7 +28,7 @@ public class SizeChooser2 extends Scene {
 	private String [] inputs = {"title-field", "description-field", "rows", "columns"};
 	
 	private String [] buttonsProperties = {"XPos", "YPos", "Width", "Text", "Id"};
-	private String [] buttons = {"create"};
+	private String [] buttons = {"create", "small", "medium", "large"};
 	
 	private GameEditor myEditor;
 	private Parent myRoot;
@@ -110,7 +110,6 @@ public class SizeChooser2 extends Scene {
 	                .color(Color.WHITE)
 	                .id(id)));
 	        if (button.equals("create")) {
-	        	System.out.println("cancer");
 	        	myButton.setOnMouseClicked(e -> launchEditor(rows.getText(), columns.getText(), 500));
 	        }
 		}
