@@ -1,5 +1,6 @@
 package ui.scenes.editor;
 
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.FlowPane;
