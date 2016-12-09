@@ -66,7 +66,7 @@ public class GridObjectMap {
         for(int i = 0; i < temp.size(); i++){
             data.put(temp.get(i),new ArrayList<Point>());
         }
-        System.out.println("("+a.getX() + "," + a.getY() + ")");
+        //System.out.println("("+a.getX() + "," + a.getY() + ")");
     }
     
     public boolean available(int x, int y){
