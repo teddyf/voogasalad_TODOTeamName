@@ -26,19 +26,8 @@ public abstract class ItemView {
 	private int hp;
 	private final int size = 150;
 	public ItemView(String name, int hp, int x, int y, String filePath) {
-		//itemHP = new Label("HP: " + hp);
-		//set image
 		root = new Group();
 		setImageView(filePath, size,x,y);
-		/*
-		//name
-		this.name = new Label(name);
-		this.name.setLayoutX(x + BattleView.OFFSET);
-		this.name.setLayoutY(y + BattleView.OFFSET_Y);
-
-		//temHP
-		itemHP.setLayoutX(x + BattleView.OFFSET);
-		itemHP.setLayoutY(y);*/
 		this.hp = hp;
 	}
 	

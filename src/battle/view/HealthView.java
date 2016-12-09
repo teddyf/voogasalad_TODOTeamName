@@ -3,7 +3,9 @@ package battle.view;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.ResourceBundle;
 
+import resources.properties.PropertiesUtilities;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -18,24 +20,28 @@ import javafx.scene.image.ImageView;
 public class HealthView {
 	
 	private Group root;
-	private ItemView itemView;
 	private Button playerChart;
-	private int x;
-	private int y;
 	private Label score;
 	
+	private ResourceBundle resources;
+	private PropertiesUtilities utilities;
+	private static final String BATTLE_RESOURCES = "resources/properties/game-engine-battle";
+	
 	HealthView(int x, int y) {
+		root = new Group();
+		resources = ResourceBundle.getBundle(BATTLE_RESOURCES);
+		utilities = new PropertiesUtilities();
 		initHealthBar(x,y);
-		this.x=x;
-		this.y=y;
 	}
 	
 	private void initHealthBar(int x,int y) {
-		root = new Group();
+		int healthBoxWidth = utilities.getIntProperty(resources, "healthBoxWidth");
+		int healthBoxHeight = utilities.getIntProperty(resources, "healthBoxHeight");
+		
 		Image image = new Image("resources/images/battles/square.png");
         ImageView squareView = new ImageView();
-        squareView.setFitWidth(200);
-        squareView.setFitHeight(40);
+        squareView.setFitWidth(healthBoxWidth);
+        squareView.setFitHeight(healthBoxHeight);
         squareView.setImage(image);
         squareView.setLayoutX(x);
         squareView.setLayoutY(y);
