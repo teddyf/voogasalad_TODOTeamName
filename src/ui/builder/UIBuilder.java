@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.util.ResourceBundle;
 
 /**
- * @author Harshil Garg, Robert Steilberg
+ * @author Harshil Garg, Robert Steilberg, Aninda Manocha
  *         <p>
  *         This class is used to build JavaFX ui.scenes.editor.objects and add them to the stage.
  *         <p>
@@ -22,6 +22,7 @@ public class UIBuilder {
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
+    private ComponentBuilder warningBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -29,6 +30,7 @@ public class UIBuilder {
         imageViewBuilder = new ImageViewBuilder();
         labelBuilder = new LabelBuilder();
         textFieldBuilder = new TextFieldBuilder();
+        warningBuilder = new WarningBuilder();
     }
 
     /**

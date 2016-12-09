@@ -26,16 +26,23 @@ public class GridWorld {
         currentIndex = 0;
     }
 
-    public void addGrid(Grid grid) {
-        grids.add(grid);
+    public Grid addGrid(int numRows, int numCols) {
+        Grid newGrid = new Grid(getNumGrids(), numRows, numCols);
+        grids.add(newGrid);
+        return changeGrid(getNumGrids()-1);
     }
 
-    public int getCurrentIndex() {
-        return currentIndex;
+    public Grid changeGrid(int index) {
+        currentIndex = index;
+        return grids.get(currentIndex);
     }
 
     public Grid getCurrentGrid() {
         return grids.get(currentIndex);
+    }
+
+    public int getCurrentIndex() {
+        return currentIndex;
     }
 
     public int getNumGrids() {
@@ -44,9 +51,5 @@ public class GridWorld {
 
     public Grid getGrid(int index) {
         return grids.get(index);
-    }
-
-    public void setCurrentIndex(int index) {
-        currentIndex = index;
     }
 }

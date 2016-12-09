@@ -5,6 +5,8 @@ import block.BlockFactory;
 import block.BlockType;
 import block.CommunicatorBlock;
 import engine.EngineController;
+import exceptions.BadPlayerPlacementException;
+import exceptions.NoPlayerException;
 import grid.Grid;
 import grid.GridGrowthDirection;
 import grid.GridWorld;
@@ -14,7 +16,7 @@ import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
 /**
- * Created by anindamanocha on 12/8/16.
+ * @author Aninda Manocha, Filip Mazurek
  */
 
 public class EditorModel {
@@ -31,14 +33,104 @@ public class EditorModel {
     }
 
     public void addGrid(int numRows, int numCols) {
-        Grid newGrid = new Grid(gridWorld.getNumGrids(), numRows, numCols);
-        gridWorld.addGrid(newGrid);
-        changeGrid(gridWorld.getNumGrids()-1);
+        currentGrid = gridWorld.addGrid(numRows, numCols);
     }
 
     public void changeGrid(int index) {
-        gridWorld.setCurrentIndex(index);
-        currentGrid = gridWorld.getCurrentGrid();
+        currentGrid = gridWorld.changeGrid(index);
+    }
+
+    public boolean changeGridSize(GridGrowthDirection direction, int amount) {
+        if (amount >= 0) {
+            return growGrid(direction, amount);
+        }
+        return false;
+        //return shrinkGrid(direction, amount);
+    }
+
+    private boolean deletePlayer() {
+        return false;
+    }
+
+    /** shrinks the grid the appropriate amount from the appropriate direction
+     * @param amount: positive int of how much the grid should shrink
+     */
+    public boolean shrinkGrid(GridGrowthDirection direction, int amount) {
+        int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
+        numRows = rowEnd = currentGrid.getNumRows();
+        numCols = colEnd = currentGrid.getNumCols();
+        rowOffset = colOffset = rowStart = colStart = 0;
+
+        switch (direction) {
+            case NORTH:
+                if (player.getRow() < amount && !deletePlayer()) {
+                    //TODO warning message "your player is out of bounds and is about to be deleted. Continue?"
+                    // if yes, player = null, continue
+                    // if no, return
+                    return false;
+                }
+                numRows -= amount;
+                rowOffset = amount;
+                player.setRow(player.getRow() - rowOffset);
+                break;
+            case SOUTH:
+                numRows -= amount;
+                if(player.getRow() > numRows && !deletePlayer()) {
+                    //TODO warning message
+                    return false;
+                }
+                break;
+            case EAST:
+                numCols -= amount;
+                if(player.getCol() > numCols && !deletePlayer()) {
+                    //TODO warning message
+                    return false;
+                }
+                break;
+            case WEST:
+                if(player.getCol() < amount && !deletePlayer()) {
+                    //TODO warning message
+                    return false;
+                }
+                numCols -= amount;
+                colOffset = amount;
+                player.setCol(player.getCol() - colOffset);
+                break;
+        }
+        currentGrid.resize(numRows, numCols, rowOffset, rowEnd, rowOffset, colOffset, colEnd, colOffset);
+        return true;
+    }
+
+    public boolean growGrid(GridGrowthDirection direction, int amount) {
+        int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
+        numRows = rowEnd = currentGrid.getNumRows();
+        numCols = colEnd = currentGrid.getNumCols();
+        rowOffset = colOffset = rowStart = colStart = 0;
+
+        switch (direction) {
+            case NORTH:
+                rowOffset = -amount;
+                numRows += amount;
+                break;
+            case SOUTH:
+                rowEnd = numRows;
+                numRows += amount;
+                break;
+            case EAST:
+                colEnd = numCols;
+                numCols += amount;
+                break;
+            case WEST:
+                colOffset = -amount;
+                numCols += amount;
+                break;
+        }
+
+        if (numRows > 100 || numCols > 100) {
+            return false;
+        }
+        currentGrid.resize(numRows, numCols, rowOffset, rowEnd, rowOffset, colOffset, colEnd, colOffset);
+        return true;
     }
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
@@ -71,7 +163,10 @@ public class EditorModel {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
-    public boolean addPlayer(String name, int row, int col) {
+    public boolean addPlayer(String name, int row, int col) throws BadPlayerPlacementException {
+        if(!(currentGrid.getBlock(row, col).isWalkable())) {
+            throw new BadPlayerPlacementException(row, col);
+        }
         if(player == null) {
             player = new Player(name, row, col, currentGrid.getIndex());
             return true;
@@ -89,90 +184,6 @@ public class EditorModel {
     public void movePlayer(int row, int col) {
         player.setRow(row);
         player.setCol(col);
-    }
-
-    /** shrinks the grid the appropriate amount from the appropriate direction
-     * @param amount: positive int of how much the grid should shrink
-     */
-    public void shrinkGrid(GridGrowthDirection direction, int amount) {
-        int newNumRows = currentGrid.getNumRows();
-        int newNumCols = currentGrid.getNumCols();
-        int rowOffset = 0;
-        int colOffset = 0;
-        switch (direction) {
-            case NORTH:
-                rowOffset = amount;
-                if(player.getRow() < amount) {
-
-                    //TODO warning message "your player is out of bounds and is about to be deleted. Continue?"
-                    // if yes, player = null, continue
-                    // if no, return
-
-                }
-                else {
-                    player.setRow(player.getRow() - rowOffset);
-                }
-                break;
-            case SOUTH:
-                newNumRows = currentGrid.getNumRows() - amount;
-                if(player.getRow() < newNumRows) {
-                    //TODO warning message
-                }
-                break;
-            case EAST:
-                newNumCols = currentGrid.getNumCols() - amount;
-                if(player.getCol() < newNumCols) {
-                    //TODO warning message
-                }
-                break;
-            case WEST:
-                colOffset = amount;
-                if(player.getCol() < amount) {
-                    //TODO warning message
-                }
-                else {
-                    player.setCol(player.getCol() - colOffset);
-                }
-                break;
-        }
-
-        Grid newGrid = new Grid(gridWorld.getCurrentIndex(), newNumRows - rowOffset, newNumCols - colOffset);
-        for (int r = rowOffset; r < newNumRows; r++) {
-            for (int c = colOffset; c < newNumCols; c++) {
-                newGrid.setBlock(r, c, currentGrid.getBlock(r, c));
-            }
-        }
-        currentGrid = newGrid;
-    }
-
-    public void growGrid(GridGrowthDirection direction, int amount) {
-        int newNumRows = currentGrid.getNumRows();
-        int newNumCols = currentGrid.getNumCols();
-        int rowOffset = 0;
-        int colOffset = 0;
-        switch (direction) {
-            case NORTH:
-                newNumRows = currentGrid.getNumRows() + amount;
-                rowOffset = amount;
-                break;
-            case SOUTH:
-                newNumRows = currentGrid.getNumRows() + amount;
-                break;
-            case EAST:
-                newNumCols = currentGrid.getNumCols() + amount;
-                break;
-            case WEST:
-                newNumCols = currentGrid.getNumCols() + amount;
-                colOffset = amount;
-                break;
-        }
-        Grid newGrid = new Grid(gridWorld.getCurrentIndex(), newNumRows, newNumCols);
-        for (int r = 0; r < currentGrid.getNumRows(); r++) {
-            for (int c = 0; c < currentGrid.getNumCols(); c++) {
-                newGrid.setBlock(r + rowOffset, c + colOffset, currentGrid.getBlock(r, c));
-            }
-        }
-        currentGrid = newGrid;
     }
 
     /*****METHODS FOR FRONTEND TO CALL*****/
@@ -216,9 +227,11 @@ public class EditorModel {
      *
      * @param file
      */
-    public void saveEngine(String file) {
+    public void saveEngine(String file) throws NoPlayerException {
+        if (player == null) {
+            throw new NoPlayerException();
+        }
         xmlHandler.saveContents(file, gridWorld, player);
-        System.out.println(player);
     }
 
     public EngineController runEngine() {

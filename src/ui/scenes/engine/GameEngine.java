@@ -5,6 +5,7 @@ import ui.FileBrowser;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ui.GridForEngine;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 
@@ -98,7 +99,7 @@ public class GameEngine extends Scene implements Observer {
     	player = new Character(this);
     	System.out.println(player.getRowCharacter());
     	System.out.println(player.getColumnCharacter());
-    	player.setCharacterImage("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
+    	player.setCharacterImage("resources/images/tiles/sprites/player-1-south-facing.png");
         player.setCharacterImageSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
@@ -106,7 +107,7 @@ public class GameEngine extends Scene implements Observer {
 
         player.setPosX(gridWidth/2 - player.getSize()/2);
         player.setPosY(gridHeight/2 - player.getSize()/2);
-    	player.setName("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
+    	player.setName("resources/images/tiles/sprites/player-1-south-facing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
 
         //setup grid

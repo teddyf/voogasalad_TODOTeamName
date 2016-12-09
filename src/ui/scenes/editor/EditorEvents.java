@@ -24,6 +24,19 @@ public class EditorEvents {
         myResources = resources;
     }
 
+    public boolean createWarning(String warningKey) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(myResources.getString("WARNING"));
+        alert.setHeaderText(myResources.getString(warningKey));
+        ButtonType ok = new ButtonType(myResources.getString("OK"));
+        ButtonType cancel = new ButtonType(myResources.getString("CANCEL"));
+        alert.getButtonTypes().setAll(cancel, ok);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ok) {
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Prompts a user to save their current editor state on attempted exit from
