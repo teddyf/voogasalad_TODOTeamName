@@ -36,7 +36,7 @@ public class Grid extends Observable implements IGrid {
     private void initializeGrid() {
         for(int i = 0; i < myNumRows; i++) {
             for(int j = 0; j < myNumCols; j++) {
-                myGrid[i][j] = new DecorationBlock("resources/Default.png", i, j);
+                myGrid[i][j] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", i, j);
             }
         }
     }
@@ -46,7 +46,7 @@ public class Grid extends Observable implements IGrid {
         for (int row = 0; row < numRows; row++) {
             for (int col = 0; col < numCols; col++) {
                 if (row < rowStart || row >= rowEnd || col < colStart || col >= colEnd) {
-                    newGrid[row][col] = new DecorationBlock("resources/Default.png", row, col);
+                    newGrid[row][col] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", row, col);
                 } else {
                     newGrid[row][col] = myGrid[row+rowOffset][col+colOffset];
                 }

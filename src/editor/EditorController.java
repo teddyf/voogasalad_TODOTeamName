@@ -12,6 +12,7 @@ import grid.RenderedGrid;
 import player.Player;
 import interactions.Interaction;
 import player.PlayerAttribute;
+import ui.scenes.editor.GameEditor;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 

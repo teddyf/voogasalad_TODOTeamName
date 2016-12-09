@@ -270,7 +270,7 @@ public class GridPane {
     private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
         if (gameObject instanceof Player1) {
             control.addPlayer(temp.getName(), temp.getBackendRow(), temp.getBackendCol());
-            control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getBackendRow(),
+            control.addBlock("resources/images/tiles/ground/grass-1.png", BlockType.DECORATION, temp.getBackendRow(),
                              temp.getBackendCol());
         }
     }

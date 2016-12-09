@@ -115,7 +115,6 @@ public class SizeChooserUI extends Scene {
     private void init() {
         setButtons();
         setText();
-        myBuilder.addNewWarning("hi", "continue");
     }
 }
 
