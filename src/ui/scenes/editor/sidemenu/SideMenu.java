@@ -29,7 +29,7 @@ public abstract class SideMenu {
         myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
         myPanel = new DraggableTabPane();
-        myPanel.setId(myUtil.getStringProperty("sidePanelCSSid"));
+        myPanel.setId(myUtil.getStringProperty("sideTabsCSSid"));
     }
 
     public void init() {
