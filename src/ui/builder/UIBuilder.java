@@ -7,7 +7,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.ResourceBundle;
 /**
- * @author Harshil Garg, Robert Steilberg
+ * @author Harshil Garg, Robert Steilberg, Aninda Manocha
  *         <p>
  *         This class is used to build JavaFX ui.scenes.editor.objects and add them to the stage.
  *         <p>
@@ -19,12 +19,15 @@ public class UIBuilder {
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
+    private ComponentBuilder warningBuilder;
+
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
         buttonBuilder = new ButtonBuilder();
         imageViewBuilder = new ImageViewBuilder();
         labelBuilder = new LabelBuilder();
         textFieldBuilder = new TextFieldBuilder();
+        warningBuilder = new WarningBuilder();
     }
     /**
      * Create a new group that can serve as a region holding other nodes
@@ -198,6 +201,7 @@ public class UIBuilder {
                 .header(header)
                 .content(content));
     }
+
     /**
      * Initializes a JavaFX window with the specified stage and parameters given
      * in a properties file
