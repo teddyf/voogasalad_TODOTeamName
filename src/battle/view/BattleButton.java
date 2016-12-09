@@ -11,14 +11,13 @@ import javafx.scene.control.Button;
  */
 public class BattleButton {
     private Button button;
-    private EventHandler<ActionEvent> event;
     public BattleButton(String text, int x, int y){
         button = new Button(text);
         button.setLayoutX(x);
         button.setLayoutX(y);
     }
     public void addHandler(EventHandler<ActionEvent> event){
-        this.event = event;
+        button.setOnAction(event);
     }
     public void addToGroup(Group group){
         group.getChildren().add(button);
