@@ -32,6 +32,11 @@ public class ItemSideMenu extends SideMenu {
         init();
     }
 
+    public void lol() {
+        myViewer = new ItemViewer();
+        init();
+    }
+
     /**
      * Creates and adds tabs for each object type to the Item Menu
      */

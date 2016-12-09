@@ -29,12 +29,13 @@ public class EditorControls {
         myBuilder = new UIBuilder();
         myItemMenu = itemMenu;
         myPlayerMenu = playerMenu;
-        myCustomMenu = new CustomSideMenu(myRoot, myResources);
+        myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
+        addEditorControls();
     }
 
 
 
-    public void addEditorControls() {
+    private void addEditorControls() {
 
         TabPane sideTabs = new TabPane();
 
@@ -80,6 +81,10 @@ public class EditorControls {
 
         myBuilder.addComponent(myRoot, sideTabs);
 
+    }
+
+    public SideMenu getItemMenu() {
+        return myItemMenu;
     }
 
 

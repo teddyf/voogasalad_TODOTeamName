@@ -1,18 +1,20 @@
 package ui.scenes.editor.sidemenu;
 
+import block.BlockType;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Tab;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import ui.FileBrowser;
+import ui.builder.ComponentProperties;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 /**
@@ -20,29 +22,106 @@ import java.util.ResourceBundle;
  */
 public class CustomSideMenu extends SideMenu {
 
-    public CustomSideMenu(Parent root, ResourceBundle resources) {
+    protected EditorControls myControls;
+
+    public CustomSideMenu(Parent root, ResourceBundle resources, EditorControls controls) {
         super(root, resources);
+        myControls = controls;
         init();
     }
 
     private ScrollPane addCustomItemScrollPane() {
         FlowPane pane = createFlowPane();
 
-        Button button = new Button("Add");
-        button.setOnMouseClicked(e -> {
-            FileChooser fc = new FileChooser();
-            FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Portable Network Graphics (*.png)", "*.png");
-            fc.getExtensionFilters().add(filter);
-            Stage stage = new Stage();
-            File selectedFile = fc.showOpenDialog(stage);
-            if (selectedFile != null) {
+        // ComboBox to select the new item's BlockType
+        ComboBox<BlockType> typeComboBox = new ComboBox<>();
+        ObservableList<BlockType> options = FXCollections.observableArrayList(BlockType.values());
+        typeComboBox.setItems(options);
 
+        // ComboBox to inform the user
+        TextField rowInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(10, 10).text("anal"));
+        TextField columnInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(100, 100).text("anal2"));
+
+        myBuilder.addComponent(pane, typeComboBox);
+
+        Button fileBrowserButton = (Button) myBuilder.addNewButton(pane, new ComponentProperties(10, 10).text("hi"));
+
+        fileBrowserButton.setOnMouseClicked(event -> {
+
+            FileChooser browser = new FileChooser();
+            FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Portable Network Graphics (*.png)", "*.png");
+            browser.getExtensionFilters().add(filter);
+
+            File file = browser.showOpenDialog(myRoot.getScene().getWindow());
+
+            if (customItemError(file, typeComboBox, rowInput, columnInput))
+                return;
+
+            Path source = Paths.get(file.getPath());
+
+            Path destination = Paths.get("src/resources/images/tiles/" + typeComboBox.getValue().name().toLowerCase() +
+                    "/" + source.getFileName().toString());
+
+            try {
+                Files.copy(source, destination);
+                ItemSideMenu ism = (ItemSideMenu) myControls.getItemMenu();
+                ism.lol();
             }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+
         });
 
 
-        pane.getChildren().add(button);
+        //myBuilder.addComponent(pane, fileBrowserButton);
         return new ScrollPane(pane);
+    }
+
+    private boolean customItemError(File file, ComboBox<BlockType> typeComboBox,
+                                    TextField rowInput, TextField columnInput) {
+
+        if (file == null) {
+            alert("Please select a valid image file.");
+            return true;
+        }
+
+        if (file.getName().replace(".png", "").contains(".") ||
+                file.getName().replace(".png", "").contains("_")) {
+            alert("File name cannot have any special characters.");
+            return true;
+        }
+
+        if (typeComboBox.getValue() == null) {
+            alert("Block type not specified.");
+            return true;
+        }
+
+        int row = 0;
+        int column = 0;
+        try {
+            row = Integer.parseInt(rowInput.getText());
+            column = Integer.parseInt(columnInput.getText());
+            if (row < 1 || column < 1) {
+                alert("Invalid rows or columns given.");
+                return true;
+            }
+        }
+
+        catch (Exception e) {
+            alert("Row and column number not specified.");
+            return true;
+        }
+
+        return false;
+    }
+
+    private void alert(String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setResizable(false);
+        alert.setTitle("");
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
     public void addTabs() {

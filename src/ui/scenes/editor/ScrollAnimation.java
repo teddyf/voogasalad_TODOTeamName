@@ -15,7 +15,7 @@ public class ScrollAnimation {
     private double CURRENT_MODE_SCROLL_SPEED_PPM;
 
     private double BUTTON_MODE_SCROLL_SPEED_PPM = 0.2;
-    private double TRACKPAD_MODE_SCROLL_SPEED_PPM = 2;
+    private double TRACKPAD_MODE_SCROLL_SPEED_PPM = 1;
 
     private double xMax;
     private double xMin;

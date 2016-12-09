@@ -61,7 +61,6 @@ public class GameEditor extends Scene implements GameEditorAlerts {
 
 
         EditorControls controls = new EditorControls(myRoot, myResources, itemMenu, playerMenu);
-        controls.addEditorControls();
 
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
         events = new EditorEvents(myLauncher, IO, myResources);

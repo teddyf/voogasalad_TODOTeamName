@@ -24,37 +24,7 @@ public class ItemViewer {
 
     private GameObject selected = null;
 
- /*   public List<GameObject> getObjects(BlockType type) {
-        String directory = root_path + type.name().toLowerCase();
-        File file = new File(directory);
-        String [] contents = file.list();
-        Set<String> imagePrefixes = new HashSet<>();
 
-        for (int i = 0; i < contents.length; i++) {
-            if (contents[i].contains(extension)) {
-                contents[i] = contents[i].replace(extension, "");
-                imagePrefixes.add(contents[i]);
-            }
-            if (!contents[i].contains(".")) {
-                filteredPaths.add(image_root_path + type.name().toLowerCase() + "/" + contents[i] + extension);
-            }
-        }
-
-
-        List<String> filteredPaths = new ArrayList<>();
-
-        System.out.println(filteredPaths);
-        List<GameObject> items = new ArrayList<>();
-
-        for (int i = 0; i < filteredPaths.size(); i++) {
-            String path = filteredPaths.get(i);
-            GameObject item = new SingleBlockGameObject(path, type);
-            items.add(item);
-        }
-        System.out.println(items);
-        return items;
-    }
-*/
     public List<GameObject> getObjects(BlockType type) {
         String directory = root_path + type.name().toLowerCase();
         File file = new File(directory);
@@ -88,8 +58,7 @@ public class ItemViewer {
     }
 
     private GameObject buildSingleItem(String prefix, BlockType type) {
-        String iconPath = image_root_path + type.name().toLowerCase() + "/" + prefix + extension;
-        return new SingleBlockGameObject(iconPath, type);
+        return new SingleBlockGameObject(getFullURIFileName(prefix, type), type);
     }
 
     private GameObject buildMultipleItem(String prefix, ArrayList<String> list, BlockType type) {
@@ -111,9 +80,13 @@ public class ItemViewer {
                 maxCol = col;
         }
 
-        String iconPath = image_root_path + type.name().toLowerCase() + "/" + prefix + extension;
-        return new MultipleBlockGameObject(iconPath, type, maxRow, maxCol);
+        return new MultipleBlockGameObject(getFullURIFileName(prefix, type), type, maxRow, maxCol);
 
+    }
+
+    private String getFullURIFileName(String prefix, BlockType type) {
+        File file = new File(root_path + type.name().toLowerCase() + "/" + prefix + extension);
+        return file.toURI().toString();
     }
 
 
