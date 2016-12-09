@@ -1,10 +1,12 @@
 package ui.scenes.editor.sidemenu;
 
+import editor.EditorController;
 import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import resources.properties.PropertiesUtilities;
+import sun.jvm.hotspot.ui.Editor;
 import ui.builder.UIBuilder;
 
 import java.util.ArrayList;
@@ -28,13 +30,13 @@ public class EditorControls {
     private SideMenu myCustomMenu;
     private SideMenu myGridMenu;
 
-    public EditorControls(Parent root, ResourceBundle resources) {
+    public EditorControls(Parent root, ResourceBundle resources, EditorController controller) {
         myRoot = root;
         myResources = resources;
         myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
         myItemMenu = new ItemSideMenu(myRoot, myResources);
-        myPlayerMenu = new PlayerSideMenu(myRoot, myResources);
+        myPlayerMenu = new PlayerSideMenu(myRoot, myResources, controller);
         myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
         myGridMenu = new GridSideMenu(myRoot, myResources);
         init();

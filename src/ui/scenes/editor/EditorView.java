@@ -36,7 +36,8 @@ public class EditorView extends Scene implements GameEditorAlerts {
     private EditorEvents events;
 
     public EditorView(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
-        super(root, Color.web("#0585B2"));
+//        super(root, Color.web("#0585B2"));
+        super(root, Color.GRAY);
         myController = controller;
         myStage = stage;
         myRoot = root;
@@ -50,7 +51,7 @@ public class EditorView extends Scene implements GameEditorAlerts {
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        EditorControls sideControls = new EditorControls(myRoot, myResources);
+        EditorControls sideControls = new EditorControls(myRoot, myResources, myController);
         GridUI grid = new GridUI(myRoot, myController, sideControls.getMyItemMenu(), width, height);
 
 
