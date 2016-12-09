@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.input.MouseButton;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
@@ -144,7 +145,7 @@ public class GridUI {
             for (int i = 0; i < selected.size(); i++) {
                 selected.get(i).getImage().setEffect(null);
             }
-            myGridPane.delete(myGridPane.getClicked());
+            myGridPane.delete();
         });
     }
 
@@ -218,8 +219,14 @@ public class GridUI {
             GridPaneNode node = blockList.get(i);
             node.getImage().setOnMouseClicked(e -> {
                 myGridPane.click(node);
-                myGridPane.swap(myItemMenu.getSelected(),
+                if(e.getButton()==MouseButton.SECONDARY){
+                    myGridPane.delete();
+                }
+                else{
+                    
+                    myGridPane.swap(myItemMenu.getSelected(),
                                 myController);
+                }
             });
         }
     }
