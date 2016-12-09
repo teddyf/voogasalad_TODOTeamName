@@ -36,6 +36,7 @@ public class Character extends Observable {
 	/*setting character image
 	 * */
 	public void setCharacterImage(String path) {
+		System.out.println(path);
 		characterImage = new ImageView(new Image(path));
 	}
 	
