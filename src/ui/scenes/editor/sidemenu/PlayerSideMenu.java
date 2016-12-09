@@ -38,8 +38,9 @@ public class PlayerSideMenu extends SideMenu {
 
         for (String path : images) {
             if (path.contains("down")) {
+                String imagePath = "resources/images/sprites/" + path;
                 Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
-                        .path("resources/images/sprites/" + path)
+                        .path(imagePath)
                         .preserveRatio(true)
                         .id("sprite-item"));
                 sprites.getChildren().add(sprite);
