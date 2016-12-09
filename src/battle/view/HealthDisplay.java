@@ -1,4 +1,4 @@
-package battle;
+package battle.view;
 
 
 import java.util.Observable;

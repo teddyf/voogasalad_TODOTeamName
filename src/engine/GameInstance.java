@@ -1,9 +1,9 @@
 package engine;
 
 import api.IGameInstance;
-import battle.BattleController;
-import battle.BattleModel;
-import battle.BattleView;
+import battle.controller.BattleController;
+import battle.model.BattleModel;
+import battle.view.BattleView;
 import block.Block;
 import block.BlockUpdate;
 import block.EnemyBlock;

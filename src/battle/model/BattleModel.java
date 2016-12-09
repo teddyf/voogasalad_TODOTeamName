@@ -2,7 +2,7 @@ package battle.model;
 
 import java.util.Observable;
 
-import battle.view.BattleModelInView;
+import battle.controller.BattleModelInView;
 import battle.view.BattleView;
 import block.EnemyBlock;
 import javafx.animation.Animation;
@@ -27,7 +27,6 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public BattleModel(Player player, EnemyBlock enemy) {
 		this.player = player;
 		this.enemy = enemy;
-		
 		initTimeline();
 	}
 	

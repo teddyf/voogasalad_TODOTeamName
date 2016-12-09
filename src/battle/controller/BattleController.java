@@ -1,4 +1,7 @@
-package battle;
+package battle.controller;
+
+import battle.model.BattleModel;
+import battle.view.BattleView;
 
 /**
  * @author Daniel Chai

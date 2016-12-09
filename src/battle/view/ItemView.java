@@ -17,19 +17,16 @@ import javafx.scene.shape.Rectangle;
  */
 public abstract class ItemView {
 
-	protected Group root;
 	private Label itemHP;
 	private Label name;
 	// TODO change to ImageView
 	private ImageView itemView;
-	private ImageView shadowImageView;
 	private int hp;
-	private final int size = 150;
+
 	public ItemView(String name, int hp, int x, int y, String filePath) {
 		//itemHP = new Label("HP: " + hp);
 		//set image
-		root = new Group();
-		setImageView(filePath, size,x,y);
+		setImageView(filePath, 150, 150,x,y);
 		/*
 		//name
 		this.name = new Label(name);
@@ -42,34 +39,27 @@ public abstract class ItemView {
 		this.hp = hp;
 	}
 	
-	protected void setImageView(String filePath, int size,int x, int y) {
+	protected void setImageView(String filePath, int width, int height,int x, int y) {
 		Image image = new Image(filePath);
         itemView = new ImageView();
+        itemView.setFitWidth(width);
+        itemView.setFitHeight(height);
         itemView.setImage(image);
-        itemView.setFitWidth(size);
-        itemView.setFitHeight(size);
-        setLocation(itemView,x,y);
-        
-        Image shadowImage = new Image("resources/images/battles/shadow.png");
-        shadowImageView = new ImageView();
-        shadowImageView.setImage(shadowImage);
-        shadowImageView.setFitWidth(size*2);
-        shadowImageView.setFitHeight(size*2);
-        setLocation(shadowImageView,x-size/2,y); 
-        
-        root.getChildren().addAll(itemView,shadowImageView);
-	}
-
-	protected void setLocation(ImageView imageView,int x, int y) {
-		imageView.setLayoutX(x);
-		imageView.setLayoutY(y);
+        setLocation(x,y);
 	}
 	
-	public Group getGroup() {
-		return root;
+	public void addToGroup(Group root) {
+		//root.getChildren().add(itemHP);
+		root.getChildren().add(itemView);
+        //root.getChildren().add(name);
 	}
 
-	protected int getHP() {
+	protected void setLocation(int x, int y) {
+		itemView.setLayoutX(x);
+		itemView.setLayoutY(y);
+	}
+
+	public int getHP() {
 		return hp;
 	}
 
@@ -80,12 +70,8 @@ public abstract class ItemView {
 	protected ImageView getView() {
 		return itemView;
 	}
-	
-	public void updateHealthView() {
-		
-	}
 
-	protected void setHP(int hp) {
+	public void setHP(int hp) {
 		this.hp = hp;
 		//itemHP.setText("HP: " + hp);
 		//System.out.println("hp changed!");
