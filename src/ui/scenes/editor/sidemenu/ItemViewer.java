@@ -1,4 +1,4 @@
-package ui.scenes.editor;
+package ui.scenes.editor.sidemenu;
 
 import block.Block;
 import block.BlockType;

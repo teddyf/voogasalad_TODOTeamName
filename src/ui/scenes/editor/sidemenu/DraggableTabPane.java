@@ -1,12 +1,9 @@
-package ui.scenes.editor;
+package ui.scenes.editor.sidemenu;
 
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.TabPane;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 
-class DraggableTabPane extends TabPane {
+public class DraggableTabPane extends TabPane {
 
     // node position
     private double x = 0;
