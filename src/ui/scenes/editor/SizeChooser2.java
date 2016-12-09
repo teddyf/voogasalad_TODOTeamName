@@ -54,9 +54,9 @@ public class SizeChooser2 extends Scene {
 	}
 
 	private void initialize() {
-		setButton();
+//		setButton();
 		setInputs();
-		setLabels();
+//		setLabels();
 	}
 	
 	private void setLabels() {
