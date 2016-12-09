@@ -26,10 +26,10 @@ public abstract class SideMenu {
         myResources = resources;
         myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
+        myPanel = new DraggableTabPane();
     }
 
     public void init() {
-        myPanel = new DraggableTabPane();
         configureItemPanel();
         addTabs();
     }

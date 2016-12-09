@@ -64,12 +64,19 @@ public class CustomSideMenu extends SideMenu {
 
             try {
                 Files.copy(source, destination);
-                ItemSideMenu ism = (ItemSideMenu) myControls.getMyItemMenu();
-                ism.lol();
+//                int r = Integer.parseInt(rowInput.getText());
+//                int c = Integer.parseInt(columnInput.getText());
+//                if (r > 1 || c > 1) {
+//                    String fullPath = new File(destination.toString()).toURI().toString();
+//                    new ImageCropper(destination.toString(), r, c);
+//                }
             }
             catch (IOException e) {
                 e.printStackTrace();
             }
+
+            ItemSideMenu ism = (ItemSideMenu) myControls.getMyItemMenu();
+            ism.lol();
 
         });
 

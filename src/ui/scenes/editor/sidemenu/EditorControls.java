@@ -74,6 +74,7 @@ public class EditorControls {
         tabs.add(createSideTab("Items", myItemMenu.getPanel()));
         tabs.add(createSideTab("Players", myPlayerMenu.getPanel()));
         tabs.add(createSideTab("Grid", myItemMenu.getPanel()));
+        tabs.add(createSideTab("Custom", myCustomMenu.getPanel()));
         tabs.add(createSideTab("Close", null));
         return tabs;
     }
