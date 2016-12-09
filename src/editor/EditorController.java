@@ -1,19 +1,13 @@
 package editor;
 
-import block.Block;
-import block.BlockFactory;
 import block.BlockType;
-import block.CommunicatorBlock;
 import engine.EngineController;
-import grid.Grid;
+import exceptions.BadPlayerPlacementException;
+import exceptions.DuplicatePlayerException;
+import exceptions.LargeGridException;
+import exceptions.NoPlayerException;
 import grid.GridGrowthDirection;
-import grid.GridWorld;
-import grid.RenderedGrid;
-import player.Player;
-import interactions.Interaction;
-import player.PlayerAttribute;
-import xml.GridWorldAndPlayer;
-import xml.GridXMLHandler;
+import ui.scenes.editor.sidemenu.GameEditorAlerts;
 
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
@@ -24,9 +18,15 @@ import xml.GridXMLHandler;
 public class EditorController {
 
     private final EditorModel myModel;
+    private GameEditorAlerts myAlerts;
 
     public EditorController() {
         myModel = new EditorModel();
+    }
+
+    // not backend's fault
+    public void setAlerts(GameEditorAlerts alerts) {
+        myAlerts = alerts;
     }
 
     public void addGrid(int numRows, int numCols) {
@@ -42,7 +42,11 @@ public class EditorController {
     }
 
     public boolean addMessage(String message, int row, int col) {
-        return addMessage(message, row, col);
+        if(addMessage(message, row, col)) {
+            return true;
+        }
+//        myAlerts.exceptionDisplay();
+        return false;
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
@@ -54,7 +58,17 @@ public class EditorController {
     }
 
     public boolean addPlayer(String name, int row, int col) {
-        return myModel.addPlayer(name, row, col);
+        try {
+            return myModel.addPlayer(name, row, col);
+        }
+        catch (BadPlayerPlacementException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+            return false;
+        }
+        catch (DuplicatePlayerException e2) {
+            myAlerts.exceptionDisplay(e2.getMessage());
+            return false;
+        }
     }
 
     public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
@@ -69,12 +83,19 @@ public class EditorController {
      * @param amount: positive int of how much the grid should shrink
      */
     public void shrinkGrid(GridGrowthDirection direction, int amount) {
-        myModel.shrinkGrid(direction, amount);
+        //myModel.shrinkGrid(direction, amount);
     }
 
     public void growGrid(GridGrowthDirection direction, int amount) {
-        myModel.growGrid(direction, amount);
+        try {
+            myModel.growGrid(direction, amount);
+        }
+        catch(LargeGridException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+        }
     }
+
+
 
     /*****METHODS FOR FRONTEND TO CALL*****/
 
@@ -127,10 +148,14 @@ public class EditorController {
      * @param file
      */
     public void saveEngine(String file) {
-        myModel.saveEngine(file);
+        try {
+            myModel.saveEngine(file);
+        } catch (NoPlayerException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+        }
     }
 
-    /*public EngineController runEngine() {
-        return (new EngineController(player, gridWorld));
-    }*/
+    public EngineController runEngine() {
+        return myModel.runEngine();
+    }
 }

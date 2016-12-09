@@ -28,32 +28,44 @@ public class PlayerSideMenu extends SideMenu {
 
     private FlowPane addSprites() {
 
-//        String directory = "resources/images/sprites/";
-//        File file = new File(directory);
-//        String [] contents = file.list();
-
-
-        FlowPane sprites = createFlowPane();
         UIBuilder builder = new UIBuilder();
-        String path1 = "resources/images/sprites/1-down.png";
-        Node n = builder.addNewImageView(myRoot, new ComponentProperties()
-                .path(path1)
-                .preserveRatio(true)
-                .id("sprite-item"));
-        sprites.getChildren().add(n);
-        String path2 = "resources/images/sprites/2-down.png";
-        Node n2 = builder.addNewImageView(myRoot, new ComponentProperties()
-                .path(path2)
-                .preserveRatio(true)
-                .id("sprite-item"));
-        sprites.getChildren().add(n2);
+        FlowPane sprites = createFlowPane();
 
-        String path3 = "resources/images/sprites/3-down.png";
-        Node n3 = builder.addNewImageView(myRoot, new ComponentProperties()
-                .path(path3)
-                .preserveRatio(true)
-                .id("sprite-item"));
-        sprites.getChildren().add(n3);
+        String directory = "src/resources/images/sprites/";
+        File file = new File(directory);
+        String[] images = file.list();
+
+
+        for (String path : images) {
+            if (path.contains("down")) {
+                String imagePath = "resources/images/sprites/" + path;
+                Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
+                        .path(imagePath)
+                        .preserveRatio(true)
+                        .id("sprite-item"));
+                sprites.getChildren().add(sprite);
+            }
+        }
+
+//        String path1 = "resources/images/sprites/1-down.png";
+//        Node n = builder.addNewImageView(myRoot, new ComponentProperties()
+//                .path(path1)
+//                .preserveRatio(true)
+//                .id("sprite-item"));
+//        sprites.getChildren().add(n);
+//        String path2 = "resources/images/sprites/2-down.png";
+//        Node n2 = builder.addNewImageView(myRoot, new ComponentProperties()
+//                .path(path2)
+//                .preserveRatio(true)
+//                .id("sprite-item"));
+//        sprites.getChildren().add(n2);
+//
+//        String path3 = "resources/images/sprites/3-down.png";
+//        Node n3 = builder.addNewImageView(myRoot, new ComponentProperties()
+//                .path(path3)
+//                .preserveRatio(true)
+//                .id("sprite-item"));
+//        sprites.getChildren().add(n3);
         return sprites;
     }
 
