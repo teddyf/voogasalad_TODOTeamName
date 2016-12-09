@@ -52,14 +52,12 @@ public class ItemViewer {
             else
                 items.add(buildMultipleItem(key, value, type));
         }
-    System.out.println(items.size());
 
         return items;
 
     }
 
     private GameObject buildSingleItem(String prefix, BlockType type) {
-        //System.out.println(getFullURIFileName(prefix, type));
         return new SingleBlockGameObject(getFullURIFileName(prefix, type), type);
     }
 

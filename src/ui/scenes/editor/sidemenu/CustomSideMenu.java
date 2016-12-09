@@ -62,14 +62,19 @@ public class CustomSideMenu extends SideMenu {
             Path destination = Paths.get("src/resources/images/tiles/" + typeComboBox.getValue().name().toLowerCase() +
                     "/" + source.getFileName().toString());
 
+            if (new File(destination.toString()).exists()) {
+                alert("You can't override previously added files!");
+                return;
+            }
+
             try {
                 Files.copy(source, destination);
-//                int r = Integer.parseInt(rowInput.getText());
-//                int c = Integer.parseInt(columnInput.getText());
-//                if (r > 1 || c > 1) {
-//                    String fullPath = new File(destination.toString()).toURI().toString();
-//                    new ImageCropper(destination.toString(), r, c);
-//                }
+                int r = Integer.parseInt(rowInput.getText());
+                int c = Integer.parseInt(columnInput.getText());
+                if (r > 1 || c > 1) {
+                    String fullPath = new File(destination.toString()).toURI().toString();
+                    new ImageCropper(destination.toString(), r, c);
+                }
             }
             catch (IOException e) {
                 e.printStackTrace();

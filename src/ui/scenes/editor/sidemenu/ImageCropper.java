@@ -1,7 +1,6 @@
 package ui.scenes.editor.sidemenu;
 
 import javax.imageio.ImageIO;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -24,17 +23,37 @@ public class ImageCropper {
 
     private void crop() {
         try {
-            System.out.println(myOriginalPath);
-            Image image = ImageIO.read(new File(myOriginalPath));
-            int x = 10, y = 20, w = 40, h = 50;
-            BufferedImage dst = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-            dst.getGraphics().drawImage(image, 0, 0, w, h, x, y, x + w, y + h, null);
-            String myNewPath = myOriginalPath.replace(".png", "").concat("hi").concat(".png");
-            ImageIO.write(dst, "png", new File(myNewPath));
+            BufferedImage image = ImageIO.read(new File(myOriginalPath));
+
+            int width = image.getWidth();
+            int height = image.getHeight();
+            int cropWidth = width/myColumnNumber;
+            int cropHeight = height/myRowNumber;
+
+            BufferedImage [][] dst = new BufferedImage[myRowNumber][myColumnNumber];
+            for (int i = 0; i < myRowNumber; i++) {
+                for (int j = 0; j < dst[0].length; j++) {
+                    dst[i][j] = new BufferedImage(cropWidth, cropHeight, BufferedImage.TYPE_INT_ARGB);
+                    dst[i][j].getGraphics().drawImage(image, 0, 0, cropWidth, cropHeight, j*cropWidth, i*cropHeight,
+                            (j+1)*cropWidth, (i+1)*cropHeight, null);
+
+                    String rowString = String.valueOf(i+1);
+                    String columnString = String.valueOf(j+1);
+                    String myNewPath = myOriginalPath.replace(".png", "").concat(".").concat(rowString).
+                            concat("_").concat(columnString).concat(".png");
+                    try {
+                        ImageIO.write(dst[i][j], "png", new File(myNewPath));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 }
 
