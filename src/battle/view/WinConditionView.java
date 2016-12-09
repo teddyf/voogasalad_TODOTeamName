@@ -1,4 +1,4 @@
-package battle.view;
+package battle;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -15,7 +15,7 @@ public class WinConditionView {
 		label = new Label(condition);
 	}
 
-	protected void addToGroup(Group group) {
+	public void addToGroup(Group group) {
 		group.getChildren().clear();
 		group.getChildren().add(label);
 	}

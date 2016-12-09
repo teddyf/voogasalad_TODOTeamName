@@ -2,7 +2,7 @@ package battle.model;
 
 import java.util.Observable;
 
-import battle.view.BattleModelInView;
+import battle.controller.BattleModelInView;
 import battle.view.BattleView;
 import block.EnemyBlock;
 import javafx.animation.Animation;
@@ -27,24 +27,28 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public BattleModel(Player player, EnemyBlock enemy) {
 		this.player = player;
 		this.enemy = enemy;
-		
-		initTimeline();
+		//initTimeline();
 	}
-	
+	public void addBattleWon(){
+		player.incrementBattlesWon();
+	}
+	public void addBattleLost(){
+		player.incrementBattlesLost();
+	}
 	@Override
-	public int getPlayerHP() {
+	public double getPlayerHP() {
 		return player.getHealth();
 	}
 	
 	@Override
-	public int getEnemyHP() {
+	public double getEnemyHP() {
 		return enemy.getHealth();
 	}
 	
 	@Override
-	public void setPlayerHP(int playerHP) {
+	public void setPlayerHP(double playerHP) {
 		if (playerHP <= 0) {
-			timeline.stop();
+			//timeline.stop();
 			playerLost = true;
 		}
 		
@@ -54,9 +58,9 @@ public class BattleModel extends Observable implements BattleModelInView {
 	}
 	
 	@Override
-	public void setEnemyHP(int enemyHP) {
+	public void setEnemyHP(double enemyHP) {
 		if (enemyHP <= 0) {
-			timeline.stop();
+			//timeline.stop();
 			playerWon = true;
 		}
 		

@@ -3,7 +3,7 @@ package exceptions;
 /**
  * @author Filip Mazurek
  */
-public class BadPlayerPlacementException extends Exception implements Alert{
+public class BadPlayerPlacementException extends Exception implements Alert {
     private int myRow;
     private int myColumn;
 
@@ -16,7 +16,7 @@ public class BadPlayerPlacementException extends Exception implements Alert{
 
     @Override
     public String getMessage () {
-        return String.format(BAD_PLAYER_PLACEMENT, myRow, myColumn);
+        return String.format(BAD_PLAYER_PLACEMENT, Integer.toString(myRow), Integer.toString(myColumn));
     }
 }
 

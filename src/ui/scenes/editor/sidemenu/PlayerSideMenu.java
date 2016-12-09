@@ -1,13 +1,14 @@
 package ui.scenes.editor.sidemenu;
 
+import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
+import ui.builder.ComponentProperties;
+import ui.builder.UIBuilder;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -17,37 +18,55 @@ import java.util.ResourceBundle;
  */
 public class PlayerSideMenu extends SideMenu {
 
+    private ResourceBundle myResources;
+
     public PlayerSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);
+        myResources = resources;
         init();
     }
 
+    private FlowPane addSprites() {
 
-    /**
-     * Creates and adds tabs for each object type to the Player Menu
-     */
-    public void addTabs() {
+//        String directory = "resources/images/sprites/";
+//        File file = new File(directory);
+//        String [] contents = file.list();
+
+
+        FlowPane sprites = createFlowPane();
+        UIBuilder builder = new UIBuilder();
+        String path1 = "resources/images/sprites/1-down.png";
+        Node n = builder.addNewImageView(myRoot, new ComponentProperties()
+                .path(path1)
+                .preserveRatio(true)
+                .id("sprite-item"));
+        sprites.getChildren().add(n);
+        String path2 = "resources/images/sprites/2-down.png";
+        Node n2 = builder.addNewImageView(myRoot, new ComponentProperties()
+                .path(path2)
+                .preserveRatio(true)
+                .id("sprite-item"));
+        sprites.getChildren().add(n2);
+
+        String path3 = "resources/images/sprites/3-down.png";
+        Node n3 = builder.addNewImageView(myRoot, new ComponentProperties()
+                .path(path3)
+                .preserveRatio(true)
+                .id("sprite-item"));
+        sprites.getChildren().add(n3);
+        return sprites;
+    }
+
+    protected void addTabs() {
         List<Tab> tabs = new ArrayList<>();
         // sprite tab
-        Tab spriteTab = createTab("Sprite", new ScrollPane(createFlowPane()));
-        FlowPane sprites = createFlowPane();
-
-        String path1 = "resources/images/tiles/sprites/player-1-west-facing.png";
-        Button button1 = new Button();
-        button1.setGraphic(new ImageView(new Image(path1)));
-        sprites.getChildren().add(button1);
-
-
+        Tab spriteTab = createTab(myResources.getString("spriteTab"), new ScrollPane(createFlowPane()));
+        FlowPane sprites = addSprites();
         ScrollPane spritePane = new ScrollPane(sprites);
-//        spritePane.setContent(new PlayerImageChooserUI(this).getGroup());
         spriteTab.setContent(spritePane);
         tabs.add(spriteTab);
         // attributes tab
-        Tab attributesTab = createTab("Attributes", new ScrollPane(createFlowPane()));
-        ScrollPane attributesPane = new ScrollPane(createFlowPane());
-//        attributesPane.setContent(new PlayerAttributeUI(this).getGroup());
-        attributesTab.setContent(attributesPane);
-        tabs.add(attributesTab);
+//       s
         myPanel.getTabs().addAll(tabs);
     }
 

@@ -1,24 +1,11 @@
 package editor;
 
-import block.Block;
-import block.BlockFactory;
 import block.BlockType;
-import block.CommunicatorBlock;
-import editor.backend.Game;
 import engine.EngineController;
 import exceptions.BadPlayerPlacementException;
 import exceptions.NoPlayerException;
-import grid.Grid;
 import grid.GridGrowthDirection;
-import grid.GridWorld;
-import grid.RenderedGrid;
-import player.Player;
-import interactions.Interaction;
-import player.PlayerAttribute;
-import ui.scenes.editor.GameEditor;
 import ui.scenes.editor.sidemenu.GameEditorAlerts;
-import xml.GridWorldAndPlayer;
-import xml.GridXMLHandler;
 
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
