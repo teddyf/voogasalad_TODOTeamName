@@ -1,6 +1,8 @@
 package ui.scenes.editor;
 
+import javafx.event.Event;
 import javafx.scene.Parent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.image.ImageView;
@@ -80,19 +82,48 @@ public class GridScrollButton {
     }
 
     private void setUpListeners() {
-        upScroll.setOnMouseEntered(e -> {myScrollAnimation.up(); myScrollAnimation.play();});
+        upScroll.setOnMouseEntered(e -> {myScrollAnimation.setScrollSpeedButtons(); myScrollAnimation.up(); myScrollAnimation.play();});
         upScroll.setOnMouseExited(e -> myScrollAnimation.stop());
 
-        rightScroll.setOnMouseEntered(e -> {myScrollAnimation.right(); myScrollAnimation.play();});
+        rightScroll.setOnMouseEntered(e -> {myScrollAnimation.setScrollSpeedButtons();myScrollAnimation.right(); myScrollAnimation.play();});
         rightScroll.setOnMouseExited(e -> myScrollAnimation.stop());
 
-        downScroll.setOnMouseEntered(e -> {myScrollAnimation.down(); myScrollAnimation.play();});
+        downScroll.setOnMouseEntered(e -> {myScrollAnimation.setScrollSpeedButtons();myScrollAnimation.down(); myScrollAnimation.play();});
         downScroll.setOnMouseExited(e -> myScrollAnimation.stop());
 
-        leftScroll.setOnMouseEntered(e -> {myScrollAnimation.left(); myScrollAnimation.play();});
+        leftScroll.setOnMouseEntered(e -> {myScrollAnimation.setScrollSpeedButtons();myScrollAnimation.left(); myScrollAnimation.play();});
         leftScroll.setOnMouseExited(e -> myScrollAnimation.stop());
 
-        center.setOnMouseClicked(e -> {myScrollAnimation.center(); myScrollAnimation.play();});
+        center.setOnMouseClicked(e -> {myScrollAnimation.setScrollSpeedButtons();myScrollAnimation.center(); myScrollAnimation.play();});
+    }
+
+    public void trackpadStartScroll(ScrollEvent event) {
+        // Horizontal movement
+        myScrollAnimation.setScrollSpeedTrackpad();
+        double x = event.getDeltaX();
+        double y = event.getDeltaY();
+        if (Math.abs(x) > Math.abs(y)) {
+            if (event.getDeltaX() > 0) {
+                myScrollAnimation.left();
+            }
+            else {
+                myScrollAnimation.right();
+            }
+        }
+        // Vertical movement
+        else {
+            if (event.getDeltaY() > 0) {
+                myScrollAnimation.up();
+            }
+            else {
+                myScrollAnimation.down();
+            }
+        }
+        myScrollAnimation.play();
+    }
+
+    public void trackpadEndScroll(ScrollEvent event) {
+        myScrollAnimation.stop();
     }
 
 }

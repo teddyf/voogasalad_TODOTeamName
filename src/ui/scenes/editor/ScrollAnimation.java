@@ -12,7 +12,10 @@ public class ScrollAnimation {
 
     private TranslateTransition transition;
 
-    private double pixelsPerMillisecond = 0.1;
+    private double CURRENT_MODE_SCROLL_SPEED_PPM;
+
+    private double BUTTON_MODE_SCROLL_SPEED_PPM = 0.2;
+    private double TRACKPAD_MODE_SCROLL_SPEED_PPM = 2;
 
     private double xMax;
     private double xMin;
@@ -35,29 +38,37 @@ public class ScrollAnimation {
         transition.setInterpolator(Interpolator.LINEAR);
     }
 
+    public void setScrollSpeedButtons() {
+        CURRENT_MODE_SCROLL_SPEED_PPM = BUTTON_MODE_SCROLL_SPEED_PPM;
+    }
+
+    public void setScrollSpeedTrackpad() {
+        CURRENT_MODE_SCROLL_SPEED_PPM = TRACKPAD_MODE_SCROLL_SPEED_PPM;
+    }
+
     public void left() {
-        double duration = (xMax - group.getLayoutX())/pixelsPerMillisecond;
+        double duration = (xMax - group.getLayoutX())/CURRENT_MODE_SCROLL_SPEED_PPM;
         //double duration = 1000;
         setTransition(duration);
         transition.setToX(xMax);
     }
 
     public void right() {
-        double duration = (group.getLayoutX() - xMin)/pixelsPerMillisecond;
+        double duration = (group.getLayoutX() - xMin)/CURRENT_MODE_SCROLL_SPEED_PPM;
         //double duration = 1000;
         setTransition(duration);
         transition.setToX(xMin);
     }
 
     public void up() {
-        double duration = (yMax - group.getLayoutY())/pixelsPerMillisecond;
+        double duration = (yMax - group.getLayoutY())/CURRENT_MODE_SCROLL_SPEED_PPM;
         //double duration = 1000;
         setTransition(duration);
         transition.setToY(yMax);
     }
 
     public void down() {
-        double duration = (group.getLayoutY() - yMin)/pixelsPerMillisecond;;
+        double duration = (group.getLayoutY() - yMin)/CURRENT_MODE_SCROLL_SPEED_PPM;
         //double duration = 1000;
         setTransition(duration);
         transition.setToY(yMin);

@@ -18,11 +18,12 @@ import java.util.ResourceBundle;
  */
 public class EditorControls {
 
-    private static Parent myRoot;
-    private static ResourceBundle myResources;
-    private static UIBuilder myBuilder;
-    private static ItemSideMenu myItemMenu;
-    private static PlayerSideMenu myPlayerMenu;
+    private Parent myRoot;
+    private ResourceBundle myResources;
+    private UIBuilder myBuilder;
+    private SideMenu myItemMenu;
+    private SideMenu myPlayerMenu;
+    private SideMenu myCustomMenu;
 
     public EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu) {
         myRoot = root;

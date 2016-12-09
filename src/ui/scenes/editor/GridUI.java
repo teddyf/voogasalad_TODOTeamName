@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.input.MouseButton;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
@@ -33,6 +34,7 @@ public class GridUI {
     private GridPane myGridPane;
 
     private ScrollAnimation scrollAnimation;
+    private GridScrollButton gsb;
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
 
@@ -61,13 +63,15 @@ public class GridUI {
                 myUtil.getIntProperty("gridY"));
         myController.addGrid(width, height);
         myController.changeGrid(0);
+
         initGridControl();
+        setGridClickable();
+
         scrollAnimation =
                 new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(),
                         myGridPane.getYMin());
 
-        GridScrollButton gsb = new GridScrollButton(myRoot, scrollAnimation);
-        setGridClickable();
+        gsb = new GridScrollButton(myRoot, scrollAnimation);
     }
 
     /**
@@ -145,7 +149,7 @@ public class GridUI {
             for (int i = 0; i < selected.size(); i++) {
                 selected.get(i).getImage().setEffect(null);
             }
-            myGridPane.delete(myGridPane.getClicked());
+            myGridPane.delete();
         });
     }
 
@@ -219,10 +223,20 @@ public class GridUI {
             GridPaneNode node = blockList.get(i);
             node.getImage().setOnMouseClicked(e -> {
                 myGridPane.click(node);
-                myGridPane.swap(myItemMenu.getSelected(),
-                        myController);
+                if(e.getButton()==MouseButton.SECONDARY){
+                    myGridPane.delete();
+                }
+                else{
+                    
+                    myGridPane.swap(myItemMenu.getSelected(),
+                                myController);
+                }
             });
         }
+    }
+
+    public GridScrollButton getScrollMechanism() {
+        return gsb;
     }
 
 }

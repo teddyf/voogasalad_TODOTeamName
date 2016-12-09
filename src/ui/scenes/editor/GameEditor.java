@@ -69,6 +69,8 @@ public class GameEditor extends Scene implements GameEditorAlerts {
             events.exitPrompt(false);
         });
         myStage.setScene(this);
+        this.setOnScrollStarted(event -> grid.getScrollMechanism().trackpadStartScroll(event));
+        this.setOnScrollFinished(event -> grid.getScrollMechanism().trackpadEndScroll(event));
     }
 
     /**

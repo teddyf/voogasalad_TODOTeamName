@@ -55,7 +55,7 @@ public class Player implements IPlayer {
 		return battlesWon;
 	}
 	public int getBattlesLost(){
-		return battlesWon;
+		return battlesLost;
 	}
 	public void incrementBattlesWon(){
 		battlesWon++;
