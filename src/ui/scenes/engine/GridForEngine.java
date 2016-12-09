@@ -1,6 +1,10 @@
-package ui;
+package ui.scenes.engine;
+
 import java.util.*;
+
 import block.BlockType;
+import ui.GridObjectMap;
+import ui.GridPaneNode;
 import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.Player1;
 import javafx.scene.Group;
