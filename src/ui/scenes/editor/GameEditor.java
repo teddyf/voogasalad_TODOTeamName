@@ -14,29 +14,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.TranslateTransition;
-import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
-import javafx.application.Application;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.StringBinding;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.util.ResourceBundle;
 
@@ -108,11 +85,17 @@ public class GameEditor extends Scene {
      * overworld size
      */
     public void initEditor() {
-        //SizeChooserUI sizeChooser = new SizeChooserUI(myStage, new Group(), this, myLauncher, myBuilder);
+        SizeChooserUI sizeChooser = new SizeChooserUI(this, new Group());
+
+//                myStage, new Group(), this, myLauncher, myBuilder);
+
+
         //sizeChooser.promptUserForSize();
 
-        SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
-        myBuilder.initWindow(myStage, SizeChooser2.SIZE_CHOOSER_RESOURCES);
+//        SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
+        myBuilder.initWindow(myStage, SizeChooserUI.SIZE_CHOOSER_RESOURCES);
+
+//        myBuilder.initWindow(myStage, SizeChooserUI.SIZE_CHOOSER_RESOURCES);
         myStage.setScene(sizeChooser);
     }
 
