@@ -2,9 +2,7 @@ package editor;
 
 import block.BlockType;
 import engine.EngineController;
-import exceptions.BadPlayerPlacementException;
-import exceptions.DeletePlayerWarning;
-import exceptions.NoPlayerException;
+import exceptions.*;
 import grid.GridGrowthDirection;
 import ui.scenes.editor.sidemenu.GameEditorAlerts;
 
@@ -41,7 +39,11 @@ public class EditorController {
     }
 
     public boolean addMessage(String message, int row, int col) {
-        return myModel.addMessage(message, row, col);
+        if(addMessage(message, row, col)) {
+            return true;
+        }
+//        myAlerts.exceptionDisplay();
+        return false;
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
@@ -58,6 +60,10 @@ public class EditorController {
         }
         catch (BadPlayerPlacementException e) {
             myAlerts.exceptionDisplay(e.getMessage());
+            return false;
+        }
+        catch (DuplicatePlayerException e2) {
+            myAlerts.exceptionDisplay(e2.getMessage());
             return false;
         }
     }
@@ -78,7 +84,11 @@ public class EditorController {
      * @param amount: positive int of how much the grid should shrink
      */
     public void changeGridSize(GridGrowthDirection direction, int amount) {
-        myModel.changeGridSize(direction, amount);
+        try {
+            myModel.changeGridSize(direction, amount);
+        } catch(LargeGridException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+        }
     }
 
     /*****METHODS FOR FRONTEND TO CALL*****/

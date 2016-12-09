@@ -6,6 +6,8 @@ import block.BlockType;
 import block.CommunicatorBlock;
 import engine.EngineController;
 import exceptions.BadPlayerPlacementException;
+import exceptions.DuplicatePlayerException;
+import exceptions.LargeGridException;
 import exceptions.NoPlayerException;
 import grid.Grid;
 import grid.GridGrowthDirection;
@@ -40,7 +42,7 @@ public class EditorModel {
         currentGrid = gridWorld.changeGrid(index);
     }
 
-    public boolean changeGridSize(GridGrowthDirection direction, int amount) {
+    public boolean changeGridSize(GridGrowthDirection direction, int amount) throws LargeGridException {
         if (amount >= 0) {
             return growGrid(direction, amount);
         }
@@ -54,7 +56,7 @@ public class EditorModel {
     /** shrinks the grid the appropriate amount from the appropriate direction
      * @param amount: positive int of how much the grid should shrink
      */
-    public boolean shrinkGrid(GridGrowthDirection direction, int amount) {
+    private boolean shrinkGrid(GridGrowthDirection direction, int amount) {
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
@@ -100,7 +102,7 @@ public class EditorModel {
         return true;
     }
 
-    public boolean growGrid(GridGrowthDirection direction, int amount) {
+    private boolean growGrid(GridGrowthDirection direction, int amount) throws LargeGridException{
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
@@ -126,7 +128,7 @@ public class EditorModel {
         }
 
         if (numRows > 100 || numCols > 100) {
-            return false;
+            throw new LargeGridException();
         }
         currentGrid.resize(numRows, numCols, rowOffset, rowEnd, rowOffset, colOffset, colEnd, colOffset);
         return true;
@@ -162,7 +164,7 @@ public class EditorModel {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
-    public boolean addPlayer(String name, int row, int col) throws BadPlayerPlacementException {
+    public boolean addPlayer(String name, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
         if(!(currentGrid.getBlock(row, col).isWalkable())) {
             throw new BadPlayerPlacementException(row, col);
         }
@@ -170,9 +172,9 @@ public class EditorModel {
             player = new Player(name, row, col, currentGrid.getIndex());
             return true;
         }
-        //TODO: Error message saying "player already exists; delete player to add a new one"
-        //TODO front end needs to take care of this as they will need to delete the old player and set a new image on grid
-        return false;
+        else {
+            throw new DuplicatePlayerException(player.getRow(), player.getCol());
+        }
     }
 
     public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
