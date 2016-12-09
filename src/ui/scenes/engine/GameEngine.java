@@ -99,7 +99,7 @@ public class GameEngine extends Scene implements Observer {
     	player = new Character(this);
     	System.out.println(player.getRowCharacter());
     	System.out.println(player.getColumnCharacter());
-    	player.setCharacterImage("resources/images/tiles/sprites/player-1-south-facing.png");
+    	player.setCharacterImage("resources/images/sprites/1-down.png");
         player.setCharacterImageSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
@@ -107,7 +107,7 @@ public class GameEngine extends Scene implements Observer {
 
         player.setPosX(gridWidth/2 - player.getSize()/2);
         player.setPosY(gridHeight/2 - player.getSize()/2);
-    	player.setName("resources/images/tiles/sprites/player-1-south-facing.png");
+    	player.setName("resources/images/sprites/1-left.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
 
         //setup grid
