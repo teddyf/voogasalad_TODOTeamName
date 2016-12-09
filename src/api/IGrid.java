@@ -23,12 +23,6 @@ public interface IGrid {
 	public int getNumCols();
 
 	/**
-	 * Gets the grid object
-	 * @return the grid object
-	 */
-	public Grid getGrid();
-
-	/**
 	 * Gets the block located at a specific cell
 	 * @param row - the row of the cell
 	 * @param col - the column of the cell

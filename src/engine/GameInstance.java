@@ -217,7 +217,7 @@ public class GameInstance extends Observable implements IGameInstance {
     }
 
     public void changeGrid(int index) {
-        myGridWorld.setCurrentIndex(index);
+        //myGridWorld.setCurrentIndex(index);
         myGrid = myGridWorld.getCurrentGrid();
         myRenderedGrid = new RenderedGrid(myGrid);
     }

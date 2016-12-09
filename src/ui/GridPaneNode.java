@@ -12,8 +12,7 @@ public class GridPaneNode {
     //private int typeNum;
     private String name;
     private ImageView imageView;
-    private final String DEFAULT_IMAGE_PATH = "resources/Default.png";
-    
+
     /**
      * Constructor for GridPaneNode 
      * @param row Row for node to be placed
@@ -46,6 +45,7 @@ public class GridPaneNode {
     }
     
     private void setInitialImage(){
+        System.out.println(name);
         Image image = new Image(name);
         imageView.setImage(image);
     }

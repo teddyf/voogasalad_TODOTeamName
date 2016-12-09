@@ -14,27 +14,26 @@ import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
 
-import ui.scenes.editor.sidemenu.EditorControls;
-import ui.scenes.editor.sidemenu.ItemSideMenu;
-import ui.scenes.editor.sidemenu.PlayerMenuUI;
-import ui.scenes.editor.sidemenu.PlayerSideMenu;
+import ui.scenes.editor.sidemenu.*;
 
 /**
  * @author Robert Steilberg
  *         <p>
  *         This class handles the game editor that is used to build games.
  */
-public class GameEditor extends Scene {
+public class GameEditor extends Scene implements GameEditorAlerts {
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
+    private static final String ALERT_RESOURCES = "resources/properties/alerts-text";
     private static final String CSS_FILE_NAME = "resources/styles/game-editor.css";
     private Stage myStage;
     private Parent myRoot;
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
+    private ResourceBundle alertResources;
     private EditorController myController;
-
+    private EditorEvents events;
 
     public GameEditor(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
         super(root, Color.web("#0585B2"));
@@ -44,6 +43,7 @@ public class GameEditor extends Scene {
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
+        alertResources = ResourceBundle.getBundle(ALERT_RESOURCES);
         root.getStylesheets().add(CSS_FILE_NAME);
     }
 
@@ -64,7 +64,8 @@ public class GameEditor extends Scene {
         controls.addEditorControls();
 
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
-        EditorEvents events = new EditorEvents(myLauncher, IO, myResources);
+        events = new EditorEvents(myLauncher, IO, myResources);
+        myController.setAlerts(this);
 
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
@@ -123,5 +124,14 @@ public class GameEditor extends Scene {
 
     public String getPath() {
         return EDITOR_RESOURCES;
+    }
+
+    public boolean warnUser(String warningKey) {
+        return events.createWarning(warningKey);
+    }
+
+    public void exceptionDisplay(String content) {
+        System.out.println("CONTENT = " + content);
+        myBuilder.addNewAlert(alertResources.getString("EXCEPTION").toUpperCase(), content);
     }
 }

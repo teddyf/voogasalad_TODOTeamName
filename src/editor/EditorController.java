@@ -1,8 +1,11 @@
 package editor;
 
 import block.BlockType;
+import engine.EngineController;
+import exceptions.BadPlayerPlacementException;
+import exceptions.NoPlayerException;
 import grid.GridGrowthDirection;
-
+import ui.scenes.editor.sidemenu.GameEditorAlerts;
 
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
@@ -13,9 +16,15 @@ import grid.GridGrowthDirection;
 public class EditorController {
 
     private final EditorModel myModel;
+    private GameEditorAlerts myAlerts;
 
     public EditorController() {
         myModel = new EditorModel();
+    }
+
+    // not backend's fault
+    public void setAlerts(GameEditorAlerts alerts) {
+        myAlerts = alerts;
     }
 
     public void addGrid(int numRows, int numCols) {
@@ -43,7 +52,13 @@ public class EditorController {
     }
 
     public boolean addPlayer(String name, int row, int col) {
-        return myModel.addPlayer(name, row, col);
+        try {
+            return myModel.addPlayer(name, row, col);
+        }
+        catch (BadPlayerPlacementException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+            return false;
+        }
     }
 
     public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
@@ -58,12 +73,14 @@ public class EditorController {
      * @param amount: positive int of how much the grid should shrink
      */
     public void shrinkGrid(GridGrowthDirection direction, int amount) {
-        myModel.shrinkGrid(direction, amount);
+        //myModel.shrinkGrid(direction, amount);
     }
 
     public void growGrid(GridGrowthDirection direction, int amount) {
         myModel.growGrid(direction, amount);
     }
+
+
 
     /*****METHODS FOR FRONTEND TO CALL*****/
 
@@ -116,10 +133,14 @@ public class EditorController {
      * @param file
      */
     public void saveEngine(String file) {
-        myModel.saveEngine(file);
+        try {
+            myModel.saveEngine(file);
+        } catch (NoPlayerException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+        }
     }
 
-    /*public EngineController runEngine() {
-        return (new EngineController(player, gridWorld));
-    }*/
+    public EngineController runEngine() {
+        return myModel.runEngine();
+    }
 }

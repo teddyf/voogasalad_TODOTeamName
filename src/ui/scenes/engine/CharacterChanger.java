@@ -54,12 +54,12 @@ public class CharacterChanger {
 	private void addPlayerOptions() {
 		
 		//hard code for testing
-		String path1 = "resources/images/tiles/Character/Pokemon/Player1SouthFacing.png";
+		String path1 = "resources/images/tiles/sprites/player-1-south-facing.png";
 		Button button1 = new Button();
 		button1.setGraphic(new ImageView(new Image(path1)));
 		button1.setOnMouseClicked(e -> player.changeCharacterImage(path1));
 		
-		String path2 = "resources/images/tiles/Character/Pokemon/Player2SouthFacing.png";
+		String path2 = "resources/images/tiles/sprites/player-1-east-facing.png";
 		Button button2 = new Button();
 		button2.setGraphic(new ImageView(new Image(path2)));
 		button2.setOnMouseClicked(e -> player.changeCharacterImage(path2));
