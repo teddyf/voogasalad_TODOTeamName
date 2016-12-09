@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+@Deprecated
 public class PlayerAttributeUI extends Observable{
 	private Group group;
 	private VBox vbox;

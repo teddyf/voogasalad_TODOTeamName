@@ -1,6 +1,5 @@
 package ui.scenes.editor.sidemenu;
 
-import block.Block;
 import block.BlockType;
 import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.MultipleBlockGameObject;
@@ -14,7 +13,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * Created by Harshil Garg on 12/7/16.
+ * @author Harshil Garg
  */
 public class ItemViewer {
 
@@ -25,14 +24,11 @@ public class ItemViewer {
     private GameObject selected = null;
 
 
-    public List<GameObject> getObjects(BlockType type) {
+    List<GameObject> getObjects(BlockType type) {
         String directory = root_path + type.name().toLowerCase();
         File file = new File(directory);
-        String [] contents = file.list();
-
+        String[] contents = file.list();
         List<GameObject> items = new ArrayList<>();
-
-
         Map<String, ArrayList<String>> map = new HashMap<>();
         for (String content : contents) {
             String prefix = content.substring(0, content.indexOf('.'));
@@ -44,7 +40,6 @@ public class ItemViewer {
                 map.put(prefix, list);
             }
         }
-
         for (String key : map.keySet()) {
             ArrayList<String> value = map.get(key);
             if (value.size() == 1)
@@ -52,9 +47,7 @@ public class ItemViewer {
             else
                 items.add(buildMultipleItem(key, value, type));
         }
-
         return items;
-
     }
 
     private GameObject buildSingleItem(String prefix, BlockType type) {
@@ -71,7 +64,7 @@ public class ItemViewer {
                 continue;
             }
             String temp = s.substring(firstIndex + 1, lastIndex);
-            String [] dimensions = temp.split("_");
+            String[] dimensions = temp.split("_");
             int row = Integer.parseInt(dimensions[0]);
             int col = Integer.parseInt(dimensions[1]);
             if (row > maxRow)
@@ -89,12 +82,11 @@ public class ItemViewer {
         return file.toURI().toString();
     }
 
-
-    public void select(GameObject obj) {
+    void select(GameObject obj) {
         selected = obj;
     }
 
-    public GameObject getSelected() {
+    GameObject getSelected() {
         return selected;
     }
 

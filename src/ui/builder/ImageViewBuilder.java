@@ -6,8 +6,8 @@ import javafx.scene.image.ImageView;
 
 /**
  * @author Robert Steilberg
- *
- * This class builds JavaFX ImageViews.
+ *         <p>
+ *         This class builds JavaFX ImageViews.
  */
 public class ImageViewBuilder extends ComponentBuilder {
 

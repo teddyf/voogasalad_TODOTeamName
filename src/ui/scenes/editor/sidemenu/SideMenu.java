@@ -11,7 +11,9 @@ import ui.builder.UIBuilder;
 import java.util.ResourceBundle;
 
 /**
- * @author Harshil Garg
+ * @author Harshil Garg, Robert Steilberg
+ *         <p>
+ *         This class defines the basic functionality for a SideMenu in the Editor.
  */
 public abstract class SideMenu {
 
@@ -30,7 +32,7 @@ public abstract class SideMenu {
     }
 
     public void init() {
-        configureItemPanel();
+        configureSidePanel();
         addTabs();
     }
 
@@ -45,6 +47,12 @@ public abstract class SideMenu {
         return itemPane;
     }
 
+    /**
+     * Converts a String to title case
+     *
+     * @param input the String to convert
+     * @return the String in title case
+     */
     String toTitleCase(String input) {
         StringBuilder titleCase = new StringBuilder();
         boolean firstLetter = true;
@@ -62,6 +70,13 @@ public abstract class SideMenu {
         return titleCase.toString();
     }
 
+    /**
+     * Creates a new tab
+     *
+     * @param text       the title text for the tab
+     * @param scrollPane the tab's content
+     * @return the tab with its content
+     */
     Tab createTab(String text, ScrollPane scrollPane) {
         Tab newTab = new Tab();
         newTab.setText(text);
@@ -70,13 +85,21 @@ public abstract class SideMenu {
         return newTab;
     }
 
-    private void configureItemPanel() {
+    /**
+     * Basic configuration for side menus
+     */
+    private void configureSidePanel() {
         myPanel.setLayoutX(myUtil.getIntProperty("sidePanelX"));
         myPanel.setLayoutY(myUtil.getIntProperty("sidePanelY"));
         myPanel.setMinWidth(myUtil.getIntProperty("sidePanelWidth"));
         myPanel.setMinHeight(myUtil.getIntProperty("sidePanelHeight"));
     }
 
+    /**
+     * Returns the JavaFX node representing the side menu
+     *
+     * @return the JavaFX node representing the side menu
+     */
     DraggableTabPane getPanel() {
         return myPanel;
     }
