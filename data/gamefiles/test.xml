@@ -1,0 +1,71 @@
+<root>
+  <gridWorld>
+    <grid>
+      <changed>false</changed>
+      <obs/>
+      <myIndex>0</myIndex>
+      <myNumRows>2</myNumRows>
+      <myNumColumns>2</myNumColumns>
+      <block.Block-array>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>Test Block</myName>
+          <myRow>0</myRow>
+          <myCol>0</myCol>
+          <isWalkable>false</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>Test Block</myName>
+          <myRow>0</myRow>
+          <myCol>1</myCol>
+          <isWalkable>false</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+      </block.Block-array>
+      <block.Block-array>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>Test Block</myName>
+          <myRow>1</myRow>
+          <myCol>0</myCol>
+          <isWalkable>false</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>Test Block</myName>
+          <myRow>1</myRow>
+          <myCol>1</myCol>
+          <isWalkable>false</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+      </block.Block-array>
+    </grid>
+  </gridWorld>
+  <player>
+    <myName>Test Player</myName>
+    <myDirection>NORTH</myDirection>
+    <myRow>0</myRow>
+    <myCol>0</myCol>
+    <myGridIndex>0</myGridIndex>
+    <myAttributes/>
+    <myInventory/>
+    <myBattleHistory/>
+    <myInteractionHistory/>
+    <myStatus/>
+  </player>
+</root>

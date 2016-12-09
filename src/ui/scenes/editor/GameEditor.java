@@ -2,45 +2,21 @@ package ui.scenes.editor;
 
 import editor.EditorController;
 import engine.EngineController;
-import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.TranslateTransition;
-import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
-import javafx.application.Application;
-import javafx.beans.binding.Bindings;
-import javafx.beans.binding.StringBinding;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.util.ResourceBundle;
 
-import javafx.scene.control.Button;
+import ui.scenes.editor.sidemenu.EditorControls;
+import ui.scenes.editor.sidemenu.ItemSideMenu;
+import ui.scenes.editor.sidemenu.PlayerMenuUI;
 
 /**
  * @author Robert Steilberg
@@ -73,20 +49,22 @@ public class GameEditor extends Scene {
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myResources);
+
+
+        ItemSideMenu itemMenu = new ItemSideMenu(myRoot, myResources, "item");
 
         GridUI grid = new GridUI(myRoot, itemMenu, myController);
         grid.initGrid(width, height);
-        itemMenu.init();
 
-        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu);
+        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources, myController);
+
+
+        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu, playerMenu);
         controls.addEditorControls();
 
-
-//        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources, editorController);
-//        playerMenu.initPlayerMenu();
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
         EditorEvents events = new EditorEvents(myLauncher, IO, myResources);
+
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
         initPlayerButton();
@@ -108,11 +86,17 @@ public class GameEditor extends Scene {
      * overworld size
      */
     public void initEditor() {
-        //SizeChooserUI sizeChooser = new SizeChooserUI(myStage, new Group(), this, myLauncher, myBuilder);
+        SizeChooserUI sizeChooser = new SizeChooserUI(this, new Group());
+
+//                myStage, new Group(), this, myLauncher, myBuilder);
+
+
         //sizeChooser.promptUserForSize();
 
-        SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
-        myBuilder.initWindow(myStage, SizeChooser2.SIZE_CHOOSER_RESOURCES);
+//        SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
+        myBuilder.initWindow(myStage, SizeChooserUI.SIZE_CHOOSER_RESOURCES);
+
+//        myBuilder.initWindow(myStage, SizeChooserUI.SIZE_CHOOSER_RESOURCES);
         myStage.setScene(sizeChooser);
     }
 

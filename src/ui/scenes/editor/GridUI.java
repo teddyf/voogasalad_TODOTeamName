@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.sidemenu.ItemSideMenu;
 import java.util.*;
 
 
@@ -20,7 +21,7 @@ import java.util.*;
 public class GridUI {
 
     private Parent myRoot;
-    private ItemMenuUI myItemMenu;
+    private ItemSideMenu myItemMenu;
     private EditorController myController;
 
     private ResourceBundle myResources;
@@ -34,7 +35,7 @@ public class GridUI {
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
 
-    public GridUI(Parent root, ItemMenuUI itemMenu, EditorController controller) {
+    public GridUI (Parent root, ItemSideMenu itemMenu, EditorController controller) {
         myRoot = root;
         myItemMenu = itemMenu;
         myController = controller;
@@ -45,32 +46,33 @@ public class GridUI {
         hoverOpacity = new ColorAdjust();
     }
 
-
     /**
      * Creates a grid of specified width and height, and then adds
      * functionality to the grid.
      */
-    public void initGrid(int width, int height) {
+    public void initGrid (int width, int height) {
         myGridPane = new GridPane(width,
-                height,
-                myUtil.getIntProperty("windowWidth"),
-                myUtil.getIntProperty("windowHeight"),
-                myUtil.getIntProperty("gridX"),
-                myUtil.getIntProperty("gridY"));
+                                  height,
+                                  myUtil.getIntProperty("windowWidth"),
+                                  myUtil.getIntProperty("windowHeight"),
+                                  myUtil.getIntProperty("gridX"),
+                                  myUtil.getIntProperty("gridY"));
         myController.addGrid(width, height);
         myController.changeGrid(0);
         initGridControl();
-        scrollAnimation = new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(), myGridPane.getYMin());
+        scrollAnimation =
+                new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(),
+                                    myGridPane.getYMin());
 
         GridScrollButton gsb = new GridScrollButton(myRoot, scrollAnimation);
+        setGridClickable();
     }
-
 
     /**
      * Configures grid event handlers that allow the user to add and remove
      * ui.scenes.editor.objects from it.
      */
-    private void initGridControl() {
+    private void initGridControl () {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
         hoverOpacity.setBrightness(myUtil.getDoubleProperty("buttonHoverOpacity"));
         int updateX = myUtil.getIntProperty("updateX");
@@ -90,10 +92,10 @@ public class GridUI {
         String swapPath = myUtil.getStringProperty("swapPath");
         Node widthInputField =
                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                        widthInputWidth,20);
+                                             widthInputWidth, 20);
         Node heightInputField =
                 myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                        heightInputWidth,20);
+                                             heightInputWidth, 20);
         String updatePath = myResources.getString("updatePath");
         Node updateButton =
                 myBuilder.addCustomImageView(myRoot, updateX, updateY, updatePath, updateWidth, "");
@@ -106,48 +108,53 @@ public class GridUI {
                 myBuilder.removeComponent(myRoot, myGridPane.getGroup());
                 myGridPane.resizeReset(xInput, yInput);
                 myBuilder.addComponent(myRoot, myGridPane.getGroup());
-            } catch (Exception exc) {
-                myBuilder.addNewAlert("Invalid Resize", "Please enter an inter value for row and column count");
+            }
+            catch (Exception exc) {
+                myBuilder.addNewAlert("Invalid Resize",
+                                      "Please enter an inter value for row and column count");
             }
 
         });
 
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
-        Node swapButton = myBuilder.addCustomImageView(myRoot, swapX, swapY, swapPath, swapWidth, "");
-        //TODO add interaction somewhere here as well
+        /*
+        Node swapButton =
+                myBuilder.addCustomImageView(myRoot, swapX, swapY, swapPath, swapWidth, "");
+        // TODO add interaction somewhere here as well
+        
         swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getSelected(),
-                myController));
+                                                          myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
+        */
         Node linkButton = buildButton("linkX", "linkY", "linkWidth", "linkPath");
-        linkButton.setOnMouseClicked(e->{
+        linkButton.setOnMouseClicked(e -> {
             List<GridPaneNode> selected = myGridPane.getClicked();
-            if(selected.size()==2){
-                myGridPane.buildLink(selected.get(0),selected.get(1),myController);
-                
+            if (selected.size() == 2) {
+                System.out.print("LINK ");
+                System.out.println(myGridPane.buildLink(selected.get(0), selected.get(1),
+                                                        myController));
             }
         });
-        
-        Node deleteButton = buildButton("deleteX","deleteY","deleteWidth","deletePath");
-        deleteButton.setOnMouseClicked(e->{
+
+        Node deleteButton = buildButton("deleteX", "deleteY", "deleteWidth", "deletePath");
+        deleteButton.setOnMouseClicked(e -> {
             List<GridPaneNode> selected = myGridPane.getClicked();
-            for(int i = 0; i <  selected.size(); i++){
+            for (int i = 0; i < selected.size(); i++) {
                 selected.get(i).getImage().setEffect(null);
             }
             myGridPane.delete(myGridPane.getClicked());
         });
     }
 
-    public void loadGrid() {
+    public void loadGrid () {
         int colMax = myController.getCol();
         int rowMax = myController.getRow();
         myGridPane.loadReset(rowMax, colMax);
-        System.out.println(rowMax);
-        System.out.println(colMax);
         myBuilder.removeComponent(myRoot, myGridPane.getGroup());
-        for(int i = 0; i < rowMax; i++){
-            for(int j = 0; j < colMax; j++){
+        for (int i = 0; i < rowMax; i++) {
+            for (int j = 0; j < colMax; j++) {
                 myGridPane.blockToGridPane(i, j, myController.getBlock(i, j));
             }
         }
@@ -159,43 +166,62 @@ public class GridUI {
      * Adds a border to the grid based on the grid's position and size
      * by creating a Rectangle behind it
      */
-/*    private void addGridBorder() {
-        PropertiesUtilities util = new PropertiesUtilities();
-        Rectangle border = new Rectangle();
-        border.setLayoutX(util.getIntProperty(myResources, "gridX") - util.getIntProperty(myResources, "borderSize"));
-        border.setLayoutY(util.getIntProperty(myResources, "gridY") - util.getIntProperty(myResources, "borderSize"));
-        border.setWidth(util.getIntProperty(myResources, "gridWidth") + util.getIntProperty(myResources, "borderSize") * 2);
-        border.setHeight(util.getIntProperty(myResources, "gridHeight") + util.getIntProperty(myResources, "borderSize") * 2);
-        border.setId("grid-border");
-        myBuilder.addComponent(myRoot, border);
-    }*/
-    
+    /*
+     * private void addGridBorder() {
+     * PropertiesUtilities util = new PropertiesUtilities();
+     * Rectangle border = new Rectangle();
+     * border.setLayoutX(util.getIntProperty(myResources, "gridX") -
+     * util.getIntProperty(myResources, "borderSize"));
+     * border.setLayoutY(util.getIntProperty(myResources, "gridY") -
+     * util.getIntProperty(myResources, "borderSize"));
+     * border.setWidth(util.getIntProperty(myResources, "gridWidth") +
+     * util.getIntProperty(myResources, "borderSize") * 2);
+     * border.setHeight(util.getIntProperty(myResources, "gridHeight") +
+     * util.getIntProperty(myResources, "borderSize") * 2);
+     * border.setId("grid-border");
+     * myBuilder.addComponent(myRoot, border);
+     * }
+     */
+
     /**
      * Builds a button from string input
+     * 
      * @param xPos X-position of button
      * @param yPos Y-Position of button
      * @param width width of button
      * @param path Image myIconPath of button
      * @return
      */
-    private Node buildButton(String xPos, String yPos, String width, String path){
+    private Node buildButton (String xPos, String yPos, String width, String path) {
         int x = Integer.parseInt(myResources.getString(xPos));
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
         Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
-        node.setOnMouseEntered(e->{
+        node.setOnMouseEntered(e -> {
             node.setEffect(hoverOpacity);
         });
-        node.setOnMouseExited(e->{
+        node.setOnMouseExited(e -> {
             node.setEffect(null);
         });
         return node;
-        
+
     }
 
-    public GridPane getMyGridPane() {
+    public GridPane getMyGridPane () {
         return myGridPane;
+    }
+
+    private void setGridClickable () {
+        List<GridPaneNode> blockList = myGridPane.getNodeList();
+        for (int i = 0; i < blockList.size(); i++) {
+            GridPaneNode node = blockList.get(i);
+            node.getImage().setOnMouseClicked(e -> {
+                myGridPane.click(node);
+                myGridPane.swap(myItemMenu.getSelected(),
+                                myController);
+            });
+        }
     }
 
 }

@@ -226,6 +226,7 @@ public class GridPane {
         List<GridPaneNode> list = obj.getImageTiles();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         getObjectNeighbors(list);
+        System.out.println(clicked);
         for (int i = 0; i < clicked.size(); i++) {
             if (addObjToMap(list, clicked.get(i))) {
                 for (int j = 0; j < list.size(); j++) {
@@ -242,9 +243,7 @@ public class GridPane {
             clicked.get(i).getImage().setEffect(null);
             copy = clicked;
         }
-        //System.out.println(gridMap);
         clicked = new ArrayList<GridPaneNode>();
-        gridMap.visObjectMap();
         return copy;
     }
 
@@ -299,6 +298,7 @@ public class GridPane {
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
+
         System.out.println(deleted.size()/2);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i+=2) {            
@@ -306,14 +306,12 @@ public class GridPane {
                 node.swap(def, node.getImageNum());
             }        
         }
-        clicked = new ArrayList<GridPaneNode>();
-        //System.out.println(gridMap);
-        gridMap.visObjectMap();
+        clicked = new ArrayList<GridPaneNode>(); 
+        //gridMap.visObjectMap();
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        return controller.linkBlocks(node1.getBackendRow(), node1.getBackendCol(), node2.getBackendRow(), node2.getBackendCol(),
-                                     0, 0);
+        return controller.linkBlocks(node1.getBackendRow(), node1.getBackendCol(), 0, node2.getBackendRow(), node2.getBackendCol(), 0);
     }
     
     /**
