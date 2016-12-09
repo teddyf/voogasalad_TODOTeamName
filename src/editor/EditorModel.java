@@ -14,7 +14,7 @@ import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
 /**
- * Created by anindamanocha on 12/8/16.
+ * @author Aninda Manocha, Filip Mazurek
  */
 
 public class EditorModel {
