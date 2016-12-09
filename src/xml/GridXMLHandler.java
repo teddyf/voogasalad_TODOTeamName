@@ -68,7 +68,7 @@ public class GridXMLHandler {
 	/**
 	 * For testing purposes.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		GridXMLHandler test = new GridXMLHandler();
 		
 		GridWorld gridWorld = new GridWorld();
@@ -84,5 +84,5 @@ public class GridXMLHandler {
 		test.saveContents("data/gamefiles/test.xml", gridWorld, player);
 		GridWorldAndPlayer contents = test.loadContents("data/gamefiles/test.xml");
 		test.saveContents("data/gamefiles/test2.xml", contents.getGridWorld(), contents.getPlayer());
-	}
+	}*/
 }

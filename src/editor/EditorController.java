@@ -69,7 +69,7 @@ public class EditorController {
      * @param amount: positive int of how much the grid should shrink
      */
     public void shrinkGrid(GridGrowthDirection direction, int amount) {
-        myModel.shrinkGrid(direction, amount);
+        //myModel.shrinkGrid(direction, amount);
     }
 
     public void growGrid(GridGrowthDirection direction, int amount) {
@@ -130,7 +130,7 @@ public class EditorController {
         myModel.saveEngine(file);
     }
 
-    /*public EngineController runEngine() {
-        return (new EngineController(player, gridWorld));
-    }*/
+    public EngineController runEngine() {
+        return myModel.runEngine();
+    }
 }
