@@ -2,13 +2,10 @@ package ui.scenes.editor;
 
 import editor.EditorController;
 import engine.EngineController;
-import javafx.geometry.Side;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -17,7 +14,8 @@ import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
 
-import javafx.scene.control.Button;
+import ui.scenes.editor.sidemenu.ItemSideMenu;
+import ui.scenes.editor.sidemenu.PlayerMenuUI;
 
 /**
  * @author Robert Steilberg
@@ -50,20 +48,23 @@ public class GameEditor extends Scene {
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        ItemMenuUI itemMenu = new ItemMenuUI(myRoot, myBuilder, myResources);
+        
 
-        GridUI grid = new GridUI(myRoot, itemMenu.getItemPanelObjects(), myController);
+        ItemSideMenu itemMenu = new ItemSideMenu(myRoot, myResources, "item");
+		itemMenu.init();
+		
+        GridUI grid = new GridUI(myRoot, itemMenu, myController);
         grid.initGrid(width, height);
-        itemMenu.init();
-
-        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu);
+        
+        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources,myController);
+        playerMenu.init();
+        
+        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu,playerMenu);
         controls.addEditorControls();
 
-
-//        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources, editorController);
-//        playerMenu.initPlayerMenu();
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
         EditorEvents events = new EditorEvents(myLauncher, IO, myResources);
+        
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
         initPlayerButton();

@@ -9,7 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.objects.ItemPanelObjects;
+import ui.scenes.editor.sidemenu.ItemSideMenu;
+
 import java.util.*;
 
 
@@ -21,7 +22,7 @@ import java.util.*;
 public class GridUI {
 
     private Parent myRoot;
-    private ItemPanelObjects myEditorObjects;
+    private ItemSideMenu myItemMenu;
     private EditorController myController;
 
     private ResourceBundle myResources;
@@ -35,9 +36,9 @@ public class GridUI {
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
 
-    public GridUI(Parent root, ItemPanelObjects editorObjects, EditorController controller) {
+    public GridUI(Parent root, ItemSideMenu itemMenu, EditorController controller) {
         myRoot = root;
-        myEditorObjects = editorObjects;
+        myItemMenu = itemMenu;
         myController = controller;
 
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
@@ -117,7 +118,7 @@ public class GridUI {
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
         Node swapButton = myBuilder.addCustomImageView(myRoot, swapX, swapY, swapPath, swapWidth, "");
         //TODO add interaction somewhere here as well
-        swapButton.setOnMouseClicked(e -> myGridPane.swap(myEditorObjects.getSelected(),
+        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getSelected(),
                 myController));
         swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
         swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
@@ -125,8 +126,8 @@ public class GridUI {
         linkButton.setOnMouseClicked(e->{
             List<GridPaneNode> selected = myGridPane.getClicked();
             if(selected.size()==2){
-                myGridPane.buildLink(selected.get(0),selected.get(1),myController);
-                
+                System.out.print("LINK ");
+                System.out.println(myGridPane.buildLink(selected.get(0),selected.get(1),myController));
             }
         });
         
