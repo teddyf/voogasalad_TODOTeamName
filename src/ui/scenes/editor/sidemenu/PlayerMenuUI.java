@@ -36,18 +36,18 @@ public class PlayerMenuUI implements Observer {
     
     private void addTabs(DraggableTabPane playerPanel) {
     	Tab playerImageTab = new Tab();
-    	ScrollPane playerImagePane = createScrollPane();
+//    	ScrollPane playerImagePane = createScrollPane();
     	//set content here
-    	playerImagePane.setContent(myPlayerImageChooserUI.getGroup());
+//    	playerImagePane.setContent(myPlayerImageChooserUI.getGroup());
     	playerImageTab.setText("Player Image");
-    	playerImageTab.setContent(playerImagePane);
+//    	playerImageTab.setContent(playerImagePane);
     	
     	Tab playerAttributesTab = new Tab();
-    	ScrollPane playerAttributesPane = createScrollPane();
+//    	ScrollPane playerAttributesPane = createScrollPane();
     	//set content here
-    	playerAttributesPane.setContent(myPlayerAttributeUI.getGroup());
+//    	playerAttributesPane.setContent(myPlayerAttributeUI.getGroup());
     	playerAttributesTab.setText("Player Attributes");
-    	playerAttributesTab.setContent(playerAttributesPane);
+//    	playerAttributesTab.setContent(playerAttributesPane);
     	
     	playerPanel.getTabs().addAll(playerImageTab,playerAttributesTab);
     }
@@ -56,26 +56,25 @@ public class PlayerMenuUI implements Observer {
         return myPlayerPanel;
     }
 
-    private ScrollPane createScrollPane() {
-        PropertiesUtilities util = new PropertiesUtilities(myResources);
-        ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
-        FlowPane itemPane = new FlowPane();
-        int padding = util.getIntProperty("contentPadding");
-        itemPane.setHgap(padding);
-        itemPane.setVgap(padding);
-        itemPane.setPadding(new Insets(padding, padding, padding, padding));
-        return new ScrollPane(itemPane);
-    }
+//    private ScrollPane createScrollPane() {
+//        PropertiesUtilities util = new PropertiesUtilities(myResources);
+//        ColorAdjust hoverOpacity = new ColorAdjust();
+//        hoverOpacity.setBrightness(Double.parseDouble(myResources.getString("buttonHoverOpacity")));
+//        FlowPane itemPane = new FlowPane();
+//        int padding = util.getIntProperty("contentPadding");
+//        itemPane.setHgap(padding);
+//        itemPane.setVgap(padding);
+//        itemPane.setPadding(new Insets(padding, padding, padding, padding));
+//        return new ScrollPane(itemPane);
+//    }
     
     private DraggableTabPane createPlayerPanel() {
         PropertiesUtilities util = new PropertiesUtilities(myResources);
         DraggableTabPane playerPanel = new DraggableTabPane();
-        //Panel.setLayoutX(util.getIntProperty( "itemMenuX"));
-//        playerPanel.setLayoutX(util.getIntProperty(""));
-        playerPanel.setLayoutY(util.getIntProperty( "itemMenuY"));
-        playerPanel.setMinWidth(util.getIntProperty( "itemMenuWidth"));
-        playerPanel.setMinHeight(util.getIntProperty( "itemMenuHeight"));
+        playerPanel.setLayoutX(util.getIntProperty("sideMenuX"));
+        playerPanel.setLayoutY(util.getIntProperty( "sideMenuY"));
+        playerPanel.setMinWidth(util.getIntProperty( "sideMenuWidth"));
+        playerPanel.setMinHeight(util.getIntProperty( "sideMenuHeight"));
         return playerPanel;
     }
     
