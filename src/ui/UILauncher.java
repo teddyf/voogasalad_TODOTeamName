@@ -23,7 +23,7 @@ public class UILauncher {
 
     private Stage myStage;
     private MainMenu myMainMenu;
-    EditorController myController;
+    private EditorController myController;
     private Scene prevEditor;
     private Scene prevCharEditor;
 
