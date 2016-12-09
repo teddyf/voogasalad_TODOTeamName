@@ -1,4 +1,4 @@
-package ui.scenes.editor.sidemenu;
+package ui.scenes.editor;
 
 /**
  * @author Filip Mazurek, Aninda Manocha

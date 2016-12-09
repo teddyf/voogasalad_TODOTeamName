@@ -54,7 +54,7 @@ public class GridUI {
      * Creates a grid of specified width and height, and then adds
      * functionality to the grid.
      */
-    void initGrid(int width, int height) {
+    private void initGrid(int width, int height) {
         myGridPane = new GridPane(width,
                 height,
                 myUtil.getIntProperty("windowWidth"),
@@ -123,37 +123,10 @@ public class GridUI {
 
         updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
         updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
-        /*
-        Node swapButton =
-                myBuilder.addCustomImageView(myRoot, swapX, swapY, swapPath, swapWidth, "");
-        // TODO add interaction somewhere here as well
-        
-        swapButton.setOnMouseClicked(e -> myGridPane.swap(myItemMenu.getSelected(),
-                                                          myController));
-        swapButton.setOnMouseEntered(e -> swapButton.setEffect(hoverOpacity));
-        swapButton.setOnMouseExited(e -> swapButton.setEffect(null));
-        */
-        Node linkButton = buildButton("linkX", "linkY", "linkWidth", "linkPath");
-        linkButton.setOnMouseClicked(e -> {
-            List<GridPaneNode> selected = myGridPane.getClicked();
-            if (selected.size() == 2) {
-                System.out.print("LINK ");
-                System.out.println(myGridPane.buildLink(selected.get(0), selected.get(1),
-                        myController));
-            }
-        });
 
-        Node deleteButton = buildButton("deleteX", "deleteY", "deleteWidth", "deletePath");
-        deleteButton.setOnMouseClicked(e -> {
-            List<GridPaneNode> selected = myGridPane.getClicked();
-            for (int i = 0; i < selected.size(); i++) {
-                selected.get(i).getImage().setEffect(null);
-            }
-            myGridPane.delete();
-        });
     }
 
-    public void loadGrid() {
+    void loadGrid() {
         int colMax = myController.getCol();
         int rowMax = myController.getRow();
         myGridPane.loadReset(rowMax, colMax);
@@ -167,69 +140,21 @@ public class GridUI {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
     }
 
-    /**
-     * Adds a border to the grid based on the grid's position and size
-     * by creating a Rectangle behind it
-     */
-    /*
-     * private void addGridBorder() {
-     * PropertiesUtilities util = new PropertiesUtilities();
-     * Rectangle border = new Rectangle();
-     * border.setLayoutX(util.getIntProperty(myResources, "gridX") -
-     * util.getIntProperty(myResources, "borderSize"));
-     * border.setLayoutY(util.getIntProperty(myResources, "gridY") -
-     * util.getIntProperty(myResources, "borderSize"));
-     * border.setWidth(util.getIntProperty(myResources, "gridWidth") +
-     * util.getIntProperty(myResources, "borderSize") * 2);
-     * border.setHeight(util.getIntProperty(myResources, "gridHeight") +
-     * util.getIntProperty(myResources, "borderSize") * 2);
-     * border.setId("grid-border");
-     * myBuilder.addComponent(myRoot, border);
-     * }
-     */
-
-    /**
-     * Builds a button from string input
-     *
-     * @param xPos  X-position of button
-     * @param yPos  Y-Position of button
-     * @param width width of button
-     * @param path  Image myIconPath of button
-     * @return
-     */
-    private Node buildButton(String xPos, String yPos, String width, String path) {
-        int x = Integer.parseInt(myResources.getString(xPos));
-        int y = Integer.parseInt(myResources.getString(yPos));
-        int girth = Integer.parseInt(myResources.getString(width));
-        String route = myResources.getString(path);
-        Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
-        node.setOnMouseEntered(e -> {
-            node.setEffect(hoverOpacity);
-        });
-        node.setOnMouseExited(e -> {
-            node.setEffect(null);
-        });
-        return node;
-
-    }
-
     public GridPane getMyGridPane() {
         return myGridPane;
     }
 
     private void setGridClickable() {
         List<GridPaneNode> blockList = myGridPane.getNodeList();
-        for (int i = 0; i < blockList.size(); i++) {
-            GridPaneNode node = blockList.get(i);
+        for (GridPaneNode node : blockList) {
             node.getImage().setOnMouseClicked(e -> {
                 myGridPane.click(node);
-                if(e.getButton()==MouseButton.SECONDARY){
+                if (e.getButton() == MouseButton.SECONDARY) {
                     myGridPane.delete();
-                }
-                else{
-                    
+                } else {
+
                     myGridPane.swap(myItemMenu.getSelected(),
-                                myController);
+                            myController);
                 }
             });
         }

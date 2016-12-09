@@ -1,8 +1,5 @@
 package ui.scenes.editor;
 
-import javafx.event.Event;
-import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.FlowPane;
@@ -17,7 +14,7 @@ import ui.builder.UIBuilder;
 import java.util.ResourceBundle;
 
 /**
- * Created by Harshil Garg on 12/7/16.
+ * @author Harshil Garg
  */
 public class GridScrollButton {
 

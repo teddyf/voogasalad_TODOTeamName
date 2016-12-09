@@ -2,6 +2,7 @@ package grid;
 
 import api.IGrid;
 import block.*;
+
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -11,17 +12,18 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
  * The rectangular grid in which all the block ui.scenes.editor.objects may be placed.
+ *
  * @author Filip Mazurek, Aninda Manocha, Daniel Chai
  */
 
 @XStreamAlias("grid")
 public class Grid extends Observable implements IGrid {
-	@XStreamOmitField
-	private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
-	private int myIndex;
+    @XStreamOmitField
+    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
+    private int myIndex;
     private int myNumRows;
     private int myNumCols;
-    
+
     @XStreamImplicit
     private Block[][] myGrid;
 
@@ -34,8 +36,8 @@ public class Grid extends Observable implements IGrid {
     }
 
     private void initializeGrid() {
-        for(int i = 0; i < myNumRows; i++) {
-            for(int j = 0; j < myNumCols; j++) {
+        for (int i = 0; i < myNumRows; i++) {
+            for (int j = 0; j < myNumCols; j++) {
                 myGrid[i][j] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", i, j);
             }
         }
@@ -48,7 +50,7 @@ public class Grid extends Observable implements IGrid {
                 if (row < rowStart || row >= rowEnd || col < colStart || col >= colEnd) {
                     newGrid[row][col] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", row, col);
                 } else {
-                    newGrid[row][col] = myGrid[row+rowOffset][col+colOffset];
+                    newGrid[row][col] = myGrid[row + rowOffset][col + colOffset];
                 }
             }
         }

@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
  */
 public class GridSideMenu extends SideMenu {
 
-
     GridSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);
         init();
