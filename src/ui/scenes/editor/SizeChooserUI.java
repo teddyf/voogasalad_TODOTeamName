@@ -53,7 +53,7 @@ public class SizeChooserUI extends Scene {
         DimensionPrompt dimPrompt = new DimensionPrompt(myRoot,myResources);
         Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty("maxDim"));
         if (result != null) {
-//            myEditor.launchEditor(result.width(), result.height());
+            myEditor.launchEditor(result.width(), result.height());
             setChosenDimension(result.width(),result.height());
         }
     }
