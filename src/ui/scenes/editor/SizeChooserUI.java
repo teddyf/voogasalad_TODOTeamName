@@ -53,7 +53,7 @@ public class SizeChooserUI extends Scene {
         DimensionPrompt dimPrompt = new DimensionPrompt(myRoot,myResources);
         Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty("maxDim"));
         if (result != null) {
-//            myEditor.launchEditor(result.width(), result.height());
+            myEditor.launchEditor(result.width(), result.height());
             setChosenDimension(result.width(),result.height());
         }
     }
@@ -70,24 +70,24 @@ public class SizeChooserUI extends Scene {
         int width = myUtil.getIntProperty("buttonWidth");
         Node smallButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         int smallSize = myUtil.getIntProperty("smallSize");
-//        smallButton.setOnMouseClicked(e -> myEditor.launchEditor(smallSize, smallSize));
-        smallButton.setOnMouseClicked(e -> setChosenDimension(smallSize,smallSize));
+        smallButton.setOnMouseClicked(e -> myEditor.launchEditor(smallSize, smallSize));
+//        smallButton.setOnMouseClicked(e -> setChosenDimension(smallSize,smallSize));
         // create medium button
         xPos = myUtil.getIntProperty("medButtonX");
         yPos = myUtil.getIntProperty( "medButtonY");
         path = myResources.getString("medButtonPath");
         Node medButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         int medSize = myUtil.getIntProperty("medSize");
-//        medButton.setOnMouseClicked(e -> myEditor.launchEditor(medSize, medSize));
-        medButton.setOnMouseClicked(e -> setChosenDimension(medSize,medSize));
+        medButton.setOnMouseClicked(e -> myEditor.launchEditor(medSize, medSize));
+//        medButton.setOnMouseClicked(e -> setChosenDimension(medSize,medSize));
         // create large button
         xPos = myUtil.getIntProperty("largeButtonX");
         yPos = myUtil.getIntProperty( "largeButtonY");
         path = myResources.getString("largeButtonPath");
         Node largeButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         int largeSize = myUtil.getIntProperty( "largeSize");
-//        largeButton.setOnMouseClicked(e -> myEditor.launchEditor(largeSize, largeSize));
-        largeButton.setOnMouseClicked(e -> setChosenDimension(largeSize,largeSize));
+        largeButton.setOnMouseClicked(e -> myEditor.launchEditor(largeSize, largeSize));
+//        largeButton.setOnMouseClicked(e -> setChosenDimension(largeSize,largeSize));
         // create custom button
         xPos = myUtil.getIntProperty("customButtonX");
         yPos = myUtil.getIntProperty( "customButtonY");

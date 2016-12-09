@@ -1,4 +1,4 @@
-package ui.scenes.editor;
+package ui.scenes.editor.sidemenu;
 
 import javafx.geometry.Side;
 import javafx.scene.Parent;
@@ -20,9 +20,9 @@ public class EditorControls {
     private static ResourceBundle myResources;
     private static UIBuilder myBuilder;
     private static ItemSideMenu myItemMenu;
-    private static PlayerMenuUI myPlayerMenu;
+    private static PlayerSideMenu myPlayerMenu;
 
-    EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu, PlayerMenuUI playerMenu) {
+    public EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu, PlayerSideMenu playerMenu) {
         myRoot = root;
         myResources = resources;
         myBuilder = new UIBuilder();
@@ -52,9 +52,9 @@ public class EditorControls {
         playerTab.setClosable(false);
         playerTab.setOnSelectionChanged(e -> {
             if (playerTab.isSelected()) {
-                myBuilder.addComponent(myRoot, myPlayerMenu.getPlayerPanel());
+                myBuilder.addComponent(myRoot, myPlayerMenu.getPanel());
             } else {
-                myBuilder.removeComponent(myRoot, myPlayerMenu.getPlayerPanel());
+                myBuilder.removeComponent(myRoot, myPlayerMenu.getPanel());
             }
         });
 

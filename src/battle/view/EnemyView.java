@@ -1,4 +1,5 @@
-package battle;
+package battle.view;
+
 
 /**
  * Created by Bill Xiong on 12/7/16.
@@ -7,8 +8,7 @@ package battle;
  */
 public class EnemyView extends ItemView {
 	private static final String ENEMY_NAME = "Enemy";
-
-	public EnemyView(int hp, int x, int y) {
-		super(ENEMY_NAME, hp, x, y);
+	public EnemyView(double hp, int x, int y, String filePath) {
+		super(ENEMY_NAME, hp, x, y,filePath);
 	}
 }

@@ -22,7 +22,8 @@ import editor.backend.Status;
 public class Player implements IPlayer {
 	@XStreamOmitField
 	private static final int DEFAULT_HEALTH = 100;
-	
+	private int battlesWon;
+	private int battlesLost;
 	private String myName;
 	private PlayerDirection myDirection;
 	private int myRow;
@@ -34,7 +35,7 @@ public class Player implements IPlayer {
 	private List<Interaction> myInteractionHistory;
 	private List<Status> myStatus;
 	
-	private int health;
+	private double health;
 
 	public Player(String name, int row, int col, int gridIndex) {
 		myName = name;
@@ -47,10 +48,21 @@ public class Player implements IPlayer {
 		myBattleHistory = new ArrayList<>();
 		myInteractionHistory = new ArrayList<>();
 		myStatus = new ArrayList<>();
-		
+		battlesWon = battlesLost = 0;
 		health = DEFAULT_HEALTH;
 	}
-
+	public int getBattlesWon(){
+		return battlesWon;
+	}
+	public int getBattlesLost(){
+		return battlesWon;
+	}
+	public void incrementBattlesWon(){
+		battlesWon++;
+	}
+	public void incrementBattlesLost(){
+		battlesLost++;
+	}
 	public String getPlayerName() {
 		return myName;
 	}
@@ -127,11 +139,11 @@ public class Player implements IPlayer {
 		myStatus.add(status);
 	}
 	
-	public void setHealth(int health) {
+	public void setHealth(double health) {
 		this.health = health;
 	}
 	
-	public int getHealth() {
+	public double getHealth() {
 		return health;
 	}
 }

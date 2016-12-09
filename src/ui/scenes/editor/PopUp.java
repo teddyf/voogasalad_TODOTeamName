@@ -66,7 +66,7 @@ public class PopUp {
 	}
 	
 	public void printResult() {
-		if (result ==true) {
+		if (result) {
 			System.out.println("okay clicked");
 		}else {
 			System.out.println("cancel clicked");

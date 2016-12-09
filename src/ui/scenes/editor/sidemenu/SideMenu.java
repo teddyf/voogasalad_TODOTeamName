@@ -11,21 +11,19 @@ import ui.builder.UIBuilder;
 import java.util.ResourceBundle;
 
 /**
- * Created by Harshil Garg on 12/8/16.
+ * @author Harshil Garg
  */
 public abstract class SideMenu {
 
     protected Parent myRoot;
     protected ResourceBundle myResources;
     protected UIBuilder myBuilder;
-    protected PropertiesUtilities myUtil;
-    protected DraggableTabPane myPanel;
-    protected String myResourceName;
+    PropertiesUtilities myUtil;
+    DraggableTabPane myPanel;
 
-    public SideMenu(Parent root, ResourceBundle resources, String resourceName) {
+    SideMenu(Parent root, ResourceBundle resources) {
         myRoot = root;
         myResources = resources;
-        myResourceName = resourceName;
         myUtil = new PropertiesUtilities(resources);
         myPanel = new DraggableTabPane();
         myBuilder = new UIBuilder();
@@ -38,18 +36,33 @@ public abstract class SideMenu {
 
     protected abstract void addTabs();
 
-    protected FlowPane getFlowPane() {
+    FlowPane createFlowPane() {
         int padding = myUtil.getIntProperty("contentPadding");
-
         FlowPane itemPane = new FlowPane();
         itemPane.setHgap(padding);
         itemPane.setVgap(padding);
         itemPane.setPadding(new Insets(padding));
-
         return itemPane;
     }
 
-    protected Tab createTab(String text, ScrollPane scrollPane) {
+    String toTitleCase(String input) {
+        StringBuilder titleCase = new StringBuilder();
+        boolean firstLetter = true;
+        for (char c : input.toCharArray()) {
+            if (firstLetter) {
+                c = Character.toTitleCase(c);
+            } else if (c == '_') {
+                c = ' ';
+            } else {
+                c = Character.toLowerCase(c);
+            }
+            firstLetter = false;
+            titleCase.append(c);
+        }
+        return titleCase.toString();
+    }
+
+    Tab createTab(String text, ScrollPane scrollPane) {
         Tab newTab = new Tab();
         newTab.setText(text);
         newTab.setContent(scrollPane);
@@ -58,15 +71,13 @@ public abstract class SideMenu {
     }
 
     private void configureItemPanel() {
-        myPanel.setLayoutX(myUtil.getIntProperty(myResourceName + "MenuX"));
-        myPanel.setLayoutY(myUtil.getIntProperty(myResourceName + "MenuY"));
-        myPanel.setMinWidth(myUtil.getIntProperty(myResourceName + "MenuWidth"));
-        myPanel.setMinHeight(myUtil.getIntProperty(myResourceName + "MenuHeight"));
+        myPanel.setLayoutX(myUtil.getIntProperty("sideMenuX"));
+        myPanel.setLayoutY(myUtil.getIntProperty("sideMenuY"));
+        myPanel.setMinWidth(myUtil.getIntProperty("sideMenuWidth"));
+        myPanel.setMinHeight(myUtil.getIntProperty("sideMenuHeight"));
     }
 
-    public DraggableTabPane getPanel() {
+    DraggableTabPane getPanel() {
         return myPanel;
     }
-
-
 }

@@ -6,20 +6,20 @@ package block;
  * @author Daniel Chai, Bill Xiong
  */
 public class EnemyBlock extends CommunicatorBlock {
-	private static final int DEFAULT_HEALTH = 100;
+	public static final int DEFAULT_HEALTH = 100;
 	
-	private int health;
+	private double health;
 
 	public EnemyBlock(String name, int row, int col) {
 		super(name, row, col);
 		this.health = DEFAULT_HEALTH;
 	}
 
-	public int getHealth() {
+	public double getHealth() {
 		return health;
 	}
 
-	public void setHealth(int val) {
+	public void setHealth(double val) {
 		health = val;
 	}
 }
