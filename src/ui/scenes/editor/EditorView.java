@@ -36,7 +36,7 @@ public class EditorView extends Scene implements GameEditorAlerts {
     private EditorEvents events;
 
     public EditorView(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
-        super(root, Color.web("#0585B2"));
+        super(root, Color.web("#1D3461"));
         myController = controller;
         myStage = stage;
         myRoot = root;
