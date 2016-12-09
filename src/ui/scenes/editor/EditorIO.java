@@ -94,7 +94,7 @@ public class EditorIO {
 
     public void runGameInEditor() {
 
-        EngineController loadedEngine = myEditorController.runEngine();
+        //EngineController loadedEngine = myEditorController.runEngine();
         // TODO continue running game
     }
 }
