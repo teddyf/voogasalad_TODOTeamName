@@ -222,11 +222,17 @@ public class GridPane {
     }
 
 
+    public void nodeClick(GameObject obj, EditorController control){
+        
+    }
+    
     public List<GridPaneNode> swap (GameObject obj, EditorController control) {
-        List<GridPaneNode> list = obj.getImageTiles();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
+        if(obj==null){
+            return copy;
+        }
+        List<GridPaneNode> list = obj.getImageTiles();
         getObjectNeighbors(list);
-        System.out.println(clicked);
         for (int i = 0; i < clicked.size(); i++) {
             if (addObjToMap(list, clicked.get(i))) {
                 for (int j = 0; j < list.size(); j++) {
@@ -291,19 +297,16 @@ public class GridPane {
         }
     }
 
-    public void delete (List<GridPaneNode> list) {
+    public void delete (GridPaneNode node) {
         ArrayList<Integer> deleted = new ArrayList<Integer>();
-        for (int i = 0; i < list.size(); i++) {
-            GridPaneNode temp = list.get(i);
-            deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
-            gridMap.collisionRemoval(temp.getRow(), temp.getCol());
-        }
+        deleted.addAll(gridMap.sharesObjWith(node.getCol(), node.getRow()));
+        gridMap.collisionRemoval(node.getRow(), node.getCol());
 
         System.out.println(deleted.size()/2);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i+=2) {            
-                GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
-                node.swap(def, node.getImageNum());
+                GridPaneNode temp = grid[deleted.get(i)][deleted.get(i+1)];
+                node.swap(def, temp.getImageNum());
             }        
         }
         clicked = new ArrayList<GridPaneNode>(); 
@@ -382,7 +385,7 @@ public class GridPane {
             node.getImage().setEffect(hoverOpacity);
         });
         node.getImage().setOnMouseClicked(e -> {
-            node.getImage().setEffect(hoverOpacity);
+            //node.getImage().setEffect(hoverOpacity);
             click(node);
         });
     }
