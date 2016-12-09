@@ -64,8 +64,7 @@ public class GridPane {
 
     private int randomNumber (int min, int max) {
         Random rand = new Random();
-        //return rand.nextInt((max - min) + 1) + min;
-        return 1;
+        return rand.nextInt((max - min) + 1) + min;
     }
 
     private double getXRender (int column) {
