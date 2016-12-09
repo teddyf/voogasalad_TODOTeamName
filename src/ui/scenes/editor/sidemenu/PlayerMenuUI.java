@@ -15,6 +15,7 @@ import javafx.scene.layout.FlowPane;
 import ui.builder.UIBuilder;
 
 public class PlayerMenuUI implements Observer {
+
 	private Parent myRoot;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
@@ -30,6 +31,7 @@ public class PlayerMenuUI implements Observer {
         myEditorController = editorController;
         myPlayerImageChooserUI = new PlayerImageChooserUI(this);
         myPlayerAttributeUI = new PlayerAttributeUI(this);
+        init();
     }
     
     private void addTabs(DraggableTabPane playerPanel) {
@@ -53,22 +55,7 @@ public class PlayerMenuUI implements Observer {
     public DraggableTabPane getPlayerPanel() {
         return myPlayerPanel;
     }
-    
-    public void init() {
-    	 myPlayerPanel = createPlayerPanel();
-         addTabs(myPlayerPanel);
-    }
-    
-    private DraggableTabPane createPlayerPanel() {
-        PropertiesUtilities util = new PropertiesUtilities(myResources);
-        DraggableTabPane playerPanel = new DraggableTabPane();
-        //Panel.setLayoutX(util.getIntProperty( "itemMenuX"));
-        playerPanel.setLayoutY(util.getIntProperty( "itemMenuY"));
-        playerPanel.setMinWidth(util.getIntProperty( "itemMenuWidth"));
-        playerPanel.setMinHeight(util.getIntProperty( "itemMenuHeight"));
-        return playerPanel;
-    }
-    
+
     private ScrollPane createScrollPane() {
         PropertiesUtilities util = new PropertiesUtilities(myResources);
         ColorAdjust hoverOpacity = new ColorAdjust();
@@ -80,11 +67,29 @@ public class PlayerMenuUI implements Observer {
         itemPane.setPadding(new Insets(padding, padding, padding, padding));
         return new ScrollPane(itemPane);
     }
+    
+    private DraggableTabPane createPlayerPanel() {
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
+        DraggableTabPane playerPanel = new DraggableTabPane();
+        //Panel.setLayoutX(util.getIntProperty( "itemMenuX"));
+        playerPanel.setLayoutX(util.getIntProperty(""));
+        playerPanel.setLayoutY(util.getIntProperty( "itemMenuY"));
+        playerPanel.setMinWidth(util.getIntProperty( "itemMenuWidth"));
+        playerPanel.setMinHeight(util.getIntProperty( "itemMenuHeight"));
+        return playerPanel;
+    }
+    
+
 
 	@Override
 	public void update(Observable o, Object arg) {
 		myEditorController.addPlayer(myPlayerImageChooserUI.getPlayerFilePath(),0,0);
 		myEditorController.addPlayerAttribute(myPlayerAttributeUI.getName(), myPlayerAttributeUI.getAmount(), myPlayerAttributeUI.getIncrement(), myPlayerAttributeUI.getDecrement());
 	}
+
+    public void init() {
+        myPlayerPanel = createPlayerPanel();
+        addTabs(myPlayerPanel);
+    }
 
 }

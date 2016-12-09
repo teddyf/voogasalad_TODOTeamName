@@ -14,6 +14,7 @@ import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
 
+import ui.scenes.editor.sidemenu.EditorControls;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerMenuUI;
 
@@ -48,23 +49,22 @@ public class GameEditor extends Scene {
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        
+
 
         ItemSideMenu itemMenu = new ItemSideMenu(myRoot, myResources, "item");
-		itemMenu.init();
-		
+
         GridUI grid = new GridUI(myRoot, itemMenu, myController);
         grid.initGrid(width, height);
-        
-        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources,myController);
-        playerMenu.init();
-        
-        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu,playerMenu);
+
+        PlayerMenuUI playerMenu = new PlayerMenuUI(myRoot, myBuilder, myResources, myController);
+
+
+        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu, playerMenu);
         controls.addEditorControls();
 
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
         EditorEvents events = new EditorEvents(myLauncher, IO, myResources);
-        
+
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
         initPlayerButton();
