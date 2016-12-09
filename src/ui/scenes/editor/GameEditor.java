@@ -50,18 +50,9 @@ public class GameEditor extends Scene implements GameEditorAlerts {
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-
-
         ItemSideMenu itemMenu = new ItemSideMenu(myRoot, myResources);
-        PlayerSideMenu playerMenu = new PlayerSideMenu(myRoot, myResources);
-
-        GridUI grid = new GridUI(myRoot, itemMenu, myController);
-        grid.initGrid(width, height);
-
-
-
-        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu, playerMenu);
-        controls.addEditorControls();
+        GridUI grid = new GridUI(myRoot, myController, itemMenu, width, height);
+        new EditorControls(myRoot, myResources, itemMenu);
 
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
         events = new EditorEvents(myLauncher, IO, myResources);
@@ -69,7 +60,7 @@ public class GameEditor extends Scene implements GameEditorAlerts {
 
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
-        initPlayerButton();
+//        initPlayerButton();
 
         //        EngineController loadedEngine = editorController.runEngine(); // running test
         myStage.setOnCloseRequest(e -> {
@@ -77,10 +68,7 @@ public class GameEditor extends Scene implements GameEditorAlerts {
             e.consume();
             events.exitPrompt(false);
         });
-
-                /* New code */
         myStage.setScene(this);
-
     }
 
     /**
@@ -103,24 +91,24 @@ public class GameEditor extends Scene implements GameEditorAlerts {
     }
 
 
-    private void initPlayerButton() {
-        ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(-.3);
-        int playerX = Integer.parseInt(myResources.getString("playerX"));
-        int playerY = Integer.parseInt(myResources.getString("playerY"));
-        int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
-        String playerText = myResources.getString("playerLabel");
-        Node playerButton = myBuilder.addCustomButton(myRoot, playerText, playerX, playerY, playerWidth);
-        playerButton.setOnMouseClicked(e -> {
-            myLauncher.launchCharacterMenu();
-        });
-        playerButton.setOnMouseEntered(e -> {
-            playerButton.setEffect(hoverOpacity);
-        });
-        playerButton.setOnMouseExited(e -> {
-            playerButton.setEffect(null);
-        });
-    }
+//    private void initPlayerButton() {
+//        ColorAdjust hoverOpacity = new ColorAdjust();
+//        hoverOpacity.setBrightness(-.3);
+//        int playerX = Integer.parseInt(myResources.getString("playerX"));
+//        int playerY = Integer.parseInt(myResources.getString("playerY"));
+//        int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
+//        String playerText = myResources.getString("playerLabel");
+//        Node playerButton = myBuilder.addCustomButton(myRoot, playerText, playerX, playerY, playerWidth);
+//        playerButton.setOnMouseClicked(e -> {
+//            myLauncher.launchCharacterMenu();
+//        });
+//        playerButton.setOnMouseEntered(e -> {
+//            playerButton.setEffect(hoverOpacity);
+//        });
+//        playerButton.setOnMouseExited(e -> {
+//            playerButton.setEffect(null);
+//        });
+//    }
 
     public String getPath() {
         return EDITOR_RESOURCES;

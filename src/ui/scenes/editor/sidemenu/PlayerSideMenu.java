@@ -15,6 +15,9 @@ import java.util.ResourceBundle;
 
 /**
  * @author Robert Steilberg
+ *         <p>
+ *         This class defines the functionality for the player side menu from which users
+ *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
 
@@ -26,49 +29,33 @@ public class PlayerSideMenu extends SideMenu {
         init();
     }
 
+    /**
+     * Adds each sprite image representation to the menu
+     *
+     * @return the FlowPane containing the sprites
+     */
     private FlowPane addSprites() {
-
         UIBuilder builder = new UIBuilder();
         FlowPane sprites = createFlowPane();
-
-        String directory = "src/resources/images/sprites/";
-        File file = new File(directory);
+        File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
-
-
-        for (String path : images) {
-            if (path.contains("down")) {
-                String imagePath = "resources/images/sprites/" + path;
+        for (String image : images) {
+            if (image.contains("down")) {
+                String imagePath = myResources.getString("spritePath") + image;
                 Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
                         .path(imagePath)
+                        .width(35)
                         .preserveRatio(true)
                         .id("sprite-item"));
                 sprites.getChildren().add(sprite);
             }
         }
-
-//        String path1 = "resources/images/sprites/1-down.png";
-//        Node n = builder.addNewImageView(myRoot, new ComponentProperties()
-//                .path(path1)
-//                .preserveRatio(true)
-//                .id("sprite-item"));
-//        sprites.getChildren().add(n);
-//        String path2 = "resources/images/sprites/2-down.png";
-//        Node n2 = builder.addNewImageView(myRoot, new ComponentProperties()
-//                .path(path2)
-//                .preserveRatio(true)
-//                .id("sprite-item"));
-//        sprites.getChildren().add(n2);
-//
-//        String path3 = "resources/images/sprites/3-down.png";
-//        Node n3 = builder.addNewImageView(myRoot, new ComponentProperties()
-//                .path(path3)
-//                .preserveRatio(true)
-//                .id("sprite-item"));
-//        sprites.getChildren().add(n3);
         return sprites;
     }
 
+    /**
+     * Adds the tabs to the player side menu
+     */
     protected void addTabs() {
         List<Tab> tabs = new ArrayList<>();
         // sprite tab
@@ -78,8 +65,6 @@ public class PlayerSideMenu extends SideMenu {
         spriteTab.setContent(spritePane);
         tabs.add(spriteTab);
         // attributes tab
-//       s
         myPanel.getTabs().addAll(tabs);
     }
-
 }
