@@ -66,7 +66,6 @@ public class GridObjectMap {
         for(int i = 0; i < temp.size(); i++){
             data.put(temp.get(i),new ArrayList<Point>());
         }
-        //System.out.println("("+a.getX() + "," + a.getY() + ")");
     }
     
     public boolean available(int x, int y){
@@ -111,33 +110,33 @@ public class GridObjectMap {
     }
     
   
-    //Debugger methods for Deletion
-    public void visObjectMap(){
-        for(int i = 0; i < height; i++){
-            for(int j = 0; j < width; j++){
-                if(data.get(new Point(j,i)).isEmpty()){
-                    System.out.print("O");
-                }
-                else
-                    System.out.print("x");
-            }
-            System.out.println();
-        }
-        System.out.println();
-        visObjectMapNums();
-        System.out.println(data);
-    }
-    
-    public void visObjectMapNums(){
-        for(int i = 0; i < height; i++){
-            for(int j = 0; j < width; j++){
-                if(!data.get(new Point(j,i)).isEmpty()){
-                    System.out.print("("+i+","+j+")");
-                }
-            }
-        }
-        System.out.println();
-    }
+//    //Debugger methods for Deletion
+//    public void visObjectMap(){
+//        for(int i = 0; i < height; i++){
+//            for(int j = 0; j < width; j++){
+//                if(data.get(new Point(j,i)).isEmpty()){
+//                    System.out.print("O");
+//                }
+//                else
+//                    System.out.print("x");
+//            }
+//            System.out.println();
+//        }
+//        System.out.println();
+//        visObjectMapNums();
+//        System.out.println(data);
+//    }
+//
+//    public void visObjectMapNums(){
+//        for(int i = 0; i < height; i++){
+//            for(int j = 0; j < width; j++){
+//                if(!data.get(new Point(j,i)).isEmpty()){
+//                    System.out.print("("+i+","+j+")");
+//                }
+//            }
+//        }
+//        System.out.println();
+//    }
     
     
 }

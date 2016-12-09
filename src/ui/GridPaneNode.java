@@ -36,16 +36,13 @@ public class GridPaneNode {
         imageView.setX(x);
         imageView.setY(y);
     }
-    public void displayOptions(){
-        System.out.println(row + " " + col);
-    }
+
     public void setImageSize(double x, double y){
         this.imageView.setFitWidth(x);
         this.imageView.setFitHeight(y);
     }
     
     private void setInitialImage(){
-        System.out.println(name);
         Image image = new Image(name);
         imageView.setImage(image);
     }

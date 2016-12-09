@@ -11,6 +11,7 @@ import javafx.scene.input.MouseButton;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
+
 import java.util.*;
 
 
@@ -37,7 +38,7 @@ public class GridUI {
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
 
-    public GridUI (Parent root, ItemSideMenu itemMenu, EditorController controller) {
+    public GridUI(Parent root, EditorController controller, ItemSideMenu itemMenu, int width, int height) {
         myRoot = root;
         myItemMenu = itemMenu;
         myController = controller;
@@ -46,19 +47,20 @@ public class GridUI {
         myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
         hoverOpacity = new ColorAdjust();
+        initGrid(width, height);
     }
 
     /**
      * Creates a grid of specified width and height, and then adds
      * functionality to the grid.
      */
-    public void initGrid (int width, int height) {
+    void initGrid(int width, int height) {
         myGridPane = new GridPane(width,
-                                  height,
-                                  myUtil.getIntProperty("windowWidth"),
-                                  myUtil.getIntProperty("windowHeight"),
-                                  myUtil.getIntProperty("gridX"),
-                                  myUtil.getIntProperty("gridY"));
+                height,
+                myUtil.getIntProperty("windowWidth"),
+                myUtil.getIntProperty("windowHeight"),
+                myUtil.getIntProperty("gridX"),
+                myUtil.getIntProperty("gridY"));
         myController.addGrid(width, height);
         myController.changeGrid(0);
 
@@ -76,7 +78,7 @@ public class GridUI {
      * Configures grid event handlers that allow the user to add and remove
      * ui.scenes.editor.objects from it.
      */
-    private void initGridControl () {
+    private void initGridControl() {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
         hoverOpacity.setBrightness(myUtil.getDoubleProperty("buttonHoverOpacity"));
         int updateX = myUtil.getIntProperty("updateX");
@@ -96,10 +98,10 @@ public class GridUI {
         String swapPath = myUtil.getStringProperty("swapPath");
         Node widthInputField =
                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                                             widthInputWidth, 20);
+                        widthInputWidth, 20);
         Node heightInputField =
                 myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                                             heightInputWidth, 20);
+                        heightInputWidth, 20);
         String updatePath = myResources.getString("updatePath");
         Node updateButton =
                 myBuilder.addCustomImageView(myRoot, updateX, updateY, updatePath, updateWidth, "");
@@ -112,10 +114,9 @@ public class GridUI {
                 myBuilder.removeComponent(myRoot, myGridPane.getGroup());
                 myGridPane.resizeReset(xInput, yInput);
                 myBuilder.addComponent(myRoot, myGridPane.getGroup());
-            }
-            catch (Exception exc) {
+            } catch (Exception exc) {
                 myBuilder.addNewAlert("Invalid Resize",
-                                      "Please enter an inter value for row and column count");
+                        "Please enter an inter value for row and column count");
             }
 
         });
@@ -138,7 +139,7 @@ public class GridUI {
             if (selected.size() == 2) {
                 System.out.print("LINK ");
                 System.out.println(myGridPane.buildLink(selected.get(0), selected.get(1),
-                                                        myController));
+                        myController));
             }
         });
 
@@ -152,7 +153,7 @@ public class GridUI {
         });
     }
 
-    public void loadGrid () {
+    public void loadGrid() {
         int colMax = myController.getCol();
         int rowMax = myController.getRow();
         myGridPane.loadReset(rowMax, colMax);
@@ -189,14 +190,14 @@ public class GridUI {
 
     /**
      * Builds a button from string input
-     * 
-     * @param xPos X-position of button
-     * @param yPos Y-Position of button
+     *
+     * @param xPos  X-position of button
+     * @param yPos  Y-Position of button
      * @param width width of button
-     * @param path Image myIconPath of button
+     * @param path  Image myIconPath of button
      * @return
      */
-    private Node buildButton (String xPos, String yPos, String width, String path) {
+    private Node buildButton(String xPos, String yPos, String width, String path) {
         int x = Integer.parseInt(myResources.getString(xPos));
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
@@ -212,11 +213,11 @@ public class GridUI {
 
     }
 
-    public GridPane getMyGridPane () {
+    public GridPane getMyGridPane() {
         return myGridPane;
     }
 
-    private void setGridClickable () {
+    private void setGridClickable() {
         List<GridPaneNode> blockList = myGridPane.getNodeList();
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode node = blockList.get(i);

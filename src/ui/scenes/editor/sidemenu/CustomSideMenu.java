@@ -64,7 +64,7 @@ public class CustomSideMenu extends SideMenu {
 
             try {
                 Files.copy(source, destination);
-                ItemSideMenu ism = (ItemSideMenu) myControls.getItemMenu();
+                ItemSideMenu ism = (ItemSideMenu) myControls.getMyItemMenu();
                 ism.lol();
             }
             catch (IOException e) {
