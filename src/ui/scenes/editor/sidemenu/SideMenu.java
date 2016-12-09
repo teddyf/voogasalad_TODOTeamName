@@ -71,10 +71,10 @@ public abstract class SideMenu {
     }
 
     private void configureItemPanel() {
-        myPanel.setLayoutX(myUtil.getIntProperty("sideMenuX"));
-        myPanel.setLayoutY(myUtil.getIntProperty("sideMenuY"));
-        myPanel.setMinWidth(myUtil.getIntProperty("sideMenuWidth"));
-        myPanel.setMinHeight(myUtil.getIntProperty("sideMenuHeight"));
+        myPanel.setLayoutX(myUtil.getIntProperty("sidePanelX"));
+        myPanel.setLayoutY(myUtil.getIntProperty("sidePanelY"));
+        myPanel.setMinWidth(myUtil.getIntProperty("sidePanelWidth"));
+        myPanel.setMinHeight(myUtil.getIntProperty("sidePanelHeight"));
     }
 
     DraggableTabPane getPanel() {

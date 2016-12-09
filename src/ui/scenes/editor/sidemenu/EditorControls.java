@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 /**
  * @author Robert Steilberg, Pim Chuaylua, Harshil Garg
+ *         <p>
+ *         This class creates the side tabs that each hold a control panel
+ *         for controlling aspects of the editor.
  */
 public class EditorControls {
 
@@ -54,16 +57,19 @@ public class EditorControls {
         return newTab;
     }
     /**
-     * @param tabs
-     * @return
+     * Creates a left-oriented TabPane to be placed on the right side of the screen
+     *
+     * @param tabs are the tabs to add to the pane
+     * @return the created TabPane, populated with its tabs
      */
     private TabPane createSideTabPane(List<Tab> tabs) {
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
         TabPane sideTabs = new TabPane();
         sideTabs.setSide(Side.LEFT);
         sideTabs.getTabs().addAll(tabs);
-        sideTabs.setLayoutX(myUtil.getIntProperty("sideTabsX"));
-        sideTabs.setLayoutY(myUtil.getIntProperty("sideTabsY"));
-        sideTabs.setId("control-tabs");
+        sideTabs.setLayoutX(util.getIntProperty("sideTabsX"));
+        sideTabs.setLayoutY(util.getIntProperty("sideTabsY"));
+        sideTabs.setId(myResources.getString("sideTabsCSSid"));
         sideTabs.getSelectionModel().select(tabs.get(tabs.size() - 1)); // select close tab as default
         return sideTabs;
     }
@@ -73,12 +79,12 @@ public class EditorControls {
      * @return a List of the created tabs
      */
     private List<Tab> createTabs() {
-        List<Tab> tabs = new ArrayList<Tab>();
-        tabs.add(createSideTab("Items", myItemMenu.getPanel()));
-        tabs.add(createSideTab("Players", myPlayerMenu.getPanel()));
-        tabs.add(createSideTab("Grid", myItemMenu.getPanel()));
-        tabs.add(createSideTab("Custom", myCustomMenu.getPanel()));
-        tabs.add(createSideTab("Close", null));
+        List<Tab> tabs = new ArrayList<>();
+        tabs.add(createSideTab(myResources.getString("firstTab"), myItemMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("secondTab"), myPlayerMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("thirdTab"), myItemMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("fourthTab"), myCustomMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("fifthTab"), null));
         return tabs;
     }
     /**

@@ -21,6 +21,10 @@
     -fx-text-fill: white;
 }
 
+.menu:hover {
+    -fx-background-color: #737373;
+}
+
 .menu-item:hover {
     -fx-background-color: #f46036;
 }
@@ -29,67 +33,53 @@
     -fx-fill: #333333;
     -fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);
 }
-
 #game-object:hover {
     -fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);
 }
-
 .tab-pane {
     /*-fx-tab-min-width:90px;*/
 }
-
 .tab-pane .tab {
     -fx-background-color: #333333;
 }
-
 .tab-pane .tab:selected {
     -fx-background-color: #737373;
 }
-
 .tab {
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
-
 .tab .tab-label {
     -fx-alignment: CENTER;
     -fx-text-fill: #D9D9D9;
     -fx-font-size: 12px;
     -fx-font-weight: bold;
 }
-
 .tab:selected .tab-label {
     -fx-alignment: CENTER;
     -fx-text-fill: #D9D9D9;
 }
-
 /*.tab-pane:top *.tab-header-area {*/
 /*-fx-background-insets: 0, 0 0 1 0;*/
 /*!* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; !* 5 2 0 10 *!*/
 /*-fx-padding: 0.416667em 0.166667em 0.0em 0.0em; !* overriden as 5 2 0 0 *!*/
 /*}*/
-
 .tab-pane .tab-header-area .tab-header-background {
     -fx-background-color: #aab1b7;
 }
-
 .scroll-pane > .viewport {
     -fx-background-color: #b8c4d1;
 }
-
-#control-tabs .tab-header-area .tab-header-background {
+#side-tabs .tab-header-area .tab-header-background {
     -fx-background-color: transparent;
 }
-
-#control-tabs {
+#side-tabs {
     -fx-tab-min-width: 100px;
     -fx-tab-min-height: 40px;
 }
-
-#control-tabs .tab .tab-label {
+#side-tabs .tab .tab-label {
     -fx-font-size: 18px;
 }
-
 #sprite-item:hover {
     -fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);
-}
+}}
