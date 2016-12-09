@@ -1,8 +1,11 @@
 package ui.builder;
 
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -11,7 +14,7 @@ import java.util.ResourceBundle;
 
 
 /**
- * @author Harshil Garg, Robert Steilberg
+ * @author Harshil Garg, Robert Steilberg, Nisakorn Valyasevi
  *         <p>
  *         This class is used to build JavaFX ui.scenes.editor.objects and add them to the stage.
  *         <p>
@@ -24,6 +27,7 @@ public class UIBuilder {
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
+    private ComponentBuilder dialogBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -31,6 +35,7 @@ public class UIBuilder {
         imageViewBuilder = new ImageViewBuilder();
         labelBuilder = new LabelBuilder();
         textFieldBuilder = new TextFieldBuilder();
+        dialogBuilder = new DialogBuilder();
     }
 
     /**
@@ -209,6 +214,27 @@ public class UIBuilder {
         return alertBuilder.createComponent(new ComponentProperties()
                 .header(header)
                 .content(content));
+    }
+    
+    /**
+     * Add dialog box to layout, must set params in properties for layout X & Y coordinates,
+     * text string to be displayed, and height and width of bubble
+     * 
+     * @param layout
+     * @param properties
+     * @return
+     */
+    public Node addDialogBubble(Parent layout, ComponentProperties properties) {
+    	Node dialogNode = dialogBuilder.createComponent(properties);
+    	dialogNode.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>()  {
+			public void handle(final KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    removeComponent(layout, dialogNode);
+                }
+			}
+		});
+    	addComponent(layout, dialogNode);
+    	return dialogNode;
     }
 
     /**

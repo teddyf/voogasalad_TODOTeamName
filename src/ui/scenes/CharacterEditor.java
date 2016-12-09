@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+
 import editor.EditorController;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -18,6 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
+import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
 
@@ -107,7 +109,11 @@ public class CharacterEditor extends Scene{
         playerLeft.setOnMouseClicked(e->{
             rotateImage(-1,playerImage);
         });
-        
+        ComponentProperties prop = new ComponentProperties(500, 500);
+        prop.text("PLZWORK");
+        prop.height(20);
+        prop.width(200);
+        myBuilder.addDialogBubble(myRoot, prop);
           
         myStage.setOnCloseRequest(e->{
             e.consume();

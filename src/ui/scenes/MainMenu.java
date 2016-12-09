@@ -112,6 +112,12 @@ public class MainMenu extends Scene {
         setBackground();
         setText();
         setButtons();
+        ComponentProperties prop = new ComponentProperties(500, 500);
+        prop.text("PLZWORK");
+        prop.height(20);
+        prop.width(200);
+        myBuilder.addDialogBubble(myRoot, prop);
+          
     }
     
     public String getPath(){
