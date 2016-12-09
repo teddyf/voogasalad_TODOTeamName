@@ -1,16 +1,17 @@
 package battle.view;
+import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
 import battle.model.*;
 import battle.controller.BattleModelInView;
 import battle.WinConditionView;
+import block.EnemyBlock;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 
 /**
  * @author Daniel Chai, Bill Xiong
@@ -18,20 +19,34 @@ import javafx.scene.paint.Color;
 public class BattleView implements Observer {
 	BattleModelInView model;
 
-	protected static final int WIDTH = 1000;
-	protected static final int HEIGHT = 500;
-	protected static final int OFFSET = 40;
-    protected static final int OFFSET_Y = 20;
-	protected static final int RECTANGLE_WIDTH = 40;
-	protected static final int RECTANGLE_HEIGHT = 40;
-	protected static final Color BACKGROUND = Color.AZURE;
+	public enum Difficulty{
+		EASY, MEDIUM, HARD
+	}
+	private static final int EASY = 10;
+	private static final int MEDIUM= 18;
+	private static final int HARD = 25;
+	private static final HashMap<Difficulty, Integer> difficulties = new HashMap<Difficulty,Integer>() {{
+		put(Difficulty.EASY, EASY);
+		put(Difficulty.MEDIUM, MEDIUM);
+		put(Difficulty.HARD, HARD);
+	}};
+
+	private Difficulty gameDifficulty;
+
+	private static final int WIDTH = 1000;
+	private static final int HEIGHT = 500;
+	// protected static final int OFFSET = 40;
+    // protected static final int OFFSET_Y = 20;
+	// protected static final int RECTANGLE_WIDTH = 40;
+	// protected static final int RECTANGLE_HEIGHT = 40;
+	// protected static final Color BACKGROUND = Color.AZURE;
 	public static final int DAMAGE = 10;
 	
 	private final int PLAYER_X = 300;
 	private final int PLAYER_Y = 200;
 	private final int ENEMY_X = 500;
 	private final int ENEMY_Y = 200;
-	
+
 	private Scene scene;
 	private Group root;
 	private ImageView backgroundView;
@@ -43,12 +58,13 @@ public class BattleView implements Observer {
 	
 	private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
 
-	public BattleView(String backgroundFilePath) {
+	public BattleView(Difficulty diff, String backgroundFilePath) {
 		root = new Group();
 		scene = new Scene(root, WIDTH, HEIGHT);
 		root.getStylesheets().add(CSS_FILE_NAME);
+		gameDifficulty = diff;
 		setBackground(backgroundFilePath);
-		addButtons(500, 200, "Reduce HP by 10");	
+		addButtons(500, 200, "Reduce HP by 10");
 	}
 	
 	private void setBackground(String filePath) {
@@ -77,7 +93,8 @@ public class BattleView implements Observer {
 	protected void addHandlers() {
 		reduceHP.setOnAction(actionEvent -> {
             if(!(model.checkPlayerLost() || model.checkPlayerWon())) {
-            	model.setEnemyHP(model.getEnemyHP() - DAMAGE);
+            	model.setEnemyHP(model.getEnemyHP() - (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH/difficulties.get(gameDifficulty));
+				model.setPlayerHP(model.getPlayerHP() - (Math.random()) * difficulties.get(gameDifficulty)/3.3);
             }
 		});
 	}
@@ -89,12 +106,10 @@ public class BattleView implements Observer {
 		enemy.setHP(model.getEnemyHP());
 		
 		if (model.checkPlayerLost()) {
-            WinConditionView lost = new WinConditionView("You lost");
-            lost.addToGroup(root);
+            lose(model);
 		}
 		if (model.checkPlayerWon()) {
-            WinConditionView won = new WinConditionView("You won");
-            won.addToGroup(root);
+			win(model);
 		}
 		
 		enemyHealth.update(enemy);
@@ -114,5 +129,15 @@ public class BattleView implements Observer {
 		enemy.addToGroup(root);
 		player.addToGroup(root);
 		addHandlers();
+	}
+	private void win(BattleModel model){
+		model.addBattleWon();
+		WinConditionView won = new WinConditionView("You won");
+		won.addToGroup(root);
+	}
+	private void lose(BattleModel model){
+		model.addBattleLost();
+		WinConditionView lost = new WinConditionView("You lost");
+		lost.addToGroup(root);
 	}
 }

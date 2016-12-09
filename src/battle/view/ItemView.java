@@ -21,9 +21,9 @@ public abstract class ItemView {
 	private Label name;
 	// TODO change to ImageView
 	private ImageView itemView;
-	private int hp;
+	private double hp;
 
-	public ItemView(String name, int hp, int x, int y, String filePath) {
+	public ItemView(String name, double hp, int x, int y, String filePath) {
 		//itemHP = new Label("HP: " + hp);
 		//set image
 		setImageView(filePath, 150, 150,x,y);
@@ -59,7 +59,7 @@ public abstract class ItemView {
 		itemView.setLayoutY(y);
 	}
 
-	public int getHP() {
+	public double getHP() {
 		return hp;
 	}
 
@@ -71,7 +71,7 @@ public abstract class ItemView {
 		return itemView;
 	}
 
-	public void setHP(int hp) {
+	public void setHP(double hp) {
 		this.hp = hp;
 		//itemHP.setText("HP: " + hp);
 		//System.out.println("hp changed!");

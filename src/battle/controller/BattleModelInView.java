@@ -6,15 +6,10 @@ package battle.controller;
  * @author Daniel Chai
  */
 public interface BattleModelInView {
-	int getPlayerHP();
-
-	int getEnemyHP();
-
-	void setPlayerHP(int playerHP);
-
-	void setEnemyHP(int enemyHP);
-
+	double getPlayerHP();
+	double getEnemyHP();
+	void setPlayerHP(double playerHP);
+	void setEnemyHP(double enemyHP);
 	boolean checkPlayerWon();
-
 	boolean checkPlayerLost();
 }

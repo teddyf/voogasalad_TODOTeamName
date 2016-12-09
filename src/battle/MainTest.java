@@ -14,7 +14,7 @@ public class MainTest extends Application {
 		EnemyBlock enemy = new EnemyBlock("Enemy", 0, 0);
 		
 		BattleView view;
-		view = new BattleView("resources/images/battles/background/background-1.jpg");
+		view = new BattleView(BattleView.Difficulty.HARD, "resources/images/battles/background/background-1.jpg");
 		BattleModel model = new BattleModel(player, enemy);
 		BattleController controller = new BattleController(view, model);
 		
