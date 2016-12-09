@@ -32,13 +32,13 @@ public class PlayerImageChooserUI extends Observable {
 	private void addPlayerOptions() {
 		
 		//add player option 1
-		String path1 = "resources/images/tiles/sprites/player-1-west-facing.png";
+		String path1 = "resources/images/sprites/1-left.png";
 		Button button1 = new Button();
 		button1.setGraphic(new ImageView(new Image(path1)));
 		button1.setOnMouseClicked(e -> setPlayerImageFilePath(path1));
 		
 		//add player option 2
-		String path2 = "resources/images/tiles/sprites/player-1-west-facing.png";
+		String path2 = "resources/images/sprites/1-left.png";
 		Button button2 = new Button();
 		button2.setGraphic(new ImageView(new Image(path2)));
 		button2.setOnMouseClicked(e -> setPlayerImageFilePath(path2));

@@ -86,3 +86,7 @@
 #control-tabs .tab .tab-label {
     -fx-font-size: 18px;
 }
+
+#sprite-item:hover {
+    -fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);
+}
