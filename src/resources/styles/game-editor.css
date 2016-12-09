@@ -74,16 +74,16 @@
     -fx-background-color: #b8c4d1;
 }
 
-#control-tabs .tab-header-area .tab-header-background {
+#side-tabs .tab-header-area .tab-header-background {
     -fx-background-color: transparent;
 }
 
-#control-tabs {
+#side-tabs {
     -fx-tab-min-width: 100px;
     -fx-tab-min-height: 40px;
 }
 
-#control-tabs .tab .tab-label {
+#side-tabs .tab .tab-label {
     -fx-font-size: 18px;
 }
 
