@@ -25,6 +25,7 @@ public class EditorControls {
     private SideMenu myItemMenu;
     private SideMenu myPlayerMenu;
     private SideMenu myCustomMenu;
+    private SideMenu myGridMenu;
 
     public EditorControls(Parent root, ResourceBundle resources) {
         myRoot = root;
@@ -33,6 +34,7 @@ public class EditorControls {
         myItemMenu = new ItemSideMenu(myRoot, myResources);
         myPlayerMenu = new PlayerSideMenu(myRoot, myResources);
         myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
+        myGridMenu = new GridSideMenu(myRoot, myResources);
         init();
     }
 
@@ -87,7 +89,7 @@ public class EditorControls {
         tabs.add(createSideTab(myResources.getString("tab1"), myItemMenu.getPanel()));
         tabs.add(createSideTab(myResources.getString("tab2"), myPlayerMenu.getPanel()));
         tabs.add(createSideTab(myResources.getString("tab3"), myCustomMenu.getPanel()));
-        tabs.add(createSideTab(myResources.getString("tab4"), myCustomMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("tab4"), myGridMenu.getPanel()));
         tabs.add(createSideTab(myResources.getString("tab5"), null));
         return tabs;
     }

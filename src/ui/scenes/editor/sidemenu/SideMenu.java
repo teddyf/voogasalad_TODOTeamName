@@ -44,6 +44,7 @@ public abstract class SideMenu {
         itemPane.setHgap(padding);
         itemPane.setVgap(padding);
         itemPane.setPadding(new Insets(padding));
+        itemPane.setPrefWrapLength(myUtil.getIntProperty("sidePanelWidth") - 50);
         return itemPane;
     }
 
@@ -92,7 +93,9 @@ public abstract class SideMenu {
         myPanel.setLayoutX(myUtil.getIntProperty("sidePanelX"));
         myPanel.setLayoutY(myUtil.getIntProperty("sidePanelY"));
         myPanel.setMinWidth(myUtil.getIntProperty("sidePanelWidth"));
+        myPanel.setMaxWidth(myUtil.getIntProperty("sidePanelWidth"));
         myPanel.setMinHeight(myUtil.getIntProperty("sidePanelHeight"));
+        myPanel.setMaxHeight(myUtil.getIntProperty("sidePanelHeight"));
     }
 
     /**
