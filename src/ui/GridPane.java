@@ -114,7 +114,7 @@ public class GridPane {
 
     public void resize () {
         grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
-        System.out.println(blockList.size());
+        //System.out.println(blockList.size());
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode temp = blockList.get(i);
             temp.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
@@ -223,7 +223,7 @@ public class GridPane {
 
 
     public void nodeClick(GameObject obj, EditorController control){
-        
+        //if()
     }
     
     public List<GridPaneNode> swap (GameObject obj, EditorController control) {
@@ -265,17 +265,15 @@ public class GridPane {
             }
             temp.add(grid[xRef][yRef]);
         }
-        gridMap.storeObject(temp);
-        
+        gridMap.storeObject(temp);        
         return true;
-
         // TODO add dimension checker
     }
 
     private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
         if (gameObject instanceof Player1) {
             control.addPlayer(temp.getName(), temp.getBackendRow(), temp.getBackendCol());
-            control.addBlock("resources/images/tiles/ground/grass-1.png", BlockType.DECORATION, temp.getBackendRow(),
+            control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getBackendRow(),
                              temp.getBackendCol());
         }
     }
@@ -297,16 +295,19 @@ public class GridPane {
         }
     }
 
-    public void delete (GridPaneNode node) {
+    public void delete () {
         ArrayList<Integer> deleted = new ArrayList<Integer>();
-        deleted.addAll(gridMap.sharesObjWith(node.getCol(), node.getRow()));
-        gridMap.collisionRemoval(node.getRow(), node.getCol());
+        for (int i = 0; i < clicked.size(); i++) {
+            GridPaneNode temp = clicked.get(i);
+            deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
+            gridMap.collisionRemoval(temp.getRow(), temp.getCol());
+        }
 
-        System.out.println(deleted.size()/2);
+        //System.out.println(deleted.size()/2);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i+=2) {            
-                GridPaneNode temp = grid[deleted.get(i)][deleted.get(i+1)];
-                node.swap(def, temp.getImageNum());
+                GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
+                node.swap(def, node.getImageNum());
             }        
         }
         clicked = new ArrayList<GridPaneNode>(); 
