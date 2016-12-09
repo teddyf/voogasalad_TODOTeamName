@@ -30,6 +30,7 @@ public class ItemSideMenu extends SideMenu {
     public ItemSideMenu(Parent root, ResourceBundle resources, String resourceName) {
         super(root, resources, resourceName);
         myViewer = new ItemViewer();
+        init();
     }
 
 

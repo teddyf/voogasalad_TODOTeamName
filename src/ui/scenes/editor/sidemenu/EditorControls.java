@@ -1,4 +1,4 @@
-package ui.scenes.editor;
+package ui.scenes.editor.sidemenu;
 
 import javafx.geometry.Side;
 import javafx.scene.Parent;
@@ -22,7 +22,7 @@ public class EditorControls {
     private static ItemSideMenu myItemMenu;
     private static PlayerMenuUI myPlayerMenu;
 
-    EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu, PlayerMenuUI playerMenu) {
+    public EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu, PlayerMenuUI playerMenu) {
         myRoot = root;
         myResources = resources;
         myBuilder = new UIBuilder();
