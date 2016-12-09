@@ -23,33 +23,29 @@ import java.util.ResourceBundle;
 public class ItemSideMenu extends SideMenu {
 
     private ItemViewer myViewer;
-
-    private final BlockType [] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
+    private final BlockType[] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
             BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT};
 
-    public ItemSideMenu(Parent root, ResourceBundle resources, String resourceName) {
-        super(root, resources, resourceName);
+    public ItemSideMenu(Parent root, ResourceBundle resources) {
+        super(root, resources);
         myViewer = new ItemViewer();
         init();
     }
 
-
     /**
      * Creates and adds tabs for each object type to the Item Menu
-     *
-     * @param itemPanel is the Item Menu to which the tabs are added
      */
     public void addTabs() {
         List<Tab> tabs = new ArrayList<>();
         for (BlockType type : blockTypes) {
-            Tab tab = createTab(type.name().toLowerCase(), createScrollPane(type));
+            Tab tab = createTab(toTitleCase(type.name()), createScrollPane(type));
             tabs.add(tab);
         }
         myPanel.getTabs().addAll(tabs);
     }
 
     private ScrollPane createScrollPane(BlockType type) {
-        FlowPane itemPane = getFlowPane();
+        FlowPane itemPane = createFlowPane();
         List<GameObject> list = myViewer.getObjects(type);
         for (GameObject object : list) {
             String path = object.getIconPath();
