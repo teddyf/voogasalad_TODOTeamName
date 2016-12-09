@@ -30,7 +30,7 @@ public class SizeChooser2 extends Scene {
 	private String [] buttonsProperties = {"XPos", "YPos", "Width", "Text", "Id"};
 	private String [] buttons = {"create", "small", "medium", "large"};
 	
-	private GameEditor myEditor;
+	private EditorView myEditor;
 	private Parent myRoot;
 	private UIBuilder myBuilder;
 	private ResourceBundle myResources;
@@ -39,7 +39,7 @@ public class SizeChooser2 extends Scene {
 	private TextField rows;
 	private TextField columns;
 	
-	public SizeChooser2(GameEditor editor, Parent root) {
+	public SizeChooser2(EditorView editor, Parent root) {
 		super(root, Color.web("#282828"));
 		
 		myRoot = root;

@@ -144,7 +144,7 @@ public class EditorEvents {
         MenuItem itemSave = new MenuItem("Save Project As...");
         itemSave.setOnAction(e -> myIO.saveEditorFile());
         // crate exit editor menu option
-        MenuItem itemExit = new MenuItem("Exit GameEditor");
+        MenuItem itemExit = new MenuItem("Exit EditorView");
         itemExit.setOnAction(e -> exitPrompt(false));
         firstMenu.getItems().addAll(itemNew, itemOpen, itemSave, itemExit);
     }
