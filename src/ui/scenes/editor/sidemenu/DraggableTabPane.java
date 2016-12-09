@@ -3,6 +3,9 @@ package ui.scenes.editor.sidemenu;
 import javafx.scene.Node;
 import javafx.scene.control.TabPane;
 
+/**
+ * @author Robert Steilberg
+ */
 public class DraggableTabPane extends TabPane {
 
     // node position
@@ -21,7 +24,6 @@ public class DraggableTabPane extends TabPane {
 
     public DraggableTabPane(Node view) {
         this.view = view;
-
         getChildren().add(view);
         init();
     }
