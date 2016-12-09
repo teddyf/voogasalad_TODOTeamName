@@ -64,14 +64,13 @@ public class ItemViewer {
 
 
         Map<String, ArrayList<String>> map = new HashMap<>();
-        for (int i = 0; i < contents.length; i++) {
-            String prefix = contents[i].substring(0, contents[i].indexOf('.'));
+        for (String content : contents) {
+            String prefix = content.substring(0, content.indexOf('.'));
             if (map.containsKey(prefix)) {
-                map.get(prefix).add(contents[i]);
-            }
-            else {
+                map.get(prefix).add(content);
+            } else {
                 ArrayList<String> list = new ArrayList<>();
-                list.add(contents[i]);
+                list.add(content);
                 map.put(prefix, list);
             }
         }
