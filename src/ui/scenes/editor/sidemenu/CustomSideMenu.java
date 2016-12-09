@@ -85,8 +85,6 @@ public class CustomSideMenu extends SideMenu {
 
         });
 
-
-        //myBuilder.addComponent(pane, fileBrowserButton);
         return new ScrollPane(pane);
     }
 
@@ -114,7 +112,7 @@ public class CustomSideMenu extends SideMenu {
         try {
             row = Integer.parseInt(rowInput.getText());
             column = Integer.parseInt(columnInput.getText());
-            if (row < 1 || column < 1) {
+            if (row < 1 || column < 1 || row > 5 || column > 5) {
                 alert("Invalid rows or columns given.");
                 return true;
             }
