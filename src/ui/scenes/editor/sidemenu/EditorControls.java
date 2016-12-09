@@ -16,11 +16,12 @@ import java.util.ResourceBundle;
  */
 public class EditorControls {
 
-    private static Parent myRoot;
-    private static ResourceBundle myResources;
-    private static UIBuilder myBuilder;
-    private static ItemSideMenu myItemMenu;
-    private static PlayerSideMenu myPlayerMenu;
+    private Parent myRoot;
+    private ResourceBundle myResources;
+    private UIBuilder myBuilder;
+    private SideMenu myItemMenu;
+    private SideMenu myPlayerMenu;
+    private SideMenu myCustomMenu;
 
     public EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu, PlayerSideMenu playerMenu) {
         myRoot = root;
@@ -28,6 +29,7 @@ public class EditorControls {
         myBuilder = new UIBuilder();
         myItemMenu = itemMenu;
         myPlayerMenu = playerMenu;
+        myCustomMenu = new CustomSideMenu(myRoot, myResources);
     }
 
 
@@ -63,9 +65,9 @@ public class EditorControls {
         customTab.setClosable(false);
         customTab.setOnSelectionChanged(e -> {
             if (customTab.isSelected()) {
-                myBuilder.addComponent(myRoot, new DraggableTabPane());
+                myBuilder.addComponent(myRoot, myCustomMenu.getPanel());
             } else {
-                myBuilder.removeComponent(myRoot, new DraggableTabPane());
+                myBuilder.removeComponent(myRoot, myCustomMenu.getPanel());
             }
         });
 

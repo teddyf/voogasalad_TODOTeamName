@@ -32,6 +32,7 @@ public class GridUI {
     private GridPane myGridPane;
 
     private ScrollAnimation scrollAnimation;
+    private GridScrollButton gsb;
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
 
@@ -59,13 +60,15 @@ public class GridUI {
                                   myUtil.getIntProperty("gridY"));
         myController.addGrid(width, height);
         myController.changeGrid(0);
+
         initGridControl();
+        setGridClickable();
+
         scrollAnimation =
                 new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(),
-                                    myGridPane.getYMin());
+                        myGridPane.getYMin());
 
-        GridScrollButton gsb = new GridScrollButton(myRoot, scrollAnimation);
-        setGridClickable();
+        gsb = new GridScrollButton(myRoot, scrollAnimation);
     }
 
     /**
@@ -222,6 +225,10 @@ public class GridUI {
                                 myController);
             });
         }
+    }
+
+    public GridScrollButton getScrollMechanism() {
+        return gsb;
     }
 
 }
