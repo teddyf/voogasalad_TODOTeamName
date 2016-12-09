@@ -5,7 +5,11 @@
       <obs/>
       <myIndex>0</myIndex>
       <myNumRows>5</myNumRows>
+<<<<<<< HEAD
       <myNumCols>5</myNumCols>
+=======
+      <myNumColumns>5</myNumColumns>
+>>>>>>> master
       <block.Block-array>
         <block>
           <changed>false</changed>
@@ -89,7 +93,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>1</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -181,7 +185,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>3</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -238,7 +242,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>4</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -249,7 +253,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/Default.png</myName>
+          <myName>resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>4</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -315,6 +319,44 @@
         <myIncrement>0.0</myIncrement>
         <myDecrement>0.0</myDecrement>
       </player.PlayerAttribute>
+<<<<<<< HEAD
+=======
+      <player.PlayerAttribute>
+        <myAmount>0.0</myAmount>
+        <myIncrement>0.0</myIncrement>
+        <myDecrement>0.0</myDecrement>
+      </player.PlayerAttribute>
+      <player.PlayerAttribute>
+        <myAmount>0.0</myAmount>
+        <myIncrement>0.0</myIncrement>
+        <myDecrement>0.0</myDecrement>
+      </player.PlayerAttribute>
+      <player.PlayerAttribute>
+        <myAmount>0.0</myAmount>
+        <myIncrement>0.0</myIncrement>
+        <myDecrement>0.0</myDecrement>
+      </player.PlayerAttribute>
+      <player.PlayerAttribute>
+        <myAmount>0.0</myAmount>
+        <myIncrement>0.0</myIncrement>
+        <myDecrement>0.0</myDecrement>
+      </player.PlayerAttribute>
+      <player.PlayerAttribute>
+        <myAmount>0.0</myAmount>
+        <myIncrement>0.0</myIncrement>
+        <myDecrement>0.0</myDecrement>
+      </player.PlayerAttribute>
+      <player.PlayerAttribute>
+        <myAmount>0.0</myAmount>
+        <myIncrement>0.0</myIncrement>
+        <myDecrement>0.0</myDecrement>
+      </player.PlayerAttribute>
+      <player.PlayerAttribute>
+        <myAmount>0.0</myAmount>
+        <myIncrement>0.0</myIncrement>
+        <myDecrement>0.0</myDecrement>
+      </player.PlayerAttribute>
+>>>>>>> master
     </myAttributes>
     <myInventory/>
     <myBattleHistory/>
