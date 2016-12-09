@@ -114,7 +114,6 @@ public class GridPane {
 
     public void resize () {
         grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
-        //System.out.println(blockList.size());
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode temp = blockList.get(i);
             temp.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
@@ -132,7 +131,6 @@ public class GridPane {
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode temp = blockList.get(i);
             if (temp.getCol() >= x || temp.getRow() >= y) {
-                //System.out.println(temp.getCol() + "," + temp.getRow());
                 blockList.remove(i);
                 gridMap.resizeRemove(temp.getRow(), temp.getCol());
                 i--;
@@ -147,8 +145,6 @@ public class GridPane {
     }
 
     private void resizeResetMore (double x, double y) {
-        System.out.println(x - gridWidth);
-        System.out.println(x - gridHeight);
         for (int i = (int) gridWidth; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 GridPaneNode node = new GridPaneNode(i, j, defaultText());
@@ -303,7 +299,6 @@ public class GridPane {
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
 
-        //System.out.println(deleted.size()/2);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i+=2) {            
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
