@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.FlowPane;
+import resources.properties.PropertiesUtilities;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
@@ -36,6 +37,7 @@ public class PlayerSideMenu extends SideMenu {
      */
     private FlowPane addSprites() {
         UIBuilder builder = new UIBuilder();
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
         FlowPane sprites = createFlowPane();
         File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
@@ -44,9 +46,9 @@ public class PlayerSideMenu extends SideMenu {
                 String imagePath = myResources.getString("spritePath") + image;
                 Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
                         .path(imagePath)
-                        .width(35)
+                        .width(util.getIntProperty("spriteWidth"))
                         .preserveRatio(true)
-                        .id("sprite-item"));
+                        .id(myResources.getString("spriteCSSid")));
                 sprites.getChildren().add(sprite);
             }
         }
@@ -64,7 +66,7 @@ public class PlayerSideMenu extends SideMenu {
         ScrollPane spritePane = new ScrollPane(sprites);
         spriteTab.setContent(spritePane);
         tabs.add(spriteTab);
-        // attributes tab
+        // TODO add more panes here, possibly refactor
         myPanel.getTabs().addAll(tabs);
     }
 }

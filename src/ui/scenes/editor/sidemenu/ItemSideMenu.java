@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * @author Nisa, Pim, Harshil
+ * @author Nisa, Pim, Harshil, Robert Steilberg
  *         <p>
  *         This class initializes tab-based UI used to choose ui.scenes.editor.objects to place
  *         on the overworld grid editor.
@@ -26,13 +26,16 @@ public class ItemSideMenu extends SideMenu {
     private final BlockType[] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
             BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT};
 
-    public ItemSideMenu(Parent root, ResourceBundle resources) {
+    ItemSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);
         myViewer = new ItemViewer();
         init();
     }
 
-    public void lol() {
+    /**
+     * Refreshes the item menu, presumably after a new item has been added
+     */
+    void refresh() {
         myViewer = new ItemViewer();
         myPanel.getTabs().clear();
         init();
@@ -50,6 +53,12 @@ public class ItemSideMenu extends SideMenu {
         myPanel.getTabs().addAll(tabs);
     }
 
+    /**
+     * Creates the scroll pane that holds the objects that can be added to the overworld
+     *
+     * @param type is the type of object being added
+     * @return the ScrollPane populated with its objects
+     */
     private ScrollPane createScrollPane(BlockType type) {
         FlowPane itemPane = createFlowPane();
         List<GameObject> list = myViewer.getObjects(type);
@@ -63,15 +72,18 @@ public class ItemSideMenu extends SideMenu {
             object.setIcon(icon);
             icon.setOnMouseClicked(e -> {
                 if (myViewer.getSelected() != null) {
-                    myViewer.getSelected().getIcon().setStyle("-fx-effect: none");
+                    myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect"));
                 }
                 myViewer.select(object);
-                object.getIcon().setStyle("-fx-effect: dropshadow(gaussian, black, 8, 0.0, 2, 0);");
+                object.getIcon().setStyle(myResources.getString("selectedEffect"));
             });
         }
         return new ScrollPane(itemPane);
     }
 
+    /**
+     * @return the currently selected object
+     */
     public GameObject getSelected() {
         return myViewer.getSelected();
     }

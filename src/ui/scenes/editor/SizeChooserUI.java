@@ -5,9 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import resources.properties.PropertiesUtilities;
-import ui.UILauncher;
 import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
@@ -26,11 +24,11 @@ public class SizeChooserUI extends Scene {
     private static UIBuilder myBuilder;
     private static ResourceBundle myResources;
     private static PropertiesUtilities myUtil;
-    private static GameEditor myEditor;
+    private static EditorView myEditor;
     private static int chosenGridHeight;
     private static int chosenGridWidth;
 
-    SizeChooserUI(GameEditor editor, Parent root) {
+    SizeChooserUI(EditorView editor, Parent root) {
         super(root, Color.web("#0585B2"));
         myRoot = root;
         myEditor = editor;

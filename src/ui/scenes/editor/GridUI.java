@@ -70,7 +70,6 @@ public class GridUI {
         scrollAnimation =
                 new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(),
                         myGridPane.getYMin());
-
         gsb = new GridScrollButton(myRoot, scrollAnimation);
     }
 
@@ -80,6 +79,7 @@ public class GridUI {
      */
     private void initGridControl() {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
+        myGridPane.getGroup().toBack();
         hoverOpacity.setBrightness(myUtil.getDoubleProperty("buttonHoverOpacity"));
         int updateX = myUtil.getIntProperty("updateX");
         int updateY = myUtil.getIntProperty("updateY");

@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import ui.builder.UIBuilder;
 
+@Deprecated
 public class PlayerMenuUI implements Observer {
 
 	private Parent myRoot;

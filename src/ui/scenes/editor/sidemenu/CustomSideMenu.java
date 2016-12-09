@@ -5,7 +5,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.FileChooser;
 import ui.builder.ComponentProperties;
@@ -18,13 +17,13 @@ import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 /**
- * Created by Harshil Garg on 12/8/16.
+ * @author Harshil Garg
  */
 public class CustomSideMenu extends SideMenu {
 
-    protected EditorControls myControls;
+    private EditorControls myControls;
 
-    public CustomSideMenu(Parent root, ResourceBundle resources, EditorControls controls) {
+    CustomSideMenu(Parent root, ResourceBundle resources, EditorControls controls) {
         super(root, resources);
         myControls = controls;
         init();
@@ -39,12 +38,12 @@ public class CustomSideMenu extends SideMenu {
         typeComboBox.setItems(options);
 
         // ComboBox to inform the user
-        TextField rowInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(10, 10).text("anal"));
-        TextField columnInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(100, 100).text("anal2"));
+        TextField rowInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(10, 10).text("row"));
+        TextField columnInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(100, 100).text("column"));
 
         myBuilder.addComponent(pane, typeComboBox);
 
-        Button fileBrowserButton = (Button) myBuilder.addNewButton(pane, new ComponentProperties(10, 10).text("hi"));
+        Button fileBrowserButton = (Button) myBuilder.addNewButton(pane, new ComponentProperties(10, 10).text("add"));
 
         fileBrowserButton.setOnMouseClicked(event -> {
 
@@ -63,7 +62,7 @@ public class CustomSideMenu extends SideMenu {
                     "/" + source.getFileName().toString());
 
             if (new File(destination.toString()).exists()) {
-                alert("You can't override previously added files!");
+                alert("You can't override previously added files.");
                 return;
             }
 
@@ -75,13 +74,12 @@ public class CustomSideMenu extends SideMenu {
                     String fullPath = new File(destination.toString()).toURI().toString();
                     new ImageCropper(destination.toString(), r, c);
                 }
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            ItemSideMenu ism = (ItemSideMenu) myControls.getMyItemMenu();
-            ism.lol();
+            ItemSideMenu ism = myControls.getMyItemMenu();
+            ism.refresh();
 
         });
 
@@ -116,9 +114,7 @@ public class CustomSideMenu extends SideMenu {
                 alert("Invalid rows or columns given.");
                 return true;
             }
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             alert("Row and column number not specified.");
             return true;
         }
