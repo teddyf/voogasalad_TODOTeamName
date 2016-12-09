@@ -1,8 +1,12 @@
 package ui.scenes.editor;
 
 import javafx.event.Event;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.image.ImageView;
@@ -48,36 +52,42 @@ public class GridScrollButton {
     private void setUpButtons() {
         String path = myUtil.getStringProperty("image");
 
-        ComponentProperties up = new ComponentProperties(200, 200)
-                .path(path)
-                .width(50)
-                .height(50)
-                .rotate(180);
+        Pane controls = (Pane) myBuilder.addComponent(myRoot, new Pane());
+        controls.setLayoutX(0);
+        controls.setLayoutY(530);
+        controls.setPadding(new Insets(5, 5, 5, 5));
+        controls.setId("pen");
 
-        ComponentProperties right = new ComponentProperties(240, 240)
+        ComponentProperties up = new ComponentProperties(50, 10)
                 .path(path)
                 .width(50)
                 .height(50)
                 .rotate(270);
 
-        ComponentProperties down = new ComponentProperties(200, 280)
+        ComponentProperties right = new ComponentProperties(90, 50)
                 .path(path)
                 .width(50)
                 .height(50)
                 .rotate(0);
 
-        ComponentProperties left = new ComponentProperties(160, 240)
+        ComponentProperties down = new ComponentProperties(50, 90)
                 .path(path)
                 .width(50)
                 .height(50)
                 .rotate(90);
 
-        upScroll = (ImageView) myBuilder.addNewImageView(myRoot, up);
-        rightScroll = (ImageView) myBuilder.addNewImageView(myRoot, right);
-        downScroll = (ImageView) myBuilder.addNewImageView(myRoot, down);
-        leftScroll = (ImageView) myBuilder.addNewImageView(myRoot, left);
+        ComponentProperties left = new ComponentProperties(10, 50)
+                .path(path)
+                .width(50)
+                .height(50)
+                .rotate(180);
 
-        center = (Circle) myBuilder.addComponent(myRoot, new Circle(225, 265, 12, Color.AZURE));
+        upScroll = (ImageView) myBuilder.addNewImageView(controls, up);
+        rightScroll = (ImageView) myBuilder.addNewImageView(controls, right);
+        downScroll = (ImageView) myBuilder.addNewImageView(controls, down);
+        leftScroll = (ImageView) myBuilder.addNewImageView(controls, left);
+
+        center = (Circle) myBuilder.addComponent(controls, new Circle(75, 75, 12, Color.AZURE));
 
     }
 
