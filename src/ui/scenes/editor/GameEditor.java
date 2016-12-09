@@ -51,6 +51,7 @@ public class GameEditor extends Scene implements GameEditorAlerts {
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         ItemSideMenu itemMenu = new ItemSideMenu(myRoot, myResources);
+
         GridUI grid = new GridUI(myRoot, myController, itemMenu, width, height);
         new EditorControls(myRoot, myResources, itemMenu);
 

@@ -24,9 +24,9 @@ public abstract class SideMenu {
     SideMenu(Parent root, ResourceBundle resources) {
         myRoot = root;
         myResources = resources;
-        myUtil = new PropertiesUtilities(resources);
-        myPanel = new DraggableTabPane();
+        myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
+        myPanel = new DraggableTabPane();
     }
 
     public void init() {

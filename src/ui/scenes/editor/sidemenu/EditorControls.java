@@ -1,19 +1,13 @@
 package ui.scenes.editor.sidemenu;
-
 import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.sidemenu.DraggableTabPane;
-import ui.scenes.editor.sidemenu.ItemSideMenu;
-import ui.scenes.editor.sidemenu.PlayerMenuUI;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 /**
  * @author Robert Steilberg, Pim Chuaylua, Harshil Garg
  *         <p>
@@ -27,6 +21,7 @@ public class EditorControls {
     private UIBuilder myBuilder;
     private SideMenu myItemMenu;
     private SideMenu myPlayerMenu;
+    private SideMenu myCustomMenu;
 
     public EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu) {
         myRoot = root;
@@ -34,9 +29,9 @@ public class EditorControls {
         myBuilder = new UIBuilder();
         myItemMenu = itemMenu;
         myPlayerMenu = new PlayerSideMenu(myRoot, myResources);
+        myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
         init();
     }
-
     /**
      * Creates a side tab and ties content to it
      *
@@ -59,7 +54,6 @@ public class EditorControls {
         }
         return newTab;
     }
-
     /**
      * Creates a left-oriented TabPane to be placed on the right side of the screen
      *
@@ -77,7 +71,6 @@ public class EditorControls {
         sideTabs.getSelectionModel().select(tabs.get(tabs.size() - 1)); // select close tab as default
         return sideTabs;
     }
-
     /**
      * Creates the side tabs that hold control panels
      *
@@ -88,14 +81,18 @@ public class EditorControls {
         tabs.add(createSideTab(myResources.getString("firstTab"), myItemMenu.getPanel()));
         tabs.add(createSideTab(myResources.getString("secondTab"), myPlayerMenu.getPanel()));
         tabs.add(createSideTab(myResources.getString("thirdTab"), myItemMenu.getPanel()));
-        tabs.add(createSideTab(myResources.getString("fourthTab"), null));
+        tabs.add(createSideTab(myResources.getString("fourthTab"), myCustomMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("fifthTab"), null));
         return tabs;
     }
-
     /**
      * Initializes the side tabs that contain control panels for the editor
      */
     public void init() {
         myBuilder.addComponent(myRoot, createSideTabPane(createTabs()));
+    }
+
+    public SideMenu getMyItemMenu() {
+        return myItemMenu;
     }
 }
