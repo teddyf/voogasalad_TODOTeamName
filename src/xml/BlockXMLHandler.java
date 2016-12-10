@@ -35,6 +35,7 @@ public class BlockXMLHandler {
 			return xstream.toXML(block) + "\n";	
 		}
 		catch (Exception ex) {
+			System.out.println("XML");
 			ex.printStackTrace();
 			return null;
 		}
@@ -45,13 +46,13 @@ public class BlockXMLHandler {
 			return (Block)xstream.fromXML(xmlContent);
 		}
 		catch (Exception ex) {
+			System.out.println("XML");
 			ex.printStackTrace();
 			return null;
 		}
 	}
 	
 	private void initXStream() {
-		xstream.alias(BLOCK_ALIAS, CommunicatorBlock.class);
 		xstream.alias(BLOCK_ALIAS, DecorationBlock.class);
 		xstream.alias(BLOCK_ALIAS, EnemyBlock.class);
 		xstream.alias(BLOCK_ALIAS, GateBlock.class);

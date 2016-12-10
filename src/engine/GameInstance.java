@@ -113,10 +113,12 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case TALK:
+			    System.out.println("I AM TALKING HI");
+				//TODO get difficulty from block
+				enterBattle(new EnemyBlock("hello", 0, 0), BattleView.Difficulty.MEDIUM);
 			    Block block = blockInFacedDirection(row, col, direction);
 			    if (block instanceof EnemyBlock) {
-
-			    	enterBattle((EnemyBlock)block);
+			    	enterBattle((EnemyBlock) block, BattleView.Difficulty.MEDIUM);
 			    }
 			    else {
 			    	//TODO: implement interactions
@@ -129,10 +131,10 @@ public class GameInstance extends Observable implements IGameInstance {
         notifyObservers(playerUpdate);
 	}
 	
-	private void enterBattle(EnemyBlock enemy) {
+	private void enterBattle(EnemyBlock enemy, BattleView.Difficulty diff) {
         Stage primaryStage = new Stage();
 		//TODO take in a difficult paramter from block
-		BattleView view = new BattleView(BattleView.Difficulty.MEDIUM, "resources/images/battles/background/background-1.jpg");
+		BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
 		BattleModel model = new BattleModel(myPlayer, enemy);
 		BattleController controller = new BattleController(view, model);
 		primaryStage.setScene(controller.getView().getScene());
