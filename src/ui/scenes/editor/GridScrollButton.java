@@ -35,7 +35,7 @@ public class GridScrollButton {
 
     private Circle center;
 
-    public GridScrollButton(Parent root, ScrollAnimation scrollAnimation) {
+    GridScrollButton(Parent root, ScrollAnimation scrollAnimation) {
         myRoot = root;
         myScrollAnimation = scrollAnimation;
 
@@ -90,19 +90,39 @@ public class GridScrollButton {
     }
 
     private void setUpListeners() {
-        upScroll.setOnMouseEntered(e -> {myScrollAnimation.setScrollSpeedButtons(); myScrollAnimation.up(); myScrollAnimation.play();});
+        upScroll.setOnMouseEntered(e -> {
+            myScrollAnimation.setScrollSpeedButtons();
+            myScrollAnimation.up();
+            myScrollAnimation.play();
+        });
         upScroll.setOnMouseExited(e -> myScrollAnimation.stop());
 
-        rightScroll.setOnMouseEntered(e -> {myScrollAnimation.setScrollSpeedButtons();myScrollAnimation.right(); myScrollAnimation.play();});
+        rightScroll.setOnMouseEntered(e -> {
+            myScrollAnimation.setScrollSpeedButtons();
+            myScrollAnimation.right();
+            myScrollAnimation.play();
+        });
         rightScroll.setOnMouseExited(e -> myScrollAnimation.stop());
 
-        downScroll.setOnMouseEntered(e -> {myScrollAnimation.setScrollSpeedButtons();myScrollAnimation.down(); myScrollAnimation.play();});
+        downScroll.setOnMouseEntered(e -> {
+            myScrollAnimation.setScrollSpeedButtons();
+            myScrollAnimation.down();
+            myScrollAnimation.play();
+        });
         downScroll.setOnMouseExited(e -> myScrollAnimation.stop());
 
-        leftScroll.setOnMouseEntered(e -> {myScrollAnimation.setScrollSpeedButtons();myScrollAnimation.left(); myScrollAnimation.play();});
+        leftScroll.setOnMouseEntered(e -> {
+            myScrollAnimation.setScrollSpeedButtons();
+            myScrollAnimation.left();
+            myScrollAnimation.play();
+        });
         leftScroll.setOnMouseExited(e -> myScrollAnimation.stop());
 
-        center.setOnMouseClicked(e -> {myScrollAnimation.setScrollSpeedButtons();myScrollAnimation.center(); myScrollAnimation.play();});
+        center.setOnMouseClicked(e -> {
+            myScrollAnimation.setScrollSpeedButtons();
+            myScrollAnimation.center();
+            myScrollAnimation.play();
+        });
     }
 
     public void trackpadStartScroll(ScrollEvent event) {
@@ -113,8 +133,7 @@ public class GridScrollButton {
         if (Math.abs(x) > Math.abs(y)) {
             if (event.getDeltaX() > 0) {
                 myScrollAnimation.left();
-            }
-            else {
+            } else {
                 myScrollAnimation.right();
             }
         }
@@ -122,8 +141,7 @@ public class GridScrollButton {
         else {
             if (event.getDeltaY() > 0) {
                 myScrollAnimation.up();
-            }
-            else {
+            } else {
                 myScrollAnimation.down();
             }
         }

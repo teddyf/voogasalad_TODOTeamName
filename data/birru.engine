@@ -21,7 +21,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -32,7 +32,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -122,7 +122,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -133,7 +133,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -144,7 +144,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -234,7 +234,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -245,7 +245,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -256,7 +256,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -1131,10 +1131,10 @@
   <player>
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
-    <myName>resources/images/sprites/1-down.png</myName>
+    <myName>resources/images/sprites/3-down.png</myName>
     <myDirection>NORTH</myDirection>
-    <myRow>0</myRow>
-    <myCol>0</myCol>
+    <myRow>4</myRow>
+    <myCol>5</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>

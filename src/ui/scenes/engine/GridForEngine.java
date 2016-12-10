@@ -364,7 +364,6 @@ public class GridForEngine {
                 if((i<WRAP/2 || j<WRAP/2) || (i>=(gridWidth-WRAP/2) || j>=(gridHeight-WRAP/2))){
                     System.out.println("(" + i + "," + j + ")");
                     GridPaneNode temp = new GridPaneNode(j,i,wall);
-                    //temp.getImage().setEffect(hoverOpacity);
                     blockList.add(temp);
                 }
             }
