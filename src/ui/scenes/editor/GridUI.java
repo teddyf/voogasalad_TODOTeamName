@@ -127,8 +127,8 @@ public class GridUI {
     }
 
     void loadGrid() {
-        int colMax = myController.getCol();
-        int rowMax = myController.getRow();
+        int colMax = myController.getPlayerCol();
+        int rowMax = myController.getPlayerRow();
         myGridPane.loadReset(rowMax, colMax);
         myBuilder.removeComponent(myRoot, myGridPane.getGroup());
         for (int i = 0; i < rowMax; i++) {
