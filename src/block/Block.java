@@ -43,6 +43,7 @@ public abstract class Block extends Observable implements IBlock {
         }
         return blockUpdates;
     }
+    
     public List<BlockUpdate> talkInteract(Player player){
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         if (myTalkInteractions.size() > 0) {
@@ -53,6 +54,7 @@ public abstract class Block extends Observable implements IBlock {
             notifyObservers(myMessage);
         }
         return blockUpdates;
+
     }
 
     public boolean link(Block block, int gridIndex) {
