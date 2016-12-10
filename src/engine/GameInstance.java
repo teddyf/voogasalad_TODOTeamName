@@ -113,13 +113,12 @@ public class GameInstance extends Observable implements IGameInstance {
 				break;
 			case TALK:
 				//TODO get difficulty from block
-				enterBattle(new EnemyBlock("hello", 0, 0), BattleView.Difficulty.MEDIUM);
+				//enterBattle(new EnemyBlock("hello", 0, 0), BattleView.Difficulty.MEDIUM);
                 //CommunicatorBlock test = new CommunicatorBlock("blcok", 0, 0);
 				//test.setMessage("How are you doing :)");
 				//test.talkInteract(myPlayer, test.getMessage());
 				System.out.println("talking");
 			    Block block = blockInFacedDirection(row, col, direction);
-				System.out.println();
 			    if (block instanceof EnemyBlock) {
 			    	enterBattle((EnemyBlock) block, BattleView.Difficulty.MEDIUM);
 			    }
@@ -127,6 +126,7 @@ public class GameInstance extends Observable implements IGameInstance {
 			    	//TODO: implement interactions
                     block.setMessage("Test message");
 			    	block.talkInteract(myPlayer, block.getMessage());
+					System.out.println("communicatoar");
 
 			    }
 			   	else if (block instanceof ObstacleBlock) {
@@ -136,6 +136,9 @@ public class GameInstance extends Observable implements IGameInstance {
 					System.out.println("ground");
 				}
 				else if (block instanceof ItemBlock){
+					System.out.println("item");
+				}
+				else if (block instanceof DecorationBlock){
 					System.out.println("Decor");
 				}
 			default:
