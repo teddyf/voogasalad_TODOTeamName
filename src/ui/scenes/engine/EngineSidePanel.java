@@ -36,13 +36,15 @@ public class EngineSidePanel implements Observer {
     private VBox vbox;
     private PropertiesUtilities util;
     private Character player;
+    private GameEngine gameEngine;
 
-    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player) {
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,GameEngine gameEngine) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
         util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
+        this.gameEngine = gameEngine;
         Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/Pixeled.ttf").toExternalForm(), 10);
         initSidePanel();
         initPlayerChanger(player);
@@ -71,7 +73,9 @@ public class EngineSidePanel implements Observer {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
-        vbox.getChildren().add(new SoundControl().getGroup());
+        SoundControl soundControl = new SoundControl();
+        soundControl.addNodeToControl(new SnapShot(gameEngine).getGroup());
+        vbox.getChildren().add(soundControl.getGroup());
     }
     
     public void initPlayerChanger(Character player) {
