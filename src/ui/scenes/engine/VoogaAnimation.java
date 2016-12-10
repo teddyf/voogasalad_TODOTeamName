@@ -235,20 +235,20 @@ public class VoogaAnimation implements Observer {
 		//fixed the urls
 		switch (instruction) {
 			case UP:
-				changePlayerImage("1-up.png");
+				changePlayerImage(myResources.getString("player1ImageUp"));
 				break;
 			case DOWN:
 				//changePlayerImage(playerNumber + "SouthFacing.png");
-				changePlayerImage("1-down.png");
+				changePlayerImage(myResources.getString("player1ImageDown"));
 
 				break;
 			case RIGHT:
 				//changePlayerImage(playerNumber + "EastFacing.png");
-				changePlayerImage("1-right.png");
+				changePlayerImage(myResources.getString("player1ImageRight"));
 				break;
 			case LEFT:
 				//changePlayerImage(playerNumber + "WestFacing.png");
-				changePlayerImage("1-left.png");
+				changePlayerImage(myResources.getString("player1ImageLeft"));
 				break;
 		}
 		stepCount = stepCount + 10;

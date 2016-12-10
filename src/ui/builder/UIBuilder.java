@@ -7,7 +7,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -82,17 +81,23 @@ public class UIBuilder {
      * @param component is the JavaFX node to be removed
      * @return the removed node
      */
-    public Node removeComponent(Parent layout, Node component) {
+    public Node removeComponent(Node layout, Node component) {
+    	System.out.println("Layout size before: " + layout.getChildren().size());
         if (layout instanceof Pane) {
+        	System.out.println("Removing from Pane");
             Pane pane = (Pane) layout;
             pane.getChildren().remove(component);
         } else if (layout instanceof Group) {
             Group pane = (Group) layout;
-            System.out.println(pane.getChildren());
+//            Group g = (Group) component;
+//            g.getChildren().clear();
             pane.getChildren().remove(component);
+        	System.out.println("Removing from Group");
         } else {
             return null;
         }
+        System.out.println("Layout size after: " + layout.getChildren().size());
+        component.setVisible(false);
         return component;
     }
 
@@ -243,9 +248,9 @@ public class UIBuilder {
                 if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
 //                    removeComponent(layout, dialogNode);
                 	removeComponent(layout, dialogNode);
-                	FadeTransition ft = dialogBuilder.fadeNode(dialogNode);
-                	ft.play();
-                    keyEvent.consume();
+//                	FadeTransition ft = dialogBuilder.fadeNode(dialogNode);
+//                	ft.play();
+//                    keyEvent.consume();
                 }
 			}
 	

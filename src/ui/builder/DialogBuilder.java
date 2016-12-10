@@ -2,7 +2,6 @@ package ui.builder;
 
 
 import javafx.animation.FadeTransition;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -38,7 +37,7 @@ public class DialogBuilder extends ComponentBuilder {
 	}
 	
 	public FadeTransition fadeNode(Node node) {
-		FadeTransition fade = new FadeTransition(Duration.seconds(2), node);
+		FadeTransition fade = new FadeTransition(Duration.millis(100), node);
 		System.out.println("FADE");
         fade.setFromValue(1.0);
         fade.setToValue(0.0);
