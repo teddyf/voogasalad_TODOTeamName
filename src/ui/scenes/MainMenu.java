@@ -1,6 +1,7 @@
 package ui.scenes;
 
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import resources.properties.PropertiesUtilities;
 import ui.UILauncher;
 import ui.builder.ComponentProperties;
+import ui.builder.Dialog;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.PopUp;
 
@@ -122,9 +124,25 @@ public class MainMenu extends Scene {
         prop.text("PLZWORK");
         prop.height(50);
         prop.width(200);
-        myBuilder.addDialogBubble(myRoot, myStage, prop, 300, 400);
+        Group g = (Group) myRoot;
+        Dialog d = new Dialog(prop);
+        d.setFocusTraversable(true);
+        d.setOnMouseClicked(e -> g.getChildren().remove(d));
+        g.getChildren().add(d);
+        myStage.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
+        	@Override
+        	public void handle(final KeyEvent keyEvent) {
+        		if (keyEvent.getCode() == KeyCode.ENTER && myRoot.getChildrenUnmodifiable().contains(d)) {
+        			g.getChildren().remove(d);
+        			d.setVisible(false);
+        			d.getChildren().clear();
+//        			d.setVisible(false);
+        			System.out.println("LALALALA");
+        		}
+        	}
+        });
     }
-    
+        
     public String getPath(){
         return MAINMENU_RESOURCES;
     }

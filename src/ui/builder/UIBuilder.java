@@ -81,8 +81,8 @@ public class UIBuilder {
      * @param component is the JavaFX node to be removed
      * @return the removed node
      */
-    public Node removeComponent(Node layout, Node component) {
-    	System.out.println("Layout size before: " + layout.getChildren().size());
+    public Node removeComponent(Parent layout, Node component) {
+    	System.out.println("Layout size before: " + layout.getChildrenUnmodifiable().size());
         if (layout instanceof Pane) {
         	System.out.println("Removing from Pane");
             Pane pane = (Pane) layout;
@@ -96,7 +96,7 @@ public class UIBuilder {
         } else {
             return null;
         }
-        System.out.println("Layout size after: " + layout.getChildren().size());
+        System.out.println("Layout size after: " + layout.getChildrenUnmodifiable().size());
         component.setVisible(false);
         return component;
     }
