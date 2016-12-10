@@ -10,7 +10,7 @@ public class MainTest extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Player player = new Player("Player", 0, 0, 0);
+		/*Player player = new Player("Player", 0, 0, 0);
 		EnemyBlock enemy = new EnemyBlock("Enemy", 0, 0);
 
 		BattleView view;
@@ -19,7 +19,7 @@ public class MainTest extends Application {
 		BattleController controller = new BattleController(view, model);
 		
 		primaryStage.setScene(controller.getView().getScene());
-		primaryStage.show();
+		primaryStage.show();*/
 	}
 	
 	public static void main(String[] args) {

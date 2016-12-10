@@ -48,10 +48,10 @@ public abstract class Block extends Observable implements IBlock {
         for(TalkInteraction interaction : getTalkInteractions()) {
             getBlockUpdates().addAll(interaction.act(player));
         }
-        for(TalkInteraction interaction : getTalkInteractions()) {
-            interaction.displayMessage(message);
-            doMessage();
-        }
+        //for(TalkInteraction interaction : getTalkInteractions()) {
+        //    interaction.displayMessage(message);
+        //    doMessage();
+        //}
         return (getTalkInteractions().size() > 0);
     }
 
@@ -121,7 +121,9 @@ public abstract class Block extends Observable implements IBlock {
     }
 
     /*****SETTERS******/
-
+    public void setMessage(String message){
+        this.myMessage = message;
+    }
     protected void setWalkableStatus(boolean status) {
         isWalkable = status;
     }
