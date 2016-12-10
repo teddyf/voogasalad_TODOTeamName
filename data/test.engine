@@ -6936,7 +6936,7 @@
   <player>
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
-    <myName>resources/images/sprites/1-down.png</myName>
+    <myName>resources/images/sprites/4-down.png</myName>
     <myDirection>NORTH</myDirection>
     <myRow>4</myRow>
     <myCol>5</myCol>

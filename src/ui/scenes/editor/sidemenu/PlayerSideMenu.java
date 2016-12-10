@@ -29,6 +29,7 @@ public class PlayerSideMenu extends SideMenu {
     PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
         super(root, resources);
         myResources = resources;
+        myController = controller;
         init();
     }
 
@@ -51,6 +52,7 @@ public class PlayerSideMenu extends SideMenu {
                         .width(util.getIntProperty("spriteWidth"))
                         .preserveRatio(true)
                         .id(myResources.getString("spriteCSSid")));
+                //TODO hard coded player add
                 sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,4,5));
                 sprites.getChildren().add(sprite);
             }
