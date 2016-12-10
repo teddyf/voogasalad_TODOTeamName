@@ -98,7 +98,7 @@ public class GameEngine extends Scene implements Observer {
     	player = new Character(this);
     	System.out.println(player.getRowCharacter());
     	System.out.println(player.getColumnCharacter());
-    	player.setCharacterImage("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
+    	player.setCharacterImage("resources/images/sprites/1-down.png");
         player.setCharacterImageSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
@@ -106,7 +106,7 @@ public class GameEngine extends Scene implements Observer {
 
         player.setPosX(gridWidth/2 - player.getSize()/2);
         player.setPosY(gridHeight/2 - player.getSize()/2);
-    	player.setName("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
+    	player.setName("resources/images/sprites/1-down.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
 
         //setup grid
@@ -155,10 +155,11 @@ public class GameEngine extends Scene implements Observer {
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
                 grid.blockToGridPane(i, j, myController.getBlock(i, j));
-
             }
         }
+        grid.populateBorder();
         grid.setRenderMap();
+        System.out.println(grid.getNodeList());
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
 

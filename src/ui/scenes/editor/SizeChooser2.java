@@ -28,9 +28,9 @@ public class SizeChooser2 extends Scene {
 	private String [] inputs = {"title-field", "description-field", "rows", "columns"};
 	
 	private String [] buttonsProperties = {"XPos", "YPos", "Width", "Text", "Id"};
-	private String [] buttons = {"create"};
+	private String [] buttons = {"create", "small", "medium", "large"};
 	
-	private GameEditor myEditor;
+	private EditorView myEditor;
 	private Parent myRoot;
 	private UIBuilder myBuilder;
 	private ResourceBundle myResources;
@@ -39,7 +39,7 @@ public class SizeChooser2 extends Scene {
 	private TextField rows;
 	private TextField columns;
 	
-	public SizeChooser2(GameEditor editor, Parent root) {
+	public SizeChooser2(EditorView editor, Parent root) {
 		super(root, Color.web("#282828"));
 		
 		myRoot = root;
@@ -54,9 +54,9 @@ public class SizeChooser2 extends Scene {
 	}
 
 	private void initialize() {
-		setButton();
+//		setButton();
 		setInputs();
-		setLabels();
+//		setLabels();
 	}
 	
 	private void setLabels() {
@@ -110,7 +110,6 @@ public class SizeChooser2 extends Scene {
 	                .color(Color.WHITE)
 	                .id(id)));
 	        if (button.equals("create")) {
-	        	System.out.println("cancer");
 	        	myButton.setOnMouseClicked(e -> launchEditor(rows.getText(), columns.getText(), 500));
 	        }
 		}

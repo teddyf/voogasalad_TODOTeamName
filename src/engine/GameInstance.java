@@ -1,11 +1,16 @@
 package engine;
 
 import api.IGameInstance;
+import battle.controller.BattleController;
+import battle.model.BattleModel;
+import battle.view.BattleView;
 import block.Block;
 import block.BlockUpdate;
+import block.EnemyBlock;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
+import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
@@ -77,6 +82,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		PlayerUpdate playerUpdate = null;
 		PlayerDirection direction = myPlayer.getDirection();
 		System.out.println(direction);
+		
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
@@ -107,13 +113,32 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case TALK:
-			    // TODO: better talk interaction
-			    Block talkBlock = blockInFacedDirection(row, col, direction);
-                talkBlock.talkInteract(myPlayer);
+			    System.out.println("I AM TALKING HI");
+				//TODO get difficulty from block
+				enterBattle(new EnemyBlock("hello", 0, 0), BattleView.Difficulty.MEDIUM);
+			    Block block = blockInFacedDirection(row, col, direction);
+			    if (block instanceof EnemyBlock) {
+			    	enterBattle((EnemyBlock) block, BattleView.Difficulty.MEDIUM);
+			    }
+			    else {
+			    	//TODO: implement interactions
+			    	block.talkInteract(myPlayer);
+			    }
 			default:
 				break;
 		}
+		
         notifyObservers(playerUpdate);
+	}
+	
+	private void enterBattle(EnemyBlock enemy, BattleView.Difficulty diff) {
+        Stage primaryStage = new Stage();
+		//TODO take in a difficult paramter from block
+		BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
+		BattleModel model = new BattleModel(myPlayer, enemy);
+		BattleController controller = new BattleController(view, model);
+		primaryStage.setScene(controller.getView().getScene());
+		primaryStage.show();
 	}
 
     /**
@@ -193,7 +218,7 @@ public class GameInstance extends Observable implements IGameInstance {
     }
 
     public void changeGrid(int index) {
-        myGridWorld.setCurrentIndex(index);
+        //myGridWorld.setCurrentIndex(index);
         myGrid = myGridWorld.getCurrentGrid();
         myRenderedGrid = new RenderedGrid(myGrid);
     }

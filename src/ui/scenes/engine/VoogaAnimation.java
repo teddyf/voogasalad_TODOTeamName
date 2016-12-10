@@ -21,9 +21,12 @@ import ui.builder.UIBuilder;
  *
  */
 public class VoogaAnimation implements Observer {
-	private static final String IMAGE_RESOURCE = "resources/images/tiles/Character/Pokemon/";
+
+	//private static final String IMAGE_RESOURCE = "resources/images/tiles/Character/Pokemon/";
+
+	private static final String IMAGE_RESOURCE = "resources/images/sprites/";
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
-	
+
 	private GridForEngine grid;
 	
 	private Stack<UserInstruction> stack;
@@ -53,14 +56,14 @@ public class VoogaAnimation implements Observer {
 		this.player = player;
 		this.uiBuilder = uiBuilder;
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
-		stack = new Stack<UserInstruction>();
+		stack = new Stack<>();
 		finished = true;
 		duration = 200;
 		maxSteps = 200;
 		stepCount = 0;
 		this.ec= ec;
 		pixelMovement = grid2.getBlockSize()/maxSteps;
-		keyBindings = new HashMap<KeyCode, UserInstruction>();
+		keyBindings = new HashMap<>();
 		setDefaultKeyBindings();
 		gridLayout = grid.getGroup();
 		ec.addObserver(this);
@@ -71,6 +74,7 @@ public class VoogaAnimation implements Observer {
 		keyBindings.put(KeyCode.DOWN, UserInstruction.DOWN);
 		keyBindings.put(KeyCode.LEFT, UserInstruction.LEFT);
 		keyBindings.put(KeyCode.RIGHT, UserInstruction.RIGHT);
+		keyBindings.put(KeyCode.A, UserInstruction.TALK);
 	}
 
 	private UserInstruction convertKeyCode(KeyCode code) {
@@ -83,8 +87,10 @@ public class VoogaAnimation implements Observer {
 		UserInstruction instruction = convertKeyCode(e.getCode());
 		if (!stack.contains(instruction))
 			stack.push(instruction);
-		if (!stack.isEmpty() && finished)
+		if (!stack.isEmpty() && finished) {
+			System.out.println(instruction + "ENTERING ENGINE");
 			ec.keyListener(instruction);
+		}
 	}
 
 	public void handleKeyRelease(KeyEvent e) {
@@ -97,8 +103,8 @@ public class VoogaAnimation implements Observer {
 	private void changePlayerImage(String imageFileName){
 		int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
-		System.out.println(imageFileName);
 		uiBuilder.removeComponent(root, player.getCharacterImageView());
+		//TODO fix this
 		player.setCharacterImage(IMAGE_RESOURCE + imageFileName);
 		player.setCharacterImageSize(grid.getBlockSize());
 		//player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
@@ -145,7 +151,6 @@ public class VoogaAnimation implements Observer {
 
 	@Override
 	public void update(Observable observable, Object value) {
-		System.out.println("hi3");
 		//if (observable instanceof GameInstance) {
 			System.out.println("wat28");
 			PlayerUpdate update = (PlayerUpdate) value;
@@ -154,6 +159,7 @@ public class VoogaAnimation implements Observer {
 	}
 
 	private void updatePlayer(PlayerUpdate update) {
+        System.out.println(update + "UPDATING");
 		if (update == PlayerUpdate.ROW || update == PlayerUpdate.COLUMN) {
 			processMove(stack.peek());
 		}
@@ -182,6 +188,7 @@ public class VoogaAnimation implements Observer {
 	}
 
 	private void move(UserInstruction instruction) {
+		System.out.println("INSTRUCTIONS" + instruction);
 		if (isAnimationOver())
 			return;
 		double locationX = gridLayout.getLayoutX();
@@ -199,10 +206,12 @@ public class VoogaAnimation implements Observer {
 			case RIGHT:
 				locationX -= pixelMovement;
 				break;
+			case TALK:
+				System.out.println("howdy");
+				break;
 		}
 		gridLayout.setLayoutX(locationX);
 		gridLayout.setLayoutY(locationY);
-		System.out.println("wat5");
 		stepCount++;
 	}
 
@@ -227,19 +236,26 @@ public class VoogaAnimation implements Observer {
 		//gridLayout.setLayoutY(gridLayout.getLayoutY() + 1000);
 		if (isAnimationOver())
 			return;
-
+		//fixed the urls
 		switch (instruction) {
 			case UP:
-				changePlayerImage(playerNumber + "NorthFacing.png");
+				changePlayerImage("1-up.png");
 				break;
 			case DOWN:
-				changePlayerImage(playerNumber + "SouthFacing.png");
+				//changePlayerImage(playerNumber + "SouthFacing.png");
+				changePlayerImage("1-down.png");
+
 				break;
 			case RIGHT:
-				changePlayerImage(playerNumber + "EastFacing.png");
+				//changePlayerImage(playerNumber + "EastFacing.png");
+				changePlayerImage("1-right.png");
 				break;
 			case LEFT:
-				changePlayerImage(playerNumber + "WestFacing.png");
+				//changePlayerImage(playerNumber + "WestFacing.png");
+				changePlayerImage("1-left.png");
+				break;
+			case TALK:
+				System.out.println("talkinging");
 				break;
 		}
 		stepCount = stepCount + 10;

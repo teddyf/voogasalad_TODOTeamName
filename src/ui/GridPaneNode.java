@@ -12,8 +12,7 @@ public class GridPaneNode {
     //private int typeNum;
     private String name;
     private ImageView imageView;
-    private final String DEFAULT_IMAGE_PATH = "resources/Default.png";
-    
+
     /**
      * Constructor for GridPaneNode 
      * @param row Row for node to be placed
@@ -37,9 +36,7 @@ public class GridPaneNode {
         imageView.setX(x);
         imageView.setY(y);
     }
-    public void displayOptions(){
-        System.out.println(row + " " + col);
-    }
+
     public void setImageSize(double x, double y){
         this.imageView.setFitWidth(x);
         this.imageView.setFitHeight(y);
@@ -70,6 +67,14 @@ public class GridPaneNode {
     
     public int getCol(){
         return col;
+    }
+
+    public int getBackendRow() {
+        return getRow() - 5;
+    }
+
+    public int getBackendCol(){
+        return getCol() - 5;
     }
     
     public String getType(){

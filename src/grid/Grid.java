@@ -2,6 +2,7 @@ package grid;
 
 import api.IGrid;
 import block.*;
+
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -11,34 +12,53 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
  * The rectangular grid in which all the block ui.scenes.editor.objects may be placed.
+ *
  * @author Filip Mazurek, Aninda Manocha, Daniel Chai
  */
 
 @XStreamAlias("grid")
 public class Grid extends Observable implements IGrid {
-	@XStreamOmitField
-	private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
-	private int myIndex;
+    @XStreamOmitField
+    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
+    private int myIndex;
     private int myNumRows;
-    private int myNumColumns;
-    
+    private int myNumCols;
+
     @XStreamImplicit
     private Block[][] myGrid;
 
     public Grid(int index, int numRows, int numColumns) {
         myIndex = index;
         myNumRows = numRows;
-        myNumColumns = numColumns;
+        myNumCols = numColumns;
         myGrid = new Block[numRows][numColumns];
         initializeGrid();
     }
 
     private void initializeGrid() {
-        for(int i = 0; i < myNumRows; i++) {
-            for(int j = 0; j < myNumColumns; j++) {
-                myGrid[i][j] = new DecorationBlock("resources/Default.png", i, j);
+        for (int i = 0; i < myNumRows; i++) {
+            for (int j = 0; j < myNumCols; j++) {
+                myGrid[i][j] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", i, j);
             }
         }
+    }
+
+    public void resize(int numRows, int numCols, int rowStart, int rowEnd, int rowOffset, int colStart, int colEnd, int colOffset) {
+        Block[][] newGrid = new Block[numRows][numCols];
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                if (row < rowStart || row >= rowEnd || col < colStart || col >= colEnd) {
+                    newGrid[row][col] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", row, col);
+                } else {
+                    newGrid[row][col] = myGrid[row + rowOffset][col + colOffset];
+                }
+            }
+        }
+        myGrid = newGrid;
+    }
+
+    public int getIndex() {
+        return myIndex;
     }
 
     public int getNumRows() {
@@ -46,19 +66,11 @@ public class Grid extends Observable implements IGrid {
     }
 
     public int getNumCols() {
-        return myNumColumns;
-    }
-
-    public int getIndex() {
-        return myIndex;
-    }
-
-    public Grid getGrid() {
-        return this;
+        return myNumCols;
     }
 
     public Block getBlock(int row, int col) {
-        if (row < 0 || row >= myNumRows || col < 0 || col >= myNumColumns) {
+        if (row < 0 || row >= myNumRows || col < 0 || col >= myNumCols) {
             return null;
         } else {
             return myGrid[row][col];

@@ -1,5 +1,4 @@
 package api;
-
 import java.util.List;
 
 import editor.backend.Battle;
@@ -8,12 +7,10 @@ import editor.backend.Item;
 import editor.backend.Status;
 import player.PlayerAttribute;
 import player.PlayerDirection;
-
 /**
  * The player interface
  * @author Aninda Manocha
  */
-
 public interface IPlayer {
 	
 	/**
@@ -21,13 +18,11 @@ public interface IPlayer {
 	 * @return the name
 	 */
 	public String getPlayerName();
-
 	/**
 	 * Gets the direction of the player
 	 * @return the direction
 	 */
 	public PlayerDirection getDirection();
-
 	/**
 	 * Gets the row that the player is located in
 	 * @return the row
@@ -39,13 +34,11 @@ public interface IPlayer {
 	 * @return the column
 	 */
 	public int getCol();
-
 	/**
 	 * Gets a list of all of the attributes of the player
 	 * @return the list of attributes
 	 */
 	public List<PlayerAttribute> getAttributes();
-
  	/**
 	 * Gets the list of all items that the player possesses
 	 * @return the list of items
@@ -69,31 +62,26 @@ public interface IPlayer {
 	 * @return the list of statuses
 	 */
 	public List<Status> getPlayerStatus();
-
 	/**
 	 * Sets the direction (orientation) of the player
 	 * @param direction - the direction of the player
 	 */
 	public void setDirection(PlayerDirection direction);
-
 	/**
 	 * Sets the row of the player
 	 * @param row - the row of the grid that the player should be moved to
 	 */
 	public void setRow(int row);
-
 	/**
 	 * Sets the column of the player
 	 * @param col - the column of the grid that the player should be moved to
 	 */
 	public void setCol(int col);
-
 	/**
 	 * Adds an attribute to the list of attributes
 	 * @param attribute the attribute to add
 	 */
 	public void addAttribute(PlayerAttribute attribute);
-
 	/**
 	 * Adds an item to the inventory 
 	 * @param item - the item to add

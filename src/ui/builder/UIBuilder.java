@@ -9,16 +9,14 @@ import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
 
-
 /**
- * @author Harshil Garg, Robert Steilberg
+ * @author Harshil Garg, Robert Steilberg, Aninda Manocha
  *         <p>
  *         This class is used to build JavaFX ui.scenes.editor.objects and add them to the stage.
  *         <p>
  *         Dependencies: ComponentBuilder, ButtonBuilder, ImageViewBuilder, LabelBuilder
  */
 public class UIBuilder {
-
     private ComponentBuilder alertBuilder;
     private ComponentBuilder buttonBuilder;
     private ComponentBuilder imageViewBuilder;
@@ -205,10 +203,21 @@ public class UIBuilder {
                 .text(text)));
     }
 
+    public Node addCustomTextField(Parent layout, String text, int x, int y, int width, int height) {
+        return addComponent(layout, textFieldBuilder.createComponent(new ComponentProperties(x, y)
+                .width(width)
+                .text(text)
+                .height(height)));
+    }
+
     public Node addNewAlert(String header, String content) {
         return alertBuilder.createComponent(new ComponentProperties()
                 .header(header)
                 .content(content));
+    }
+
+    public Node addNewAlert(Parent layout, ComponentProperties properties) {
+        return alertBuilder.createComponent(properties);
     }
 
     /**
@@ -228,5 +237,4 @@ public class UIBuilder {
         currStage.centerOnScreen();
         currStage.show();
     }
-
 }

@@ -5,9 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import resources.properties.PropertiesUtilities;
-import ui.UILauncher;
 import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
@@ -20,24 +18,30 @@ import java.util.ResourceBundle;
  */
 public class SizeChooserUI extends Scene {
 
-    private static final String SIZE_CHOOSER_RESOURCES = "resources/properties/size-chooser";
+    static final String SIZE_CHOOSER_RESOURCES = "resources/properties/size-chooser";
     private static final String CSS_FILE_NAME = "resources/styles/size-chooser.css";
-    private Stage myStage;
-    private Parent myRoot;
-    private UIBuilder myBuilder;
-    private ResourceBundle myResources;
-    private PropertiesUtilities myUtil;
-    private GameEditor myEditor;
+    private static Parent myRoot;
+    private static UIBuilder myBuilder;
+    private static ResourceBundle myResources;
+    private static PropertiesUtilities myUtil;
+    private static EditorView myEditor;
+    private static int chosenGridHeight;
+    private static int chosenGridWidth;
 
-    public SizeChooserUI(Stage stage, Parent root, GameEditor editor, UILauncher launcher, UIBuilder builder) {
+    SizeChooserUI(EditorView editor, Parent root) {
         super(root, Color.web("#0585B2"));
-        myStage = stage;
         myRoot = root;
         myEditor = editor;
-        myBuilder = builder;
+        myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER_RESOURCES);
         myUtil = new PropertiesUtilities(myResources);
         root.getStylesheets().add(CSS_FILE_NAME);
+        init();
+    }
+
+    private void setChosenDimension(int height, int width) {
+        chosenGridHeight = height;
+        chosenGridWidth = width;
     }
 
     /**
@@ -48,6 +52,7 @@ public class SizeChooserUI extends Scene {
         Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty("maxDim"));
         if (result != null) {
             myEditor.launchEditor(result.width(), result.height());
+            setChosenDimension(result.width(),result.height());
         }
     }
 
@@ -64,6 +69,7 @@ public class SizeChooserUI extends Scene {
         Node smallButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         int smallSize = myUtil.getIntProperty("smallSize");
         smallButton.setOnMouseClicked(e -> myEditor.launchEditor(smallSize, smallSize));
+//        smallButton.setOnMouseClicked(e -> setChosenDimension(smallSize,smallSize));
         // create medium button
         xPos = myUtil.getIntProperty("medButtonX");
         yPos = myUtil.getIntProperty( "medButtonY");
@@ -71,6 +77,7 @@ public class SizeChooserUI extends Scene {
         Node medButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         int medSize = myUtil.getIntProperty("medSize");
         medButton.setOnMouseClicked(e -> myEditor.launchEditor(medSize, medSize));
+//        medButton.setOnMouseClicked(e -> setChosenDimension(medSize,medSize));
         // create large button
         xPos = myUtil.getIntProperty("largeButtonX");
         yPos = myUtil.getIntProperty( "largeButtonY");
@@ -78,6 +85,7 @@ public class SizeChooserUI extends Scene {
         Node largeButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         int largeSize = myUtil.getIntProperty( "largeSize");
         largeButton.setOnMouseClicked(e -> myEditor.launchEditor(largeSize, largeSize));
+//        largeButton.setOnMouseClicked(e -> setChosenDimension(largeSize,largeSize));
         // create custom button
         xPos = myUtil.getIntProperty("customButtonX");
         yPos = myUtil.getIntProperty( "customButtonY");
@@ -97,41 +105,14 @@ public class SizeChooserUI extends Scene {
         String font = myResources.getString("font");
         int size = myUtil.getIntProperty("promptSize");
         myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
-
-//        // create small size text
-//        String CSSid = myResources.getString("dimCSSid");
-//        size = myUtil.getIntProperty(myResources, "dimTextSize");
-//        xPos = myUtil.getIntProperty(myResources, "smallTextX");
-//        yPos = myUtil.getIntProperty(myResources, "dimTextY");
-//        String dim = myResources.getString("smallSize");
-//        text = dim + "X" + dim;
-//        Node label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
-//        label.setId(CSSid);
-//
-//        // create medium size text
-//        xPos = myUtil.getIntProperty(myResources, "medTextX");
-//        dim = myResources.getString("medSize");
-//        text = dim + "X" + dim;
-//        label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
-//        label.setId(CSSid);
-//
-//        // create large size text
-//        xPos = myUtil.getIntProperty(myResources, "largeTextX");
-//        dim = myResources.getString("largeSize");
-//        text = dim + "X" + dim;
-//        label = myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
-//        label.setId(CSSid);
-
     }
 
     /**
      * Creates a window that prompts the user to choose an initial overworld size
      */
-    void promptUserForSize() {
-        myBuilder.initWindow(myStage, SIZE_CHOOSER_RESOURCES);
+    private void init() {
         setButtons();
         setText();
-        myStage.setScene(this);
     }
 }
 

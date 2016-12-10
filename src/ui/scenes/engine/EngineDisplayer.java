@@ -5,8 +5,6 @@ import java.util.Observer;
 
 import engine.EngineController;
 import engine.GameInstance;
-import resources.properties.PropertiesUtilities;
-import ui.GridPane;
 
 public class EngineDisplayer implements Observer {
 	

@@ -1,6 +1,6 @@
 package ui;
 
-import ui.scenes.editor.GameEditor;
+import ui.scenes.editor.EditorView;
 import ui.scenes.engine.GameEngine;
 import ui.builder.UIBuilder;
 import ui.scenes.AttributeEditor;
@@ -10,7 +10,6 @@ import editor.EditorController;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.util.*;
 
 /**
  * @author Harshil Garg, Robert Steilberg
@@ -24,7 +23,7 @@ public class UILauncher {
 
     private Stage myStage;
     private MainMenu myMainMenu;
-    EditorController myController;
+    private EditorController myController;
     private Scene prevEditor;
     private Scene prevCharEditor;
 
@@ -48,7 +47,7 @@ public class UILauncher {
      * Navigates to the game editor
      */
     public void launchEditor() {
-        GameEditor editor = new GameEditor(myStage, new Group(), this, myController);
+        EditorView editor = new EditorView(myStage, new Group(), this, myController);
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
            e.consume();
@@ -88,7 +87,7 @@ public class UILauncher {
     
     public void goToPrevEditor(UIBuilder builder){  
         myStage.setScene(prevEditor);
-        String path = ((GameEditor) prevEditor).getPath();
+        String path = ((EditorView) prevEditor).getPath();
         builder.initWindow(myStage,path);
     }
     
