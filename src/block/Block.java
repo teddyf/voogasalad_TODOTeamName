@@ -44,15 +44,16 @@ public abstract class Block extends Observable implements IBlock {
         }
         return (myStepInteractions.size() > 0);
     }
-    public boolean talkInteract(Player player, String message){
+    public List<BlockUpdate> talkInteract(Player player, String message){
+        List<BlockUpdate> blockUpdates = new ArrayList<>();
         for(TalkInteraction interaction : getTalkInteractions()) {
-            getBlockUpdates().addAll(interaction.act(player));
+           blockUpdates.addAll(interaction.act(player));
         }
-        //for(TalkInteraction interaction : getTalkInteractions()) {
-        //    interaction.displayMessage(message);
-        //    doMessage();
-        //}
-        return (getTalkInteractions().size() > 0);
+        for(TalkInteraction interaction : getTalkInteractions()) {
+            interaction.displayMessage(message);
+            doMessage();
+        }
+        return blockUpdates;
     }
 
 
