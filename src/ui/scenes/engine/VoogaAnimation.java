@@ -83,18 +83,15 @@ public class VoogaAnimation implements Observer {
 	
 	
 	public void handleKeyPress(KeyEvent e) {
-		System.out.println("hi1");
 		UserInstruction instruction = convertKeyCode(e.getCode());
 		if (!stack.contains(instruction))
 			stack.push(instruction);
 		if (!stack.isEmpty() && finished) {
-			System.out.println(instruction + "ENTERING ENGINE");
 			ec.keyListener(instruction);
 		}
 	}
 
 	public void handleKeyRelease(KeyEvent e) {
-		System.out.println("hi2");
 		UserInstruction instruction = convertKeyCode(e.getCode());
 		if (stack.contains(instruction))
 			stack.remove(instruction);
@@ -152,14 +149,12 @@ public class VoogaAnimation implements Observer {
 	@Override
 	public void update(Observable observable, Object value) {
 		//if (observable instanceof GameInstance) {
-			System.out.println("wat28");
 			PlayerUpdate update = (PlayerUpdate) value;
 			updatePlayer(update);
 		//}
 	}
 
 	private void updatePlayer(PlayerUpdate update) {
-        System.out.println(update + "UPDATING");
 		if (update == PlayerUpdate.ROW || update == PlayerUpdate.COLUMN) {
 			processMove(stack.peek());
 		}
@@ -170,10 +165,8 @@ public class VoogaAnimation implements Observer {
 
 	private void processMove(UserInstruction key) {
 		if (!keyBindings.values().contains(key)) {
-			System.out.println("wat1");
 			return;
 		}
-		System.out.println("wat2");
 		finished = false;
 		animateMove(key);
 	}
@@ -184,11 +177,9 @@ public class VoogaAnimation implements Observer {
 		animation.getKeyFrames().add(new KeyFrame(Duration.millis(duration/maxSteps),
 				e -> move(instruction)));
 		animation.play();
-		System.out.println("wat3");
 	}
 
 	private void move(UserInstruction instruction) {
-		System.out.println("INSTRUCTIONS" + instruction);
 		if (isAnimationOver())
 			return;
 		double locationX = gridLayout.getLayoutX();
@@ -205,9 +196,6 @@ public class VoogaAnimation implements Observer {
 				break;
 			case RIGHT:
 				locationX -= pixelMovement;
-				break;
-			case TALK:
-				System.out.println("howdy");
 				break;
 		}
 		gridLayout.setLayoutX(locationX);
@@ -253,9 +241,6 @@ public class VoogaAnimation implements Observer {
 			case LEFT:
 				//changePlayerImage(playerNumber + "WestFacing.png");
 				changePlayerImage("1-left.png");
-				break;
-			case TALK:
-				System.out.println("talkinging");
 				break;
 		}
 		stepCount = stepCount + 10;
