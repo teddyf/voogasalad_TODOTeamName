@@ -1,7 +1,6 @@
 package battle.model;
 
 import java.util.Observable;
-
 import battle.controller.BattleModelInView;
 import battle.view.BattleView;
 import block.EnemyBlock;
@@ -51,19 +50,19 @@ public class BattleModel extends Observable implements BattleModelInView {
 			//timeline.stop();
 			playerLost = true;
 		}
-		
+
 		player.setHealth(playerHP);
 		setChanged();
 		notifyObservers();
 	}
-	
+
 	@Override
 	public void setEnemyHP(double enemyHP) {
 		if (enemyHP <= 0) {
 			//timeline.stop();
 			playerWon = true;
 		}
-		
+
 		enemy.setHealth(enemyHP);
 		setChanged();
 		notifyObservers();

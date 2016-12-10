@@ -122,18 +122,7 @@ public class MainMenu extends Scene {
         prop.text("PLZWORK");
         prop.height(50);
         prop.width(200);
-        Node WORK = myBuilder.addDialogBubble(myRoot, myStage, prop);
-        WORK.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()  {
-			public void handle(final MouseEvent keyEvent) {
-                if (keyEvent.getEventType() == MouseEvent.MOUSE_CLICKED) {
-//                    removeComponent(layout, dialogNode);
-                	myBuilder.removeComponent(myRoot, WORK);
-                	WORK.setVisible(false);
-                    keyEvent.consume();
-                }
-			}
-	
-		});
+        myBuilder.addDialogBubble(myRoot, myStage, prop, 300, 400);
     }
     
     public String getPath(){

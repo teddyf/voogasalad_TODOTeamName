@@ -1,6 +1,5 @@
 package ui.scenes.editor.sidemenu;
 
-import block.Block;
 import block.BlockType;
 import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.MultipleBlockGameObject;
@@ -14,7 +13,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * Created by Harshil Garg on 12/7/16.
+ * @author Harshil Garg
  */
 public class ItemViewer {
 
@@ -24,45 +23,12 @@ public class ItemViewer {
 
     private GameObject selected = null;
 
- /*   public List<GameObject> getObjects(BlockType type) {
+
+    List<GameObject> getObjects(BlockType type) {
         String directory = root_path + type.name().toLowerCase();
         File file = new File(directory);
-        String [] contents = file.list();
-        Set<String> imagePrefixes = new HashSet<>();
-
-        for (int i = 0; i < contents.length; i++) {
-            if (contents[i].contains(extension)) {
-                contents[i] = contents[i].replace(extension, "");
-                imagePrefixes.add(contents[i]);
-            }
-            if (!contents[i].contains(".")) {
-                filteredPaths.add(image_root_path + type.name().toLowerCase() + "/" + contents[i] + extension);
-            }
-        }
-
-
-        List<String> filteredPaths = new ArrayList<>();
-
-        System.out.println(filteredPaths);
+        String[] contents = file.list();
         List<GameObject> items = new ArrayList<>();
-
-        for (int i = 0; i < filteredPaths.size(); i++) {
-            String path = filteredPaths.get(i);
-            GameObject item = new SingleBlockGameObject(path, type);
-            items.add(item);
-        }
-        System.out.println(items);
-        return items;
-    }
-*/
-    public List<GameObject> getObjects(BlockType type) {
-        String directory = root_path + type.name().toLowerCase();
-        File file = new File(directory);
-        String [] contents = file.list();
-
-        List<GameObject> items = new ArrayList<>();
-
-
         Map<String, ArrayList<String>> map = new HashMap<>();
         for (String content : contents) {
             String prefix = content.substring(0, content.indexOf('.'));
@@ -74,7 +40,6 @@ public class ItemViewer {
                 map.put(prefix, list);
             }
         }
-
         for (String key : map.keySet()) {
             ArrayList<String> value = map.get(key);
             if (value.size() == 1)
@@ -82,14 +47,11 @@ public class ItemViewer {
             else
                 items.add(buildMultipleItem(key, value, type));
         }
-
         return items;
-
     }
 
     private GameObject buildSingleItem(String prefix, BlockType type) {
-        String iconPath = image_root_path + type.name().toLowerCase() + "/" + prefix + extension;
-        return new SingleBlockGameObject(iconPath, type);
+        return new SingleBlockGameObject(getFullURIFileName(prefix, type), type);
     }
 
     private GameObject buildMultipleItem(String prefix, ArrayList<String> list, BlockType type) {
@@ -102,7 +64,7 @@ public class ItemViewer {
                 continue;
             }
             String temp = s.substring(firstIndex + 1, lastIndex);
-            String [] dimensions = temp.split("_");
+            String[] dimensions = temp.split("_");
             int row = Integer.parseInt(dimensions[0]);
             int col = Integer.parseInt(dimensions[1]);
             if (row > maxRow)
@@ -111,17 +73,20 @@ public class ItemViewer {
                 maxCol = col;
         }
 
-        String iconPath = image_root_path + type.name().toLowerCase() + "/" + prefix + extension;
-        return new MultipleBlockGameObject(iconPath, type, maxRow, maxCol);
+        return new MultipleBlockGameObject(getFullURIFileName(prefix, type), type, maxRow, maxCol);
 
     }
 
+    private String getFullURIFileName(String prefix, BlockType type) {
+        File file = new File(root_path + type.name().toLowerCase() + "/" + prefix + extension);
+        return file.toURI().toString();
+    }
 
-    public void select(GameObject obj) {
+    void select(GameObject obj) {
         selected = obj;
     }
 
-    public GameObject getSelected() {
+    GameObject getSelected() {
         return selected;
     }
 

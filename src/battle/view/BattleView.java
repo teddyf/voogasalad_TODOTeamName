@@ -2,11 +2,14 @@ package battle.view;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.TimeUnit;
 
 import battle.model.*;
 import battle.controller.BattleModelInView;
-import battle.view.WinConditionView;
+import battle.WinConditionView;
 import block.EnemyBlock;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -52,7 +55,7 @@ public class BattleView implements Observer {
 	private ImageView backgroundView;
 	private EnemyView enemy;
 	private PlayerView player;
-	private Button reduceHP;
+	private BattleButton reduceHP;
 	private HealthDisplay enemyHealth;
 	private HealthDisplay playerHealth;
 	
@@ -83,21 +86,20 @@ public class BattleView implements Observer {
 	}
 
 	private void addButtons(int x, int y, String text) {
-		reduceHP = new Button();
-		reduceHP.setText(text);
-		reduceHP.setLayoutX(x);
-		reduceHP.setLayoutY(y);
-		root.getChildren().add(reduceHP);
+		reduceHP = new BattleButton(text, x, y);
+        reduceHP.addToGroup(root);
+        addReduceHandler();
+	}
+	private void addReduceHandler(){
+		EventHandler<ActionEvent> event = actionEvent -> {
+            if(!(model.checkPlayerLost() || model.checkPlayerWon())) {
+                model.setEnemyHP(model.getEnemyHP() - (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH/difficulties.get(gameDifficulty));
+                model.setPlayerHP(model.getPlayerHP() - (Math.random()) * difficulties.get(gameDifficulty)/3.3);
+            }
+        };
+		reduceHP.addHandler(event);
 	}
 
-	protected void addHandlers() {
-		reduceHP.setOnAction(actionEvent -> {
-            if(!(model.checkPlayerLost() || model.checkPlayerWon())) {
-            	model.setEnemyHP(model.getEnemyHP() - (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH/difficulties.get(gameDifficulty));
-				model.setPlayerHP(model.getPlayerHP() - (Math.random()) * difficulties.get(gameDifficulty)/3.3);
-            }
-		});
-	}
 
 	@Override
 	public void update(Observable o, Object arg) {
@@ -128,7 +130,6 @@ public class BattleView implements Observer {
 		root.getChildren().addAll(enemyHealth.getGroup(),playerHealth.getGroup());
 		enemy.addToGroup(root);
 		player.addToGroup(root);
-		addHandlers();
 	}
 	private void win(BattleModel model){
 		model.addBattleWon();

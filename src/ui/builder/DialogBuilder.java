@@ -1,15 +1,15 @@
 package ui.builder;
 
 
+import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.text.TextAlignment;
+import javafx.util.Duration;
 
 public class DialogBuilder extends ComponentBuilder {
 	private static final String imagePath = "/resources/images/dialog/";
@@ -35,6 +35,14 @@ public class DialogBuilder extends ComponentBuilder {
 		dialogBubble.getChildren().addAll(dialogImage, textArea);
 		textArea.setLayoutX(properties.width/10);
 		return dialogBubble;
+	}
+	
+	public FadeTransition fadeNode(Node node) {
+		FadeTransition fade = new FadeTransition(Duration.seconds(2), node);
+		System.out.println("FADE");
+        fade.setFromValue(1.0);
+        fade.setToValue(0.0);
+        return fade;
 	}
 	
 }

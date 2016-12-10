@@ -6,14 +6,11 @@ import java.util.ResourceBundle;
 
 import editor.EditorController;
 import resources.properties.PropertiesUtilities;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
-import javafx.scene.effect.ColorAdjust;
-import javafx.scene.layout.FlowPane;
 import ui.builder.UIBuilder;
 
+@Deprecated
 public class PlayerMenuUI implements Observer {
 
 	private Parent myRoot;
@@ -71,10 +68,10 @@ public class PlayerMenuUI implements Observer {
     private DraggableTabPane createPlayerPanel() {
         PropertiesUtilities util = new PropertiesUtilities(myResources);
         DraggableTabPane playerPanel = new DraggableTabPane();
-        playerPanel.setLayoutX(util.getIntProperty("sideMenuX"));
-        playerPanel.setLayoutY(util.getIntProperty( "sideMenuY"));
-        playerPanel.setMinWidth(util.getIntProperty( "sideMenuWidth"));
-        playerPanel.setMinHeight(util.getIntProperty( "sideMenuHeight"));
+        playerPanel.setLayoutX(util.getIntProperty("sidePanelX"));
+        playerPanel.setLayoutY(util.getIntProperty("sidePanelY"));
+        playerPanel.setMinWidth(util.getIntProperty("sidePanelWidth"));
+        playerPanel.setMinHeight(util.getIntProperty("sidePanelHeight"));
         return playerPanel;
     }
     

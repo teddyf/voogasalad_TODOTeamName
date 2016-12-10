@@ -1,14 +1,11 @@
 
 package ui.scenes;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 import editor.EditorController;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
-import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
 
@@ -154,8 +150,8 @@ public class CharacterEditor extends Scene{
     }
     
     private void addDefaultPlayers(){
-        imagePaths.add("resources/images/tiles/sprites/player-1-north-facing.png");
-        imagePaths.add("resources/images/tiles/sprites/player-1-south-facing.png");
+        imagePaths.add("resources/images/sprites/1-up.png");
+        imagePaths.add("resources/images/sprites/1-down.png");
     }
     
     
