@@ -44,13 +44,17 @@ public abstract class Block extends Observable implements IBlock {
         }
         return (myStepInteractions.size() > 0);
     }
-
-    public boolean talkInteract(Player player){
-        for(Interaction interaction : myTalkInteractions) {
-            blockUpdates.addAll(interaction.act(player));
+    public boolean talkInteract(Player player, String message){
+        for(TalkInteraction interaction : getTalkInteractions()) {
+            getBlockUpdates().addAll(interaction.act(player));
         }
-        return (myTalkInteractions.size() > 0);
+        //for(TalkInteraction interaction : getTalkInteractions()) {
+        //    interaction.displayMessage(message);
+        //    doMessage();
+        //}
+        return (getTalkInteractions().size() > 0);
     }
+
 
     public void doMessage() {
         setChanged();
@@ -117,7 +121,9 @@ public abstract class Block extends Observable implements IBlock {
     }
 
     /*****SETTERS******/
-
+    public void setMessage(String message){
+        this.myMessage = message;
+    }
     protected void setWalkableStatus(boolean status) {
         isWalkable = status;
     }
