@@ -46,11 +46,13 @@ public class ImageCropper {
                     try {
                         ImageIO.write(dst[i][j], "png", new File(myNewPath));
                     } catch (IOException e) {
+                        System.out.println("imagecrop");
                         e.printStackTrace();
                     }
                 }
             }
         } catch (IOException e) {
+            System.out.println("imagecropout");
             e.printStackTrace();
         }
     }

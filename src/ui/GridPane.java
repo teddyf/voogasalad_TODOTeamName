@@ -15,7 +15,7 @@ import editor.EditorController;
 public class GridPane {
 
     private final int WRAP = 10;
-    private final int CELL_PIXELS = 20;
+    private final int CELL_PIXELS = 30;
 
     private Group group;
     private List<GridPaneNode> blockList;
@@ -93,6 +93,7 @@ public class GridPane {
 
     public void setRenderMap () {
         group = new Group();
+        System.out.println(blockList.size());
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());
@@ -267,7 +268,7 @@ public class GridPane {
 
     private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
         if (gameObject instanceof Player1) {
-            control.addPlayer(temp.getName(), temp.getBackendRow(), temp.getBackendCol());
+            control.addPlayer(temp.getName(), "name", temp.getBackendRow(), temp.getBackendCol());
             control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getBackendRow(),
                              temp.getBackendCol());
         }

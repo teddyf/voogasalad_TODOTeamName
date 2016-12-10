@@ -1,11 +1,9 @@
 package editor;
 
+import api.IEditorController;
 import block.BlockType;
 import engine.EngineController;
-import exceptions.BadPlayerPlacementException;
-import exceptions.DuplicatePlayerException;
-import exceptions.LargeGridException;
-import exceptions.NoPlayerException;
+import exceptions.*;
 import grid.GridGrowthDirection;
 import ui.scenes.editor.GameEditorAlerts;
 
@@ -15,7 +13,7 @@ import ui.scenes.editor.GameEditorAlerts;
  * @author Aninda Manocha, Filip Mazurek
  */
 
-public class EditorController {
+public class EditorController implements IEditorController {
 
     private final EditorModel myModel;
     private GameEditorAlerts myAlerts;
@@ -29,6 +27,8 @@ public class EditorController {
         myAlerts = alerts;
     }
 
+    /***** GRID METHODS *****/
+
     public void addGrid(int numRows, int numCols) {
         myModel.addGrid(numRows, numCols);
     }
@@ -36,6 +36,22 @@ public class EditorController {
     public void changeGrid(int index) {
         myModel.changeGrid(index);
     }
+
+    public boolean changeGridSize(GridGrowthDirection direction, int amount) {
+        try {
+            return myModel.changeGridSize(direction, amount);
+        } catch (LargeGridException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+        } catch (DeletePlayerWarning e) {
+            if (myAlerts.warnUser(e.getMessage())) {
+                return myModel.shrinkGrid(direction, amount);
+            }
+            return false;
+        }
+        return false;
+    }
+
+    /***** BLOCK METHODS *****/
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
         myModel.addBlock(name, blockType, row, col);
@@ -54,13 +70,18 @@ public class EditorController {
     }
 
     public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        return unlinkBlocks(row1, col1, index1, row2, col2, index2);
+        return myModel.unlinkBlocks(row1, col1, index1, row2, col2, index2);
     }
 
-    public boolean addPlayer(String name, int row, int col) {
+    public String getBlock(int row, int col) {
+        return myModel.getBlock(row, col);
+    }
+
+    /***** PLAYER METHODS *****/
+
+    public boolean addPlayer(String name, String playerName, int row, int col) {
         try {
-            System.out.println("added player");
-            return myModel.addPlayer(name, row, col);
+            return myModel.addPlayer(name, playerName, row, col);
         }
         catch (BadPlayerPlacementException e) {
             myAlerts.exceptionDisplay(e.getMessage());
@@ -72,82 +93,32 @@ public class EditorController {
         }
     }
 
-    public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
-        myModel.addPlayerAttribute(name, amount, increment, decrement);
+    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) {
+        return myModel.addPlayerAttribute(name, amount, increment, decrement);
     }
 
-    public void movePlayer(int row, int col) {
-        myModel.movePlayer(row, col);
+    public boolean movePlayer(int row, int col) {
+        return myModel.movePlayer(row, col);
     }
 
-    /** shrinks the grid the appropriate amount from the appropriate direction
-     * @param amount: positive int of how much the grid should shrink
-     */
-    public void shrinkGrid(GridGrowthDirection direction, int amount) {
-        //myModel.shrinkGrid(direction, amount);
-    }
-
-    public void growGrid(GridGrowthDirection direction, int amount) {
-        try {
-            myModel.growGrid(direction, amount);
-        }
-        catch(LargeGridException e) {
-            myAlerts.exceptionDisplay(e.getMessage());
-        }
-    }
-
-
-
-    /*****METHODS FOR FRONTEND TO CALL*****/
-
-    /**
-     * Gets the row in which the player is located
-     * @return the row
-     */
-    public int getRow() {
+    public int getPlayerRow() {
         return myModel.getPlayer().getRow();
     }
 
-    /**
-     * Gets the column in which the player is located
-     * @return the column
-     */
-    public int getCol() {
+    public int getPlayerCol() {
         return myModel.getPlayer().getCol();
     }
 
-    /**
-     * Gets the block located in a specific row and column
-     * @param row - the specific row
-     * @param col - the specific column
-     * @return the block
-     */
-    public String getBlock(int row, int col) {
-        return myModel.getBlock(row, col);
-    }
+    /***** DATA METHODS *****/
 
-    /**
-     * Saves the editor by taking in the name of the file to contain the information and calling the data handling
-     * method
-     * @param file - the name of the file containing the editor information
-     */
     public void saveEditor(String file) {
         myModel.saveEditor(file);
     }
 
-    /**
-     * Loads an editor that is stored in a specific file by calling the data handling method and storing the grid world
-     * and player
-     * @param file - the specific file
-     */
     public void loadEditor(String file) {
         myModel.loadEditor(file);
     }
 
-    /**
-     *
-     * @param file
-     */
     public void saveEngine(String file) {
         try {
             myModel.saveEngine(file);

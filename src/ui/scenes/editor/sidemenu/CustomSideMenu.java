@@ -75,6 +75,7 @@ public class CustomSideMenu extends SideMenu {
                     new ImageCropper(destination.toString(), r, c);
                 }
             } catch (IOException e) {
+                System.out.println("customsmide");
                 e.printStackTrace();
             }
 

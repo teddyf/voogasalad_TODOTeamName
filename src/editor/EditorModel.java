@@ -5,10 +5,7 @@ import block.BlockFactory;
 import block.BlockType;
 import block.CommunicatorBlock;
 import engine.EngineController;
-import exceptions.BadPlayerPlacementException;
-import exceptions.DuplicatePlayerException;
-import exceptions.LargeGridException;
-import exceptions.NoPlayerException;
+import exceptions.*;
 import grid.Grid;
 import grid.GridGrowthDirection;
 import grid.GridWorld;
@@ -42,63 +39,67 @@ public class EditorModel {
         currentGrid = gridWorld.changeGrid(index);
     }
 
-    public boolean changeGridSize(GridGrowthDirection direction, int amount) throws LargeGridException {
+    public boolean changeGridSize(GridGrowthDirection direction, int amount) throws LargeGridException, DeletePlayerWarning {
         if (amount >= 0) {
             return growGrid(direction, amount);
+        }
+        return checkShrink(direction, amount);
+    }
+
+    /**
+     * Determines if the grid can shrink without deleting the player. If not, the user receives a warning about deleting
+     * the player.
+     * @param direction - the direction in which to shrink the grid
+     * @param amount - the amount by which the grid size should shrink
+     * @return whether the grid can shrink without deleting the player
+     * @throws DeletePlayerWarning
+     */
+    private boolean checkShrink(GridGrowthDirection direction, int amount) throws DeletePlayerWarning {
+        switch (direction) {
+            case TOP:
+                if (player.getRow() < amount) {
+                    throw new DeletePlayerWarning();
+                }
+            case BOTTOM:
+                if(player.getRow() >= currentGrid.getNumRows() - amount) {
+                    throw new DeletePlayerWarning();
+                }
+            case RIGHT:
+                if(player.getCol() >= currentGrid.getNumCols() - amount) {
+                    throw new DeletePlayerWarning();
+                }
+            case LEFT:
+                if(player.getCol() < amount) {
+                    throw new DeletePlayerWarning();
+                }
         }
         return shrinkGrid(direction, amount);
     }
 
-    private boolean deletePlayer() {
-        return false;
-    }
-
-    /** shrinks the grid the appropriate amount from the appropriate direction
-     * @param amount: positive int of how much the grid should shrink
-     */
     public boolean shrinkGrid(GridGrowthDirection direction, int amount) {
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
         rowOffset = colOffset = rowStart = colStart = 0;
-
         switch (direction) {
-            case NORTH:
-                if (player.getRow() < amount && !deletePlayer()) {
-                    //TODO warning message "your player is out of bounds and is about to be deleted. Continue?"
-                    // if yes, player = null, continue
-                    // if no, return
-                    return false;
-                }
+            case TOP:
                 numRows -= amount;
                 rowOffset = amount;
                 player.setRow(player.getRow() - rowOffset);
                 break;
-            case SOUTH:
+            case BOTTOM:
                 numRows -= amount;
-                if(player.getRow() > numRows && !deletePlayer()) {
-                    //TODO warning message
-                    return false;
-                }
                 break;
-            case EAST:
+            case RIGHT:
                 numCols -= amount;
-                if(player.getCol() > numCols && !deletePlayer()) {
-                    //TODO warning message
-                    return false;
-                }
                 break;
-            case WEST:
-                if(player.getCol() < amount && !deletePlayer()) {
-                    //TODO warning message
-                    return false;
-                }
+            case LEFT:
                 numCols -= amount;
                 colOffset = amount;
                 player.setCol(player.getCol() - colOffset);
                 break;
         }
-        currentGrid.resize(numRows, numCols, rowOffset, rowEnd, rowOffset, colOffset, colEnd, colOffset);
+        currentGrid.resize(numRows, numCols, rowStart, rowEnd, rowOffset, colStart, colEnd, colOffset);
         return true;
     }
 
@@ -109,19 +110,19 @@ public class EditorModel {
         rowOffset = colOffset = rowStart = colStart = 0;
 
         switch (direction) {
-            case NORTH:
+            case TOP:
                 rowOffset = -amount;
                 numRows += amount;
                 break;
-            case SOUTH:
+            case BOTTOM:
                 rowEnd = numRows;
                 numRows += amount;
                 break;
-            case EAST:
+            case RIGHT:
                 colEnd = numCols;
                 numCols += amount;
                 break;
-            case WEST:
+            case LEFT:
                 colOffset = -amount;
                 numCols += amount;
                 break;
@@ -130,7 +131,7 @@ public class EditorModel {
         if (numRows > 100 || numCols > 100) {
             throw new LargeGridException();
         }
-        currentGrid.resize(numRows, numCols, rowOffset, rowEnd, rowOffset, colOffset, colEnd, colOffset);
+        currentGrid.resize(numRows, numCols, rowStart, rowEnd, rowOffset, colStart, colEnd, colOffset);
         return true;
     }
 
@@ -164,12 +165,16 @@ public class EditorModel {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
-    public boolean addPlayer(String name, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
+    public String getBlock(int row, int col) {
+        return currentGrid.getBlock(row, col).getName();
+    }
+
+    public boolean addPlayer(String name, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
         if(!(currentGrid.getBlock(row, col).isWalkable())) {
             throw new BadPlayerPlacementException(row, col);
         }
         if(player == null) {
-            player = new Player(name, row, col, currentGrid.getIndex());
+            player = new Player(name, playerName, row, col, currentGrid.getIndex());
             return true;
         }
         else {
@@ -177,46 +182,24 @@ public class EditorModel {
         }
     }
 
-    public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
+    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) {
         PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
         player.addAttribute(playerAttribute);
+        return false;
     }
 
-    public void movePlayer(int row, int col) {
+    public boolean movePlayer(int row, int col) {
         player.setRow(row);
         player.setCol(col);
+        return false;
     }
 
-    /*****METHODS FOR FRONTEND TO CALL*****/
+    /***** DATA METHODS *****/
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    /**
-     * Gets the block located in a specific row and column
-     * @param row - the specific row
-     * @param col - the specific column
-     * @return the block
-     */
-    public String getBlock(int row, int col) {
-        return currentGrid.getBlock(row, col).getName();
-    }
-
-    /**
-     * Saves the editor by taking in the name of the file to contain the information and calling the data handling
-     * method
-     * @param file - the name of the file containing the editor information
-     */
     public void saveEditor(String file) {
         xmlHandler.saveContents(file, gridWorld, player);
     }
 
-    /**
-     * Loads an editor that is stored in a specific file by calling the data handling method and storing the grid world
-     * and player
-     * @param file - the specific file
-     */
     public void loadEditor(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         player = gridWorldAndPlayer.getPlayer();
@@ -224,10 +207,6 @@ public class EditorModel {
         changeGrid(gridWorld.getCurrentIndex());
     }
 
-    /**
-     *
-     * @param file
-     */
     public void saveEngine(String file) throws NoPlayerException {
         if (player == null) {
             throw new NoPlayerException();
@@ -237,5 +216,11 @@ public class EditorModel {
 
     public EngineController runEngine() {
         return (new EngineController(player, gridWorld));
+    }
+
+    /***** GETTERS *****/
+
+    public Player getPlayer() {
+        return player;
     }
 }

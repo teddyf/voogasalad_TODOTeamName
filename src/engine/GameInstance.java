@@ -4,9 +4,7 @@ import api.IGameInstance;
 import battle.controller.BattleController;
 import battle.model.BattleModel;
 import battle.view.BattleView;
-import block.Block;
-import block.BlockUpdate;
-import block.EnemyBlock;
+import block.*;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
@@ -16,6 +14,7 @@ import player.PlayerDirection;
 import player.PlayerUpdate;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Observable;
 
@@ -113,15 +112,35 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case TALK:
+				//TODO get difficulty from block
+				//enterBattle(new EnemyBlock("hello", 0, 0), BattleView.Difficulty.MEDIUM);
+                //CommunicatorBlock test = new CommunicatorBlock("blcok", 0, 0);
+				//test.setMessage("How are you doing :)");
+				//test.talkInteract(myPlayer, test.getMessage());
+				System.out.println("talking");
 			    Block block = blockInFacedDirection(row, col, direction);
 			    if (block instanceof EnemyBlock) {
-
-			    	enterBattle((EnemyBlock)block);
+			    	enterBattle((EnemyBlock) block, BattleView.Difficulty.MEDIUM);
 			    }
-			    else {
+			    else if (block instanceof CommunicatorBlock){
 			    	//TODO: implement interactions
-			    	block.talkInteract(myPlayer);
+                    block.setMessage("Test message");
+			    	block.talkInteract(myPlayer, block.getMessage());
+					System.out.println("communicatoar");
+
 			    }
+			   	else if (block instanceof ObstacleBlock) {
+					System.out.println("hi obstacle block");
+				}
+				else if (block instanceof GroundBlock){
+					System.out.println("ground");
+				}
+				else if (block instanceof ItemBlock){
+					System.out.println("item");
+				}
+				else if (block instanceof DecorationBlock){
+					System.out.println("Decor");
+				}
 			default:
 				break;
 		}
@@ -129,10 +148,10 @@ public class GameInstance extends Observable implements IGameInstance {
         notifyObservers(playerUpdate);
 	}
 	
-	private void enterBattle(EnemyBlock enemy) {
+	private void enterBattle(EnemyBlock enemy, BattleView.Difficulty diff) {
         Stage primaryStage = new Stage();
 		//TODO take in a difficult paramter from block
-		BattleView view = new BattleView(BattleView.Difficulty.MEDIUM, "resources/images/battles/background/background-1.jpg");
+		BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
 		BattleModel model = new BattleModel(myPlayer, enemy);
 		BattleController controller = new BattleController(view, model);
 		primaryStage.setScene(controller.getView().getScene());
@@ -207,7 +226,7 @@ public class GameInstance extends Observable implements IGameInstance {
 
     public void handleInteraction() {
         Block newBlock = myGrid.getBlock(myPlayer.getRow(), myPlayer.getCol());
-        if (newBlock.stepInteract(myPlayer) || newBlock.talkInteract(myPlayer)) {
+        if (newBlock.stepInteract(myPlayer) ){
             blockUpdates = newBlock.getBlockUpdates();
             setChanged();
             notifyObservers(PlayerUpdate.INTERACTION);

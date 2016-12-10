@@ -63,7 +63,7 @@ public class EngineController extends Observable implements Observer {
      * @return the block
      */
     public String getBlock(int row, int col) {
-        return gameInstance.getRenderedGrid().get(row, col);
+        return gameInstance.getGrid().getBlock(row, col).getName();
     }
 
     public List<BlockUpdate> getBlockUpdates() { //what the frontend calls when it receives interaction update

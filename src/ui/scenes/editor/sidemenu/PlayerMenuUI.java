@@ -79,7 +79,7 @@ public class PlayerMenuUI implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		myEditorController.addPlayer(myPlayerImageChooserUI.getPlayerFilePath(),0,0);
+		myEditorController.addPlayer(myPlayerImageChooserUI.getPlayerFilePath(), "name",0,0);
 		myEditorController.addPlayerAttribute(myPlayerAttributeUI.getName(), myPlayerAttributeUI.getAmount(), myPlayerAttributeUI.getIncrement(), myPlayerAttributeUI.getDecrement());
 	}
 

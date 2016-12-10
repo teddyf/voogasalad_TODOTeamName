@@ -87,10 +87,12 @@ public class DimensionPrompt {
         dialog.setHeaderText(myResources.getString("dimHeader"));
         ButtonType submitButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(submitButtonType, ButtonType.CANCEL);
+
         Node submitButton = dialog.getDialogPane().lookupButton(submitButtonType);
         topField.textProperty().addListener(e -> submitButton.setDisable(invalidValue(topField, bottomField, maxDim)));
         bottomField.textProperty().addListener(e -> submitButton.setDisable(invalidValue(topField, bottomField, maxDim)));
         submitButton.setDisable(true);
+
         return dialog;
     }
 

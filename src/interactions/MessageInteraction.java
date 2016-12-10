@@ -26,5 +26,8 @@ public class MessageInteraction implements TalkInteraction {
         updateList.add(new BlockUpdate(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol));
         return updateList;
     }
-
+    //TODO we need a real frontend display, in a real frontend class, this is a test method
+    public void displayMessage(String message){
+        System.out.println(message);
+    }
 }

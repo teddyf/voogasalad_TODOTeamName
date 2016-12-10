@@ -150,10 +150,11 @@ public class GameEngine extends Scene {
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
                 grid.blockToGridPane(i, j, myController.getBlock(i, j));
-
             }
         }
+        grid.populateBorder();
         grid.setRenderMap();
+        System.out.println(grid.getNodeList());
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
 	

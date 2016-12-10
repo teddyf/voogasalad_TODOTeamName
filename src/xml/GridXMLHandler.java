@@ -62,7 +62,7 @@ public class GridXMLHandler {
 		xstream.processAnnotations(Player.class);
 		
 		BlockAliasFactory factory = new BlockAliasFactory(xstream);
-		factory.setAlias();
+		//factory.setAlias();
 	}
 	
 	/**

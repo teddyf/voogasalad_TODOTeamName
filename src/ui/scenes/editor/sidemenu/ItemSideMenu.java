@@ -24,7 +24,7 @@ public class ItemSideMenu extends SideMenu {
 
     private ItemViewer myViewer;
     private final BlockType[] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
-            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT};
+            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT, BlockType.ENEMY};
 
     ItemSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);

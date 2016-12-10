@@ -8,7 +8,9 @@ import player.Player;
  * @author Filip Mazurek, Aninda Manocha
  */
 public class SwitchTouchInteraction extends SwitchInteraction implements TalkInteraction{
+    public void displayMessage(String message){
 
+    }
     public SwitchTouchInteraction(SwitchBlock switchBlock) {
         super(switchBlock);
     }
