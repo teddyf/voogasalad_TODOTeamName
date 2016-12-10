@@ -2,10 +2,7 @@ package editor;
 
 import block.BlockType;
 import engine.EngineController;
-import exceptions.BadPlayerPlacementException;
-import exceptions.DuplicatePlayerException;
-import exceptions.LargeGridException;
-import exceptions.NoPlayerException;
+import exceptions.*;
 import grid.GridGrowthDirection;
 import ui.scenes.editor.GameEditorAlerts;
 
@@ -59,7 +56,6 @@ public class EditorController {
 
     public boolean addPlayer(String name, int row, int col) {
         try {
-            System.out.println("added player");
             return myModel.addPlayer(name, row, col);
         }
         catch (BadPlayerPlacementException e) {
@@ -78,6 +74,18 @@ public class EditorController {
 
     public void movePlayer(int row, int col) {
         myModel.movePlayer(row, col);
+    }
+
+    public boolean changeGridSize(GridGrowthDirection direction, int amount) {
+        try {
+            myModel.changeGridSize(direction, amount);
+            return true;
+        } catch (LargeGridException e) {
+
+        } catch (DeletePlayerWarning e) {
+
+        }
+        return false;
     }
 
     /** shrinks the grid the appropriate amount from the appropriate direction

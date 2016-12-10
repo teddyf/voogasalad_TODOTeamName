@@ -155,7 +155,6 @@ public class GameEngine extends Scene implements Observer {
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
                 grid.blockToGridPane(i, j, myController.getBlock(i, j));
-
             }
         }
         grid.setRenderMap();
