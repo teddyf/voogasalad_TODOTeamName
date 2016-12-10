@@ -21,13 +21,14 @@ public class GridSideMenu extends SideMenu {
     }
 
 
+
+
     /**
      * Creates and adds tabs for each object type to the Item Menu
      */
     public void addTabs() {
-        List<Tab> tabs = new ArrayList<>();
-
-        myPanel.getTabs().addAll(tabs);
+//        Tab tab = createTab("Resize", createResizePane());
+//        myPanel.getTabs().add(tab);
     }
 
 

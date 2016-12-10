@@ -14,8 +14,8 @@ import editor.EditorController;
  */
 public class GridPane {
 
-    private final int WRAP = 10;
-    private final int CELL_PIXELS = 20;
+    private final int WRAP = 15;
+    private final int CELL_PIXELS = 30;
 
     private Group group;
     private List<GridPaneNode> blockList;
