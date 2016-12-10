@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import resources.properties.PropertiesUtilities;
-import sun.jvm.hotspot.ui.Editor;
 import ui.builder.UIBuilder;
 
 import java.util.ArrayList;
