@@ -41,24 +41,24 @@ public class GridSideMenu extends SideMenu {
         }
     }
 
-    private ScrollPane resizePane() {
+    private ScrollPane createGridResizePane() {
         FlowPane pane = new FlowPane();
 
         ComboBox<GridGrowthDirection> directionComboBox = new ComboBox<>();
         ObservableList<GridGrowthDirection> options = FXCollections.observableArrayList(GridGrowthDirection.values());
         directionComboBox.setItems(options);
 
-        TextField rowInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(10, 10).text("addition"));
+        TextField sizeInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(10, 10).text("addition"));
 
         Button button = (Button) myBuilder.addNewButton(pane, new ComponentProperties(10, 10).text("submit"));
 
-        directionComboBox.valueProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),rowInput.getText())));
-        rowInput.textProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),rowInput.getText())));
-        rowInput.textProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),rowInput.getText())));
+        directionComboBox.valueProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),sizeInput.getText())));
+        sizeInput.textProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),sizeInput.getText())));
+        sizeInput.textProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),sizeInput.getText())));
         button.setDisable(true);
 
         button.setOnMouseClicked(e -> {
-            myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(rowInput.getText()));
+            myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()));
         });
 
         myBuilder.addComponent(pane, directionComboBox);
@@ -70,7 +70,7 @@ public class GridSideMenu extends SideMenu {
      * Creates and adds tabs for each object type to the Item Menu
      */
     public void addTabs() {
-        Tab tab = createTab("Resize", resizePane());
+        Tab tab = createTab("Resize", createGridResizePane());
         myPanel.getTabs().add(tab);
     }
 
