@@ -21,7 +21,10 @@ import ui.builder.UIBuilder;
  *
  */
 public class VoogaAnimation implements Observer {
-	private static final String IMAGE_RESOURCE = "resources/images/tiles/Character/Pokemon/";
+
+	//private static final String IMAGE_RESOURCE = "resources/images/tiles/Character/Pokemon/";
+
+	private static final String IMAGE_RESOURCE = "resources/images/sprites/";
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 	
 	private GridForEngine grid;
@@ -99,6 +102,8 @@ public class VoogaAnimation implements Observer {
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
 		System.out.println(imageFileName);
 		uiBuilder.removeComponent(root, player.getCharacterImageView());
+		//TODO fix this
+		System.out.println(IMAGE_RESOURCE + imageFileName + "HEYEHE");
 		player.setCharacterImage(IMAGE_RESOURCE + imageFileName);
 		player.setCharacterImageSize(grid.getBlockSize());
 		//player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
@@ -227,19 +232,23 @@ public class VoogaAnimation implements Observer {
 		//gridLayout.setLayoutY(gridLayout.getLayoutY() + 1000);
 		if (isAnimationOver())
 			return;
-
+		//fixed the urls
 		switch (instruction) {
 			case UP:
-				changePlayerImage(playerNumber + "NorthFacing.png");
+				changePlayerImage("1-up.png");
 				break;
 			case DOWN:
-				changePlayerImage(playerNumber + "SouthFacing.png");
+				//changePlayerImage(playerNumber + "SouthFacing.png");
+				changePlayerImage("1-down.png");
+
 				break;
 			case RIGHT:
-				changePlayerImage(playerNumber + "EastFacing.png");
+				//changePlayerImage(playerNumber + "EastFacing.png");
+				changePlayerImage("1-right.png");
 				break;
 			case LEFT:
-				changePlayerImage(playerNumber + "WestFacing.png");
+				//changePlayerImage(playerNumber + "WestFacing.png");
+				changePlayerImage("1-left.png");
 				break;
 		}
 		stepCount = stepCount + 10;
