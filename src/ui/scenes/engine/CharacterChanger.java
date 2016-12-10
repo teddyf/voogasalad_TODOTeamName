@@ -64,6 +64,7 @@ public class CharacterChanger extends Observable {
 	
 	private void addPlayerOptions() {
 		    
+		//change this
 		for (int i=1;i<9;i++) {
 			String path = "resources/images/sprites/"+i+"-down.png";
 			Button button = new Button();
@@ -71,6 +72,7 @@ public class CharacterChanger extends Observable {
 			imageView.setFitWidth(30);
 			imageView.setFitHeight(30);
 			button.setGraphic(imageView);
+			button.getStyleClass().add("playerOption");
 			button.setOnAction(new EventHandler<ActionEvent>() {
 	            @Override
 	            public void handle(ActionEvent event) {

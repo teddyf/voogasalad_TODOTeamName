@@ -9,6 +9,8 @@ import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
@@ -40,7 +42,9 @@ public class EngineSidePanel implements Observer {
         myResources = resources;
         util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
-        this.player = player;
+        initSidePanel();
+        initPlayerChanger(player);
+        initStats();
     }
 
     /**

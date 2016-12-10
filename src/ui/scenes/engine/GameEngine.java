@@ -9,8 +9,6 @@ import ui.UILauncher;
 import ui.builder.UIBuilder;
 
 import java.io.File;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.ResourceBundle;
 
 /**
@@ -86,9 +84,6 @@ public class GameEngine extends Scene {
     
     private void setUpSidePanel() {
     	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player);
-    	engineSidePanel.initPlayerChanger(player);
-    	engineSidePanel.initSidePanel();
-    	engineSidePanel.initStats();
     }
     
     private void setUpPlayer() {
