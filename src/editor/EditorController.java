@@ -59,6 +59,7 @@ public class EditorController {
 
     public boolean addPlayer(String name, int row, int col) {
         try {
+            System.out.println("added player");
             return myModel.addPlayer(name, row, col);
         }
         catch (BadPlayerPlacementException e) {
