@@ -56,19 +56,19 @@ public class EditorModel {
      */
     private boolean checkShrink(GridGrowthDirection direction, int amount) throws DeletePlayerWarning {
         switch (direction) {
-            case NORTH:
+            case TOP:
                 if (player.getRow() < amount) {
                     throw new DeletePlayerWarning();
                 }
-            case SOUTH:
+            case BOTTOM:
                 if(player.getRow() >= currentGrid.getNumRows() - amount) {
                     throw new DeletePlayerWarning();
                 }
-            case EAST:
+            case RIGHT:
                 if(player.getCol() >= currentGrid.getNumCols() - amount) {
                     throw new DeletePlayerWarning();
                 }
-            case WEST:
+            case LEFT:
                 if(player.getCol() < amount) {
                     throw new DeletePlayerWarning();
                 }
@@ -82,18 +82,18 @@ public class EditorModel {
         numCols = colEnd = currentGrid.getNumCols();
         rowOffset = colOffset = rowStart = colStart = 0;
         switch (direction) {
-            case NORTH:
+            case TOP:
                 numRows -= amount;
                 rowOffset = amount;
                 player.setRow(player.getRow() - rowOffset);
                 break;
-            case SOUTH:
+            case BOTTOM:
                 numRows -= amount;
                 break;
-            case EAST:
+            case RIGHT:
                 numCols -= amount;
                 break;
-            case WEST:
+            case LEFT:
                 numCols -= amount;
                 colOffset = amount;
                 player.setCol(player.getCol() - colOffset);
@@ -110,19 +110,19 @@ public class EditorModel {
         rowOffset = colOffset = rowStart = colStart = 0;
 
         switch (direction) {
-            case NORTH:
+            case TOP:
                 rowOffset = -amount;
                 numRows += amount;
                 break;
-            case SOUTH:
+            case BOTTOM:
                 rowEnd = numRows;
                 numRows += amount;
                 break;
-            case EAST:
+            case RIGHT:
                 colEnd = numCols;
                 numCols += amount;
                 break;
-            case WEST:
+            case LEFT:
                 colOffset = -amount;
                 numCols += amount;
                 break;
