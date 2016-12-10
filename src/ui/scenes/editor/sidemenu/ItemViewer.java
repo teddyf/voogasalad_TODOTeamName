@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * @author Harshil Garg
@@ -29,7 +29,7 @@ public class ItemViewer {
         File file = new File(directory);
         String[] contents = file.list();
         List<GameObject> items = new ArrayList<>();
-        Map<String, ArrayList<String>> map = new HashMap<>();
+        Map<String, ArrayList<String>> map = new TreeMap<>();
         for (String content : contents) {
             String prefix = content.substring(0, content.indexOf('.'));
             if (map.containsKey(prefix)) {
