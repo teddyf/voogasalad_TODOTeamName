@@ -56,7 +56,7 @@ public class EditorModel {
     /** shrinks the grid the appropriate amount from the appropriate direction
      * @param amount: positive int of how much the grid should shrink
      */
-    public boolean shrinkGrid(GridGrowthDirection direction, int amount) {
+    private boolean shrinkGrid(GridGrowthDirection direction, int amount) {
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
@@ -102,7 +102,7 @@ public class EditorModel {
         return true;
     }
 
-    public boolean growGrid(GridGrowthDirection direction, int amount) throws LargeGridException{
+    private boolean growGrid(GridGrowthDirection direction, int amount) throws LargeGridException{
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
@@ -229,7 +229,7 @@ public class EditorModel {
      * @param file
      */
     public void saveEngine(String file) throws NoPlayerException {
-        if (player == null) {
+        if (player != null) {
             throw new NoPlayerException();
         }
         xmlHandler.saveContents(file, gridWorld, player);
