@@ -37,7 +37,7 @@ public class EditorControls {
         myItemMenu = new ItemSideMenu(myRoot, myResources);
         myPlayerMenu = new PlayerSideMenu(myRoot, myResources, controller);
         myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
-        myGridMenu = new GridSideMenu(myRoot, myResources);
+        myGridMenu = new GridSideMenu(myRoot, myResources, controller);
         init();
     }
 
