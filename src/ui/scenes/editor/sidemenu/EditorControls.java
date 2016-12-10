@@ -4,82 +4,111 @@ import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.sidemenu.DraggableTabPane;
-import ui.scenes.editor.sidemenu.ItemSideMenu;
-import ui.scenes.editor.sidemenu.PlayerMenuUI;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
  * @author Robert Steilberg, Pim Chuaylua, Harshil Garg
+ *         <p>
+ *         This class creates the side tabs that each hold a control panel
+ *         for controlling aspects of the editor.
  */
 public class EditorControls {
 
-    private static Parent myRoot;
-    private static ResourceBundle myResources;
-    private static UIBuilder myBuilder;
-    private static ItemSideMenu myItemMenu;
-    private static PlayerSideMenu myPlayerMenu;
+    private Parent myRoot;
+    private ResourceBundle myResources;
+    private PropertiesUtilities myUtil;
+    private UIBuilder myBuilder;
+    private SideMenu myItemMenu;
+    private SideMenu myPlayerMenu;
+    private SideMenu myCustomMenu;
+    private SideMenu myGridMenu;
 
-    public EditorControls(Parent root, ResourceBundle resources, ItemSideMenu itemMenu, PlayerSideMenu playerMenu) {
+    public EditorControls(Parent root, ResourceBundle resources) {
         myRoot = root;
         myResources = resources;
+        myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
-        myItemMenu = itemMenu;
-        myPlayerMenu = playerMenu;
+        myItemMenu = new ItemSideMenu(myRoot, myResources);
+        myPlayerMenu = new PlayerSideMenu(myRoot, myResources);
+        myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
+        myGridMenu = new GridSideMenu(myRoot, myResources);
+        init();
     }
 
+    /**
+     * Creates a side tab and ties content to it
+     *
+     * @param title   is the title of the tab
+     * @param content is the content attached to the tabs
+     * @return the newly created tab
+     */
+    private Tab createSideTab(String title, TabPane content) {
+        Tab newTab = new Tab();
+        newTab.setText(title);
+        newTab.setClosable(false);
+        if (content != null) {
+            newTab.setOnSelectionChanged(e -> {
+                if (newTab.isSelected()) {
+                    myBuilder.addComponent(myRoot, content);
+                } else {
+                    myBuilder.removeComponent(myRoot, content);
+                }
+            });
+        }
+        return newTab;
+    }
 
-
-    public void addEditorControls() {
-
+    /**
+     * Creates a left-oriented TabPane to be placed on the right side of the screen
+     *
+     * @param tabs are the tabs to add to the pane
+     * @return the created TabPane, populated with its tabs
+     */
+    private TabPane createSideTabPane(List<Tab> tabs) {
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
         TabPane sideTabs = new TabPane();
-
-        Tab itemTab = new Tab();
-        itemTab.setText("Items");
-        itemTab.setClosable(false);
-        itemTab.setOnSelectionChanged(e -> {
-            if (itemTab.isSelected()) {
-                myBuilder.addComponent(myRoot, myItemMenu.getPanel());
-            } else {
-                myBuilder.removeComponent(myRoot, myItemMenu.getPanel());
-            }
-        });
-
-        Tab playerTab = new Tab();
-        playerTab.setText("Players");
-        playerTab.setClosable(false);
-        playerTab.setOnSelectionChanged(e -> {
-            if (playerTab.isSelected()) {
-                myBuilder.addComponent(myRoot, myPlayerMenu.getPanel());
-            } else {
-                myBuilder.removeComponent(myRoot, myPlayerMenu.getPanel());
-            }
-        });
-
-        Tab customTab = new Tab();
-        customTab.setText("Custom");
-        customTab.setClosable(false);
-        customTab.setOnSelectionChanged(e -> {
-            if (customTab.isSelected()) {
-                myBuilder.addComponent(myRoot, new DraggableTabPane());
-            } else {
-                myBuilder.removeComponent(myRoot, new DraggableTabPane());
-            }
-        });
-
         sideTabs.setSide(Side.LEFT);
-        sideTabs.getTabs().addAll(itemTab, playerTab, customTab);
-        sideTabs.setLayoutY(100);
-        sideTabs.setLayoutX(1155);
-        sideTabs.setId("control-tabs");
-        sideTabs.getSelectionModel().select(playerTab);
-
-        myBuilder.addComponent(myRoot, sideTabs);
-
+        sideTabs.getTabs().addAll(tabs);
+        sideTabs.setLayoutX(util.getIntProperty("sideTabsX"));
+        sideTabs.setLayoutY(util.getIntProperty("sideTabsY"));
+        sideTabs.setId(myResources.getString("sideTabsCSSid"));
+        sideTabs.getSelectionModel().select(tabs.get(tabs.size() - 1)); // select close tab as default
+        return sideTabs;
     }
 
+    /**
+     * Creates the side tabs that hold control panels
+     *
+     * @return a List of the created tabs
+     */
+    private List<Tab> createTabs() {
+        List<Tab> tabs = new ArrayList<>();
+        tabs.add(createSideTab(myResources.getString("tab1"), myItemMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("tab2"), myPlayerMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("tab3"), myCustomMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("tab4"), myGridMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("tab5"), null));
+        return tabs;
+    }
 
+    /**
+     * Initializes the side tabs that contain control panels for the editor
+     */
+    public void init() {
+        myBuilder.addComponent(myRoot, createSideTabPane(createTabs()));
+    }
 
+    /**
+     * Gets the item menu so that it can be passed to the grid
+     *
+     * @return the item menu
+     */
+    public ItemSideMenu getMyItemMenu() {
+        return (ItemSideMenu) myItemMenu;
+    }
 }

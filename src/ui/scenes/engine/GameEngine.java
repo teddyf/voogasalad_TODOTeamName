@@ -5,7 +5,6 @@ import ui.FileBrowser;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ui.GridForEngine;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 

@@ -4,7 +4,7 @@ import block.BlockType;
 import engine.EngineController;
 import exceptions.*;
 import grid.GridGrowthDirection;
-import ui.scenes.editor.sidemenu.GameEditorAlerts;
+import ui.scenes.editor.GameEditorAlerts;
 
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
