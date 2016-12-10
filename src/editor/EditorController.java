@@ -6,6 +6,8 @@ import exceptions.*;
 import grid.GridGrowthDirection;
 import ui.scenes.editor.GameEditorAlerts;
 
+import java.util.ResourceBundle;
+
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
  * is being created.
@@ -14,11 +16,14 @@ import ui.scenes.editor.GameEditorAlerts;
 
 public class EditorController {
 
+    private static final String ALERT_RESOURCES = "resources/properties/alerts-text";
     private final EditorModel myModel;
     private GameEditorAlerts myAlerts;
+    private ResourceBundle myAlertResources;
 
     public EditorController() {
         myModel = new EditorModel();
+        myAlertResources = ResourceBundle.getBundle(ALERT_RESOURCES);
     }
 
     // not backend's fault
@@ -78,12 +83,14 @@ public class EditorController {
 
     public boolean changeGridSize(GridGrowthDirection direction, int amount) {
         try {
-            myModel.changeGridSize(direction, amount);
-            return true;
+            return myModel.changeGridSize(direction, amount);
         } catch (LargeGridException e) {
-
+            myAlerts.exceptionDisplay(e.getMessage());
         } catch (DeletePlayerWarning e) {
-
+            if (myAlerts.warnUser(myAlertResources.getString("DELETE_PLAYER"))) {
+                return myModel.shrinkGrid(direction, amount);
+            }
+            return false;
         }
         return false;
     }
