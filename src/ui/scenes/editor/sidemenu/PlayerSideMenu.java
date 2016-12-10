@@ -52,7 +52,7 @@ public class PlayerSideMenu extends SideMenu {
                         .width(util.getIntProperty("spriteWidth"))
                         .preserveRatio(true)
                         .id(myResources.getString("spriteCSSid")));
-                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,0,0));
+                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
                 sprites.getChildren().add(sprite);
             }
         }

@@ -164,12 +164,16 @@ public class EditorModel {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
-    public boolean addPlayer(String name, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
+    public String getBlock(int row, int col) {
+        return currentGrid.getBlock(row, col).getName();
+    }
+
+    public boolean addPlayer(String name, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
         if(!(currentGrid.getBlock(row, col).isWalkable())) {
             throw new BadPlayerPlacementException(row, col);
         }
         if(player == null) {
-            player = new Player(name, row, col, currentGrid.getIndex());
+            player = new Player(name, playerName, row, col, currentGrid.getIndex());
             return true;
         }
         else {
@@ -177,46 +181,24 @@ public class EditorModel {
         }
     }
 
-    public void addPlayerAttribute(String name, double amount, double increment, double decrement) {
+    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) {
         PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
         player.addAttribute(playerAttribute);
+        return false;
     }
 
-    public void movePlayer(int row, int col) {
+    public boolean movePlayer(int row, int col) {
         player.setRow(row);
         player.setCol(col);
+        return false;
     }
 
-    /*****METHODS FOR FRONTEND TO CALL*****/
+    /***** DATA METHODS *****/
 
-    public Player getPlayer() {
-        return player;
-    }
-
-    /**
-     * Gets the block located in a specific row and column
-     * @param row - the specific row
-     * @param col - the specific column
-     * @return the block
-     */
-    public String getBlock(int row, int col) {
-        return currentGrid.getBlock(row, col).getName();
-    }
-
-    /**
-     * Saves the editor by taking in the name of the file to contain the information and calling the data handling
-     * method
-     * @param file - the name of the file containing the editor information
-     */
     public void saveEditor(String file) {
         xmlHandler.saveContents(file, gridWorld, player);
     }
 
-    /**
-     * Loads an editor that is stored in a specific file by calling the data handling method and storing the grid world
-     * and player
-     * @param file - the specific file
-     */
     public void loadEditor(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         player = gridWorldAndPlayer.getPlayer();
@@ -224,10 +206,6 @@ public class EditorModel {
         changeGrid(gridWorld.getCurrentIndex());
     }
 
-    /**
-     *
-     * @param file
-     */
     public void saveEngine(String file) throws NoPlayerException {
         if (player == null) {
             throw new NoPlayerException();
@@ -237,5 +215,11 @@ public class EditorModel {
 
     public EngineController runEngine() {
         return (new EngineController(player, gridWorld));
+    }
+
+    /***** GETTERS *****/
+
+    public Player getPlayer() {
+        return player;
     }
 }
