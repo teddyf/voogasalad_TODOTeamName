@@ -4,8 +4,8 @@
       <changed>false</changed>
       <obs/>
       <myIndex>0</myIndex>
-      <myNumRows>8</myNumRows>
-      <myNumCols>8</myNumCols>
+      <myNumRows>10</myNumRows>
+      <myNumCols>10</myNumCols>
       <block.Block-array>
         <block>
           <changed>false</changed>
@@ -21,7 +21,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>0</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -32,7 +32,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>0</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -90,6 +90,252 @@
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>0</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>0</myRow>
+          <myCol>9</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+      </block.Block-array>
+      <block.Block-array>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>0</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>1</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>2</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>3</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>4</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>5</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>6</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>1</myRow>
+          <myCol>9</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+      </block.Block-array>
+      <block.Block-array>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>0</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>1</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>2</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>3</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>4</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>5</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>6</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
@@ -101,186 +347,6 @@
           <changed>false</changed>
           <obs/>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>0</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>1</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/sign-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>2</myCol>
-          <isWalkable>false</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>3</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>4</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>5</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>6</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-      </block.Block-array>
-      <block.Block-array>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>0</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>1</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>2</myCol>
-          <isWalkable>false</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_1.png</myName>
-          <myRow>2</myRow>
-          <myCol>3</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_2.png</myName>
-          <myRow>2</myRow>
-          <myCol>4</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>5</myCol>
-          <isWalkable>false</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>6</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-      </block.Block-array>
-      <block.Block-array>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -302,10 +368,10 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>2</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
@@ -313,7 +379,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -324,7 +390,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_2.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
@@ -335,10 +401,10 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>5</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
@@ -360,6 +426,28 @@
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>3</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>3</myRow>
+          <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
@@ -392,10 +480,10 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>2</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
@@ -403,7 +491,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -414,7 +502,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_2.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
@@ -425,10 +513,10 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>5</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
@@ -450,6 +538,28 @@
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>4</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>4</myRow>
+          <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
@@ -482,10 +592,10 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>2</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
@@ -493,7 +603,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -504,7 +614,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_2.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
@@ -515,10 +625,10 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>5</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
@@ -540,6 +650,28 @@
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>5</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>5</myRow>
+          <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
@@ -572,10 +704,10 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/sign-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>2</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
@@ -630,6 +762,28 @@
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>6</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>6</myRow>
+          <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
@@ -720,6 +874,252 @@
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>7</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>7</myRow>
+          <myCol>9</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+      </block.Block-array>
+      <block.Block-array>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>0</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>1</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>2</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>3</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>4</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>5</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>6</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>8</myRow>
+          <myCol>9</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+      </block.Block-array>
+      <block.Block-array>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>0</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>1</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>2</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>3</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>4</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>5</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>6</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+          <blockUpdates/>
+        </block>
+        <block>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>9</myRow>
+          <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
@@ -731,7 +1131,7 @@
   <player>
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
-    <myName>resources/images/sprites/2-down.png</myName>
+    <myName>resources/images/sprites/1-down.png</myName>
     <myDirection>NORTH</myDirection>
     <myRow>0</myRow>
     <myCol>0</myCol>
