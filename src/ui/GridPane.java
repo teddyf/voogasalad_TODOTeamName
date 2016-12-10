@@ -93,6 +93,7 @@ public class GridPane {
 
     public void setRenderMap () {
         group = new Group();
+        System.out.println(blockList.size());
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode node = blockList.get(i);
             double x = getXRender(node.getCol());

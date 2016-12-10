@@ -157,7 +157,9 @@ public class GameEngine extends Scene implements Observer {
                 grid.blockToGridPane(i, j, myController.getBlock(i, j));
             }
         }
+        grid.populateBorder();
         grid.setRenderMap();
+        System.out.println(grid.getNodeList());
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
 

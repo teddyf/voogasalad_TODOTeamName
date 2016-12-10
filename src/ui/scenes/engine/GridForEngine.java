@@ -37,6 +37,7 @@ public class GridForEngine {
     private GridPaneNode def;
 
     private String DEFAULT = "resources/images/tiles/ground/grass-";
+    private static final String wall= "resources/images/tiles/obstacle/rock-1.png";
 
     public GridForEngine (int gridWidth, int gridHeight, int renderWidth,
                      int renderHeight, int renderTopLeftX, int renderTopLeftY) {
@@ -46,7 +47,7 @@ public class GridForEngine {
         clicked = new ArrayList<GridPaneNode>();
 
         hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(-.1);
+        hoverOpacity.setBrightness(-.3);
 
         this.gridWidth = gridWidth;
         this.gridHeight = gridHeight;
@@ -73,11 +74,13 @@ public class GridForEngine {
 
     private double getXRender (int column) {
         double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP  - renderWidth/CELL_PIXELS);
+        //offset = 0;
         return column * CELL_PIXELS + renderTopLeftX + offset;
     }
 
     private double getYRender (int row) {
         double offset = -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
+        //offset = 0;
         return row * CELL_PIXELS + renderTopLeftY + offset;
     }
 
@@ -114,6 +117,7 @@ public class GridForEngine {
                 group.getChildren().add(node.getImage());
                 grid[node.getCol()][node.getRow()] = node;
             }*/
+            
             node.getImage().setEffect(hoverOpacity);
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
@@ -220,13 +224,13 @@ public class GridForEngine {
 
     public void loadReset (double height, double width) {
 
-        this.gridWidth = width;
-        this.gridHeight = height;
+        this.gridWidth = width+WRAP;
+        this.gridHeight = height+WRAP;
 
         this.group = new Group();
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
-        grid = new GridPaneNode[(int) height][(int) width];
+        grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
     }
 
 
@@ -350,8 +354,21 @@ public class GridForEngine {
      * @param name
      */
     public void blockToGridPane (int row, int col, String name) {
-        GridPaneNode temp = new GridPaneNode(row, col, name);
+        GridPaneNode temp = new GridPaneNode(row+WRAP/2, col+WRAP/2, name);
         blockList.add(temp);
+    }
+    
+    public void populateBorder(){
+        for(int i = 0; i < gridWidth; i++){
+            for(int j = 0; j < gridHeight; j++){
+                if((i<WRAP/2 || j<WRAP/2) || (i>=(gridWidth-WRAP/2) || j>=(gridHeight-WRAP/2))){
+                    System.out.println("(" + i + "," + j + ")");
+                    GridPaneNode temp = new GridPaneNode(j,i,wall);
+                    //temp.getImage().setEffect(hoverOpacity);
+                    blockList.add(temp);
+                }
+            }
+        }
     }
 
     public List<GridPaneNode> getNodeList () {
