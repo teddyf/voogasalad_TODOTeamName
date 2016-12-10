@@ -29,6 +29,7 @@ public class PlayerSideMenu extends SideMenu {
     PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
         super(root, resources);
         myResources = resources;
+        myController = controller;
         init();
     }
 
