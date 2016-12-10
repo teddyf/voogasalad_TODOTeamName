@@ -17,7 +17,7 @@ public class ScrollAnimation {
     private double CURRENT_MODE_SCROLL_SPEED_PPM;
 
     private double BUTTON_MODE_SCROLL_SPEED_PPM = 0.2;
-    private double TRACKPAD_MODE_SCROLL_SPEED_PPM = 0.5;
+    private double TRACKPAD_MODE_SCROLL_SPEED_PPM = 0.8;
 
     private double xMax;
     private double xMin;
@@ -35,11 +35,12 @@ public class ScrollAnimation {
     }
 
     private void setTransition(double duration) {
-        if (duration > 0) {
-            transition = new TranslateTransition(Duration.millis(duration), group);
-            transition.setCycleCount(1);
-            transition.setInterpolator(Interpolator.LINEAR);
+        if (duration < 0) {
+            duration = 0;
         }
+        transition = new TranslateTransition(Duration.millis(duration), group);
+        transition.setCycleCount(1);
+        transition.setInterpolator(Interpolator.LINEAR);
     }
 
     public void setScrollSpeedButtons() {
