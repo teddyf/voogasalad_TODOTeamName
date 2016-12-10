@@ -1,6 +1,5 @@
 package ui.scenes.editor.sidemenu;
 
-import editor.EditorController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
@@ -24,9 +23,8 @@ import java.util.ResourceBundle;
 public class PlayerSideMenu extends SideMenu {
 
     private ResourceBundle myResources;
-    private EditorController myController;
 
-    PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
+    public PlayerSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);
         myResources = resources;
         init();
@@ -51,7 +49,6 @@ public class PlayerSideMenu extends SideMenu {
                         .width(util.getIntProperty("spriteWidth"))
                         .preserveRatio(true)
                         .id(myResources.getString("spriteCSSid")));
-                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,4,5));
                 sprites.getChildren().add(sprite);
             }
         }

@@ -8,9 +8,9 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import api.IPlayer;
 import editor.backend.Battle;
+import interactions.Interaction;
 import editor.backend.Item;
 import editor.backend.Status;
-import interactions.Interaction;
 
 /**
  * This is the class that holds all of the information corresponding to the
