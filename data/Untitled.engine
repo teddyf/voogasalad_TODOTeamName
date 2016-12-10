@@ -6933,4 +6933,17 @@
       </block.Block-array>
     </grid>
   </gridWorld>
+  <player>
+    <myName>player</myName>
+    <myDirection>NORTH</myDirection>
+    <myRow>0</myRow>
+    <myCol>0</myCol>
+    <myGridIndex>0</myGridIndex>
+    <myAttributes/>
+    <myInventory/>
+    <myBattleHistory/>
+    <myInteractionHistory/>
+    <myStatus/>
+    <health>100</health>
+  </player>
 </root>

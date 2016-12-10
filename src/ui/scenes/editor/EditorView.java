@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 import ui.scenes.editor.sidemenu.*;
 
 /**
- * @author Robert Steilberg, Aninda Manocha
+ * @author Robert Steilberg
  *         <p>
  *         This class handles the game editor that is used to build games. It
  *         creates the grid on which the overworld is created along with control
@@ -36,7 +36,8 @@ public class EditorView extends Scene implements GameEditorAlerts {
     private EditorEvents events;
 
     public EditorView(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
-        super(root, Color.web("#1D3461"));
+//        super(root, Color.web("#0585B2"));
+        super(root, Color.GRAY);
         myController = controller;
         myStage = stage;
         myRoot = root;
@@ -50,13 +51,13 @@ public class EditorView extends Scene implements GameEditorAlerts {
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
-        EditorControls sideControls = new EditorControls(myRoot, myResources);
+        EditorControls sideControls = new EditorControls(myRoot, myResources, myController);
         GridUI grid = new GridUI(myRoot, myController, sideControls.getMyItemMenu(), width, height);
 
 
 
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
-        events = new EditorEvents(myLauncher, IO, myResources, myAlertResources);
+        events = new EditorEvents(myLauncher, IO, myResources);
         myController.setAlerts(this);
 
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);

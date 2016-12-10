@@ -16,22 +16,20 @@ public class EditorEvents {
     private UILauncher myLauncher;
     private EditorIO myIO;
     private ResourceBundle myResources;
-    private ResourceBundle myAlertResources;
 
 
-    public EditorEvents(UILauncher launcher, EditorIO IO, ResourceBundle resources, ResourceBundle alertResources) {
+    public EditorEvents(UILauncher launcher, EditorIO IO, ResourceBundle resources) {
         myLauncher = launcher;
         myIO = IO;
         myResources = resources;
-        myAlertResources = alertResources;
     }
 
     public boolean createWarning(String warningKey) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText(myAlertResources.getString("WARNING"));
-        alert.setHeaderText(myAlertResources.getString(warningKey));
-        ButtonType ok = new ButtonType(myAlertResources.getString("OK"));
-        ButtonType cancel = new ButtonType(myAlertResources.getString("CANCEL"));
+        alert.setHeaderText(myResources.getString("WARNING"));
+        alert.setHeaderText(myResources.getString(warningKey));
+        ButtonType ok = new ButtonType(myResources.getString("OK"));
+        ButtonType cancel = new ButtonType(myResources.getString("CANCEL"));
         alert.getButtonTypes().setAll(cancel, ok);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ok) {
@@ -81,8 +79,8 @@ public class EditorEvents {
      * @param thirdMenu is the menu to which events are added
      */
     public void addThirdMenuEvents(Menu thirdMenu) {
-        thirdMenu.setOnShowing(e -> thirdMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
-        thirdMenu.setOnHidden(e -> thirdMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
+        thirdMenu.setOnShowing(e -> thirdMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
+        thirdMenu.setOnHidden(e -> thirdMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
         // create test game menu option
         MenuItem itemTest = new MenuItem("Run Game");
         itemTest.setOnAction(e -> myIO.runGameInEditor());
@@ -103,8 +101,8 @@ public class EditorEvents {
      * @param secondMenu is the menu to which events are added
      */
     public void addSecondMenuEvents(Menu secondMenu) {
-        secondMenu.setOnShowing(e -> secondMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
-        secondMenu.setOnHidden(e -> secondMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
+        secondMenu.setOnShowing(e -> secondMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
+        secondMenu.setOnHidden(e -> secondMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
         // create undo menu option
         MenuItem itemUndo = new MenuItem("Undo");
 //        itemUndo.setOnAction(e -> undo());
@@ -134,8 +132,8 @@ public class EditorEvents {
      * @param firstMenu is the menu to which events are added
      */
     public void addFirstMenuEvents(Menu firstMenu) {
-        firstMenu.setOnShowing(e -> firstMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
-        firstMenu.setOnHidden(e -> firstMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
+        firstMenu.setOnShowing(e -> firstMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
+        firstMenu.setOnHidden(e -> firstMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
         // create new editor menu option
         MenuItem itemNew = new MenuItem("New Project");
         itemNew.setOnAction(e -> exitPrompt(true));
@@ -146,7 +144,7 @@ public class EditorEvents {
         MenuItem itemSave = new MenuItem("Save Project As...");
         itemSave.setOnAction(e -> myIO.saveEditorFile());
         // crate exit editor menu option
-        MenuItem itemExit = new MenuItem("Exit EditorView");
+        MenuItem itemExit = new MenuItem("Exit VOOGA Editor");
         itemExit.setOnAction(e -> exitPrompt(false));
         firstMenu.getItems().addAll(itemNew, itemOpen, itemSave, itemExit);
     }
