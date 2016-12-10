@@ -1,15 +1,20 @@
 package ui.scenes;
 
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import resources.properties.PropertiesUtilities;
 import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.PopUp;
 
 import java.util.ResourceBundle;
 
@@ -58,6 +63,7 @@ public class MainMenu extends Scene {
         int width = myUtil.getIntProperty("buttonWidth");
         Node buildButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
         buildButton.setOnMouseClicked(e -> myLauncher.launchEditor());
+        
         // create play button
         xPos = myUtil.getIntProperty("playButtonX");
         yPos = myUtil.getIntProperty("playButtonY");
@@ -114,10 +120,20 @@ public class MainMenu extends Scene {
         setButtons();
         ComponentProperties prop = new ComponentProperties(500, 500);
         prop.text("PLZWORK");
-        prop.height(20);
+        prop.height(50);
         prop.width(200);
-        myBuilder.addDialogBubble(myRoot, prop);
-          
+        Node WORK = myBuilder.addDialogBubble(myRoot, myStage, prop);
+        WORK.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()  {
+			public void handle(final MouseEvent keyEvent) {
+                if (keyEvent.getEventType() == MouseEvent.MOUSE_CLICKED) {
+//                    removeComponent(layout, dialogNode);
+                	myBuilder.removeComponent(myRoot, WORK);
+                	WORK.setVisible(false);
+                    keyEvent.consume();
+                }
+			}
+	
+		});
     }
     
     public String getPath(){

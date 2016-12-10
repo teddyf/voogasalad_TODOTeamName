@@ -1,20 +1,25 @@
 package block;
 
 /**
- * Created by Bill Xiong on 11/20/16.
- * class for putting enemies on the board
+ * Class for putting enemies on the board
+ * 
+ * @author Daniel Chai, Bill Xiong
  */
 public class EnemyBlock extends CommunicatorBlock {
-    private double health;
-    private final double MAX_HEALTH = 100;
+	public static final int DEFAULT_HEALTH = 100;
+	
+	private double health;
+
 	public EnemyBlock(String name, int row, int col) {
-        super(name, row, col);
-        this.health = MAX_HEALTH;
-    }
-    public double getHealth(){
-        return health;
-    }
-    public void setHealth(double val){
-        health = val;
-    }
+		super(name, row, col);
+		this.health = DEFAULT_HEALTH;
+	}
+
+	public double getHealth() {
+		return health;
+	}
+
+	public void setHealth(double val) {
+		health = val;
+	}
 }

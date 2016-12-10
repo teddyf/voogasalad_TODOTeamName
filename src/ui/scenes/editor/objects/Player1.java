@@ -6,10 +6,10 @@ import block.BlockType;
 
 public class Player1 extends GameObject {
 
-    private final String PATH = "resources/images/tiles/decorations/grass-1";
+    private final String PATH = "resources/images/tiles/decoration/grass-1";
 
     public Player1() {
-        super();
+        super("", BlockType.DECORATION);
         Image image = new Image(PATH + ".png");
         myImageView.setImage(image);
         myIconPath = PATH;

@@ -1,11 +1,16 @@
 package engine;
 
 import api.IGameInstance;
+import battle.controller.BattleController;
+import battle.model.BattleModel;
+import battle.view.BattleView;
 import block.Block;
 import block.BlockUpdate;
+import block.EnemyBlock;
 import grid.Grid;
 import grid.GridWorld;
 import grid.RenderedGrid;
+import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
@@ -77,6 +82,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		PlayerUpdate playerUpdate = null;
 		PlayerDirection direction = myPlayer.getDirection();
 		System.out.println(direction);
+		
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
@@ -107,13 +113,31 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case TALK:
-			    // TODO: better talk interaction
-			    Block talkBlock = blockInFacedDirection(row, col, direction);
-                talkBlock.talkInteract(myPlayer);
+			    Block block = blockInFacedDirection(row, col, direction);
+			    if (block instanceof EnemyBlock) {
+
+			    	enterBattle((EnemyBlock)block);
+			    }
+			    else {
+			    	//TODO: implement interactions
+			    	block.talkInteract(myPlayer);
+			    }
 			default:
 				break;
 		}
+		
         notifyObservers(playerUpdate);
+	}
+	
+	private void enterBattle(EnemyBlock enemy) {
+		//TODO: implement battle entry
+        Stage primaryStage = new Stage();
+		//TODO take in a difficult paramter from block
+		BattleView view = new BattleView(BattleView.Difficulty.MEDIUM, "resources/images/battles/background/background-1.jpg");
+		BattleModel model = new BattleModel(myPlayer, enemy);
+		BattleController controller = new BattleController(view, model);
+		primaryStage.setScene(controller.getView().getScene());
+		primaryStage.show();
 	}
 
     /**

@@ -6,13 +6,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
-
-
 /**
  * @author Harshil Garg, Robert Steilberg, Nisakorn Valyasevi
  *         <p>
@@ -21,7 +20,6 @@ import java.util.ResourceBundle;
  *         Dependencies: ComponentBuilder, ButtonBuilder, ImageViewBuilder, LabelBuilder
  */
 public class UIBuilder {
-
     private ComponentBuilder alertBuilder;
     private ComponentBuilder buttonBuilder;
     private ComponentBuilder imageViewBuilder;
@@ -37,7 +35,6 @@ public class UIBuilder {
         textFieldBuilder = new TextFieldBuilder();
         dialogBuilder = new DialogBuilder();
     }
-
     /**
      * Create a new group that can serve as a region holding other nodes
      *
@@ -51,7 +48,6 @@ public class UIBuilder {
         region.setLayoutY(layoutY);
         return region;
     }
-
     /**
      * Adds a JavaFX node to the specified Group or Pane
      *
@@ -74,7 +70,6 @@ public class UIBuilder {
         }
         return component;
     }
-
     /**
      * Removes a JavaFX node from the specified Group or Pane
      *
@@ -88,13 +83,13 @@ public class UIBuilder {
             pane.getChildren().remove(component);
         } else if (layout instanceof Group) {
             Group pane = (Group) layout;
+            System.out.println(pane.getChildren());
             pane.getChildren().remove(component);
         } else {
             return null;
         }
         return component;
     }
-
     /**
      * Create a new JavaFX Button and adds it to the given Group or Pane
      *
@@ -106,7 +101,6 @@ public class UIBuilder {
     public Node addNewButton(Parent layout, ComponentProperties properties) {
         return addComponent(layout, buttonBuilder.createComponent(properties));
     }
-
     /**
      * Creates a new JavaFX Button and adds it to the given Group or Pane
      *
@@ -122,7 +116,6 @@ public class UIBuilder {
                 .preserveRatio(true)
                 .width(width));
     }
-
     /**
      * Creates a new JavaFX ImageView and adds it to the given Group or Pane
      *
@@ -134,7 +127,6 @@ public class UIBuilder {
     public Node addNewImageView(Parent layout, ComponentProperties properties) {
         return addComponent(layout, imageViewBuilder.createComponent(properties));
     }
-
     /**
      * Creates a new JavaFX ImageView, sets its position, image myIconPath, width, and CSS id,
      * and adds it to the given Group or Pane
@@ -154,7 +146,6 @@ public class UIBuilder {
                 .width(width)
                 .id(id));
     }
-
     /**
      * Create a new JavaFX Label and adds it to the given Group or Pane
      *
@@ -166,7 +157,6 @@ public class UIBuilder {
     public Node addNewLabel(Parent layout, ComponentProperties properties) {
         return addComponent(layout, labelBuilder.createComponent(properties));
     }
-
     /**
      * Create a customized JavaFX Label and add it to the given Group or Pane
      *
@@ -182,7 +172,6 @@ public class UIBuilder {
                 .font(font)
                 .size(size));
     }
-
     /**
      * Create a new JavaFX text field and add it to the given Group or Pane
      *
@@ -193,7 +182,6 @@ public class UIBuilder {
     public Node addNewTextField(Parent layout, ComponentProperties properties) {
         return addComponent(layout, textFieldBuilder.createComponent(properties));
     }
-
     /**
      * Create a customized JavaFX text field and add it to the given Group or Pane
      *
@@ -209,13 +197,17 @@ public class UIBuilder {
                 .width(width)
                 .text(text)));
     }
-
+    public Node addCustomTextField(Parent layout, String text, int x, int y, int width, int height) {
+        return addComponent(layout, textFieldBuilder.createComponent(new ComponentProperties(x, y)
+                .width(width)
+                .text(text)
+                .height(height)));
+    }
     public Node addNewAlert(String header, String content) {
         return alertBuilder.createComponent(new ComponentProperties()
                 .header(header)
                 .content(content));
     }
-    
     /**
      * Add dialog box to layout, must set params in properties for layout X & Y coordinates,
      * text string to be displayed, and height and width of bubble
@@ -224,19 +216,21 @@ public class UIBuilder {
      * @param properties
      * @return
      */
-    public Node addDialogBubble(Parent layout, ComponentProperties properties) {
+    public Node addDialogBubble(Parent layout, Stage stage, ComponentProperties properties) {
     	Node dialogNode = dialogBuilder.createComponent(properties);
-    	dialogNode.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>()  {
+    	stage.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
 			public void handle(final KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER) {
-                    removeComponent(layout, dialogNode);
+                if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+//                    removeComponent(layout, dialogNode);
+                	removeComponent(layout, dialogNode);
+                    keyEvent.consume();
                 }
 			}
+	
 		});
     	addComponent(layout, dialogNode);
     	return dialogNode;
     }
-
     /**
      * Initializes a JavaFX window with the specified stage and parameters given
      * in a properties file
@@ -254,5 +248,4 @@ public class UIBuilder {
         currStage.centerOnScreen();
         currStage.show();
     }
-
 }

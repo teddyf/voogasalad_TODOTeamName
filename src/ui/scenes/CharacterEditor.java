@@ -109,11 +109,6 @@ public class CharacterEditor extends Scene{
         playerLeft.setOnMouseClicked(e->{
             rotateImage(-1,playerImage);
         });
-        ComponentProperties prop = new ComponentProperties(500, 500);
-        prop.text("PLZWORK");
-        prop.height(20);
-        prop.width(200);
-        myBuilder.addDialogBubble(myRoot, prop);
           
         myStage.setOnCloseRequest(e->{
             e.consume();
@@ -127,7 +122,7 @@ public class CharacterEditor extends Scene{
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomButton(myRoot, route, x, y, girth);
+        Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
         node.setOnMouseEntered(e->{
             node.setEffect(hoverOpacity);
         });
@@ -143,24 +138,24 @@ public class CharacterEditor extends Scene{
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomTextField(myRoot, route, x, y, girth);
+        Node node = myBuilder.addCustomTextField(myRoot, route, x, y, girth,20);
         return node;
     }
+
     
     private Node buildImage(String xPos, String yPos, String width, String path){
         int x = Integer.parseInt(myResources.getString(xPos));
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomButton(myRoot, route, x, y, girth);
+        Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
+        
         return node;
     }
     
     private void addDefaultPlayers(){
-        imagePaths.add("resources/images/Sprites/Character/Pokemon/Player1NorthFacing.png");
-        imagePaths.add("resources/images/Sprites/Character/Pokemon/Player2NorthFacing.png");
-        imagePaths.add("resources/images/Sprites/Character/Pokemon/Player1SouthFacing.png");
-        imagePaths.add("resources/images/Sprites/Character/Pokemon/Player2SouthFacing.png");
+        imagePaths.add("resources/images/tiles/sprites/player-1-north-facing.png");
+        imagePaths.add("resources/images/tiles/sprites/player-1-south-facing.png");
     }
     
     

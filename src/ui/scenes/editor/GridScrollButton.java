@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 import resources.properties.PropertiesUtilities;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
-import ui.scenes.ScrollAnimation;
 
 import java.util.ResourceBundle;
 
