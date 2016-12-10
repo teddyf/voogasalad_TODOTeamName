@@ -5,10 +5,7 @@ import block.BlockFactory;
 import block.BlockType;
 import block.CommunicatorBlock;
 import engine.EngineController;
-import exceptions.BadPlayerPlacementException;
-import exceptions.DuplicatePlayerException;
-import exceptions.LargeGridException;
-import exceptions.NoPlayerException;
+import exceptions.*;
 import grid.Grid;
 import grid.GridGrowthDirection;
 import grid.GridWorld;
@@ -42,11 +39,11 @@ public class EditorModel {
         currentGrid = gridWorld.changeGrid(index);
     }
 
-    public boolean changeGridSize(GridGrowthDirection direction, int amount) throws LargeGridException {
+    public boolean changeGridSize(GridGrowthDirection direction, int amount) throws LargeGridException, DeletePlayerWarning {
         if (amount >= 0) {
             return growGrid(direction, amount);
         }
-        return shrinkGrid(direction, amount);
+        return checkShrink(direction, amount);
     }
 
     private boolean deletePlayer() {
@@ -56,49 +53,52 @@ public class EditorModel {
     /** shrinks the grid the appropriate amount from the appropriate direction
      * @param amount: positive int of how much the grid should shrink
      */
+    public boolean checkShrink(GridGrowthDirection direction, int amount) throws DeletePlayerWarning {
+        switch (direction) {
+            case NORTH:
+                if (player.getRow() < amount) {
+                    throw new DeletePlayerWarning();
+                }
+            case SOUTH:
+                if(player.getRow() >= currentGrid.getNumRows() - amount) {
+                    throw new DeletePlayerWarning();
+                }
+            case EAST:
+                if(player.getCol() >= currentGrid.getNumCols() - amount) {
+                    throw new DeletePlayerWarning();
+                }
+            case WEST:
+                if(player.getCol() < amount) {
+                    throw new DeletePlayerWarning();
+                }
+        }
+        return shrinkGrid(direction, amount);
+    }
+
     public boolean shrinkGrid(GridGrowthDirection direction, int amount) {
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
         rowOffset = colOffset = rowStart = colStart = 0;
-
         switch (direction) {
             case NORTH:
-                if (player.getRow() < amount && !deletePlayer()) {
-                    //TODO warning message "your player is out of bounds and is about to be deleted. Continue?"
-                    // if yes, player = null, continue
-                    // if no, return
-                    return false;
-                }
                 numRows -= amount;
                 rowOffset = amount;
                 player.setRow(player.getRow() - rowOffset);
                 break;
             case SOUTH:
                 numRows -= amount;
-                if(player.getRow() > numRows && !deletePlayer()) {
-                    //TODO warning message
-                    return false;
-                }
                 break;
             case EAST:
                 numCols -= amount;
-                if(player.getCol() > numCols && !deletePlayer()) {
-                    //TODO warning message
-                    return false;
-                }
                 break;
             case WEST:
-                if(player.getCol() < amount && !deletePlayer()) {
-                    //TODO warning message
-                    return false;
-                }
                 numCols -= amount;
                 colOffset = amount;
                 player.setCol(player.getCol() - colOffset);
                 break;
         }
-        currentGrid.resize(numRows, numCols, rowOffset, rowEnd, rowOffset, colOffset, colEnd, colOffset);
+        currentGrid.resize(numRows, numCols, rowStart, rowEnd, rowOffset, colStart, colEnd, colOffset);
         return true;
     }
 
@@ -130,7 +130,7 @@ public class EditorModel {
         if (numRows > 100 || numCols > 100) {
             throw new LargeGridException();
         }
-        currentGrid.resize(numRows, numCols, rowOffset, rowEnd, rowOffset, colOffset, colEnd, colOffset);
+        currentGrid.resize(numRows, numCols, rowStart, rowEnd, rowOffset, colStart, colEnd, colOffset);
         return true;
     }
 

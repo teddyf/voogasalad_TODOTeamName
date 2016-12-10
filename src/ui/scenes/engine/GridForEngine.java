@@ -103,7 +103,7 @@ public class GridForEngine {
             double y = getYRender(node.getRow());
             node.setImageSize(CELL_PIXELS, CELL_PIXELS);
             node.setImageCoord(x, y);
-            if (node.getCol() >= WRAP / 2
+            /*if (node.getCol() >= WRAP / 2
                     && node.getCol() < gridWidth + WRAP / 2
                     && node.getRow() >= WRAP / 2
                     && node.getRow() < gridHeight + WRAP / 2) {
@@ -113,7 +113,10 @@ public class GridForEngine {
                 node.getImage().setEffect(hoverOpacity);
                 group.getChildren().add(node.getImage());
                 grid[node.getCol()][node.getRow()] = node;
-            }
+            }*/
+            node.getImage().setEffect(hoverOpacity);
+            group.getChildren().add(node.getImage());
+            grid[node.getCol()][node.getRow()] = node;
         }
     }
 
