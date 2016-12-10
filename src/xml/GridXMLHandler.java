@@ -1,17 +1,14 @@
 package xml;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
-
-import block.CommunicatorBlock;
 import grid.Grid;
 import grid.GridWorld;
 import player.Player;
+import xml.BlockAliasFactory;
+import xml.GridWorldAndPlayer;
+
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 /**
  * Handles saving a GridWorld and PLayer to XML.

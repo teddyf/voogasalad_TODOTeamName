@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import battle.model.*;
 import battle.controller.BattleModelInView;
-import battle.view.WinConditionView;
+import battle.WinConditionView;
 import block.EnemyBlock;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

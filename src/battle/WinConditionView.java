@@ -1,4 +1,4 @@
-package battle.view;
+package battle;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;
