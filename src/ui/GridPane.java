@@ -15,7 +15,7 @@ import editor.EditorController;
 public class GridPane {
 
     private final int WRAP = 10;
-    private final int CELL_PIXELS = 50;
+    private final int CELL_PIXELS = 20;
 
     private Group group;
     private List<GridPaneNode> blockList;
@@ -64,8 +64,7 @@ public class GridPane {
 
     private int randomNumber (int min, int max) {
         Random rand = new Random();
-        //return rand.nextInt((max - min) + 1) + min;
-        return 1;
+        return rand.nextInt((max - min) + 1) + min;
     }
 
     private double getXRender (int column) {
@@ -114,7 +113,6 @@ public class GridPane {
 
     public void resize () {
         grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
-        System.out.println(blockList.size());
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode temp = blockList.get(i);
             temp.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
@@ -132,7 +130,6 @@ public class GridPane {
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode temp = blockList.get(i);
             if (temp.getCol() >= x || temp.getRow() >= y) {
-                //System.out.println(temp.getCol() + "," + temp.getRow());
                 blockList.remove(i);
                 gridMap.resizeRemove(temp.getRow(), temp.getCol());
                 i--;
@@ -147,8 +144,6 @@ public class GridPane {
     }
 
     private void resizeResetMore (double x, double y) {
-        System.out.println(x - gridWidth);
-        System.out.println(x - gridHeight);
         for (int i = (int) gridWidth; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 GridPaneNode node = new GridPaneNode(i, j, defaultText());
@@ -222,11 +217,17 @@ public class GridPane {
     }
 
 
+    public void nodeClick(GameObject obj, EditorController control){
+        //if()
+    }
+    
     public List<GridPaneNode> swap (GameObject obj, EditorController control) {
-        List<GridPaneNode> list = obj.getImageTiles();
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
+        if(obj==null){
+            return copy;
+        }
+        List<GridPaneNode> list = obj.getImageTiles();
         getObjectNeighbors(list);
-        System.out.println(clicked);
         for (int i = 0; i < clicked.size(); i++) {
             if (addObjToMap(list, clicked.get(i))) {
                 for (int j = 0; j < list.size(); j++) {
@@ -259,17 +260,15 @@ public class GridPane {
             }
             temp.add(grid[xRef][yRef]);
         }
-        gridMap.storeObject(temp);
-        
+        gridMap.storeObject(temp);        
         return true;
-
         // TODO add dimension checker
     }
 
     private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
         if (gameObject instanceof Player1) {
             control.addPlayer(temp.getName(), temp.getBackendRow(), temp.getBackendCol());
-            control.addBlock("resources/images/tiles/ground/grass-1.png", BlockType.DECORATION, temp.getBackendRow(),
+            control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getBackendRow(),
                              temp.getBackendCol());
         }
     }
@@ -291,15 +290,14 @@ public class GridPane {
         }
     }
 
-    public void delete (List<GridPaneNode> list) {
+    public void delete () {
         ArrayList<Integer> deleted = new ArrayList<Integer>();
-        for (int i = 0; i < list.size(); i++) {
-            GridPaneNode temp = list.get(i);
+        for (int i = 0; i < clicked.size(); i++) {
+            GridPaneNode temp = clicked.get(i);
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
 
-        System.out.println(deleted.size()/2);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i+=2) {            
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
@@ -382,7 +380,7 @@ public class GridPane {
             node.getImage().setEffect(hoverOpacity);
         });
         node.getImage().setOnMouseClicked(e -> {
-            node.getImage().setEffect(hoverOpacity);
+            //node.getImage().setEffect(hoverOpacity);
             click(node);
         });
     }

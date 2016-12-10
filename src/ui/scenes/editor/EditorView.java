@@ -3,10 +3,8 @@ package ui.scenes.editor;
 import editor.EditorController;
 import engine.EngineController;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.effect.ColorAdjust;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
@@ -19,9 +17,11 @@ import ui.scenes.editor.sidemenu.*;
 /**
  * @author Robert Steilberg
  *         <p>
- *         This class handles the game editor that is used to build games.
+ *         This class handles the game editor that is used to build games. It
+ *         creates the grid on which the overworld is created along with control
+ *         panels for handling the control flow of the editing process.
  */
-public class GameEditor extends Scene implements GameEditorAlerts {
+public class EditorView extends Scene implements GameEditorAlerts {
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
     private static final String ALERT_RESOURCES = "resources/properties/alerts-text";
@@ -31,37 +31,30 @@ public class GameEditor extends Scene implements GameEditorAlerts {
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
-    private ResourceBundle alertResources;
+    private ResourceBundle myAlertResources;
     private EditorController myController;
     private EditorEvents events;
 
-    public GameEditor(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
-        super(root, Color.web("#0585B2"));
+    public EditorView(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
+//        super(root, Color.web("#0585B2"));
+        super(root, Color.GRAY);
         myController = controller;
         myStage = stage;
         myRoot = root;
         myLauncher = launcher;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
-        alertResources = ResourceBundle.getBundle(ALERT_RESOURCES);
+        myAlertResources = ResourceBundle.getBundle(ALERT_RESOURCES);
         root.getStylesheets().add(CSS_FILE_NAME);
     }
 
 
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
+        EditorControls sideControls = new EditorControls(myRoot, myResources, myController);
+        GridUI grid = new GridUI(myRoot, myController, sideControls.getMyItemMenu(), width, height);
 
 
-        ItemSideMenu itemMenu = new ItemSideMenu(myRoot, myResources);
-        PlayerSideMenu playerMenu = new PlayerSideMenu(myRoot, myResources);
-
-        GridUI grid = new GridUI(myRoot, itemMenu, myController);
-        grid.initGrid(width, height);
-
-
-
-        EditorControls controls = new EditorControls(myRoot, myResources, itemMenu, playerMenu);
-        controls.addEditorControls();
 
         EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
         events = new EditorEvents(myLauncher, IO, myResources);
@@ -69,7 +62,7 @@ public class GameEditor extends Scene implements GameEditorAlerts {
 
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
-        initPlayerButton();
+//        initPlayerButton();
 
         //        EngineController loadedEngine = editorController.runEngine(); // running test
         myStage.setOnCloseRequest(e -> {
@@ -77,10 +70,9 @@ public class GameEditor extends Scene implements GameEditorAlerts {
             e.consume();
             events.exitPrompt(false);
         });
-
-                /* New code */
         myStage.setScene(this);
-
+        this.setOnScrollStarted(event -> grid.getScrollMechanism().trackpadStartScroll(event));
+        this.setOnScrollFinished(event -> grid.getScrollMechanism().trackpadEndScroll(event));
     }
 
     /**
@@ -103,24 +95,24 @@ public class GameEditor extends Scene implements GameEditorAlerts {
     }
 
 
-    private void initPlayerButton() {
-        ColorAdjust hoverOpacity = new ColorAdjust();
-        hoverOpacity.setBrightness(-.3);
-        int playerX = Integer.parseInt(myResources.getString("playerX"));
-        int playerY = Integer.parseInt(myResources.getString("playerY"));
-        int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
-        String playerText = myResources.getString("playerLabel");
-        Node playerButton = myBuilder.addCustomButton(myRoot, playerText, playerX, playerY, playerWidth);
-        playerButton.setOnMouseClicked(e -> {
-            myLauncher.launchCharacterMenu();
-        });
-        playerButton.setOnMouseEntered(e -> {
-            playerButton.setEffect(hoverOpacity);
-        });
-        playerButton.setOnMouseExited(e -> {
-            playerButton.setEffect(null);
-        });
-    }
+//    private void initPlayerButton() {
+//        ColorAdjust hoverOpacity = new ColorAdjust();
+//        hoverOpacity.setBrightness(-.3);
+//        int playerX = Integer.parseInt(myResources.getString("playerX"));
+//        int playerY = Integer.parseInt(myResources.getString("playerY"));
+//        int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
+//        String playerText = myResources.getString("playerLabel");
+//        Node playerButton = myBuilder.addCustomButton(myRoot, playerText, playerX, playerY, playerWidth);
+//        playerButton.setOnMouseClicked(e -> {
+//            myLauncher.launchCharacterMenu();
+//        });
+//        playerButton.setOnMouseEntered(e -> {
+//            playerButton.setEffect(hoverOpacity);
+//        });
+//        playerButton.setOnMouseExited(e -> {
+//            playerButton.setEffect(null);
+//        });
+//    }
 
     public String getPath() {
         return EDITOR_RESOURCES;
@@ -132,6 +124,6 @@ public class GameEditor extends Scene implements GameEditorAlerts {
 
     public void exceptionDisplay(String content) {
         System.out.println("CONTENT = " + content);
-        myBuilder.addNewAlert(alertResources.getString("EXCEPTION").toUpperCase(), content);
+        myBuilder.addNewAlert(myAlertResources.getString("EXCEPTION").toUpperCase(), content);
     }
 }

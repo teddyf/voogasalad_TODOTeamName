@@ -19,6 +19,7 @@ public class ComponentProperties {
     protected boolean preserveRatio;
     protected String font;
     protected int size;
+    protected String title;
     protected String header;
     protected String content;
     protected Color color;
@@ -89,6 +90,11 @@ public class ComponentProperties {
 
     public ComponentProperties rotate(double rotate) {
         this.rotate = rotate;
+        return this;
+    }
+
+    public ComponentProperties title(String title) {
+        this.title = title;
         return this;
     }
 }

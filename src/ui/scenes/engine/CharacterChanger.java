@@ -1,9 +1,16 @@
 package ui.scenes.engine;
 
+import java.io.File;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
+import ui.builder.UIBuilder;
+import ui.scenes.engine.Character;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -17,7 +24,7 @@ import javafx.scene.layout.VBox;
  * @author pim chuaylua
  * */
 
-public class CharacterChanger {
+public class CharacterChanger extends Observable {
 	
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 	private ResourceBundle myResources;
@@ -25,9 +32,13 @@ public class CharacterChanger {
 	private VBox vbox;
 	private FlowPane flowPane;
 	private Character player;
+	private UIBuilder uiBuilder;
+	private Parent root;
 	
-	CharacterChanger(Character player) {
+	CharacterChanger(Character player,UIBuilder uiBuilder,Parent root) {
 		this.player=player;
+		this.uiBuilder=uiBuilder;
+		this.root=root;
 		init();
 	}
 	
@@ -52,20 +63,28 @@ public class CharacterChanger {
 	}
 	
 	private void addPlayerOptions() {
-		
-		//hard code for testing
-		String path1 = "resources/images/tiles/sprites/player-1-south-facing.png";
-		Button button1 = new Button();
-		button1.setGraphic(new ImageView(new Image(path1)));
-		button1.setOnMouseClicked(e -> player.changeCharacterImage(path1));
-		
-		String path2 = "resources/images/tiles/sprites/player-1-east-facing.png";
-		Button button2 = new Button();
-		button2.setGraphic(new ImageView(new Image(path2)));
-		button2.setOnMouseClicked(e -> player.changeCharacterImage(path2));
-		flowPane.getChildren().addAll(button1,button2);
+		    
+		for (int i=1;i<9;i++) {
+			String path = "resources/images/sprites/"+i+"-down.png";
+			Button button = new Button();
+			ImageView imageView = new ImageView(new Image(path));
+			imageView.setFitWidth(30);
+			imageView.setFitHeight(30);
+			button.setGraphic(imageView);
+			button.setOnAction(new EventHandler<ActionEvent>() {
+	            @Override
+	            public void handle(ActionEvent event) {
+	            	uiBuilder.removeComponent(root,player.getCharacterImageView());
+	            	player.changeCharacterImage(path);
+	            	uiBuilder.addComponent(root,player.getCharacterImageView());
+	            }
+	        });
+	        
+			flowPane.getChildren().addAll(button);
+		}
 	}
 
+	
 	public Group getGroup() {
 		return group;
 	}

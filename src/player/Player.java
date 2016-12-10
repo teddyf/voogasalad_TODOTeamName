@@ -8,9 +8,9 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import api.IPlayer;
 import editor.backend.Battle;
-import interactions.Interaction;
 import editor.backend.Item;
 import editor.backend.Status;
+import interactions.Interaction;
 
 /**
  * This is the class that holds all of the information corresponding to the
@@ -55,7 +55,7 @@ public class Player implements IPlayer {
 		return battlesWon;
 	}
 	public int getBattlesLost(){
-		return battlesWon;
+		return battlesLost;
 	}
 	public void incrementBattlesWon(){
 		battlesWon++;

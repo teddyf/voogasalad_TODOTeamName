@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 
+@Deprecated
 public class PlayerImageChooserUI extends Observable {
 	private Group group;
 	private String filePath;

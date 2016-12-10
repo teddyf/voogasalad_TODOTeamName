@@ -1,10 +1,12 @@
 package ui.scenes.editor.sidemenu;
 
+import editor.EditorController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.FlowPane;
+import resources.properties.PropertiesUtilities;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
@@ -15,60 +17,52 @@ import java.util.ResourceBundle;
 
 /**
  * @author Robert Steilberg
+ *         <p>
+ *         This class defines the functionality for the player side menu from which users
+ *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
 
     private ResourceBundle myResources;
+    private EditorController myController;
 
-    public PlayerSideMenu(Parent root, ResourceBundle resources) {
+    PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
         super(root, resources);
         myResources = resources;
+        myController = controller;
         init();
     }
 
+    /**
+     * Adds each sprite image representation to the menu
+     *
+     * @return the FlowPane containing the sprites
+     */
     private FlowPane addSprites() {
-
         UIBuilder builder = new UIBuilder();
+        PropertiesUtilities util = new PropertiesUtilities(myResources);
         FlowPane sprites = createFlowPane();
-
-        String directory = "src/resources/images/sprites/";
-        File file = new File(directory);
+        File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
-
-
-        for (String path : images) {
-            if (path.contains("down")) {
-                String imagePath = "resources/images/sprites/" + path;
+        for (String image : images) {
+            if (image.contains("down")) {
+                String imagePath = myResources.getString("spritePath") + image;
                 Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
                         .path(imagePath)
+                        .width(util.getIntProperty("spriteWidth"))
                         .preserveRatio(true)
-                        .id("sprite-item"));
+                        .id(myResources.getString("spriteCSSid")));
+                //TODO hard coded player add
+                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,4,5));
                 sprites.getChildren().add(sprite);
             }
         }
-
-//        String path1 = "resources/images/sprites/1-down.png";
-//        Node n = builder.addNewImageView(myRoot, new ComponentProperties()
-//                .path(path1)
-//                .preserveRatio(true)
-//                .id("sprite-item"));
-//        sprites.getChildren().add(n);
-//        String path2 = "resources/images/sprites/2-down.png";
-//        Node n2 = builder.addNewImageView(myRoot, new ComponentProperties()
-//                .path(path2)
-//                .preserveRatio(true)
-//                .id("sprite-item"));
-//        sprites.getChildren().add(n2);
-//
-//        String path3 = "resources/images/sprites/3-down.png";
-//        Node n3 = builder.addNewImageView(myRoot, new ComponentProperties()
-//                .path(path3)
-//                .preserveRatio(true)
-//                .id("sprite-item"));
-//        sprites.getChildren().add(n3);
         return sprites;
     }
 
+    /**
+     * Adds the tabs to the player side menu
+     */
     protected void addTabs() {
         List<Tab> tabs = new ArrayList<>();
         // sprite tab
@@ -77,9 +71,7 @@ public class PlayerSideMenu extends SideMenu {
         ScrollPane spritePane = new ScrollPane(sprites);
         spriteTab.setContent(spritePane);
         tabs.add(spriteTab);
-        // attributes tab
-//       s
+        // TODO add more panes here, possibly refactor
         myPanel.getTabs().addAll(tabs);
     }
-
 }

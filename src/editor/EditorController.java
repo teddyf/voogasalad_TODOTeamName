@@ -7,7 +7,7 @@ import exceptions.DuplicatePlayerException;
 import exceptions.LargeGridException;
 import exceptions.NoPlayerException;
 import grid.GridGrowthDirection;
-import ui.scenes.editor.sidemenu.GameEditorAlerts;
+import ui.scenes.editor.GameEditorAlerts;
 
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
@@ -59,6 +59,7 @@ public class EditorController {
 
     public boolean addPlayer(String name, int row, int col) {
         try {
+            System.out.println("added player");
             return myModel.addPlayer(name, row, col);
         }
         catch (BadPlayerPlacementException e) {

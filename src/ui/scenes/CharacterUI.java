@@ -14,7 +14,7 @@ public class CharacterUI {
     private Parent myRoot;
     private EditorController myController;
     
-    CharacterUI(Parent root, EditorController controller, ResourceBundle resources){
+    public CharacterUI(Parent root, EditorController controller, ResourceBundle resources){
         myRoot = root;
         myResources = resources;
         myController = controller;

@@ -22,7 +22,6 @@ public class UIBuilder {
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
-    private ComponentBuilder warningBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -30,7 +29,6 @@ public class UIBuilder {
         imageViewBuilder = new ImageViewBuilder();
         labelBuilder = new LabelBuilder();
         textFieldBuilder = new TextFieldBuilder();
-        warningBuilder = new WarningBuilder();
     }
 
     /**
@@ -216,6 +214,10 @@ public class UIBuilder {
         return alertBuilder.createComponent(new ComponentProperties()
                 .header(header)
                 .content(content));
+    }
+
+    public Node addNewAlert(Parent layout, ComponentProperties properties) {
+        return alertBuilder.createComponent(properties);
     }
 
     /**

@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
  *
  */
 
-public class Character extends Observable {
+public class Character {
 	
 	private ImageView characterImage;
 	private int curRow;
@@ -22,7 +22,7 @@ public class Character extends Observable {
 	private String name;
 	
 	public Character(GameEngine gameEngine) {
-		this.addObserver(gameEngine);
+		//this.addObserver(gameEngine);
 	}
 
 	/*setting size of character image
@@ -46,8 +46,6 @@ public class Character extends Observable {
 		this.getCharacterImageView().setLayoutX(posX);
     	this.getCharacterImageView().setLayoutY(posY);
     	this.setName(path);
-    	setChanged();
-    	notifyObservers();
 	}
 	
 	public ImageView getCharacterImageView() {

@@ -53,7 +53,7 @@ public class HealthDisplay {
 	}
 	
 	public void update(ItemView itemView) {
-		playerChart.setPrefSize(itemView.getHP(),5);
+		playerChart.setPrefSize(itemView.getHP(), 5);
 		score.setText("HP: "+itemView.getHP());
 	}
 	

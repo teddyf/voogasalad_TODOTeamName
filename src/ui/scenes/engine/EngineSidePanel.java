@@ -16,6 +16,8 @@ import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 /**
@@ -23,20 +25,22 @@ import java.util.ResourceBundle;
  *         <p>
  *         This class initializes player status ui.
  */
-public class EngineSidePanel {
+public class EngineSidePanel implements Observer {
 
     private Parent myRoot;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private VBox vbox;
     private PropertiesUtilities util;
+    private Character player;
 
-    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources) {
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
         util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
+        this.player = player;
     }
 
     /**
@@ -78,7 +82,12 @@ public class EngineSidePanel {
     }
 
     public void initPlayerChanger(Character player) {
-    	vbox.getChildren().add(new CharacterChanger(player).getGroup());
+    	vbox.getChildren().add(new CharacterChanger(player,myBuilder,myRoot).getGroup());
     }
-    
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+
+	}  
 }

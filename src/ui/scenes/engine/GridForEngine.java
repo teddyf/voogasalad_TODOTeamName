@@ -250,7 +250,7 @@ public class GridForEngine {
         }
         //System.out.println(gridMap);
         clicked = new ArrayList<GridPaneNode>();
-        gridMap.visObjectMap();
+//        gridMap.visObjectMap();
         return copy;
     }
 
@@ -314,7 +314,7 @@ public class GridForEngine {
         }
         clicked = new ArrayList<GridPaneNode>();
         //System.out.println(gridMap);
-        gridMap.visObjectMap();
+//        gridMap.visObjectMap();
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {

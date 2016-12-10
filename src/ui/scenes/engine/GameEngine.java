@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
  *
  *         Dependencies: FileBrowser.java
  */
-public class GameEngine extends Scene implements Observer {
+public class GameEngine extends Scene {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
     private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
@@ -85,7 +85,7 @@ public class GameEngine extends Scene implements Observer {
     }
     
     private void setUpSidePanel() {
-    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources);
+    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player);
     	engineSidePanel.initPlayerChanger(player);
     	engineSidePanel.initSidePanel();
     	engineSidePanel.initStats();
@@ -98,7 +98,7 @@ public class GameEngine extends Scene implements Observer {
     	player = new Character(this);
     	System.out.println(player.getRowCharacter());
     	System.out.println(player.getColumnCharacter());
-    	player.setCharacterImage("resources/images/tiles/sprites/player-1-south-facing.png");
+    	player.setCharacterImage("resources/images/sprites/1-down.png");
         player.setCharacterImageSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
@@ -106,7 +106,7 @@ public class GameEngine extends Scene implements Observer {
 
         player.setPosX(gridWidth/2 - player.getSize()/2);
         player.setPosY(gridHeight/2 - player.getSize()/2);
-    	player.setName("resources/images/tiles/sprites/player-1-south-facing.png");
+    	player.setName("resources/images/sprites/1-down.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
 
         //setup grid
@@ -161,11 +161,5 @@ public class GameEngine extends Scene implements Observer {
         grid.setRenderMap();
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
-
-	@Override
-	public void update(Observable o, Object arg) {
-		myBuilder.addComponent(myRoot, player.getCharacterImageView());
-	}  
-	
 	
 }

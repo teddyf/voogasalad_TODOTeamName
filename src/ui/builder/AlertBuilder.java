@@ -18,7 +18,7 @@ public class AlertBuilder extends ComponentBuilder {
     @Override
     public Node createComponent(ComponentProperties properties) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("");
+        alert.setTitle(properties.title);
         alert.setHeaderText(properties.header);
         alert.setContentText(properties.content);
         alert.showAndWait();
