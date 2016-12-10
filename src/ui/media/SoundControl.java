@@ -42,7 +42,7 @@ public class SoundControl {
 		
 		player = new MediaPlayer(new Media(new File("src/resources/songs/aquacorde.mp3").toURI().toString()));
 		setPlayinLoop(player);
-		//player.play();
+		player.play();
         playButtonClicked=true;
         
 		group.getChildren().add(hbox);
