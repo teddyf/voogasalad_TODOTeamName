@@ -25,6 +25,7 @@ public class Player implements IPlayer {
 	private int battlesWon;
 	private int battlesLost;
 	private String myName;
+	private String myPlayerName;
 	private PlayerDirection myDirection;
 	private int myRow;
 	private int myCol;
@@ -37,8 +38,9 @@ public class Player implements IPlayer {
 	
 	private double health;
 
-	public Player(String name, int row, int col, int gridIndex) {
+	public Player(String name, String playerName, int row, int col, int gridIndex) {
 		myName = name;
+		myPlayerName = playerName;
 		myDirection = PlayerDirection.NORTH;
 		myRow = row;
 		myCol = col;
