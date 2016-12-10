@@ -46,14 +46,15 @@ public class EditorModel {
         return checkShrink(direction, amount);
     }
 
-    private boolean deletePlayer() {
-        return false;
-    }
-
-    /** shrinks the grid the appropriate amount from the appropriate direction
-     * @param amount: positive int of how much the grid should shrink
+    /**
+     * Determines if the grid can shrink without deleting the player. If not, the user receives a warning about deleting
+     * the player.
+     * @param direction - the direction in which to shrink the grid
+     * @param amount - the amount by which the grid size should shrink
+     * @return whether the grid can shrink without deleting the player
+     * @throws DeletePlayerWarning
      */
-    public boolean checkShrink(GridGrowthDirection direction, int amount) throws DeletePlayerWarning {
+    private boolean checkShrink(GridGrowthDirection direction, int amount) throws DeletePlayerWarning {
         switch (direction) {
             case NORTH:
                 if (player.getRow() < amount) {

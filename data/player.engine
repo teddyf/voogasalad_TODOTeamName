@@ -298,14 +298,13 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
-          <health>100.0</health>
         </block>
         <block>
           <changed>false</changed>
@@ -1816,14 +1815,13 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>13</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
           <blockUpdates/>
-          <health>100.0</health>
         </block>
         <block>
           <changed>false</changed>
@@ -3402,7 +3400,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>12</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
@@ -3413,7 +3411,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>12</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
@@ -3701,7 +3699,7 @@
         <block>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>13</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -6927,61 +6925,6 @@
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>24</myRow>
           <myCol>24</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-      </block.Block-array>
-    </grid>
-    <grid>
-      <changed>false</changed>
-      <obs/>
-      <myIndex>1</myIndex>
-      <myNumRows>2</myNumRows>
-      <myNumCols>2</myNumCols>
-      <block.Block-array>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>0</myRow>
-          <myCol>0</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>0</myRow>
-          <myCol>1</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-      </block.Block-array>
-      <block.Block-array>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>0</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block>
-        <block>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>

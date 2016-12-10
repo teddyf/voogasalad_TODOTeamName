@@ -5,7 +5,7 @@ package block;
  * 
  * @author Daniel Chai, Bill Xiong
  */
-public class EnemyBlock extends CommunicatorBlock {
+public class EnemyBlock extends Block {
 	public static final int DEFAULT_HEALTH = 100;
 	
 	private double health;
