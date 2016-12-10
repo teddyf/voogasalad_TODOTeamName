@@ -83,7 +83,7 @@ public class GameEngine extends Scene {
     }
     
     private void setUpSidePanel() {
-    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player);
+    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player,this);
     }
     
     private void setUpPlayer() {
