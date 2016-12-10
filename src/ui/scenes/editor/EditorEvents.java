@@ -16,22 +16,20 @@ public class EditorEvents {
     private UILauncher myLauncher;
     private EditorIO myIO;
     private ResourceBundle myResources;
-    private ResourceBundle myAlertResources;
 
 
-    public EditorEvents(UILauncher launcher, EditorIO IO, ResourceBundle resources, ResourceBundle alertResources) {
+    public EditorEvents(UILauncher launcher, EditorIO IO, ResourceBundle resources) {
         myLauncher = launcher;
         myIO = IO;
         myResources = resources;
-        myAlertResources = alertResources;
     }
 
     public boolean createWarning(String warningKey) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText(myAlertResources.getString("WARNING"));
-        alert.setHeaderText(myAlertResources.getString(warningKey));
-        ButtonType ok = new ButtonType(myAlertResources.getString("OK"));
-        ButtonType cancel = new ButtonType(myAlertResources.getString("CANCEL"));
+        alert.setHeaderText(myResources.getString("WARNING"));
+        alert.setHeaderText(myResources.getString(warningKey));
+        ButtonType ok = new ButtonType(myResources.getString("OK"));
+        ButtonType cancel = new ButtonType(myResources.getString("CANCEL"));
         alert.getButtonTypes().setAll(cancel, ok);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ok) {

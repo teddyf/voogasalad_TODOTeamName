@@ -2,7 +2,10 @@ package editor;
 
 import block.BlockType;
 import engine.EngineController;
-import exceptions.*;
+import exceptions.BadPlayerPlacementException;
+import exceptions.DuplicatePlayerException;
+import exceptions.LargeGridException;
+import exceptions.NoPlayerException;
 import grid.GridGrowthDirection;
 import ui.scenes.editor.GameEditorAlerts;
 
@@ -51,7 +54,7 @@ public class EditorController {
     }
 
     public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        return myModel.unlinkBlocks(row1, col1, index1, row2, col2, index2);
+        return unlinkBlocks(row1, col1, index1, row2, col2, index2);
     }
 
     public boolean addPlayer(String name, int row, int col) {
@@ -72,10 +75,6 @@ public class EditorController {
         myModel.addPlayerAttribute(name, amount, increment, decrement);
     }
 
-    public boolean deletePlayer() {
-        return myAlerts.warnUser((new DeletePlayerWarning()).getMessage());
-    }
-
     public void movePlayer(int row, int col) {
         myModel.movePlayer(row, col);
     }
@@ -83,13 +82,20 @@ public class EditorController {
     /** shrinks the grid the appropriate amount from the appropriate direction
      * @param amount: positive int of how much the grid should shrink
      */
-    public void changeGridSize(GridGrowthDirection direction, int amount) {
+    public void shrinkGrid(GridGrowthDirection direction, int amount) {
+        //myModel.shrinkGrid(direction, amount);
+    }
+
+    public void growGrid(GridGrowthDirection direction, int amount) {
         try {
-            myModel.changeGridSize(direction, amount);
-        } catch(LargeGridException e) {
+            myModel.growGrid(direction, amount);
+        }
+        catch(LargeGridException e) {
             myAlerts.exceptionDisplay(e.getMessage());
         }
     }
+
+
 
     /*****METHODS FOR FRONTEND TO CALL*****/
 
@@ -137,6 +143,10 @@ public class EditorController {
         myModel.loadEditor(file);
     }
 
+    /**
+     *
+     * @param file
+     */
     public void saveEngine(String file) {
         try {
             myModel.saveEngine(file);
