@@ -36,6 +36,7 @@ public class GameInstance extends Observable implements IGameInstance {
 	private int myScore;
 	private GameStatus myStatus;
 	private List<BlockUpdate> blockUpdates;
+	private BattleController battleController;
 	
 	public GameInstance(Player player, GridWorld gridWorld) {
 	    myGridWorld = gridWorld;
@@ -112,32 +113,9 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case TALK:
-				//TODO get difficulty from block
-				enterBattle(new EnemyBlock("hello", 0, 0), BattleView.Difficulty.MEDIUM);
-                //CommunicatorBlock test = new CommunicatorBlock("blcok", 0, 0);
-				//test.setMessage("How are you doing :)");
-				//test.talkInteract(myPlayer, test.getMessage());
-				System.out.println("talking");
 			    Block block = blockInFacedDirection(row, col, direction);
-				System.out.println();
-			    if (block instanceof EnemyBlock) {
-			    	enterBattle((EnemyBlock) block, BattleView.Difficulty.MEDIUM);
-			    }
-			    else if (block instanceof CommunicatorBlock){
-			    	//TODO: implement interactions
-                    block.setMessage("Test message");
-			    	block.talkInteract(myPlayer, block.getMessage());
-
-			    }
-			   	else if (block instanceof ObstacleBlock) {
-					System.out.println("hi obstacle block");
-				}
-				else if (block instanceof GroundBlock){
-					System.out.println("ground");
-				}
-				else if (block instanceof ItemBlock){
-					System.out.println("Decor");
-				}
+				blockUpdates = block.talkInteract(myPlayer);
+				handleInteraction();
 			default:
 				break;
 		}
@@ -167,6 +145,7 @@ public class GameInstance extends Observable implements IGameInstance {
         if (inBounds(newBlock) && isWalkable(newBlock)) {
             myPlayer.setRow(newBlock.getRow());
             myPlayer.setCol(newBlock.getCol());
+            blockUpdates = newBlock.stepInteract(myPlayer);
             setChanged();
         }
         return playerUpdate;
@@ -222,13 +201,7 @@ public class GameInstance extends Observable implements IGameInstance {
     }
 
     public void handleInteraction() {
-        Block newBlock = myGrid.getBlock(myPlayer.getRow(), myPlayer.getCol());
-        if (newBlock.stepInteract(myPlayer) ){
-            blockUpdates = newBlock.getBlockUpdates();
-            setChanged();
-            notifyObservers(PlayerUpdate.INTERACTION);
-            // frontend needs to call getRow(), getCol(), getBlockUpdates()
-        }
+        blockUpdates.clear();
     }
 
     public void changeGrid(int index) {

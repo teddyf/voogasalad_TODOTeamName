@@ -14,6 +14,9 @@ import javafx.scene.image.ImageView;
 public class Character extends Observable {
 	
 	private ImageView characterImage;
+    private ImageView characterImage2;
+    private ImageView characterImage3;
+    private ImageView characterImage4;
 	private int curRow;
 	private int curCol;
 	private double posX;

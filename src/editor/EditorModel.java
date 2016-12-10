@@ -14,6 +14,8 @@ import player.PlayerAttribute;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
+import java.util.List;
+
 /**
  * @author Aninda Manocha, Filip Mazurek
  */
@@ -169,12 +171,12 @@ public class EditorModel {
         return currentGrid.getBlock(row, col).getName();
     }
 
-    public boolean addPlayer(String name, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
+    public boolean addPlayer(List<String> names, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
         if(!(currentGrid.getBlock(row, col).isWalkable())) {
             throw new BadPlayerPlacementException(row, col);
         }
         if(player == null) {
-            player = new Player(name, playerName, row, col, currentGrid.getIndex());
+            player = new Player(names, playerName, row, col, currentGrid.getIndex());
             return true;
         }
         else {
@@ -186,6 +188,10 @@ public class EditorModel {
         PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
         player.addAttribute(playerAttribute);
         return false;
+    }
+
+    public void deletePlayer() {
+        player = null;
     }
 
     public boolean movePlayer(int row, int col) {

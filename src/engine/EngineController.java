@@ -47,8 +47,8 @@ public class EngineController extends Observable implements Observer {
     /**
      * Calls the game instance to check if there are interactions to handle
      */
-    public void checkInteractions() { //called by frontend if there is a movement update
-        gameInstance.handleInteraction();
+    public List<String> getInteractions() { //called by frontend if there is a movement update
+        return gameInstance.handleInteraction();
     }
 
     public void changeGrid(int index) {
