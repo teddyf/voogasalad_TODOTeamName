@@ -1,11 +1,7 @@
 package api;
 
 import block.BlockUpdate;
-import engine.GameInstance;
 import engine.UserInstruction;
-import grid.GridWorld;
-import player.Player;
-import xml.GridWorldAndPlayer;
 
 import java.util.List;
 import java.util.Observable;
@@ -17,16 +13,19 @@ import java.util.Observable;
 
 public interface IEngineController extends IController {
 
+    /***** GRID METHODS *****/
+
     /**
-     * Takes in a user input and calls the game instance class to process it. The frontend calls this method once a key
-     * input is sent so that the backend can affect the player.
-     * @param input - the user input
+     * Gets the number of rows in the current grid in order for the frontend to draw the grid
+     * @return the number of rows
      */
-    public void keyListener(UserInstruction input);
+    int getNumRows();
 
-    public List<BlockUpdate> getInteractions();
-
-    GameInstance getGameInstance();
+    /**
+     * Gets the number of columns in the current grid in order for the frontend to draw the grid
+     * @return the number of columns
+     */
+    int getNumCols();
 
     /***** PLAYER METHODS *****/
 
@@ -49,12 +48,18 @@ public interface IEngineController extends IController {
     int getPlayerGridIndex();
 
     /**
-     * Passes a player update type to the frontend to update the display of the player when a player's information has
-     * been changed (the game instance is observed in order to detect a change in the player's information)
-     * @param observableValue - the observable game instance
-     * @param value - the player update type
+     * Takes in a user input and calls the game instance class to process it. The frontend calls this method once a key
+     * input is sent so that the backend can affect the player.
+     * @param input - the user input
      */
-    void update(Observable observableValue, Object value);
+    void keyListener(UserInstruction input);
+
+    /**
+     * Gets the interactions for the frontend to display
+     * @return the list of interactions
+     */
+    List<BlockUpdate> getInteractions();
+
 
     /***** DATA METHODS *****/
 

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import api.IEditorController;
+import api.IEngineController;
 import block.BlockUpdate;
 import grid.GridWorld;
 import player.Player;
@@ -17,10 +19,10 @@ import xml.GridXMLHandler;
  * @author Aninda Manocha
  */
 
-public class EngineController extends Observable implements Observer {
+public class EngineController extends Observable implements Observer, IEngineController {
     private GridXMLHandler xmlHandler;
-    private GameInstance gameInstance;
     private List<GameInstance> gameInstances;
+    private GameInstance gameInstance;
     private int gameInstanceIndex;
 
     public EngineController() {
@@ -35,17 +37,14 @@ public class EngineController extends Observable implements Observer {
         gameInstance.addObserver(this);
     }
 
-    /**
-     * Takes in a user input and calls the game instance class to process it. The frontend calls this method once a key
-     * input is sent so that the backend can affect the player.
-     * @param input - the user input
-     */
-    public void keyListener(UserInstruction input) {
-        gameInstance.processInput(input);
+    /***** GRID METHODS *****/
+
+    public int getNumRows() {
+        return gameInstance.getGrid().getNumRows();
     }
 
-    public List<BlockUpdate> getInteractions() {
-        return gameInstance.getBlockUpdates();
+    public int getNumCols() {
+        return gameInstance.getGrid().getNumCols();
     }
 
     public void changeGrid(int index) {
@@ -56,9 +55,7 @@ public class EngineController extends Observable implements Observer {
         return gameInstance.getGrid().getBlock(row, col).getName();
     }
 
-    public List<BlockUpdate> getBlockUpdates() { //what the frontend calls when it receives interaction update
-        return gameInstance.getBlockUpdates();
-    }
+    /***** PLAYER METHODS *****/
 
     public int getPlayerRow() {
         return gameInstance.getPlayer().getRow();
@@ -72,28 +69,12 @@ public class EngineController extends Observable implements Observer {
         return gameInstance.getPlayer().getGridIndex();
     }
 
-    public GameInstance getGameInstance() {
-		return gameInstance;
-	}
-
-    /**
-     * Saves the status of a game by saving the grid world and player in a file
-     * @param file - the myIconPath of the file that will contain the game
-     */
-    public void saveEngine(String file) {
-        xmlHandler.saveContents(file, gameInstance.getGridWorld(), gameInstance.getPlayer());
+    public void keyListener(UserInstruction input) {
+        gameInstance.processInput(input);
     }
 
-    /**
-     * Loads a game file containing a grid world and player
-     * @param file - the myIconPath of the file that contains the game
-     */
-    public void loadEngine(String file) {
-        GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
-        Player player = gridWorldAndPlayer.getPlayer();
-        GridWorld gridWorld = gridWorldAndPlayer.getGridWorld();
-        gameInstance = new GameInstance(player, gridWorld);
-        gameInstance.addObserver(this);
+    public List<BlockUpdate> getInteractions() {
+        return gameInstance.getBlockUpdates();
     }
 
     /**
@@ -107,5 +88,19 @@ public class EngineController extends Observable implements Observer {
             setChanged();
             notifyObservers(value);
         }
+    }
+
+    /***** DATA METHODS *****/
+
+    public void saveEngine(String file) {
+        gameInstance.saveEngine(file);
+    }
+
+    public void loadEngine(String file) {
+        GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
+        Player player = gridWorldAndPlayer.getPlayer();
+        GridWorld gridWorld = gridWorldAndPlayer.getGridWorld();
+        gameInstance = new GameInstance(player, gridWorld);
+        gameInstance.addObserver(this);
     }
 }

@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
+import xml.GridWorldAndPlayer;
+import xml.GridXMLHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,7 @@ public class GameInstance extends Observable implements IGameInstance {
     private static final PlayerDirection EAST = PlayerDirection.EAST;
     private static final PlayerDirection WEST = PlayerDirection.WEST;
 
+    private GridXMLHandler xmlHandler;
     private GridWorld myGridWorld;
 	private Grid myGrid;
     private Player myPlayer;
@@ -39,6 +42,7 @@ public class GameInstance extends Observable implements IGameInstance {
 	private BattleController battleController;
 	
 	public GameInstance(Player player, GridWorld gridWorld) {
+        xmlHandler = new GridXMLHandler();
 	    myGridWorld = gridWorld;
 	    myGrid = myGridWorld.getCurrentGrid();
         myPlayer = player;
@@ -56,10 +60,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		int col = myPlayer.getCol();
 		PlayerUpdate playerUpdate = null;
 		PlayerDirection direction = myPlayer.getDirection();
-<<<<<<< HEAD
-		
-=======
->>>>>>> master
+
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
@@ -194,8 +195,6 @@ public class GameInstance extends Observable implements IGameInstance {
         }
     }
 
-<<<<<<< HEAD
-=======
     public List<BlockUpdate> getInteractions() {
         List<BlockUpdate> tempList = new ArrayList<>();
         tempList.addAll(blockUpdates);
@@ -203,16 +202,14 @@ public class GameInstance extends Observable implements IGameInstance {
         return tempList;
     }
 
->>>>>>> master
-    public void handleInteraction() {
-        blockUpdates.clear();
+    /***** DATA METHODS *****/
+
+    public void saveEngine(String file) {
+        xmlHandler.saveContents(file, myGridWorld, myPlayer);
     }
 
     /***** GETTERS *****/
 
-    public GridWorld getGridWorld() {
-        return myGridWorld;
-    }
     public Grid getGrid() {
         return myGrid;
     }
@@ -227,9 +224,5 @@ public class GameInstance extends Observable implements IGameInstance {
 
     public GameStatus getGameStatus() {
         return myStatus;
-    }
-
-    public List<BlockUpdate> getBlockUpdates() {
-        return blockUpdates;
     }
 }
