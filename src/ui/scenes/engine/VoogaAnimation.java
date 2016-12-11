@@ -69,7 +69,7 @@ public class VoogaAnimation implements Observer {
 		setDefaultKeyBindings();
 		gridLayout = grid.getGroup();
 		ec.addObserver(this);
-		interactionHandler = new InteractionHandler(root, uiBuilder);
+		interactionHandler = new InteractionHandler(root, uiBuilder, grid);
 	}
 
 	private void setDefaultKeyBindings() {

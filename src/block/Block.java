@@ -2,8 +2,6 @@ package block;
 
 import api.IBlock;
 import interactions.Interaction;
-import interactions.StepInteraction;
-import interactions.TalkInteraction;
 import player.Player;
 
 import java.util.ArrayList;
@@ -23,8 +21,8 @@ public abstract class Block extends Observable implements IBlock {
     private int myRow;
     private int myCol;
     private boolean isWalkable;
-    private List<StepInteraction> myStepInteractions;
-    private List<TalkInteraction> myTalkInteractions;
+    private List<Interaction> myStepInteractions;
+    private List<Interaction> myTalkInteractions;
     private String myMessage;
 
     public Block(String name,  int row, int col) {
@@ -47,7 +45,7 @@ public abstract class Block extends Observable implements IBlock {
     public List<BlockUpdate> talkInteract(Player player){
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         if (myTalkInteractions.size() > 0) {
-            for(TalkInteraction interaction : myTalkInteractions) {
+            for(Interaction interaction : myTalkInteractions) {
                 blockUpdates.addAll(interaction.act(player));
             }
             setChanged();
@@ -84,27 +82,27 @@ public abstract class Block extends Observable implements IBlock {
     }
 
     //Interactions methods
-    public List<StepInteraction> getStepInteractions() {
+    public List<Interaction> getStepInteractions() {
         return Collections.unmodifiableList(myStepInteractions);
     }
 
-    public boolean addStepInteraction(StepInteraction stepInteraction) {
+    public boolean addStepInteraction(Interaction stepInteraction) {
         return myStepInteractions.add(stepInteraction);
     }
 
-    protected boolean removeStepInteraction(StepInteraction stepInteraction) {
+    protected boolean removeStepInteraction(Interaction stepInteraction) {
         return myStepInteractions.remove(stepInteraction);
     }
 
-    public List<TalkInteraction> getTalkInteractions() {
+    public List<Interaction> getTalkInteractions() {
         return Collections.unmodifiableList(myTalkInteractions);
     }
 
-    public boolean addTalkInteraction(TalkInteraction talkInteraction) {
+    public boolean addTalkInteraction(Interaction talkInteraction) {
         return myTalkInteractions.add(talkInteraction);
     }
 
-    protected boolean removeTalkInteraction(TalkInteraction talkInteraction) {
+    protected boolean removeTalkInteraction(Interaction talkInteraction) {
         return myTalkInteractions.remove(talkInteraction);
     }
 

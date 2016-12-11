@@ -1,8 +1,6 @@
 package block;
 
 import interactions.MessageInteraction;
-import interactions.TalkInteraction;
-import player.Player;
 
 /**
  * A board object with which the player character will have some active

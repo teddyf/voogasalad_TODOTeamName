@@ -11,7 +11,7 @@ import java.util.List;
  * @author Filip Mazurek, Aninda Manocha
  */
 
-public class TeleportInteraction implements StepInteraction {
+public class TeleportInteraction implements Interaction {
     private int myDestinationRow;
     private int myDestinationCol;
     private int myDestinationGrid;
