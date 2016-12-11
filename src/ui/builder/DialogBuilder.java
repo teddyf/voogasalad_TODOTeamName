@@ -1,45 +1,41 @@
 package ui.builder;
 
-import javafx.scene.Node;
 import javafx.scene.control.*;
+
+import java.util.Optional;
 
 /**
  * @author Robert Steilberg
+ *         <p>
+ *         Creates a simple dialog popup that gets a text response.
  */
 public class DialogBuilder {
 
-    private TextField myTextField;
-    private Object myResponse;
+    private Optional<String> myResponse;
 
     public DialogBuilder(ComponentProperties properties) {
         prompt(properties);
     }
 
+    /**
+     * Prompts the user to enter a text input
+     *
+     * @param properties are the ComponentProperties containing the header
+     *                   and content to be displayed in the dialog
+     */
     private void prompt(ComponentProperties properties) {
-        Dialog dialog = new Dialog();
+        TextInputDialog dialog = new TextInputDialog();
         dialog.setHeaderText(properties.header);
-        ButtonType submitButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(submitButtonType, ButtonType.CANCEL);
-
-        dialog.setWidth(900);
-        dialog.setHeight(900);
-
-        myTextField = new TextField();
-        Node submitButton = dialog.getDialogPane().lookupButton(submitButtonType);
-        myTextField.textProperty().addListener(e -> submitButton.setDisable(myTextField.getText().trim().isEmpty()));
-        submitButton.setDisable(true);
-
         dialog.setContentText(properties.content);
-        dialog.getDialogPane().setContent(myTextField);
-
-        myResponse = dialog.showAndWait().get();
+        myResponse = dialog.showAndWait();
     }
 
-    public String getText() {
-        return myTextField.getText();
-    }
-
-    public Object getResponse() {
+    /**
+     * Gets the user's response from the text input
+     *
+     * @return the user's response
+     */
+    public Optional<String> getResponse() {
         return myResponse;
     }
 }

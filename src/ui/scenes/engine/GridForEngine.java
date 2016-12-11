@@ -38,7 +38,7 @@ public class GridForEngine {
     private GridPaneNode def;
 
     private String DEFAULT = "resources/images/tiles/ground/grass-";
-    private static final String wall= "resources/images/tiles/obstacle/rock-1.png";
+    private static final String wall= "resources/images/tiles/gate/1-closed.png";
 
     public GridForEngine (int gridWidth, int gridHeight, int renderWidth,
                      int renderHeight, int renderTopLeftX, int renderTopLeftY) {
