@@ -52,7 +52,9 @@ public class GridSideMenu extends SideMenu {
 
     private ScrollPane createLinkPane() {
         Pane linkPanel = new Pane();
-        Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
+        myBuilder.addCustomLabel(linkPanel, "Create a portal between two teleport\nblocks by clicking the link button and\nthen clicking the two blocks.", 20, 20, null, Color.WHITE, 20);
+
+        Node button = myBuilder.addCustomButton(linkPanel, "fuck",20,100,100,100);
         button.setOnMouseClicked(e -> {
             setChanged();
             changeStatus();
@@ -111,12 +113,8 @@ public class GridSideMenu extends SideMenu {
         myPanel.getTabs().addAll(resizeTab,linkTab,musicTab);
     }
     
-    public void changeStatus(){
-        if(clickedStatus == true){
-            clickedStatus = false;
-        }
-        else
-            clickedStatus = true;
+    private void changeStatus(){
+        clickedStatus = !clickedStatus;
     }
 
 }
