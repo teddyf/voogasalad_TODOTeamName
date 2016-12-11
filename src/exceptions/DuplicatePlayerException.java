@@ -1,6 +1,8 @@
 package exceptions;
 
 /**
+ * Exception thrown if the user attempts to create a second instance of a player object.
+ *
  * @author Filip Mazurek
  */
 public class DuplicatePlayerException extends Exception implements Alert {
