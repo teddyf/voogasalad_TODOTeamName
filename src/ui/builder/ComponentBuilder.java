@@ -9,5 +9,5 @@ import javafx.scene.Node;
  */
 public interface ComponentBuilder {
 
-    public Node createComponent(ComponentProperties properties);
+    Node createComponent(ComponentProperties properties);
 }

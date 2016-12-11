@@ -3,6 +3,7 @@ package engine;
 import api.IGameInstance;
 import battle.controller.BattleController;
 import battle.model.BattleModel;
+import battle.model.Difficulty;
 import battle.view.BattleView;
 import block.*;
 import grid.Grid;
@@ -83,9 +84,16 @@ public class GameInstance extends Observable implements IGameInstance {
 				break;
 			case TALK:
 			    Block block = blockInFacedDirection(row, col, direction);
-			    blockUpdates = block.talkInteract(myPlayer);
-				playerUpdate = PlayerUpdate.TALK;
-				setChanged();
+			    
+			    if (block instanceof EnemyBlock) {
+			    	//TODO: take in a difficulty parameter from block
+			    	enterBattle((EnemyBlock)block, Difficulty.HARD);
+			    }
+			    else {
+			    	blockUpdates = block.talkInteract(myPlayer);
+					playerUpdate = PlayerUpdate.TALK;
+					setChanged();
+			    }
 			default:
 				break;
 		}
@@ -93,9 +101,8 @@ public class GameInstance extends Observable implements IGameInstance {
         notifyObservers(playerUpdate);
 	}
 	
-	private void enterBattle(EnemyBlock enemy, BattleView.Difficulty diff) {
+	private void enterBattle(EnemyBlock enemy, Difficulty diff) {
         Stage primaryStage = new Stage();
-		//TODO take in a difficult paramter from block
 		BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
 		BattleModel model = new BattleModel(myPlayer, enemy);
 		BattleController controller = new BattleController(view, model);

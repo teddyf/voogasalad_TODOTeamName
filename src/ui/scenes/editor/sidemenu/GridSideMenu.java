@@ -3,12 +3,14 @@ package ui.scenes.editor.sidemenu;
 import editor.EditorController;
 import grid.GridGrowthDirection;
 import javafx.collections.FXCollections;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
+import ui.media.SoundChooser;
 
 import java.util.ResourceBundle;
 
@@ -36,6 +38,22 @@ public class GridSideMenu extends SideMenu {
         } catch (NumberFormatException e) { // non-integer value given
             return true;
         }
+    }
+
+    private ScrollPane createMusicPane() {
+        Pane musicPanel = new Pane();
+        myBuilder.addCustomLabel(musicPanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
+        myBuilder.addComponent(musicPanel,new SoundChooser().getGroup());
+        return new ScrollPane(musicPanel);
+    }
+
+    private ScrollPane createLinkPane() {
+        Pane linkPanel = new Pane();
+        Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
+        button.setOnMouseClicked(e -> {
+
+        });
+        return new ScrollPane(linkPanel);
     }
 
 
@@ -82,8 +100,10 @@ public class GridSideMenu extends SideMenu {
      * Creates and adds tabs for each object type to the Item Menu
      */
     public void addTabs() {
-        Tab tab = createTab("Resize", createGridResizePane());
-        myPanel.getTabs().add(tab);
+        Tab resizeTab = createTab("Resize", createGridResizePane());
+        Tab linkTab = createTab("Link", createLinkPane());
+        Tab musicTab = createTab("Music",createMusicPane());
+        myPanel.getTabs().addAll(resizeTab,linkTab,musicTab);
     }
 
 }

@@ -7,9 +7,18 @@ package battle.controller;
  */
 public interface BattleModelInView {
 	double getPlayerHP();
+
 	double getEnemyHP();
+
 	void setPlayerHP(double playerHP);
+
 	void setEnemyHP(double enemyHP);
+
 	boolean checkPlayerWon();
+
 	boolean checkPlayerLost();
+
+	void addBattleWon();
+
+	void addBattleLost();
 }
