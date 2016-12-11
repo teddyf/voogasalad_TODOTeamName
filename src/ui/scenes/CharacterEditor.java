@@ -4,6 +4,7 @@ package ui.scenes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import editor.EditorController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -15,13 +16,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import ui.UILauncher;
+import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
 
-public class CharacterEditor extends Scene{
-    
+public class CharacterEditor extends Scene {
+
     private final String PATH = "resources/properties/character-editor";
-    
+
     private Parent myRoot;
     private ResourceBundle myResources;
     private Stage myStage;
@@ -32,9 +34,9 @@ public class CharacterEditor extends Scene{
     private String selectedImage;
     private int imageIndex;
     private EditorController myController;
-    
-    
-    public CharacterEditor(Stage stage, Parent root, UILauncher launcher, EditorController controller){
+
+
+    public CharacterEditor(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
         super(root, Color.web("#0585B2"));
         myLauncher = launcher;
         myController = controller;
@@ -47,133 +49,132 @@ public class CharacterEditor extends Scene{
         imagePaths = new ArrayList<String>();
         launchEditor();
     }
-    
-    void launchEditor(){ 
+
+    void launchEditor() {
         myBuilder.initWindow(myStage, PATH);
         addDefaultPlayers();
-        
-        Node backButton = buildButton("backX","backY","backWidth","backText");
-        backButton.setOnMouseClicked(e->{
+
+        Node backButton = buildButton("backX", "backY", "backWidth", "backText");
+        backButton.setOnMouseClicked(e -> {
         });
-        backButton.setOnMouseEntered(e->{
+        backButton.setOnMouseEntered(e -> {
             backButton.setEffect(hoverOpacity);
         });
-        backButton.setOnMouseExited(e->{
+        backButton.setOnMouseExited(e -> {
             backButton.setEffect(null);
         });
-        
-        Node attributeButton = buildButton("atButtX","atButtY","atButtWidth","atButtText");;
-        attributeButton.setOnMouseClicked(e->{
+
+        Node attributeButton = buildButton("atButtX", "atButtY", "atButtWidth", "atButtText");
+        ;
+        attributeButton.setOnMouseClicked(e -> {
             myLauncher.launchAttributePopup();
         });
-        attributeButton.setOnMouseEntered(e->{
+        attributeButton.setOnMouseEntered(e -> {
             attributeButton.setEffect(hoverOpacity);
         });
-        attributeButton.setOnMouseExited(e->{
+        attributeButton.setOnMouseExited(e -> {
             attributeButton.setEffect(null);
         });
-        
-        
-        Node nameField = buildField("nameX","nameY","nameWidth","nameText");
-        Node xField = buildField("xX","xY","xWidth", "xText");
-        Node yField = buildField("yX","yY","yWidth","yText");
-        Node enterButton = buildButton("buildX","buildY","buildWidth","buildText");
-        enterButton.setOnMouseClicked(e->{
-            TextField nameP = (TextField)nameField;
-            TextField xP = (TextField)xField;
-            TextField yP = (TextField)yField;
-            try{
+
+
+        Node nameField = buildField("nameX", "nameY", "nameWidth", "nameText");
+        Node xField = buildField("xX", "xY", "xWidth", "xText");
+        Node yField = buildField("yX", "yY", "yWidth", "yText");
+        Node enterButton = buildButton("buildX", "buildY", "buildWidth", "buildText");
+        enterButton.setOnMouseClicked(e -> {
+            TextField nameP = (TextField) nameField;
+            TextField xP = (TextField) xField;
+            TextField yP = (TextField) yField;
+            try {
                 String name = nameP.getText();
                 int x = Integer.parseInt(xP.getText());
                 int y = Integer.parseInt(yP.getText());
                 myController.addPlayer(name, "name", y, x);
+            } catch (Exception exc) {
+                myBuilder.addCustomAlert(new ComponentProperties().header("Invalid Input").content("Enter valid values for player info"));
             }
-            catch(Exception exc){
-                myBuilder.addNewAlert("Invalid Input", "Enter valid values for player info");
-            }
-            
-            
+
+
         });
-        Node playerImage = buildImage("pngX","pngY","pngWidth","pngPath");
-        Node playerRight = buildButton("rightX","rightY","rightWidth","rightText");
-        playerRight.setOnMouseClicked(e->{
-            rotateImage(1,playerImage);
+        Node playerImage = buildImage("pngX", "pngY", "pngWidth", "pngPath");
+        Node playerRight = buildButton("rightX", "rightY", "rightWidth", "rightText");
+        playerRight.setOnMouseClicked(e -> {
+            rotateImage(1, playerImage);
         });
-        
-        Node playerLeft = buildButton("leftX","leftY","leftWidth","leftText");
-        playerLeft.setOnMouseClicked(e->{
-            rotateImage(-1,playerImage);
+
+        Node playerLeft = buildButton("leftX", "leftY", "leftWidth", "leftText");
+        playerLeft.setOnMouseClicked(e -> {
+            rotateImage(-1, playerImage);
         });
-        
-          
-        myStage.setOnCloseRequest(e->{
+
+
+        myStage.setOnCloseRequest(e -> {
             e.consume();
             myLauncher.goToPrevEditor(myBuilder);
         });
-        myStage.setScene(this);   
+        myStage.setScene(this);
     }
-    
-    private Node buildButton(String xPos, String yPos, String width, String path){
+
+    private Node buildButton(String xPos, String yPos, String width, String path) {
         int x = Integer.parseInt(myResources.getString(xPos));
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
         Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
-        node.setOnMouseEntered(e->{
+        node.setOnMouseEntered(e -> {
             node.setEffect(hoverOpacity);
         });
-        node.setOnMouseExited(e->{
+        node.setOnMouseExited(e -> {
             node.setEffect(null);
         });
         return node;
-        
+
     }
-    
-    private Node buildField(String xPos, String yPos, String width, String path){
+
+    private Node buildField(String xPos, String yPos, String width, String path) {
         int x = Integer.parseInt(myResources.getString(xPos));
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
-        Node node = myBuilder.addCustomTextField(myRoot, route, x, y, girth,20);
+        Node node = myBuilder.addCustomTextField(myRoot, route, x, y, girth, 20);
         return node;
     }
 
-    
-    private Node buildImage(String xPos, String yPos, String width, String path){
+
+    private Node buildImage(String xPos, String yPos, String width, String path) {
         int x = Integer.parseInt(myResources.getString(xPos));
         int y = Integer.parseInt(myResources.getString(yPos));
         int girth = Integer.parseInt(myResources.getString(width));
         String route = myResources.getString(path);
         Node node = myBuilder.addCustomImageView(myRoot, x, y, route, girth, "");
-        
+
         return node;
     }
-    
-    private void addDefaultPlayers(){
+
+    private void addDefaultPlayers() {
         imagePaths.add("resources/images/sprites/1-up.png");
         imagePaths.add("resources/images/sprites/1-down.png");
     }
-    
-    
-    private void rotateImage(int dir, Node node){
-        imageIndex+=dir;
-        if(imageIndex<0){
-            imageIndex = imagePaths.size()-1;
-        }
-        else if(imageIndex >= imagePaths.size()){
+
+
+    private void rotateImage(int dir, Node node) {
+        imageIndex += dir;
+        if (imageIndex < 0) {
+            imageIndex = imagePaths.size() - 1;
+        } else if (imageIndex >= imagePaths.size()) {
             imageIndex = 0;
         }
-        ImageView nImage = (ImageView)node;
+        ImageView nImage = (ImageView) node;
         nImage.setImage(new Image(imagePaths.get(imageIndex)));
     }
-    
-    private void toGameEditor(){
+
+    private void toGameEditor() {
         myLauncher.launchEditor();
     }
-    
-    public String getPath(){
+
+    public String getPath() {
         return PATH;
     }
-    
-    
+
+
 }

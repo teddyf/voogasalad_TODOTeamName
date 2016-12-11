@@ -3,8 +3,11 @@ package ui.builder;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
@@ -16,12 +19,14 @@ import java.util.ResourceBundle;
  *         <p>
  *         Dependencies: ComponentBuilder, ButtonBuilder, ImageViewBuilder, LabelBuilder
  */
-public class UIBuilder {
+public class UIBuilder<E> {
     private ComponentBuilder alertBuilder;
     private ComponentBuilder buttonBuilder;
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
+    private ComponentBuilder radioButtonBuilder;
+    private ComponentBuilder comboBoxBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -29,6 +34,8 @@ public class UIBuilder {
         imageViewBuilder = new ImageViewBuilder();
         labelBuilder = new LabelBuilder();
         textFieldBuilder = new TextFieldBuilder();
+        radioButtonBuilder = new RadioButtonBuilder();
+        comboBoxBuilder = new ComboBoxBuilder<E>();
     }
 
     /**
@@ -169,9 +176,10 @@ public class UIBuilder {
      * @param y      Sets the Y for properties
      * @return
      */
-    public Node addCustomLabel(Parent layout, String text, int x, int y, String font, int size) {
+    public Node addCustomLabel(Parent layout, String text, int x, int y, String font, Color color, int size) {
         return addNewLabel(layout, new ComponentProperties(x, y)
                 .text(text)
+                .color(color)
                 .font(font)
                 .size(size));
     }
@@ -195,14 +203,9 @@ public class UIBuilder {
      * @param x      is the X position of the text field
      * @param y      is the Y position of the text field
      * @param width  is the width of the text field
+     * @param height is the height of the text field
      * @return the properly formatted text field
      */
-    public Node addCustomTextField(Parent layout, String text, int x, int y, int width) {
-        return addComponent(layout, textFieldBuilder.createComponent(new ComponentProperties(x, y)
-                .width(width)
-                .text(text)));
-    }
-
     public Node addCustomTextField(Parent layout, String text, int x, int y, int width, int height) {
         return addComponent(layout, textFieldBuilder.createComponent(new ComponentProperties(x, y)
                 .width(width)
@@ -216,8 +219,26 @@ public class UIBuilder {
                 .content(content));
     }
 
-    public Node addNewAlert(Parent layout, ComponentProperties properties) {
-        return alertBuilder.createComponent(properties);
+    public Node addCustomAlert(ComponentProperties properties) {
+        return alertBuilder.createComponent(new ComponentProperties()
+                .header(properties.header)
+                .content(properties.content));
+    }
+
+    public Node addCustomRadioButton(Parent layout, String text, int x, int y, ToggleGroup group, boolean isSelected, String id) {
+        return addComponent(layout, radioButtonBuilder.createComponent(new ComponentProperties(x, y)
+                .text(text)
+                .id(id)
+                .toggleGroup(group)
+                .selected(isSelected)));
+    }
+
+    public Node addNewRadioButton(Parent layout, ComponentProperties properties) {
+        return addComponent(layout, radioButtonBuilder.createComponent(properties));
+    }
+
+    public Node addNewComboBox(Parent layout, ComponentProperties properties) {
+        return addComponent(layout, comboBoxBuilder.createComponent(properties));
     }
 
     /**
