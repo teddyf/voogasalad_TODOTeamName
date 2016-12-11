@@ -206,6 +206,7 @@ public class GridPane implements Observer {
     }
 
     public void click (GridPaneNode node) {
+        System.out.println(node.getRow() + " " + node.getCol() + "pen");
         if (clicked.contains(node)) {
             node.getImage().setEffect(null);
             clicked.remove(node);
@@ -447,6 +448,7 @@ public class GridPane implements Observer {
     }
 
     public void makeClickable (GridPaneNode node) {
+        System.out.println(node.getRow() + " " + node.getCol());
         node.getImage().setOnMouseExited(e -> {
             if (!clicked.contains(node))
                 node.getImage().setEffect(null);
@@ -494,11 +496,11 @@ public class GridPane implements Observer {
     }
 
     public int getBackendRow(GridPaneNode gpn) {
-        return gpn.getRow() - 5;
+        return gpn.getRow() - WRAP/2;
     }
 
     public int getBackendCol(GridPaneNode gpn){
-        return gpn.getCol() - 5;
+        return gpn.getCol() - WRAP/2;
     }
 
 }
