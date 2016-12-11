@@ -162,7 +162,7 @@ public class EditorModel {
     public boolean addMessage(String message, int row, int col) {
         Block block = currentGrid.getBlock(row, col);
         if(block instanceof CommunicatorBlock) {
-            (block.setMessage(message);
+            block.setMessage(message);
             return true;
         }
         return false;
