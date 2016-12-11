@@ -67,7 +67,9 @@ public class GridSideMenu extends SideMenu {
 
         button.setOnMouseClicked(e -> {
             try {
-                myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()));
+                if (myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()))) {
+
+                }
             } catch (ArrayIndexOutOfBoundsException exc) {
                 myBuilder.addNewAlert("Error","Error");
             }

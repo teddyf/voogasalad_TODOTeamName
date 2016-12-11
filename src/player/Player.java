@@ -118,8 +118,14 @@ public class Player implements IPlayer {
 		myGridIndex = gridIndex;
 	}
 
-	public void addAttribute(PlayerAttribute attribute) {
-		myAttributes.add(attribute);
+	public boolean addAttribute(PlayerAttribute attribute) {
+		for (PlayerAttribute playerAttribute : myAttributes) {
+		    if (attribute.getName().equals(playerAttribute.getName())) {
+		        return false;
+            }
+        }
+	    myAttributes.add(attribute);
+		return true;
 	}
 
 	public void addItem(Item item) {

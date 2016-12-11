@@ -72,11 +72,13 @@ public interface IPlayer {
 	 * @param col - the column of the grid that the player should be moved to
 	 */
 	public void setCol(int col);
+
 	/**
-	 * Adds an attribute to the list of attributes
+	 * Adds an attribute to the list of attributes. This method returns false if the attribute type already exists.
 	 * @param attribute the attribute to add
+	 * @return whether an attribute was successfully added
 	 */
-	public void addAttribute(PlayerAttribute attribute);
+	public boolean addAttribute(PlayerAttribute attribute);
 	/**
 	 * Adds an item to the inventory 
 	 * @param item - the item to add

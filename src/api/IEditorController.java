@@ -28,8 +28,8 @@ public interface IEditorController extends IController {
      * Changes the size of the current grid in a specified direction and by a specified amount. If the amount is
      * positive, the grid grows and if the amount is negative, the grid shrinks.
      * @param direction - the direction in which the size changes
-     * @param amount - the amount by which the grid size in the specified direction should change.
-     * @return whether or not the grid was changes
+     * @param amount - the amount by which the grid size in the specified direction should change
+     * @return whether or not the grid was changed
      */
     boolean changeGridSize(GridGrowthDirection direction, int amount);
 
