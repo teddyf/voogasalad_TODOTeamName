@@ -9,7 +9,7 @@ import interactions.TeleportInteraction;
  * @author Aninda Manocha, Filip Mazurek
  */
 
-public abstract class TeleportBlock extends Block {
+public class TeleportBlock extends Block {
     private TeleportBlock myReceiveBlock;
 
     public TeleportBlock(String name, int row, int col) {
