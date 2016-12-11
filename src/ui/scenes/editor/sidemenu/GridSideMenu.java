@@ -12,6 +12,7 @@ import ui.builder.ComponentProperties;
 
 import java.util.ResourceBundle;
 
+import ui.builder.DialogBuilder;
 import ui.media.SoundChooser;
 
 /**
@@ -23,7 +24,7 @@ public class GridSideMenu extends SideMenu {
 
     private EditorController myEditorController;
     private boolean clickedStatus;
-    
+
     GridSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
         super(root, resources);
         myEditorController = editorController;
@@ -44,15 +45,21 @@ public class GridSideMenu extends SideMenu {
     private ScrollPane createMusicPane() {
         Pane musicPanel = new Pane();
         myBuilder.addCustomLabel(musicPanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
-        myBuilder.addComponent(musicPanel,new SoundChooser().getGroup());
+        myBuilder.addComponent(musicPanel, new SoundChooser().getGroup());
         return new ScrollPane(musicPanel);
     }
 
     private ScrollPane createLinkPane() {
         Pane linkPanel = new Pane();
-        myBuilder.addCustomLabel(linkPanel, "Create a portal between two teleport\nblocks by clicking the link button and\nthen clicking the two blocks.", 20, 20, null, Color.WHITE, 20);
+        myBuilder.addCustomLabel(linkPanel, "Use the link button to link different blocks\ntogether.", 20, 20, null, Color.WHITE, 20);
 
-        Node button = myBuilder.addCustomButton(linkPanel, "fuck",20,100,100,100);
+
+        myBuilder.addCustomLabel(linkPanel, "Create a portal between two teleport\nblocks by clicking the link button and\nthen clicking the two blocks.", 20, 80, null, Color.WHITE, 20);
+
+        myBuilder.addCustomLabel(linkPanel, "Link a gate to a switch by clicking the link\nbutton and then clicking each of the two\nblocks.", 20, 170, null, Color.WHITE, 20);
+
+
+        Node button = myBuilder.addCustomButton(linkPanel, "LINK", 20, 260, 350, 70);
         button.setOnMouseClicked(e -> {
             setChanged();
             changeStatus();
@@ -79,7 +86,7 @@ public class GridSideMenu extends SideMenu {
                         .options(FXCollections.observableArrayList(GridSizeDirection.values())));
 
         myBuilder.addCustomLabel(resizePanel, "Number of rows or columns to add or remove:", 20, 200, null, Color.WHITE, 15);
-        TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel,"block size",20,230,200);
+        TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel, "block size", 20, 230, 200);
 
         Button button = (Button) myBuilder.addNewButton(resizePanel, new ComponentProperties(20, 300).text("Resize"));
 
@@ -94,7 +101,7 @@ public class GridSideMenu extends SideMenu {
 
                 }
             } catch (ArrayIndexOutOfBoundsException exc) {
-                myBuilder.addNewAlert("Error","Error");
+                myBuilder.addNewAlert("Error", "Error");
             }
         });
 
@@ -107,11 +114,11 @@ public class GridSideMenu extends SideMenu {
     public void addTabs() {
         Tab resizeTab = createTab("Resize", createGridResizePane());
         Tab linkTab = createTab("Link", createLinkPane());
-        Tab musicTab = createTab("Music",createMusicPane());
-        myPanel.getTabs().addAll(resizeTab,linkTab,musicTab);
+        Tab musicTab = createTab("Music", createMusicPane());
+        myPanel.getTabs().addAll(resizeTab, linkTab, musicTab);
     }
-    
-    private void changeStatus(){
+
+    private void changeStatus() {
         clickedStatus = !clickedStatus;
     }
 

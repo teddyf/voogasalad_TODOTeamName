@@ -4,6 +4,9 @@ package ui.scenes.engine;
 import java.util.*;
 
 //import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import battle.model.BattleModel;
+import battle.model.Difficulty;
+import battle.view.BattleView;
 import block.BlockUpdate;
 import block.BlockUpdateType;
 import engine.EngineController;
@@ -24,9 +27,6 @@ import ui.builder.UIBuilder;
  */
 public class VoogaAnimation implements Observer {
 
-	//private static final String IMAGE_RESOURCE = "resources/images/tiles/Character/Pokemon/";
-
-	private static final String IMAGE_RESOURCE = "resources/images/sprites/";
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 
 	private GridForEngine grid;
@@ -52,6 +52,7 @@ public class VoogaAnimation implements Observer {
 
 	private Group gridLayout;
 	private InteractionHandler interactionHandler;
+
 
 	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec) {
 		this.root = root;
@@ -104,55 +105,6 @@ public class VoogaAnimation implements Observer {
 		if (stack.contains(instruction))
 			stack.remove(instruction);
 	}
-
-	private void changePlayerImage(String imageFileName){
-		int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
-        int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
-		uiBuilder.removeComponent(root, player.getCharacterImageView());
-		//TODO fix this
-		player.setCharacterImage(IMAGE_RESOURCE + imageFileName);
-		player.setCharacterImageSize(grid.getBlockSize());
-		//player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
-    	//player.getCharacterImageView().setLayoutY(gridY+grid.getBlockSize()*player.getRowCharacter());
-		uiBuilder.addComponent(root, player.getCharacterImageView());
-		player.getCharacterImageView().setLayoutX(gridWidth/2 - player.getSize()/2);
-		player.getCharacterImageView().setLayoutY(gridHeight/2 - player.getSize()/2);
-	}
-	
-/*//	need to clean this up later
-	private void changePlayerWalkingDirection(UserInstruction instruction, String playerNumber){
-		switch (instruction) {
-		case UP:
-			changePlayerImage(playerNumber + "NorthWalking.png");
-			break;
-		case DOWN:
-			changePlayerImage(playerNumber + "SouthWalking.png");
-			break;
-		case RIGHT:
-			changePlayerImage(playerNumber + "EastWalking.png");
-			break;
-		case LEFT:
-			changePlayerImage(playerNumber + "WestWalking.png");
-			break;
-		}
-	}*/
-	
-/*	private void changePlayerFacingDirection(UserInstruction instruction, String playerNumber) {
-		switch (instruction) {
-		case UP:
-			changePlayerImage(playerNumber + "NorthFacing.png");
-			break;
-		case DOWN:
-			changePlayerImage(playerNumber + "SouthFacing.png");
-			break;
-		case RIGHT:
-			changePlayerImage(playerNumber + "EastFacing.png");
-			break;
-		case LEFT:
-			changePlayerImage(playerNumber + "WestFacing.png");
-			break;
-		}
-	}*/
 
 	@Override
 	public void update(Observable observable, Object value) {
@@ -239,29 +191,9 @@ public class VoogaAnimation implements Observer {
 	}
 
 	private void direct(UserInstruction instruction) {
-		String playerNumber = "Player1";
-		//gridLayout.setLayoutY(gridLayout.getLayoutY() + 1000);
 		if (isAnimationOver())
 			return;
-		//fixed the urls
-		switch (instruction) {
-			case UP:
-				changePlayerImage(myResources.getString("player1ImageUp"));
-				break;
-			case DOWN:
-				//changePlayerImage(playerNumber + "SouthFacing.png");
-				changePlayerImage(myResources.getString("player1ImageDown"));
-
-				break;
-			case RIGHT:
-				//changePlayerImage(playerNumber + "EastFacing.png");
-				changePlayerImage(myResources.getString("player1ImageRight"));
-				break;
-			case LEFT:
-				//changePlayerImage(playerNumber + "WestFacing.png");
-				changePlayerImage(myResources.getString("player1ImageLeft"));
-				break;
-		}
+		player.setImage(instruction.name());
 		stepCount = stepCount + 10;
 	}
 

@@ -30,14 +30,14 @@ public class SoundChooser {
 		playlist = new HashMap<String,String>();
 		hbox = new HBox(10);
 		
-		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
-		setPlayinLoop(player);
-		player.play();
+		//player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
+		//setPlayinLoop(player);
+		//player.play();
         playButtonClicked=true;
         
-        initComboBox();
-		initPlayButton();
-		initPauseButton();
+        //initComboBox();
+		//initPlayButton();
+		//initPauseButton();
         
 		group.getChildren().add(hbox);
 	}
