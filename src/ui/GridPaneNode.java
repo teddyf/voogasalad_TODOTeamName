@@ -91,14 +91,6 @@ public class GridPaneNode {
         this.name = a;
     }
     
-    public void setCol(int col){
-        this.col = col;
-    }
-    
-    public void setRow(int row){
-        this.row = row;
-    }
-    
     public String getName(){
         return name;
     }
@@ -109,5 +101,12 @@ public class GridPaneNode {
     public String toString(){
         String sol = "row: " + row + "\ncol: " + col + "\nname: " + name;
         return sol;
+    }
+    public void setCol (int col) {
+        this.col = col;
+        
+    }
+    public void setRow (int row){
+        this.row = row;
     }
 }

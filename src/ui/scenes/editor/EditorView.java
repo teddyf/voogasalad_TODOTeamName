@@ -68,6 +68,7 @@ public class EditorView extends Scene implements GameEditorAlerts {
 
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
+            myController = null;
             e.consume();
             events.exitPrompt(false);
         });

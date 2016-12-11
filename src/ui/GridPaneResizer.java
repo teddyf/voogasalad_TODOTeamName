@@ -12,19 +12,28 @@ public class GridPaneResizer {
     
     private String DEFAULT = "resources/images/tiles/ground/grass-";
     
-    public GridPaneResizer(GridPane gridPane, int amount, GridGrowthDirection dir, GridObjectMap objMap){
-        this.gridPane = gridPane;
-        this.amount = amount;
-        this.dir = dir;
-        this.objMap = objMap;
+    public GridPaneResizer(){
+
     }
     
-    public void resize(GridGrowthDirection dir, int amount){
+    
+    public void resize(GridGrowthDirection dir, int amount, GridObjectMap objMap, GridPane gridPane){
+        
         if(dir == GridGrowthDirection.RIGHT){
-            
+            if(amount>=0){
+                List<GridPaneNode> blockList = addHorizontalBlocks(amount);
+                gridPane.setGridHeight(gridPane.getHeight()+amount);
+                gridPane.setGridWidth(gridPane.getWidth()+amount);
+                setGridArray(blockList);
+            }
         }
         else if(dir == GridGrowthDirection.BOTTOM){
-            
+            if(amount>=0){
+                List<GridPaneNode> blockList = addVerticalBlocks(amount);
+                gridPane.setGridHeight(gridPane.getHeight()+amount);
+                gridPane.setGridWidth(gridPane.getWidth()+amount);
+                setGridArray(blockList);
+            }
         }
         else if(dir == GridGrowthDirection.TOP){
             if(amount>=0){
@@ -32,11 +41,17 @@ public class GridPaneResizer {
                 shiftTopAdd(amount, blockList);
                 gridPane.setGridHeight(gridPane.getHeight()+amount);
                 gridPane.setGridWidth(gridPane.getWidth()+amount);
-                setGridArray(gridPane.getNodeList());
+                setGridArray(blockList);
             }
         }
         else if(dir == GridGrowthDirection.LEFT){
-            
+            if(amount >= 0){
+                List<GridPaneNode> blockList = addHorizontalBlocks(amount);
+                shiftLeftAdd(amount, blockList);
+                gridPane.setGridHeight(gridPane.getHeight()+amount);
+                gridPane.setGridWidth(gridPane.getWidth()+amount);
+                setGridArray(blockList);
+            }
         }
     }
     
@@ -74,8 +89,9 @@ public class GridPaneResizer {
             updatedGrid[tempCol][tempRow] = list.get(i);
         }
         gridPane.setGridArray(updatedGrid);
+        gridPane.setNodes(list);
     }
-    private void shiftLeftAdd(int amount, List<GridPaneNode> list, GridGrowthDirection dir){
+    private void shiftLeftAdd(int amount, List<GridPaneNode> list){
         for(int i = 0; i < list.size(); i++){
             GridPaneNode node = list.get(i);
             int currCol = node.getCol();

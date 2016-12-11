@@ -1,7 +1,6 @@
 package ui.builder;
 
 
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -30,7 +29,7 @@ public class UIBuilder<E> {
     private ComponentBuilder textFieldBuilder;
     private ComponentBuilder radioButtonBuilder;
     private ComponentBuilder comboBoxBuilder;
-    private ComponentBuilder dialogBuilder;
+    private ComponentBuilder dialogBubbleBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -40,7 +39,7 @@ public class UIBuilder<E> {
         textFieldBuilder = new TextFieldBuilder();
         radioButtonBuilder = new RadioButtonBuilder();
         comboBoxBuilder = new ComboBoxBuilder<E>();
-        dialogBuilder = new DialogBuilder();
+        dialogBubbleBuilder = new DialogBubbleBuilder();
     }
 
     /**
@@ -255,15 +254,12 @@ public class UIBuilder<E> {
      * @return
      */
     public Node addDialogBubble(Parent layout, ComponentProperties properties) {
-        Node dialogNode = dialogBuilder.createComponent(properties);
+        Node dialogNode = dialogBubbleBuilder.createComponent(properties);
         dialogNode.setFocusTraversable(true);
-        layout.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
-            public void handle(final KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
-                    removeComponent(layout, dialogNode);
-                }
+        layout.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+                removeComponent(layout, dialogNode);
             }
-
         });
         addComponent(layout, dialogNode);
         dialogNode.setLayoutX(50);

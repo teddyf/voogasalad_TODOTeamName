@@ -366,9 +366,14 @@ public class GridForEngine {
     }
 
     public boolean reRender(int row, int col, String newPath) {
-        GridPaneNode newImage = new GridPaneNode(row, col, newPath);
-        grid[row][col] = newImage;
-        blockList.set(row*col+row, newImage);
+        GridPaneNode newGPN = new GridPaneNode(row, col, newPath);
+        GridPaneNode temp = grid[row + WRAP/2][col + WRAP/2];
+                temp.swap(newGPN, 0);
+        blockList.set(row*col+row, newGPN);
+        ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
+        list.add(temp);
+        gridMap.storeObject(list);
+        clicked = new ArrayList<GridPaneNode>();
         return true;
     }
 }
