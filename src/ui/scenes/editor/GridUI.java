@@ -20,7 +20,7 @@ import java.util.*;
  *         <p>
  *         This class initializes the grid-based UI used to create the overworld.
  */
-public class GridUI {
+public class GridUI extends Observable{
 
     private Parent myRoot;
     private ItemSideMenu myItemMenu;
@@ -92,10 +92,14 @@ public class GridUI {
         int heightInputY = myUtil.getIntProperty("inputHeightY");
         int heightInputWidth = myUtil.getIntProperty("inputHeightWidth");
         String heightInputText = myUtil.getStringProperty("inputHeightText");
-        int swapX = myUtil.getIntProperty("swapX");
-        int swapY = myUtil.getIntProperty("swapY");
-        int swapWidth = myUtil.getIntProperty("swapWidth");
-        String swapPath = myUtil.getStringProperty("swapPath");
+        int linkX = myUtil.getIntProperty("linkX");
+        int linkY = myUtil.getIntProperty("linkY");
+        int linkWidth = myUtil.getIntProperty("linkWidth");
+        String linkPath = myUtil.getStringProperty("linkPath");
+        Node linkButton = myBuilder.addCustomImageView(myRoot, linkX, linkY, linkPath, linkWidth, "");
+        linkButton.setOnMouseClicked(e->{
+            
+        });
         Node widthInputField =
                 myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
                         widthInputWidth, 20);

@@ -7,7 +7,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.layout.FlowPane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  *         <p>
  *         This class defines the basic functionality for a SideMenu in the Editor.
  */
-public abstract class SideMenu {
+public abstract class SideMenu extends Observable{
 
     protected Parent myRoot;
     protected ResourceBundle myResources;

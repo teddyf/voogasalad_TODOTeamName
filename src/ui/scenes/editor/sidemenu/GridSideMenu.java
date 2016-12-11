@@ -10,7 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
-import sun.jvm.hotspot.ui.Editor;
+//import sun.jvm.hotspot.ui.Editor;
 import ui.builder.ComponentProperties;
 
 import java.util.ArrayList;

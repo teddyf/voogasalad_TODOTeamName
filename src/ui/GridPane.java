@@ -1,10 +1,15 @@
 package ui;
 import java.util.*;
 import block.BlockType;
+import ui.scenes.editor.GridUI;
 import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.Player1;
+import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import editor.EditorController;
 
 /**
@@ -12,7 +17,7 @@ import editor.EditorController;
  * @author Teddy Franceschi, Harshil Garg
  *
  */
-public class GridPane {
+public class GridPane implements Observer{
 
     private final int WRAP = 10;
     private final int CELL_PIXELS = 30;
@@ -32,8 +37,11 @@ public class GridPane {
     private ColorAdjust hoverOpacity;
     private GridObjectMap gridMap;
     private GridPaneNode def;
+    
+    private Node player;
 
     private String DEFAULT = "resources/images/tiles/ground/grass-";
+    private String clickType;
 
     public GridPane (int gridWidth, int gridHeight, int renderWidth,
                      int renderHeight, int renderTopLeftX, int renderTopLeftY) {
@@ -51,6 +59,7 @@ public class GridPane {
         this.renderHeight = renderHeight;
         this.renderTopLeftX = renderTopLeftX;
         this.renderTopLeftY = renderTopLeftY;
+        this.clickType = "";
 
         def = new GridPaneNode(0, 0, defaultText());
         initializeGrid();
@@ -218,8 +227,28 @@ public class GridPane {
     }
 
 
-    public void nodeClick(GameObject obj, EditorController control){
-        //if()
+    public void nodeClick(GameObject obj, EditorController control, String name, String imagePaths){
+        if(clicked.size()==1){
+            if(clickType.equals("SWAP")){
+                swap(obj, control);
+            }
+            else if(clickType.equals("PLAYER")){
+                buildPlayer(control, name, imagePaths);
+            }
+        }
+        else if(clicked.size()==2 && clickType.equals("LINK")){
+            buildLink(clicked.get(0), clicked.get(1),control);
+        }
+    }
+    
+    public void buildPlayer(EditorController control, String name, String imagePaths){
+        int col = clicked.get(0).getCol();
+        int row = clicked.get(0).getRow();
+        control.addPlayer(imagePaths, name, row, col);
+        player.setLayoutX(getXRender(col));
+        player.setLayoutY(getYRender(row));
+        ((ImageView) player).setImage(new Image(imagePaths));
+        clicked = new ArrayList<GridPaneNode>();
     }
     
     public List<GridPaneNode> swap (GameObject obj, EditorController control) {
@@ -239,7 +268,7 @@ public class GridPane {
                     temp.swap(list.get(j), list.get(j).getImageNum());
                     control.addBlock(temp.getName(), obj.getBlockType(), temp.getBackendRow(),
                                   temp.getBackendCol());
-                    setPlayer(temp, obj, control);
+                    //setPlayer(temp, obj, control);
                 }
             }
             clicked.get(i).getImage().setEffect(null);
@@ -266,6 +295,7 @@ public class GridPane {
         // TODO add dimension checker
     }
 
+    /* wtf is this
     private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
         if (gameObject instanceof Player1) {
             control.addPlayer(temp.getName(), "name", temp.getBackendRow(), temp.getBackendCol());
@@ -273,6 +303,7 @@ public class GridPane {
                              temp.getBackendCol());
         }
     }
+    */
 
     /**
      * Gets neighbors if object is placed
@@ -392,6 +423,20 @@ public class GridPane {
 
     public double getYMin() {
         return -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
+    }
+    
+    public void setClickType(String str){
+        clickType = str;
+    }
+
+    @Override
+    public void update (Observable o, Object arg) {
+        if(o instanceof PlayerSideMenu){
+            clickType = "PLAYER";
+        }
+        else if(o instanceof GridUI){
+            clickType = "LINK";
+        }
     }
 
 
