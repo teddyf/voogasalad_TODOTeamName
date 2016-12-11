@@ -152,6 +152,10 @@ public class Player implements IPlayer {
 		return health;
 	}
 
+	public List<String> getMyNames() {
+		return myNames;
+	}
+
 	/***** GETTERS *****/
 
 	/***** SETTERS *****/
