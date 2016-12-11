@@ -46,9 +46,13 @@ public class SoundChooser {
 		comboBox = new ComboBox();
 		comboBox.setPromptText("Choose song");
 		hbox.getChildren().add(comboBox);
-		addSong("Aquacorde","src/resources/songs/aquacorde.mp3");
-		addSong("Fallarbor","src/resources/songs/fallarbor.mp3");
-		addSong("Pallettown","src/resources/songs/pallettown.mp3");
+		 
+		File file = new File("src/resources/sounds");
+		String[] sounds = file.list();
+		
+		for (String sound:sounds) {
+			addSong(sound.split("\\.")[0],"src/resources/sounds/"+sound);
+		}
 	}
 	
 	private void addSong(String songName, String filePath) {
