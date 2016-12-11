@@ -15,13 +15,13 @@ public class HealthDisplay {
 	private int y;
 	private Label score;
 
-	HealthDisplay(int x, int y) {
-		initHealthBar(x, y);
+	HealthDisplay(int x, int y, int hp) {
+		initHealthBar(x, y, hp);
 		this.x = x;
 		this.y = y;
 	}
 
-	private void initHealthBar(int x, int y) {
+	private void initHealthBar(int x, int y, int hp) {
 		root = new Group();
 		Image image = new Image("resources/images/battles/square.png");
 		ImageView squareView = new ImageView();
@@ -33,11 +33,11 @@ public class HealthDisplay {
 
 		playerChart = new Button();
 		playerChart.getStyleClass().add("playerChart");
-		playerChart.setPrefSize(100, 5);
+		playerChart.setPrefSize(hp, 5);
 		playerChart.setLayoutX(x + 10);
 		playerChart.setLayoutY(y + 10);
 
-		score = new Label("HP: " + 100);
+		score = new Label("HP: " + hp);
 		score.setLayoutX(x + 150);
 		score.setLayoutY(y + 10);
 
