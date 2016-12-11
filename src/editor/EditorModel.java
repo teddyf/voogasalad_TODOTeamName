@@ -45,7 +45,8 @@ public class EditorModel {
         currentGrid = gridWorld.changeGrid(index);
     }
 
-    public boolean changeGridSize(GridGrowthDirection direction, int amount) throws LargeGridException, DeletePlayerWarning {
+    public boolean changeGridSize(GridGrowthDirection direction, int amount)
+            throws LargeGridException, DeletePlayerWarning {
         if (amount >= 0) {
             return growGrid(direction, amount);
         }
@@ -187,7 +188,8 @@ public class EditorModel {
 
     /***** PLAYER METHODS *****/
 
-    public boolean addPlayer(List<String> names, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
+    public boolean addPlayer(List<String> names, String playerName, int row, int col)
+            throws BadPlayerPlacementException, DuplicatePlayerException {
         if(!(currentGrid.getBlock(row, col).isWalkable())) {
             throw new BadPlayerPlacementException(row, col);
         }
@@ -200,7 +202,8 @@ public class EditorModel {
         }
     }
 
-    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) throws DuplicateAttributeException {
+    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement)
+            throws DuplicateAttributeException {
         PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
         if (!player.addAttribute(playerAttribute)) {
             throw new DuplicateAttributeException();
