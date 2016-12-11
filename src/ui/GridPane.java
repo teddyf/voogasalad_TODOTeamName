@@ -1,6 +1,7 @@
 package ui;
 import java.util.*;
 import block.BlockType;
+import ui.builder.UIBuilder;
 import ui.scenes.editor.GridUI;
 import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.Player1;
@@ -39,6 +40,7 @@ public class GridPane implements Observer{
 
     private ColorAdjust hoverOpacity;
     private GridObjectMap gridMap;
+    private UIBuilder builder;
     //private GridPaneNode def;
     
     private ImageView player;
@@ -55,6 +57,7 @@ public class GridPane implements Observer{
 
         hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(-.1);
+        builder = new UIBuilder();
 
         this.gridWidth = gridWidth;
         this.gridHeight = gridHeight;
@@ -243,6 +246,9 @@ public class GridPane implements Observer{
                     temp.swap(list.get(j), list.get(j).getImageNum());
                     control.addBlock(temp.getName(), obj.getBlockType(), temp.getBackendRow(),
                                   temp.getBackendCol());
+                    if(obj.getBlockType().equals(BlockType.COMMUNICATOR)){
+                        
+                    }
                 }
             }
             clicked.get(i).getImage().setEffect(null);
@@ -251,6 +257,10 @@ public class GridPane implements Observer{
         resetClicked();
     }
 
+    private void communicateMessage(){
+       // builder.add
+    }
+    
     private boolean addObjToMap (List<GridPaneNode> list, GridPaneNode objRoot) {
         int xPos = objRoot.getCol();
         int yPos = objRoot.getRow();

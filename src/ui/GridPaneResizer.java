@@ -8,13 +8,15 @@ public class GridPaneResizer {
     private GridPane gridPane;
     private int amount;
     private GridGrowthDirection dir;
+    private GridObjectMap objMap;
     
     private String DEFAULT = "resources/images/tiles/ground/grass-";
     
-    public GridPaneResizer(GridPane gridPane, int amount, GridGrowthDirection dir){
+    public GridPaneResizer(GridPane gridPane, int amount, GridGrowthDirection dir, GridObjectMap objMap){
         this.gridPane = gridPane;
         this.amount = amount;
         this.dir = dir;
+        this.objMap = objMap;
     }
     
     public void resize(GridGrowthDirection dir){
@@ -36,9 +38,19 @@ public class GridPaneResizer {
         
     }
     
-    private void addBlocks(int amount){
-        List<GridPaneNode> blockList = gridPane.getNodeList();
-        
+    private void addHorizontalBlocks(int amount){
+        List<GridPaneNode> blockList = gridPane.getNodeList();        
+        for(int i = 0; i < gridPane.getHeight(); i++){
+            for(int j = 0; j < amount; j++){
+                GridPaneNode temp = new GridPaneNode(i,amount+j, defaultText());
+                blockList.add(temp);
+            }    
+        }
+        gridPane.setNodes(blockList);
+    }
+    
+    private void addVerticalBlocks(int amount){
+        List<GridPaneNode> blockList = gridPane.getNodeList();  
         for(int i = 0; i < gridPane.getHeight(); i++){
             for(int j = 0; j < amount; j++){
                 GridPaneNode temp = new GridPaneNode(i,amount+j, defaultText());
@@ -71,19 +83,17 @@ public class GridPaneResizer {
         gridPane.setGridArray(updatedGrid);
     }
     
-    private void shiftAdd(int amount, List<GridPaneNode> list, GridGrowthDirection dir){
-        for(int i = 0; i < list.size()-amount; i++){
-            GridPaneNode temp = list.get(i);
-            if(dir.equals(GridGrowthDirection.TOP)){
-                temp.setRow(temp.getRow()+amount);
+    private void shiftLeftAdd(int amount, List<GridPaneNode> list, GridGrowthDirection dir){
+        for(int i = 0; i < list.size(); i++){
+            GridPaneNode node = list.get(i);
+            int currCol = node.getCol();
+            int currRow = node.getRow();
+            if(currCol < gridPane.getWidth()){
+                node.setCol(currCol++);
             }
-            if(dir.equals(GridGrowthDirection.LEFT)){
-                temp.setCol(temp.getCol()+amount);
+            if(currCol >= gridPane.getWidth()){
+                node.setCol((int)(node.getCol()-gridPane.getWidth()));
             }
-        }
-        for(int i = list.size()-amount; i < list.size(); i++){
-            GridPaneNode temp = list.get(i);
-            
         }
     }
 }
