@@ -13,7 +13,7 @@ import ui.builder.UIBuilder;
 import java.util.ResourceBundle;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
-
+import ui.media.SoundChooser;
 import java.util.ResourceBundle;
 
 /**
