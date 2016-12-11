@@ -27,7 +27,7 @@ import editor.EditorController;
  */
 public class GridPane implements Observer {
 
-    private final int WRAP = 10;
+    private final int WRAP = 20;
     private final int CELL_PIXELS = 30;
 
     private Group group;
@@ -259,8 +259,8 @@ public class GridPane implements Observer {
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
 
-        if (control.addPlayer(imagePaths, name, clicked.get(0).getBackendRow(),
-                              clicked.get(0).getBackendCol())) {
+        if (control.addPlayer(imagePaths, name, getBackendRow(clicked.get(0)),
+                              getBackendCol(clicked.get(0)))) {
             GridPaneNode temp = grid[col][row];
             GridPaneNode gpn = new GridPaneNode(row, col, imagePaths.get(0));
             gpn.setImageSize(CELL_PIXELS, CELL_PIXELS);
@@ -290,11 +290,11 @@ public class GridPane implements Observer {
                     GridPaneNode temp = grid[xPos][yPos];
                     // TODO add dimension checker
                     temp.swap(list.get(j), list.get(j).getImageNum());
-                    control.addBlock(temp.getName(), obj.getBlockType(), temp.getBackendRow(),
-                                     temp.getBackendCol());
+                    control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                        getBackendCol(temp));
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
                         String message = setCommMessage();
-                        control.addMessage(message, temp.getBackendRow(), temp.getBackendCol());
+                        control.addMessage(message,getBackendRow(temp), getBackendCol(temp));
                     }
                     // setPlayer(temp, obj, control);
                 }
@@ -383,8 +383,8 @@ public class GridPane implements Observer {
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
         System.out.println("link!");
-        return controller.linkBlocks(node1.getBackendRow(), node1.getBackendCol(), 0,
-                                     node2.getBackendRow(), node2.getBackendCol(), 0);
+        return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
+                                     getBackendRow(node2), getBackendCol(node2), 0);
     }
 
     /**
@@ -491,6 +491,14 @@ public class GridPane implements Observer {
         else {
             System.out.println("fuck off Robert");
         }
+    }
+
+    public int getBackendRow(GridPaneNode gpn) {
+        return gpn.getRow() - 5;
+    }
+
+    public int getBackendCol(GridPaneNode gpn){
+        return gpn.getCol() - 5;
     }
 
 }

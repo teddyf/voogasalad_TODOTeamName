@@ -27,6 +27,14 @@ public class SoundPlayer {
 		this.group = new Group();
 		this.filePath = filePath;
 		hbox = new HBox(10);
+		group.getChildren().add(hbox);
+		
+        //initPlayer();
+		//initPlayButton();
+		//initPauseButton();
+	}
+	
+	private void initPlayer() {
 		player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
 		group.getChildren().add(hbox);
 	}
@@ -37,6 +45,7 @@ public class SoundPlayer {
 		initPauseButton();
 		return group;
 	}
+	
 	private void setPlayinLoop(MediaPlayer mediaPlayer) {
 		mediaPlayer.setOnEndOfMedia(new Runnable() {
 		       public void run() {
