@@ -3,8 +3,6 @@ package ui;
 import ui.scenes.editor.EditorView;
 import ui.scenes.engine.GameEngine;
 import ui.builder.UIBuilder;
-import ui.scenes.AttributeEditor;
-import ui.scenes.CharacterEditor;
 import ui.scenes.MainMenu;
 import editor.EditorController;
 import javafx.scene.Group;
@@ -40,6 +38,7 @@ public class UILauncher {
         GameEngine engine = new GameEngine(myStage, new Group(), this);
         if (engine.init()) { // successfully opened a game file
             myStage.setScene(engine);
+            
         }
     }
 
@@ -65,18 +64,6 @@ public class UILauncher {
         myStage.setScene(myMainMenu);
     }
 
-    public void launchCharacterMenu(){
-        CharacterEditor charEdit = new CharacterEditor(myStage, new Group(), this, myController);
-        myStage.setScene(charEdit);
-        prevCharEditor = charEdit;
-    }
-    
-    public void launchAttributePopup(){
-        AttributeEditor attEdit = new AttributeEditor(myStage, new Group(),this, myController);
-        //prevScene = attEdit;
-        myStage.setScene(attEdit);
-    }
-
     /**
      * Launches the main menu that progresses into
      * either the game builder or game engine.
@@ -84,17 +71,6 @@ public class UILauncher {
     public void init() {
         launchMenu();
     }
-    
-    public void goToPrevEditor(UIBuilder builder){  
-        myStage.setScene(prevEditor);
-        String path = ((EditorView) prevEditor).getPath();
-        builder.initWindow(myStage,path);
-    }
-    
-    public void goToPrevCharEditor(UIBuilder builder){
-        myStage.setScene(prevCharEditor);
-        String path = ((CharacterEditor) prevCharEditor).getPath();
-        builder.initWindow(myStage,path);
-    }
+
     
 }

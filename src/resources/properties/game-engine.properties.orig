@@ -1,0 +1,29 @@
+windowHeight = 700
+windowWidth = 1000
+
+gridHeight = 700
+gridWidth = 700
+gridCellsWide = 25
+gridCellsHeight = 25
+gridX = 0
+gridY = 0
+
+statusPanelPosX = 700
+statusPanelPosY = 0
+
+<<<<<<< HEAD
+playerImageSize = 200
+startPlayer1ImagePath = resources/images/sprites/1-down.png
+player1ImageUp = 1-up.png
+player1ImageDown = 1-down.png
+player1ImageLeft = 1-left.png
+player1ImageRight = 1-right.png
+=======
+playerImageSize = 300
+>>>>>>> 34171c5474aad115ff4f57f303b34c63a7b70ee8
+
+
+gameFilePath = ./data
+
+externalFont = file:./src/resources/fonts/blackout.ttf
+font = Blackout Midnight

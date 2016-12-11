@@ -9,13 +9,12 @@ import javafx.scene.image.ImageView;
  *         <p>
  *         This class builds JavaFX ImageViews.
  */
-public class ImageViewBuilder extends ComponentBuilder {
+public class ImageViewBuilder implements ComponentBuilder {
 
-    public ImageViewBuilder() {
+    ImageViewBuilder() {
         super();
     }
 
-    @Override
     public Node createComponent(ComponentProperties properties) {
         Image rawImage = new Image(properties.path);
         ImageView imageView = new ImageView(rawImage);

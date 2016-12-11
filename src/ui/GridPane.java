@@ -227,7 +227,7 @@ public class GridPane implements Observer{
     }
 
 
-    public void nodeClick(GameObject obj, EditorController control, String name, String imagePaths){
+    public void nodeClick(GameObject obj, EditorController control, String name, List<String> imagePaths){
         if(clicked.size()==1){
             if(clickType.equals("SWAP")){
                 swap(obj, control);
@@ -241,13 +241,13 @@ public class GridPane implements Observer{
         }
     }
     
-    public void buildPlayer(EditorController control, String name, String imagePaths){
+    public void buildPlayer(EditorController control, String name, List<String> imagePaths){
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
         control.addPlayer(imagePaths, name, row, col);
         player.setLayoutX(getXRender(col));
         player.setLayoutY(getYRender(row));
-        ((ImageView) player).setImage(new Image(imagePaths));
+        ((ImageView) player).setImage(new Image(imagePaths.get(0)));
         clicked = new ArrayList<GridPaneNode>();
     }
     
@@ -298,7 +298,7 @@ public class GridPane implements Observer{
     /* wtf is this
     private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
         if (gameObject instanceof Player1) {
-            control.addPlayer(temp.getName(), "name", temp.getBackendRow(), temp.getBackendCol());
+            //control.addPlayer(temp.getName(), "name", temp.getBackendRow(), temp.getBackendCol());
             control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getBackendRow(),
                              temp.getBackendCol());
         }

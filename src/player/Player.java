@@ -24,7 +24,7 @@ public class Player implements IPlayer {
 	private static final int DEFAULT_HEALTH = 100;
 	private int battlesWon;
 	private int battlesLost;
-	private String myName;
+	private List<String> myNames;
 	private String myPlayerName;
 	private PlayerDirection myDirection;
 	private int myRow;
@@ -38,8 +38,8 @@ public class Player implements IPlayer {
 	
 	private double health;
 
-	public Player(String name, String playerName, int row, int col, int gridIndex) {
-		myName = name;
+	public Player(List<String> names, String playerName, int row, int col, int gridIndex) {
+		myNames = names;
 		myPlayerName = playerName;
 		myDirection = PlayerDirection.NORTH;
 		myRow = row;
@@ -64,9 +64,6 @@ public class Player implements IPlayer {
 	}
 	public void incrementBattlesLost(){
 		battlesLost++;
-	}
-	public String getPlayerName() {
-		return myName;
 	}
 
 	public PlayerDirection getDirection() {
@@ -148,4 +145,8 @@ public class Player implements IPlayer {
 	public double getHealth() {
 		return health;
 	}
+
+	/***** GETTERS *****/
+
+	/***** SETTERS *****/
 }

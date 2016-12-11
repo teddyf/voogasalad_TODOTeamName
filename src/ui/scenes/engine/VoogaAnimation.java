@@ -4,6 +4,7 @@ package ui.scenes.engine;
 import java.util.*;
 
 //import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import block.BlockUpdate;
 import engine.EngineController;
 import player.PlayerUpdate;
 import engine.UserInstruction;
@@ -49,6 +50,7 @@ public class VoogaAnimation implements Observer {
 	private HashMap<KeyCode, UserInstruction> keyBindings;
 
 	private Group gridLayout;
+	private InteractionHandler interactionHandler;
 
 	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec) {
 		this.root = root;
@@ -67,6 +69,7 @@ public class VoogaAnimation implements Observer {
 		setDefaultKeyBindings();
 		gridLayout = grid.getGroup();
 		ec.addObserver(this);
+		interactionHandler = new InteractionHandler(root, uiBuilder);
 	}
 
 	private void setDefaultKeyBindings() {
@@ -83,18 +86,15 @@ public class VoogaAnimation implements Observer {
 	
 	
 	public void handleKeyPress(KeyEvent e) {
-		System.out.println("hi1");
 		UserInstruction instruction = convertKeyCode(e.getCode());
 		if (!stack.contains(instruction))
 			stack.push(instruction);
 		if (!stack.isEmpty() && finished) {
-			System.out.println(instruction + "ENTERING ENGINE");
 			ec.keyListener(instruction);
 		}
 	}
 
 	public void handleKeyRelease(KeyEvent e) {
-		System.out.println("hi2");
 		UserInstruction instruction = convertKeyCode(e.getCode());
 		if (stack.contains(instruction))
 			stack.remove(instruction);
@@ -152,28 +152,33 @@ public class VoogaAnimation implements Observer {
 	@Override
 	public void update(Observable observable, Object value) {
 		//if (observable instanceof GameInstance) {
-			System.out.println("wat28");
 			PlayerUpdate update = (PlayerUpdate) value;
 			updatePlayer(update);
 		//}
 	}
 
 	private void updatePlayer(PlayerUpdate update) {
-        System.out.println(update + "UPDATING");
 		if (update == PlayerUpdate.ROW || update == PlayerUpdate.COLUMN) {
 			processMove(stack.peek());
 		}
 		if (update == PlayerUpdate.DIRECTION) {
 			processDirect(stack.peek());
 		}
+		handleInteractions();
 	}
+
+	private void handleInteractions() {
+        System.out.println("interactions");
+	    for (BlockUpdate blockUpdate : ec.getInteractions()) {
+            System.out.println("hi");
+	        interactionHandler.handleUpdate(blockUpdate);
+        }
+    }
 
 	private void processMove(UserInstruction key) {
 		if (!keyBindings.values().contains(key)) {
-			System.out.println("wat1");
 			return;
 		}
-		System.out.println("wat2");
 		finished = false;
 		animateMove(key);
 	}
@@ -184,11 +189,9 @@ public class VoogaAnimation implements Observer {
 		animation.getKeyFrames().add(new KeyFrame(Duration.millis(duration/maxSteps),
 				e -> move(instruction)));
 		animation.play();
-		System.out.println("wat3");
 	}
 
 	private void move(UserInstruction instruction) {
-		System.out.println("INSTRUCTIONS" + instruction);
 		if (isAnimationOver())
 			return;
 		double locationX = gridLayout.getLayoutX();
@@ -205,9 +208,6 @@ public class VoogaAnimation implements Observer {
 				break;
 			case RIGHT:
 				locationX -= pixelMovement;
-				break;
-			case TALK:
-				System.out.println("howdy");
 				break;
 		}
 		gridLayout.setLayoutX(locationX);
@@ -239,23 +239,20 @@ public class VoogaAnimation implements Observer {
 		//fixed the urls
 		switch (instruction) {
 			case UP:
-				changePlayerImage("1-up.png");
+				changePlayerImage(myResources.getString("player1ImageUp"));
 				break;
 			case DOWN:
 				//changePlayerImage(playerNumber + "SouthFacing.png");
-				changePlayerImage("1-down.png");
+				changePlayerImage(myResources.getString("player1ImageDown"));
 
 				break;
 			case RIGHT:
 				//changePlayerImage(playerNumber + "EastFacing.png");
-				changePlayerImage("1-right.png");
+				changePlayerImage(myResources.getString("player1ImageRight"));
 				break;
 			case LEFT:
 				//changePlayerImage(playerNumber + "WestFacing.png");
-				changePlayerImage("1-left.png");
-				break;
-			case TALK:
-				System.out.println("talkinging");
+				changePlayerImage(myResources.getString("player1ImageLeft"));
 				break;
 		}
 		stepCount = stepCount + 10;

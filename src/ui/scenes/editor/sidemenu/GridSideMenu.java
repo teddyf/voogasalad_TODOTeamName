@@ -1,21 +1,18 @@
 package ui.scenes.editor.sidemenu;
 
-import block.BlockType;
-import com.sun.javafx.scene.traversal.Direction;
 import editor.EditorController;
 import grid.GridGrowthDirection;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.FlowPane;
-//import sun.jvm.hotspot.ui.Editor;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import ui.builder.ComponentProperties;
+import ui.builder.UIBuilder;
+import java.util.ResourceBundle;
+import ui.builder.ComponentProperties;
+import ui.builder.UIBuilder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -31,6 +28,8 @@ public class GridSideMenu extends SideMenu {
         super(root, resources);
         myEditorController = editorController;
         init();
+        myPanel.setMinHeight(400);
+        myPanel.setMaxHeight(400);
     }
 
     private boolean invalidValue(GridGrowthDirection dir, String val) {
@@ -42,39 +41,51 @@ public class GridSideMenu extends SideMenu {
         }
     }
 
-    private ScrollPane resizePane() {
-        FlowPane pane = new FlowPane();
 
-        ComboBox<GridGrowthDirection> directionComboBox = new ComboBox<>();
-        ObservableList<GridGrowthDirection> options = FXCollections.observableArrayList(GridGrowthDirection.values());
-        directionComboBox.setItems(options);
+    private ScrollPane createGridResizePane() {
+        Pane resizePanel = new Pane();
 
-        TextField rowInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(10, 10).text("addition"));
+        ToggleGroup radioGroup = new ToggleGroup();
+        myBuilder.addCustomRadioButton(resizePanel, "Increase size", 20, 20, radioGroup, true, "grid-button");
+        myBuilder.addCustomRadioButton(resizePanel, "Decrease size", 20, 60, radioGroup, false, "grid-button");
 
-        Button button = (Button) myBuilder.addNewButton(pane, new ComponentProperties(10, 10).text("submit"));
+        myBuilder.addCustomLabel(resizePanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
+//        myBuilder.addCustomLabel(resizePanel, "add or remove blocks", 20, 135, null, Color.WHITE, 25);
 
-        directionComboBox.valueProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),rowInput.getText())));
-        rowInput.textProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),rowInput.getText())));
-        rowInput.textProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(),rowInput.getText())));
+
+        @SuppressWarnings("unchecked")
+        ComboBox<GridGrowthDirection> directionComboBox = (ComboBox<GridGrowthDirection>) myBuilder.addNewComboBox(resizePanel,
+                new ComponentProperties<GridGrowthDirection>(190, 125)
+                        .options(FXCollections.observableArrayList(GridGrowthDirection.values())));
+
+        myBuilder.addCustomLabel(resizePanel, "Number of rows or columns to add or remove:", 20, 200, null, Color.WHITE, 15);
+        TextField sizeInput = (TextField) myBuilder.addNewTextField(resizePanel, new ComponentProperties(20, 230).text("block size"));
+
+        Button button = (Button) myBuilder.addNewButton(resizePanel, new ComponentProperties(20, 300).text("Resize"));
+
+        directionComboBox.valueProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(), sizeInput.getText())));
+        sizeInput.textProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(), sizeInput.getText())));
+        sizeInput.textProperty().addListener(e -> button.setDisable(invalidValue(directionComboBox.getValue(), sizeInput.getText())));
         button.setDisable(true);
 
         button.setOnMouseClicked(e -> {
-            myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(rowInput.getText()));
+            try {
+                myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()));
+            } catch (ArrayIndexOutOfBoundsException exc) {
+                myBuilder.addNewAlert("Error","Error");
+            }
         });
 
-        myBuilder.addComponent(pane, directionComboBox);
-
-        return new ScrollPane(pane);
+        return new ScrollPane(resizePanel);
     }
 
     /**
      * Creates and adds tabs for each object type to the Item Menu
      */
     public void addTabs() {
-        Tab tab = createTab("Resize", resizePane());
+        Tab tab = createTab("Resize", createGridResizePane());
         myPanel.getTabs().add(tab);
     }
-
 
 }
 

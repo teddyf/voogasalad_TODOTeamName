@@ -3,6 +3,7 @@ package ui.scenes.editor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
@@ -104,7 +105,7 @@ public class SizeChooserUI extends Scene {
         String text = myResources.getString("promptText");
         String font = myResources.getString("font");
         int size = myUtil.getIntProperty("promptSize");
-        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
+        Label s = (Label) myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, null, size);
     }
 
     /**

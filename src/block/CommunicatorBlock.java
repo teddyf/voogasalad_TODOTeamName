@@ -1,6 +1,8 @@
 package block;
 
 import interactions.MessageInteraction;
+import interactions.TalkInteraction;
+import player.Player;
 
 /**
  * A board object with which the player character will have some active
@@ -18,8 +20,11 @@ public class CommunicatorBlock extends Block {
 	}
 
 	public void setMessage(String message) {
-	    addTalkInteraction(new MessageInteraction(this.getRow(), this.getCol()));
+	    addTalkInteraction(new MessageInteraction(this.getRow(), this.getCol(), message));
 	    myMessage = message;
     }
+    public String getMessage(){
+		return myMessage;
+	}
 
 }

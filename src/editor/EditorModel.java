@@ -14,6 +14,8 @@ import player.PlayerAttribute;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
+import java.util.List;
+
 /**
  * @author Aninda Manocha, Filip Mazurek
  */
@@ -46,28 +48,29 @@ public class EditorModel {
         return checkShrink(direction, amount);
     }
 
-    private boolean deletePlayer() {
-        return false;
-    }
-
-    /** shrinks the grid the appropriate amount from the appropriate direction
-     * @param amount: positive int of how much the grid should shrink
+    /**
+     * Determines if the grid can shrink without deleting the player. If not, the user receives a warning about deleting
+     * the player.
+     * @param direction - the direction in which to shrink the grid
+     * @param amount - the amount by which the grid size should shrink
+     * @return whether the grid can shrink without deleting the player
+     * @throws DeletePlayerWarning
      */
-    public boolean checkShrink(GridGrowthDirection direction, int amount) throws DeletePlayerWarning {
+    private boolean checkShrink(GridGrowthDirection direction, int amount) throws DeletePlayerWarning {
         switch (direction) {
-            case NORTH:
+            case TOP:
                 if (player.getRow() < amount) {
                     throw new DeletePlayerWarning();
                 }
-            case SOUTH:
+            case BOTTOM:
                 if(player.getRow() >= currentGrid.getNumRows() - amount) {
                     throw new DeletePlayerWarning();
                 }
-            case EAST:
+            case RIGHT:
                 if(player.getCol() >= currentGrid.getNumCols() - amount) {
                     throw new DeletePlayerWarning();
                 }
-            case WEST:
+            case LEFT:
                 if(player.getCol() < amount) {
                     throw new DeletePlayerWarning();
                 }
@@ -81,18 +84,18 @@ public class EditorModel {
         numCols = colEnd = currentGrid.getNumCols();
         rowOffset = colOffset = rowStart = colStart = 0;
         switch (direction) {
-            case NORTH:
+            case TOP:
                 numRows -= amount;
                 rowOffset = amount;
                 player.setRow(player.getRow() - rowOffset);
                 break;
-            case SOUTH:
+            case BOTTOM:
                 numRows -= amount;
                 break;
-            case EAST:
+            case RIGHT:
                 numCols -= amount;
                 break;
-            case WEST:
+            case LEFT:
                 numCols -= amount;
                 colOffset = amount;
                 player.setCol(player.getCol() - colOffset);
@@ -109,19 +112,19 @@ public class EditorModel {
         rowOffset = colOffset = rowStart = colStart = 0;
 
         switch (direction) {
-            case NORTH:
+            case TOP:
                 rowOffset = -amount;
                 numRows += amount;
                 break;
-            case SOUTH:
+            case BOTTOM:
                 rowEnd = numRows;
                 numRows += amount;
                 break;
-            case EAST:
+            case RIGHT:
                 colEnd = numCols;
                 numCols += amount;
                 break;
-            case WEST:
+            case LEFT:
                 colOffset = -amount;
                 numCols += amount;
                 break;
@@ -168,12 +171,12 @@ public class EditorModel {
         return currentGrid.getBlock(row, col).getName();
     }
 
-    public boolean addPlayer(String name, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
+    public boolean addPlayer(List<String> names, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
         if(!(currentGrid.getBlock(row, col).isWalkable())) {
             throw new BadPlayerPlacementException(row, col);
         }
         if(player == null) {
-            player = new Player(name, playerName, row, col, currentGrid.getIndex());
+            player = new Player(names, playerName, row, col, currentGrid.getIndex());
             return true;
         }
         else {
@@ -185,6 +188,10 @@ public class EditorModel {
         PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
         player.addAttribute(playerAttribute);
         return false;
+    }
+
+    public void deletePlayer() {
+        player = null;
     }
 
     public boolean movePlayer(int row, int col) {

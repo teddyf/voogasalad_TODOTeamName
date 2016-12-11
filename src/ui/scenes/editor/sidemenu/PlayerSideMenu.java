@@ -1,5 +1,4 @@
 package ui.scenes.editor.sidemenu;
-
 import editor.EditorController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -9,12 +8,10 @@ import javafx.scene.layout.FlowPane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 /**
  * @author Robert Steilberg
  *         <p>
@@ -22,17 +19,15 @@ import java.util.ResourceBundle;
  *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
-
     private ResourceBundle myResources;
     private EditorController myController;
-
+    private String selectedPlayerImagePath;
     PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
         super(root, resources);
         myResources = resources;
         myController = controller;
         init();
     }
-
     /**
      * Adds each sprite image representation to the menu
      *
@@ -44,22 +39,32 @@ public class PlayerSideMenu extends SideMenu {
         FlowPane sprites = createFlowPane();
         File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
+        List<String> names = new ArrayList<>();
         for (String image : images) {
             if (image.contains("down")) {
                 String imagePath = myResources.getString("spritePath") + image;
+                names.add(imagePath);
                 Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
                         .path(imagePath)
                         .width(util.getIntProperty("spriteWidth"))
                         .preserveRatio(true)
                         .id(myResources.getString("spriteCSSid")));
-                //sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,4,3));
+//                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
+//                sprite.setOnMouseClicked(e -> selectedPlayerImagePath = imagePath);
+//
+//                sprite.setOnMouseClicked(e -> {
+//                    if (myViewer.getSelected() != null) {
+//                        myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect"));
+//                    }
+//                    myViewer.select(object);
+//                    object.getIcon().setStyle(myResources.getString("selectedEffect"));
+//                });
+                sprite.setOnMouseClicked(e -> myController.addPlayer(names,"name", 0,0));
                 sprites.getChildren().add(sprite);
-                notifyObservers(imagePath);
             }
         }
         return sprites;
     }
-
     /**
      * Adds the tabs to the player side menu
      */

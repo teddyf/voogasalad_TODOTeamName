@@ -1,11 +1,14 @@
 package ui.scenes.editor.sidemenu;
 
 import block.BlockType;
+import grid.GridGrowthDirection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import ui.builder.ComponentProperties;
 
@@ -30,61 +33,71 @@ public class CustomSideMenu extends SideMenu {
     }
 
     private ScrollPane addCustomItemScrollPane() {
-        FlowPane pane = createFlowPane();
+        Pane addItemPanel = new Pane();
 
         // ComboBox to select the new item's BlockType
-        ComboBox<BlockType> typeComboBox = new ComboBox<>();
-        ObservableList<BlockType> options = FXCollections.observableArrayList(BlockType.values());
-        typeComboBox.setItems(options);
+        myBuilder.addCustomLabel(addItemPanel, "Import a new item into the editor by\nchoosing an image and specifying its\nheight and width in blocks.", 20, 20, null, Color.WHITE, 20);
 
-        // ComboBox to inform the user
-        TextField rowInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(10, 10).text("row"));
-        TextField columnInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(100, 100).text("column"));
+        myBuilder.addCustomLabel(addItemPanel, "Choose the appropriate\nblock type for the new object", 20, 130, null, Color.WHITE, 15);
 
-        myBuilder.addComponent(pane, typeComboBox);
 
-        Button fileBrowserButton = (Button) myBuilder.addNewButton(pane, new ComponentProperties(10, 10).text("add"));
+        @SuppressWarnings("unchecked")
+        ComboBox<BlockType> blockTypeComboBox = (ComboBox<BlockType>) myBuilder.addNewComboBox(addItemPanel,
+                new ComponentProperties<BlockType>(230, 135)
+                        .options(FXCollections.observableArrayList(BlockType.values())));
 
-        fileBrowserButton.setOnMouseClicked(event -> {
+//        ComboBox<BlockType> typeComboBox = new ComboBox<>();
+//        ObservableList<BlockType> options = FXCollections.observableArrayList(BlockType.values());
+//        typeComboBox.setItems(options);
+//
+//        // ComboBox to inform the user
+//        TextField rowInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(10, 10).text("row"));
+//        TextField columnInput = (TextField) myBuilder.addNewTextField(pane, new ComponentProperties(100, 100).text("column"));
+//
+//        myBuilder.addComponent(pane, typeComboBox);
+//
+//        Button fileBrowserButton = (Button) myBuilder.addNewButton(pane, new ComponentProperties(10, 10).text("add"));
+//
+//        fileBrowserButton.setOnMouseClicked(event -> {
+//
+//            FileChooser browser = new FileChooser();
+//            FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Portable Network Graphics (*.png)", "*.png");
+//            browser.getExtensionFilters().add(filter);
+//
+//            File file = browser.showOpenDialog(myRoot.getScene().getWindow());
+//
+//            if (customItemError(file, typeComboBox, rowInput, columnInput))
+//                return;
+//
+//            Path source = Paths.get(file.getPath());
+//
+//            Path destination = Paths.get("src/resources/images/tiles/" + typeComboBox.getValue().name().toLowerCase() +
+//                    "/" + source.getFileName().toString());
+//
+//            if (new File(destination.toString()).exists()) {
+//                alert("You can't override previously added files.");
+//                return;
+//            }
+//
+//            try {
+//                Files.copy(source, destination);
+//                int r = Integer.parseInt(rowInput.getText());
+//                int c = Integer.parseInt(columnInput.getText());
+//                if (r > 1 || c > 1) {
+//                    String fullPath = new File(destination.toString()).toURI().toString();
+//                    new ImageCropper(destination.toString(), r, c);
+//                }
+//            } catch (IOException e) {
+//                System.out.println("customsmide");
+//                e.printStackTrace();
+//            }
+//
+//            ItemSideMenu ism = myControls.getMyItemMenu();
+//            ism.refresh();
+//
+//        });
 
-            FileChooser browser = new FileChooser();
-            FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Portable Network Graphics (*.png)", "*.png");
-            browser.getExtensionFilters().add(filter);
-
-            File file = browser.showOpenDialog(myRoot.getScene().getWindow());
-
-            if (customItemError(file, typeComboBox, rowInput, columnInput))
-                return;
-
-            Path source = Paths.get(file.getPath());
-
-            Path destination = Paths.get("src/resources/images/tiles/" + typeComboBox.getValue().name().toLowerCase() +
-                    "/" + source.getFileName().toString());
-
-            if (new File(destination.toString()).exists()) {
-                alert("You can't override previously added files.");
-                return;
-            }
-
-            try {
-                Files.copy(source, destination);
-                int r = Integer.parseInt(rowInput.getText());
-                int c = Integer.parseInt(columnInput.getText());
-                if (r > 1 || c > 1) {
-                    String fullPath = new File(destination.toString()).toURI().toString();
-                    new ImageCropper(destination.toString(), r, c);
-                }
-            } catch (IOException e) {
-                System.out.println("customsmide");
-                e.printStackTrace();
-            }
-
-            ItemSideMenu ism = myControls.getMyItemMenu();
-            ism.refresh();
-
-        });
-
-        return new ScrollPane(pane);
+        return new ScrollPane(addItemPanel);
     }
 
     private boolean customItemError(File file, ComboBox<BlockType> typeComboBox,

@@ -1,5 +1,4 @@
 package ui.scenes.editor;
-
 import editor.EditorController;
 import ui.GridPane;
 import ui.GridPaneNode;
@@ -11,45 +10,34 @@ import javafx.scene.input.MouseButton;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
-
 import java.util.*;
-
-
 /**
  * @author Teddy Franceschi, Robert Steilberg, Harshil Garg
  *         <p>
  *         This class initializes the grid-based UI used to create the overworld.
  */
 public class GridUI extends Observable{
-
     private Parent myRoot;
     private ItemSideMenu myItemMenu;
     private EditorController myController;
-
     private ResourceBundle myResources;
     private PropertiesUtilities myUtil;
     private UIBuilder myBuilder;
     private ColorAdjust hoverOpacity;
-
     private GridPane myGridPane;
-
     private ScrollAnimation scrollAnimation;
     private GridScrollButton gsb;
-
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
-
     public GridUI(Parent root, EditorController controller, ItemSideMenu itemMenu, int width, int height) {
         myRoot = root;
         myItemMenu = itemMenu;
         myController = controller;
-
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
         hoverOpacity = new ColorAdjust();
         initGrid(width, height);
     }
-
     /**
      * Creates a grid of specified width and height, and then adds
      * functionality to the grid.
@@ -63,16 +51,13 @@ public class GridUI extends Observable{
                 myUtil.getIntProperty("gridY"));
         myController.addGrid(width, height);
         myController.changeGrid(0);
-
         initGridControl();
         setGridClickable();
-
         scrollAnimation =
                 new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(),
                         myGridPane.getYMin());
         gsb = new GridScrollButton(myRoot, scrollAnimation);
     }
-
     /**
      * Configures grid event handlers that allow the user to add and remove
      * ui.scenes.editor.objects from it.
@@ -81,55 +66,7 @@ public class GridUI extends Observable{
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
         myGridPane.getGroup().toBack();
         hoverOpacity.setBrightness(myUtil.getDoubleProperty("buttonHoverOpacity"));
-        int updateX = myUtil.getIntProperty("updateX");
-        int updateY = myUtil.getIntProperty("updateY");
-        int updateWidth = myUtil.getIntProperty("updateWidth");
-        int widthInputX = myUtil.getIntProperty("inputWidthX");
-        int widthInputY = myUtil.getIntProperty("inputWidthY");
-        int widthInputWidth = myUtil.getIntProperty("inputWidthWidth");
-        String widthInputText = myUtil.getStringProperty("inputWidthText");
-        int heightInputX = myUtil.getIntProperty("inputHeightX");
-        int heightInputY = myUtil.getIntProperty("inputHeightY");
-        int heightInputWidth = myUtil.getIntProperty("inputHeightWidth");
-        String heightInputText = myUtil.getStringProperty("inputHeightText");
-        int linkX = myUtil.getIntProperty("linkX");
-        int linkY = myUtil.getIntProperty("linkY");
-        int linkWidth = myUtil.getIntProperty("linkWidth");
-        String linkPath = myUtil.getStringProperty("linkPath");
-        Node linkButton = myBuilder.addCustomImageView(myRoot, linkX, linkY, linkPath, linkWidth, "");
-        linkButton.setOnMouseClicked(e->{
-            
-        });
-        Node widthInputField =
-                myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                        widthInputWidth, 20);
-        Node heightInputField =
-                myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                        heightInputWidth, 20);
-        String updatePath = myResources.getString("updatePath");
-        Node updateButton =
-                myBuilder.addCustomImageView(myRoot, updateX, updateY, updatePath, updateWidth, "");
-        updateButton.setOnMouseClicked(e -> {
-            TextField xText = (TextField) widthInputField;
-            TextField yText = (TextField) heightInputField;
-            try {
-                int xInput = Integer.parseInt(xText.getText());
-                int yInput = Integer.parseInt(yText.getText());
-                myBuilder.removeComponent(myRoot, myGridPane.getGroup());
-                myGridPane.resizeReset(xInput, yInput);
-                myBuilder.addComponent(myRoot, myGridPane.getGroup());
-            } catch (Exception exc) {
-                myBuilder.addNewAlert("Invalid Resize",
-                        "Please enter an inter value for row and column count");
-            }
-
-        });
-
-        updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
-        updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
-
     }
-
     void loadGrid() {
         int colMax = myController.getPlayerCol();
         int rowMax = myController.getPlayerRow();
@@ -143,11 +80,9 @@ public class GridUI extends Observable{
         myGridPane.setRenderMap();
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
     }
-
     public GridPane getMyGridPane() {
         return myGridPane;
     }
-
     private void setGridClickable() {
         List<GridPaneNode> blockList = myGridPane.getNodeList();
         for (GridPaneNode node : blockList) {
@@ -156,16 +91,13 @@ public class GridUI extends Observable{
                 if (e.getButton() == MouseButton.SECONDARY) {
                     myGridPane.delete();
                 } else {
-
                     myGridPane.swap(myItemMenu.getSelected(),
                             myController);
                 }
             });
         }
     }
-
     public GridScrollButton getScrollMechanism() {
         return gsb;
     }
-
 }

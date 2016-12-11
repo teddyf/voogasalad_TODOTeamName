@@ -1,5 +1,7 @@
 package ui.builder;
 
+import javafx.collections.ObservableList;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
 
 /**
@@ -7,7 +9,7 @@ import javafx.scene.paint.Color;
  *         <p>
  *         This class holds information used to build JavaFX ui.scenes.editor.objects.
  */
-public class ComponentProperties {
+public class ComponentProperties<E> {
 
     protected String id;
     protected double x;
@@ -24,6 +26,9 @@ public class ComponentProperties {
     protected String content;
     protected Color color;
     protected double rotate;
+    protected ToggleGroup toggleGroup;
+    protected boolean selected;
+    protected ObservableList<E> options;
 
     public ComponentProperties() {
     }
@@ -82,10 +87,10 @@ public class ComponentProperties {
         this.content = content;
         return this;
     }
-    
+
     public ComponentProperties color(Color color) {
-    	this.color = color;
-    	return this;
+        this.color = color;
+        return this;
     }
 
     public ComponentProperties rotate(double rotate) {
@@ -97,4 +102,20 @@ public class ComponentProperties {
         this.title = title;
         return this;
     }
+
+    public ComponentProperties toggleGroup(ToggleGroup toggleGroup) {
+        this.toggleGroup = toggleGroup;
+        return this;
+    }
+
+    public ComponentProperties selected(boolean selected) {
+        this.selected = selected;
+        return this;
+    }
+
+    public ComponentProperties<E> options(ObservableList<E> options) {
+        this.options = options;
+        return this;
+    }
+
 }

@@ -4,12 +4,9 @@ import api.IGameInstance;
 import battle.controller.BattleController;
 import battle.model.BattleModel;
 import battle.view.BattleView;
-import block.Block;
-import block.BlockUpdate;
-import block.EnemyBlock;
+import block.*;
 import grid.Grid;
 import grid.GridWorld;
-import grid.RenderedGrid;
 import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
@@ -30,18 +27,18 @@ public class GameInstance extends Observable implements IGameInstance {
     private static final PlayerDirection SOUTH = PlayerDirection.SOUTH;
     private static final PlayerDirection EAST = PlayerDirection.EAST;
     private static final PlayerDirection WEST = PlayerDirection.WEST;
+
     private GridWorld myGridWorld;
 	private Grid myGrid;
-	private RenderedGrid myRenderedGrid;
     private Player myPlayer;
 	private int myScore;
 	private GameStatus myStatus;
 	private List<BlockUpdate> blockUpdates;
+	private BattleController battleController;
 	
 	public GameInstance(Player player, GridWorld gridWorld) {
 	    myGridWorld = gridWorld;
 	    myGrid = myGridWorld.getCurrentGrid();
-	    myRenderedGrid = new RenderedGrid(myGrid);
         myPlayer = player;
 	    myScore = 0;
 		myStatus = new GameStatus();
@@ -56,11 +53,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		return myGrid;
 	}
 
-	public RenderedGrid getRenderedGrid() {
-	    return myRenderedGrid;
-    }
-
-    public Player getPlayer() {
+	public Player getPlayer() {
         return myPlayer;
     }
 
@@ -113,17 +106,10 @@ public class GameInstance extends Observable implements IGameInstance {
                 }
 				break;
 			case TALK:
-			    System.out.println("I AM TALKING HI");
-				//TODO get difficulty from block
-				enterBattle(new EnemyBlock("hello", 0, 0), BattleView.Difficulty.MEDIUM);
 			    Block block = blockInFacedDirection(row, col, direction);
-			    if (block instanceof EnemyBlock) {
-			    	enterBattle((EnemyBlock) block, BattleView.Difficulty.MEDIUM);
-			    }
-			    else {
-			    	//TODO: implement interactions
-			    	block.talkInteract(myPlayer);
-			    }
+			    blockUpdates = block.talkInteract(myPlayer);
+				playerUpdate = PlayerUpdate.TALK;
+				setChanged();
 			default:
 				break;
 		}
@@ -153,6 +139,7 @@ public class GameInstance extends Observable implements IGameInstance {
         if (inBounds(newBlock) && isWalkable(newBlock)) {
             myPlayer.setRow(newBlock.getRow());
             myPlayer.setCol(newBlock.getCol());
+            blockUpdates = newBlock.stepInteract(myPlayer);
             setChanged();
         }
         return playerUpdate;
@@ -207,19 +194,16 @@ public class GameInstance extends Observable implements IGameInstance {
         }
     }
 
+    public List<BlockUpdate> getInteractions() {
+        return blockUpdates;
+    }
+
     public void handleInteraction() {
-        Block newBlock = myGrid.getBlock(myPlayer.getRow(), myPlayer.getCol());
-        if (newBlock.stepInteract(myPlayer) || newBlock.talkInteract(myPlayer)) {
-            blockUpdates = newBlock.getBlockUpdates();
-            setChanged();
-            notifyObservers(PlayerUpdate.INTERACTION);
-            // frontend needs to call getRow(), getCol(), getBlockUpdates()
-        }
+        blockUpdates.clear();
     }
 
     public void changeGrid(int index) {
         //myGridWorld.setCurrentIndex(index);
         myGrid = myGridWorld.getCurrentGrid();
-        myRenderedGrid = new RenderedGrid(myGrid);
     }
 }

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
@@ -12,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 
 public class SoundControl {
@@ -29,18 +31,19 @@ public class SoundControl {
 	private void init() {
 		group = new Group();
 		playlist = new HashMap<String,String>();
-		hbox = new HBox();
+		hbox = new HBox(10);
 		comboBox = new ComboBox();
-		comboBox.setPromptText("Mario");
-		hbox = new HBox();
+		comboBox.setPromptText("Choose song");
 		hbox.getChildren().add(comboBox);
-		addSong("Mario","src/resources/songs/mario.mp3");
-		addSong("Angry Bird","src/resources/songs/angrybird.mp3");
+		addSong("Aquacorde","src/resources/songs/aquacorde.mp3");
+		addSong("Fallarbor","src/resources/songs/fallarbor.mp3");
+		addSong("Pallettown","src/resources/songs/pallettown.mp3");
 		initPlayButton();
 		initPauseButton();
 		
-		player = new MediaPlayer(new Media(new File("src/resources/songs/mario.mp3").toURI().toString()));
-        player.play();
+		player = new MediaPlayer(new Media(new File("src/resources/songs/aquacorde.mp3").toURI().toString()));
+		setPlayinLoop(player);
+		player.play();
         playButtonClicked=true;
         
 		group.getChildren().add(hbox);
@@ -61,7 +64,6 @@ public class SoundControl {
 		button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-            	
             	if (playButtonClicked==true) {
             		player.stop();
             	}
@@ -77,9 +79,8 @@ public class SoundControl {
     		player.stop();
     	}
         String filePath = playlist.get(songName);
-        System.out.println("chosen song"+songName);
-        System.out.println("file path"+filePath);
         player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
+        setPlayinLoop(player);
         player.play();
         playButtonClicked=true;
 	}
@@ -96,6 +97,10 @@ public class SoundControl {
 		hbox.getChildren().add(button);
 	}
 	
+	public void addNodeToControl(Node node) {
+		hbox.getChildren().add(node);
+	}
+	
 	private void setButtonImage(Button button, String imageFilePath) {
 		Image image = new Image(imageFilePath);
         ImageView itemView = new ImageView();
@@ -103,5 +108,13 @@ public class SoundControl {
         itemView.setFitWidth(25);
         itemView.setFitHeight(25);
         button.setGraphic(itemView);
+	}
+	
+	private void setPlayinLoop(MediaPlayer mediaPlayer) {
+		mediaPlayer.setOnEndOfMedia(new Runnable() {
+		       public void run() {
+		    	   mediaPlayer.seek(Duration.ZERO);
+		       }
+		   });
 	}
 }
