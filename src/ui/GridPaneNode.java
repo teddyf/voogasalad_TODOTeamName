@@ -91,14 +91,6 @@ public class GridPaneNode {
         this.name = a;
     }
     
-    public void setCol(int col){
-        this.col = col;
-    }
-    
-    public void setRow(int row){
-        this.row = row;
-    }
-    
     public String getName(){
         return name;
     }
