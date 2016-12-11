@@ -21,4 +21,9 @@ public interface BattleModelInView {
 	void addBattleWon();
 
 	void addBattleLost();
+
+    int getNumPokemon();
+
+	void reduceNumPokemon();
+	void resetPlayer();
 }
