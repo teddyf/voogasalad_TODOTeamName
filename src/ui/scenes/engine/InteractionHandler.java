@@ -21,7 +21,12 @@ public class InteractionHandler {
 
     public void displayMessage(String message) {
         ComponentProperties prop = new ComponentProperties();
-        prop.text(message);
+//        prop.text(message);
+        String msg = "You have to fight all these mother-effers to pass onto the nxt our and bring to us the Gym "
+        		+ "bade belonging to Randy.... fdaoihshfaohsgopaiosjfiodahaiohdiaohfdaoihfioshoahgioadhgioadhd"
+        		+ "kdjhfjkdha;lkjfakjad;khfdfaklfjkladjdlaknfldahadkljfal;";
+        System.out.println("LEN" + msg.length());
+        prop.text(msg);
         prop.height(100);
         prop.width(600);
         myUIBuilder.addDialogBubble(myRoot, prop);

@@ -259,7 +259,7 @@ public class UIBuilder<E> {
     	dialogNode.setFocusTraversable(true);
     	layout.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
 			public void handle(final KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+                if (layout.getChildrenUnmodifiable().contains(dialogNode)) {
                 	removeComponent(layout, dialogNode);
                 }
 			}
