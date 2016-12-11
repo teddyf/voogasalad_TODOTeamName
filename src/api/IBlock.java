@@ -1,10 +1,7 @@
 package api;
 
 import interactions.Interaction;
-import interactions.StepInteraction;
-import interactions.TalkInteraction;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,11 +18,11 @@ public interface IBlock {
 
     public boolean isWalkable();
 
-    public List<StepInteraction> getStepInteractions();
+    public List<Interaction> getStepInteractions();
 
-    public List<TalkInteraction> getTalkInteractions();
+    public List<Interaction> getTalkInteractions();
 
-    public boolean addStepInteraction(StepInteraction stepInteraction);
+    public boolean addStepInteraction(Interaction stepInteraction);
 
-    public boolean addTalkInteraction(TalkInteraction talkInteraction);
+    public boolean addTalkInteraction(Interaction talkInteraction);
 }
