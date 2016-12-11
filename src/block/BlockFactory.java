@@ -30,7 +30,6 @@ public class BlockFactory {
             Class<?> blockClass = Class.forName(myBlockPaths.getString(blockType.toString()));
             Constructor<?> constructor = blockClass.getDeclaredConstructor(String.class, int.class, int.class);
             Object block = constructor.newInstance(name, row, col);
-            System.out.println("HI " + blockClass);
             return (Block) block;
         }
         catch (Exception e) {

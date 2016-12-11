@@ -153,7 +153,6 @@ public class EditorModel {
     public void addBlock(String name, BlockType blockType, int row, int col) throws BlockCreationException {
         Block block = blockFactory.createBlock(name, blockType, row, col);
         currentGrid.setBlock(row, col, block);
-        System.out.println(currentGrid.getBlock(row, col));
     }
 
     public boolean addMessage(String message, int row, int col) {
@@ -170,7 +169,6 @@ public class EditorModel {
         Grid grid2 = gridWorld.getGrid(index2);
         Block block1 = grid1.getBlock(row1, col1);
         Block block2 = grid2.getBlock(row2, col2);
-        System.out.println(block1 instanceof TeleportBlock);
         return (block1.link(block2, index2) || block2.link(block1, index1));
     }
 

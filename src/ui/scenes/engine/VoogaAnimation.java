@@ -5,6 +5,7 @@ import java.util.*;
 
 //import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import block.BlockUpdate;
+import block.BlockUpdateType;
 import engine.EngineController;
 import player.PlayerUpdate;
 import engine.UserInstruction;
@@ -173,7 +174,11 @@ public class VoogaAnimation implements Observer {
 
 	private void handleInteractions() {
 	    for (BlockUpdate blockUpdate : ec.getInteractions()) {
-	        interactionHandler.handleUpdate(blockUpdate);
+	        if (blockUpdate.getType() == BlockUpdateType.TELEPORT) {
+                processMove(stack.peek());
+            } else {
+                interactionHandler.handleUpdate(blockUpdate);
+            }
         }
     }
 

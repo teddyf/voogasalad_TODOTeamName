@@ -26,9 +26,7 @@ public class TeleportBlock extends Block {
      */
     @Override
     public boolean link(Block receiver, int gridIndex) {
-        System.out.println("not teleport");
         if(receiver instanceof TeleportBlock) {
-            System.out.println("teleport");
             unlink(receiver);
             myReceiveBlock = (TeleportBlock) receiver;
             addStepInteraction(new TeleportInteraction(receiver.getRow(), receiver.getCol(), gridIndex));
