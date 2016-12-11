@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
  *         <p>
  *         This class defines the basic functionality for a SideMenu in the Editor.
  */
-public abstract class SideMenu extends Observable{
+public abstract class SideMenu extends Observable {
 
     protected Parent myRoot;
     protected ResourceBundle myResources;

@@ -87,6 +87,7 @@ public class EditorController implements IEditorController {
     /***** PLAYER METHODS *****/
 
     public boolean addPlayer(List<String> names, String playerName, int row, int col) {
+        System.out.println("Editor controller row = " + row + "col = " + col);
         try {
             return myModel.addPlayer(names, playerName, row, col);
         }
@@ -149,6 +150,11 @@ public class EditorController implements IEditorController {
     }
 
     public EngineController runEngine() {
-        return myModel.runEngine();
+        try {
+            return myModel.runEngine();
+        } catch (NoPlayerException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+            return null;
+        }
     }
 }

@@ -46,7 +46,7 @@ public class PlayerSideMenu extends SideMenu {
      *
      * @return the FlowPane containing the sprites
      */
-    private FlowPane addSprites() {
+    private ScrollPane addSprites() {
         UIBuilder builder = new UIBuilder();
         PropertiesUtilities util = new PropertiesUtilities(myResources);
         FlowPane sprites = createFlowPane();
@@ -87,14 +87,14 @@ public class PlayerSideMenu extends SideMenu {
                 }
             }
         }
-        return sprites;
+        return new ScrollPane(sprites);
     }
     /**
      * Adds the tabs to the player side menu
      */
     protected void addTabs() {
         // sprite tab
-        Tab spriteTab = createTab(myResources.getString("spriteTab"), new ScrollPane(addSprites()));
+        Tab spriteTab = createTab(myResources.getString("spriteTab"), addSprites());
 //        FlowPane sprites = addSprites();
 //        ScrollPane spritePane = new ScrollPane(sprites);
 //        spriteTab.setContent(spritePane);
