@@ -8,12 +8,10 @@ import javafx.scene.control.Alert;
  * @author Aninda Manocha
  */
 
-public class WarningBuilder extends ComponentBuilder {
+public class WarningBuilder implements ComponentBuilder {
     public WarningBuilder() {
-        super();
     }
 
-    @Override
     public Node createComponent(ComponentProperties properties) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("");

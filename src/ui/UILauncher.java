@@ -40,6 +40,7 @@ public class UILauncher {
         GameEngine engine = new GameEngine(myStage, new Group(), this);
         if (engine.init()) { // successfully opened a game file
             myStage.setScene(engine);
+            
         }
     }
 

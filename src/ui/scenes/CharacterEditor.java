@@ -4,6 +4,7 @@ package ui.scenes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import editor.EditorController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -104,7 +105,6 @@ public class CharacterEditor extends Scene{
         playerLeft.setOnMouseClicked(e->{
             rotateImage(-1,playerImage);
         });
-        
           
         myStage.setOnCloseRequest(e->{
             e.consume();

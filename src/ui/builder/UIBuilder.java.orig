@@ -1,12 +1,15 @@
 package ui.builder;
 
-
+<<<<<<< HEAD
 import javafx.event.EventHandler;
+=======
+>>>>>>> 0c8656d5c1040af2236df5d03ae3eb318cc5a20a
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -14,7 +17,11 @@ import javafx.stage.Stage;
 import java.util.ResourceBundle;
 
 /**
- * @author Harshil Garg, Robert Steilberg, Aninda Manocha, Nisakorn Valyasevi
+<<<<<<< HEAD
+ * @author Harshil Garg, Robert Steilberg, Nisakorn Valyasevi
+=======
+ * @author Harshil Garg, Robert Steilberg, Aninda Manocha
+>>>>>>> 0c8656d5c1040af2236df5d03ae3eb318cc5a20a
  *         <p>
  *         This class is used to build JavaFX ui.scenes.editor.objects and add them to the stage.
  *         <p>
@@ -26,7 +33,10 @@ public class UIBuilder {
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
+<<<<<<< HEAD
     private ComponentBuilder dialogBuilder;
+=======
+>>>>>>> 0c8656d5c1040af2236df5d03ae3eb318cc5a20a
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -87,6 +97,7 @@ public class UIBuilder {
             pane.getChildren().remove(component);
         } else if (layout instanceof Group) {
             Group pane = (Group) layout;
+            System.out.println(pane.getChildren());
             pane.getChildren().remove(component);
         } else {
             return null;
@@ -239,14 +250,14 @@ public class UIBuilder {
     	stage.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
 			public void handle(final KeyEvent keyEvent) {
                 if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+//                    removeComponent(layout, dialogNode);
                 	removeComponent(layout, dialogNode);
+                    keyEvent.consume();
                 }
 			}
 	
 		});
     	addComponent(layout, dialogNode);
-    	dialogNode.setLayoutX(50);
-    	dialogNode.setLayoutY(550);
     	return dialogNode;
     }
     /**
