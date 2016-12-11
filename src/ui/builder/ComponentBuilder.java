@@ -3,14 +3,11 @@ package ui.builder;
 import javafx.scene.Node;
 
 /**
- * @author Harshil Garg
+ * @author Harshil Garg, Nisakorn Valyasevi
  *         <p>
- *         Abstract class used to add JavaFX nodes to a scene.
+ *         Interface used to add JavaFX nodes to a scene.
  */
-public abstract class ComponentBuilder {
+public interface ComponentBuilder {
 
-    public ComponentBuilder() {
-    }
-
-    public abstract Node createComponent(ComponentProperties properties);
+    Node createComponent(ComponentProperties properties);
 }

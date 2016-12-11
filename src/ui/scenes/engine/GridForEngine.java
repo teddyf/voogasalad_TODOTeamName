@@ -229,8 +229,10 @@ public class GridForEngine {
     }
 
     private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
+        List<String> names = new ArrayList<>();
+        names.add(temp.getName());
         if (gameObject instanceof Player1) {
-            control.addPlayer(temp.getName(), "name", temp.getBackendRow(), temp.getBackendCol());
+            control.addPlayer(names, "name", temp.getBackendRow(), temp.getBackendCol());
             control.addBlock("resources/images/tiles/ground/grass-1.png", BlockType.DECORATION, temp.getBackendRow(),
             temp.getBackendCol());
         }

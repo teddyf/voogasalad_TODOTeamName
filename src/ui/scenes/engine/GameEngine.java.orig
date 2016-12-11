@@ -2,19 +2,15 @@ package ui.scenes.engine;
 
 import engine.EngineController;
 import ui.FileBrowser;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import ui.UILauncher;
-import ui.builder.ComponentProperties;
-import ui.builder.Dialog;
 import ui.builder.UIBuilder;
 
 import java.io.File;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 /**
@@ -24,7 +20,7 @@ import java.util.ResourceBundle;
  *
  *         Dependencies: FileBrowser.java
  */
-public class GameEngine extends Scene {
+public class GameEngine extends Scene implements Observer {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
     private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
@@ -79,6 +75,22 @@ public class GameEngine extends Scene {
     
     private void setUpGrid() {
     	setUpKeys();
+<<<<<<< HEAD:src/ui/scenes/GameEngine.java
+    	//initGrid();
+    	//gridPane.getNodeList().get(1250).setImage(new ImageView("resources/flower.png"));
+    	//gridPane.setRenderMap();
+    	Character player = new Character();
+    	player.setColumn((int)(grid.getWidth()-1) /2);
+    	player.setRow(((int)grid.getHeight()-1) /2);
+    	player.setCharacterImage("resources/images/sprites/Character/Pokemon/Player2SouthFacing.png");
+    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder);
+    	
+    	//gd = new GridDisplayer(gridPane);
+    	
+    	System.out.println(grid.getWidth());
+    	System.out.println(grid.getHeight());
+    	
+=======
     	setUpPlayer();
     	anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController);
     	myController.addObserver(anim);
@@ -89,7 +101,10 @@ public class GameEngine extends Scene {
     }
     
     private void setUpSidePanel() {
-    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player,this);
+    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources);
+    	engineSidePanel.initPlayerChanger(player);
+    	engineSidePanel.initSidePanel();
+    	engineSidePanel.initStats();
     }
     
     private void setUpPlayer() {
@@ -99,15 +114,16 @@ public class GameEngine extends Scene {
     	player = new Character(this);
     	System.out.println(player.getRowCharacter());
     	System.out.println(player.getColumnCharacter());
-    	player.setCharacterImage(myResources.getString("startPlayer1ImagePath"));
+    	player.setCharacterImage("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
         player.setCharacterImageSize(grid.getBlockSize());
+>>>>>>> 6c31c1abb30aab0924f72c6fcf1b8dde0cf4a670:src/ui/scenes/engine/GameEngine.java
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
 
         player.setPosX(gridWidth/2 - player.getSize()/2);
         player.setPosY(gridHeight/2 - player.getSize()/2);
-    	player.setName(myResources.getString("startPlayer1ImagePath"));
+    	player.setName("resources/images/tiles/Character/Pokemon/Player1SouthFacing.png");
     	myBuilder.addComponent(myRoot, player.getCharacterImageView());
 
         //setup grid
@@ -156,12 +172,17 @@ public class GameEngine extends Scene {
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
                 grid.blockToGridPane(i, j, myController.getBlock(i, j));
+
             }
         }
-        grid.populateBorder();
         grid.setRenderMap();
-        System.out.println(grid.getNodeList());
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
+
+	@Override
+	public void update(Observable o, Object arg) {
+		myBuilder.addComponent(myRoot, player.getCharacterImageView());
+	}  
+	
 	
 }

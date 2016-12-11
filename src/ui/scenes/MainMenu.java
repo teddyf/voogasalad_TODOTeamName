@@ -1,14 +1,20 @@
 package ui.scenes;
 
+import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import resources.properties.PropertiesUtilities;
 import ui.UILauncher;
 import ui.builder.ComponentProperties;
+import ui.builder.Dialog;
 import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
@@ -84,13 +90,13 @@ public class MainMenu extends Scene {
         String text = myResources.getString("titleText");
         String font = myResources.getString("font");
         int size = myUtil.getIntProperty("titleSize");
-        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
+        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, null, size);
         // create subtitle
         xPos = myUtil.getIntProperty("subtitleXPos");
         yPos = myUtil.getIntProperty("subtitleYPos");
         text = myResources.getString("subtitleText");
         size = myUtil.getIntProperty("subtitleSize");
-        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
+        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, null, size);
     }
 
     /**
@@ -114,7 +120,7 @@ public class MainMenu extends Scene {
         setText();
         setButtons();
     }
-    
+        
     public String getPath(){
         return MAINMENU_RESOURCES;
     }

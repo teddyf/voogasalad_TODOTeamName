@@ -20,7 +20,7 @@ public class CommunicatorBlock extends Block {
 	}
 
 	public void setMessage(String message) {
-	    addTalkInteraction(new MessageInteraction(this.getRow(), this.getCol()));
+	    addTalkInteraction(new MessageInteraction(this.getRow(), this.getCol(), message));
 	    myMessage = message;
     }
     public String getMessage(){

@@ -1,5 +1,6 @@
 package ui.scenes.engine;
 
+import java.util.List;
 import java.util.Observable;
 
 import javafx.scene.image.Image;
@@ -14,6 +15,9 @@ import javafx.scene.image.ImageView;
 public class Character {
 	
 	private ImageView characterImage;
+    private ImageView characterImage2;
+    private ImageView characterImage3;
+    private ImageView characterImage4;
 	private int curRow;
 	private int curCol;
 	private double posX;

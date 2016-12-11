@@ -7,6 +7,8 @@ import exceptions.*;
 import grid.GridGrowthDirection;
 import ui.scenes.editor.GameEditorAlerts;
 
+import java.util.List;
+
 /**
  * This is the controller for the game editor. It allows the backend and frontend to talk to each other while the editor
  * is being created.
@@ -79,9 +81,9 @@ public class EditorController implements IEditorController {
 
     /***** PLAYER METHODS *****/
 
-    public boolean addPlayer(String name, String playerName, int row, int col) {
+    public boolean addPlayer(List<String> names, String playerName, int row, int col) {
         try {
-            return myModel.addPlayer(name, playerName, row, col);
+            return myModel.addPlayer(names, playerName, row, col);
         }
         catch (BadPlayerPlacementException e) {
             myAlerts.exceptionDisplay(e.getMessage());
@@ -95,6 +97,10 @@ public class EditorController implements IEditorController {
 
     public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) {
         return myModel.addPlayerAttribute(name, amount, increment, decrement);
+    }
+
+    public void deletePlayer() {
+        myModel.deletePlayer();
     }
 
     public boolean movePlayer(int row, int col) {
