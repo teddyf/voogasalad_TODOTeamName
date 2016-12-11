@@ -25,7 +25,7 @@ public class PlayerSideMenu extends SideMenu {
 
     private ResourceBundle myResources;
     private EditorController myController;
-    private String selectedPlayerImagePath;
+    private String selectedPlayerImagePath = null;
 
     PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
         super(root, resources);
@@ -57,17 +57,24 @@ public class PlayerSideMenu extends SideMenu {
                         .id(myResources.getString("spriteCSSid")));
 //                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
 //                sprite.setOnMouseClicked(e -> selectedPlayerImagePath = imagePath);
-//
-//                sprite.setOnMouseClicked(e -> {
-//                    if (myViewer.getSelected() != null) {
-//                        myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect"));
-//                    }
-//                    myViewer.select(object);
-//                    object.getIcon().setStyle(myResources.getString("selectedEffect"));
-//                });
+
+                sprite.setOnMouseClicked(e -> {
+                    for (Node otherSprite : sprites.getChildren()) {
+                        otherSprite.setStyle(myResources.getString("deselectedEffect"));
+                        otherSprite.setOnMouseEntered(f -> otherSprite.setStyle(myResources.getString("selectedEffect")));
+                        otherSprite.setOnMouseExited(f -> otherSprite.setStyle(myResources.getString("deselectedEffect")));
+                    }
+                    if (selectedPlayerImagePath != imagePath) {
+                        sprite.setStyle(myResources.getString("selectedEffect"));
+                        sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
+                        selectedPlayerImagePath = imagePath;
+                    } else {
+                        selectedPlayerImagePath = null;
+                    }
+                });
 
 
-                sprite.setOnMouseClicked(e -> myController.addPlayer(names,"name", 0,0));
+//                sprite.setOnMouseClicked(e -> myController.addPlayer(names, "name", 0, 0));
                 sprites.getChildren().add(sprite);
             }
         }
