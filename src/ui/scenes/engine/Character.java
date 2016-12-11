@@ -3,90 +3,57 @@ package ui.scenes.engine;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.List;
+
 /**
  * This class handles the visualization of the Player
- * @author pim
+ * @author Pim Chuaylua, Harshil Garg
  *
  */
 
 public class Character {
 	
-	private ImageView characterImage;
-    private ImageView characterImage2;
-    private ImageView characterImage3;
-    private ImageView characterImage4;
-	private int curRow;
-	private int curCol;
-	private double posX;
-	private double posY;
-	private double size;
-	private String name;
+	private ImageView myImageView;
+
+	private List<String> myImagePaths;
 	
-	public Character(EngineView gameEngine) {
-		//this.addObserver(gameEngine);
+	public Character(List<String> imagePaths, String defaultPath) {
+		myImagePaths = imagePaths;
+		myImageView = new ImageView(defaultPath);
 	}
 
-	/*setting size of character image
-	 * */
+	public void setImage(String direction) {
+		for (String path : myImagePaths) {
+			if (path.contains(direction.toLowerCase())) {
+				myImageView.setImage(new Image(path));
+				break;
+			}
+		}
+	}
+
 	public void setCharacterImageSize(double size) {
-		this.size = size;
-		characterImage.setFitHeight(size);
-		characterImage.setFitWidth(size); 
+		myImageView.setFitHeight(size);
+		myImageView.setFitWidth(size);
 	}
-	
-	/*setting character image
-	 * */
-	public void setCharacterImage(String path) {
-		characterImage = new ImageView(new Image(path));
-	}
-	
-	public void changeCharacterImage(String path) {
-		this.setCharacterImage(path);
-		this.setCharacterImageSize(size);
-		this.getCharacterImageView().setLayoutX(posX);
-    	this.getCharacterImageView().setLayoutY(posY);
-    	this.setName(path);
-	}
-	
-	public ImageView getCharacterImageView() {
-		return characterImage;
-	}
-	
-	public void setColumn(int column) {
-		curCol = column;
-	}
-	
-	public void setRow(int row) {
-		curRow = row;
+
+	public ImageView getImageView() {
+		return myImageView;
 	}
 	
 	public void setPosX(double posX) {
-		getCharacterImageView().setLayoutX(posX);
-		this.posX=posX;
+		myImageView.setLayoutX(posX);
 	}
 	
 	public void setPosY(double posY) {
-		getCharacterImageView().setLayoutY(posY);
-		this.posY=posY;
+		myImageView.setLayoutY(posY);
+	}
+
+	public void setSize(double size) {
+		myImageView.setFitWidth(size);
+		myImageView.setFitHeight(size);
 	}
 
 	public double getSize() {
-		return size;
-	}
-	
-	public int getRowCharacter() {
-		return curRow;
-	}
-	
-	public int getColumnCharacter() {
-		return curCol;
-	}
-	
-	public void setName(String name) {
-		this.name=name;
-	}
-	
-	public String getName() {
-		return name;
+		return myImageView.getFitWidth();
 	}
 }

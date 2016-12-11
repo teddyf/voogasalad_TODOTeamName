@@ -65,11 +65,7 @@ public class EditorController implements IEditorController {
     }
 
     public boolean addMessage(String message, int row, int col) {
-        if(addMessage(message, row, col)) {
-            return true;
-        }
-//        myAlerts.exceptionDisplay();
-        return false;
+        return (myModel.addMessage(message, row, col));
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
