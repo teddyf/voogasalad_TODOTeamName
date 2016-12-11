@@ -150,7 +150,7 @@ public class EditorModel {
 
     /***** BLOCK METHODS *****/
 
-    public void addBlock(String name, BlockType blockType, int row, int col) {
+    public void addBlock(String name, BlockType blockType, int row, int col) throws BlockCreationException {
         Block block = blockFactory.createBlock(name, blockType, row, col);
         currentGrid.setBlock(row, col, block);
         System.out.println(currentGrid.getBlock(row, col));
