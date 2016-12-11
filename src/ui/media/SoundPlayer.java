@@ -37,7 +37,7 @@ public class SoundPlayer {
 	private void initPlayer() {
 		player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
 		setPlayinLoop(player);
-		player.play();
+		//player.play();
 	}
 	
 	public Group getGroup() {
