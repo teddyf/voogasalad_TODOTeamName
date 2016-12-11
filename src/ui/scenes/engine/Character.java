@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * This class handles the visualization of the Player
- * @author Pim Chuaylua, Harshil Garg
+ * @author Harshil Garg, Pim Chuaylua
  *
  */
 
@@ -22,6 +22,12 @@ public class Character {
 		myImageView = new ImageView(defaultPath);
 	}
 
+	/**
+	 * Given the direction sprite, the list of image paths will be traversed
+	 * to find the appopriate image, and then the ImageView will be set.
+	 *
+	 * @param direction UP, DOWN, LEFT, RIGHT for example
+	 */
 	public void setImage(String direction) {
 		for (String path : myImagePaths) {
 			if (path.contains(direction.toLowerCase())) {
@@ -31,15 +37,13 @@ public class Character {
 		}
 	}
 
-	public void setCharacterImageSize(double size) {
-		myImageView.setFitHeight(size);
-		myImageView.setFitWidth(size);
-	}
-
+	/**
+	 * @return ImageView associated with the Character
+	 */
 	public ImageView getImageView() {
 		return myImageView;
 	}
-	
+
 	public void setPosX(double posX) {
 		myImageView.setLayoutX(posX);
 	}
