@@ -66,8 +66,8 @@ public class CustomSideMenu extends SideMenu {
                 new ComponentProperties<BlockType>(230, 135)
                         .options(FXCollections.observableArrayList(BlockType.values())));
 
-        myBuilder.addCustomLabel(addItemPanel, "Number of blocks per row", 25, 205, null, Color.WHITE, 15);
-        myBuilder.addCustomLabel(addItemPanel, "Number of blocks per column", 25, 255, null, Color.WHITE, 15);
+        myBuilder.addCustomLabel(addItemPanel, "Number of rows", 25, 205, null, Color.WHITE, 15);
+        myBuilder.addCustomLabel(addItemPanel, "Number of columns", 25, 255, null, Color.WHITE, 15);
 
 
         TextField rowInput = (TextField) myBuilder.addNewTextField(addItemPanel, new ComponentProperties(250, 200).text("row").width(50));

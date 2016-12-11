@@ -113,6 +113,8 @@ public class DimensionPrompt {
                 .width(200));
         Dialog dimDialog = twoFieldDialog(maxDim, widthField, heightField);
         dimDialog.getDialogPane().setContent(createGrid(10, 10, widthField, heightField));
+
+
         if (dimDialog.showAndWait().get() == ButtonType.CANCEL) return null; // user clicked cancel
         int widthVal = Integer.parseInt(widthField.getText());
         int heightVal = Integer.parseInt(heightField.getText());
