@@ -295,6 +295,7 @@ public class GridPane implements Observer{
         }
 
         if (!deleted.isEmpty()) {
+            GridPaneNode def = new GridPaneNode(0, 0, defaultText());
             for (int i = 0; i < deleted.size(); i+=2) {            
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
                 node.swap(def, node.getImageNum());
