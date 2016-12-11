@@ -109,7 +109,7 @@ public class GameInstance extends Observable implements IGameInstance {
 			    Block block = blockInFacedDirection(row, col, direction);
 			    
 			    if (block instanceof EnemyBlock) {
-			    	enterBattle((EnemyBlock)block, BattleView.Difficulty.EASY);
+			    	enterBattle((EnemyBlock)block, BattleView.Difficulty.HARD);
 			    }
 			    else {
 			    	blockUpdates = block.talkInteract(myPlayer);

@@ -60,6 +60,7 @@ public class BattleView implements Observer {
 	private BattleButton reduceHP;
 	private HealthDisplay enemyHealth;
 	private HealthDisplay playerHealth;
+	private HPWarning lowWarning;
 
 	private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
 
@@ -70,6 +71,7 @@ public class BattleView implements Observer {
 		gameDifficulty = diff;
 		setBackground(backgroundFilePath);
 		addButtons(500, 200, "Reduce HP by 10");
+		lowWarning = new HPWarning();
 	}
 
 	private void setBackground(String filePath) {
@@ -109,6 +111,10 @@ public class BattleView implements Observer {
 		player.setHP((int) model.getPlayerHP());
 		enemy.setHP((int) model.getEnemyHP());
 
+		if (model.getPlayerHP() < 20) {
+			lowWarning.showAlert();
+		}
+		
 		if (model.checkPlayerLost()) {
 			lose();
 		}
