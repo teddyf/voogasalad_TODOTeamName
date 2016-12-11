@@ -51,7 +51,8 @@ public class GameInstance extends Observable implements IGameInstance {
 	}
 
     public void changeGrid(int index) {
-        myGrid = myGridManager.changeGrid(index);
+        myGridManager.changeGrid(index);
+        myGrid = myGridManager.getCurrentGrid();
     }
 
 	public void processInput(UserInstruction input) {
