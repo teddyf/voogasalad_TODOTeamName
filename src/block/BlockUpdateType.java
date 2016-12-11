@@ -8,5 +8,6 @@ package block;
 public enum BlockUpdateType {
     BATTLE,
     DISPLAY_MESSAGE,
-    RE_RENDER
+    RE_RENDER,
+    WIN_GAME
 }

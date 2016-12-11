@@ -3,6 +3,7 @@ package engine;
 import api.IGameInstance;
 import battle.controller.BattleController;
 import battle.model.BattleModel;
+import battle.model.Difficulty;
 import battle.view.BattleView;
 import block.*;
 import grid.Grid;
@@ -11,6 +12,8 @@ import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
+import xml.GridWorldAndPlayer;
+import xml.GridXMLHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,15 +31,18 @@ public class GameInstance extends Observable implements IGameInstance {
     private static final PlayerDirection EAST = PlayerDirection.EAST;
     private static final PlayerDirection WEST = PlayerDirection.WEST;
 
+    private GridXMLHandler xmlHandler;
     private GridWorld myGridWorld;
 	private Grid myGrid;
     private Player myPlayer;
+
 	private int myScore;
 	private GameStatus myStatus;
 	private List<BlockUpdate> blockUpdates;
 	private BattleController battleController;
 	
 	public GameInstance(Player player, GridWorld gridWorld) {
+        xmlHandler = new GridXMLHandler();
 	    myGridWorld = gridWorld;
 	    myGrid = myGridWorld.getCurrentGrid();
         myPlayer = player;
@@ -45,37 +51,16 @@ public class GameInstance extends Observable implements IGameInstance {
 		blockUpdates = new ArrayList<>();
 	}
 
-	public GridWorld getGridWorld() {
-	    return myGridWorld;
+    public void changeGrid(int index) {
+        myGrid = myGridWorld.changeGrid(index);
     }
 
-	public Grid getGrid() {
-		return myGrid;
-	}
-
-	public Player getPlayer() {
-        return myPlayer;
-    }
-
-	public int getScore() {
-		return myScore;
-	}
-
-	public GameStatus getGameStatus() {
-		return myStatus;
-	}
-
-	public List<BlockUpdate> getBlockUpdates() {
-	    return blockUpdates;
-    }
-	
 	public void processInput(UserInstruction input) {
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
 		PlayerUpdate playerUpdate = null;
 		PlayerDirection direction = myPlayer.getDirection();
-		System.out.println(direction);
-		
+
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
@@ -109,7 +94,8 @@ public class GameInstance extends Observable implements IGameInstance {
 			    Block block = blockInFacedDirection(row, col, direction);
 			    
 			    if (block instanceof EnemyBlock) {
-			    	enterBattle((EnemyBlock)block, BattleView.Difficulty.EASY);
+			    	//TODO: take in a difficulty parameter from block
+			    	enterBattle((EnemyBlock)block, Difficulty.HARD);
 			    }
 			    else {
 			    	blockUpdates = block.talkInteract(myPlayer);
@@ -123,15 +109,36 @@ public class GameInstance extends Observable implements IGameInstance {
         notifyObservers(playerUpdate);
 	}
 	
-	private void enterBattle(EnemyBlock enemy, BattleView.Difficulty diff) {
+	private void enterBattle(EnemyBlock enemy, Difficulty diff) {
         Stage primaryStage = new Stage();
-		//TODO take in a difficulty parameter from block
 		BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
 		BattleModel model = new BattleModel(myPlayer, enemy);
 		BattleController controller = new BattleController(view, model);
 		primaryStage.setScene(controller.getView().getScene());
 		primaryStage.show();
 	}
+
+    /**
+     * Determines if a block is within the bounds of the grid
+     * @param block - the block
+     * @return whether the block is in bounds
+     */
+    private boolean inBounds(Block block) {
+        if (block == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Determines if a block is walkable
+     * @param block - the block
+     * @return whether the block is walkable
+     */
+    private boolean isWalkable(Block block) {
+        return block.isWalkable();
+    }
 
     /**
      * Handles the case where the player moves
@@ -151,28 +158,6 @@ public class GameInstance extends Observable implements IGameInstance {
         return playerUpdate;
     }
 
-	/**
-	 * Determines if a block is within the bounds of the grid
-	 * @param block - the block
-	 * @return whether the block is in bounds
-	 */
-	private boolean inBounds(Block block) {
-		if (block == null) {
-		    return false;
-        } else {
-		    return true;
-        }
-	}
-
-    /**
-     * Determines if a block is walkable
-     * @param block - the block
-     * @return whether the block is walkable
-     */
-	private boolean isWalkable(Block block) {
-		return block.isWalkable();
-	}
-
     /**
      * Handles the case where the player changes direction
      * @param direction - the new direction the player will face
@@ -184,32 +169,60 @@ public class GameInstance extends Observable implements IGameInstance {
         return PlayerUpdate.DIRECTION;
     }
 
+    /**
+     * Gets the block that the player is facing
+     * @param row - the row of the player
+     * @param col - the column of the player
+     * @param direction - the direction of the player
+     * @return the block the player is facing
+     */
 	private Block blockInFacedDirection(int row, int col, PlayerDirection direction) {
-	    switch (direction) {
-            case NORTH:
-                return myGrid.getBlock(row - 1, col);
-            case SOUTH:
-                return myGrid.getBlock(row+1, col);
-            case EAST:
-                return myGrid.getBlock(row, col+1);
-            case WEST:
-                return myGrid.getBlock(row, col-1);
-            default:
-                // TODO: throw custom exception--player is not facing in any direction
-                return null;
+	    try {
+            switch (direction) {
+                case NORTH:
+                    return myGrid.getBlock(row - 1, col);
+                case SOUTH:
+                    return myGrid.getBlock(row + 1, col);
+                case EAST:
+                    return myGrid.getBlock(row, col + 1);
+                case WEST:
+                    return myGrid.getBlock(row, col - 1);
+                default:
+                    return null;
+            }
+        } catch (NullPointerException e) {
+	        return null;
         }
     }
 
     public List<BlockUpdate> getInteractions() {
-        return blockUpdates;
-    }
-
-    public void handleInteraction() {
+        List<BlockUpdate> tempList = new ArrayList<>();
+        tempList.addAll(blockUpdates);
         blockUpdates.clear();
+        return tempList;
     }
 
-    public void changeGrid(int index) {
-        //myGridWorld.setCurrentIndex(index);
-        myGrid = myGridWorld.getCurrentGrid();
+    /***** DATA METHODS *****/
+
+    public void saveEngine(String file) {
+        xmlHandler.saveContents(file, myGridWorld, myPlayer);
+    }
+
+    /***** GETTERS *****/
+
+    public Grid getGrid() {
+        return myGrid;
+    }
+
+    public Player getPlayer() {
+        return myPlayer;
+    }
+
+    public int getScore() {
+        return myScore;
+    }
+
+    public GameStatus getGameStatus() {
+        return myStatus;
     }
 }

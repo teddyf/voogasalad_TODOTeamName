@@ -12,8 +12,8 @@ import java.util.List;
  * @author Filip Mazurek, Aninda Manocha
  */
 
-public abstract class SwitchInteraction implements Interaction{
-    SwitchBlock mySwitchBlock;
+public class SwitchInteraction implements Interaction{
+    private SwitchBlock mySwitchBlock;
 
     public SwitchInteraction(SwitchBlock switchBlock) {
         mySwitchBlock = switchBlock;

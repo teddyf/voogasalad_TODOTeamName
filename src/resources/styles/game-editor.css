@@ -75,20 +75,6 @@
     -fx-background-color: #333333;
 }
 
-/*#panel-tabs .tab {*/
-/*-fx-background-color: rgb(0, 150, 200);*/
-/*}*/
-
-/*#panel-tabs .tab-header-area .tab-header-background {*/
-/*-fx-background-color: rgb(0, 150, 200);*/
-/*}*/
-
-/*#panel-tabs .tab:selected .tab-label {*/
-/*-fx-alignment: CENTER;*/
-/*-fx-font-weight: 900;*/
-/*-fx-font-size: 12px;*/
-/*}*/
-
 #side-tabs .tab .tab-label {
     /*-fx-alignment: CENTER;*/
     /*-fx-font-weight: 900;*/
@@ -134,4 +120,24 @@
     -fx-background-radius: 15px;
     -fx-padding: 8px;
     -fx-mark-color: #0585B2;
+}
+
+.scroll-bar .increment-button {
+    visibility: hidden;
+}
+
+.scroll-bar .decrement-button {
+    visibility: hidden;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #595959;
+}
+
+.scroll-bar .track-background {
+    -fx-background-color: #333333;
+}
+
+.scroll-bar .track {
+    visibility: hidden;
 }

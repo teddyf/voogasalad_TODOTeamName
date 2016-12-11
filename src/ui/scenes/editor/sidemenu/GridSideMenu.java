@@ -43,6 +43,13 @@ public class GridSideMenu extends SideMenu {
         }
     }
 
+    private ScrollPane createMusicPane() {
+        Pane musicPanel = new Pane();
+        myBuilder.addCustomLabel(musicPanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
+        myBuilder.addComponent(musicPanel,new SoundChooser().getGroup());
+        return new ScrollPane(musicPanel);
+    }
+
     private ScrollPane createLinkPane() {
         Pane linkPanel = new Pane();
         Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
@@ -72,7 +79,7 @@ public class GridSideMenu extends SideMenu {
                         .options(FXCollections.observableArrayList(GridGrowthDirection.values())));
 
         myBuilder.addCustomLabel(resizePanel, "Number of rows or columns to add or remove:", 20, 200, null, Color.WHITE, 15);
-        TextField sizeInput = (TextField) myBuilder.addNewTextField(resizePanel, new ComponentProperties(20, 230).text("block size"));
+        TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel,"block size",20,230,200);
 
         Button button = (Button) myBuilder.addNewButton(resizePanel, new ComponentProperties(20, 300).text("Resize"));
 
@@ -83,7 +90,9 @@ public class GridSideMenu extends SideMenu {
 
         button.setOnMouseClicked(e -> {
             try {
-                myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()));
+                if (myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()))) {
+
+                }
             } catch (ArrayIndexOutOfBoundsException exc) {
                 myBuilder.addNewAlert("Error","Error");
             }
@@ -98,7 +107,8 @@ public class GridSideMenu extends SideMenu {
     public void addTabs() {
         Tab resizeTab = createTab("Resize", createGridResizePane());
         Tab linkTab = createTab("Link", createLinkPane());
-        myPanel.getTabs().addAll(resizeTab,linkTab);
+        Tab musicTab = createTab("Music",createMusicPane());
+        myPanel.getTabs().addAll(resizeTab,linkTab,musicTab);
     }
     
     public void changeStatus(){
@@ -110,4 +120,3 @@ public class GridSideMenu extends SideMenu {
     }
 
 }
-

@@ -1,23 +1,16 @@
 package ui.scenes.engine;
 
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.StackedBarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-import ui.media.SoundControl;
+import ui.media.SoundChooser;
+import ui.media.SoundPlayer;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -36,9 +29,9 @@ public class EngineSidePanel implements Observer {
     private VBox vbox;
     private PropertiesUtilities util;
     private Character player;
-    private GameEngine gameEngine;
+    private EngineView gameEngine;
 
-    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,GameEngine gameEngine) {
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
@@ -47,7 +40,6 @@ public class EngineSidePanel implements Observer {
         this.gameEngine = gameEngine;
         Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/Pixeled.ttf").toExternalForm(), 10);
         initSidePanel();
-        initPlayerChanger(player);
         initStats();
     }
 
@@ -73,13 +65,9 @@ public class EngineSidePanel implements Observer {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
-        SoundControl soundControl = new SoundControl();
-        soundControl.addNodeToControl(new SnapShot(gameEngine).getGroup());
-        vbox.getChildren().add(soundControl.getGroup());
-    }
-    
-    public void initPlayerChanger(Character player) {
-    	vbox.getChildren().add(new CharacterChanger(player,myBuilder,myRoot).getGroup());
+        SoundPlayer soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
+        soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
+        vbox.getChildren().add(soundPlayer.getGroup());
     }
     
     public void initStats() {

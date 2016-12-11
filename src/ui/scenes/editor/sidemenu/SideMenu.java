@@ -48,7 +48,7 @@ public abstract class SideMenu extends Observable{
         itemPane.setHgap(padding);
         itemPane.setVgap(padding);
         itemPane.setPadding(new Insets(padding));
-        itemPane.setPrefWrapLength(myUtil.getIntProperty("sidePanelWidth") - 50);
+        itemPane.setPrefWrapLength(myUtil.getIntProperty("sidePanelWidth") - 60);
         return itemPane;
     }
 
@@ -84,7 +84,7 @@ public abstract class SideMenu extends Observable{
     /**
      * Creates a new tab
      *
-     * @param text       the title text for the tab
+     * @param text    the title text for the tab
      * @param content the tab's content
      * @return the tab with its content
      */

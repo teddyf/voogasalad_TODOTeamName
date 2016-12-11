@@ -24,7 +24,6 @@ public class EditorController implements IEditorController {
         myModel = new EditorModel();
     }
 
-    // not backend's fault
     public void setAlerts(GameEditorAlerts alerts) {
         myAlerts = alerts;
     }
@@ -96,7 +95,12 @@ public class EditorController implements IEditorController {
     }
 
     public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) {
-        return myModel.addPlayerAttribute(name, amount, increment, decrement);
+        try {
+            return myModel.addPlayerAttribute(name, amount, increment, decrement);
+        } catch (DuplicateAttributeException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+            return false;
+        }
     }
 
     public void deletePlayer() {
@@ -104,7 +108,12 @@ public class EditorController implements IEditorController {
     }
 
     public boolean movePlayer(int row, int col) {
-        return myModel.movePlayer(row, col);
+        try {
+            return myModel.movePlayer(row, col);
+        } catch (BadPlayerPlacementException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+            return false;
+        }
     }
 
     public int getPlayerRow() {

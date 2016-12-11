@@ -1,9 +1,6 @@
 package editor;
 
-import block.Block;
-import block.BlockFactory;
-import block.BlockType;
-import block.CommunicatorBlock;
+import block.*;
 import engine.EngineController;
 import exceptions.*;
 import grid.Grid;
@@ -17,6 +14,7 @@ import xml.GridXMLHandler;
 import java.util.List;
 
 /**
+ * This is the model for the editor. It handles all editor information and data management.
  * @author Aninda Manocha, Filip Mazurek
  */
 
@@ -32,6 +30,8 @@ public class EditorModel {
         xmlHandler = new GridXMLHandler();
         gridWorld = new GridWorld();
     }
+
+    /***** GRID METHODS *****/
 
     public void addGrid(int numRows, int numCols) {
         currentGrid = gridWorld.addGrid(numRows, numCols);
@@ -78,6 +78,12 @@ public class EditorModel {
         return shrinkGrid(direction, amount);
     }
 
+    /**
+     * Decreases the size of the current grid in a specified direction and by a specified amount
+     * @param direction - the direction in which the size changes
+     * @param amount - the amount by which the grid size in the specified direction should shrink
+     * @return whether or not the grid shrunk
+     */
     public boolean shrinkGrid(GridGrowthDirection direction, int amount) {
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
@@ -105,12 +111,18 @@ public class EditorModel {
         return true;
     }
 
+    /**
+     * Increases the size of the current grid in a specified direction and by a specified amount
+     * @param direction - the direction in which the size changes
+     * @param amount - the amount by which the grid size in the specified direction should grow
+     * @return whether or not the grid grew
+     * @throws LargeGridException
+     */
     public boolean growGrid(GridGrowthDirection direction, int amount) throws LargeGridException{
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
         rowOffset = colOffset = rowStart = colStart = 0;
-
         switch (direction) {
             case TOP:
                 rowOffset = -amount;
@@ -129,7 +141,6 @@ public class EditorModel {
                 numCols += amount;
                 break;
         }
-
         if (numRows > 100 || numCols > 100) {
             throw new LargeGridException();
         }
@@ -167,9 +178,7 @@ public class EditorModel {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
-    public String getBlock(int row, int col) {
-        return currentGrid.getBlock(row, col).getName();
-    }
+    /***** PLAYER METHODS *****/
 
     public boolean addPlayer(List<String> names, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
         if(!(currentGrid.getBlock(row, col).isWalkable())) {
@@ -184,20 +193,26 @@ public class EditorModel {
         }
     }
 
-    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) {
+    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) throws DuplicateAttributeException {
         PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
-        player.addAttribute(playerAttribute);
-        return false;
+        if (!player.addAttribute(playerAttribute)) {
+            throw new DuplicateAttributeException();
+        }
+        return true;
     }
 
     public void deletePlayer() {
         player = null;
     }
 
-    public boolean movePlayer(int row, int col) {
-        player.setRow(row);
-        player.setCol(col);
-        return false;
+    public boolean movePlayer(int row, int col) throws BadPlayerPlacementException {
+        Block block = currentGrid.getBlock(row, col);
+        if (block instanceof DecorationBlock) {
+            player.setRow(row);
+            player.setCol(col);
+            return true;
+        }
+        throw new BadPlayerPlacementException(row, col);
     }
 
     /***** DATA METHODS *****/
@@ -225,6 +240,10 @@ public class EditorModel {
     }
 
     /***** GETTERS *****/
+
+    public String getBlock(int row, int col) {
+        return currentGrid.getBlock(row, col).getName();
+    }
 
     public Player getPlayer() {
         return player;

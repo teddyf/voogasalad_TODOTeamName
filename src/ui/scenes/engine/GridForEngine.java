@@ -127,7 +127,6 @@ public class GridForEngine {
 
     public void resize () {
         grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
-        System.out.println(blockList.size());
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode temp = blockList.get(i);
             temp.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
@@ -203,7 +202,6 @@ public class GridForEngine {
             clicked.get(i).getImage().setEffect(null);
             copy = clicked;
         }
-        //System.out.println(gridMap);
         clicked = new ArrayList<GridPaneNode>();
 //        gridMap.visObjectMap();
         return copy;
@@ -262,7 +260,6 @@ public class GridForEngine {
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
-        System.out.println(deleted.size()/2);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i+=2) {
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
@@ -270,7 +267,6 @@ public class GridForEngine {
             }
         }
         clicked = new ArrayList<GridPaneNode>();
-        //System.out.println(gridMap);
 //        gridMap.visObjectMap();
     }
 
@@ -313,7 +309,6 @@ public class GridForEngine {
         for(int i = 0; i < gridWidth; i++){
             for(int j = 0; j < gridHeight; j++){
                 if((i<WRAP/2 || j<WRAP/2) || (i>=(gridWidth-WRAP/2) || j>=(gridHeight-WRAP/2))){
-                    System.out.println("(" + i + "," + j + ")");
                     GridPaneNode temp = new GridPaneNode(j,i,wall);
                     blockList.add(temp);
                 }
@@ -371,5 +366,10 @@ public class GridForEngine {
         return -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
     }
 
-
+    public boolean reRender(int row, int col, String newPath) {
+        GridPaneNode newImage = new GridPaneNode(row, col, newPath);
+        grid[row][col] = newImage;
+        blockList.set(row*col+row, newImage);
+        return true;
+    }
 }
