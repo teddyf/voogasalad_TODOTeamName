@@ -56,6 +56,7 @@ public class EditorController implements IEditorController {
     /***** BLOCK METHODS *****/
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
+        System.out.println("Editor controller for block row = " + row + "col = " + col);
         myModel.addBlock(name, blockType, row, col);
     }
 
@@ -82,6 +83,7 @@ public class EditorController implements IEditorController {
     /***** PLAYER METHODS *****/
 
     public boolean addPlayer(List<String> names, String playerName, int row, int col) {
+        System.out.println("Editor controller row = " + row + "col = " + col);
         try {
             return myModel.addPlayer(names, playerName, row, col);
         }

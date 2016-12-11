@@ -248,11 +248,13 @@ public class GridPane implements Observer{
     public void buildPlayer(EditorController control, String name, List<String> imagePaths){
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
+        System.out.println(col);
+        System.out.println(row);
         System.out.println(getXRender(col));
         System.out.println(getYRender(row));
-        control.addPlayer(imagePaths, name, row, col);
+        control.addPlayer(imagePaths, name, clicked.get(0).getBackendRow(), clicked.get(0).getBackendCol());
         GridPaneNode temp = grid[col][row];
-        temp.swap(new GridPaneNode(row,col,imagePaths.get(0)), 0);
+        //temp.swap(new GridPaneNode(row,col,imagePaths.get(0)), 0);
         ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
         list.add(temp);
         gridMap.storeObject(list);
@@ -458,6 +460,5 @@ public class GridPane implements Observer{
             System.out.println("fuck off Robert");
         }
     }
-
 
 }
