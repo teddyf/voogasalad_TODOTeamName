@@ -1,7 +1,6 @@
 package block;
 
-import block.SwitchBlock;
-import block.BlockType;
+import interactions.SwitchInteraction;
 
 /**
  * A switch that is activated by being stepped on by the player character.
@@ -13,5 +12,6 @@ public class SwitchFloorBlock extends SwitchBlock {
     public SwitchFloorBlock(String name, int row, int col) {
         super(name, row, col);
         setWalkableStatus(true);
+        addStepInteraction(new SwitchInteraction(this));
     }
 }

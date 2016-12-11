@@ -116,9 +116,7 @@ public class SizeChooser2 extends Scene {
 	}
 	
 	private void launchEditor(String row, String column, int maxDim) {
-		System.out.println("wtf1");
 		if (validateDimensions(row, column, maxDim)) {
-			System.out.println("wtf");
 			myEditor.launchEditor(Integer.parseInt(row), Integer.parseInt(column));
 		}
 	}

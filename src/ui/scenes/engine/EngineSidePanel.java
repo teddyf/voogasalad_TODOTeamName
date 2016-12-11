@@ -1,19 +1,11 @@
 package ui.scenes.engine;
 
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.StackedBarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
@@ -37,9 +29,9 @@ public class EngineSidePanel implements Observer {
     private VBox vbox;
     private PropertiesUtilities util;
     private Character player;
-    private GameEngine gameEngine;
+    private EngineView gameEngine;
 
-    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,GameEngine gameEngine) {
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;

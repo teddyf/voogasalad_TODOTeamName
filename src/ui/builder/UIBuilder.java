@@ -257,7 +257,7 @@ public class UIBuilder<E> {
     public Node addDialogBubble(Parent layout, ComponentProperties properties) {
     	Node dialogNode = dialogBuilder.createComponent(properties);
     	dialogNode.setFocusTraversable(true);
-    	dialogNode.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
+    	layout.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
 			public void handle(final KeyEvent keyEvent) {
                 if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
                 	removeComponent(layout, dialogNode);
@@ -280,8 +280,6 @@ public class UIBuilder<E> {
      */
     public void initWindow(Stage currStage, String propertiesFilePath) {
         ResourceBundle resources = ResourceBundle.getBundle(propertiesFilePath);
-        System.out.println(Integer.parseInt(resources.getString("windowHeight")));
-        System.out.println(Integer.parseInt(resources.getString("windowWidth")));
         currStage.setHeight(Integer.parseInt(resources.getString("windowHeight")));
         currStage.setWidth(Integer.parseInt(resources.getString("windowWidth")));
         currStage.centerOnScreen();

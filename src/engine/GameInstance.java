@@ -56,7 +56,10 @@ public class GameInstance extends Observable implements IGameInstance {
 		int col = myPlayer.getCol();
 		PlayerUpdate playerUpdate = null;
 		PlayerDirection direction = myPlayer.getDirection();
+<<<<<<< HEAD
 		
+=======
+>>>>>>> master
 		switch (input) {
 			case UP:
 			    if(direction == NORTH) {
@@ -191,6 +194,16 @@ public class GameInstance extends Observable implements IGameInstance {
         }
     }
 
+<<<<<<< HEAD
+=======
+    public List<BlockUpdate> getInteractions() {
+        List<BlockUpdate> tempList = new ArrayList<>();
+        tempList.addAll(blockUpdates);
+        blockUpdates.clear();
+        return tempList;
+    }
+
+>>>>>>> master
     public void handleInteraction() {
         blockUpdates.clear();
     }

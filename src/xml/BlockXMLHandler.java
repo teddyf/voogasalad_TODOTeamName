@@ -35,7 +35,6 @@ public class BlockXMLHandler {
 			return xstream.toXML(block) + "\n";	
 		}
 		catch (Exception ex) {
-			System.out.println("XML");
 			ex.printStackTrace();
 			return null;
 		}
@@ -46,7 +45,6 @@ public class BlockXMLHandler {
 			return (Block)xstream.fromXML(xmlContent);
 		}
 		catch (Exception ex) {
-			System.out.println("XML");
 			ex.printStackTrace();
 			return null;
 		}
