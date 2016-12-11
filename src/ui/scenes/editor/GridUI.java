@@ -11,6 +11,7 @@ import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.sidemenu.EditorControls;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
+import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import java.util.*;
 /**
  * @author Teddy Franceschi, Robert Steilberg, Harshil Garg
@@ -28,13 +29,17 @@ public class GridUI extends Observable{
     private GridPane myGridPane;
     private ScrollAnimation scrollAnimation;
     private GridScrollButton gsb;
+    private PlayerSideMenu playerMenu;
+    private EditorControls sideControls;
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
     public GridUI(Parent root, EditorController controller, EditorControls sideMenu, int width, int height) {
         myRoot = root;
         myItemMenu = sideMenu.getMyItemMenu();
+        playerMenu = sideMenu.getPlayerMenu();
         myController = controller;
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         myUtil = new PropertiesUtilities(myResources);
+        sideControls = sideMenu;
         myBuilder = new UIBuilder();
         hoverOpacity = new ColorAdjust();
         initGrid(width, height);
@@ -104,5 +109,6 @@ public class GridUI extends Observable{
     
     private void setupObservable(){
         myItemMenu.addObserver(myGridPane);
+        
     }
 }

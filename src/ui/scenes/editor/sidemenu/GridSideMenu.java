@@ -24,7 +24,8 @@ import java.util.ResourceBundle;
 public class GridSideMenu extends SideMenu {
 
     private EditorController myEditorController;
-
+    private boolean clickedStatus;
+    
     GridSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
         super(root, resources);
         myEditorController = editorController;
@@ -46,7 +47,8 @@ public class GridSideMenu extends SideMenu {
         Pane linkPanel = new Pane();
         Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
         button.setOnMouseClicked(e -> {
-
+            changeStatus();
+            notifyObservers(clickedStatus);
         });
         return new ScrollPane(linkPanel);
     }
@@ -96,6 +98,14 @@ public class GridSideMenu extends SideMenu {
         Tab resizeTab = createTab("Resize", createGridResizePane());
         Tab linkTab = createTab("Link", createLinkPane());
         myPanel.getTabs().addAll(resizeTab,linkTab);
+    }
+    
+    public void changeStatus(){
+        if(clickedStatus == true){
+            clickedStatus = false;
+        }
+        else
+            clickedStatus = true;
     }
 
 }

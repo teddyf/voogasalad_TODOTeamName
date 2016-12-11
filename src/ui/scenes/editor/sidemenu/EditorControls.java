@@ -113,4 +113,8 @@ public class EditorControls {
         return (ItemSideMenu) myItemMenu;
     }
     
+    public PlayerSideMenu getPlayerMenu() {
+        return (PlayerSideMenu) myItemMenu;
+    }
+    
 }

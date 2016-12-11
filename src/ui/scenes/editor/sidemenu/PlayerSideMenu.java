@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
  *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
+    
+    private boolean clickedStatus;
     private ResourceBundle myResources;
     private EditorController myController;
     private String selectedPlayerImagePath = null;
@@ -52,6 +54,8 @@ public class PlayerSideMenu extends SideMenu {
 //                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
 //                sprite.setOnMouseClicked(e -> selectedPlayerImagePath = imagePath);
                 sprite.setOnMouseClicked(e -> {
+                    changeStatus();
+                    notifyObservers(clickedStatus);
                     for (Node otherSprite : sprites.getChildren()) {
                         otherSprite.setStyle(myResources.getString("deselectedEffect"));
                         otherSprite.setOnMouseEntered(f -> otherSprite.setStyle(myResources.getString("selectedEffect")));
@@ -85,4 +89,19 @@ public class PlayerSideMenu extends SideMenu {
         // TODO add more panes here, possibly refactor
         myPanel.getTabs().addAll(tabs);
     }
+    
+    
+    
+    public void changeStatus(){
+        if(clickedStatus == true){
+            clickedStatus = false;
+        }
+        else
+            clickedStatus = true;
+    }
+    
+    public List<String> getImagePath(){
+        return selectedPlayerImagePaths;
+    }
+    
 }

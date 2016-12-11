@@ -107,4 +107,5 @@ public class ItemSideMenu extends SideMenu {
     public GameObject getSelected() {
         return myViewer.getSelected();
     }
+    
 }
