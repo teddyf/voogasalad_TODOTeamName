@@ -23,9 +23,10 @@ import java.util.ResourceBundle;
  */
 public class ItemSideMenu extends SideMenu {
 
+    private boolean clickedStatus;
     private ItemViewer myViewer;
     private final BlockType[] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
-            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT, BlockType.ENEMY};
+            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT};
 
     ItemSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);
@@ -60,7 +61,7 @@ public class ItemSideMenu extends SideMenu {
      * @param type is the type of object being added
      * @return the ScrollPane populated with its objects
      */
-    private ScrollPane createScrollPane(BlockType type) {
+    ScrollPane createScrollPane(BlockType type) {
         FlowPane itemPane = createFlowPane();
         List<GameObject> list = myViewer.getObjects(type);
         for (GameObject object : list) {
@@ -72,17 +73,19 @@ public class ItemSideMenu extends SideMenu {
                     .id("game-object"));
             object.setIcon(icon);
             icon.setOnMouseClicked(e -> {
-                if (myViewer.getSelected() != null) {
-                    // set current to unselected
-                    ImageView oldIcon = myViewer.getSelected().getIcon();
-                    resetHoverEffect(oldIcon);
-                }
-                if (myViewer.getSelected() == object) {
-                    // deselect object
-                    resetHoverEffect(object.getIcon());
-                    myViewer.select(null);
+                        if (myViewer.getSelected() != null) {
+                            // set current to unselected
+                            ImageView oldIcon = myViewer.getSelected().getIcon();
+                            resetHoverEffect(oldIcon);
+                        }
+                        if (myViewer.getSelected() == object) {
+                            // deselect object
+                            resetHoverEffect(object.getIcon());
+                            myViewer.select(null);
                 } else {
                     // set new selected to selected
+                    setChanged();
+                    notifyObservers(true);
                     object.getIcon().setStyle(myResources.getString("selectedEffect"));
                     object.getIcon().setOnMouseEntered(f -> object.getIcon().setStyle(myResources.getString("selectedEffect")));
                     object.getIcon().setOnMouseExited(f -> object.getIcon().setStyle(myResources.getString("selectedEffect")));
@@ -99,4 +102,5 @@ public class ItemSideMenu extends SideMenu {
     public GameObject getSelected() {
         return myViewer.getSelected();
     }
+    
 }

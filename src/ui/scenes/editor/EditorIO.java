@@ -70,7 +70,6 @@ class EditorIO {
      * @return true if export successful, false otherwise
      */
     boolean saveGameFile() {
-        System.out.println("saving game");
         File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
         if (gameFile != null) {
             myEditorController.saveEngine(gameFile.getAbsolutePath());
@@ -87,8 +86,10 @@ class EditorIO {
         Stage gameStage = new Stage();
         EngineView gameView = new EngineView(gameStage, new Group());
         EngineController engineController = myEditorController.runEngine();
-        gameView.setController(engineController);
-        gameView.runInstance();
-        gameStage.setScene(gameView);
+        if (engineController != null) {
+            gameView.setController(engineController);
+            gameView.runInstance();
+            gameStage.setScene(gameView);
+        }
     }
 }

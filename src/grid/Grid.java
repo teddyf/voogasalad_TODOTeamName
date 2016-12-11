@@ -2,16 +2,15 @@ package grid;
 
 import api.IGrid;
 import block.*;
-
 import java.util.Observable;
 import java.util.ResourceBundle;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
- * The rectangular grid in which all the block ui.scenes.editor.objects may be placed.
+ * The rectangular grid in which all the block ui.scenes.editor.objects may be placed. This back end class serves to
+ * be the main hub of action by holding all the blocks in the grid.
  *
  * @author Filip Mazurek, Aninda Manocha, Daniel Chai
  */
@@ -43,6 +42,18 @@ public class Grid extends Observable implements IGrid {
         }
     }
 
+    /**
+     * Change the size of the grid based on what the user chooses in the editor.
+     *
+     * @param numRows
+     * @param numCols
+     * @param rowStart
+     * @param rowEnd
+     * @param rowOffset
+     * @param colStart
+     * @param colEnd
+     * @param colOffset
+     */
     public void resize(int numRows, int numCols, int rowStart, int rowEnd, int rowOffset, int colStart, int colEnd, int colOffset) {
         Block[][] newGrid = new Block[numRows][numCols];
         for (int row = 0; row < numRows; row++) {

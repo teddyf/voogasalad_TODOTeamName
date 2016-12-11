@@ -1,11 +1,11 @@
 package block;
 
 /**
- * Container class which lets observer know what to do to a changing block
+ * Container class which lets observer know what to do to a changing block. Used by the InteractionHandler class to
+ * do the correct action based on the type of update to complete and to which block it should be applied.
  *
  * @author Filip Mazurek
  */
-
 public class BlockUpdate {
     private BlockUpdateType myUpdateType;
     private int myRow;

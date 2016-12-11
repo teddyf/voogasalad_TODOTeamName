@@ -7,7 +7,7 @@ import ui.builder.UIBuilder;
 
 /**
  * This class handles interactions on the front end.
- * @author Aninda Manocha, Filip Mazurek, Bill Xiong
+ * @author Aninda Manocha, Filip Mazurek
  */
 
 public class InteractionHandler {
@@ -33,6 +33,10 @@ public class InteractionHandler {
 
     }
 
+    public void winGame() {
+        // TODO: win the game and display win message
+    }
+
     public void reRenderBlock(int row, int col, String imagePath) {
         myGridForEngine.reRender(row, col, imagePath);
     }
@@ -42,11 +46,13 @@ public class InteractionHandler {
             case BATTLE:
                 break;
             case DISPLAY_MESSAGE:
-                System.out.println("MESSAGE");
                 displayMessage(blockUpdate.getContent());
                 break;
             case RE_RENDER:
                 reRenderBlock(blockUpdate.getRow(), blockUpdate.getColumn(), blockUpdate.getContent());
+                break;
+            case WIN_GAME:
+                winGame();
                 break;
             default:
                 break;

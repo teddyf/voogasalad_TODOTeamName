@@ -10,7 +10,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -20,7 +20,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -30,7 +30,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -40,7 +40,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -50,7 +50,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
@@ -60,7 +60,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -70,7 +70,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
@@ -80,7 +80,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
@@ -90,7 +90,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -100,7 +100,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
@@ -110,7 +110,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>10</myCol>
           <isWalkable>true</isWalkable>
@@ -120,7 +120,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>11</myCol>
           <isWalkable>true</isWalkable>
@@ -130,7 +130,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>12</myCol>
           <isWalkable>true</isWalkable>
@@ -140,7 +140,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>0</myRow>
           <myCol>13</myCol>
           <isWalkable>true</isWalkable>
@@ -641,16 +641,21 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
+        <block.SwitchFloorBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-1.png</myName>
           <myRow>2</myRow>
           <myCol>13</myCol>
           <isWalkable>true</isWalkable>
-          <myStepInteractions/>
+          <myStepInteractions>
+            <interactions.SwitchInteraction>
+              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+            </interactions.SwitchInteraction>
+          </myStepInteractions>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+          <myGates/>
+        </block.SwitchFloorBlock>
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
@@ -6359,8 +6364,8 @@
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
     <myDirection>NORTH</myDirection>
-    <myRow>5</myRow>
-    <myCol>5</myCol>
+    <myRow>11</myRow>
+    <myCol>16</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>

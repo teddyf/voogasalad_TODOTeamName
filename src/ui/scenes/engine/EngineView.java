@@ -122,8 +122,6 @@ public class EngineView extends Scene {
         int gridY = Integer.parseInt(myResources.getString("gridY"));
         
     	player = new Character(this);
-    	System.out.println(player.getRowCharacter());
-    	System.out.println(player.getColumnCharacter());
     	player.setCharacterImage(myResources.getString("startPlayer1ImagePath"));
         player.setCharacterImageSize(grid.getBlockSize());
 
@@ -174,8 +172,8 @@ public class EngineView extends Scene {
     }
     
     public void loadGrid(){
-        int colMax = myController.getGameInstance().getGrid().getNumCols();
-        int rowMax = myController.getGameInstance().getGrid().getNumRows();
+        int colMax = myController.getNumCols();
+        int rowMax = myController.getNumRows();
         grid.loadReset(rowMax, colMax);
         myBuilder.removeComponent(myRoot, grid.getGroup());
         for(int i = 0; i < rowMax; i++){
@@ -185,7 +183,6 @@ public class EngineView extends Scene {
         }
         grid.populateBorder();
         grid.setRenderMap();
-        System.out.println(grid.getNodeList());
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
 	

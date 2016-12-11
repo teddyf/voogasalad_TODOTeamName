@@ -87,6 +87,8 @@ public class VoogaAnimation implements Observer {
 	
 	public void handleKeyPress(KeyEvent e) {
 		UserInstruction instruction = convertKeyCode(e.getCode());
+		if (instruction == null)
+			return;
 		if (!stack.contains(instruction))
 			stack.push(instruction);
 		if (!stack.isEmpty() && finished) {
@@ -96,6 +98,8 @@ public class VoogaAnimation implements Observer {
 
 	public void handleKeyRelease(KeyEvent e) {
 		UserInstruction instruction = convertKeyCode(e.getCode());
+		if (instruction == null)
+			return;
 		if (stack.contains(instruction))
 			stack.remove(instruction);
 	}
@@ -168,9 +172,7 @@ public class VoogaAnimation implements Observer {
 	}
 
 	private void handleInteractions() {
-        System.out.println("interactions");
 	    for (BlockUpdate blockUpdate : ec.getInteractions()) {
-            System.out.println("hi");
 	        interactionHandler.handleUpdate(blockUpdate);
         }
     }

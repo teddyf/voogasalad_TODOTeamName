@@ -10,8 +10,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
+import java.util.ResourceBundle;
+import ui.builder.ComponentProperties;
+import ui.builder.UIBuilder;
 import ui.media.SoundChooser;
-
 import java.util.ResourceBundle;
 
 /**
@@ -22,7 +24,8 @@ import java.util.ResourceBundle;
 public class GridSideMenu extends SideMenu {
 
     private EditorController myEditorController;
-
+    private boolean clickedStatus;
+    
     GridSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
         super(root, resources);
         myEditorController = editorController;
@@ -49,9 +52,13 @@ public class GridSideMenu extends SideMenu {
 
     private ScrollPane createLinkPane() {
         Pane linkPanel = new Pane();
-        Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
-        button.setOnMouseClicked(e -> {
+        myBuilder.addCustomLabel(linkPanel, "Create a portal between two teleport\nblocks by clicking the link button and\nthen clicking the two blocks.", 20, 20, null, Color.WHITE, 20);
 
+        Node button = myBuilder.addCustomButton(linkPanel, "fuck",20,100,100,100);
+        button.setOnMouseClicked(e -> {
+            setChanged();
+            changeStatus();
+            notifyObservers(clickedStatus);
         });
         return new ScrollPane(linkPanel);
     }
@@ -74,7 +81,7 @@ public class GridSideMenu extends SideMenu {
                         .options(FXCollections.observableArrayList(GridGrowthDirection.values())));
 
         myBuilder.addCustomLabel(resizePanel, "Number of rows or columns to add or remove:", 20, 200, null, Color.WHITE, 15);
-        TextField sizeInput = (TextField) myBuilder.addNewTextField(resizePanel, new ComponentProperties(20, 230).text("block size"));
+        TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel,"block size",20,230,200);
 
         Button button = (Button) myBuilder.addNewButton(resizePanel, new ComponentProperties(20, 300).text("Resize"));
 
@@ -85,7 +92,9 @@ public class GridSideMenu extends SideMenu {
 
         button.setOnMouseClicked(e -> {
             try {
-                myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()));
+                if (myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()))) {
+
+                }
             } catch (ArrayIndexOutOfBoundsException exc) {
                 myBuilder.addNewAlert("Error","Error");
             }
@@ -103,6 +112,9 @@ public class GridSideMenu extends SideMenu {
         Tab musicTab = createTab("Music",createMusicPane());
         myPanel.getTabs().addAll(resizeTab,linkTab,musicTab);
     }
+    
+    private void changeStatus(){
+        clickedStatus = !clickedStatus;
+    }
 
 }
-

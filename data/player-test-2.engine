@@ -1068,7 +1068,7 @@
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/harshilgarg/Documents/schoolwork/cs/cs308/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>4</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>

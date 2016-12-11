@@ -6312,55 +6312,15 @@
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
     <myNames>
-      <string>resources/images/sprites/1-down.png</string>
-      <string>resources/images/sprites/1-left.png</string>
-      <string>resources/images/sprites/1-right.png</string>
-      <string>resources/images/sprites/1-up.png</string>
-      <string>resources/images/sprites/10-down.png</string>
-      <string>resources/images/sprites/10-left.png</string>
-      <string>resources/images/sprites/10-right.png</string>
-      <string>resources/images/sprites/10-up.png</string>
-      <string>resources/images/sprites/11-down.png</string>
-      <string>resources/images/sprites/11-left.png</string>
-      <string>resources/images/sprites/11-right.png</string>
-      <string>resources/images/sprites/11-up.png</string>
-      <string>resources/images/sprites/12-down.png</string>
-      <string>resources/images/sprites/12-left.png</string>
-      <string>resources/images/sprites/12-right.png</string>
-      <string>resources/images/sprites/12-up.png</string>
-      <string>resources/images/sprites/13-down.png</string>
-      <string>resources/images/sprites/13-left.png</string>
-      <string>resources/images/sprites/13-right.png</string>
-      <string>resources/images/sprites/13-up.png</string>
-      <string>resources/images/sprites/14-down.png</string>
-      <string>resources/images/sprites/14-left.png</string>
-      <string>resources/images/sprites/14-right.png</string>
-      <string>resources/images/sprites/14-up.png</string>
-      <string>resources/images/sprites/15-down.png</string>
-      <string>resources/images/sprites/15-left.png</string>
-      <string>resources/images/sprites/15-right.png</string>
-      <string>resources/images/sprites/15-up.png</string>
-      <string>resources/images/sprites/16-down.png</string>
-      <string>resources/images/sprites/16-left.png</string>
-      <string>resources/images/sprites/16-right.png</string>
-      <string>resources/images/sprites/16-up.png</string>
-      <string>resources/images/sprites/17-down.png</string>
-      <string>resources/images/sprites/17-left.png</string>
-      <string>resources/images/sprites/17-right.png</string>
-      <string>resources/images/sprites/17-up.png</string>
-      <string>resources/images/sprites/18-down.png</string>
-      <string>resources/images/sprites/18-left.png</string>
-      <string>resources/images/sprites/18-right.png</string>
-      <string>resources/images/sprites/18-up.png</string>
-      <string>resources/images/sprites/19-down.png</string>
-      <string>resources/images/sprites/19-left.png</string>
-      <string>resources/images/sprites/19-right.png</string>
-      <string>resources/images/sprites/19-up.png</string>
+      <string>resources/images/sprites/2-down.png</string>
+      <string>resources/images/sprites/2-left.png</string>
+      <string>resources/images/sprites/2-right.png</string>
+      <string>resources/images/sprites/2-up.png</string>
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
     <myDirection>NORTH</myDirection>
-    <myRow>5</myRow>
-    <myCol>5</myCol>
+    <myRow>13</myRow>
+    <myCol>10</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>
