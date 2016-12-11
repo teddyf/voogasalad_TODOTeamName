@@ -90,13 +90,13 @@ public class MainMenu extends Scene {
         String text = myResources.getString("titleText");
         String font = myResources.getString("font");
         int size = myUtil.getIntProperty("titleSize");
-        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
+        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, null, size);
         // create subtitle
         xPos = myUtil.getIntProperty("subtitleXPos");
         yPos = myUtil.getIntProperty("subtitleYPos");
         text = myResources.getString("subtitleText");
         size = myUtil.getIntProperty("subtitleSize");
-        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, size);
+        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, null, size);
     }
 
     /**
