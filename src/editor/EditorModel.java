@@ -235,7 +235,10 @@ public class EditorModel {
         xmlHandler.saveContents(file, gridWorld, player);
     }
 
-    public EngineController runEngine() {
+    public EngineController runEngine() throws NoPlayerException {
+        if (player == null) {
+            throw new NoPlayerException();
+        }
         return (new EngineController(player, gridWorld));
     }
 
