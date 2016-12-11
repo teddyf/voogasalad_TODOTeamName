@@ -15,8 +15,6 @@ public class Dialog extends Group {
 		setId("effme");
 		Image rawImage = new Image(imagePath + "EmptyDialog.png");
 		ImageView dialogImage = new ImageView(rawImage);
-//		dialogImage.setLayoutX(properties.x);
-//		dialogImage.setLayoutY(properties.y);
 		dialogImage.setFitHeight(properties.height);
 		dialogImage.setFitWidth(properties.width);
 		Label textArea = new Label(properties.text);

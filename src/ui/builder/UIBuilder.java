@@ -1,6 +1,6 @@
 package ui.builder;
 
-import javafx.animation.FadeTransition;
+
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -26,7 +26,7 @@ public class UIBuilder {
     private ComponentBuilder imageViewBuilder;
     private ComponentBuilder labelBuilder;
     private ComponentBuilder textFieldBuilder;
-    private DialogBuilder dialogBuilder;
+    private ComponentBuilder dialogBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -82,22 +82,15 @@ public class UIBuilder {
      * @return the removed node
      */
     public Node removeComponent(Parent layout, Node component) {
-    	System.out.println("Layout size before: " + layout.getChildrenUnmodifiable().size());
         if (layout instanceof Pane) {
-        	System.out.println("Removing from Pane");
             Pane pane = (Pane) layout;
             pane.getChildren().remove(component);
         } else if (layout instanceof Group) {
             Group pane = (Group) layout;
-//            Group g = (Group) component;
-//            g.getChildren().clear();
             pane.getChildren().remove(component);
-        	System.out.println("Removing from Group");
         } else {
             return null;
         }
-        System.out.println("Layout size after: " + layout.getChildrenUnmodifiable().size());
-        component.setVisible(false);
         return component;
     }
 
@@ -241,23 +234,19 @@ public class UIBuilder {
      * @param properties
      * @return
      */
-    public Node addDialogBubble(Parent layout, Stage stage, ComponentProperties properties, int X, int Y) {
+    public Node addDialogBubble(Parent layout, Stage stage, ComponentProperties properties) {
     	Node dialogNode = dialogBuilder.createComponent(properties);
     	stage.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
 			public void handle(final KeyEvent keyEvent) {
                 if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
-//                    removeComponent(layout, dialogNode);
                 	removeComponent(layout, dialogNode);
-//                	FadeTransition ft = dialogBuilder.fadeNode(dialogNode);
-//                	ft.play();
-//                    keyEvent.consume();
                 }
 			}
 	
 		});
     	addComponent(layout, dialogNode);
-    	dialogNode.setLayoutX(X);
-    	dialogNode.setLayoutY(Y);
+    	dialogNode.setLayoutX(50);
+    	dialogNode.setLayoutY(550);
     	return dialogNode;
     }
     /**

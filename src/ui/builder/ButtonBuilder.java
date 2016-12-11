@@ -8,13 +8,11 @@ import javafx.scene.control.Button;
  *         <p>
  *         This class builds JavaFX buttons.
  */
-public class ButtonBuilder extends ComponentBuilder {
+public class ButtonBuilder implements ComponentBuilder {
 
     public ButtonBuilder() {
-        super();
     }
 
-    @Override
     public Node createComponent(ComponentProperties properties) {
         Button button = new Button();
         button.setId(properties.id);

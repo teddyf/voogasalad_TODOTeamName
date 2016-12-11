@@ -2,10 +2,16 @@ package ui.scenes.engine;
 
 import engine.EngineController;
 import ui.FileBrowser;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import ui.UILauncher;
+import ui.builder.ComponentProperties;
+import ui.builder.Dialog;
 import ui.builder.UIBuilder;
 
 import java.io.File;

@@ -3,8 +3,8 @@ package ui.builder;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 
-public class TextFieldBuilder extends ComponentBuilder {
-    @Override
+public class TextFieldBuilder implements ComponentBuilder {
+
     public Node createComponent(ComponentProperties properties) {
         TextField textField = new TextField();
         textField.setId(properties.id);

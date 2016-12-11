@@ -74,6 +74,7 @@ public class VoogaAnimation implements Observer {
 		keyBindings.put(KeyCode.DOWN, UserInstruction.DOWN);
 		keyBindings.put(KeyCode.LEFT, UserInstruction.LEFT);
 		keyBindings.put(KeyCode.RIGHT, UserInstruction.RIGHT);
+		keyBindings.put(KeyCode.ENTER, UserInstruction.TALK);
 	}
 
 	private UserInstruction convertKeyCode(KeyCode code) {
@@ -204,6 +205,8 @@ public class VoogaAnimation implements Observer {
 			case RIGHT:
 				locationX -= pixelMovement;
 				break;
+			case TALK:
+				break;
 		}
 		gridLayout.setLayoutX(locationX);
 		gridLayout.setLayoutY(locationY);
@@ -249,6 +252,8 @@ public class VoogaAnimation implements Observer {
 			case LEFT:
 				//changePlayerImage(playerNumber + "WestFacing.png");
 				changePlayerImage(myResources.getString("player1ImageLeft"));
+				break;
+			case TALK:
 				break;
 		}
 		stepCount = stepCount + 10;

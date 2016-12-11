@@ -120,27 +120,6 @@ public class MainMenu extends Scene {
         setBackground();
         setText();
         setButtons();
-        ComponentProperties prop = new ComponentProperties(500, 500);
-        prop.text("PLZWORK");
-        prop.height(50);
-        prop.width(200);
-        Group g = (Group) myRoot;
-        Dialog d = new Dialog(prop);
-        d.setFocusTraversable(true);
-        d.setOnMouseClicked(e -> g.getChildren().remove(d));
-        g.getChildren().add(d);
-        myStage.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
-        	@Override
-        	public void handle(final KeyEvent keyEvent) {
-        		if (keyEvent.getCode() == KeyCode.ENTER && myRoot.getChildrenUnmodifiable().contains(d)) {
-        			g.getChildren().remove(d);
-        			d.setVisible(false);
-        			d.getChildren().clear();
-//        			d.setVisible(false);
-        			System.out.println("LALALALA");
-        		}
-        	}
-        });
     }
         
     public String getPath(){
