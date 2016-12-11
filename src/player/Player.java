@@ -14,7 +14,7 @@ import interactions.Interaction;
 
 /**
  * This is the class that holds all of the information corresponding to the
- * player
+ * player on the backend
  * 
  * @author Aninda Manocha
  */
@@ -150,6 +150,10 @@ public class Player implements IPlayer {
 	
 	public double getHealth() {
 		return health;
+	}
+
+	public List<String> getMyNames() {
+		return myNames;
 	}
 
 	/***** GETTERS *****/

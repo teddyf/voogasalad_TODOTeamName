@@ -9,12 +9,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ui.builder.ComponentProperties;
-import ui.builder.UIBuilder;
+
 import java.util.ResourceBundle;
-import ui.builder.ComponentProperties;
-import ui.builder.UIBuilder;
+
+import ui.builder.DialogBuilder;
 import ui.media.SoundChooser;
-import java.util.ResourceBundle;
 
 /**
  * @author Robert Steilberg
@@ -25,7 +24,7 @@ public class GridSideMenu extends SideMenu {
 
     private EditorController myEditorController;
     private boolean clickedStatus;
-    
+
     GridSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
         super(root, resources);
         myEditorController = editorController;
@@ -46,7 +45,7 @@ public class GridSideMenu extends SideMenu {
     private ScrollPane createMusicPane() {
         Pane musicPanel = new Pane();
         myBuilder.addCustomLabel(musicPanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
-        myBuilder.addComponent(musicPanel,new SoundChooser().getGroup());
+        myBuilder.addComponent(musicPanel, new SoundChooser().getGroup());
         return new ScrollPane(musicPanel);
     }
 
@@ -54,8 +53,14 @@ public class GridSideMenu extends SideMenu {
         Pane linkPanel = new Pane();
         myBuilder.addCustomLabel(linkPanel, "Create a portal between two teleport\nblocks by clicking the link button and\nthen clicking the two blocks.", 20, 20, null, Color.WHITE, 20);
 
-        Node button = myBuilder.addCustomButton(linkPanel, "fuck",20,100,100,100);
+        Node button = myBuilder.addCustomButton(linkPanel, "fuck", 20, 100, 100, 100);
         button.setOnMouseClicked(e -> {
+
+            DialogBuilder db = new DialogBuilder(new ComponentProperties()
+                    .header("TOP KEK"));
+            String response = db.getText();
+            Object res = db.getResponse();
+
             setChanged();
             changeStatus();
             notifyObservers(clickedStatus);
@@ -81,7 +86,7 @@ public class GridSideMenu extends SideMenu {
                         .options(FXCollections.observableArrayList(GridGrowthDirection.values())));
 
         myBuilder.addCustomLabel(resizePanel, "Number of rows or columns to add or remove:", 20, 200, null, Color.WHITE, 15);
-        TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel,"block size",20,230,200);
+        TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel, "block size", 20, 230, 200);
 
         Button button = (Button) myBuilder.addNewButton(resizePanel, new ComponentProperties(20, 300).text("Resize"));
 
@@ -96,7 +101,7 @@ public class GridSideMenu extends SideMenu {
 
                 }
             } catch (ArrayIndexOutOfBoundsException exc) {
-                myBuilder.addNewAlert("Error","Error");
+                myBuilder.addNewAlert("Error", "Error");
             }
         });
 
@@ -109,11 +114,11 @@ public class GridSideMenu extends SideMenu {
     public void addTabs() {
         Tab resizeTab = createTab("Resize", createGridResizePane());
         Tab linkTab = createTab("Link", createLinkPane());
-        Tab musicTab = createTab("Music",createMusicPane());
-        myPanel.getTabs().addAll(resizeTab,linkTab,musicTab);
+        Tab musicTab = createTab("Music", createMusicPane());
+        myPanel.getTabs().addAll(resizeTab, linkTab, musicTab);
     }
-    
-    private void changeStatus(){
+
+    private void changeStatus() {
         clickedStatus = !clickedStatus;
     }
 

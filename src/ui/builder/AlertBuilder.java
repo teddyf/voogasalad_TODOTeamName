@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
  */
 public class AlertBuilder implements ComponentBuilder {
 
-    public AlertBuilder() {
+    AlertBuilder() {
     }
 
     public Node createComponent(ComponentProperties properties) {
