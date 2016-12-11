@@ -15,22 +15,37 @@ public class GateBlock extends Block {
         super(name, row, col);
         setWalkableStatus(CLOSED);
         isOpen = CLOSED;
-        // TODO: Should I place walkable status here? Or do with a separate method call? Maybe a way to clean this up
+    }
+
+    public void openGate() {
+        isOpen = OPEN;
+        setWalkableStatus(true);
+    }
+
+    public void closeGate() {
+        isOpen = CLOSED;
+        setWalkableStatus(false);
     }
 
     /* Changes whether the gate is open or closed. Difference in how it looks and whether the player can walk through it
      */
     public BlockUpdate toggleOpenStatus() {
-        String image = "";
+        String ext = "";
         if(this.isWalkable()) {
             setWalkableStatus(CLOSED);
             isOpen = CLOSED;
+            ext = "CLOSED";
         }
         else {
             setWalkableStatus(OPEN);
             isOpen = OPEN;
+            ext = "OPEN";
         }
+
         // notify front end to render the gate differently
+        // TODO: refactor this ugly stuff following
+        int extLoc = this.getName().lastIndexOf('_');
+        String image = this.getName().substring(0, extLoc + 1) + ext;
         return new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol(), image);
     }
 }

@@ -13,10 +13,12 @@ import ui.builder.UIBuilder;
 public class InteractionHandler {
     private Parent myRoot;
     private UIBuilder myUIBuilder;
+    private GridForEngine myGridForEngine;
 
-    public InteractionHandler(Parent root, UIBuilder uiBuilder) {
+    public InteractionHandler(Parent root, UIBuilder uiBuilder, GridForEngine grid) {
         myRoot = root;
         myUIBuilder = uiBuilder;
+        myGridForEngine = grid;
     }
 
     public void displayMessage(String message) {
@@ -31,8 +33,8 @@ public class InteractionHandler {
 
     }
 
-    public void renderBlock() {
-
+    public void reRenderBlock(int row, int col, String imagePath) {
+        myGridForEngine.reRender(row, col, imagePath);
     }
 
     public void handleUpdate(BlockUpdate blockUpdate) {
@@ -44,6 +46,7 @@ public class InteractionHandler {
                 displayMessage(blockUpdate.getContent());
                 break;
             case RE_RENDER:
+                reRenderBlock(blockUpdate.getRow(), blockUpdate.getColumn(), blockUpdate.getContent());
                 break;
             default:
                 break;
