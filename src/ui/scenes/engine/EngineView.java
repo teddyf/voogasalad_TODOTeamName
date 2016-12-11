@@ -172,8 +172,8 @@ public class EngineView extends Scene {
     }
     
     public void loadGrid(){
-        int colMax = myController.getGameInstance().getGrid().getNumCols();
-        int rowMax = myController.getGameInstance().getGrid().getNumRows();
+        int colMax = myController.getNumCols();
+        int rowMax = myController.getNumRows();
         grid.loadReset(rowMax, colMax);
         myBuilder.removeComponent(myRoot, grid.getGroup());
         for(int i = 0; i < rowMax; i++){
