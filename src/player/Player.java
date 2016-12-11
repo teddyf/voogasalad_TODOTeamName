@@ -14,7 +14,7 @@ import interactions.Interaction;
 
 /**
  * This is the class that holds all of the information corresponding to the
- * player
+ * player on the backend
  * 
  * @author Aninda Manocha
  */

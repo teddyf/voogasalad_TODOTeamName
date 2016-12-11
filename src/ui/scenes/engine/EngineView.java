@@ -50,6 +50,7 @@ public class EngineView extends Scene {
         myRoot.getStylesheets().add(CSS_FILE_NAME);
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
+            myController = null;
             e.consume();
             myLauncher.launchMenu();
         });
