@@ -3,6 +3,9 @@ package exceptions;
 import java.util.ResourceBundle;
 
 /**
+ * Exception thrown when the user attempts to modify the grid to be bigger than the allowed size, as specified in the
+ * properties file.
+ *
  * @author Filip Mazurek
  */
 public class LargeGridException extends Exception implements Alert {

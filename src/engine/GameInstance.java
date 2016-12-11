@@ -205,10 +205,6 @@ public class GameInstance extends Observable implements IGameInstance {
         return tempList;
     }
 
-    public void handleInteraction() {
-        blockUpdates.clear();
-    }
-
     public void changeGrid(int index) {
         //myGridWorld.setCurrentIndex(index);
         myGrid = myGridWorld.getCurrentGrid();

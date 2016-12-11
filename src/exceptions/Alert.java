@@ -4,6 +4,7 @@ import java.util.ResourceBundle;
 
 /**
  * Interface which serves to hold error message strings
+ *
  * @author Filip Mazurek
  */
 public interface Alert {
@@ -16,6 +17,7 @@ public interface Alert {
 
     // Exceptions
     String BAD_PLAYER_PLACEMENT = MY_RESOURCES.getString("BAD_PLAYER_PLACEMENT");
+    String BLOCK_CREATION = MY_RESOURCES.getString("BLOCK_CREATION");
     String DUPLICATE_PLAYER = MY_RESOURCES.getString("DUPLICATE_PLAYER");
     String LARGE_GRID = MY_RESOURCES.getString("LARGE_GRID");
     String NEGATIVE_GRID = MY_RESOURCES.getString("NEGATIVE_GRID");

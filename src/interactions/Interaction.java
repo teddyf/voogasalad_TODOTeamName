@@ -14,5 +14,12 @@ import java.util.List;
  */
 
 public interface Interaction {
+
+    /**
+     * Apply the interaction in the back end.
+     *
+     * @param player: give the current player object in case it needs to be modified.
+     * @return the list of changes which the front end needs to apply.
+     */
     List<BlockUpdate> act(Player player);
 }
