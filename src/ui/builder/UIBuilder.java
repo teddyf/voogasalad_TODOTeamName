@@ -211,11 +211,10 @@ public class UIBuilder<E> {
      * @param height is the height of the text field
      * @return the properly formatted text field
      */
-    public Node addCustomTextField(Parent layout, String text, int x, int y, int width, int height) {
+    public Node addCustomTextField(Parent layout, String text, int x, int y, int width) {
         return addComponent(layout, textFieldBuilder.createComponent(new ComponentProperties(x, y)
                 .width(width)
-                .text(text)
-                .height(height)));
+                .text(text)));
     }
 
     public Node addNewAlert(String header, String content) {

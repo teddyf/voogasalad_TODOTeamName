@@ -73,7 +73,7 @@ public class GridSideMenu extends SideMenu {
                         .options(FXCollections.observableArrayList(GridGrowthDirection.values())));
 
         myBuilder.addCustomLabel(resizePanel, "Number of rows or columns to add or remove:", 20, 200, null, Color.WHITE, 15);
-        TextField sizeInput = (TextField) myBuilder.addNewTextField(resizePanel, new ComponentProperties(20, 230).text("block size"));
+        TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel,"block size",20,230,200);
 
         Button button = (Button) myBuilder.addNewButton(resizePanel, new ComponentProperties(20, 300).text("Resize"));
 
