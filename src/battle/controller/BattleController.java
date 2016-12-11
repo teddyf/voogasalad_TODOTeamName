@@ -14,6 +14,7 @@ public class BattleController {
 		myView = view;
 		myModel = model;
 		myView.setModel(myModel);
+		myView.displayNumPokemon();
 		myModel.addObserver(myView);
 	}
 	

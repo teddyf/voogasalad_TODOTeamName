@@ -29,9 +29,9 @@ public class SoundPlayer {
 		hbox = new HBox(10);
 		group.getChildren().add(hbox);
 		
-        initPlayer();
-		initPlayButton();
-		initPauseButton();
+        //initPlayer();
+		//initPlayButton();
+		//initPauseButton();
 	}
 	
 	private void initPlayer() {
