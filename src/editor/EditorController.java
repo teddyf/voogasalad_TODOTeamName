@@ -56,8 +56,12 @@ public class EditorController implements IEditorController {
     /***** BLOCK METHODS *****/
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
-        System.out.println("Editor controller for block row = " + row + "col = " + col);
-        myModel.addBlock(name, blockType, row, col);
+        try {
+            myModel.addBlock(name, blockType, row, col);
+        }
+        catch (BlockCreationException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+        }
     }
 
     public boolean addMessage(String message, int row, int col) {
@@ -146,6 +150,11 @@ public class EditorController implements IEditorController {
     }
 
     public EngineController runEngine() {
-        return myModel.runEngine();
+        try {
+            return myModel.runEngine();
+        } catch (NoPlayerException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+            return null;
+        }
     }
 }

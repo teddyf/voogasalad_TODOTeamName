@@ -1,19 +1,31 @@
 package block;
 
+import exceptions.BlockCreationException;
 import java.lang.reflect.Constructor;
 import java.util.ResourceBundle;
 
+
 /**
  * This class generates block ui.scenes.editor.objects
+ *
  * @author Aninda Manocha, Filip Mazurek
  */
-
 public class BlockFactory {
 
     public static final String DEFAULT_BLOCK = "DEFAULT";
     private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
 
-    public Block createBlock(String name, BlockType blockType, int row, int col) {
+    /**
+     * Use reflection to create the block requested by the front end class. Uses the block-paths.properties file to
+     * decide which block to make based on which blockType is selected.
+     *
+     * @param name: the string file path which the front end uses to render the block
+     * @param blockType: the class of block which to create.
+     * @param row: row property to give the block
+     * @param col: column property to give the block
+     * @return the created block
+     */
+    public Block createBlock(String name, BlockType blockType, int row, int col) throws BlockCreationException {
         try {
             Class<?> blockClass = Class.forName(myBlockPaths.getString(blockType.toString()));
             Constructor<?> constructor = blockClass.getDeclaredConstructor(String.class, int.class, int.class);
@@ -21,9 +33,7 @@ public class BlockFactory {
             return (Block) block;
         }
         catch (Exception e) {
-            // TODO: can't create a new block
+            throw new BlockCreationException();
         }
-        // TODO:  add to resource file
-        return new DecorationBlock("resources/images/tiles/ground/grass-1.png", row, col); // TODO: better default? Currently just place a default square
     }
 }
