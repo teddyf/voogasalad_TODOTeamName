@@ -118,7 +118,7 @@ public class GridForEngine {
                 group.getChildren().add(node.getImage());
                 grid[node.getCol()][node.getRow()] = node;
             }*/
-            
+
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
