@@ -1,12 +1,14 @@
 package block;
 
 /**
- * Allows observer to know what to do with the block as something happens to it
+ * The type of update which will be applied by the BlockUpdate class. Enum to decide on which specific updates are
+ * allowed.
  *
  * @author Filip Mazurek, Aninda Manocha
  */
 public enum BlockUpdateType {
     BATTLE,
     DISPLAY_MESSAGE,
-    RE_RENDER
+    RE_RENDER,
+    WIN_GAME
 }

@@ -1,5 +1,6 @@
 package ui.scenes.editor.sidemenu;
 
+import block.BlockType;
 import editor.EditorController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,7 +15,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 /**
  * @author Robert Steilberg
  *         <p>
@@ -22,16 +22,23 @@ import java.util.ResourceBundle;
  *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
-
     private ResourceBundle myResources;
     private EditorController myController;
-    private String selectedPlayerImagePath;
+    private String selectedPlayerImagePath = "";
+    private List<String> mySelectedPaths;
+    private ItemSideMenu myItemMenu;
 
-    PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
+    PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller, ItemSideMenu itemMenu) {
         super(root, resources);
         myResources = resources;
         myController = controller;
+        mySelectedPaths = new ArrayList<>();
+        myItemMenu = itemMenu;
         init();
+    }
+
+    private ScrollPane addEnemies() {
+        return myItemMenu.createScrollPane(BlockType.ENEMY);
     }
 
     /**
@@ -39,53 +46,84 @@ public class PlayerSideMenu extends SideMenu {
      *
      * @return the FlowPane containing the sprites
      */
-    private FlowPane addSprites() {
+    private ScrollPane addSprites() {
         UIBuilder builder = new UIBuilder();
         PropertiesUtilities util = new PropertiesUtilities(myResources);
         FlowPane sprites = createFlowPane();
+
         File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
-        List<String> names = new ArrayList<>();
-        for (String image : images) {
-            if (image.contains("down")) {
-                String imagePath = myResources.getString("spritePath") + image;
-                names.add(imagePath);
-                Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
-                        .path(imagePath)
-                        .width(util.getIntProperty("spriteWidth"))
-                        .preserveRatio(true)
-                        .id(myResources.getString("spriteCSSid")));
-//                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
-//                sprite.setOnMouseClicked(e -> selectedPlayerImagePath = imagePath);
-//
-//                sprite.setOnMouseClicked(e -> {
-//                    if (myViewer.getSelected() != null) {
-//                        myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect"));
-//                    }
-//                    myViewer.select(object);
-//                    object.getIcon().setStyle(myResources.getString("selectedEffect"));
-//                });
+        if (images != null) {
+            for (String image : images) {
+
+                StringBuilder s = new StringBuilder();
+                for (char c : image.toCharArray()) {
+                    if (c == '-') break;
+                    s.append(c);
+                }
+                int id = Integer.parseInt(s.toString());
 
 
-                sprite.setOnMouseClicked(e -> myController.addPlayer(names,"name", 0,0));
-                sprites.getChildren().add(sprite);
+                if (image.contains("down")) {
+                    String imagePath = myResources.getString("spritePath") + image;
+                    Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
+                            .path(imagePath)
+                            .width(util.getIntProperty("spriteWidth"))
+                            .preserveRatio(true)
+                            .id(myResources.getString("spriteCSSid")));
+                    sprite.setOnMouseClicked(e -> {
+                        
+                        for (Node otherSprite : sprites.getChildren()) {
+                            resetHoverEffect(otherSprite);
+                        }
+                        if (selectedPlayerImagePath.equals(imagePath)) {
+                            // deselect
+                            selectedPlayerImagePath = "";
+                        } else {
+                            sprite.setStyle(myResources.getString("selectedEffect"));
+                            sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
+                            mySelectedPaths.clear();
+
+                            for (String i : images) {
+                                StringBuilder sb = new StringBuilder();
+                                for (char c : i.toCharArray()) {
+                                    if (c == '-') break;
+                                    sb.append(c);
+                                }
+                                if (id == Integer.parseInt(sb.toString())) {
+                                    mySelectedPaths.add(myResources.getString("spritePath") + i);
+                                }
+
+                            }
+
+
+                        }
+                        setChanged();
+                        notifyObservers(mySelectedPaths);
+                    });
+                    sprites.getChildren().add(sprite);
+                }
             }
         }
-        return sprites;
+        return new ScrollPane(sprites);
     }
-
     /**
      * Adds the tabs to the player side menu
      */
     protected void addTabs() {
-        List<Tab> tabs = new ArrayList<>();
         // sprite tab
-        Tab spriteTab = createTab(myResources.getString("spriteTab"), new ScrollPane(createFlowPane()));
-        FlowPane sprites = addSprites();
-        ScrollPane spritePane = new ScrollPane(sprites);
-        spriteTab.setContent(spritePane);
-        tabs.add(spriteTab);
-        // TODO add more panes here, possibly refactor
-        myPanel.getTabs().addAll(tabs);
+        Tab spriteTab = createTab(myResources.getString("spriteTab"), addSprites());
+//        FlowPane sprites = addSprites();
+//        ScrollPane spritePane = new ScrollPane(sprites);
+//        spriteTab.setContent(spritePane);
+        Tab enemyTab = createTab(myResources.getString("enemyTab"), addEnemies());
+
+        myPanel.getTabs().addAll(spriteTab, enemyTab);
     }
+    
+    public List<String> getImagePaths(){
+        System.out.println("robertsuxdick" + mySelectedPaths);
+        return mySelectedPaths;
+    }
+    
 }

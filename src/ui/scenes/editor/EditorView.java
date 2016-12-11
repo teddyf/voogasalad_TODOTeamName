@@ -52,7 +52,7 @@ public class EditorView extends Scene implements GameEditorAlerts {
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         EditorControls sideControls = new EditorControls(myRoot, myResources, myController);
-        GridUI grid = new GridUI(myRoot, myController, sideControls.getMyItemMenu(), width, height);
+        GridUI grid = new GridUI(myRoot, myController, sideControls, width, height);
 
 
 
@@ -62,9 +62,10 @@ public class EditorView extends Scene implements GameEditorAlerts {
 
         MenuBarUI menuBar = new MenuBarUI(myStage, myRoot, events, myResources);
         menuBar.initMenuBar();
-//        initPlayerButton();
 
-        //        EngineController loadedEngine = editorController.runEngine(); // running test
+//                EngineController loadedEngine = myController.runEngine();
+
+
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             e.consume();
@@ -95,25 +96,6 @@ public class EditorView extends Scene implements GameEditorAlerts {
     }
 
 
-//    private void initPlayerButton() {
-//        ColorAdjust hoverOpacity = new ColorAdjust();
-//        hoverOpacity.setBrightness(-.3);
-//        int playerX = Integer.parseInt(myResources.getString("playerX"));
-//        int playerY = Integer.parseInt(myResources.getString("playerY"));
-//        int playerWidth = Integer.parseInt(myResources.getString("playerWidth"));
-//        String playerText = myResources.getString("playerLabel");
-//        Node playerButton = myBuilder.addCustomButton(myRoot, playerText, playerX, playerY, playerWidth);
-//        playerButton.setOnMouseClicked(e -> {
-//            myLauncher.launchCharacterMenu();
-//        });
-//        playerButton.setOnMouseEntered(e -> {
-//            playerButton.setEffect(hoverOpacity);
-//        });
-//        playerButton.setOnMouseExited(e -> {
-//            playerButton.setEffect(null);
-//        });
-//    }
-
     public String getPath() {
         return EDITOR_RESOURCES;
     }
@@ -123,7 +105,6 @@ public class EditorView extends Scene implements GameEditorAlerts {
     }
 
     public void exceptionDisplay(String content) {
-        System.out.println("CONTENT = " + content);
         myBuilder.addNewAlert(myAlertResources.getString("EXCEPTION").toUpperCase(), content);
     }
 }

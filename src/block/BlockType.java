@@ -9,12 +9,15 @@ package block;
 public enum BlockType {
     COMMUNICATOR,
     DECORATION,
-    GROUND,
     ENEMY,
     GATE,
+    GROUND,
     OBSTACLE,
     SWITCH_FLOOR,
     SWITCH_TOUCH,
     TELEPORT,
+    WIN_STEP,
+    WIN_TALK,
+
     ITEM_KEY
 }

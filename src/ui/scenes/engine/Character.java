@@ -1,8 +1,5 @@
 package ui.scenes.engine;
 
-import java.util.List;
-import java.util.Observable;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -25,7 +22,7 @@ public class Character {
 	private double size;
 	private String name;
 	
-	public Character(GameEngine gameEngine) {
+	public Character(EngineView gameEngine) {
 		//this.addObserver(gameEngine);
 	}
 
@@ -40,7 +37,6 @@ public class Character {
 	/*setting character image
 	 * */
 	public void setCharacterImage(String path) {
-		System.out.println(path);
 		characterImage = new ImageView(new Image(path));
 	}
 	

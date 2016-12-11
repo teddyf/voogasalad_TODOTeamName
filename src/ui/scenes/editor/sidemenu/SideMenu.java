@@ -2,6 +2,7 @@ package ui.scenes.editor.sidemenu;
 
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -9,7 +10,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -17,7 +18,7 @@ import java.util.ResourceBundle;
  *         <p>
  *         This class defines the basic functionality for a SideMenu in the Editor.
  */
-public abstract class SideMenu {
+public abstract class SideMenu extends Observable {
 
     protected Parent myRoot;
     protected ResourceBundle myResources;
@@ -47,8 +48,14 @@ public abstract class SideMenu {
         itemPane.setHgap(padding);
         itemPane.setVgap(padding);
         itemPane.setPadding(new Insets(padding));
-        itemPane.setPrefWrapLength(myUtil.getIntProperty("sidePanelWidth") - 50);
+        itemPane.setPrefWrapLength(myUtil.getIntProperty("sidePanelWidth") - 60);
         return itemPane;
+    }
+
+    void resetHoverEffect(Node obj) {
+        obj.setStyle(myResources.getString("deselectedEffect"));
+        obj.setOnMouseEntered(f -> obj.setStyle(myResources.getString("selectedEffect")));
+        obj.setOnMouseExited(f -> obj.setStyle(myResources.getString("deselectedEffect")));
     }
 
     /**
@@ -77,7 +84,7 @@ public abstract class SideMenu {
     /**
      * Creates a new tab
      *
-     * @param text       the title text for the tab
+     * @param text    the title text for the tab
      * @param content the tab's content
      * @return the tab with its content
      */

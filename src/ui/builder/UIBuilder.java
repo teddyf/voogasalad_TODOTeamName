@@ -122,10 +122,11 @@ public class UIBuilder<E> {
      * @param width  Width of the button
      * @return
      */
-    public Node addCustomButton(Parent layout, String text, int x, int y, int width) {
+    public Node addCustomButton(Parent layout, String text, int x, int y, int width, int height) {
         return addNewButton(layout, new ComponentProperties(x, y).path(text)
                 .preserveRatio(true)
-                .width(width));
+                .width(width)
+                .height(height));
     }
 
     /**
@@ -211,11 +212,10 @@ public class UIBuilder<E> {
      * @param height is the height of the text field
      * @return the properly formatted text field
      */
-    public Node addCustomTextField(Parent layout, String text, int x, int y, int width, int height) {
+    public Node addCustomTextField(Parent layout, String text, int x, int y, int width) {
         return addComponent(layout, textFieldBuilder.createComponent(new ComponentProperties(x, y)
                 .width(width)
-                .text(text)
-                .height(height)));
+                .text(text)));
     }
 
     public Node addNewAlert(String header, String content) {
@@ -249,27 +249,28 @@ public class UIBuilder<E> {
     /**
      * Add dialog box to layout, must set params in properties for layout X & Y coordinates,
      * text string to be displayed, and height and width of bubble
-     * 
+     *
      * @param layout
      * @param properties
      * @return
      */
     public Node addDialogBubble(Parent layout, ComponentProperties properties) {
-    	Node dialogNode = dialogBuilder.createComponent(properties);
-    	dialogNode.setFocusTraversable(true);
-    	dialogNode.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
-			public void handle(final KeyEvent keyEvent) {
+        Node dialogNode = dialogBuilder.createComponent(properties);
+        dialogNode.setFocusTraversable(true);
+        layout.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+            public void handle(final KeyEvent keyEvent) {
                 if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
-                	removeComponent(layout, dialogNode);
+                    removeComponent(layout, dialogNode);
                 }
-			}
-	
-		});
-    	addComponent(layout, dialogNode);
-    	dialogNode.setLayoutX(50);
-    	dialogNode.setLayoutY(550);
-    	return dialogNode;
+            }
+
+        });
+        addComponent(layout, dialogNode);
+        dialogNode.setLayoutX(50);
+        dialogNode.setLayoutY(550);
+        return dialogNode;
     }
+
     /**
      * Initializes a JavaFX window with the specified stage and parameters given
      * in a properties file
@@ -280,8 +281,6 @@ public class UIBuilder<E> {
      */
     public void initWindow(Stage currStage, String propertiesFilePath) {
         ResourceBundle resources = ResourceBundle.getBundle(propertiesFilePath);
-        System.out.println(Integer.parseInt(resources.getString("windowHeight")));
-        System.out.println(Integer.parseInt(resources.getString("windowWidth")));
         currStage.setHeight(Integer.parseInt(resources.getString("windowHeight")));
         currStage.setWidth(Integer.parseInt(resources.getString("windowWidth")));
         currStage.centerOnScreen();
