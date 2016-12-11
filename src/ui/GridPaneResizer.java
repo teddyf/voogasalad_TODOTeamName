@@ -52,7 +52,7 @@ public class GridPaneResizer {
     private void addVerticalBlocks(int amount){
         List<GridPaneNode> blockList = gridPane.getNodeList();  
         for(int i = 0; i < gridPane.getHeight(); i++){
-            for(int j = 0; j < amount; j++){
+            for(int j = (int)gridPane.getWidth(); j < gridPane.getWidth()+amount; j++){
                 GridPaneNode temp = new GridPaneNode(i,amount+j, defaultText());
                 blockList.add(temp);
             }    

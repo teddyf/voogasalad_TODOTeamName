@@ -259,6 +259,10 @@ public class GridPane implements Observer{
        // builder.add
     }
     
+    private void resetClicked(){
+        clicked = new ArrayList<GridPaneNode>();
+    }
+    
     private boolean addObjToMap (List<GridPaneNode> list, GridPaneNode objRoot) {
         int xPos = objRoot.getCol();
         int yPos = objRoot.getRow();
