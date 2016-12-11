@@ -51,16 +51,16 @@ public class GridSideMenu extends SideMenu {
 
     private ScrollPane createLinkPane() {
         Pane linkPanel = new Pane();
-        myBuilder.addCustomLabel(linkPanel, "Create a portal between two teleport\nblocks by clicking the link button and\nthen clicking the two blocks.", 20, 20, null, Color.WHITE, 20);
+        myBuilder.addCustomLabel(linkPanel, "Use the link button to link different blocks\ntogether.", 20, 20, null, Color.WHITE, 20);
 
-        Node button = myBuilder.addCustomButton(linkPanel, "fuck", 20, 100, 100, 100);
+
+        myBuilder.addCustomLabel(linkPanel, "Create a portal between two teleport\nblocks by clicking the link button and\nthen clicking the two blocks.", 20, 80, null, Color.WHITE, 20);
+
+        myBuilder.addCustomLabel(linkPanel, "Link a gate to a switch by clicking the link\nbutton and then clicking each of the two\nblocks.", 20, 170, null, Color.WHITE, 20);
+
+
+        Node button = myBuilder.addCustomButton(linkPanel, "LINK", 20, 260, 350, 70);
         button.setOnMouseClicked(e -> {
-
-            DialogBuilder db = new DialogBuilder(new ComponentProperties()
-                    .header("TOP KEK"));
-            String response = db.getText();
-            Object res = db.getResponse();
-
             setChanged();
             changeStatus();
             notifyObservers(clickedStatus);
