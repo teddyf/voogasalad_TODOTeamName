@@ -49,7 +49,7 @@ public class GateBlock extends Block {
         // notify front end to render the gate differently
         // TODO: refactor this ugly stuff following
         int extensionLoc = this.getName().lastIndexOf('.');
-        String extension = this.getName().substring(extensionLoc - 1);
+        String extension = this.getName().substring(extensionLoc);
         int statusLoc = this.getName().lastIndexOf('_');
         String image = this.getName().substring(0, statusLoc + 1) + status + extension;
         return new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol(), image);
