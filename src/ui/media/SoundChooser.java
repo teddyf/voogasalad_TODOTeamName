@@ -32,7 +32,7 @@ public class SoundChooser {
 		
 		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
 		setPlayinLoop(player);
-		player.play();
+		//player.play();
         playButtonClicked=true;
         
         initComboBox();
