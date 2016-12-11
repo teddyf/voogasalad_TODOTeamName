@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ui.builder.ComponentProperties;
-import ui.builder.UIBuilder;
 import ui.media.SoundChooser;
 
 import java.util.ResourceBundle;

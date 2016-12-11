@@ -12,6 +12,7 @@ public class TextFieldBuilder implements ComponentBuilder {
         textField.setLayoutY(properties.y);
         textField.setPromptText(properties.text);
         textField.setMinWidth(properties.width);
+        textField.setMaxWidth(properties.width);
         textField.setMinHeight(properties.height);
         return textField;
     }

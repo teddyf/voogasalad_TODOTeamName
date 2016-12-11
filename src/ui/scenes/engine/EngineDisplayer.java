@@ -21,7 +21,6 @@ public class EngineDisplayer implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		if (o instanceof GameInstance) {
-			System.out.println("hi");
 		}
 	}
 	

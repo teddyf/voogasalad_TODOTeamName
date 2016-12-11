@@ -18,17 +18,14 @@ public class TeddysTester {
         list.add(node4);
         list.add(node5);
         map.storeObject(list);
-        System.out.println(occupied());
         //map.collisionRemoval(1, 1);
         map.collisionRemoval(2, 1);
-        System.out.println(occupied());
     }
     
     static int occupied(){
         int count = 0;
         for(Point p: map.getMap().keySet()){
             if(!map.getMap().get(p).isEmpty()){
-                System.out.println("(" + p.getX() + "," + p.getY() + ")");
                 count++;
             }
         }

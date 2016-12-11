@@ -45,6 +45,7 @@ public class PlayerSideMenu extends SideMenu {
         UIBuilder builder = new UIBuilder();
         PropertiesUtilities util = new PropertiesUtilities(myResources);
         FlowPane sprites = createFlowPane();
+
         File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
 
@@ -75,6 +76,7 @@ public class PlayerSideMenu extends SideMenu {
                                 }
                             }
                         }
+                        myController.addPlayer(mySelectedPaths,"name",0,0);
                     });
                     sprites.getChildren().add(sprite);
                 }
