@@ -74,7 +74,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public List<BlockUpdate> getInteractions() {
-        return gameInstance.getBlockUpdates();
+        return gameInstance.getInteractions();
     }
 
     /**

@@ -2,6 +2,7 @@ package editor;
 
 import api.IEditorController;
 import block.BlockType;
+import editor.EditorModel;
 import engine.EngineController;
 import exceptions.*;
 import grid.GridGrowthDirection;

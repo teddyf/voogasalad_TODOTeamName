@@ -1,7 +1,8 @@
 package exceptions;
 
 /**
- * Created by anindamanocha on 12/9/16.
+ * An exception that occurs when the user tries to shrink the grid in a way that will result in deleting the player
+ * @author Aninda Manocha
  */
 
 public class DeletePlayerWarning extends Exception implements Alert {
