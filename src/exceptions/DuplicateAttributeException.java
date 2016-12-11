@@ -1,7 +1,8 @@
 package exceptions;
 
 /**
- * Created by anindamanocha on 12/10/16.
+ * An exception that occurs when the user tries to create an attribute that already exists
+ * @author Aninda Manocha
  */
 
 public class DuplicateAttributeException extends Exception implements Alert {

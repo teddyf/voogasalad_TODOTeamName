@@ -6,12 +6,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.objects.GameObject;
 
 import java.io.File;
 import java.util.ArrayList;
