@@ -20,7 +20,10 @@ public class DialogBuilder {
         dialog.setHeaderText(properties.header);
         ButtonType submitButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(submitButtonType, ButtonType.CANCEL);
-        dialog.setWidth(500);
+
+        dialog.setWidth(900);
+        dialog.setHeight(900);
+
         myTextField = new TextField();
         Node submitButton = dialog.getDialogPane().lookupButton(submitButtonType);
         myTextField.textProperty().addListener(e -> submitButton.setDisable(myTextField.getText().trim().isEmpty()));
