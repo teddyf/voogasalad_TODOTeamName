@@ -1,5 +1,6 @@
 package ui.scenes.engine;
 
+import java.util.List;
 import java.util.Observable;
 
 import javafx.scene.image.Image;
@@ -11,9 +12,12 @@ import javafx.scene.image.ImageView;
  *
  */
 
-public class Character extends Observable {
+public class Character {
 	
 	private ImageView characterImage;
+    private ImageView characterImage2;
+    private ImageView characterImage3;
+    private ImageView characterImage4;
 	private int curRow;
 	private int curCol;
 	private double posX;
@@ -22,7 +26,7 @@ public class Character extends Observable {
 	private String name;
 	
 	public Character(GameEngine gameEngine) {
-		this.addObserver(gameEngine);
+		//this.addObserver(gameEngine);
 	}
 
 	/*setting size of character image
@@ -46,8 +50,6 @@ public class Character extends Observable {
 		this.getCharacterImageView().setLayoutX(posX);
     	this.getCharacterImageView().setLayoutY(posY);
     	this.setName(path);
-    	setChanged();
-    	notifyObservers();
 	}
 	
 	public ImageView getCharacterImageView() {

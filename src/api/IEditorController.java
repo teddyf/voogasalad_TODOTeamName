@@ -7,6 +7,8 @@ import exceptions.*;
 import grid.GridGrowthDirection;
 import ui.scenes.editor.GameEditorAlerts;
 
+import java.util.List;
+
 /**
  * The editor controller interface
  * @author Aninda Manocha
@@ -78,13 +80,13 @@ public interface IEditorController extends IController {
 
     /**
      * Adds a player to the grid
-     * @param name - the image path name of the player
+     * @param names - the image path names of the player (one for each of the four cardinal directions)
      * @param playerName - the name of the player
      * @param row - the row of the player
      * @param col - the column of the player
      * @return whether the player was successfully added
      */
-    boolean addPlayer(String name, String playerName, int row, int col);
+    boolean addPlayer(List<String> names, String playerName, int row, int col);
 
     /**
      * Adds an attribute for the player

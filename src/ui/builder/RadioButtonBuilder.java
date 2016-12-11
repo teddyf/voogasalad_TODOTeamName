@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
  *         <p>
  *         This class builds JavaFX radio buttons.
  */
-public class RadioButtonBuilder extends ComponentBuilder {
+public class RadioButtonBuilder implements ComponentBuilder {
 
     public RadioButtonBuilder() {
         super();

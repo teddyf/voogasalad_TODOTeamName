@@ -6,7 +6,7 @@ import javafx.scene.control.ComboBox;
 /**
  * @author Robert Steilberg
  */
-public class ComboBoxBuilder<E> extends ComponentBuilder {
+public class ComboBoxBuilder<E> implements ComponentBuilder {
 
     ComboBoxBuilder() {
         super();

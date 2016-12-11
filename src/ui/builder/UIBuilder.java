@@ -1,10 +1,13 @@
 package ui.builder;
 
+
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -13,7 +16,7 @@ import javafx.stage.Stage;
 import java.util.ResourceBundle;
 
 /**
- * @author Harshil Garg, Robert Steilberg, Aninda Manocha
+ * @author Harshil Garg, Robert Steilberg, Aninda Manocha, Nisakorn Valyasevi
  *         <p>
  *         This class is used to build JavaFX ui.scenes.editor.objects and add them to the stage.
  *         <p>
@@ -27,6 +30,7 @@ public class UIBuilder<E> {
     private ComponentBuilder textFieldBuilder;
     private ComponentBuilder radioButtonBuilder;
     private ComponentBuilder comboBoxBuilder;
+    private ComponentBuilder dialogBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -36,6 +40,7 @@ public class UIBuilder<E> {
         textFieldBuilder = new TextFieldBuilder();
         radioButtonBuilder = new RadioButtonBuilder();
         comboBoxBuilder = new ComboBoxBuilder<E>();
+        dialogBuilder = new DialogBuilder();
     }
 
     /**
@@ -241,6 +246,30 @@ public class UIBuilder<E> {
         return addComponent(layout, comboBoxBuilder.createComponent(properties));
     }
 
+    /**
+     * Add dialog box to layout, must set params in properties for layout X & Y coordinates,
+     * text string to be displayed, and height and width of bubble
+     * 
+     * @param layout
+     * @param properties
+     * @return
+     */
+    public Node addDialogBubble(Parent layout, ComponentProperties properties) {
+    	Node dialogNode = dialogBuilder.createComponent(properties);
+    	dialogNode.setFocusTraversable(true);
+    	dialogNode.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
+			public void handle(final KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+                	removeComponent(layout, dialogNode);
+                }
+			}
+	
+		});
+    	addComponent(layout, dialogNode);
+    	dialogNode.setLayoutX(50);
+    	dialogNode.setLayoutY(550);
+    	return dialogNode;
+    }
     /**
      * Initializes a JavaFX window with the specified stage and parameters given
      * in a properties file

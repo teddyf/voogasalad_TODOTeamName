@@ -12,12 +12,7 @@ import player.PlayerDirection;
  * @author Aninda Manocha
  */
 public interface IPlayer {
-	
-	/**
-	 * Gets the name of the player
-	 * @return the name
-	 */
-	public String getPlayerName();
+
 	/**
 	 * Gets the direction of the player
 	 * @return the direction

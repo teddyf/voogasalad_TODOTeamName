@@ -9,7 +9,7 @@ import javafx.scene.text.Font;
  *         <p>
  *         This class builds JavaFX labels.
  */
-public class LabelBuilder extends ComponentBuilder {
+public class LabelBuilder implements ComponentBuilder {
 
     public LabelBuilder() {
         super();

@@ -45,15 +45,17 @@ public class PlayerSideMenu extends SideMenu {
         FlowPane sprites = createFlowPane();
         File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
+        List<String> names = new ArrayList<>();
         for (String image : images) {
             if (image.contains("down")) {
                 String imagePath = myResources.getString("spritePath") + image;
+                names.add(imagePath);
                 Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
                         .path(imagePath)
                         .width(util.getIntProperty("spriteWidth"))
                         .preserveRatio(true)
                         .id(myResources.getString("spriteCSSid")));
-                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
+//                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
 //                sprite.setOnMouseClicked(e -> selectedPlayerImagePath = imagePath);
 //
 //                sprite.setOnMouseClicked(e -> {
@@ -65,6 +67,7 @@ public class PlayerSideMenu extends SideMenu {
 //                });
 
 
+                sprite.setOnMouseClicked(e -> myController.addPlayer(names,"name", 0,0));
                 sprites.getChildren().add(sprite);
             }
         }
