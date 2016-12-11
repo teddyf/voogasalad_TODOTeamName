@@ -27,20 +27,14 @@ public class SoundPlayer {
 		this.group = new Group();
 		this.filePath = filePath;
 		hbox = new HBox(10);
-		group.getChildren().add(hbox);
-		
-        initPlayer();
-		initPlayButton();
-		initPauseButton();
-	}
-	
-	private void initPlayer() {
 		player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
-		setPlayinLoop(player);
-		//player.play();
+		group.getChildren().add(hbox);
 	}
 	
 	public Group getGroup() {
+		setPlayinLoop(player);
+		initPlayButton();
+		initPauseButton();
 		return group;
 	}
 	private void setPlayinLoop(MediaPlayer mediaPlayer) {

@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
+import ui.media.SnapShot;
 import ui.media.SoundChooser;
 import ui.media.SoundPlayer;
 
@@ -76,7 +77,6 @@ public class EngineSidePanel implements Observer {
         playerChart.getStyleClass().add("playerChart");
         playerChart.setPrefSize(100,10);
         vbox.getChildren().add(playerChart);
-        
         vbox.getChildren().add(new Label("Battle History"));  
         
     }
