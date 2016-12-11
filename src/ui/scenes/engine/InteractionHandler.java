@@ -1,7 +1,14 @@
 package ui.scenes.engine;
 
+import battle.controller.BattleController;
+import battle.model.BattleModel;
+import battle.model.Difficulty;
+import battle.view.BattleView;
 import block.BlockUpdate;
+import block.EnemyBlock;
 import javafx.scene.Parent;
+import javafx.stage.Stage;
+import player.Player;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
@@ -29,8 +36,13 @@ public class InteractionHandler {
         myUIBuilder.addDialogBubble(myRoot, prop);
     }
 
-    public void enterBattle() {
-
+    public static void enterBattle(Player player, EnemyBlock block, Difficulty diff) {
+        Stage primaryStage = new Stage();
+        BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
+        BattleModel model = new BattleModel(player, block);
+        BattleController controller = new BattleController(view, model);
+        primaryStage.setScene(controller.getView().getScene());
+        primaryStage.show();
     }
 
     public void winGame() {
