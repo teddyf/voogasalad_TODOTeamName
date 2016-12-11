@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
  *
  *         Dependencies: FileBrowser.java
  */
-public class GameEngine extends Scene {
+public class EngineView extends Scene {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
     private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
@@ -39,7 +39,7 @@ public class GameEngine extends Scene {
     private VoogaAnimation anim;
     private Character player;
 
-    public GameEngine(Stage stage, Parent root, UILauncher launcher) {
+    public EngineView(Stage stage, Parent root, UILauncher launcher) {
         super(root);
         myStage = stage;
         myRoot = root;
@@ -53,8 +53,25 @@ public class GameEngine extends Scene {
             myLauncher.launchMenu();
         });
         myController = new EngineController();
-        
-        
+    }
+
+    public EngineView(Stage stage, Parent root) {
+        super(root);
+        myStage = stage;
+        myRoot = root;
+        myBuilder = new UIBuilder();
+        myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+        myRoot.getStylesheets().add(CSS_FILE_NAME);
+//        myStage.setOnCloseRequest(e -> {
+//            // closing the window takes you back to main menu
+//            e.consume();
+//            myLauncher.launchMenu();
+//        });
+        myController = new EngineController();
+    }
+
+    public void setController(EngineController controller) {
+        myController = controller;
     }
 
     /**
@@ -75,6 +92,14 @@ public class GameEngine extends Scene {
     	setUpSidePanel();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
         return true;
+    }
+
+    public void runInstance() {
+        initGrid();
+        loadGrid();
+        setUpGrid();
+        setUpSidePanel();
+        myBuilder.initWindow(myStage, ENGINE_RESOURCES);
     }
     
     private void setUpGrid() {
