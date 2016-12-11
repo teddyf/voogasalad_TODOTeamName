@@ -5,6 +5,7 @@ import java.util.Observer;
 
 import battle.controller.BattleModelInView;
 import battle.model.Difficulty;
+import battle.view.HealthWarning.WarningLevel;
 import battle.view.WinConditionView;
 import block.EnemyBlock;
 import javafx.event.ActionEvent;
@@ -18,7 +19,7 @@ import javafx.scene.image.ImageView;
  * @author Daniel Chai, Bill Xiong
  */
 public class BattleView implements Observer {
-	//private static final String CSS_FILE_PATH = "resources/styles/game-engine.css";
+	private static final String CSS_FILE_PATH = "resources/styles/game-engine.css";
 	private static final String ENEMY_IMAGE_PATH = "resources/images/battles/pokemon-1.gif";
 	private static final String PLAYER_IMAGE_PATH = "resources/images/battles/pokemon-2.gif";
 	
@@ -43,16 +44,18 @@ public class BattleView implements Observer {
 	private BattleButton reduceHP;
 	private HealthDisplay enemyHealth;
 	private HealthDisplay playerHealth;
-	private HPWarning lowWarning;
+	private HealthWarning lowWarning;
+	private HealthWarning criticalWarning;
 
 	public BattleView(Difficulty diff, String backgroundFilePath) {
 		root = new Group();
 		scene = new Scene(root, WIDTH, HEIGHT);
-		//root.getStylesheets().add(CSS_FILE_PATH);
+		root.getStylesheets().add(CSS_FILE_PATH);
 		gameDifficulty = diff;
 		setBackground(backgroundFilePath);
 		addButtons(500, 200, "Reduce HP by 10");
-		lowWarning = new HPWarning();
+		lowWarning = new HealthWarning(WarningLevel.LOW);
+		criticalWarning = new HealthWarning(WarningLevel.CRITICAL);
 	}
 
 	private void setBackground(String filePath) {
@@ -92,9 +95,8 @@ public class BattleView implements Observer {
 		player.setHP((int) model.getPlayerHP());
 		enemy.setHP((int) model.getEnemyHP());
 
-		if (model.getPlayerHP() < 20) {
-			lowWarning.showAlert();
-		}
+		lowWarning.showAlertIfValid(model.getPlayerHP());
+		criticalWarning.showAlertIfValid(model.getPlayerHP());
 		
 		if (model.checkPlayerLost()) {
 			lose();
@@ -123,13 +125,13 @@ public class BattleView implements Observer {
 
 	private void win() {
 		model.addBattleWon();
-		WinConditionView won = new WinConditionView("You won",player);
+		WinConditionView won = new WinConditionView("You won", player);
 		won.addToGroup(root);
 	}
 
 	private void lose() {
 		model.addBattleLost();
-		WinConditionView lost = new WinConditionView("You lost",enemy);
+		WinConditionView lost = new WinConditionView("You lost", enemy);
 		lost.addToGroup(root);
 	}
 }
