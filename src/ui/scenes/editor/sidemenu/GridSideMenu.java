@@ -58,7 +58,8 @@ public class GridSideMenu extends SideMenu {
 
             DialogBuilder db = new DialogBuilder(new ComponentProperties()
                     .header("TOP KEK"));
-            String response = db.getInput();
+            String response = db.getText();
+            Object res = db.getResponse();
 
             setChanged();
             changeStatus();

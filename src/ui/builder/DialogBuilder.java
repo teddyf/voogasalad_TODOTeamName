@@ -9,12 +9,13 @@ import javafx.scene.control.*;
 public class DialogBuilder {
 
     private TextField myTextField;
+    private Object myResponse;
 
     public DialogBuilder(ComponentProperties properties) {
         prompt(properties);
     }
 
-    public Object prompt(ComponentProperties properties) {
+    private void prompt(ComponentProperties properties) {
         Dialog dialog = new Dialog();
         dialog.setHeaderText(properties.header);
         ButtonType submitButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
@@ -28,11 +29,14 @@ public class DialogBuilder {
         dialog.setContentText(properties.content);
         dialog.getDialogPane().setContent(myTextField);
 
-        return dialog.showAndWait().get();
+        myResponse = dialog.showAndWait().get();
     }
 
-    public String getInput() {
+    public String getText() {
         return myTextField.getText();
     }
 
+    public Object getResponse() {
+        return myResponse;
+    }
 }
