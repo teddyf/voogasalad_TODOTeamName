@@ -1,5 +1,11 @@
 package battle.view;
 
+import java.util.Observable;
+
+/*
+ * @author pim
+ */
+
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,7 +44,7 @@ public class HealthDisplay {
 		playerChart.setLayoutY(y + 10);
 
 		score = new Label("HP: " + 100);
-		score.setLayoutX(x + 150);
+		score.setLayoutX(x + 130);
 		score.setLayoutY(y + 10);
 
 		root.getChildren().addAll(squareView, playerChart, score);

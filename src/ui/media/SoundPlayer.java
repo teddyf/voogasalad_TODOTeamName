@@ -36,13 +36,16 @@ public class SoundPlayer {
 	
 	private void initPlayer() {
 		player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
-		setPlayinLoop(player);
-		//player.play();
+		group.getChildren().add(hbox);
 	}
 	
 	public Group getGroup() {
+		setPlayinLoop(player);
+		initPlayButton();
+		initPauseButton();
 		return group;
 	}
+	
 	private void setPlayinLoop(MediaPlayer mediaPlayer) {
 		mediaPlayer.setOnEndOfMedia(new Runnable() {
 		       public void run() {

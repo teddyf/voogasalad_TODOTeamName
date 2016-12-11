@@ -23,7 +23,7 @@ public class SoundChooser {
 	private ComboBox comboBox;
 	private HBox hbox;
 	private boolean playButtonClicked;
-	private String chosenSongPath = "src/resources/songs/aquacorde.mp3";
+	private String chosenSongPath = "src/resources/sounds/aquacorde.mp3";
 	
 	public SoundChooser() {
 		group = new Group();
@@ -46,13 +46,15 @@ public class SoundChooser {
 		comboBox = new ComboBox();
 		comboBox.setPromptText("Choose song");
 		hbox.getChildren().add(comboBox);
-		 
-		File file = new File("src/resources/sounds");
-		String[] sounds = file.list();
+
+		String folderName = "src/resources/sounds/";
+		File file = new File(folderName);
+	    String[] sounds = file.list();
 		
-		for (String sound:sounds) {
-			addSong(sound.split("\\.")[0],"src/resources/sounds/"+sound);
-		}
+	    for (String sound:sounds) {
+	    	addSong(sound.split("\\.")[0],folderName+sound);
+	    }
+		
 	}
 	
 	private void addSong(String songName, String filePath) {
