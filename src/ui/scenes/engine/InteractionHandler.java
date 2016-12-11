@@ -42,7 +42,6 @@ public class InteractionHandler {
             case BATTLE:
                 break;
             case DISPLAY_MESSAGE:
-                System.out.println("MESSAGE");
                 displayMessage(blockUpdate.getContent());
                 break;
             case RE_RENDER:

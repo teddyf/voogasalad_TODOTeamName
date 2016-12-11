@@ -105,7 +105,6 @@ public class EditorView extends Scene implements GameEditorAlerts {
     }
 
     public void exceptionDisplay(String content) {
-        System.out.println("CONTENT = " + content);
         myBuilder.addNewAlert(myAlertResources.getString("EXCEPTION").toUpperCase(), content);
     }
 }

@@ -40,7 +40,6 @@ public class PopUp {
             @Override
             public void handle(ActionEvent event) {
             	result = false;
-            	printResult();
                 stage.close();
             }
         });
@@ -53,7 +52,6 @@ public class PopUp {
             @Override
             public void handle(ActionEvent event) {
             	result = true;
-            	printResult();
             	stage.close();
             }
         });
@@ -63,15 +61,6 @@ public class PopUp {
 	
 	public boolean getResult() {
 		return result;	
-	}
-	
-	public void printResult() {
-		if (result) {
-			System.out.println("okay clicked");
-		}else {
-			System.out.println("cancel clicked");
-		}
-		
 	}
 	
 	public void show() {

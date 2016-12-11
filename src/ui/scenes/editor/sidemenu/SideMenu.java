@@ -84,7 +84,7 @@ public abstract class SideMenu {
     /**
      * Creates a new tab
      *
-     * @param text       the title text for the tab
+     * @param text    the title text for the tab
      * @param content the tab's content
      * @return the tab with its content
      */

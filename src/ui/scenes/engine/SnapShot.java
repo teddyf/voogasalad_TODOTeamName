@@ -75,7 +75,6 @@ public class SnapShot {
 	        File file = new File("snapshot.png");
 	        try {
 	            ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", file);
-	            System.out.println("snapshot saved: " + file.getAbsolutePath());
 	        } catch (IOException ex) {
 	            Logger.getLogger(SnapShot.class.getName()).log(Level.SEVERE, null, ex);
 	        }

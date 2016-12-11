@@ -122,8 +122,6 @@ public class EngineView extends Scene {
         int gridY = Integer.parseInt(myResources.getString("gridY"));
         
     	player = new Character(this);
-    	System.out.println(player.getRowCharacter());
-    	System.out.println(player.getColumnCharacter());
     	player.setCharacterImage(myResources.getString("startPlayer1ImagePath"));
         player.setCharacterImageSize(grid.getBlockSize());
 
@@ -185,7 +183,6 @@ public class EngineView extends Scene {
         }
         grid.populateBorder();
         grid.setRenderMap();
-        System.out.println(grid.getNodeList());
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
 	
