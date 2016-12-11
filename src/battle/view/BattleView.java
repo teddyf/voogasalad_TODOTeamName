@@ -5,7 +5,7 @@ import java.util.Observer;
 
 import battle.controller.BattleModelInView;
 import battle.model.Difficulty;
-import battle.WinConditionView;
+import battle.view.WinConditionView;
 import block.EnemyBlock;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,7 +18,7 @@ import javafx.scene.image.ImageView;
  * @author Daniel Chai, Bill Xiong
  */
 public class BattleView implements Observer {
-	private static final String CSS_FILE_PATH = "resources/styles/game-engine.css";
+	//private static final String CSS_FILE_PATH = "resources/styles/game-engine.css";
 	private static final String ENEMY_IMAGE_PATH = "resources/images/battles/pokemon-1.gif";
 	private static final String PLAYER_IMAGE_PATH = "resources/images/battles/pokemon-2.gif";
 	
@@ -48,7 +48,7 @@ public class BattleView implements Observer {
 	public BattleView(Difficulty diff, String backgroundFilePath) {
 		root = new Group();
 		scene = new Scene(root, WIDTH, HEIGHT);
-		root.getStylesheets().add(CSS_FILE_PATH);
+		//root.getStylesheets().add(CSS_FILE_PATH);
 		gameDifficulty = diff;
 		setBackground(backgroundFilePath);
 		addButtons(500, 200, "Reduce HP by 10");
@@ -123,13 +123,13 @@ public class BattleView implements Observer {
 
 	private void win() {
 		model.addBattleWon();
-		WinConditionView won = new WinConditionView("You won");
+		WinConditionView won = new WinConditionView("You won",player);
 		won.addToGroup(root);
 	}
 
 	private void lose() {
 		model.addBattleLost();
-		WinConditionView lost = new WinConditionView("You lost");
+		WinConditionView lost = new WinConditionView("You lost",enemy);
 		lost.addToGroup(root);
 	}
 }
