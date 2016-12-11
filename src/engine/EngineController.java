@@ -69,7 +69,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
         return gameInstance.getPlayer().getGridIndex();
     }
 
-    public List<String> getPlayerImage() {
+    public List<String> getPlayerImages() {
         return gameInstance.getPlayer().getMyNames();
     }
 
