@@ -122,7 +122,7 @@ public class EngineView extends Scene {
         int gridY = Integer.parseInt(myResources.getString("gridY"));
         
     	player = new Character(this);
-    	player.setCharacterImage(myResources.getString("startPlayer1ImagePath"));
+    	player.setCharacterImage(myController.getPlayerImage().get(0));
         player.setCharacterImageSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
