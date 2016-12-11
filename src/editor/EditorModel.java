@@ -12,6 +12,7 @@ import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * This is the model for the editor. It handles all editor information and data management.
@@ -24,11 +25,14 @@ public class EditorModel {
     private GridWorld gridWorld;
     private Grid currentGrid;
     private Player player;
+    private static final String SIZE_CHOOSER_RESOURCE_PACKAGE = "resources/properties/size-chooser";
+    private ResourceBundle SIZE_CHOOSER_RESOURCES;
 
     public EditorModel() {
         blockFactory = new BlockFactory();
         xmlHandler = new GridXMLHandler();
         gridWorld = new GridWorld();
+        SIZE_CHOOSER_RESOURCES = ResourceBundle.getBundle(SIZE_CHOOSER_RESOURCE_PACKAGE);
     }
 
     /***** GRID METHODS *****/
@@ -141,7 +145,8 @@ public class EditorModel {
                 numCols += amount;
                 break;
         }
-        if (numRows > 100 || numCols > 100) {
+        int maxDim = Integer.parseInt(SIZE_CHOOSER_RESOURCES.getString("maxDim"));
+        if (numRows > maxDim || numCols > maxDim) {
             throw new LargeGridException();
         }
         currentGrid.resize(numRows, numCols, rowStart, rowEnd, rowOffset, colStart, colEnd, colOffset);
@@ -167,7 +172,9 @@ public class EditorModel {
         Grid grid2 = gridWorld.getGrid(index2);
         Block block1 = grid1.getBlock(row1, col1);
         Block block2 = grid2.getBlock(row2, col2);
-        return (block1.link(block2, index2) || block2.link(block1, index1));
+        boolean firstLink = block1.link(block2, index2);
+        boolean secondLink = block2.link(block1, index1);
+        return (firstLink || secondLink);
     }
 
     public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
