@@ -13,6 +13,12 @@ import player.Player;
 public interface IGameInstance {
 
 	/**
+	 * Processes the user input and moves the player based on the input
+	 * @param input - the user input
+	 */
+	public void processInput(UserInstruction input);
+
+	/**
 	 * Gets the player character
 	 * @return the player character
 	 */
@@ -35,10 +41,4 @@ public interface IGameInstance {
 	 * @return the status
 	 */
 	public GameStatus getGameStatus();
-
-	/**
-	 * Processes the user input and moves the player based on the input
-	 * @param input - the user input
-	 */
-	public void processInput(UserInstruction input);
 }

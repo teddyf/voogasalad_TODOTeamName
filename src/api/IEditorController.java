@@ -134,11 +134,11 @@ public interface IEditorController extends IController {
      * Exports the editor to create a game by taking in the name of the file to contain the information
      * @param file - the name of the file containing the engine information
      */
-    public void saveEngine(String file);
+    void saveEngine(String file);
 
     /**
      * Creates an engine to run a game while in the editor
      * @return an engine controller to run the tested game
      */
-    public EngineController runEngine();
+    EngineController runEngine();
 }

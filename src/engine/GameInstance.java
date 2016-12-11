@@ -46,7 +46,11 @@ public class GameInstance extends Observable implements IGameInstance {
 		myStatus = new GameStatus();
 		blockUpdates = new ArrayList<>();
 	}
-	
+
+    public void changeGrid(int index) {
+        myGrid = myGridWorld.changeGrid(index);
+    }
+
 	public void processInput(UserInstruction input) {
 		int row = myPlayer.getRow();
 		int col = myPlayer.getCol();
@@ -161,32 +165,34 @@ public class GameInstance extends Observable implements IGameInstance {
         return PlayerUpdate.DIRECTION;
     }
 
+    /**
+     * Gets the block that the player is facing
+     * @param row - the row of the player
+     * @param col - the column of the player
+     * @param direction - the direction of the player
+     * @return the block the player is facing
+     */
 	private Block blockInFacedDirection(int row, int col, PlayerDirection direction) {
-	    switch (direction) {
-            case NORTH:
-                return myGrid.getBlock(row - 1, col);
-            case SOUTH:
-                return myGrid.getBlock(row+1, col);
-            case EAST:
-                return myGrid.getBlock(row, col+1);
-            case WEST:
-                return myGrid.getBlock(row, col-1);
-            default:
-                // TODO: throw custom exception--player is not facing in any direction
-                return null;
+	    try {
+            switch (direction) {
+                case NORTH:
+                    return myGrid.getBlock(row - 1, col);
+                case SOUTH:
+                    return myGrid.getBlock(row + 1, col);
+                case EAST:
+                    return myGrid.getBlock(row, col + 1);
+                case WEST:
+                    return myGrid.getBlock(row, col - 1);
+                default:
+                    return null;
+            }
+        } catch (NullPointerException e) {
+	        return null;
         }
-    }
-
-    public List<BlockUpdate> getInteractions() {
-        return blockUpdates;
     }
 
     public void handleInteraction() {
         blockUpdates.clear();
-    }
-
-    public void changeGrid(int index) {
-        myGrid = myGridWorld.changeGrid(index);
     }
 
     /***** GETTERS *****/

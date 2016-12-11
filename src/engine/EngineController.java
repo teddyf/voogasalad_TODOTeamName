@@ -44,31 +44,20 @@ public class EngineController extends Observable implements Observer {
         gameInstance.processInput(input);
     }
 
-    public List<BlockUpdate> getInteractions() { //called by frontend if there is a movement update
-        return gameInstance.getInteractions();
+    public List<BlockUpdate> getInteractions() {
+        return gameInstance.getBlockUpdates();
     }
 
     public void changeGrid(int index) {
         gameInstance.changeGrid(index);
     }
 
-    /**
-     * Gets the block located in a specific row and column in the grid. The frontend calls this method in order to
-     * render a grid block by block.
-     * @param row - the specific row
-     * @param col - the specific column
-     * @return the block
-     */
     public String getBlock(int row, int col) {
         return gameInstance.getGrid().getBlock(row, col).getName();
     }
 
     public List<BlockUpdate> getBlockUpdates() { //what the frontend calls when it receives interaction update
         return gameInstance.getBlockUpdates();
-    }
-
-    public String getMessage(int row, int col) {
-        return gameInstance.getGrid().getBlock(row, col).getMessage();
     }
 
     public int getPlayerRow() {
