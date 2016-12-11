@@ -71,7 +71,7 @@ public abstract class SideMenu extends Observable {
             if (firstLetter) {
                 c = Character.toTitleCase(c);
             } else if (c == '_') {
-                c = ' ';
+                break;
             } else {
                 c = Character.toLowerCase(c);
             }
