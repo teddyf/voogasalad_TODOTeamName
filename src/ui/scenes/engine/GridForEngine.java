@@ -365,7 +365,7 @@ public class GridForEngine {
         return -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
     }
 
-    public boolean reRender(int row, int col, String newPath) {
+    public boolean reRender(int col, int row, String newPath) {
         GridPaneNode newGPN = new GridPaneNode(row, col, newPath);
         GridPaneNode temp = grid[row + WRAP/2][col + WRAP/2];
                 temp.swap(newGPN, 0);
