@@ -1,5 +1,6 @@
 package ui.scenes.editor.sidemenu;
 
+import block.BlockType;
 import editor.EditorController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,7 +15,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 /**
  * @author Robert Steilberg
  *         <p>
@@ -22,18 +22,23 @@ import java.util.ResourceBundle;
  *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
-
     private ResourceBundle myResources;
     private EditorController myController;
     private String selectedPlayerImagePath = "";
     private List<String> mySelectedPaths;
+    private ItemSideMenu myItemMenu;
 
-    PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
+    PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller, ItemSideMenu itemMenu) {
         super(root, resources);
         myResources = resources;
         myController = controller;
         mySelectedPaths = new ArrayList<>();
+        myItemMenu = itemMenu;
         init();
+    }
+
+    private ScrollPane addEnemies() {
+        return myItemMenu.createScrollPane(BlockType.ENEMY);
     }
 
     /**
@@ -48,7 +53,6 @@ public class PlayerSideMenu extends SideMenu {
 
         File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
-
         if (images != null) {
             for (String image : images) {
                 if (image.contains("down")) {
@@ -58,8 +62,8 @@ public class PlayerSideMenu extends SideMenu {
                             .width(util.getIntProperty("spriteWidth"))
                             .preserveRatio(true)
                             .id(myResources.getString("spriteCSSid")));
-
                     sprite.setOnMouseClicked(e -> {
+                        
                         for (Node otherSprite : sprites.getChildren()) {
                             resetHoverEffect(otherSprite);
                         }
@@ -76,7 +80,8 @@ public class PlayerSideMenu extends SideMenu {
                                 }
                             }
                         }
-                        myController.addPlayer(mySelectedPaths,"name",0,0);
+                        setChanged();
+                        notifyObservers(mySelectedPaths);
                     });
                     sprites.getChildren().add(sprite);
                 }
@@ -84,19 +89,22 @@ public class PlayerSideMenu extends SideMenu {
         }
         return sprites;
     }
-
     /**
      * Adds the tabs to the player side menu
      */
     protected void addTabs() {
-        List<Tab> tabs = new ArrayList<>();
         // sprite tab
-        Tab spriteTab = createTab(myResources.getString("spriteTab"), new ScrollPane(createFlowPane()));
-        FlowPane sprites = addSprites();
-        ScrollPane spritePane = new ScrollPane(sprites);
-        spriteTab.setContent(spritePane);
-        tabs.add(spriteTab);
-        // TODO add more panes here, possibly refactor
-        myPanel.getTabs().addAll(tabs);
+        Tab spriteTab = createTab(myResources.getString("spriteTab"), new ScrollPane(addSprites()));
+//        FlowPane sprites = addSprites();
+//        ScrollPane spritePane = new ScrollPane(sprites);
+//        spriteTab.setContent(spritePane);
+        Tab enemyTab = createTab(myResources.getString("enemyTab"), addEnemies());
+
+        myPanel.getTabs().addAll(spriteTab, enemyTab);
     }
+    
+    public List<String> getImagePaths(){
+        return mySelectedPaths;
+    }
+    
 }

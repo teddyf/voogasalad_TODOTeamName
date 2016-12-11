@@ -10,7 +10,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
  *         <p>
  *         This class defines the basic functionality for a SideMenu in the Editor.
  */
-public abstract class SideMenu {
+public abstract class SideMenu extends Observable{
 
     protected Parent myRoot;
     protected ResourceBundle myResources;
@@ -48,7 +48,7 @@ public abstract class SideMenu {
         itemPane.setHgap(padding);
         itemPane.setVgap(padding);
         itemPane.setPadding(new Insets(padding));
-        itemPane.setPrefWrapLength(myUtil.getIntProperty("sidePanelWidth") - 50);
+        itemPane.setPrefWrapLength(myUtil.getIntProperty("sidePanelWidth") - 60);
         return itemPane;
     }
 

@@ -28,8 +28,8 @@ public interface IEditorController extends IController {
      * Changes the size of the current grid in a specified direction and by a specified amount. If the amount is
      * positive, the grid grows and if the amount is negative, the grid shrinks.
      * @param direction - the direction in which the size changes
-     * @param amount - the amount by which the grid size in the specified direction should change.
-     * @return whether or not the grid was changes
+     * @param amount - the amount by which the grid size in the specified direction should change
+     * @return whether or not the grid was changed
      */
     boolean changeGridSize(GridGrowthDirection direction, int amount);
 
@@ -134,11 +134,11 @@ public interface IEditorController extends IController {
      * Exports the editor to create a game by taking in the name of the file to contain the information
      * @param file - the name of the file containing the engine information
      */
-    public void saveEngine(String file);
+    void saveEngine(String file);
 
     /**
      * Creates an engine to run a game while in the editor
      * @return an engine controller to run the tested game
      */
-    public EngineController runEngine();
+    EngineController runEngine();
 }

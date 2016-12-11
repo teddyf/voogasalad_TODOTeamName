@@ -35,7 +35,7 @@ public class EditorControls {
         myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
         myItemMenu = new ItemSideMenu(myRoot, myResources);
-        myPlayerMenu = new PlayerSideMenu(myRoot, myResources, controller);
+        myPlayerMenu = new PlayerSideMenu(myRoot, myResources, controller, (ItemSideMenu) myItemMenu);
         myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
         myGridMenu = new GridSideMenu(myRoot, myResources, controller);
         init();
@@ -112,4 +112,13 @@ public class EditorControls {
     public ItemSideMenu getMyItemMenu() {
         return (ItemSideMenu) myItemMenu;
     }
+    
+    public PlayerSideMenu getPlayerMenu() {
+        return (PlayerSideMenu) myPlayerMenu;
+    }
+    
+    public GridSideMenu getGridSideMenu(){
+        return (GridSideMenu) myGridMenu;
+    }
+    
 }
