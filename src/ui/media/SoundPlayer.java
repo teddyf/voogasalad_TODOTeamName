@@ -1,13 +1,12 @@
 package ui.media;
+
 import java.io.File;
-import java.util.HashMap;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -15,47 +14,41 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
-
-public class SoundControl {
+public class SoundPlayer {
+	
 	private MediaPlayer player;
-	private HashMap<String,String> playlist;
+	private String filePath;
 	private Group group;
-	private ComboBox comboBox;
 	private HBox hbox;
 	private boolean playButtonClicked;
 	
-	public SoundControl() {
-		init();
-	}
-	
-	private void init() {
-		group = new Group();
-		playlist = new HashMap<String,String>();
+	public SoundPlayer(String filePath) {
+		this.filePath = filePath;
+		this.group = new Group();
+		this.filePath = filePath;
 		hbox = new HBox(10);
-		comboBox = new ComboBox();
-		comboBox.setPromptText("Choose song");
-		hbox.getChildren().add(comboBox);
-		addSong("Aquacorde","src/resources/songs/aquacorde.mp3");
-		addSong("Fallarbor","src/resources/songs/fallarbor.mp3");
-		addSong("Pallettown","src/resources/songs/pallettown.mp3");
+		group.getChildren().add(hbox);
+		
+        initPlayer();
 		initPlayButton();
 		initPauseButton();
-		
-		player = new MediaPlayer(new Media(new File("src/resources/songs/aquacorde.mp3").toURI().toString()));
-		setPlayinLoop(player);
-		player.play();
-        playButtonClicked=true;
-        
-		group.getChildren().add(hbox);
 	}
 	
-	public void addSong(String songName, String filePath) {
-		playlist.put(songName,filePath);
-		comboBox.getItems().add(songName);
+	private void initPlayer() {
+		player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
+		setPlayinLoop(player);
+		player.play();
 	}
 	
 	public Group getGroup() {
 		return group;
+	}
+	private void setPlayinLoop(MediaPlayer mediaPlayer) {
+		mediaPlayer.setOnEndOfMedia(new Runnable() {
+		       public void run() {
+		    	   mediaPlayer.seek(Duration.ZERO);
+		       }
+		   });
 	}
 	
 	private void initPlayButton() {
@@ -64,25 +57,13 @@ public class SoundControl {
 		button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-            	if (playButtonClicked==true) {
-            		player.stop();
+            	if (playButtonClicked==false) {
+            		player.play();
+            		
             	}
-                String chosenSong = (String) comboBox.getValue();
-                playSong(chosenSong);
             }
         });
 		hbox.getChildren().add(button);	
-	}
-	
-	public void playSong(String songName){
-		if (playButtonClicked==true) {
-    		player.stop();
-    	}
-        String filePath = playlist.get(songName);
-        player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
-        setPlayinLoop(player);
-        player.play();
-        playButtonClicked=true;
 	}
 	
 	private void initPauseButton() {
@@ -109,12 +90,6 @@ public class SoundControl {
         itemView.setFitHeight(25);
         button.setGraphic(itemView);
 	}
-	
-	private void setPlayinLoop(MediaPlayer mediaPlayer) {
-		mediaPlayer.setOnEndOfMedia(new Runnable() {
-		       public void run() {
-		    	   mediaPlayer.seek(Duration.ZERO);
-		       }
-		   });
-	}
+
+
 }

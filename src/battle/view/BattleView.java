@@ -1,11 +1,11 @@
 package battle.view;
 
-import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
 import battle.controller.BattleModelInView;
-import battle.WinConditionView;
+import battle.model.Difficulty;
+import battle.view.WinConditionView;
 import block.EnemyBlock;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,33 +18,16 @@ import javafx.scene.image.ImageView;
  * @author Daniel Chai, Bill Xiong
  */
 public class BattleView implements Observer {
-	BattleModelInView model;
-
-	public enum Difficulty {
-		EASY, MEDIUM, HARD
-	}
-
-	private static final int EASY = 10;
-	private static final int MEDIUM = 18;
-	private static final int HARD = 25;
+	//private static final String CSS_FILE_PATH = "resources/styles/game-engine.css";
+	private static final String ENEMY_IMAGE_PATH = "resources/images/battles/pokemon-1.gif";
+	private static final String PLAYER_IMAGE_PATH = "resources/images/battles/pokemon-2.gif";
 	
-	private static final HashMap<Difficulty, Integer> difficulties = new HashMap<Difficulty, Integer>() {
-		{
-			put(Difficulty.EASY, EASY);
-			put(Difficulty.MEDIUM, MEDIUM);
-			put(Difficulty.HARD, HARD);
-		}
-	};
+	BattleModelInView model;
 
 	private Difficulty gameDifficulty;
 
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 500;
-	// protected static final int OFFSET = 40;
-	// protected static final int OFFSET_Y = 20;
-	// protected static final int RECTANGLE_WIDTH = 40;
-	// protected static final int RECTANGLE_HEIGHT = 40;
-	// protected static final Color BACKGROUND = Color.AZURE;
 	public static final int DAMAGE = 10;
 
 	private final int PLAYER_X = 300;
@@ -62,12 +45,10 @@ public class BattleView implements Observer {
 	private HealthDisplay playerHealth;
 	private HPWarning lowWarning;
 
-	private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
-
 	public BattleView(Difficulty diff, String backgroundFilePath) {
 		root = new Group();
 		scene = new Scene(root, WIDTH, HEIGHT);
-		root.getStylesheets().add(CSS_FILE_NAME);
+		//root.getStylesheets().add(CSS_FILE_PATH);
 		gameDifficulty = diff;
 		setBackground(backgroundFilePath);
 		addButtons(500, 200, "Reduce HP by 10");
@@ -99,8 +80,8 @@ public class BattleView implements Observer {
 		EventHandler<ActionEvent> event = actionEvent -> {
 			if (!(model.checkPlayerLost() || model.checkPlayerWon())) {
 				model.setEnemyHP(model.getEnemyHP()
-						- (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH / difficulties.get(gameDifficulty));
-				model.setPlayerHP(model.getPlayerHP() - (Math.random()) * difficulties.get(gameDifficulty) / 3.3);
+						- (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH / gameDifficulty.getValue());
+				model.setPlayerHP(model.getPlayerHP() - (Math.random()) * gameDifficulty.getValue() / 3.3);
 			}
 		};
 		reduceHP.addHandler(event);
@@ -129,8 +110,8 @@ public class BattleView implements Observer {
 	public void setModel(BattleModelInView modelInView) {
 		this.model = modelInView;
 
-		enemy = new EnemyView(model.getEnemyHP(), ENEMY_X, ENEMY_Y, "resources/images/battles/pokemon-1.gif");
-		player = new PlayerView(model.getPlayerHP(), PLAYER_X, PLAYER_Y, "resources/images/battles/pokemon-2.gif");
+		enemy = new EnemyView(model.getEnemyHP(), ENEMY_X, ENEMY_Y, ENEMY_IMAGE_PATH);
+		player = new PlayerView(model.getPlayerHP(), PLAYER_X, PLAYER_Y, PLAYER_IMAGE_PATH);
 
 		enemyHealth = new HealthDisplay(ENEMY_X + 50, ENEMY_Y + 200);
 		playerHealth = new HealthDisplay(PLAYER_X - 50, PLAYER_Y + 200);
@@ -142,13 +123,13 @@ public class BattleView implements Observer {
 
 	private void win() {
 		model.addBattleWon();
-		WinConditionView won = new WinConditionView("You won");
+		WinConditionView won = new WinConditionView("You won",player);
 		won.addToGroup(root);
 	}
 
 	private void lose() {
 		model.addBattleLost();
-		WinConditionView lost = new WinConditionView("You lost");
+		WinConditionView lost = new WinConditionView("You lost",enemy);
 		lost.addToGroup(root);
 	}
 }
