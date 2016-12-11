@@ -39,6 +39,13 @@ public class GridSideMenu extends SideMenu {
         }
     }
 
+    private ScrollPane createMusicPane() {
+        Pane musicPanel = new Pane();
+
+
+        return new ScrollPane(musicPanel);
+    }
+
     private ScrollPane createLinkPane() {
         Pane linkPanel = new Pane();
         Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
@@ -92,6 +99,7 @@ public class GridSideMenu extends SideMenu {
     public void addTabs() {
         Tab resizeTab = createTab("Resize", createGridResizePane());
         Tab linkTab = createTab("Link", createLinkPane());
+        Tab musicTab = createTab("Music",createMusicPane());
         myPanel.getTabs().addAll(resizeTab,linkTab);
     }
 
