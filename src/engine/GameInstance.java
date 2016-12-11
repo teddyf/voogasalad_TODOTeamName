@@ -107,9 +107,15 @@ public class GameInstance extends Observable implements IGameInstance {
 				break;
 			case TALK:
 			    Block block = blockInFacedDirection(row, col, direction);
-			    blockUpdates = block.talkInteract(myPlayer);
-				playerUpdate = PlayerUpdate.TALK;
-				setChanged();
+			    
+			    if (block instanceof EnemyBlock) {
+			    	enterBattle((EnemyBlock)block, BattleView.Difficulty.EASY);
+			    }
+			    else {
+			    	blockUpdates = block.talkInteract(myPlayer);
+					playerUpdate = PlayerUpdate.TALK;
+					setChanged();
+			    }
 			default:
 				break;
 		}
@@ -119,7 +125,7 @@ public class GameInstance extends Observable implements IGameInstance {
 	
 	private void enterBattle(EnemyBlock enemy, BattleView.Difficulty diff) {
         Stage primaryStage = new Stage();
-		//TODO take in a difficult paramter from block
+		//TODO take in a difficulty parameter from block
 		BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
 		BattleModel model = new BattleModel(myPlayer, enemy);
 		BattleController controller = new BattleController(view, model);
