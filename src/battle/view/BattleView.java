@@ -23,7 +23,7 @@ public class BattleView implements Observer {
 	private static final String CSS_FILE_PATH = "resources/styles/game-engine.css";
 	private static final String ENEMY_IMAGE_PATH = "resources/images/battles/pokemon-1.gif";
 	private static final String PLAYER_IMAGE_PATH = "resources/images/battles/pokemon-2.gif";
-	
+
 	private BattleModelInView model;
 
 	private Difficulty gameDifficulty;
@@ -31,8 +31,8 @@ public class BattleView implements Observer {
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 500;
 	public static final int DAMAGE = 10;
-	public static final int DISPLAY_X= 500;
-	public static final int DISPLAY_Y= 250;
+	public static final int DISPLAY_X = 500;
+	public static final int DISPLAY_Y = 250;
 	private final int PLAYER_X = 300;
 	private final int PLAYER_Y = 200;
 	private final int ENEMY_X = 500;
@@ -46,9 +46,8 @@ public class BattleView implements Observer {
 	private BattleButton reduceHP;
 	private HealthDisplay enemyHealth;
 	private HealthDisplay playerHealth;
-	private HealthWarning lowWarning;
-	private HealthWarning criticalWarning;
 	private Label displayPokemon;
+
 	public BattleView(Difficulty diff, String backgroundFilePath) {
 		root = new Group();
 		scene = new Scene(root, WIDTH, HEIGHT);
@@ -57,8 +56,6 @@ public class BattleView implements Observer {
 		setBackground(backgroundFilePath);
 		displayPokemon = new Label();
 		addButtons(500, 200, "Reduce HP by 10");
-		lowWarning = new HealthWarning(WarningLevel.LOW);
-		criticalWarning = new HealthWarning(WarningLevel.CRITICAL);
 	}
 
 	private void setBackground(String filePath) {
@@ -81,13 +78,15 @@ public class BattleView implements Observer {
 		reduceHP.addToGroup(root);
 		addReduceHandler();
 	}
-	public void displayNumPokemon(){
+
+	private void displayNumPokemon() {
 		displayPokemon.setText("Number of Pokemon: " + model.getNumPokemon());
 		displayPokemon.setLayoutX(DISPLAY_X);
 		displayPokemon.setLayoutY(DISPLAY_Y);
 		root.getChildren().add(displayPokemon);
 	}
-	public void displayTextPokemon(){
+
+	public void displayTextPokemon() {
 		displayPokemon.setText("Number of Pokemon: " + model.getNumPokemon());
 	}
 
@@ -107,8 +106,6 @@ public class BattleView implements Observer {
 		player.setHP((int) model.getPlayerHP());
 		enemy.setHP((int) model.getEnemyHP());
 
-		lowWarning.showAlertIfValid(model.getPlayerHP());
-		criticalWarning.showAlertIfValid(model.getPlayerHP());
 		System.out.println(model.getNumPokemon());
 		if (model.checkPlayerLost()) {
 			lose();
@@ -127,30 +124,30 @@ public class BattleView implements Observer {
 		enemy = new EnemyView(model.getEnemyHP(), ENEMY_X, ENEMY_Y, ENEMY_IMAGE_PATH);
 		player = new PlayerView(model.getPlayerHP(), PLAYER_X, PLAYER_Y, PLAYER_IMAGE_PATH);
 
-		enemyHealth = new HealthDisplay(ENEMY_X + 50, ENEMY_Y + 200);
-		playerHealth = new HealthDisplay(PLAYER_X - 50, PLAYER_Y + 200);
+		enemyHealth = new HealthDisplay(ENEMY_X + 50, ENEMY_Y + 200, (int)model.getEnemyHP());
+		playerHealth = new HealthDisplay(PLAYER_X - 50, PLAYER_Y + 200, (int)model.getPlayerHP());
 
 		root.getChildren().addAll(enemyHealth.getGroup(), playerHealth.getGroup());
 		enemy.addToGroup(root);
 		player.addToGroup(root);
+		
+		displayNumPokemon();
 	}
 
 	private void win() {
 		model.addBattleWon();
 		WinConditionView won = new WinConditionView("You won", player);
 		won.addToGroup(root);
-
 	}
 
 	private void lose() {
 		model.reduceNumPokemon();
-		if(model.getNumPokemon() <= 0){
+		if (model.getNumPokemon() <= 0) {
 			model.addBattleLost();
 			WinConditionView lost = new WinConditionView("You lost", enemy);
 			lost.addToGroup(root);
-		}
-		else{
-            model.resetPlayer();
+		} else {
+			model.resetPlayer();
 		}
 	}
 }

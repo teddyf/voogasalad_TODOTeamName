@@ -210,7 +210,7 @@ public class GridPane implements Observer {
     public void resetKeepSize() {
         reset();
     }
-
+    
     public void click(GridPaneNode node) {
         if (clicked.contains(node)) {
             node.getImage().setEffect(null);
@@ -445,7 +445,7 @@ public class GridPane implements Observer {
         return gridHeight;
     }
 
-    public void makeClickable(GridPaneNode node) {
+    public void makeClickable (GridPaneNode node) {
         node.getImage().setOnMouseExited(e -> {
             if (!clicked.contains(node))
                 node.getImage().setEffect(null);
@@ -488,11 +488,11 @@ public class GridPane implements Observer {
     }
 
     public int getBackendRow(GridPaneNode gpn) {
-        return gpn.getRow() - 5;
+        return gpn.getRow() - WRAP/2;
     }
 
     public int getBackendCol(GridPaneNode gpn){
-        return gpn.getCol() - 5;
+        return gpn.getCol() - WRAP/2;
     }
 
 }
