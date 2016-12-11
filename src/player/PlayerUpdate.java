@@ -9,5 +9,5 @@ public enum PlayerUpdate {
     ROW,
     COLUMN,
     DIRECTION,
-    INTERACTION;
+    TALK
 }

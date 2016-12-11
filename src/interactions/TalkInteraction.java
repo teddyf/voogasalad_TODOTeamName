@@ -5,4 +5,7 @@ package interactions;
  * @author Aninda Manocha, Filip Mazurek
  */
 
-public interface TalkInteraction extends Interaction {}
+public interface TalkInteraction extends Interaction {
+    void displayMessage(String message);
+}
+

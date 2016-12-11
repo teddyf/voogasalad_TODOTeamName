@@ -81,54 +81,11 @@ public class GridUI {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
         myGridPane.getGroup().toBack();
         hoverOpacity.setBrightness(myUtil.getDoubleProperty("buttonHoverOpacity"));
-        int updateX = myUtil.getIntProperty("updateX");
-        int updateY = myUtil.getIntProperty("updateY");
-        int updateWidth = myUtil.getIntProperty("updateWidth");
-        int widthInputX = myUtil.getIntProperty("inputWidthX");
-        int widthInputY = myUtil.getIntProperty("inputWidthY");
-        int widthInputWidth = myUtil.getIntProperty("inputWidthWidth");
-        String widthInputText = myUtil.getStringProperty("inputWidthText");
-        int heightInputX = myUtil.getIntProperty("inputHeightX");
-        int heightInputY = myUtil.getIntProperty("inputHeightY");
-        int heightInputWidth = myUtil.getIntProperty("inputHeightWidth");
-        String heightInputText = myUtil.getStringProperty("inputHeightText");
-        int swapX = myUtil.getIntProperty("swapX");
-        int swapY = myUtil.getIntProperty("swapY");
-        int swapWidth = myUtil.getIntProperty("swapWidth");
-        String swapPath = myUtil.getStringProperty("swapPath");
-        Node widthInputField =
-                myBuilder.addCustomTextField(myRoot, widthInputText, widthInputX, widthInputY,
-                        widthInputWidth, 20);
-        Node heightInputField =
-                myBuilder.addCustomTextField(myRoot, heightInputText, heightInputX, heightInputY,
-                        heightInputWidth, 20);
-        String updatePath = myResources.getString("updatePath");
-        Node updateButton =
-                myBuilder.addCustomImageView(myRoot, updateX, updateY, updatePath, updateWidth, "");
-        updateButton.setOnMouseClicked(e -> {
-            TextField xText = (TextField) widthInputField;
-            TextField yText = (TextField) heightInputField;
-            try {
-                int xInput = Integer.parseInt(xText.getText());
-                int yInput = Integer.parseInt(yText.getText());
-                myBuilder.removeComponent(myRoot, myGridPane.getGroup());
-                myGridPane.resizeReset(xInput, yInput);
-                myBuilder.addComponent(myRoot, myGridPane.getGroup());
-            } catch (Exception exc) {
-                myBuilder.addNewAlert("Invalid Resize",
-                        "Please enter an inter value for row and column count");
-            }
-
-        });
-
-        updateButton.setOnMouseEntered(e -> updateButton.setEffect(hoverOpacity));
-        updateButton.setOnMouseExited(e -> updateButton.setEffect(null));
-
     }
 
     void loadGrid() {
-        int colMax = myController.getCol();
-        int rowMax = myController.getRow();
+        int colMax = myController.getPlayerCol();
+        int rowMax = myController.getPlayerRow();
         myGridPane.loadReset(rowMax, colMax);
         myBuilder.removeComponent(myRoot, myGridPane.getGroup());
         for (int i = 0; i < rowMax; i++) {

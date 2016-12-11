@@ -15,8 +15,6 @@ import ui.builder.Dialog;
 import ui.builder.UIBuilder;
 
 import java.io.File;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.ResourceBundle;
 
 /**
@@ -26,7 +24,7 @@ import java.util.ResourceBundle;
  *
  *         Dependencies: FileBrowser.java
  */
-public class GameEngine extends Scene implements Observer {
+public class GameEngine extends Scene {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
     private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
@@ -91,10 +89,7 @@ public class GameEngine extends Scene implements Observer {
     }
     
     private void setUpSidePanel() {
-    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources);
-    	engineSidePanel.initPlayerChanger(player);
-    	engineSidePanel.initSidePanel();
-    	engineSidePanel.initStats();
+    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player,this);
     }
     
     private void setUpPlayer() {
@@ -161,17 +156,12 @@ public class GameEngine extends Scene implements Observer {
         for(int i = 0; i < rowMax; i++){
             for(int j = 0; j < colMax; j++){
                 grid.blockToGridPane(i, j, myController.getBlock(i, j));
-
             }
         }
+        grid.populateBorder();
         grid.setRenderMap();
+        System.out.println(grid.getNodeList());
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
-
-	@Override
-	public void update(Observable o, Object arg) {
-		myBuilder.addComponent(myRoot, player.getCharacterImageView());
-	}  
-	
 	
 }

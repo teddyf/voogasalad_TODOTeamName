@@ -5,14 +5,23 @@ package block;
  *
  * @author Filip Mazurek
  */
+
 public class BlockUpdate {
-    public BlockUpdateType myUpdateType;
-    public int myRow;
-    public int myColumn;
+    private BlockUpdateType myUpdateType;
+    private int myRow;
+    private int myColumn;
 
     public BlockUpdate(BlockUpdateType updateType, int row, int col) {
         myUpdateType = updateType;
         myRow = row;
         myColumn = col;
+    }
+
+    public int getRow() {
+        return myRow;
+    }
+
+    public int getColumn() {
+        return myColumn;
     }
 }

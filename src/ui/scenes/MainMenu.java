@@ -16,7 +16,6 @@ import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.Dialog;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.PopUp;
 
 import java.util.ResourceBundle;
 
