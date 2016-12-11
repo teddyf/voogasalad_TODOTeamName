@@ -34,6 +34,14 @@ public class CustomSideMenu extends SideMenu {
         myPanel.setMaxHeight(400);
     }
 
+    /**
+     * Tests the inputs to make sure they are correctly formatted
+     *
+     * @param blockType the BlockType given by the ComboBox
+     * @param row       the row value of the TextField
+     * @param col       the col value of the TextField
+     * @return true if the value is invalid, false otherwise
+     */
     private boolean invalidValue(BlockType blockType, String row, String col) {
         try {
             Integer.parseInt(row);
