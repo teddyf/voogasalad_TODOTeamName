@@ -495,4 +495,7 @@ public class GridPane implements Observer {
         return gpn.getCol() - WRAP/2;
     }
 
+    public int getWrap() {
+        return WRAP;
+    }
 }
