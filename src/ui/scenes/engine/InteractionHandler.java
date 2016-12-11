@@ -36,15 +36,6 @@ public class InteractionHandler {
         myUIBuilder.addDialogBubble(myRoot, prop);
     }
 
-    public static void enterBattle(Player player, EnemyBlock block, Difficulty diff) {
-        Stage primaryStage = new Stage();
-        BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
-        BattleModel model = new BattleModel(player, block);
-        BattleController controller = new BattleController(view, model);
-        primaryStage.setScene(controller.getView().getScene());
-        primaryStage.show();
-    }
-
     public void winGame() {
         // TODO: win the game and display win message
     }
