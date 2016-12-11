@@ -196,7 +196,6 @@ public class GameInstance extends Observable implements IGameInstance {
             case WEST:
                 return myGrid.getBlock(row, col-1);
             default:
-                // TODO: throw custom exception--player is not facing in any direction
                 return null;
         }
     }
