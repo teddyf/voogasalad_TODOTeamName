@@ -9,6 +9,7 @@ import ui.UILauncher;
 import ui.builder.UIBuilder;
 
 import java.io.File;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -112,20 +113,18 @@ public class EngineView extends Scene {
     }
     
     private void setUpPlayer() {
-    	int gridX = Integer.parseInt(myResources.getString("gridX"));
-        int gridY = Integer.parseInt(myResources.getString("gridY"));
-        
-    	player = new Character(this);
-    	player.setCharacterImage(myResources.getString("startPlayer1ImagePath"));
-        player.setCharacterImageSize(grid.getBlockSize());
+        List<String> playerImagePaths = myController.getPlayerImages();
+        String defaultPath = playerImagePaths.get(0);
+
+    	player = new Character(playerImagePaths, defaultPath);
+        player.setSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
 
         player.setPosX(gridWidth/2 - player.getSize()/2);
         player.setPosY(gridHeight/2 - player.getSize()/2);
-    	player.setName(myResources.getString("startPlayer1ImagePath"));
-    	myBuilder.addComponent(myRoot, player.getCharacterImageView());
+    	myBuilder.addComponent(myRoot, player.getImageView());
 
         //setup grid
         double ypixel = myController.getPlayerRow()*grid.getBlockSize();

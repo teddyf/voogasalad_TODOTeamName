@@ -107,51 +107,16 @@ public class VoogaAnimation implements Observer {
 	private void changePlayerImage(String imageFileName){
 		int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
-		uiBuilder.removeComponent(root, player.getCharacterImageView());
+		//uiBuilder.removeComponent(root, player.getCharacterImageView());
 		//TODO fix this
-		player.setCharacterImage(IMAGE_RESOURCE + imageFileName);
-		player.setCharacterImageSize(grid.getBlockSize());
+		player.setImage(imageFileName);
+		//player.setCharacterImageSize(grid.getBlockSize());
 		//player.getCharacterImageView().setLayoutX(gridX+grid.getBlockSize()*player.getColumnCharacter());
     	//player.getCharacterImageView().setLayoutY(gridY+grid.getBlockSize()*player.getRowCharacter());
-		uiBuilder.addComponent(root, player.getCharacterImageView());
-		player.getCharacterImageView().setLayoutX(gridWidth/2 - player.getSize()/2);
-		player.getCharacterImageView().setLayoutY(gridHeight/2 - player.getSize()/2);
+		//uiBuilder.addComponent(root, player.getCharacterImageView());
+		//player.getCharacterImageView().setLayoutX(gridWidth/2 - player.getSize()/2);
+		//player.getCharacterImageView().setLayoutY(gridHeight/2 - player.getSize()/2);
 	}
-	
-/*//	need to clean this up later
-	private void changePlayerWalkingDirection(UserInstruction instruction, String playerNumber){
-		switch (instruction) {
-		case UP:
-			changePlayerImage(playerNumber + "NorthWalking.png");
-			break;
-		case DOWN:
-			changePlayerImage(playerNumber + "SouthWalking.png");
-			break;
-		case RIGHT:
-			changePlayerImage(playerNumber + "EastWalking.png");
-			break;
-		case LEFT:
-			changePlayerImage(playerNumber + "WestWalking.png");
-			break;
-		}
-	}*/
-	
-/*	private void changePlayerFacingDirection(UserInstruction instruction, String playerNumber) {
-		switch (instruction) {
-		case UP:
-			changePlayerImage(playerNumber + "NorthFacing.png");
-			break;
-		case DOWN:
-			changePlayerImage(playerNumber + "SouthFacing.png");
-			break;
-		case RIGHT:
-			changePlayerImage(playerNumber + "EastFacing.png");
-			break;
-		case LEFT:
-			changePlayerImage(playerNumber + "WestFacing.png");
-			break;
-		}
-	}*/
 
 	@Override
 	public void update(Observable observable, Object value) {
@@ -239,24 +204,26 @@ public class VoogaAnimation implements Observer {
 		if (isAnimationOver())
 			return;
 		//fixed the urls
-		switch (instruction) {
-			case UP:
-				changePlayerImage(myResources.getString("player1ImageUp"));
-				break;
-			case DOWN:
-				//changePlayerImage(playerNumber + "SouthFacing.png");
-				changePlayerImage(myResources.getString("player1ImageDown"));
-
-				break;
-			case RIGHT:
-				//changePlayerImage(playerNumber + "EastFacing.png");
-				changePlayerImage(myResources.getString("player1ImageRight"));
-				break;
-			case LEFT:
-				//changePlayerImage(playerNumber + "WestFacing.png");
-				changePlayerImage(myResources.getString("player1ImageLeft"));
-				break;
-		}
+//		switch (instruction) {
+//			case UP:
+//				changePlayerImage(myResources.getString("player1ImageUp"));
+//				break;
+//			case DOWN:
+//				//changePlayerImage(playerNumber + "SouthFacing.png");
+//				changePlayerImage(myResources.getString("player1ImageDown"));
+//
+//				break;
+//			case RIGHT:
+//				//changePlayerImage(playerNumber + "EastFacing.png");
+//				changePlayerImage(myResources.getString("player1ImageRight"));
+//				break;
+//			case LEFT:
+//				//changePlayerImage(playerNumber + "WestFacing.png");
+//				changePlayerImage(myResources.getString("player1ImageLeft"));
+//				break;
+//		}
+		System.out.println("Instruction " + instruction.name());
+		changePlayerImage(instruction.name());
 		stepCount = stepCount + 10;
 	}
 
