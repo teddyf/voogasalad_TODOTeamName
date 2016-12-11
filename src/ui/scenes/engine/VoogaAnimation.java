@@ -4,6 +4,9 @@ package ui.scenes.engine;
 import java.util.*;
 
 //import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import battle.model.BattleModel;
+import battle.model.Difficulty;
+import battle.view.BattleView;
 import block.BlockUpdate;
 import engine.EngineController;
 import player.PlayerUpdate;
@@ -51,6 +54,7 @@ public class VoogaAnimation implements Observer {
 
 	private Group gridLayout;
 	private InteractionHandler interactionHandler;
+
 
 	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec) {
 		this.root = root;
