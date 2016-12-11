@@ -119,7 +119,6 @@ public class GridForEngine {
                 grid[node.getCol()][node.getRow()] = node;
             }*/
             
-            node.getImage().setEffect(hoverOpacity);
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
