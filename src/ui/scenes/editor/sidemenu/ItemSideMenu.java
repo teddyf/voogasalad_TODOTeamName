@@ -70,12 +70,32 @@ public class ItemSideMenu extends SideMenu {
                     .preserveRatio(true)
                     .id("game-object"));
             object.setIcon(icon);
+
             icon.setOnMouseClicked(e -> {
                 if (myViewer.getSelected() != null) {
                     myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect"));
+                    myViewer.getSelected().getIcon().setOnMouseEntered(f -> myViewer.getSelected().getIcon().setStyle(myResources.getString("selectedEffect")));
+                    myViewer.getSelected().getIcon().setOnMouseEntered(f -> myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect")));
                 }
-                myViewer.select(object);
-                object.getIcon().setStyle(myResources.getString("selectedEffect"));
+                if (myViewer.getSelected() != object) {
+                    object.getIcon().setStyle(myResources.getString("selectedEffect"));
+                    object.getIcon().setOnMouseEntered(f -> object.getIcon().setStyle(myResources.getString("selectedEffect")));
+                    myViewer.select(object);
+                } else {
+                    myViewer.select(null);
+                }
+//
+//                if (myViewer.getSelected() != null) {
+//                    myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect"));
+//                    myViewer.getSelected().getIcon().setOnMouseEntered(f -> myViewer.getSelected().getIcon().setStyle(myResources.getString("selectedEffect")));
+//                    myViewer.getSelected().getIcon().setOnMouseEntered(f -> myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect")));
+//                }
+//
+//                myViewer.select(object);
+//                object.getIcon().setStyle(myResources.getString("selectedEffect"));
+//                object.getIcon().setOnMouseEntered(f -> object.getIcon().setStyle(myResources.getString("selectedEffect")));
+//                object.getIcon().setOnMouseExited(f -> object.getIcon().setStyle(myResources.getString("selectedEffect")));
+
             });
         }
         return new ScrollPane(itemPane);
