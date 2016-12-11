@@ -3,6 +3,7 @@ package ui.scenes.editor.sidemenu;
 import editor.EditorController;
 import grid.GridGrowthDirection;
 import javafx.collections.FXCollections;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
@@ -36,6 +37,15 @@ public class GridSideMenu extends SideMenu {
         } catch (NumberFormatException e) { // non-integer value given
             return true;
         }
+    }
+
+    private ScrollPane createLinkPane() {
+        Pane linkPanel = new Pane();
+        Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
+        button.setOnMouseClicked(e -> {
+
+        });
+        return new ScrollPane(linkPanel);
     }
 
 
@@ -80,8 +90,9 @@ public class GridSideMenu extends SideMenu {
      * Creates and adds tabs for each object type to the Item Menu
      */
     public void addTabs() {
-        Tab tab = createTab("Resize", createGridResizePane());
-        myPanel.getTabs().add(tab);
+        Tab resizeTab = createTab("Resize", createGridResizePane());
+        Tab linkTab = createTab("Link", createLinkPane());
+        myPanel.getTabs().addAll(resizeTab,linkTab);
     }
 
 }
