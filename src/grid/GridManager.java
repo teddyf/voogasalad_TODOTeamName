@@ -8,12 +8,12 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
- * This class manages all of the grids in the game
+ * This class manages all of the grids in the editor or engine
  * @author Aninda Manocha, Daniel Chai
  */
 
-@XStreamAlias("gridWorld")
-public class GridWorld {
+@XStreamAlias("gridManager")
+public class GridManager {
 	
 	@XStreamImplicit
     private List<Grid> grids;
@@ -21,9 +21,12 @@ public class GridWorld {
     @XStreamOmitField
     private int currentIndex;
 
-    public GridWorld() {
+    private Grid currentGrid;
+
+    public GridManager() {
         grids = new ArrayList<>();
         currentIndex = 0;
+        currentGrid = grids.get(currentIndex);
     }
 
     public Grid addGrid(int numRows, int numCols) {
@@ -32,13 +35,15 @@ public class GridWorld {
         return changeGrid(getNumGrids()-1);
     }
 
-    public Grid changeGrid(int index) {
+    public void changeGrid(int index) {
         currentIndex = index;
-        return grids.get(currentIndex);
+        currentGrid = grids.get(currentIndex);
     }
 
+    /***** GETTERS *****/
+
     public Grid getCurrentGrid() {
-        return grids.get(currentIndex);
+        return currentGrid;
     }
 
     public int getCurrentIndex() {

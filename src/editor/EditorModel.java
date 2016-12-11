@@ -4,8 +4,8 @@ import block.*;
 import engine.EngineController;
 import exceptions.*;
 import grid.Grid;
-import grid.GridGrowthDirection;
-import grid.GridWorld;
+import grid.GridManager;
+import grid.GridSizeDirection;
 import player.Player;
 import player.PlayerAttribute;
 import xml.GridWorldAndPlayer;
@@ -19,29 +19,30 @@ import java.util.List;
  */
 
 public class EditorModel {
+    private GridManager gridManager;
     private BlockFactory blockFactory;
     private GridXMLHandler xmlHandler;
-    private GridWorld gridWorld;
+
     private Grid currentGrid;
     private Player player;
 
     public EditorModel() {
+        gridManager = new GridManager();
         blockFactory = new BlockFactory();
         xmlHandler = new GridXMLHandler();
-        gridWorld = new GridWorld();
     }
 
     /***** GRID METHODS *****/
 
     public void addGrid(int numRows, int numCols) {
-        currentGrid = gridWorld.addGrid(numRows, numCols);
+        currentGrid = gridManager.addGrid(numRows, numCols);
     }
 
     public void changeGrid(int index) {
-        currentGrid = gridWorld.changeGrid(index);
+        currentGrid = gridManager.changeGrid(index);
     }
 
-    public boolean changeGridSize(GridGrowthDirection direction, int amount) throws LargeGridException, DeletePlayerWarning {
+    public boolean changeGridSize(GridSizeDirection direction, int amount) throws LargeGridException, DeletePlayerWarning {
         if (amount >= 0) {
             return growGrid(direction, amount);
         }
@@ -56,7 +57,7 @@ public class EditorModel {
      * @return whether the grid can shrink without deleting the player
      * @throws DeletePlayerWarning
      */
-    private boolean checkShrink(GridGrowthDirection direction, int amount) throws DeletePlayerWarning {
+    private boolean checkShrink(GridSizeDirection direction, int amount) throws DeletePlayerWarning {
         switch (direction) {
             case TOP:
                 if (player.getRow() < amount) {
@@ -84,7 +85,7 @@ public class EditorModel {
      * @param amount - the amount by which the grid size in the specified direction should shrink
      * @return whether or not the grid shrunk
      */
-    public boolean shrinkGrid(GridGrowthDirection direction, int amount) {
+    public boolean shrinkGrid(GridSizeDirection direction, int amount) {
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
@@ -118,7 +119,7 @@ public class EditorModel {
      * @return whether or not the grid grew
      * @throws LargeGridException
      */
-    public boolean growGrid(GridGrowthDirection direction, int amount) throws LargeGridException{
+    public boolean growGrid(GridSizeDirection direction, int amount) throws LargeGridException{
         int numRows, numCols, rowOffset, colOffset, rowStart, rowEnd, colStart, colEnd;
         numRows = rowEnd = currentGrid.getNumRows();
         numCols = colEnd = currentGrid.getNumCols();
@@ -165,35 +166,22 @@ public class EditorModel {
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        Grid grid1 = gridWorld.getGrid(index1);
-        Grid grid2 = gridWorld.getGrid(index2);
+        Grid grid1 = gridManager.getGrid(index1);
+        Grid grid2 = gridManager.getGrid(index2);
         Block block1 = grid1.getBlock(row1, col1);
         Block block2 = grid2.getBlock(row2, col2);
         return (block1.link(block2, index2) || block2.link(block1, index1));
     }
 
     public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        Grid grid1 = gridWorld.getGrid(index1);
-        Grid grid2 = gridWorld.getGrid(index2);
+        Grid grid1 = gridManager.getGrid(index1);
+        Grid grid2 = gridManager.getGrid(index2);
         Block block1 = grid1.getBlock(row1, col1);
         Block block2 = grid2.getBlock(row2, col2);
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
     /***** PLAYER METHODS *****/
-
-    public boolean addPlayer(List<String> names, String playerName, int row, int col) throws BadPlayerPlacementException, DuplicatePlayerException {
-        if(!(currentGrid.getBlock(row, col).isWalkable())) {
-            throw new BadPlayerPlacementException(row, col);
-        }
-        if(player == null) {
-            player = new Player(names, playerName, row, col, currentGrid.getIndex());
-            return true;
-        }
-        else {
-            throw new DuplicatePlayerException(player.getRow(), player.getCol());
-        }
-    }
 
     public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) throws DuplicateAttributeException {
         PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
@@ -220,28 +208,28 @@ public class EditorModel {
     /***** DATA METHODS *****/
 
     public void saveEditor(String file) {
-        xmlHandler.saveContents(file, gridWorld, player);
+        xmlHandler.saveContents(file, gridManager, player);
     }
 
     public void loadEditor(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         player = gridWorldAndPlayer.getPlayer();
-        gridWorld = gridWorldAndPlayer.getGridWorld();
-        changeGrid(gridWorld.getCurrentIndex());
+        gridManager = gridWorldAndPlayer.getGridWorld();
+        changeGrid(gridManager.getCurrentIndex());
     }
 
     public void saveEngine(String file) throws NoPlayerException {
         if (player == null) {
             throw new NoPlayerException();
         }
-        xmlHandler.saveContents(file, gridWorld, player);
+        xmlHandler.saveContents(file, gridManager, player);
     }
 
     public EngineController runEngine() throws NoPlayerException {
         if (player == null) {
             throw new NoPlayerException();
         }
-        return (new EngineController(player, gridWorld));
+        return (new EngineController(player, gridManager));
     }
 
     /***** GETTERS *****/

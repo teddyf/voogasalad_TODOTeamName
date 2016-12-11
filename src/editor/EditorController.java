@@ -2,10 +2,11 @@ package editor;
 
 import api.IEditorController;
 import block.BlockType;
-import editor.EditorModel;
 import engine.EngineController;
 import exceptions.*;
-import grid.GridGrowthDirection;
+import grid.GridManager;
+import grid.GridSizeDirection;
+import player.PlayerManager;
 import ui.scenes.editor.GameEditorAlerts;
 
 import java.util.List;
@@ -18,11 +19,13 @@ import java.util.List;
 
 public class EditorController implements IEditorController {
 
-    private final EditorModel myModel;
+    private GridManager myGridManager;
+    private PlayerManager myPlayerManager;
     private GameEditorAlerts myAlerts;
 
     public EditorController() {
-        myModel = new EditorModel();
+        myGridManager = new GridManager();
+        myPlayerManager = new PlayerManager();
     }
 
     public void setAlerts(GameEditorAlerts alerts) {
@@ -39,7 +42,7 @@ public class EditorController implements IEditorController {
         myModel.changeGrid(index);
     }
 
-    public boolean changeGridSize(GridGrowthDirection direction, int amount) {
+    public boolean changeGridSize(GridSizeDirection direction, int amount) {
         try {
             return myModel.changeGridSize(direction, amount);
         } catch (LargeGridException e) {
@@ -87,9 +90,8 @@ public class EditorController implements IEditorController {
     /***** PLAYER METHODS *****/
 
     public boolean addPlayer(List<String> names, String playerName, int row, int col) {
-        System.out.println("Editor controller row = " + row + "col = " + col);
         try {
-            return myModel.addPlayer(names, playerName, row, col);
+            return myPlayerManager.addPlayer(names, playerName, row, col);
         }
         catch (BadPlayerPlacementException e) {
             myAlerts.exceptionDisplay(e.getMessage());

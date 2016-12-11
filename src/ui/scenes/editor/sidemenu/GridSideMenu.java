@@ -1,7 +1,7 @@
 package ui.scenes.editor.sidemenu;
 
 import editor.EditorController;
-import grid.GridGrowthDirection;
+import grid.GridSizeDirection;
 import javafx.collections.FXCollections;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -9,12 +9,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ui.builder.ComponentProperties;
-import ui.builder.UIBuilder;
+
 import java.util.ResourceBundle;
-import ui.builder.ComponentProperties;
-import ui.builder.UIBuilder;
+
 import ui.media.SoundChooser;
-import java.util.ResourceBundle;
 
 /**
  * @author Robert Steilberg
@@ -34,7 +32,7 @@ public class GridSideMenu extends SideMenu {
         myPanel.setMaxHeight(400);
     }
 
-    private boolean invalidValue(GridGrowthDirection dir, String val) {
+    private boolean invalidValue(GridSizeDirection dir, String val) {
         try {
             Integer.parseInt(val);
             return dir == null;
@@ -74,9 +72,9 @@ public class GridSideMenu extends SideMenu {
 
 
         @SuppressWarnings("unchecked")
-        ComboBox<GridGrowthDirection> directionComboBox = (ComboBox<GridGrowthDirection>) myBuilder.addNewComboBox(resizePanel,
-                new ComponentProperties<GridGrowthDirection>(190, 125)
-                        .options(FXCollections.observableArrayList(GridGrowthDirection.values())));
+        ComboBox<GridSizeDirection> directionComboBox = (ComboBox<GridSizeDirection>) myBuilder.addNewComboBox(resizePanel,
+                new ComponentProperties<GridSizeDirection>(190, 125)
+                        .options(FXCollections.observableArrayList(GridSizeDirection.values())));
 
         myBuilder.addCustomLabel(resizePanel, "Number of rows or columns to add or remove:", 20, 200, null, Color.WHITE, 15);
         TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel,"block size",20,230,200);
