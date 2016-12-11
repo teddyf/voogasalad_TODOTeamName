@@ -5,7 +5,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 import battle.controller.BattleModelInView;
-import battle.WinConditionView;
 import block.EnemyBlock;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -136,13 +135,13 @@ public class BattleView implements Observer {
 
 	private void win() {
 		model.addBattleWon();
-		WinConditionView won = new WinConditionView("You won");
+		WinConditionView won = new WinConditionView("You won",player);
 		won.addToGroup(root);
 	}
 
 	private void lose() {
 		model.addBattleLost();
-		WinConditionView lost = new WinConditionView("You lost");
+		WinConditionView lost = new WinConditionView("You lost",enemy);
 		lost.addToGroup(root);
 	}
 }
