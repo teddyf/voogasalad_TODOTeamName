@@ -15,6 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
 /**
  * @author Robert Steilberg
  *         <p>
@@ -35,6 +36,10 @@ public class PlayerSideMenu extends SideMenu {
         mySelectedPaths = new ArrayList<>();
         myItemMenu = itemMenu;
         init();
+    }
+
+    private ScrollPane addNPCs() {
+        return myItemMenu.createScrollPane(BlockType.COMMUNICATOR);
     }
 
     private ScrollPane addEnemies() {
@@ -72,13 +77,14 @@ public class PlayerSideMenu extends SideMenu {
                             .preserveRatio(true)
                             .id(myResources.getString("spriteCSSid")));
                     sprite.setOnMouseClicked(e -> {
-                        
+
                         for (Node otherSprite : sprites.getChildren()) {
                             resetHoverEffect(otherSprite);
                         }
                         if (selectedPlayerImagePath.equals(imagePath)) {
                             // deselect
                             selectedPlayerImagePath = "";
+                            mySelectedPaths.clear();
                         } else {
                             sprite.setStyle(myResources.getString("selectedEffect"));
                             sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
@@ -107,6 +113,7 @@ public class PlayerSideMenu extends SideMenu {
         }
         return new ScrollPane(sprites);
     }
+
     /**
      * Adds the tabs to the player side menu
      */
@@ -118,12 +125,13 @@ public class PlayerSideMenu extends SideMenu {
 //        spriteTab.setContent(spritePane);
         Tab enemyTab = createTab(myResources.getString("enemyTab"), addEnemies());
 
-        myPanel.getTabs().addAll(spriteTab, enemyTab);
+        Tab npcTab = createTab(myResources.getString("npcTab"), addNPCs());
+        myPanel.getTabs().addAll(spriteTab, enemyTab, npcTab);
     }
-    
-    public List<String> getImagePaths(){
+
+    public List<String> getImagePaths() {
         System.out.println("robertsuxdick" + mySelectedPaths);
         return mySelectedPaths;
     }
-    
+
 }

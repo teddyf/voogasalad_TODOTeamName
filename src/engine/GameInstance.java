@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
+import ui.scenes.engine.InteractionHandler;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
@@ -39,8 +40,7 @@ public class GameInstance extends Observable implements IGameInstance {
 	private int myScore;
 	private GameStatus myStatus;
 	private List<BlockUpdate> blockUpdates;
-	private BattleController battleController;
-	
+
 	public GameInstance(Player player, GridWorld gridWorld) {
         xmlHandler = new GridXMLHandler();
 	    myGridWorld = gridWorld;
@@ -110,12 +110,12 @@ public class GameInstance extends Observable implements IGameInstance {
 	}
 	
 	private void enterBattle(EnemyBlock enemy, Difficulty diff) {
-        Stage primaryStage = new Stage();
-		BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
-		BattleModel model = new BattleModel(myPlayer, enemy);
-		BattleController controller = new BattleController(view, model);
-		primaryStage.setScene(controller.getView().getScene());
-		primaryStage.show();
+		Stage primaryStage = new Stage();
+        BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
+        BattleModel model = new BattleModel(myPlayer, enemy);
+        BattleController controller = new BattleController(view, model);
+        primaryStage.setScene(controller.getView().getScene());
+        primaryStage.show();
 	}
 
     /**
