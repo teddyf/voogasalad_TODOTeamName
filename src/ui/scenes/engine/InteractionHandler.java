@@ -38,6 +38,8 @@ public class InteractionHandler {
     }
 
     public void reRenderBlock(int row, int col, String imagePath) {
+        System.out.println("re-render");
+        System.out.println(imagePath);
         myGridForEngine.reRender(row, col, imagePath);
     }
 
