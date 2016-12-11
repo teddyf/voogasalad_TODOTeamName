@@ -55,6 +55,15 @@ public class PlayerSideMenu extends SideMenu {
         String[] images = file.list();
         if (images != null) {
             for (String image : images) {
+
+                StringBuilder s = new StringBuilder();
+                for (char c : image.toCharArray()) {
+                    if (c == '-') break;
+                    s.append(c);
+                }
+                int id = Integer.parseInt(s.toString());
+
+
                 if (image.contains("down")) {
                     String imagePath = myResources.getString("spritePath") + image;
                     Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
@@ -74,11 +83,20 @@ public class PlayerSideMenu extends SideMenu {
                             sprite.setStyle(myResources.getString("selectedEffect"));
                             sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
                             mySelectedPaths.clear();
+
                             for (String i : images) {
-                                if (i.startsWith(image.substring(0, 1))) {
+                                StringBuilder sb = new StringBuilder();
+                                for (char c : i.toCharArray()) {
+                                    if (c == '-') break;
+                                    sb.append(c);
+                                }
+                                if (id == Integer.parseInt(sb.toString())) {
                                     mySelectedPaths.add(myResources.getString("spritePath") + i);
                                 }
+
                             }
+
+
                         }
                         setChanged();
                         notifyObservers(mySelectedPaths);
@@ -104,6 +122,7 @@ public class PlayerSideMenu extends SideMenu {
     }
     
     public List<String> getImagePaths(){
+        System.out.println("robertsuxdick" + mySelectedPaths);
         return mySelectedPaths;
     }
     

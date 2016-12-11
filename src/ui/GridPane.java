@@ -208,22 +208,20 @@ public class GridPane implements Observer{
     public void buildPlayer(EditorController control, String name, List<String> imagePaths){
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
-        control.addPlayer(imagePaths, name, clicked.get(0).getBackendRow(), clicked.get(0).getBackendCol());
-        GridPaneNode temp = grid[col][row];
-        GridPaneNode gpn = new GridPaneNode(row, col, imagePaths.get(0));
-        group.getChildren().add(gpn.getImage());
-        double x = getXRender(gpn.getCol());
-        double y = getYRender(gpn.getRow());
-        gpn.setImageSize(CELL_PIXELS, CELL_PIXELS);
-        gpn.setImageCoord(x, y);
-        ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
-        list.add(temp);
-        gridMap.storeObject(list);
-        resetClicked();
-    }
-    
-    private void resetClicked(){
-        clicked = new ArrayList<GridPaneNode>();
+
+        if (control.addPlayer(imagePaths, name, clicked.get(0).getBackendRow(), clicked.get(0).getBackendCol())) {
+            GridPaneNode temp = grid[col][row];
+            GridPaneNode gpn = new GridPaneNode(row, col, imagePaths.get(0));
+            gpn.setImageSize(CELL_PIXELS, CELL_PIXELS);
+            gpn.setImageCoord(getXRender(col), getYRender(row));
+            group.getChildren().add(gpn.getImage());
+
+            ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
+            list.add(temp);
+            gridMap.storeObject(list);
+            clicked = new ArrayList<GridPaneNode>();
+        }
+
     }
     
     public void swap (GameObject obj, EditorController control) {

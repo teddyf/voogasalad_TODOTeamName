@@ -18,11 +18,11 @@ public class ButtonBuilder implements ComponentBuilder {
         button.setId(properties.id);
         button.setLayoutX(properties.x);
         button.setLayoutY(properties.y);
-        if (properties.width != 0) {
+        if (properties.width > 0) {
             button.setMinWidth(properties.width);
             button.setMaxWidth(properties.width);
         }
-        if (properties.height != 0) {
+        if (properties.height > 0) {
             button.setMinHeight(properties.height);
             button.setMaxHeight(properties.height);
         }
