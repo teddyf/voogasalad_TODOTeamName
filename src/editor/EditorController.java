@@ -146,6 +146,11 @@ public class EditorController implements IEditorController {
     }
 
     public EngineController runEngine() {
-        return myModel.runEngine();
+        try {
+            return myModel.runEngine();
+        } catch (NoPlayerException e) {
+            myAlerts.exceptionDisplay(e.getMessage());
+            return null;
+        }
     }
 }
