@@ -50,6 +50,8 @@ public class GridPane implements Observer {
     private String DEFAULT = "resources/images/tiles/ground/grass-";
     private String clickType;
 
+    private String borderPath = "resources/images/tiles/gate/1-closed.png";
+
     public GridPane(int gridWidth,
                     int gridHeight,
                     int renderWidth,
@@ -104,9 +106,17 @@ public class GridPane implements Observer {
         grid = new GridPaneNode[columns][rows];
         for (int i = 0; i < columns; i++) {
             for (int j = 0; j < rows; j++) {
-                GridPaneNode node = new GridPaneNode(i, j, defaultText());
-                blockList.add(node);
-                grid[j][i] = node;
+
+                if (i >= WRAP / 2 && i < gridWidth + WRAP / 2 &&
+                        j >= WRAP / 2 && j < gridHeight + WRAP / 2) {
+                    GridPaneNode node = new GridPaneNode(i, j, defaultText());
+                    blockList.add(node);
+                    grid[j][i] = node;
+                } else {
+                    GridPaneNode node = new GridPaneNode(i, j, borderPath);
+                    blockList.add(node);
+                    grid[j][i] = node;
+                }
             }
         }
     }
@@ -122,8 +132,6 @@ public class GridPane implements Observer {
             if (node.getCol() >= WRAP / 2 && node.getCol() < gridWidth + WRAP / 2 &&
                     node.getRow() >= WRAP / 2 && node.getRow() < gridHeight + WRAP / 2)
                 makeClickable(node);
-            else
-                node.getImage().setEffect(hoverOpacity);
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
@@ -202,7 +210,7 @@ public class GridPane implements Observer {
     public void resetKeepSize() {
         reset();
     }
-
+    
     public void click(GridPaneNode node) {
         if (clicked.contains(node)) {
             node.getImage().setEffect(null);
@@ -372,7 +380,7 @@ public class GridPane implements Observer {
         // gridMap.visObjectMap();
     }
 
-    public boolean buildLink(GridPaneNode node1, GridPaneNode node2, EditorController controller) {
+    boolean buildLink(GridPaneNode node1, GridPaneNode node2, EditorController controller) {
         System.out.println("link!");
         clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
@@ -438,7 +446,7 @@ public class GridPane implements Observer {
         return gridHeight;
     }
 
-    public void makeClickable(GridPaneNode node) {
+    public void makeClickable (GridPaneNode node) {
         node.getImage().setOnMouseExited(e -> {
             if (!clicked.contains(node))
                 node.getImage().setEffect(null);
@@ -481,11 +489,11 @@ public class GridPane implements Observer {
     }
 
     public int getBackendRow(GridPaneNode gpn) {
-        return gpn.getRow() - 5;
+        return gpn.getRow() - WRAP/2;
     }
 
     public int getBackendCol(GridPaneNode gpn){
-        return gpn.getCol() - 5;
+        return gpn.getCol() - WRAP/2;
     }
 
 }
