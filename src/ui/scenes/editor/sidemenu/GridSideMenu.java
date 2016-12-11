@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
+import ui.media.SoundChooser;
 
 import java.util.ResourceBundle;
 
@@ -41,8 +42,8 @@ public class GridSideMenu extends SideMenu {
 
     private ScrollPane createMusicPane() {
         Pane musicPanel = new Pane();
-
-
+        myBuilder.addCustomLabel(musicPanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
+        myBuilder.addComponent(musicPanel,new SoundChooser().getGroup());
         return new ScrollPane(musicPanel);
     }
 
@@ -100,7 +101,7 @@ public class GridSideMenu extends SideMenu {
         Tab resizeTab = createTab("Resize", createGridResizePane());
         Tab linkTab = createTab("Link", createLinkPane());
         Tab musicTab = createTab("Music",createMusicPane());
-        myPanel.getTabs().addAll(resizeTab,linkTab);
+        myPanel.getTabs().addAll(resizeTab,linkTab,musicTab);
     }
 
 }

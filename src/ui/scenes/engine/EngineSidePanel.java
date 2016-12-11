@@ -9,7 +9,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
-import ui.media.SoundControl;
+import ui.media.SoundChooser;
+import ui.media.SoundPlayer;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -39,7 +40,6 @@ public class EngineSidePanel implements Observer {
         this.gameEngine = gameEngine;
         Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/Pixeled.ttf").toExternalForm(), 10);
         initSidePanel();
-        initPlayerChanger(player);
         initStats();
     }
 
@@ -65,13 +65,9 @@ public class EngineSidePanel implements Observer {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
-        SoundControl soundControl = new SoundControl();
-        soundControl.addNodeToControl(new SnapShot(gameEngine).getGroup());
-        vbox.getChildren().add(soundControl.getGroup());
-    }
-    
-    public void initPlayerChanger(Character player) {
-    	vbox.getChildren().add(new CharacterChanger(player,myBuilder,myRoot).getGroup());
+        SoundPlayer soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
+        soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
+        vbox.getChildren().add(soundPlayer.getGroup());
     }
     
     public void initStats() {
