@@ -13,6 +13,7 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import editor.EditorController;
+import grid.GridGrowthDirection;
 
 /**
  * 
@@ -38,7 +39,7 @@ public class GridPane implements Observer{
 
     private ColorAdjust hoverOpacity;
     private GridObjectMap gridMap;
-    private GridPaneNode def;
+    //private GridPaneNode def;
     
     private ImageView player;
 
@@ -63,7 +64,6 @@ public class GridPane implements Observer{
         this.renderTopLeftY = renderTopLeftY;
         this.clickType = "";
 
-        def = new GridPaneNode(0, 0, defaultText());
         initializeGrid();
         setRenderMap();
     }
@@ -158,6 +158,7 @@ public class GridPane implements Observer{
 
     private void setEmptyToDefault (GridPaneNode node) {
         if (gridMap.available(node.getCol(), node.getRow())) {
+            GridPaneNode def = new GridPaneNode(0, 0, defaultText());
             node.swap(def, node.getImageNum());
         }
     }
@@ -184,6 +185,7 @@ public class GridPane implements Observer{
         this.clicked = new ArrayList<GridPaneNode>();
         grid = new GridPaneNode[(int) height][(int) width];
     }
+    
 
 
     public void nodeClick(GameObject obj, EditorController control, String name, List<String> imagePaths){
@@ -343,6 +345,10 @@ public class GridPane implements Observer{
 
     public void setNodes (List<GridPaneNode> list) {
         this.blockList = list;
+    }
+    
+    public void setGridArray (GridPaneNode[][] gridArray){
+        this.grid = gridArray;
     }
 
     public Group getGroup () {
