@@ -69,7 +69,7 @@ public class VoogaAnimation implements Observer {
 		setDefaultKeyBindings();
 		gridLayout = grid.getGroup();
 		ec.addObserver(this);
-		interactionHandler = new InteractionHandler();
+		interactionHandler = new InteractionHandler(root, uiBuilder);
 	}
 
 	private void setDefaultKeyBindings() {
@@ -164,13 +164,14 @@ public class VoogaAnimation implements Observer {
 		if (update == PlayerUpdate.DIRECTION) {
 			processDirect(stack.peek());
 		}
-		System.out.println("MESSAGE");
 		handleInteractions();
 	}
 
 	private void handleInteractions() {
-        for (BlockUpdate blockUpdate : ec.getInteractions()) {
-            interactionHandler.handleUpdate(blockUpdate);
+        System.out.println("interactions");
+	    for (BlockUpdate blockUpdate : ec.getInteractions()) {
+            System.out.println("hi");
+	        interactionHandler.handleUpdate(blockUpdate);
         }
     }
 

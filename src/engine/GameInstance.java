@@ -107,7 +107,7 @@ public class GameInstance extends Observable implements IGameInstance {
 				break;
 			case TALK:
 			    Block block = blockInFacedDirection(row, col, direction);
-				blockUpdates = block.talkInteract(myPlayer);
+			    blockUpdates = block.talkInteract(myPlayer);
 				playerUpdate = PlayerUpdate.TALK;
 				setChanged();
 			default:
