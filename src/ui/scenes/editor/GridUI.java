@@ -9,6 +9,7 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.input.MouseButton;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
+import ui.scenes.editor.sidemenu.EditorControls;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import java.util.*;
 /**
@@ -28,9 +29,9 @@ public class GridUI extends Observable{
     private ScrollAnimation scrollAnimation;
     private GridScrollButton gsb;
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
-    public GridUI(Parent root, EditorController controller, ItemSideMenu itemMenu, int width, int height) {
+    public GridUI(Parent root, EditorController controller, EditorControls sideMenu, int width, int height) {
         myRoot = root;
-        myItemMenu = itemMenu;
+        myItemMenu = sideMenu.getMyItemMenu();
         myController = controller;
         myResources = ResourceBundle.getBundle(EDITOR_RESOURCES);
         myUtil = new PropertiesUtilities(myResources);
@@ -99,5 +100,9 @@ public class GridUI extends Observable{
     }
     public GridScrollButton getScrollMechanism() {
         return gsb;
+    }
+    
+    private void setupObservable(){
+        myItemMenu.addObserver(myGridPane);
     }
 }
