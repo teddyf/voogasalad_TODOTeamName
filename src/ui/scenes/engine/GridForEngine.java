@@ -367,7 +367,7 @@ public class GridForEngine {
 
     public boolean reRender(int row, int col, String newPath) {
         GridPaneNode newGPN = new GridPaneNode(row, col, newPath);
-        GridPaneNode temp = grid[row][col];
+        GridPaneNode temp = grid[row + WRAP/2][col + WRAP/2];
                 temp.swap(newGPN, 0);
         blockList.set(row*col+row, newGPN);
         ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
