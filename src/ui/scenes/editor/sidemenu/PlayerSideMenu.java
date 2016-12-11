@@ -104,6 +104,7 @@ public class PlayerSideMenu extends SideMenu {
     }
     
     public List<String> getImagePaths(){
+        System.out.println("robertsuxdick" + mySelectedPaths);
         return mySelectedPaths;
     }
     

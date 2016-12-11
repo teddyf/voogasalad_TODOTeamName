@@ -1,6 +1,9 @@
 package exceptions;
 
 /**
+ * Exception thrown in the editor when the user attempts to place their player character in a block which the player
+ * should not be able to walk on.
+ *
  * @author Filip Mazurek
  */
 public class BadPlayerPlacementException extends Exception implements Alert {

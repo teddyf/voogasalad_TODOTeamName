@@ -86,8 +86,10 @@ class EditorIO {
         Stage gameStage = new Stage();
         EngineView gameView = new EngineView(gameStage, new Group());
         EngineController engineController = myEditorController.runEngine();
-        gameView.setController(engineController);
-        gameView.runInstance();
-        gameStage.setScene(gameView);
+        if (engineController != null) {
+            gameView.setController(engineController);
+            gameView.runInstance();
+            gameStage.setScene(gameView);
+        }
     }
 }
