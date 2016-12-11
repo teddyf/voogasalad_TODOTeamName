@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,12 +24,12 @@ import resources.properties.PropertiesUtilities;
 public class SnapShot {
 	
 	private Group group;
-	private GameEngine gameEngine;
+	private EngineView gameEngine;
 	private PropertiesUtilities util;
 	private ResourceBundle resources;
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 	
-	 SnapShot(GameEngine gameEngine) {
+	 SnapShot(EngineView gameEngine) {
 		group = new Group();
 		this.gameEngine = gameEngine;
 		resources = ResourceBundle.getBundle(ENGINE_RESOURCES);

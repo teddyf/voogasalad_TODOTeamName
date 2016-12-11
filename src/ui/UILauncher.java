@@ -1,12 +1,10 @@
 package ui;
 
 import ui.scenes.editor.EditorView;
-import ui.scenes.engine.GameEngine;
-import ui.builder.UIBuilder;
+import ui.scenes.engine.EngineView;
 import ui.scenes.MainMenu;
 import editor.EditorController;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -22,8 +20,6 @@ public class UILauncher {
     private Stage myStage;
     private MainMenu myMainMenu;
     private EditorController myController;
-    private Scene prevEditor;
-    private Scene prevCharEditor;
 
     public UILauncher(Stage stage) {
         myStage = stage;
@@ -35,10 +31,9 @@ public class UILauncher {
      * Navigates to the game engine
      */
     public void launchEngine() {
-        GameEngine engine = new GameEngine(myStage, new Group(), this);
+        EngineView engine = new EngineView(myStage, new Group(), this);
         if (engine.init()) { // successfully opened a game file
             myStage.setScene(engine);
-            
         }
     }
 
@@ -53,7 +48,6 @@ public class UILauncher {
            launchMenu();
         });
         editor.initEditor();
-        prevEditor = editor;
     }
 
     /**

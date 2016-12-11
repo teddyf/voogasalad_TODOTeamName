@@ -5,7 +5,6 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.stage.Stage;
 import ui.builder.UIBuilder;
-import ui.scenes.editor.EditorEvents;
 
 import java.util.ResourceBundle;
 
@@ -15,7 +14,7 @@ import java.util.ResourceBundle;
  *         <p>
  *         This class initializes the menu bar for the game editor.
  */
-public class MenuBarUI {
+class MenuBarUI {
 
     private Stage myStage;
     private Parent myRoot;
@@ -24,7 +23,7 @@ public class MenuBarUI {
 
     private EditorEvents myEditorEvents;
 
-    public MenuBarUI(Stage stage, Parent root, EditorEvents editorEvents, ResourceBundle resources) {
+    MenuBarUI(Stage stage, Parent root, EditorEvents editorEvents, ResourceBundle resources) {
         myStage = stage;
         myRoot = root;
         myEditorEvents = editorEvents;
@@ -37,7 +36,7 @@ public class MenuBarUI {
      * Creates the menu bar at the top of the screen which encompasses basic
      * editor functionality (i.e. opening and saving game files)
      */
-    public void initMenuBar() {
+    void initMenuBar() {
         MenuBar menu = new MenuBar();
         menu.prefWidthProperty().bind(myStage.widthProperty());
         Menu firstMenu = new Menu(myResources.getString("firstMenu"));
