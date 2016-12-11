@@ -15,7 +15,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-
 /**
  * @author Robert Steilberg
  *         <p>
@@ -23,7 +22,6 @@ import java.util.ResourceBundle;
  *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
-
     private ResourceBundle myResources;
     private EditorController myController;
     private String selectedPlayerImagePath = "";
@@ -55,7 +53,6 @@ public class PlayerSideMenu extends SideMenu {
 
         File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
-
         if (images != null) {
             for (String image : images) {
                 if (image.contains("down")) {
@@ -65,8 +62,8 @@ public class PlayerSideMenu extends SideMenu {
                             .width(util.getIntProperty("spriteWidth"))
                             .preserveRatio(true)
                             .id(myResources.getString("spriteCSSid")));
-
                     sprite.setOnMouseClicked(e -> {
+                        
                         for (Node otherSprite : sprites.getChildren()) {
                             resetHoverEffect(otherSprite);
                         }
@@ -83,7 +80,8 @@ public class PlayerSideMenu extends SideMenu {
                                 }
                             }
                         }
-                        myController.addPlayer(mySelectedPaths, "name", 0, 0);
+                        setChanged();
+                        notifyObservers(mySelectedPaths);
                     });
                     sprites.getChildren().add(sprite);
                 }
@@ -91,7 +89,6 @@ public class PlayerSideMenu extends SideMenu {
         }
         return sprites;
     }
-
     /**
      * Adds the tabs to the player side menu
      */
@@ -105,4 +102,9 @@ public class PlayerSideMenu extends SideMenu {
 
         myPanel.getTabs().addAll(spriteTab, enemyTab);
     }
+    
+    public List<String> getImagePaths(){
+        return mySelectedPaths;
+    }
+    
 }

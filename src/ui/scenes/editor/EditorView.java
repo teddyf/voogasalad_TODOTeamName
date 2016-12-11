@@ -52,7 +52,7 @@ public class EditorView extends Scene implements GameEditorAlerts {
     void launchEditor(int width, int height) {
         myBuilder.initWindow(myStage, EDITOR_RESOURCES);
         EditorControls sideControls = new EditorControls(myRoot, myResources, myController);
-        GridUI grid = new GridUI(myRoot, myController, sideControls.getMyItemMenu(), width, height);
+        GridUI grid = new GridUI(myRoot, myController, sideControls, width, height);
 
 
 

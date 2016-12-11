@@ -9,7 +9,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import ui.builder.ComponentProperties;
-import ui.media.SoundChooser;
+import ui.builder.UIBuilder;
+import java.util.ResourceBundle;
+import ui.builder.ComponentProperties;
+import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
 
@@ -21,7 +24,8 @@ import java.util.ResourceBundle;
 public class GridSideMenu extends SideMenu {
 
     private EditorController myEditorController;
-
+    private boolean clickedStatus;
+    
     GridSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
         super(root, resources);
         myEditorController = editorController;
@@ -50,7 +54,9 @@ public class GridSideMenu extends SideMenu {
         Pane linkPanel = new Pane();
         Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
         button.setOnMouseClicked(e -> {
-
+            setChanged();
+            changeStatus();
+            notifyObservers(clickedStatus);
         });
         return new ScrollPane(linkPanel);
     }
@@ -104,6 +110,13 @@ public class GridSideMenu extends SideMenu {
         Tab musicTab = createTab("Music",createMusicPane());
         myPanel.getTabs().addAll(resizeTab,linkTab,musicTab);
     }
+    
+    public void changeStatus(){
+        if(clickedStatus == true){
+            clickedStatus = false;
+        }
+        else
+            clickedStatus = true;
+    }
 
 }
-
