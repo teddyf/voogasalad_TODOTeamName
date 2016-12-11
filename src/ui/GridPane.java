@@ -4,6 +4,7 @@ import block.BlockType;
 import ui.scenes.editor.GridUI;
 import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.Player1;
+import ui.scenes.editor.sidemenu.GridSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -244,6 +245,8 @@ public class GridPane implements Observer{
     public void buildPlayer(EditorController control, String name, List<String> imagePaths){
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
+        System.out.println(col);
+        System.out.println(row);
         control.addPlayer(imagePaths, name, row, col);
         player.setLayoutX(getXRender(col));
         player.setLayoutY(getYRender(row));
@@ -431,11 +434,17 @@ public class GridPane implements Observer{
 
     @Override
     public void update (Observable o, Object arg) {
+        //System.out.println("here");
         if(o instanceof PlayerSideMenu){
             clickType = "PLAYER";
+            System.out.println(((PlayerSideMenu) o).getImagePaths());
         }
-        else if(o instanceof GridUI){
+        else if(o instanceof GridSideMenu){
             clickType = "LINK";
+            System.out.println(clickType);
+        }
+        else{
+            System.out.println("fuck off Robert");
         }
     }
 

@@ -19,15 +19,15 @@ import java.util.ResourceBundle;
  *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
-    
-    private boolean clickedStatus;
     private ResourceBundle myResources;
     private EditorController myController;
-    private String selectedPlayerImagePath = null;
+    private String selectedPlayerImagePath = "";
+    private List<String> mySelectedPaths;
     PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
         super(root, resources);
         myResources = resources;
         myController = controller;
+        mySelectedPaths = new ArrayList<>();
         init();
     }
     /**
@@ -41,36 +41,38 @@ public class PlayerSideMenu extends SideMenu {
         FlowPane sprites = createFlowPane();
         File file = new File(myResources.getString("rawSpritePath"));
         String[] images = file.list();
-        List<String> names = new ArrayList<>();
-        for (String image : images) {
-            if (image.contains("down")) {
-                String imagePath = myResources.getString("spritePath") + image;
-                names.add(imagePath);
-                Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
-                        .path(imagePath)
-                        .width(util.getIntProperty("spriteWidth"))
-                        .preserveRatio(true)
-                        .id(myResources.getString("spriteCSSid")));
-//                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
-//                sprite.setOnMouseClicked(e -> selectedPlayerImagePath = imagePath);
-                sprite.setOnMouseClicked(e -> {
-                    changeStatus();
-                    notifyObservers(clickedStatus);
-                    for (Node otherSprite : sprites.getChildren()) {
-                        otherSprite.setStyle(myResources.getString("deselectedEffect"));
-                        otherSprite.setOnMouseEntered(f -> otherSprite.setStyle(myResources.getString("selectedEffect")));
-                        otherSprite.setOnMouseExited(f -> otherSprite.setStyle(myResources.getString("deselectedEffect")));
-                    }
-                    if (selectedPlayerImagePath != imagePath) {
-                        sprite.setStyle(myResources.getString("selectedEffect"));
-                        sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
-                        selectedPlayerImagePath = imagePath;
-                    } else {
-                        selectedPlayerImagePath = null;
-                    }
-                });
-//                sprite.setOnMouseClicked(e -> myController.addPlayer(names, "name", 0, 0));
-                sprites.getChildren().add(sprite);
+        if (images != null) {
+            for (String image : images) {
+                if (image.contains("down")) {
+                    String imagePath = myResources.getString("spritePath") + image;
+                    Node sprite = builder.addNewImageView(myRoot, new ComponentProperties()
+                            .path(imagePath)
+                            .width(util.getIntProperty("spriteWidth"))
+                            .preserveRatio(true)
+                            .id(myResources.getString("spriteCSSid")));
+                    sprite.setOnMouseClicked(e -> {
+                        
+                        for (Node otherSprite : sprites.getChildren()) {
+                            resetHoverEffect(otherSprite);
+                        }
+                        if (selectedPlayerImagePath.equals(imagePath)) {
+                            // deselect
+                            selectedPlayerImagePath = "";
+                        } else {
+                            sprite.setStyle(myResources.getString("selectedEffect"));
+                            sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
+                            mySelectedPaths.clear();
+                            for (String i : images) {
+                                if (i.startsWith(image.substring(0, 1))) {
+                                    mySelectedPaths.add(myResources.getString("spritePath") + i);
+                                }
+                            }
+                        }
+                        setChanged();
+                        notifyObservers(mySelectedPaths);
+                    });
+                    sprites.getChildren().add(sprite);
+                }
             }
         }
         return sprites;
@@ -90,18 +92,8 @@ public class PlayerSideMenu extends SideMenu {
         myPanel.getTabs().addAll(tabs);
     }
     
-    
-    
-    public void changeStatus(){
-        if(clickedStatus == true){
-            clickedStatus = false;
-        }
-        else
-            clickedStatus = true;
-    }
-    
-    public List<String> getImagePath(){
-        return selectedPlayerImagePaths;
+    public List<String> getImagePaths(){
+        return mySelectedPaths;
     }
     
 }

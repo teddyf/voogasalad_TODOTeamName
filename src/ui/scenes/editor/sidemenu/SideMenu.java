@@ -2,6 +2,7 @@ package ui.scenes.editor.sidemenu;
 
 import javafx.geometry.Insets;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -49,6 +50,12 @@ public abstract class SideMenu extends Observable{
         itemPane.setPadding(new Insets(padding));
         itemPane.setPrefWrapLength(myUtil.getIntProperty("sidePanelWidth") - 50);
         return itemPane;
+    }
+
+    void resetHoverEffect(Node obj) {
+        obj.setStyle(myResources.getString("deselectedEffect"));
+        obj.setOnMouseEntered(f -> obj.setStyle(myResources.getString("selectedEffect")));
+        obj.setOnMouseExited(f -> obj.setStyle(myResources.getString("deselectedEffect")));
     }
 
     /**

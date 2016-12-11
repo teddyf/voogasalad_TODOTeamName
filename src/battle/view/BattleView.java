@@ -106,8 +106,8 @@ public class BattleView implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		player.setHP(model.getPlayerHP());
-		enemy.setHP(model.getEnemyHP());
+		player.setHP((int) model.getPlayerHP());
+		enemy.setHP((int) model.getEnemyHP());
 
 		if (model.checkPlayerLost()) {
 			lose();

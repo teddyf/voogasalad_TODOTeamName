@@ -47,6 +47,7 @@ public class GridSideMenu extends SideMenu {
         Pane linkPanel = new Pane();
         Node button = myBuilder.addCustomButton(linkPanel,"LINK",20,20,100);
         button.setOnMouseClicked(e -> {
+            setChanged();
             changeStatus();
             notifyObservers(clickedStatus);
         });

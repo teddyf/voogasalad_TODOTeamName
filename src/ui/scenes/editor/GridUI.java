@@ -10,6 +10,7 @@ import javafx.scene.input.MouseButton;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.sidemenu.EditorControls;
+import ui.scenes.editor.sidemenu.GridSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import java.util.*;
@@ -31,6 +32,7 @@ public class GridUI extends Observable{
     private GridScrollButton gsb;
     private PlayerSideMenu playerMenu;
     private EditorControls sideControls;
+    private GridSideMenu gridSideMenu;
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
     public GridUI(Parent root, EditorController controller, EditorControls sideMenu, int width, int height) {
         myRoot = root;
@@ -42,6 +44,7 @@ public class GridUI extends Observable{
         sideControls = sideMenu;
         myBuilder = new UIBuilder();
         hoverOpacity = new ColorAdjust();
+        gridSideMenu = sideMenu.getGridSideMenu();
         initGrid(width, height);
     }
     /**
@@ -63,6 +66,7 @@ public class GridUI extends Observable{
                 new ScrollAnimation(myGridPane.getGroup(), myGridPane.getXMin(),
                         myGridPane.getYMin());
         gsb = new GridScrollButton(myRoot, scrollAnimation);
+        setupObservable();
     }
     /**
      * Configures grid event handlers that allow the user to add and remove
@@ -97,8 +101,8 @@ public class GridUI extends Observable{
                 if (e.getButton() == MouseButton.SECONDARY) {
                     myGridPane.delete();
                 } else {
-                    myGridPane.swap(myItemMenu.getSelected(),
-                            myController);
+                    myGridPane.nodeClick(myItemMenu.getSelected(),
+                            myController, "Teddy", playerMenu.getImagePaths());
                 }
             });
         }
@@ -108,7 +112,7 @@ public class GridUI extends Observable{
     }
     
     private void setupObservable(){
-        myItemMenu.addObserver(myGridPane);
-        
+        gridSideMenu.addObserver(myGridPane);
+        playerMenu.addObserver(myGridPane);
     }
 }
