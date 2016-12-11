@@ -69,7 +69,6 @@ public abstract class ItemView {
 	public void setHP(double hp) {
 		this.hp = hp;
 		// itemHP.setText("HP: " + hp);
-		// System.out.println("hp changed!");
 	}
 
 }
