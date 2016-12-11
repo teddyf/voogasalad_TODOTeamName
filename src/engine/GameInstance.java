@@ -195,7 +195,10 @@ public class GameInstance extends Observable implements IGameInstance {
     }
 
     public List<BlockUpdate> getInteractions() {
-        return blockUpdates;
+        List<BlockUpdate> tempList = new ArrayList<>();
+        tempList.addAll(blockUpdates);
+        blockUpdates.clear();
+        return tempList;
     }
 
     public void handleInteraction() {
