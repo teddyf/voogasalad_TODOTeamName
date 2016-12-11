@@ -16,7 +16,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -27,7 +26,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -38,7 +36,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -49,7 +46,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -60,7 +56,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -71,7 +66,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -82,7 +76,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -93,7 +86,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -104,7 +96,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -115,7 +106,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -126,7 +116,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -137,7 +126,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -148,7 +136,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -159,7 +146,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -170,7 +156,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -181,7 +166,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -192,7 +176,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -203,7 +186,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -214,7 +196,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -225,7 +206,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -236,7 +216,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -247,7 +226,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -258,7 +236,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -269,7 +246,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -280,7 +256,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -293,7 +268,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -304,7 +278,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -315,7 +288,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -326,7 +298,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -337,7 +308,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -348,7 +318,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -359,7 +328,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -370,7 +338,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -381,7 +348,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -392,7 +358,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -403,7 +368,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -414,7 +378,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -425,7 +388,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -436,7 +398,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -447,7 +408,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -458,7 +418,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -469,7 +428,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -480,7 +438,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -491,7 +448,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -502,7 +458,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -513,7 +468,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -524,7 +478,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -535,7 +488,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -546,7 +498,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -557,7 +508,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -570,7 +520,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -581,7 +530,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -592,7 +540,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -603,7 +550,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -614,7 +560,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -625,7 +570,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -636,7 +580,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -647,7 +590,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -658,7 +600,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -669,7 +610,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -680,7 +620,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -691,7 +630,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -702,7 +640,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -713,7 +650,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -724,7 +660,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -735,7 +670,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -746,7 +680,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -757,7 +690,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -768,7 +700,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -779,7 +710,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -790,7 +720,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -801,7 +730,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -812,7 +740,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -823,7 +750,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -834,7 +760,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -847,7 +772,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -858,7 +782,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -869,7 +792,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -880,7 +802,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -891,7 +812,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -902,7 +822,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -913,7 +832,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -924,7 +842,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -935,7 +852,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -946,7 +862,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -957,7 +872,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -968,7 +882,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -979,7 +892,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -990,7 +902,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1001,7 +912,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1012,7 +922,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1023,7 +932,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1034,7 +942,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1045,7 +952,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1056,7 +962,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1067,7 +972,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1078,7 +982,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1089,7 +992,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1100,7 +1002,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1111,7 +1012,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -1124,7 +1024,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1135,7 +1034,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1146,7 +1044,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1157,7 +1054,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1168,7 +1064,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1179,7 +1074,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1190,7 +1084,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1201,7 +1094,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1212,7 +1104,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1223,7 +1114,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1234,7 +1124,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1245,7 +1134,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1256,7 +1144,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1267,7 +1154,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1278,7 +1164,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1289,7 +1174,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1300,7 +1184,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1311,7 +1194,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1322,7 +1204,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1333,7 +1214,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1344,7 +1224,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1355,7 +1234,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1366,7 +1244,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1377,7 +1254,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1388,7 +1264,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -1401,7 +1276,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1412,7 +1286,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1423,7 +1296,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1434,7 +1306,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1445,7 +1316,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1456,7 +1326,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1467,7 +1336,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1478,7 +1346,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1489,7 +1356,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1500,7 +1366,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1511,7 +1376,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1522,7 +1386,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1533,7 +1396,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1544,7 +1406,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1555,7 +1416,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1566,7 +1426,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1577,7 +1436,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1588,7 +1446,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1599,7 +1456,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1610,7 +1466,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1621,7 +1476,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1632,7 +1486,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1643,7 +1496,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1654,7 +1506,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1665,7 +1516,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -1678,7 +1528,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1689,7 +1538,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1700,7 +1548,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1711,7 +1558,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1722,7 +1568,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1733,7 +1578,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1744,7 +1588,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1755,7 +1598,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1766,7 +1608,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1777,7 +1618,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1788,7 +1628,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1799,7 +1638,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1810,7 +1648,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1821,7 +1658,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1832,7 +1668,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1843,7 +1678,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1854,7 +1688,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1865,7 +1698,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1876,7 +1708,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1887,7 +1718,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1898,7 +1728,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1909,7 +1738,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1920,7 +1748,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1931,7 +1758,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1942,7 +1768,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -1955,7 +1780,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1966,7 +1790,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1977,7 +1800,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1988,7 +1810,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -1999,7 +1820,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2010,7 +1830,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2021,7 +1840,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2032,7 +1850,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2043,7 +1860,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2054,7 +1870,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2065,7 +1880,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2076,7 +1890,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2087,7 +1900,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2098,7 +1910,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2109,7 +1920,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2120,7 +1930,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2131,7 +1940,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2142,7 +1950,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2153,7 +1960,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2164,7 +1970,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2175,7 +1980,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2186,7 +1990,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2197,7 +2000,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2208,7 +2010,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2219,7 +2020,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -2232,7 +2032,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2243,7 +2042,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2254,7 +2052,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2265,7 +2062,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2276,7 +2072,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2287,7 +2082,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2298,7 +2092,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2309,7 +2102,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2320,7 +2112,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2331,7 +2122,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2342,7 +2132,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2353,7 +2142,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2364,7 +2152,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2375,7 +2162,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2386,7 +2172,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2397,7 +2182,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2408,7 +2192,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2419,7 +2202,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2430,7 +2212,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2441,7 +2222,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2452,7 +2232,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2463,7 +2242,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2474,7 +2252,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2485,7 +2262,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2496,7 +2272,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -2509,7 +2284,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2520,7 +2294,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2531,7 +2304,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2542,7 +2314,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2553,7 +2324,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2564,7 +2334,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2575,7 +2344,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2586,7 +2354,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2597,7 +2364,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2608,7 +2374,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2619,7 +2384,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2630,7 +2394,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2641,7 +2404,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2652,7 +2414,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2663,7 +2424,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2674,7 +2434,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2685,7 +2444,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2696,7 +2454,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2707,7 +2464,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2718,7 +2474,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2729,7 +2484,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2740,7 +2494,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2751,7 +2504,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2762,7 +2514,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2773,7 +2524,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -2786,7 +2536,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2797,7 +2546,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2808,7 +2556,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2819,7 +2566,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2830,7 +2576,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2841,7 +2586,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2852,7 +2596,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2863,7 +2606,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2874,7 +2616,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2885,7 +2626,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2896,7 +2636,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2907,7 +2646,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2918,7 +2656,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2929,7 +2666,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2940,7 +2676,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2951,7 +2686,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2962,7 +2696,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2973,7 +2706,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2984,7 +2716,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -2995,7 +2726,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3006,7 +2736,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3017,7 +2746,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3028,7 +2756,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3039,7 +2766,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3050,7 +2776,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -3063,7 +2788,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3074,7 +2798,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3085,7 +2808,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3096,7 +2818,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3107,7 +2828,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3118,7 +2838,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3129,7 +2848,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3140,7 +2858,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3151,7 +2868,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3162,7 +2878,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3173,7 +2888,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3184,7 +2898,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3195,7 +2908,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3206,7 +2918,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3217,7 +2928,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3228,7 +2938,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3239,7 +2948,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3250,7 +2958,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3261,7 +2968,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3272,7 +2978,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3283,7 +2988,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3294,7 +2998,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3305,7 +3008,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3316,7 +3018,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3327,7 +3028,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -3340,7 +3040,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3351,7 +3050,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3362,7 +3060,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3373,7 +3070,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3384,7 +3080,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3395,7 +3090,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3406,7 +3100,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3417,7 +3110,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3428,7 +3120,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3439,7 +3130,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3450,7 +3140,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3461,7 +3150,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3472,7 +3160,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3483,7 +3170,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3494,7 +3180,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3505,7 +3190,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3516,7 +3200,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3527,7 +3210,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3538,7 +3220,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3549,7 +3230,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3560,7 +3240,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3571,7 +3250,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3582,7 +3260,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3593,7 +3270,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3604,7 +3280,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -3617,7 +3292,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3628,7 +3302,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3639,7 +3312,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3650,7 +3322,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3661,7 +3332,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3672,7 +3342,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3683,7 +3352,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3694,7 +3362,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3705,7 +3372,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -3716,585 +3382,533 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>10</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>11</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>12</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>13</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>14</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>15</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>16</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>17</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>18</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>19</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>20</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>21</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>22</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>23</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>13</myRow>
+          <myCol>24</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+      </block.Block-array>
+      <block.Block-array>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>0</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>1</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>2</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>3</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>4</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>5</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>6</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>8</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>9</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>10</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>11</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>12</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>13</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>14</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>15</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>16</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>17</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>18</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>19</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>20</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>21</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>22</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>23</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>14</myRow>
+          <myCol>24</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+      </block.Block-array>
+      <block.Block-array>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>15</myRow>
+          <myCol>0</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>15</myRow>
+          <myCol>1</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>15</myRow>
+          <myCol>2</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>15</myRow>
+          <myCol>3</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>15</myRow>
+          <myCol>4</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>15</myRow>
+          <myCol>5</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>15</myRow>
+          <myCol>6</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>15</myRow>
+          <myCol>7</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
         </block.DecorationBlock>
         <block.EnemyBlock>
           <changed>false</changed>
           <obs/>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
-          <myRow>13</myRow>
-          <myCol>10</myCol>
+          <myRow>15</myRow>
+          <myCol>8</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
           <health>100.0</health>
         </block.EnemyBlock>
         <block.EnemyBlock>
           <changed>false</changed>
           <obs/>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
-          <myRow>13</myRow>
-          <myCol>11</myCol>
+          <myRow>15</myRow>
+          <myCol>9</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
+          <health>100.0</health>
+        </block.EnemyBlock>
+        <block.EnemyBlock>
+          <changed>false</changed>
+          <obs/>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
+          <myRow>15</myRow>
+          <myCol>10</myCol>
+          <isWalkable>false</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
           <health>100.0</health>
         </block.EnemyBlock>
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>12</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>13</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>14</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>15</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>16</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>17</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>18</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>19</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>20</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>21</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>22</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>23</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>13</myRow>
-          <myCol>24</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>0</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>1</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>2</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>3</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>4</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>5</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>6</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>8</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>9</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>10</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>11</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>12</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>13</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>14</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>15</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>16</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>17</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>18</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>19</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>20</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>21</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>22</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>23</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>14</myRow>
-          <myCol>24</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>0</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>1</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>2</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>3</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>4</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>5</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>6</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>8</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>9</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>15</myRow>
-          <myCol>10</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <changed>false</changed>
-          <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>15</myRow>
           <myCol>11</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4305,7 +3919,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4316,7 +3929,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4327,7 +3939,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4338,7 +3949,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4349,7 +3959,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4360,7 +3969,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4371,7 +3979,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4382,7 +3989,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4393,7 +3999,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4404,7 +4009,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4415,7 +4019,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4426,7 +4029,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4437,7 +4039,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -4450,7 +4051,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4461,7 +4061,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4472,7 +4071,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4483,7 +4081,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4494,7 +4091,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4505,7 +4101,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4516,7 +4111,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4527,7 +4121,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4538,7 +4131,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4549,7 +4141,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4560,7 +4151,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4571,7 +4161,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4582,7 +4171,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4593,7 +4181,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4604,7 +4191,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4615,7 +4201,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4626,7 +4211,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4637,7 +4221,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4648,7 +4231,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4659,7 +4241,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4670,7 +4251,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4681,7 +4261,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4692,7 +4271,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4703,7 +4281,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4714,7 +4291,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -4727,7 +4303,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4738,7 +4313,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4749,7 +4323,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4760,7 +4333,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4771,7 +4343,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4782,7 +4353,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4793,7 +4363,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4804,19 +4373,18 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
+        <block.SwitchFloorBlock>
           <changed>false</changed>
           <obs/>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-1.png</myName>
           <myRow>17</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
-        </block.DecorationBlock>
+          <myGates/>
+        </block.SwitchFloorBlock>
         <block.DecorationBlock>
           <changed>false</changed>
           <obs/>
@@ -4826,7 +4394,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4837,7 +4404,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4848,7 +4414,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4859,7 +4424,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4870,7 +4434,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4881,7 +4444,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4892,7 +4454,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4903,7 +4464,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4914,7 +4474,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4925,7 +4484,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4936,7 +4494,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4947,7 +4504,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4958,7 +4514,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4969,7 +4524,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4980,7 +4534,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -4991,7 +4544,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -5004,7 +4556,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5015,7 +4566,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5026,7 +4576,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5037,7 +4586,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5048,7 +4596,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5059,7 +4606,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5070,7 +4616,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5081,7 +4626,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5092,7 +4636,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5103,7 +4646,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5114,7 +4656,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5125,7 +4666,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5136,7 +4676,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5147,7 +4686,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5158,7 +4696,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5169,7 +4706,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5180,7 +4716,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5191,7 +4726,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5202,7 +4736,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5213,7 +4746,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5224,7 +4756,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5235,7 +4766,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5246,7 +4776,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5257,7 +4786,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5268,7 +4796,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -5281,7 +4808,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5292,7 +4818,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5303,7 +4828,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5314,7 +4838,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5325,7 +4848,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5336,7 +4858,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5347,7 +4868,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5358,7 +4878,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5369,7 +4888,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5380,7 +4898,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5391,7 +4908,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5402,7 +4918,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5413,7 +4928,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5424,7 +4938,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5435,7 +4948,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5446,7 +4958,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5457,7 +4968,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5468,7 +4978,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5479,7 +4988,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5490,7 +4998,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5501,7 +5008,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5512,7 +5018,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5523,7 +5028,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5534,7 +5038,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5545,7 +5048,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -5558,7 +5060,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5569,7 +5070,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5580,7 +5080,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5591,7 +5090,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5602,7 +5100,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5613,7 +5110,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5624,7 +5120,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5635,7 +5130,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5646,7 +5140,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5657,7 +5150,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5668,7 +5160,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5679,7 +5170,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5690,7 +5180,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5701,7 +5190,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5712,7 +5200,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5723,7 +5210,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5734,7 +5220,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5745,7 +5230,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5756,7 +5240,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5767,7 +5250,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5778,7 +5260,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5789,7 +5270,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5800,7 +5280,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5811,7 +5290,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5822,7 +5300,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -5835,7 +5312,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5846,7 +5322,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5857,7 +5332,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5868,7 +5342,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5879,7 +5352,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5890,7 +5362,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5901,7 +5372,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5912,7 +5382,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5923,7 +5392,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5934,7 +5402,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5945,7 +5412,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5956,7 +5422,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5967,7 +5432,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5978,7 +5442,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -5989,7 +5452,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6000,7 +5462,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6011,7 +5472,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6022,7 +5482,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6033,7 +5492,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6044,7 +5502,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6055,7 +5512,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6066,7 +5522,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6077,7 +5532,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6088,7 +5542,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6099,7 +5552,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -6112,7 +5564,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6123,7 +5574,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6134,7 +5584,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6145,7 +5594,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6156,7 +5604,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6167,7 +5614,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6178,7 +5624,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6189,7 +5634,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6200,7 +5644,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6211,7 +5654,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6222,7 +5664,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6233,7 +5674,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6244,7 +5684,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6255,7 +5694,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6266,7 +5704,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6277,7 +5714,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6288,7 +5724,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6299,7 +5734,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6310,7 +5744,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6321,7 +5754,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6332,7 +5764,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6343,7 +5774,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6354,7 +5784,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6365,7 +5794,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6376,7 +5804,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -6389,7 +5816,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6400,7 +5826,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6411,7 +5836,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6422,7 +5846,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6433,7 +5856,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6444,7 +5866,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6455,7 +5876,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6466,7 +5886,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6477,7 +5896,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6488,7 +5906,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6499,7 +5916,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6510,7 +5926,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6521,7 +5936,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6532,7 +5946,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6543,7 +5956,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6554,7 +5966,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6565,7 +5976,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6576,7 +5986,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6587,7 +5996,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6598,7 +6006,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6609,7 +6016,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6620,7 +6026,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6631,7 +6036,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6642,7 +6046,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6653,7 +6056,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
@@ -6666,7 +6068,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6677,7 +6078,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6688,7 +6088,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6699,7 +6098,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6710,7 +6108,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6721,7 +6118,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6732,7 +6128,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6743,7 +6138,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6754,7 +6148,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6765,7 +6158,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6776,7 +6168,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6787,7 +6178,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6798,7 +6188,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6809,7 +6198,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6820,7 +6208,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6831,7 +6218,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6842,7 +6228,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6853,7 +6238,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6864,7 +6248,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6875,7 +6258,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6886,7 +6268,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6897,7 +6278,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6908,7 +6288,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6919,7 +6298,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
         <block.DecorationBlock>
           <changed>false</changed>
@@ -6930,7 +6308,6 @@
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <blockUpdates/>
         </block.DecorationBlock>
       </block.Block-array>
     </grid>
@@ -6938,7 +6315,16 @@
   <player>
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
-    <myName>resources/images/sprites/3-down.png</myName>
+    <myNames>
+      <string>resources/images/sprites/1-down.png</string>
+      <string>resources/images/sprites/2-down.png</string>
+      <string>resources/images/sprites/3-down.png</string>
+      <string>resources/images/sprites/4-down.png</string>
+      <string>resources/images/sprites/5-down.png</string>
+      <string>resources/images/sprites/6-down.png</string>
+      <string>resources/images/sprites/7-down.png</string>
+      <string>resources/images/sprites/8-down.png</string>
+    </myNames>
     <myPlayerName>name</myPlayerName>
     <myDirection>NORTH</myDirection>
     <myRow>0</myRow>

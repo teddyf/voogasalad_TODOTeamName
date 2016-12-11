@@ -21,6 +21,7 @@ public class GateBlock extends Block {
     /* Changes whether the gate is open or closed. Difference in how it looks and whether the player can walk through it
      */
     public BlockUpdate toggleOpenStatus() {
+        String image = "";
         if(this.isWalkable()) {
             setWalkableStatus(CLOSED);
             isOpen = CLOSED;
@@ -30,6 +31,6 @@ public class GateBlock extends Block {
             isOpen = OPEN;
         }
         // notify front end to render the gate differently
-        return new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol());
+        return new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol(), image);
     }
 }

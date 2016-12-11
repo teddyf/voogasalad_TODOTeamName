@@ -7,14 +7,12 @@ import battle.view.BattleView;
 import block.*;
 import grid.Grid;
 import grid.GridWorld;
-import grid.RenderedGrid;
 import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
 
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.Observable;
 
@@ -29,9 +27,9 @@ public class GameInstance extends Observable implements IGameInstance {
     private static final PlayerDirection SOUTH = PlayerDirection.SOUTH;
     private static final PlayerDirection EAST = PlayerDirection.EAST;
     private static final PlayerDirection WEST = PlayerDirection.WEST;
+
     private GridWorld myGridWorld;
 	private Grid myGrid;
-	private RenderedGrid myRenderedGrid;
     private Player myPlayer;
 	private int myScore;
 	private GameStatus myStatus;
@@ -41,7 +39,6 @@ public class GameInstance extends Observable implements IGameInstance {
 	public GameInstance(Player player, GridWorld gridWorld) {
 	    myGridWorld = gridWorld;
 	    myGrid = myGridWorld.getCurrentGrid();
-	    myRenderedGrid = new RenderedGrid(myGrid);
         myPlayer = player;
 	    myScore = 0;
 		myStatus = new GameStatus();
@@ -56,11 +53,7 @@ public class GameInstance extends Observable implements IGameInstance {
 		return myGrid;
 	}
 
-	public RenderedGrid getRenderedGrid() {
-	    return myRenderedGrid;
-    }
-
-    public Player getPlayer() {
+	public Player getPlayer() {
         return myPlayer;
     }
 
@@ -114,9 +107,9 @@ public class GameInstance extends Observable implements IGameInstance {
 				break;
 			case TALK:
 			    Block block = blockInFacedDirection(row, col, direction);
-				blockUpdates = block.talkInteract(myPlayer);
-				handleInteraction();
-
+			    blockUpdates = block.talkInteract(myPlayer);
+				playerUpdate = PlayerUpdate.TALK;
+				setChanged();
 			default:
 				break;
 		}
@@ -201,6 +194,10 @@ public class GameInstance extends Observable implements IGameInstance {
         }
     }
 
+    public List<BlockUpdate> getInteractions() {
+        return blockUpdates;
+    }
+
     public void handleInteraction() {
         blockUpdates.clear();
     }
@@ -208,6 +205,5 @@ public class GameInstance extends Observable implements IGameInstance {
     public void changeGrid(int index) {
         //myGridWorld.setCurrentIndex(index);
         myGrid = myGridWorld.getCurrentGrid();
-        myRenderedGrid = new RenderedGrid(myGrid);
     }
 }

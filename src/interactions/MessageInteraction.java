@@ -15,15 +15,17 @@ import java.util.List;
 public class MessageInteraction implements TalkInteraction {
     private int myRow;
     private int myCol;
+    private String myMessage;
 
-    public MessageInteraction(int row, int col) {
+    public MessageInteraction(int row, int col, String message) {
         myRow = row;
         myCol = col;
+        myMessage = message;
     }
 
     public List<BlockUpdate> act(Player player) {
         List<BlockUpdate> updateList = new ArrayList<>();
-        updateList.add(new BlockUpdate(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol));
+        updateList.add(new BlockUpdate(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol, myMessage));
         return updateList;
     }
     //TODO we need a real frontend display, in a real frontend class, this is a test method

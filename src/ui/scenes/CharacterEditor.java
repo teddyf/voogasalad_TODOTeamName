@@ -87,7 +87,7 @@ public class CharacterEditor extends Scene{
                 String name = nameP.getText();
                 int x = Integer.parseInt(xP.getText());
                 int y = Integer.parseInt(yP.getText());
-                myController.addPlayer(name, "name", y, x);
+                //myController.addPlayer(name, "name", y, x);
             }
             catch(Exception exc){
                 myBuilder.addNewAlert("Invalid Input", "Enter valid values for player info");

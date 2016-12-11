@@ -4,6 +4,7 @@ package ui.scenes.engine;
 import java.util.*;
 
 //import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import block.BlockUpdate;
 import engine.EngineController;
 import player.PlayerUpdate;
 import engine.UserInstruction;
@@ -49,6 +50,7 @@ public class VoogaAnimation implements Observer {
 	private HashMap<KeyCode, UserInstruction> keyBindings;
 
 	private Group gridLayout;
+	private InteractionHandler interactionHandler;
 
 	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec) {
 		this.root = root;
@@ -67,6 +69,7 @@ public class VoogaAnimation implements Observer {
 		setDefaultKeyBindings();
 		gridLayout = grid.getGroup();
 		ec.addObserver(this);
+		interactionHandler = new InteractionHandler(root, uiBuilder);
 	}
 
 	private void setDefaultKeyBindings() {
@@ -161,7 +164,16 @@ public class VoogaAnimation implements Observer {
 		if (update == PlayerUpdate.DIRECTION) {
 			processDirect(stack.peek());
 		}
+		handleInteractions();
 	}
+
+	private void handleInteractions() {
+        System.out.println("interactions");
+	    for (BlockUpdate blockUpdate : ec.getInteractions()) {
+            System.out.println("hi");
+	        interactionHandler.handleUpdate(blockUpdate);
+        }
+    }
 
 	private void processMove(UserInstruction key) {
 		if (!keyBindings.values().contains(key)) {
