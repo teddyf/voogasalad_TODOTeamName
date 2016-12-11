@@ -7,8 +7,8 @@ package battle.model;
  */
 public enum Difficulty {
 	EASY (10), 
-	MEDIUM (18), 
-	HARD (25);
+	MEDIUM (25),
+	HARD (40);
 	
 	private int value;
 	

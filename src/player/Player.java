@@ -35,10 +35,11 @@ public class Player implements IPlayer {
 	private List<Battle> myBattleHistory;
 	private List<Interaction> myInteractionHistory;
 	private List<Status> myStatus;
-	
+	private int numPokemon;
 	private double health;
 
 	public Player(List<String> names, String playerName, int row, int col, int gridIndex) {
+		numPokemon = 2;
 		myNames = names;
 		myPlayerName = playerName;
 		myDirection = PlayerDirection.NORTH;
@@ -53,6 +54,13 @@ public class Player implements IPlayer {
 		battlesWon = battlesLost = 0;
 		health = DEFAULT_HEALTH;
 	}
+	public int getNumPokemon(){
+		return numPokemon;
+	}
+	public void decrementNumPokemon(){
+		numPokemon--;
+	}
+
 	public int getBattlesWon(){
 		return battlesWon;
 	}
