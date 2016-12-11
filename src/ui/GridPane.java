@@ -229,6 +229,7 @@ public class GridPane implements Observer{
 
 
     public void nodeClick(GameObject obj, EditorController control, String name, List<String> imagePaths){
+        System.out.println(clicked.size());
         if(clicked.size()==1){
             if(clickType.equals("SWAP")){
                 swap(obj, control);

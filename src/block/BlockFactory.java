@@ -18,10 +18,12 @@ public class BlockFactory {
             Class<?> blockClass = Class.forName(myBlockPaths.getString(blockType.toString()));
             Constructor<?> constructor = blockClass.getDeclaredConstructor(String.class, int.class, int.class);
             Object block = constructor.newInstance(name, row, col);
+            System.out.println("HI " + blockClass);
             return (Block) block;
         }
         catch (Exception e) {
             // TODO: can't create a new block
+            System.out.println(e);
         }
         // TODO:  add to resource file
         return new DecorationBlock("resources/images/tiles/ground/grass-1.png", row, col); // TODO: better default? Currently just place a default square
