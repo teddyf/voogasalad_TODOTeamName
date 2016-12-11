@@ -19,7 +19,7 @@ public class GridPaneResizer {
         this.objMap = objMap;
     }
     
-    public void resize(GridGrowthDirection dir){
+    public void resize(GridGrowthDirection dir, int amount){
         if(dir == GridGrowthDirection.RIGHT){
             
         }
@@ -27,7 +27,13 @@ public class GridPaneResizer {
             
         }
         else if(dir == GridGrowthDirection.TOP){
-            
+            if(amount>=0){
+                List<GridPaneNode> blockList = addVerticalBlocks(amount);
+                shiftTopAdd(amount, blockList);
+                gridPane.setGridHeight(gridPane.getHeight()+amount);
+                gridPane.setGridWidth(gridPane.getWidth()+amount);
+                setGridArray(gridPane.getNodeList());
+            }
         }
         else if(dir == GridGrowthDirection.LEFT){
             
@@ -38,7 +44,7 @@ public class GridPaneResizer {
         
     }
     
-    private void addHorizontalBlocks(int amount){
+    private List<GridPaneNode> addHorizontalBlocks(int amount){
         List<GridPaneNode> blockList = gridPane.getNodeList();        
         for(int i = 0; i < gridPane.getHeight(); i++){
             for(int j = 0; j < amount; j++){
@@ -46,20 +52,59 @@ public class GridPaneResizer {
                 blockList.add(temp);
             }    
         }
-        gridPane.setNodes(blockList);
+        return blockList;
     }
     
-    private void addVerticalBlocks(int amount){
+    private List<GridPaneNode> addVerticalBlocks(int amount){
         List<GridPaneNode> blockList = gridPane.getNodeList();  
-        for(int i = 0; i < gridPane.getHeight(); i++){
-            for(int j = (int)gridPane.getWidth(); j < gridPane.getWidth()+amount; j++){
-                GridPaneNode temp = new GridPaneNode(i,amount+j, defaultText());
+        for(int i = 0; i < gridPane.getWidth(); i++){
+            for(int j = (int)gridPane.getHeight(); j < gridPane.getHeight()+amount; j++){
+                GridPaneNode temp = new GridPaneNode(j,i, defaultText());
                 blockList.add(temp);
             }    
         }
-        gridPane.setNodes(blockList);
+        return blockList;
     }
     
+    private void setGridArray(List<GridPaneNode> list){
+        GridPaneNode[][] updatedGrid = new GridPaneNode[(int)gridPane.getWidth()][(int)gridPane.getHeight()];
+        for(int i = 0; i < list.size(); i++){
+            int tempCol = list.get(i).getCol();
+            int tempRow = list.get(i).getRow();
+            updatedGrid[tempCol][tempRow] = list.get(i);
+        }
+        gridPane.setGridArray(updatedGrid);
+    }
+    private void shiftLeftAdd(int amount, List<GridPaneNode> list, GridGrowthDirection dir){
+        for(int i = 0; i < list.size(); i++){
+            GridPaneNode node = list.get(i);
+            int currCol = node.getCol();
+            int currRow = node.getRow();
+            if(currCol < gridPane.getWidth()){
+                node.setCol(currCol++);
+            }
+            if(currCol >= gridPane.getWidth()){
+                node.setCol((int)(node.getCol()-gridPane.getWidth()));
+            }
+            
+        }
+    }
+    
+    private void shiftTopAdd(int amount, List<GridPaneNode> list){
+        for(int i = 0; i < list.size(); i++){
+            GridPaneNode node = list.get(i);
+            int currCol = node.getCol();
+            int currRow = node.getRow();
+            if(currRow < gridPane.getHeight()){
+                node.setRow(currRow++);
+            }
+            if(currRow >= gridPane.getHeight()){
+                node.setRow((int)(node.getRow()-gridPane.getHeight()));
+            }
+            
+        }
+    }
+
     private void reduceBlocks(){
         
     }
@@ -72,28 +117,5 @@ public class GridPaneResizer {
     private int randomNumber (int min, int max) {
         Random rand = new Random();
         return rand.nextInt((max - min) + 1) + min;
-    }
-    private void setGridArray(List<GridPaneNode> list, int row, int col){
-        GridPaneNode[][] updatedGrid = new GridPaneNode[col][row];
-        for(int i = 0; i < list.size(); i++){
-            int tempCol = list.get(i).getCol();
-            int tempRow = list.get(i).getRow();
-            updatedGrid[tempCol][tempRow] = list.get(i);
-        }
-        gridPane.setGridArray(updatedGrid);
-    }
-    
-    private void shiftLeftAdd(int amount, List<GridPaneNode> list, GridGrowthDirection dir){
-        for(int i = 0; i < list.size(); i++){
-            GridPaneNode node = list.get(i);
-            int currCol = node.getCol();
-            int currRow = node.getRow();
-            if(currCol < gridPane.getWidth()){
-                node.setCol(currCol++);
-            }
-            if(currCol >= gridPane.getWidth()){
-                node.setCol((int)(node.getCol()-gridPane.getWidth()));
-            }
-        }
     }
 }
