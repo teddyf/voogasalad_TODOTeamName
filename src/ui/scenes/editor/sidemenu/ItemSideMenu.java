@@ -2,7 +2,6 @@ package ui.scenes.editor.sidemenu;
 
 import block.BlockType;
 
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
@@ -23,10 +22,9 @@ import java.util.ResourceBundle;
  */
 public class ItemSideMenu extends SideMenu {
 
-    private boolean clickedStatus;
     private ItemViewer myViewer;
     private final BlockType[] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
-            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT};
+            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.GATE, BlockType.TELEPORT};
 
     ItemSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);
@@ -73,15 +71,15 @@ public class ItemSideMenu extends SideMenu {
                     .id("game-object"));
             object.setIcon(icon);
             icon.setOnMouseClicked(e -> {
-                        if (myViewer.getSelected() != null) {
-                            // set current to unselected
-                            ImageView oldIcon = myViewer.getSelected().getIcon();
-                            resetHoverEffect(oldIcon);
-                        }
-                        if (myViewer.getSelected() == object) {
-                            // deselect object
-                            resetHoverEffect(object.getIcon());
-                            myViewer.select(null);
+                if (myViewer.getSelected() != null) {
+                    // set current to unselected
+                    ImageView oldIcon = myViewer.getSelected().getIcon();
+                    resetHoverEffect(oldIcon);
+                }
+                if (myViewer.getSelected() == object) {
+                    // deselect object
+                    resetHoverEffect(object.getIcon());
+                    myViewer.select(null);
                 } else {
                     // set new selected to selected
                     setChanged();
@@ -102,5 +100,5 @@ public class ItemSideMenu extends SideMenu {
     public GameObject getSelected() {
         return myViewer.getSelected();
     }
-    
+
 }
