@@ -1,14 +1,13 @@
 package ui.scenes.engine;
 
-import java.util.Observable;
-import java.util.Observer;
+import block.BlockUpdate;
 
 /**
  * This class handles interactions on the front end.
  * @author Aninda Manocha, Filip Mazurek, Bill Xiong
  */
 
-public class InteractionHandler implements Observer {
+public class InteractionHandler {
     public InteractionHandler() {
 
     }
@@ -25,8 +24,17 @@ public class InteractionHandler implements Observer {
 
     }
 
-    @Override
-    public void update(Observable block, Object object) {
-
+    public void handleUpdate(BlockUpdate blockUpdate) {
+        switch (blockUpdate.getType()) {
+            case BATTLE:
+                break;
+            case DISPLAY_MESSAGE:
+                displayMessage(blockUpdate.getContent());
+                break;
+            case RE_RENDER:
+                break;
+            default:
+                break;
+        }
     }
 }
