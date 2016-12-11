@@ -15,7 +15,6 @@ public class CommunicatorBlock extends Block {
 
 	public CommunicatorBlock(String name, int row, int col) {
 		super(name, row, col);
-		setMessage("Waddup fuckers");
 	}
 
 	public void setMessage(String message) {
