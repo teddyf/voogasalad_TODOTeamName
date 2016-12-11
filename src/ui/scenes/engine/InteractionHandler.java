@@ -29,11 +29,7 @@ public class InteractionHandler {
     }
 
     public void displayMessage(String message) {
-        ComponentProperties prop = new ComponentProperties();
-        prop.text(message);
-        prop.height(100);
-        prop.width(600);
-        myUIBuilder.addDialogBubble(myRoot, prop);
+        myUIBuilder.addDialogBubble(myRoot, message);
     }
 
     public static void enterBattle(Player player, EnemyBlock block, Difficulty diff) {

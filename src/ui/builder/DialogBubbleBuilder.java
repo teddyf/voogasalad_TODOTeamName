@@ -1,6 +1,7 @@
 package ui.builder;
 
 
+import java.util.*;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -30,6 +31,14 @@ public class DialogBubbleBuilder implements ComponentBuilder {
 		textArea.setLayoutX(properties.width/20);
 		textArea.setLayoutY(properties.height/10);
 		return dialogBubble;
+	}
+	
+	public List<String> processText(String message) {
+		String splitMessage = message;
+		while (splitMessage.length() > 235) {
+			
+		}
+		
 	}
 	
 }
