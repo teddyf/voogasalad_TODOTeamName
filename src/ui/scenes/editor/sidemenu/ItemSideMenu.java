@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
  */
 public class ItemSideMenu extends SideMenu {
 
+    private boolean clickedStatus;
     private ItemViewer myViewer;
     private final BlockType[] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
             BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.TELEPORT, BlockType.ENEMY};
@@ -83,6 +84,8 @@ public class ItemSideMenu extends SideMenu {
                     myViewer.select(null);
                 } else {
                     // set new selected to selected
+                    setChanged();
+                    notifyObservers(true);
                     object.getIcon().setStyle(myResources.getString("selectedEffect"));
                     object.getIcon().setOnMouseEntered(f -> object.getIcon().setStyle(myResources.getString("selectedEffect")));
                     object.getIcon().setOnMouseExited(f -> object.getIcon().setStyle(myResources.getString("selectedEffect")));

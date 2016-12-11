@@ -114,5 +114,6 @@ public class GridUI extends Observable{
     private void setupObservable(){
         gridSideMenu.addObserver(myGridPane);
         playerMenu.addObserver(myGridPane);
+        myItemMenu.addObserver(myGridPane);
     }
 }

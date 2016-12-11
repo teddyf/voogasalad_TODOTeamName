@@ -5,6 +5,7 @@ import ui.scenes.editor.GridUI;
 import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.Player1;
 import ui.scenes.editor.sidemenu.GridSideMenu;
+import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -39,7 +40,7 @@ public class GridPane implements Observer{
     private GridObjectMap gridMap;
     private GridPaneNode def;
     
-    private Node player;
+    private ImageView player;
 
     private String DEFAULT = "resources/images/tiles/ground/grass-";
     private String clickType;
@@ -240,17 +241,22 @@ public class GridPane implements Observer{
         else if(clicked.size()==2 && clickType.equals("LINK")){
             buildLink(clicked.get(0), clicked.get(1),control);
         }
+        for(int i = 0; i < clicked.size(); i++){
+            clicked.get(i).getImage().setEffect(null);
+        }
     }
     
     public void buildPlayer(EditorController control, String name, List<String> imagePaths){
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
-        System.out.println(col);
-        System.out.println(row);
+        System.out.println(getXRender(col));
+        System.out.println(getYRender(row));
         control.addPlayer(imagePaths, name, row, col);
-        player.setLayoutX(getXRender(col));
-        player.setLayoutY(getYRender(row));
-        ((ImageView) player).setImage(new Image(imagePaths.get(0)));
+        GridPaneNode temp = grid[col][row];
+        temp.swap(new GridPaneNode(row,col,imagePaths.get(0)), 0);
+        ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
+        list.add(temp);
+        gridMap.storeObject(list);
         clicked = new ArrayList<GridPaneNode>();
     }
     
@@ -344,6 +350,7 @@ public class GridPane implements Observer{
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
+        System.out.println("link!");
         return controller.linkBlocks(node1.getBackendRow(), node1.getBackendCol(), 0, node2.getBackendRow(), node2.getBackendCol(), 0);
     }
     
@@ -443,6 +450,11 @@ public class GridPane implements Observer{
             clickType = "LINK";
             System.out.println(clickType);
         }
+        
+        else if(o instanceof ItemSideMenu){
+            clickType = "SWAP";
+        }
+            
         else{
             System.out.println("fuck off Robert");
         }

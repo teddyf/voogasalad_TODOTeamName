@@ -60,6 +60,7 @@ public class GridObjectMap {
         return true;
     }
     
+    
     public void collisionRemoval(int row, int col){
         Point a = new Point(col,row);
         ArrayList<Point>temp = data.get(a);
