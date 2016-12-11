@@ -25,6 +25,7 @@ public class PlayerSideMenu extends SideMenu {
 
     private ResourceBundle myResources;
     private EditorController myController;
+    private String selectedPlayerImagePath;
 
     PlayerSideMenu(Parent root, ResourceBundle resources, EditorController controller) {
         super(root, resources);
@@ -54,6 +55,18 @@ public class PlayerSideMenu extends SideMenu {
                         .width(util.getIntProperty("spriteWidth"))
                         .preserveRatio(true)
                         .id(myResources.getString("spriteCSSid")));
+//                sprite.setOnMouseClicked(e -> myController.addPlayer(imagePath,"name", 0,0));
+//                sprite.setOnMouseClicked(e -> selectedPlayerImagePath = imagePath);
+//
+//                sprite.setOnMouseClicked(e -> {
+//                    if (myViewer.getSelected() != null) {
+//                        myViewer.getSelected().getIcon().setStyle(myResources.getString("deselectedEffect"));
+//                    }
+//                    myViewer.select(object);
+//                    object.getIcon().setStyle(myResources.getString("selectedEffect"));
+//                });
+
+
                 sprite.setOnMouseClicked(e -> myController.addPlayer(names,"name", 0,0));
                 sprites.getChildren().add(sprite);
             }

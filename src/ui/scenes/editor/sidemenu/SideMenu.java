@@ -1,10 +1,12 @@
 package ui.scenes.editor.sidemenu;
 
 import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 
@@ -76,13 +78,13 @@ public abstract class SideMenu {
      * Creates a new tab
      *
      * @param text       the title text for the tab
-     * @param scrollPane the tab's content
+     * @param content the tab's content
      * @return the tab with its content
      */
-    Tab createTab(String text, ScrollPane scrollPane) {
+    Tab createTab(String text, Parent content) {
         Tab newTab = new Tab();
         newTab.setText(text);
-        newTab.setContent(scrollPane);
+        newTab.setContent(content);
         newTab.setClosable(false);
         return newTab;
     }
@@ -107,4 +109,5 @@ public abstract class SideMenu {
     DraggableTabPane getPanel() {
         return myPanel;
     }
+
 }
