@@ -79,6 +79,13 @@ public class GridPaneNode {
     public ImageView getImage() {
         return imageView;
     }
+    
+    public int getBackendRow() {
+        return getRow() - 5;
+    }
+    public int getBackendCol(){
+        return getCol() - 5;
+    }
 
     //Setters
 
