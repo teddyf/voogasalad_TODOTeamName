@@ -22,7 +22,6 @@ public class EditorControls {
 
     private Parent myRoot;
     private ResourceBundle myResources;
-    private PropertiesUtilities myUtil;
     private UIBuilder myBuilder;
     private SideMenu myItemMenu;
     private SideMenu myPlayerMenu;
@@ -32,10 +31,9 @@ public class EditorControls {
     public EditorControls(Parent root, ResourceBundle resources, EditorController controller) {
         myRoot = root;
         myResources = resources;
-        myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
         myItemMenu = new ItemSideMenu(myRoot, myResources);
-        myPlayerMenu = new PlayerSideMenu(myRoot, myResources, controller, (ItemSideMenu) myItemMenu);
+        myPlayerMenu = new PlayerSideMenu(myRoot, myResources, (ItemSideMenu) myItemMenu);
         myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
         myGridMenu = new GridSideMenu(myRoot, myResources, controller);
         init();

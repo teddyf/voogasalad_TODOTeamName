@@ -2,6 +2,7 @@ package ui.media;
 import java.io.File;
 import java.util.HashMap;
 
+import editor.EditorController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -23,19 +24,22 @@ public class SoundChooser {
 	private ComboBox comboBox;
 	private HBox hbox;
 	private boolean playButtonClicked;
-	private String chosenSongPath = "src/resources/sounds/aquacorde.mp3";
+	private String chosenSongPath = "src/resources/sounds/Aquacorde.mp3";
+	private EditorController editorController;
 	
-	public SoundChooser() {
+	public SoundChooser(EditorController editorController) {
 		group = new Group();
-		playlist = new HashMap<String,String>();
+		playlist = new HashMap<>();
 		hbox = new HBox(10);
-		
 		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
         playButtonClicked=true;
+        this.editorController = editorController;
         
         initComboBox();
 		initPlayButton();
 		initPauseButton();
+		
+		editorController.addMusic(chosenSongPath);
         
 		group.getChildren().add(hbox);
 	}
@@ -85,16 +89,12 @@ public class SoundChooser {
     		player.stop();
     	}
 		
-        String filePath = playlist.get(songName);
-        chosenSongPath = filePath;
-        player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
+		chosenSongPath = playlist.get(songName);
+        editorController.addMusic(chosenSongPath);
+        player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
         setPlayinLoop(player);
         player.play();
         playButtonClicked=true;
-	}
-	
-	public String getChosenSongPath() {
-		return chosenSongPath;
 	}
 	
 	private void initPauseButton() {

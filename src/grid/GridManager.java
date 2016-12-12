@@ -5,10 +5,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-import block.Block;
-import block.BlockFactory;
-import block.BlockType;
-import block.CommunicatorBlock;
+import block.*;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
@@ -25,43 +22,38 @@ import player.PlayerUpdate;
 public class GridManager extends Observable {
 
     private static final String SIZE_CHOOSER = "resources/properties/size-chooser";
-
-	@XStreamImplicit
-    private List<Grid> grids;
-    
-    @XStreamOmitField
+    private List<Grid> myGrids;
     private int currentIndex;
-
     private ResourceBundle myResources;
-    private BlockFactory blockFactory;
     private Grid currentGrid;
+    private BlockFactory blockFactory;
     private String musicFile;
 
     public GridManager() {
-        grids = new ArrayList<>();
+        myGrids = new ArrayList<>();
         currentIndex = 0;
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
     }
 
-    public GridManager(GridManager gridManager) {
-        grids = gridManager.getGrids();
-        currentIndex = gridManager.getCurrentIndex();
+    public GridManager(List<Grid> grids) {
+        myGrids = grids;
+        currentIndex = 0;
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
-        currentGrid = gridManager.getCurrentGrid();
-        System.out.println("reset grid please " + currentGrid.getBlock(0,0).getName());
+        currentGrid = myGrids.get(currentIndex);
+        System.out.println("reset grid please " + currentGrid.getBlock(0,0).isWalkable());
     }
 
     public void addGrid(int numRows, int numCols) {
-        Grid newGrid = new Grid(grids.size(), numRows, numCols);
-        grids.add(newGrid);
-        changeGrid(grids.size() -1);
+        Grid newGrid = new Grid(myGrids.size(), numRows, numCols);
+        myGrids.add(newGrid);
+        changeGrid(myGrids.size() -1);
     }
 
     public void changeGrid(int index) {
         currentIndex = index;
-        currentGrid = grids.get(currentIndex);
+        currentGrid = myGrids.get(currentIndex);
     }
 
     public boolean changeGridSize(GridSizeDirection direction, int amount, int playerRow, int playerColumn) throws LargeGridException, DeletePlayerWarning {
@@ -185,24 +177,6 @@ public class GridManager extends Observable {
         currentGrid.setBlock(row, col, block);
     }
 
-    public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        Grid grid1 = grids.get(index1);
-        Grid grid2 = grids.get(index2);
-        Block block1 = grid1.getBlock(row1, col1);
-        Block block2 = grid2.getBlock(row2, col2);
-        boolean firstLink = block1.link(block2, index2);
-        boolean secondLink = block2.link(block1, index1);
-        return (firstLink || secondLink);
-    }
-
-    public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        Grid grid1 = grids.get(index1);
-        Grid grid2 = grids.get(index2);
-        Block block1 = grid1.getBlock(row1, col1);
-        Block block2 = grid2.getBlock(row2, col2);
-        return (block1.unlink(block2) || block2.unlink(block2));
-    }
-
     public boolean addMessage(String message, int row, int col) {
         Block block = currentGrid.getBlock(row, col);
         if(block instanceof CommunicatorBlock) {
@@ -212,10 +186,45 @@ public class GridManager extends Observable {
         return false;
     }
 
+    public boolean setGateStatus(int row, int col, boolean isOpen) {
+        Block block = currentGrid.getBlock(row, col);
+        if(block instanceof GateBlock) {
+            if(isOpen) {
+                ((GateBlock) block).openGate();
+                return true;
+            }
+            else {
+                ((GateBlock) block).closeGate();
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
+        Grid grid1 = myGrids.get(index1);
+        Grid grid2 = myGrids.get(index2);
+        Block block1 = grid1.getBlock(row1, col1);
+        Block block2 = grid2.getBlock(row2, col2);
+        boolean firstLink = block1.link(block2, index2);
+        boolean secondLink = block2.link(block1, index1);
+        return (firstLink || secondLink);
+    }
+
+    public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
+        Grid grid1 = myGrids.get(index1);
+        Grid grid2 = myGrids.get(index2);
+        Block block1 = grid1.getBlock(row1, col1);
+        Block block2 = grid2.getBlock(row2, col2);
+        return (block1.unlink(block2) || block2.unlink(block2));
+    }
+
     /***** GETTERS *****/
 
     public List<Grid> getGrids() {
-        return grids;
+        return myGrids;
     }
 
     public Grid getCurrentGrid() {

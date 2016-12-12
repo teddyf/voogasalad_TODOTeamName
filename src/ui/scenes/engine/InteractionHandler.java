@@ -28,15 +28,22 @@ public class InteractionHandler {
         myGridForEngine = grid;
     }
 
-    public void displayMessage(String message) {
+    private void displayMessage(String message) {
         myUIBuilder.addDialogBubble(myRoot, message);
     }
 
-    public void winGame() {
+    private void renderTeleportation(int rowdiff, int columndiff) {
+        System.out.println(rowdiff);
+        System.out.println(columndiff);
+        myGridForEngine.getGroup().setLayoutX(myGridForEngine.getGroup().getLayoutX() - columndiff*50);
+        myGridForEngine.getGroup().setLayoutY(myGridForEngine.getGroup().getLayoutY() - rowdiff*50);
+    }
+
+    private void winGame() {
         // TODO: win the game and display win message
     }
 
-    public void reRenderBlock(int row, int col, String imagePath) {
+    private void reRenderBlock(int row, int col, String imagePath) {
         myGridForEngine.reRender(row, col, imagePath);
     }
 
@@ -50,6 +57,9 @@ public class InteractionHandler {
             case RE_RENDER:
                 reRenderBlock(blockUpdate.getRow(), blockUpdate.getColumn(), blockUpdate.getContent());
                 break;
+            case TELEPORT:
+                renderTeleportation(blockUpdate.getRow(), blockUpdate.getColumn());
+                break;
             case WIN_GAME:
                 winGame();
                 break;
@@ -57,4 +67,5 @@ public class InteractionHandler {
                 break;
         }
     }
+
 }

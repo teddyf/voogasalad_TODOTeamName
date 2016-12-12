@@ -175,7 +175,7 @@ public class GridPane implements Observer {
             if (clickType.equals("SWAP")) {
                 swap(obj, control);
             }
-            else if (clickType.equals("PLAYER")) {
+            else if (clickType.equals("PLAYER") && imagePaths.size() > 0) {
                 buildPlayer(control, name, imagePaths);
             }
         }
@@ -231,9 +231,10 @@ public class GridPane implements Observer {
                         if(!message.isEmpty()){
                             System.out.println("heyo");
                             temp.swap(list.get(j), list.get(j).getImageNum());
-                            control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                            
                             control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
                                              getBackendCol(temp));
+                            control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
