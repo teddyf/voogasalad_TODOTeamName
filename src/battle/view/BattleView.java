@@ -26,15 +26,15 @@ public class BattleView implements Observer {
 
 	private Difficulty gameDifficulty;
 
-	private static final int WIDTH = 1000;
+	private static final int WIDTH = 500;
 	private static final int HEIGHT = 500;
 	public static final int DAMAGE = 10;
 	public static final int DISPLAY_X = 500;
 	public static final int DISPLAY_Y = 250;
-	private final int PLAYER_X = 300;
-	private final int PLAYER_Y = 200;
-	private final int ENEMY_X = 500;
-	private final int ENEMY_Y = 200;
+	private final int PLAYER_X = 50;
+	private final int PLAYER_Y = 250;
+	private final int ENEMY_X = 250;
+	private final int ENEMY_Y = 250;
 
 	private Scene scene;
 	private Group root;
@@ -68,7 +68,7 @@ public class BattleView implements Observer {
 		enemyHealth = new HealthDisplay(ENEMY_X + 50, ENEMY_Y + 200, (int)model.getEnemyHP());
 		playerHealth = new HealthDisplay(PLAYER_X - 50, PLAYER_Y + 200, (int)model.getPlayerHP());
 		
-		RandomMessage rm = new RandomMessage(root,30,30);
+		RandomMessage rm = new RandomMessage(root,0,400);
 		
 		root.getChildren().addAll(enemyHealth.getGroup(), playerHealth.getGroup());
 		enemy.addToGroup(root);

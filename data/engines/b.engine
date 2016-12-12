@@ -4663,14 +4663,15 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.EnemyBlock>
+          <myName>file:/Users/pimchanok/Documents/workspace/308/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-1-left.png</myName>
           <myRow>16</myRow>
           <myCol>18</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+          <health>100.0</health>
+        </block.EnemyBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>16</myRow>
@@ -9877,21 +9878,21 @@
         </block.DecorationBlock>
       </block.Block-array>
     </grid>
-    <myMusicFile>src/resources/sounds/Pokerap.m4a</myMusicFile>
+    <myMusicFile>src/resources/sounds/Battle.mp3</myMusicFile>
   </gridWorld>
   <player>
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
     <myNames>
-      <string>resources/images/sprites/23-down.png</string>
-      <string>resources/images/sprites/23-left.png</string>
-      <string>resources/images/sprites/23-right.png</string>
-      <string>resources/images/sprites/23-up.png</string>
+      <string>resources/images/sprites/29-down.png</string>
+      <string>resources/images/sprites/29-left.png</string>
+      <string>resources/images/sprites/29-right.png</string>
+      <string>resources/images/sprites/29-up.png</string>
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
     <myDirection>NORTH</myDirection>
-    <myRow>14</myRow>
-    <myCol>18</myCol>
+    <myRow>16</myRow>
+    <myCol>17</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>
