@@ -5,6 +5,7 @@ import block.BlockFactory;
 import block.BlockType;
 import engine.EngineController;
 import exceptions.*;
+import grid.Grid;
 import grid.GridManager;
 import grid.GridSizeDirection;
 import grid.GridWorld;
@@ -14,6 +15,7 @@ import ui.scenes.editor.GameEditorAlerts;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -186,7 +188,10 @@ public class EditorController implements IEditorController {
     public EngineController runEngine() {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
-            GridManager testGridManager = new GridManager(myGridManager.getGrids());
+            System.out.println("i am sad " + myGridManager.getGrids().get(0).getBlock(0,0));
+            List<Grid> testGrids = new ArrayList<>();
+            testGrids.addAll(myGridManager.getGrids());
+            GridManager testGridManager = new GridManager(testGrids);
             return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());

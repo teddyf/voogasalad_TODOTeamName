@@ -9,9 +9,6 @@ import block.Block;
 import block.BlockFactory;
 import block.BlockType;
 import block.CommunicatorBlock;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import exceptions.*;
 import player.PlayerBlockUpdate;
 import player.PlayerUpdate;
@@ -21,28 +18,27 @@ import player.PlayerUpdate;
  * @author Aninda Manocha, Daniel Chai
  */
 
-@XStreamAlias("gridManager")
 public class GridManager extends Observable {
 
     private static final String SIZE_CHOOSER = "resources/properties/size-chooser";
+    private ResourceBundle myResources;
     private List<Grid> myGrids;
     private int currentIndex;
-    private ResourceBundle myResources;
     private Grid currentGrid;
     private BlockFactory blockFactory;
     private String musicFile;
 
     public GridManager() {
+        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         myGrids = new ArrayList<>();
         currentIndex = 0;
-        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
     }
 
     public GridManager(List<Grid> grids) {
+        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         myGrids = grids;
         currentIndex = 0;
-        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
         currentGrid = myGrids.get(currentIndex);
         System.out.println("reset grid please " + currentGrid.getBlock(0,0).isWalkable());
