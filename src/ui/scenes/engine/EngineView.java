@@ -31,30 +31,25 @@ public class EngineView extends Scene implements Observer {
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
+
     private EngineGrid grid;
     private EngineController myController;
-    private EngineAnimation anim;
-    private EngineCharacter player;
-    private EngineSidePanel engineSidePanel;
+    private EngineAnimation myAnimation;
+    private EngineCharacter myPlayer;
+    private EngineSidePanel myEngineSidePanel;
+
     private File myGameFile;
 
     public EngineView(Stage stage, Parent root, UILauncher launcher) {
-        super(root);
-        myStage = stage;
-        myRoot = root;
+        this(stage, root);
         myLauncher = launcher;
-        myBuilder = new UIBuilder();
-        myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
-        myRoot.getStylesheets().add(CSS_FILE_NAME);
-        myController = new EngineController();
-        //engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
-        
+
         myStage.setOnCloseRequest(e -> {
-            // closing the window takes you back to main menu
+            // Closing this
             myController = null;
             e.consume();
-            if (engineSidePanel != null) {
-                engineSidePanel.stopMusic();
+            if (myEngineSidePanel != null) {
+                myEngineSidePanel.stopMusic();
             }
             myLauncher.launchMenu();
         });
@@ -67,8 +62,10 @@ public class EngineView extends Scene implements Observer {
         myRoot = root;
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
-        myRoot.getStylesheets().add(CSS_FILE_NAME);
         myController = new EngineController();
+        //engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
+
+        myRoot.getStylesheets().add(CSS_FILE_NAME);
     }
 
 
@@ -109,9 +106,9 @@ public class EngineView extends Scene implements Observer {
     private void setUpGrid() {
         setUpKeys();
         setUpPlayer();
-        anim = new EngineAnimation(myRoot, grid, player, myBuilder, myController, myStage);
+        myAnimation = new EngineAnimation(myRoot, grid, myPlayer, myBuilder, myController, myStage);
         initObserver();
-        myController.addObserver(anim);
+        myController.addObserver(myAnimation);
     }
 
     public String getPath() {
@@ -120,9 +117,9 @@ public class EngineView extends Scene implements Observer {
     
     
     private void setUpSidePanel() {
-    	engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
-    	myController.addObserver(engineSidePanel);
-    	engineSidePanel.update(myController, myController.getPlayer());
+    	myEngineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
+    	myController.addObserver(myEngineSidePanel);
+        myEngineSidePanel .update(myController, myController.getPlayer());
     }
 
 
@@ -130,15 +127,15 @@ public class EngineView extends Scene implements Observer {
         List<String> playerImagePaths = myController.getPlayerImages();
         String defaultPath = playerImagePaths.get(0);
 
-        player = new EngineCharacter(playerImagePaths, defaultPath);
-        player.setSize(grid.getBlockSize());
+        myPlayer = new EngineCharacter(playerImagePaths, defaultPath);
+        myPlayer.setSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
 
-        player.setPosX(gridWidth / 2 - player.getSize() / 2);
-        player.setPosY(gridHeight / 2 - player.getSize() / 2);
-        myBuilder.addComponent(myRoot, player.getImageView());
+        myPlayer.setPosX(gridWidth / 2 - myPlayer.getSize() / 2);
+        myPlayer.setPosY(gridHeight / 2 - myPlayer.getSize() / 2);
+        myBuilder.addComponent(myRoot, myPlayer.getImageView());
 
         //setup grid
         double ypixel = myController.getPlayerRow() * grid.getBlockSize();
@@ -164,8 +161,8 @@ public class EngineView extends Scene implements Observer {
     }
 
     private void setUpKeys() {
-        setOnKeyPressed(e -> anim.handleKeyPress(e));
-        setOnKeyReleased(e -> anim.handleKeyRelease(e));
+        setOnKeyPressed(e -> myAnimation.handleKeyPress(e));
+        setOnKeyReleased(e -> myAnimation.handleKeyRelease(e));
     }
 
     private void initGrid() {
@@ -199,7 +196,7 @@ public class EngineView extends Scene implements Observer {
     }
 
     private void initObserver() {
-        InteractionHandler handler = anim.getInteractionHandler();
+        InteractionHandler handler = myAnimation.getInteractionHandler();
         handler.addObserver(this);
     }
 
