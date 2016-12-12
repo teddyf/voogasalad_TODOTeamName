@@ -118,7 +118,6 @@ public class BattleView implements Observer {
 	}
 	private void addReduceHandler() {
 		EventHandler<ActionEvent> event = actionEvent -> {
-            System.out.println(usingShield);
 			if (!(model.checkPlayerLost() || model.checkPlayerWon())) {
 				model.setEnemyHP(model.getEnemyHP()
 						- (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH / gameDifficulty.getValue());
