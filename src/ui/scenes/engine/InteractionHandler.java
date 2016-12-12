@@ -26,7 +26,7 @@ public class InteractionHandler extends Observable {
     }
 
     private void displayMessage(String message) {
-        myUIBuilder.addDialogBubble(myRoot, myStage, message);
+        myUIBuilder.addNewDialogBubble(myRoot, myStage, message);
     }
 
     private void renderTeleportation(int rowdiff, int columndiff) {

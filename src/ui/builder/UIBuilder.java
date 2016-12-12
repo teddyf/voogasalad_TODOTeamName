@@ -112,24 +112,6 @@ public class UIBuilder<E> {
         return addComponent(layout, buttonBuilder.createComponent(properties));
     }
 
-    /**
-     * Creates a new JavaFX Button and adds it to the given Group or Pane
-     *
-     * @param layout the Group or Pane to which the Button will be added
-     * @param text   Text to be used for the button
-     * @param x      X-coordinate to set the button
-     * @param y      Y-coordinate to set the button
-     * @param width  Width of the button
-     * @return
-     */
-    public Node addCustomButton(Parent layout, String text, String imgPath, int x, int y, int width, int height) {
-        return addNewButton(layout, new ComponentProperties(x, y)
-                .text(text)
-                .path(imgPath)
-                .preserveRatio(true)
-                .width(width)
-                .height(height));
-    }
 
     /**
      * Creates a new JavaFX ImageView and adds it to the given Group or Pane
@@ -240,10 +222,6 @@ public class UIBuilder<E> {
                 .selected(isSelected)));
     }
 
-    public Node addNewRadioButton(Parent layout, ComponentProperties properties) {
-        return addComponent(layout, radioButtonBuilder.createComponent(properties));
-    }
-
     public Node addNewComboBox(Parent layout, ComponentProperties properties) {
         return addComponent(layout, comboBoxBuilder.createComponent(properties));
     }
@@ -256,7 +234,7 @@ public class UIBuilder<E> {
      * @param properties
      * @return
      */
-    public Node addDialogBubble(Parent layout, Stage stage, String message) {
+    public Node addNewDialogBubble(Parent layout, Stage stage, String message) {
     	ComponentProperties properties = new ComponentProperties();
     	properties.height(100);
     	properties.width(600);

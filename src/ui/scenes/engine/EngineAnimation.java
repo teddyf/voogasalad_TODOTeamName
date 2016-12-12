@@ -52,12 +52,13 @@ public class EngineAnimation implements Observer {
 	private Stage stage;
 
 
-	public EngineAnimation(Parent root, EngineGrid grid2, EngineCharacter player, UIBuilder uiBuilder, EngineController ec, Stage stage) {
+	public EngineAnimation(Parent root, EngineGrid grid, EngineCharacter player, UIBuilder uiBuilder, EngineController ec, Stage stage) {
 		this.root = root;
-		this.grid = grid2;
+		this.grid = grid;
 		this.player = player;
 		this.uiBuilder = uiBuilder;
 		this.stage = stage;
+
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
 		stack = new Stack<>();
 		finished = true;
@@ -65,7 +66,7 @@ public class EngineAnimation implements Observer {
 		maxSteps = 100;
 		stepCount = 0;
 		this.ec= ec;
-		pixelMovement = grid2.getBlockSize()/maxSteps;
+		pixelMovement = grid.getBlockSize()/maxSteps;
 		keyBindings = new HashMap<>();
 		setDefaultKeyBindings();
 		gridLayout = grid.getGroup();

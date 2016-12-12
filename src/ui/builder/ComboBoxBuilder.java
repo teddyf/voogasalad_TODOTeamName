@@ -8,7 +8,7 @@ import javafx.scene.control.ComboBox;
  */
 public class ComboBoxBuilder<E> implements ComponentBuilder {
 
-    ComboBoxBuilder() {
+    public ComboBoxBuilder() {
     }
 
     public Node createComponent(ComponentProperties properties) {

@@ -82,16 +82,12 @@ public class EngineView extends Scene implements Observer {
     public boolean init(boolean replay) {
         if (!replay) {
             myGameFile = new FileBrowser().openGameFile(myStage, myResources.getString("engineFilePath"));
-            if (myGameFile == null) { // user click ed cancel
+            if (myGameFile == null) {
                 return false;
             }
         }
         myController.loadEngine(myGameFile.getAbsolutePath());
-        initGrid();
-        loadGrid();
-        setUpGrid();
-        setUpSidePanel();
-        myBuilder.initWindow(myStage, ENGINE_RESOURCES);
+        runInstance();
         return true;
     }
 
@@ -101,68 +97,6 @@ public class EngineView extends Scene implements Observer {
         setUpGrid();
         setUpSidePanel();
         myBuilder.initWindow(myStage, ENGINE_RESOURCES);
-    }
-
-    private void setUpGrid() {
-        setUpKeys();
-        setUpPlayer();
-        myAnimation = new EngineAnimation(myRoot, grid, myPlayer, myBuilder, myController, myStage);
-        initObserver();
-        myController.addObserver(myAnimation);
-    }
-
-    public String getPath() {
-        return ENGINE_RESOURCES;
-    }
-    
-    
-    private void setUpSidePanel() {
-    	myEngineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
-    	myController.addObserver(myEngineSidePanel);
-        myEngineSidePanel .update(myController, myController.getPlayer());
-    }
-
-
-    private void setUpPlayer() {
-        List<String> playerImagePaths = myController.getPlayerImages();
-        String defaultPath = playerImagePaths.get(0);
-
-        myPlayer = new EngineCharacter(playerImagePaths, defaultPath);
-        myPlayer.setSize(grid.getBlockSize());
-
-        int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
-        int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
-
-        myPlayer.setPosX(gridWidth / 2 - myPlayer.getSize() / 2);
-        myPlayer.setPosY(gridHeight / 2 - myPlayer.getSize() / 2);
-        myBuilder.addComponent(myRoot, myPlayer.getImageView());
-
-        //setup grid
-        double ypixel = myController.getPlayerRow() * grid.getBlockSize();
-        double xpixel = myController.getPlayerColumn() * grid.getBlockSize();
-
-        double a = 0;
-        double b = 0;
-        //Find central block
-        if (grid.getWidth() % 2 != 0) {
-            a = ((grid.getWidth() - 1) / 2 - myController.getPlayerColumn()) * grid.getBlockSize();
-        } else {
-            a = (grid.getWidth() / 2 - 0.5 - myController.getPlayerColumn()) * grid.getBlockSize();
-        }
-
-        if (grid.getHeight() % 2 != 0) {
-            b = ((grid.getHeight() - 1) / 2 - myController.getPlayerRow()) * grid.getBlockSize();
-        } else {
-            b = (grid.getHeight() / 2 - 0.5 - myController.getPlayerRow()) * grid.getBlockSize();
-        }
-
-        grid.getGroup().setLayoutX(grid.getGroup().getLayoutX() + a);
-        grid.getGroup().setLayoutY(grid.getGroup().getLayoutY() + b);
-    }
-
-    private void setUpKeys() {
-        setOnKeyPressed(e -> myAnimation.handleKeyPress(e));
-        setOnKeyReleased(e -> myAnimation.handleKeyRelease(e));
     }
 
     private void initGrid() {
@@ -189,15 +123,79 @@ public class EngineView extends Scene implements Observer {
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
 
-    private void winGame() {
-        if (myLauncher != null) {
-            myLauncher.launchWinScene();
+    private void setUpGrid() {
+        setUpKeys();
+        setUpPlayer();
+        myAnimation = new EngineAnimation(myRoot, grid, myPlayer, myBuilder, myController, myStage);
+        initObserver();
+        myController.addObserver(myAnimation);
+    }
+
+    private void setUpKeys() {
+        setOnKeyPressed(e -> myAnimation.handleKeyPress(e));
+        setOnKeyReleased(e -> myAnimation.handleKeyRelease(e));
+    }
+
+    /**
+     * Create the visualization of the Player, EngineCharacter. Place the player on the center of the screen.
+     * Shift the layout of the Group such that the player appears at the designated row and column assigned
+     * in the editing stage. May need some refactoring to clean up the math and getter calls.
+     */
+    private void setUpPlayer() {
+        List<String> playerImagePaths = myController.getPlayerImages();
+        String defaultPath = playerImagePaths.get(0);
+
+        myPlayer = new EngineCharacter(playerImagePaths, defaultPath);
+        myPlayer.setSize(grid.getBlockSize());
+
+        int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
+        int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
+
+        myPlayer.setPosX(gridWidth / 2 - myPlayer.getSize() / 2);
+        myPlayer.setPosY(gridHeight / 2 - myPlayer.getSize() / 2);
+
+        myBuilder.addComponent(myRoot, myPlayer.getImageView());
+
+
+        double a;
+        double b;
+
+        if (grid.getWidth() % 2 != 0) {
+            a = ((grid.getWidth() - 1) / 2 - myController.getPlayerColumn()) * grid.getBlockSize();
+        } else {
+            a = (grid.getWidth() / 2 - 0.5 - myController.getPlayerColumn()) * grid.getBlockSize();
         }
+
+        if (grid.getHeight() % 2 != 0) {
+            b = ((grid.getHeight() - 1) / 2 - myController.getPlayerRow()) * grid.getBlockSize();
+        } else {
+            b = (grid.getHeight() / 2 - 0.5 - myController.getPlayerRow()) * grid.getBlockSize();
+        }
+
+        grid.getGroup().setLayoutX(grid.getGroup().getLayoutX() + a);
+        grid.getGroup().setLayoutY(grid.getGroup().getLayoutY() + b);
     }
 
     private void initObserver() {
         InteractionHandler handler = myAnimation.getInteractionHandler();
         handler.addObserver(this);
+    }
+
+    private void setUpSidePanel() {
+        myEngineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources, this, myController);
+        myController.addObserver(myEngineSidePanel);
+        myEngineSidePanel.update(myController, myController.getPlayer());
+    }
+
+
+    public String getPath() {
+        return ENGINE_RESOURCES;
+    }
+
+    private void winGame() {
+        if (myLauncher != null) {
+            myLauncher.launchWinScene();
+        }
     }
 
     @Override
