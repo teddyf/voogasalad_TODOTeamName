@@ -183,7 +183,7 @@ public class EditorController implements IEditorController {
     public EngineController runEngine() {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
-            GridManager testGridManager = myGridManager;
+            GridManager testGridManager = new GridManager(myGridManager);
             return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
