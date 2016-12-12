@@ -3,9 +3,11 @@ package interactions;
 import block.BlockUpdate;
 import block.BlockUpdateType;
 import player.Player;
+import player.PlayerUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Allows the player to be teleported to a destination block from a teleporter.
@@ -29,9 +31,8 @@ public class TeleportInteraction implements Interaction {
         player.setRow(myDestinationRow);
         player.setCol(myDestinationCol);
         player.setGridIndex(myDestinationGrid);
-        BlockUpdate update = new BlockUpdate(BlockUpdateType.TELEPORT, myDestinationRow, myDestinationCol, "");
-        List<BlockUpdate> allUpdates = new ArrayList<>();
-        allUpdates.add(update);
-        return allUpdates;
+        List<BlockUpdate> updateList = new ArrayList<>();
+        updateList.add(new BlockUpdate(BlockUpdateType.TELEPORT, myDestinationRow, myDestinationCol, "teleport"));
+        return updateList;
     }
 }

@@ -1,12 +1,17 @@
 package editor;
 
 import api.IEditorController;
+import block.BlockFactory;
 import block.BlockType;
-import editor.EditorModel;
 import engine.EngineController;
 import exceptions.*;
-import grid.GridGrowthDirection;
+import grid.GridManager;
+import grid.GridSizeDirection;
+import player.Player;
+import player.PlayerManager;
 import ui.scenes.editor.GameEditorAlerts;
+import xml.GridWorldAndPlayer;
+import xml.GridXMLHandler;
 
 import java.util.List;
 
@@ -18,11 +23,17 @@ import java.util.List;
 
 public class EditorController implements IEditorController {
 
-    private final EditorModel myModel;
+    private GridManager myGridManager;
+    private PlayerManager myPlayerManager;
+    private GridXMLHandler xmlHandler;
+
     private GameEditorAlerts myAlerts;
 
     public EditorController() {
-        myModel = new EditorModel();
+        myGridManager = new GridManager();
+        myPlayerManager = new PlayerManager(myGridManager.getCurrentGrid());
+        xmlHandler = new GridXMLHandler();
+        myGridManager.addObserver(myPlayerManager);
     }
 
     public void setAlerts(GameEditorAlerts alerts) {
@@ -32,32 +43,38 @@ public class EditorController implements IEditorController {
     /***** GRID METHODS *****/
 
     public void addGrid(int numRows, int numCols) {
-        myModel.addGrid(numRows, numCols);
+        myGridManager.addGrid(numRows, numCols);
+        myPlayerManager.setGrid(myGridManager.getCurrentGrid());
     }
 
     public void changeGrid(int index) {
-        myModel.changeGrid(index);
+        myGridManager.changeGrid(index);
+        myPlayerManager.setGrid(myGridManager.getCurrentGrid());
     }
 
-    public boolean changeGridSize(GridGrowthDirection direction, int amount) {
+    public boolean changeGridSize(GridSizeDirection direction, int amount) {
         try {
-            return myModel.changeGridSize(direction, amount);
+            return myGridManager.changeGridSize(direction, amount, getPlayerRow(), getPlayerCol());
         } catch (LargeGridException e) {
             myAlerts.exceptionDisplay(e.getMessage());
         } catch (DeletePlayerWarning e) {
             if (myAlerts.warnUser(e.getMessage())) {
-                return myModel.shrinkGrid(direction, amount);
+                return myGridManager.shrinkGrid(direction, amount);
             }
             return false;
         }
         return false;
     }
 
+    public void addMusic(String file) {
+        myGridManager.addMusic(file);
+    }
+
     /***** BLOCK METHODS *****/
 
     public void addBlock(String name, BlockType blockType, int row, int col) {
         try {
-            myModel.addBlock(name, blockType, row, col);
+            myGridManager.addBlock(name, blockType, row, col);
         }
         catch (BlockCreationException e) {
             myAlerts.exceptionDisplay(e.getMessage());
@@ -65,7 +82,7 @@ public class EditorController implements IEditorController {
     }
 
     public boolean addMessage(String message, int row, int col) {
-        return (myModel.addMessage(message, row, col));
+        return (myGridManager.addMessage(message, row, col));
     }
 
     public boolean setGateStatus(int row, int col, boolean isOpen) {
@@ -74,27 +91,22 @@ public class EditorController implements IEditorController {
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        System.out.println("Linking");
-        System.out.println("Block one at " + row1  + ", " + col1);
-        System.out.println("Block two at " + row2  + ", " + col2);
-
-        return myModel.linkBlocks(row1, col1, index1, row2, col2, index2);
+        return myGridManager.linkBlocks(row1, col1, index1, row2, col2, index2);
     }
 
     public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        return myModel.unlinkBlocks(row1, col1, index1, row2, col2, index2);
+        return myGridManager.unlinkBlocks(row1, col1, index1, row2, col2, index2);
     }
 
     public String getBlock(int row, int col) {
-        return myModel.getBlock(row, col);
+        return myGridManager.getBlock(row, col);
     }
 
     /***** PLAYER METHODS *****/
 
     public boolean addPlayer(List<String> names, String playerName, int row, int col) {
-        System.out.println("Editor controller row = " + row + "col = " + col);
         try {
-            return myModel.addPlayer(names, playerName, row, col);
+            return myPlayerManager.addPlayer(names, playerName, row, col, myGridManager.getCurrentIndex());
         }
         catch (BadPlayerPlacementException e) {
             myAlerts.exceptionDisplay(e.getMessage());
@@ -108,7 +120,7 @@ public class EditorController implements IEditorController {
 
     public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) {
         try {
-            return myModel.addPlayerAttribute(name, amount, increment, decrement);
+            return myPlayerManager.addPlayerAttribute(name, amount, increment, decrement);
         } catch (DuplicateAttributeException e) {
             myAlerts.exceptionDisplay(e.getMessage());
             return false;
@@ -116,12 +128,12 @@ public class EditorController implements IEditorController {
     }
 
     public void deletePlayer() {
-        myModel.deletePlayer();
+        myPlayerManager.deletePlayer();
     }
 
     public boolean movePlayer(int row, int col) {
         try {
-            return myModel.movePlayer(row, col);
+            return myPlayerManager.movePlayer(row, col);
         } catch (BadPlayerPlacementException e) {
             myAlerts.exceptionDisplay(e.getMessage());
             return false;
@@ -129,26 +141,41 @@ public class EditorController implements IEditorController {
     }
 
     public int getPlayerRow() {
-        return myModel.getPlayer().getRow();
+        try {
+            return myPlayerManager.getPlayer().getRow();
+        } catch (NoPlayerException e) {
+            return -1;
+        }
     }
 
     public int getPlayerCol() {
-        return myModel.getPlayer().getCol();
+        try {
+            return myPlayerManager.getPlayer().getCol();
+        } catch (NoPlayerException e) {
+            return -1;
+        }
     }
 
     /***** DATA METHODS *****/
 
     public void saveEditor(String file) {
-        myModel.saveEditor(file);
+        try {
+            xmlHandler.saveContents(file, myGridManager, myPlayerManager.getPlayer());
+        } catch (NoPlayerException e) {
+            xmlHandler.saveContents(file, myGridManager, null);
+        }
     }
 
     public void loadEditor(String file) {
-        myModel.loadEditor(file);
+        GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
+        myPlayerManager.setPlayer(gridWorldAndPlayer.getPlayer());
+        myGridManager = gridWorldAndPlayer.getGridWorld();
+        changeGrid(myGridManager.getCurrentIndex());
     }
 
     public void saveEngine(String file) {
         try {
-            myModel.saveEngine(file);
+            xmlHandler.saveContents(file, myGridManager, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
         }
@@ -156,7 +183,9 @@ public class EditorController implements IEditorController {
 
     public EngineController runEngine() {
         try {
-            return myModel.runEngine();
+            Player testPlayer = new Player(myPlayerManager.getPlayer());
+            GridManager testGridManager = myGridManager;
+            return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
             return null;

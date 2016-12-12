@@ -1,7 +1,7 @@
 package ui.scenes.editor.sidemenu;
 
 import editor.EditorController;
-import grid.GridGrowthDirection;
+import grid.GridSizeDirection;
 import javafx.collections.FXCollections;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -33,7 +33,7 @@ public class GridSideMenu extends SideMenu {
         myPanel.setMaxHeight(400);
     }
 
-    private boolean invalidValue(GridGrowthDirection dir, String val) {
+    private boolean invalidValue(GridSizeDirection dir, String val) {
         try {
             Integer.parseInt(val);
             return dir == null;
@@ -83,9 +83,9 @@ public class GridSideMenu extends SideMenu {
         myBuilder.addCustomLabel(resizePanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
 
         @SuppressWarnings("unchecked")
-        ComboBox<GridGrowthDirection> directionComboBox = (ComboBox<GridGrowthDirection>) myBuilder.addNewComboBox(resizePanel,
-                new ComponentProperties<GridGrowthDirection>(190, 125)
-                        .options(FXCollections.observableArrayList(GridGrowthDirection.values())));
+        ComboBox<GridSizeDirection> directionComboBox = (ComboBox<GridSizeDirection>) myBuilder.addNewComboBox(resizePanel,
+                new ComponentProperties<GridSizeDirection>(190, 125)
+                        .options(FXCollections.observableArrayList(GridSizeDirection.values())));
 
         myBuilder.addCustomLabel(resizePanel, "Number of rows or columns to add or remove:", 20, 200, null, Color.WHITE, 15);
         TextField sizeInput = (TextField) myBuilder.addCustomTextField(resizePanel, "block size", 20, 230, 200);
@@ -98,7 +98,7 @@ public class GridSideMenu extends SideMenu {
         button.setDisable(true);
 
         button.setOnMouseClicked(e -> {
-            GridGrowthDirection dir = directionComboBox.getValue();
+            GridSizeDirection dir = directionComboBox.getValue();
             int resize = Integer.parseInt(sizeInput.getText());
             if (radioGroup.getSelectedToggle() == decrease) {
                 resize = resize * -1;

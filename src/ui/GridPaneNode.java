@@ -55,13 +55,6 @@ public class GridPaneNode {
         return sol;
     }
     
-    public int getBackendRow() {
-        return getRow() - 5;
-    }
-    public int getBackendCol(){
-        return getCol() - 5;
-    }
-    
     public void swap(GridPaneNode node, int typeNum){
         Image image = new Image(node.getName());
         this.imageView.setImage(image);
@@ -112,13 +105,5 @@ public class GridPaneNode {
 
     public void setRow(int row) {
         this.row = row;
-    }
-
-    public int getBackendRow() {
-        return getRow() - 5;
-    }
-
-    public int getBackendCol() {
-        return getCol() - 5;
     }
 }
