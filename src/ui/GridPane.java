@@ -224,9 +224,8 @@ public class GridPane implements Observer {
                     GridPaneNode temp = grid[xPos][yPos];
                     // TODO add dimension checker
                     temp.swap(list.get(j), list.get(j).getImageNum());
-                    control.addBlock(temp.getName(), obj.getBlockType(), temp.getBackendRow(),
-                                     temp.getBackendCol());
-                    temp.getBackendCol();
+                    control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                     getBackendCol(temp));
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
                         String message = setCommMessage();
                         control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
@@ -247,10 +246,10 @@ public class GridPane implements Observer {
     private void gateTransition(GridPaneNode node, EditorController control){
         String path = node.getName();
         if(path.indexOf("open")<0){
-            control.setGateStatus(node.getBackendCol(), node.getBackendRow(), true);
+            control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
         }
         else{
-            control.setGateStatus(node.getBackendCol(), node.getBackendRow(), false);
+            control.setGateStatus(getBackendCol(node), getBackendRow(node), false);
         }
     }
     
