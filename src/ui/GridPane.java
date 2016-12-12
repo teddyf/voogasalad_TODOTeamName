@@ -83,8 +83,8 @@ public class GridPane extends Grid implements Observer {
         GridPaneNode node = clicked.get(0);
         int col = node.getCol();
         int row = node.getRow();
-        int bCol = getBackendAssociatedRow(node);
-        int bRow = getBackendAssociatedColumn(node);
+        int bCol = getBackendAssociatedColumn(node);
+        int bRow = getBackendAssociatedRow(node);
 
         if (control.addPlayer(imagePaths, name, bRow, bCol)) {
 
@@ -99,7 +99,7 @@ public class GridPane extends Grid implements Observer {
             ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
             list.add(temp);
             gridMap.storeObject(list);
-
+            System.out.println("disease" + control.getPlayerCol() +"disease"+ control.getPlayerRow());
             resetClicked();
         }
 
