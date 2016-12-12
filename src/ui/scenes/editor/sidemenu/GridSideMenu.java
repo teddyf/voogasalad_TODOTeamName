@@ -12,7 +12,6 @@ import ui.builder.ComponentProperties;
 
 import java.util.ResourceBundle;
 
-import ui.builder.DialogBuilder;
 import ui.media.SoundChooser;
 
 /**
@@ -79,8 +78,6 @@ public class GridSideMenu extends SideMenu {
         myBuilder.addCustomRadioButton(resizePanel, "Decrease size", 20, 60, radioGroup, false, "grid-button");
 
         myBuilder.addCustomLabel(resizePanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
-//        myBuilder.addCustomLabel(resizePanel, "add or remove blocks", 20, 135, null, Color.WHITE, 25);
-
 
         @SuppressWarnings("unchecked")
         ComboBox<GridGrowthDirection> directionComboBox = (ComboBox<GridGrowthDirection>) myBuilder.addNewComboBox(resizePanel,

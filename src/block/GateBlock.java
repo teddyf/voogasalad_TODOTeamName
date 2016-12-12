@@ -34,22 +34,24 @@ public class GateBlock extends Block {
      * @return the rendering change for the front end
      */
     public BlockUpdate toggleOpenStatus() {
-        String ext;
+        String status;
         if(this.isWalkable()) {
             setWalkableStatus(CLOSED);
             isOpen = CLOSED;
-            ext = "CLOSED";
+            status = "CLOSED";
         }
         else {
             setWalkableStatus(OPEN);
             isOpen = OPEN;
-            ext = "OPEN";
+            status = "OPEN";
         }
 
         // notify front end to render the gate differently
         // TODO: refactor this ugly stuff following
-        int extLoc = this.getName().lastIndexOf('_');
-        String image = this.getName().substring(0, extLoc + 1) + ext;
+        int extensionLoc = this.getName().lastIndexOf('.');
+        String extension = this.getName().substring(extensionLoc);
+        int statusLoc = this.getName().lastIndexOf('_');
+        String image = this.getName().substring(0, statusLoc + 1) + status + extension;
         return new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol(), image);
     }
 }
