@@ -1,7 +1,6 @@
 package ui;
 
 import java.util.*;
-
 import block.BlockType;
 import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
@@ -56,12 +55,12 @@ public class GridPane implements Observer {
 
     private String borderPath = "resources/images/tiles/obstacle/tree-4.png";
 
-    public GridPane(int gridWidth,
-                    int gridHeight,
-                    int renderWidth,
-                    int renderHeight,
-                    int renderTopLeftX,
-                    int renderTopLeftY) {
+    public GridPane (int gridWidth,
+                     int gridHeight,
+                     int renderWidth,
+                     int renderHeight,
+                     int renderTopLeftX,
+                     int renderTopLeftY) {
 
         group = new Group();
         blockList = new ArrayList<GridPaneNode>();
@@ -84,27 +83,27 @@ public class GridPane implements Observer {
         setRenderMap();
     }
 
-    private String defaultText() {
+    private String defaultText () {
         int suffix = randomNumber(1, 4);
         return DEFAULT + suffix + ".png";
     }
 
-    private int randomNumber(int min, int max) {
+    private int randomNumber (int min, int max) {
         Random rand = new Random();
         return rand.nextInt((max - min) + 1) + min;
     }
 
-    private double getXRender(int column) {
+    private double getXRender (int column) {
         double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP - renderWidth / CELL_PIXELS);
         return column * CELL_PIXELS + renderTopLeftX + offset;
     }
 
-    private double getYRender(int row) {
+    private double getYRender (int row) {
         double offset = -0.5 * CELL_PIXELS * (gridHeight + WRAP - renderHeight / CELL_PIXELS);
         return row * CELL_PIXELS + renderTopLeftY + offset;
     }
 
-    private void initializeGrid() {
+    private void initializeGrid () {
         int columns = (int) gridWidth + WRAP;
         int rows = (int) gridHeight + WRAP;
         gridMap = new GridObjectMap(columns, rows);
@@ -113,11 +112,12 @@ public class GridPane implements Observer {
             for (int j = 0; j < rows; j++) {
 
                 if (i >= WRAP / 2 && i < gridWidth + WRAP / 2 &&
-                        j >= WRAP / 2 && j < gridHeight + WRAP / 2) {
+                    j >= WRAP / 2 && j < gridHeight + WRAP / 2) {
                     GridPaneNode node = new GridPaneNode(i, j, defaultText());
                     blockList.add(node);
                     grid[j][i] = node;
-                } else {
+                }
+                else {
                     GridPaneNode node = new GridPaneNode(i, j, borderPath);
                     blockList.add(node);
                     grid[j][i] = node;
@@ -126,11 +126,11 @@ public class GridPane implements Observer {
         }
     }
 
-    public void resize(int amount, GridGrowthDirection dir) {
+    public void resize (int amount, GridGrowthDirection dir) {
         gridResizer.resize(dir, amount, gridMap, this);
     }
 
-    public void setRenderMap() {
+    public void setRenderMap () {
         group = new Group();
         for (int i = 0; i < blockList.size(); i++) {
             GridPaneNode node = blockList.get(i);
@@ -139,22 +139,20 @@ public class GridPane implements Observer {
             node.setImageSize(CELL_PIXELS, CELL_PIXELS);
             node.setImageCoord(x, y);
             if (node.getCol() >= WRAP / 2 && node.getCol() < gridWidth + WRAP / 2 &&
-                    node.getRow() >= WRAP / 2 && node.getRow() < gridHeight + WRAP / 2)
+                node.getRow() >= WRAP / 2 && node.getRow() < gridHeight + WRAP / 2)
                 makeClickable(node);
             group.getChildren().add(node.getImage());
             grid[node.getCol()][node.getRow()] = node;
         }
     }
 
-
-    private void setEmptyToDefault(GridPaneNode node) {
+    private void setEmptyToDefault (GridPaneNode node) {
         if (gridMap.available(node.getCol(), node.getRow())) {
             node.swap(def, node.getImageNum());
         }
     }
 
-
-    public void click(GridPaneNode node) {
+    public void click (GridPaneNode node) {
         if (clicked.contains(node)) {
             node.getImage().setEffect(null);
             clicked.remove(node);
@@ -163,8 +161,7 @@ public class GridPane implements Observer {
         }
     }
 
-
-    public void loadReset(double height, double width) {
+    public void loadReset (double height, double width) {
 
         this.gridWidth = width;
         this.gridHeight = height;
@@ -175,17 +172,19 @@ public class GridPane implements Observer {
         grid = new GridPaneNode[(int) height][(int) width];
     }
 
-    public void nodeClick(GameObject obj,
-                          EditorController control,
-                          String name,
-                          List<String> imagePaths) {
+    public void nodeClick (GameObject obj,
+                           EditorController control,
+                           String name,
+                           List<String> imagePaths) {
         if (clicked.size() == 1) {
             if (clickType.equals("SWAP")) {
                 swap(obj, control);
-            } else if (clickType.equals("PLAYER")) {
+            }
+            else if (clickType.equals("PLAYER")) {
                 buildPlayer(control, name, imagePaths);
             }
-        } else if (clicked.size() == 2 && clickType.equals("LINK")) {
+        }
+        else if (clicked.size() == 2 && clickType.equals("LINK")) {
             buildLink(clicked.get(0), clicked.get(1), control);
         }
         for (int i = 0; i < clicked.size(); i++) {
@@ -193,7 +192,7 @@ public class GridPane implements Observer {
         }
     }
 
-    public void buildPlayer(EditorController control, String name, List<String> imagePaths) {
+    public void buildPlayer (EditorController control, String name, List<String> imagePaths) {
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
 
@@ -213,7 +212,7 @@ public class GridPane implements Observer {
 
     }
 
-    public List<GridPaneNode> swap(GameObject obj, EditorController control) {
+    public List<GridPaneNode> swap (GameObject obj, EditorController control) {
         List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
         if (obj == null) {
             return copy;
@@ -229,14 +228,14 @@ public class GridPane implements Observer {
                     // TODO add dimension checker
                     temp.swap(list.get(j), list.get(j).getImageNum());
                     control.addBlock(temp.getName(), obj.getBlockType(), temp.getBackendRow(),
-                            temp.getBackendCol());
-                    if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
-
-                    }
+                                     temp.getBackendCol());
                     temp.getBackendCol();
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
                         String message = setCommMessage();
                         control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                    }
+                    else if(obj.getBlockType().equals(BlockType.GATE)){
+                        gateTransition(temp, control);
                     }
                     // setPlayer(temp, obj, control);
                 }
@@ -248,7 +247,17 @@ public class GridPane implements Observer {
         return copy;
     }
 
-    private String setCommMessage() {
+    private void gateTransition(GridPaneNode node, EditorController control){
+        String path = node.getName();
+        if(path.indexOf("open")<0){
+            control.setGateStatus(node.getBackendCol(), node.getBackendRow(), true);
+        }
+        else{
+            control.setGateStatus(node.getBackendCol(), node.getBackendRow(), false);
+        }
+    }
+    
+    private String setCommMessage () {
         DialogBuilder db = new DialogBuilder(new ComponentProperties()
                 .header("Set the dialog for the communicator block.")
                 .content("Dialog for the communicator block:"));
@@ -256,15 +265,15 @@ public class GridPane implements Observer {
         return response.orElse("");
     }
 
-    private void communicateMessage() {
+    private void communicateMessage () {
         // builder.add
     }
 
-    private void resetClicked() {
+    private void resetClicked () {
         clicked = new ArrayList<GridPaneNode>();
     }
 
-    private boolean addObjToMap(List<GridPaneNode> list, GridPaneNode objRoot) {
+    private boolean addObjToMap (List<GridPaneNode> list, GridPaneNode objRoot) {
         int xPos = objRoot.getCol();
         int yPos = objRoot.getRow();
         List<GridPaneNode> temp = new ArrayList<GridPaneNode>();
@@ -297,7 +306,7 @@ public class GridPane implements Observer {
      *
      * @param list
      */
-    private void getObjectNeighbors(List<GridPaneNode> list) {
+    private void getObjectNeighbors (List<GridPaneNode> list) {
         ArrayList<Integer> xPos = new ArrayList<Integer>();
         ArrayList<Integer> yPos = new ArrayList<Integer>();
         for (int i = 0; i < clicked.size(); i++) {
@@ -309,7 +318,7 @@ public class GridPane implements Observer {
         }
     }
 
-    public void delete() {
+    public void delete () {
         ArrayList<Integer> deleted = new ArrayList<Integer>();
         for (int i = 0; i < clicked.size(); i++) {
             GridPaneNode temp = clicked.get(i);
@@ -327,7 +336,7 @@ public class GridPane implements Observer {
         // gridMap.visObjectMap();
     }
 
-    boolean buildLink(GridPaneNode node1, GridPaneNode node2, EditorController controller) {
+    boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
         System.out.println("link!");
         clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
@@ -341,12 +350,12 @@ public class GridPane implements Observer {
      * @param yCoords
      * @param objSize
      */
-    private void checkNeighbors(List<Integer> xCoords, List<Integer> yCoords, int objSize) {
+    private void checkNeighbors (List<Integer> xCoords, List<Integer> yCoords, int objSize) {
         for (int i = 0; i < clicked.size(); i++) {
             GridPaneNode temp = clicked.get(i);
             for (int j = 0; j < xCoords.size(); j++) {
                 if (temp.getCol() == xCoords.get(j) && temp.getRow() == yCoords.get(j) &&
-                        j % objSize != 0) {
+                    j % objSize != 0) {
                     clicked.remove(i);
                 }
             }
@@ -360,16 +369,16 @@ public class GridPane implements Observer {
      * @param col
      * @param name
      */
-    public void blockToGridPane(int row, int col, String name) {
+    public void blockToGridPane (int row, int col, String name) {
         GridPaneNode temp = new GridPaneNode(row, col, name);
         blockList.add(temp);
     }
 
-    public List<GridPaneNode> getNodeList() {
+    public List<GridPaneNode> getNodeList () {
         return blockList;
     }
 
-    public void setNodes(List<GridPaneNode> list) {
+    public void setNodes (List<GridPaneNode> list) {
         this.blockList = list;
     }
 
@@ -385,23 +394,23 @@ public class GridPane implements Observer {
         this.gridWidth = width;
     }
 
-    public Group getGroup() {
+    public Group getGroup () {
         return group;
     }
 
-    public List<GridPaneNode> getClicked() {
+    public List<GridPaneNode> getClicked () {
         return clicked;
     }
 
-    public double getBlockSize() {
+    public double getBlockSize () {
         return renderWidth / gridWidth;
     }
 
-    public double getWidth() {
+    public double getWidth () {
         return gridWidth;
     }
 
-    public double getHeight() {
+    public double getHeight () {
         return gridHeight;
     }
 
@@ -419,30 +428,32 @@ public class GridPane implements Observer {
         });
     }
 
-    public double getXMin() {
+    public double getXMin () {
         return -0.5 * CELL_PIXELS * (gridWidth + WRAP - renderWidth / CELL_PIXELS);
     }
 
-    public double getYMin() {
+    public double getYMin () {
         return -0.5 * CELL_PIXELS * (gridHeight + WRAP - renderHeight / CELL_PIXELS);
     }
 
-    public void setClickType(String str) {
+    public void setClickType (String str) {
         clickType = str;
     }
 
     @Override
-    public void update(Observable o, Object arg) {
+    public void update (Observable o, Object arg) {
         // System.out.println("here");
         if (o instanceof PlayerSideMenu) {
             clickType = "PLAYER";
             System.out.println(((PlayerSideMenu) o).getImagePaths());
-        } else if (o instanceof GridSideMenu) {
+        }
+        else if (o instanceof GridSideMenu) {
             clickType = "LINK";
 
         } else if (o instanceof ItemSideMenu) {
             clickType = "SWAP";
-        } else {
+        }
+        else {
             System.out.println("fuck off Robert");
         }
     }
@@ -455,7 +466,7 @@ public class GridPane implements Observer {
         return gpn.getCol() - WRAP / 2;
     }
 
-    public int getWrap() {
+    public int getWrap () {
         return WRAP;
     }
 }
