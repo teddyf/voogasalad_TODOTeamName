@@ -12,10 +12,8 @@ import javafx.scene.text.Font;
 public class LabelBuilder implements ComponentBuilder {
 
     public LabelBuilder() {
-        super();
     }
 
-    @Override
     public Node createComponent(ComponentProperties properties) {
         Label newLabel = new Label(properties.text);
         newLabel.setId(properties.id);
