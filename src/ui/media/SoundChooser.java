@@ -31,6 +31,7 @@ public class SoundChooser {
 		group = new Group();
 		playlist = new HashMap<>();
 		hbox = new HBox(10);
+		group.getChildren().add(hbox);
 		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
         playButtonClicked=true;
         this.editorController = editorController;
@@ -40,21 +41,6 @@ public class SoundChooser {
 		initPauseButton();
 		
 		editorController.addMusic(chosenSongPath);
-	}
-
-	public SoundChooser() {
-		group = new Group();
-		playlist = new HashMap<>();
-		hbox = new HBox(10);
-
-		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
-        playButtonClicked=true;
-
-        initComboBox();
-		initPlayButton();
-		initPauseButton();
-
-		group.getChildren().add(hbox);
 	}
 
 	private void initComboBox() {
