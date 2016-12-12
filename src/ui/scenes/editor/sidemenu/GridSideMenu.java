@@ -60,7 +60,10 @@ public class GridSideMenu extends SideMenu {
         myBuilder.addCustomLabel(linkPanel, "Link a gate to a switch by clicking the link\nbutton and then clicking each of the two\nblocks.", 20, 170, null, Color.WHITE, 20);
 
 
-        Node button = myBuilder.addCustomButton(linkPanel, "LINK", 20, 260, 350, 70);
+        Node button = myBuilder.addNewButton(linkPanel, new ComponentProperties(20, 260)
+                .width(350)
+                .height(70)
+                .path("resources/images/buttons/link.png"));
         button.setOnMouseClicked(e -> {
             setChanged();
             changeStatus();
@@ -75,7 +78,7 @@ public class GridSideMenu extends SideMenu {
 
         ToggleGroup radioGroup = new ToggleGroup();
         myBuilder.addCustomRadioButton(resizePanel, "Increase size", 20, 20, radioGroup, true, "grid-button");
-        myBuilder.addCustomRadioButton(resizePanel, "Decrease size", 20, 60, radioGroup, false, "grid-button");
+        RadioButton decrease = (RadioButton) myBuilder.addCustomRadioButton(resizePanel, "Decrease size", 20, 60, radioGroup, false, "grid-button");
 
         myBuilder.addCustomLabel(resizePanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
 
@@ -95,9 +98,16 @@ public class GridSideMenu extends SideMenu {
         button.setDisable(true);
 
         button.setOnMouseClicked(e -> {
+            GridGrowthDirection dir = directionComboBox.getValue();
+            int resize = Integer.parseInt(sizeInput.getText());
+            if (radioGroup.getSelectedToggle() == decrease) {
+                resize = resize * -1;
+            }
             try {
-                if (myEditorController.changeGridSize(directionComboBox.getValue(), Integer.parseInt(sizeInput.getText()))) {
-
+                if (myEditorController.changeGridSize(dir, resize)) {
+                    notifyObservers(dir);
+                    notifyObservers(resize);
+                    setChanged();
                 }
             } catch (ArrayIndexOutOfBoundsException exc) {
                 myBuilder.addNewAlert("Error", "Error");

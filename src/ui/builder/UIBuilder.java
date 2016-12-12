@@ -121,8 +121,10 @@ public class UIBuilder<E> {
      * @param width  Width of the button
      * @return
      */
-    public Node addCustomButton(Parent layout, String text, int x, int y, int width, int height) {
-        return addNewButton(layout, new ComponentProperties(x, y).path(text)
+    public Node addCustomButton(Parent layout, String text, String imgPath, int x, int y, int width, int height) {
+        return addNewButton(layout, new ComponentProperties(x, y)
+                .text(text)
+                .path(imgPath)
                 .preserveRatio(true)
                 .width(width)
                 .height(height));
