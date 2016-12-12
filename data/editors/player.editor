@@ -4418,7 +4418,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>21</myRow>
           <myCol>21</myCol>
           <isWalkable>true</isWalkable>
@@ -4604,7 +4604,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>22</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -4822,7 +4822,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>23</myRow>
           <myCol>21</myCol>
           <isWalkable>true</isWalkable>
@@ -5070,8 +5070,8 @@
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
     <myDirection>SOUTH</myDirection>
-    <myRow>2</myRow>
-    <myCol>3</myCol>
+    <myRow>22</myRow>
+    <myCol>16</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>

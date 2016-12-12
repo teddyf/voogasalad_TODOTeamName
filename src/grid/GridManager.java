@@ -271,6 +271,7 @@ public class GridManager extends Observable {
             newGridManager.addGrid(tempGrid);
         }
         newGridManager.changeGrid(0);
+        newGridManager.setMusic(musicFile);
         return newGridManager;
     }
 
