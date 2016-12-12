@@ -7,19 +7,18 @@ import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
 import ui.builder.DialogBuilder;
 import ui.scenes.editor.objects.GameObject;
-import ui.scenes.editor.sidemenu.GridSideMenu;
+import ui.scenes.editor.sidemenu.GameSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.ImageView;
 import editor.EditorController;
 
 
 /**
  * @author Teddy Franceschi, Harshil Garg
  */
-public class GridPane implements Observer {
+public class GridPane extends Observable implements Observer {
 
     private final int WRAP = 20;
     private final int CELL_PIXELS = 30;
@@ -171,6 +170,8 @@ public class GridPane implements Observer {
                            EditorController control,
                            String name,
                            List<String> imagePaths) {
+        setChanged();
+        notifyObservers();
         if (clicked.size() == 1) {
             if (clickType.equals("SWAP")) {
                 swap(obj, control);
@@ -239,9 +240,9 @@ public class GridPane implements Observer {
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
                         temp.swap(list.get(j), list.get(j).getImageNum());
-                        gateTransition(temp, control);
                         control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
                                          getBackendCol(temp));
+                        gateTransition(temp, control);              
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
@@ -461,7 +462,7 @@ public class GridPane implements Observer {
             clickType = "PLAYER";
             System.out.println(((PlayerSideMenu) o).getImagePaths());
         }
-        else if (o instanceof GridSideMenu) {
+        else if (o instanceof GameSideMenu) {
             clickType = "LINK";
 
         } else if (o instanceof ItemSideMenu) {
@@ -472,11 +473,11 @@ public class GridPane implements Observer {
         }
     }
 
-    public int getBackendRow(GridPaneNode gpn) {
+    private int getBackendRow(GridPaneNode gpn) {
         return gpn.getRow() - WRAP / 2;
     }
 
-    public int getBackendCol(GridPaneNode gpn) {
+    private int getBackendCol(GridPaneNode gpn) {
         return gpn.getCol() - WRAP / 2;
     }
 

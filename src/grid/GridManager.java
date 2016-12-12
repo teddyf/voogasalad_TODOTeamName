@@ -18,28 +18,27 @@ import player.PlayerUpdate;
  * @author Aninda Manocha, Daniel Chai
  */
 
-@XStreamAlias("gridManager")
 public class GridManager extends Observable {
 
     private static final String SIZE_CHOOSER = "resources/properties/size-chooser";
+    private ResourceBundle myResources;
     private List<Grid> myGrids;
     private int currentIndex;
-    private ResourceBundle myResources;
     private Grid currentGrid;
     private BlockFactory blockFactory;
     private String musicFile;
 
     public GridManager() {
+        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         myGrids = new ArrayList<>();
         currentIndex = 0;
-        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
     }
 
     public GridManager(List<Grid> grids) {
+        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         myGrids = grids;
         currentIndex = 0;
-        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
         currentGrid = myGrids.get(currentIndex);
         System.out.println("reset grid please " + currentGrid.getBlock(0,0).isWalkable());
@@ -49,6 +48,10 @@ public class GridManager extends Observable {
         Grid newGrid = new Grid(myGrids.size(), numRows, numCols);
         myGrids.add(newGrid);
         changeGrid(myGrids.size() -1);
+    }
+
+    private void addGrid(Grid grid) {
+        myGrids.add(grid);
     }
 
     public void changeGrid(int index) {
@@ -226,6 +229,24 @@ public class GridManager extends Observable {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
+    public GridManager copy() {
+        GridManager newGridManager = new GridManager();
+        for(int i = 0; i < myGrids.size(); i++) {
+            Grid grid = myGrids.get(i);
+            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
+            for (int row = 0; row < grid.getNumRows(); row++) {
+                for (int col = 0; col < grid.getNumCols(); col++) {
+                    Block block = grid.getBlock(row, col);
+                    Block tempBlock = block;
+                    tempGrid.setBlock(row, col, tempBlock);
+                }
+            }
+            newGridManager.addGrid(tempGrid);
+        }
+        newGridManager.changeGrid(0);
+        return newGridManager;
+    }
+
     /***** GETTERS *****/
 
     public List<Grid> getGrids() {
@@ -246,5 +267,9 @@ public class GridManager extends Observable {
 
     public String getMusic() {
         return musicFile;
+    }
+
+    public void setMusic(String file) {
+        musicFile = file;
     }
 }

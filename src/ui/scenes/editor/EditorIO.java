@@ -8,6 +8,7 @@ import ui.FileBrowser;
 import ui.scenes.engine.EngineView;
 
 import java.io.File;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -18,7 +19,7 @@ import java.util.ResourceBundle;
  *         exporting an editor state to a game file to be played, and opening a game file to play
  *         in the engine.
  */
-class EditorIO {
+class EditorIO extends Observable {
 
     private Stage myStage;
     private EditorController myEditorController;
@@ -43,6 +44,8 @@ class EditorIO {
         File gameFile = new FileBrowser().saveEditorFile(myStage, myResources.getString("editorFilePath"));
         if (gameFile != null) {
             myEditorController.saveEditor(gameFile.getAbsolutePath());
+            setChanged();
+            notifyObservers();
             return true;
         }
         return false;

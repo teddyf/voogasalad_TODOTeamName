@@ -265,14 +265,15 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.EnemyBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-11-left.png</myName>
           <myRow>1</myRow>
           <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+          <health>100.0</health>
+        </block.EnemyBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
@@ -467,16 +468,17 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.EnemyBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-11-left.png</myName>
           <myRow>2</myRow>
           <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+          <health>100.0</health>
+        </block.EnemyBlock>
         <block.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -662,21 +664,22 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.EnemyBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-11-left.png</myName>
           <myRow>3</myRow>
           <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+          <health>100.0</health>
+        </block.EnemyBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
@@ -871,14 +874,15 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.EnemyBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-11-left.png</myName>
           <myRow>4</myRow>
           <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+          <health>100.0</health>
+        </block.EnemyBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -1025,30 +1029,51 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>5</myRow>
           <myCol>1</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>5</myRow>
           <myCol>2</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>5</myRow>
           <myCol>3</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
@@ -1073,14 +1098,15 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.EnemyBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-11-left.png</myName>
           <myRow>5</myRow>
           <myCol>7</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+          <health>100.0</health>
+        </block.EnemyBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
@@ -1227,30 +1253,51 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>6</myRow>
           <myCol>1</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>6</myRow>
           <myCol>2</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>6</myRow>
           <myCol>3</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
@@ -1429,30 +1476,51 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>7</myRow>
           <myCol>1</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>7</myRow>
           <myCol>2</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
+        <block.PokemonGiverBlock>
+          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
           <myRow>7</myRow>
           <myCol>3</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
+          <myTalkInteractions>
+            <interactions.ReceivePokemonInteraction/>
+            <interactions.DisappearInteraction>
+              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
+            </interactions.DisappearInteraction>
+          </myTalkInteractions>
+          <hasPokemon>true</hasPokemon>
+        </block.PokemonGiverBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
@@ -5062,22 +5130,22 @@
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
     <myNames>
-      <string>resources/images/sprites/1-down.png</string>
-      <string>resources/images/sprites/1-left.png</string>
-      <string>resources/images/sprites/1-right.png</string>
-      <string>resources/images/sprites/1-up.png</string>
+      <string>resources/images/sprites/3-down.png</string>
+      <string>resources/images/sprites/3-left.png</string>
+      <string>resources/images/sprites/3-right.png</string>
+      <string>resources/images/sprites/3-up.png</string>
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
     <myDirection>NORTH</myDirection>
-    <myRow>2</myRow>
-    <myCol>2</myCol>
+    <myRow>1</myRow>
+    <myCol>1</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>
     <myBattleHistory/>
     <myInteractionHistory/>
     <myStatus/>
-    <numPokemon>2</numPokemon>
+    <numPokemon>3</numPokemon>
     <health>100.0</health>
   </player>
 </root>
