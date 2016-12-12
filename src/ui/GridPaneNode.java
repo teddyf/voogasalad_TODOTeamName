@@ -94,4 +94,11 @@ public class GridPaneNode {
         String sol = "row: " + row + "\ncol: " + col + "\nname: " + name;
         return sol;
     }
+    public void setCol (int col) {
+        this.col = col;
+        
+    }
+    public void setRow (int row){
+        this.row = row;
+    }
 }
