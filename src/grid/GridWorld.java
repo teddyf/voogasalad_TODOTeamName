@@ -16,11 +16,18 @@ public class GridWorld {
 	@XStreamImplicit
     private List<Grid> myGrids;
 
-    public GridWorld(GridManager gridManager) {
+	private String myMusicFile;
+
+    public GridWorld(GridManager gridManager, String musicFile) {
         myGrids = gridManager.getGrids();
+        myMusicFile = musicFile;
     }
 
     public List<Grid> getGrids() {
         return myGrids;
+    }
+
+    public String getMusicFile() {
+        return myMusicFile;
     }
 }
