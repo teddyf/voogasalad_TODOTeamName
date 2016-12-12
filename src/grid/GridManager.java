@@ -1,9 +1,6 @@
 package grid;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +8,6 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import block.*;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
-import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import exceptions.*;
 import player.PlayerBlockUpdate;
 import player.PlayerUpdate;
@@ -23,7 +17,7 @@ import player.PlayerUpdate;
  * @author Aninda Manocha, Daniel Chai, Filip Mazurek
  */
 
-public class GridManager extends Observable {
+public class GridManager extends Observable implements Serializable {
 
     private static final String SIZE_CHOOSER = "resources/properties/size-chooser";
     private ResourceBundle myResources;

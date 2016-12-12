@@ -66,6 +66,7 @@ public class GameInstance extends Observable implements IGameInstance {
 
         switch (input) {
             case UP:
+                System.out.println(myGrid.getBlock(row-1,col).isWalkable());
                 if(direction == NORTH) {
                     playerUpdate = handleMovement(row-1, col, PlayerUpdate.ROW);
                 } else {
