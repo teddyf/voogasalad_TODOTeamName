@@ -31,6 +31,8 @@ public class GameSideMenu extends SideMenu {
         super(root, resources);
         myEditorController = editorController;
         myItemMenu = itemMenu;
+        sound = new SoundChooser(myEditorController);
+        myEditorController.addMusic("ppp");
         init();
         setSidePanelHeight(400);
     }
@@ -57,7 +59,6 @@ public class GameSideMenu extends SideMenu {
     private ScrollPane createMusicPane() {
         Pane musicPanel = new Pane();
         myBuilder.addCustomLabel(musicPanel, "Choose a song to play during your game.", 20, 20, null, Color.WHITE, 20);
-        sound = new SoundChooser();
         Node n = myBuilder.addComponent(musicPanel, sound.getGroup());
         n.setLayoutX(20);
         n.setLayoutY(80);
@@ -149,5 +150,4 @@ public class GameSideMenu extends SideMenu {
     public void stopMusic() {
         sound.stop();
     }
-
 }
