@@ -13,6 +13,7 @@ public enum BlockType {
     GATE,
     GROUND,
     OBSTACLE,
+    POKEMON_GIVER,
     SWITCH_FLOOR,
     SWITCH_TOUCH,
     TELEPORT,
