@@ -54,7 +54,8 @@ public class SoundPlayer {
 	
 	private void initPlayButton() {
 		Button button = new Button();
-		setButtonImage(button,"resources/images/media/play.png");
+        button.setFocusTraversable(false);
+        setButtonImage(button,"resources/images/media/play.png");
 		button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -69,6 +70,7 @@ public class SoundPlayer {
 	
 	private void initPauseButton() {
 		Button button = new Button();
+        button.setFocusTraversable(false);
         setButtonImage(button,"resources/images/media/pause.png");
 		button.setOnAction(new EventHandler<ActionEvent>() {
             @Override

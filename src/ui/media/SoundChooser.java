@@ -68,7 +68,8 @@ public class SoundChooser {
 
 	private void initPlayButton() {
 		Button button = new Button();
-		setButtonImage(button,"resources/images/media/play.png");
+        button.setFocusTraversable(false);
+        setButtonImage(button,"resources/images/media/play.png");
 		button.setOnAction(event -> {
             if (playButtonClicked) {
                 player.stop();
@@ -94,6 +95,7 @@ public class SoundChooser {
 
 	private void initPauseButton() {
 		Button button = new Button();
+        button.setFocusTraversable(false);
         setButtonImage(button,"resources/images/media/pause.png");
 		button.setOnAction(event -> player.stop());
 		hbox.getChildren().add(button);
