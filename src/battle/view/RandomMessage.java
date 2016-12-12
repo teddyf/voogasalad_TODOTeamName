@@ -68,7 +68,7 @@ public class RandomMessage {
 		int maximum = randomMessages.size()-1;
 		int randomNum = (int)(Math.random() * maximum);
 		label.setText(randomMessages.get(randomNum));
-		label.setStyle("-fx-font: 30;");
+		//label.setStyle("-fx-font: 30;");
 	}
 
 }

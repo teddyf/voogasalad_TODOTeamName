@@ -45,30 +45,33 @@ public class EngineView extends Scene implements Observer {
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
         myRoot.getStylesheets().add(CSS_FILE_NAME);
+        myController = new EngineController();
+        EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
+        
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             myController = null;
             e.consume();
-            //engineSidePanel.stopMusic();
+            engineSidePanel.stopMusic();
             myLauncher.launchMenu();
         });
-        myController = new EngineController();
+        
     }
 
-    public EngineView(Stage stage, Parent root) {
-        super(root);
-        myStage = stage;
-        myRoot = root;
-        myBuilder = new UIBuilder();
-        myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
-        myRoot.getStylesheets().add(CSS_FILE_NAME);
-//        myStage.setOnCloseRequest(e -> {
-//            // closing the window takes you back to main menu
-//            e.consume();
-//            myLauncher.launchMenu();
-//        });
-        myController = new EngineController();
-    }
+//    public EngineView(Stage stage, Parent root) {
+//        super(root);
+//        myStage = stage;
+//        myRoot = root;
+//        myBuilder = new UIBuilder();
+//        myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+//        myRoot.getStylesheets().add(CSS_FILE_NAME);
+////        myStage.setOnCloseRequest(e -> {
+////            // closing the window takes you back to main menu
+////            e.consume();
+////            myLauncher.launchMenu();
+////        });
+//        myController = new EngineController();
+//    }
 
     public void setController(EngineController controller) {
         myController = controller;
@@ -114,8 +117,9 @@ public class EngineView extends Scene implements Observer {
         return ENGINE_RESOURCES;
     }
     
+    
     private void setUpSidePanel() {
-    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
+    	engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
     	myController.addObserver(engineSidePanel);
     	engineSidePanel.update(myController, myController.getPlayer());
     }
