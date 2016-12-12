@@ -1,5 +1,10 @@
 package grid;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -235,7 +240,32 @@ public class GridManager extends Observable {
             for (int row = 0; row < grid.getNumRows(); row++) {
                 for (int col = 0; col < grid.getNumCols(); col++) {
                     Block block = grid.getBlock(row, col);
-                    Block tempBlock = block;
+                    Class<?> blockClass = block.getClass();
+                    try {
+                        Constructor<?> constructor = blockClass.getDeclaredConstructor(String.class, int.class, int.class);
+                        Object object = constructor.newInstance(block.getName(), block.getRow(), block.getCol());
+                        Block tempBlock = (Block) object;
+                        tempGrid.setBlock(row, col, tempBlock);
+                    } catch (Exception e) {
+                        System.out.println("");
+                    }
+                }
+            }
+            newGridManager.addGrid(tempGrid);
+        }
+        newGridManager.changeGrid(0);
+        return newGridManager;
+    }
+
+    public GridManager deepClone() {
+        GridManager newGridManager = new GridManager();
+        for(int i = 0; i < myGrids.size(); i++) {
+            Grid grid = myGrids.get(i);
+            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
+            for (int row = 0; row < grid.getNumRows(); row++) {
+                for (int col = 0; col < grid.getNumCols(); col++) {
+                    Block block = grid.getBlock(row, col);
+                    Block tempBlock = block.deepClone();
                     tempGrid.setBlock(row, col, tempBlock);
                 }
             }
