@@ -9877,7 +9877,7 @@
         </block.DecorationBlock>
       </block.Block-array>
     </grid>
-    <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>
+    <myMusicFile>src/resources/sounds/Battle.mp3</myMusicFile>
   </gridWorld>
   <player>
     <battlesWon>0</battlesWon>
@@ -9890,7 +9890,7 @@
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
     <myDirection>NORTH</myDirection>
-    <myRow>15</myRow>
+    <myRow>14</myRow>
     <myCol>18</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
