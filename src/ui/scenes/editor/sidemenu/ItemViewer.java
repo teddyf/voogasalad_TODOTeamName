@@ -14,6 +14,8 @@ import java.util.TreeMap;
 
 /**
  * @author Harshil Garg
+ *         <p>
+ *         Used for displaying overworld items.
  */
 public class ItemViewer {
 
@@ -89,5 +91,4 @@ public class ItemViewer {
     GameObject getSelected() {
         return selected;
     }
-
 }

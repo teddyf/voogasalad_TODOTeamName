@@ -10,6 +10,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
+
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -32,16 +33,15 @@ public abstract class SideMenu extends Observable {
         myUtil = new PropertiesUtilities(myResources);
         myBuilder = new UIBuilder();
         myPanel = new DraggableTabPane();
-        myPanel.setId(myUtil.getStringProperty("panelTabsCSSid"));
+        myPanel.setId(myUtil.getStringProperty("sidepanelTabsCSSid"));
     }
 
-    public void init() {
-        configureSidePanel();
-        addTabs();
-    }
-
-    protected abstract void addTabs();
-
+    /**
+     * Creates a FlowPane with a set padding to nicely display nodes within
+     * a control panel
+     *
+     * @return the newly created FlowPane
+     */
     FlowPane createFlowPane() {
         int padding = myUtil.getIntProperty("contentPadding");
         FlowPane itemPane = new FlowPane();
@@ -52,6 +52,11 @@ public abstract class SideMenu extends Observable {
         return itemPane;
     }
 
+    /**
+     * Resets the CSS hover effect for a JavaFX node
+     *
+     * @param obj is the object whose CSS hover effects will be reset
+     */
     void resetHoverEffect(Node obj) {
         obj.setStyle(myResources.getString("deselectedEffect"));
         obj.setOnMouseEntered(f -> obj.setStyle(myResources.getString("selectedEffect")));
@@ -59,13 +64,13 @@ public abstract class SideMenu extends Observable {
     }
 
     /**
-     * Converts a String to title case
+     * Converts a String to title case for tab titles
      *
      * @param input the String to convert
      * @return the String in title case
      */
     String toTitleCase(String input) {
-        StringBuilder titleCase = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         boolean firstLetter = true;
         for (char c : input.toCharArray()) {
             if (firstLetter) {
@@ -76,13 +81,13 @@ public abstract class SideMenu extends Observable {
                 c = Character.toLowerCase(c);
             }
             firstLetter = false;
-            titleCase.append(c);
+            sb.append(c);
         }
-        return titleCase.toString();
+        return sb.toString();
     }
 
     /**
-     * Creates a new tab
+     * Creates a new side tab
      *
      * @param text    the title text for the tab
      * @param content the tab's content
@@ -97,7 +102,8 @@ public abstract class SideMenu extends Observable {
     }
 
     /**
-     * Basic configuration for side menus
+     * Basic configuration setup for side menus; implementing classes can
+     * override
      */
     private void configureSidePanel() {
         myPanel.setLayoutX(myUtil.getIntProperty("sidePanelX"));
@@ -109,12 +115,24 @@ public abstract class SideMenu extends Observable {
     }
 
     /**
-     * Returns the JavaFX node representing the side menu
-     *
      * @return the JavaFX node representing the side menu
      */
     DraggableTabPane getPanel() {
         return myPanel;
     }
+
+    /**
+     * Implemented to add tabs to each control panel
+     */
+    protected abstract void addTabs();
+
+    /**
+     * Creates the side panel tabs that each hold a control panel
+     */
+    public void init() {
+        configureSidePanel();
+        addTabs();
+    }
+
 
 }
