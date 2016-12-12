@@ -9,7 +9,7 @@ import javafx.scene.input.MouseButton;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.sidemenu.EditorControls;
-import ui.scenes.editor.sidemenu.GridSideMenu;
+import ui.scenes.editor.sidemenu.GameSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 
@@ -33,7 +33,7 @@ public class GridUI extends Observable {
     private GridScrollButton gsb;
     private PlayerSideMenu playerMenu;
     private EditorControls sideControls;
-    private GridSideMenu gridSideMenu;
+    private GameSideMenu gameSideMenu;
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
 
     public GridUI(Parent root, EditorController controller, EditorControls sideMenu, int width, int height) {
@@ -46,7 +46,7 @@ public class GridUI extends Observable {
         sideControls = sideMenu;
         myBuilder = new UIBuilder();
         hoverOpacity = new ColorAdjust();
-        gridSideMenu = sideMenu.getGridSideMenu();
+        gameSideMenu = sideMenu.getGridSideMenu();
         initGrid(width, height);
     }
 
@@ -123,7 +123,7 @@ public class GridUI extends Observable {
     }
 
     private void setupObservable() {
-        gridSideMenu.addObserver(myGridPane);
+        gameSideMenu.addObserver(myGridPane);
         playerMenu.addObserver(myGridPane);
         myItemMenu.addObserver(myGridPane);
     }

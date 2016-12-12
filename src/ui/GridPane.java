@@ -7,7 +7,7 @@ import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
 import ui.builder.DialogBuilder;
 import ui.scenes.editor.objects.GameObject;
-import ui.scenes.editor.sidemenu.GridSideMenu;
+import ui.scenes.editor.sidemenu.GameSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
@@ -240,9 +240,9 @@ public class GridPane extends Observable implements Observer {
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
                         temp.swap(list.get(j), list.get(j).getImageNum());
-                        gateTransition(temp, control);
                         control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
                                          getBackendCol(temp));
+                        gateTransition(temp, control);              
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
@@ -260,6 +260,7 @@ public class GridPane extends Observable implements Observer {
 
     private void gateTransition(GridPaneNode node, EditorController control){
         String path = node.getName();
+        System.out.println("in gateTransition");
         if(path.indexOf("open")<0){
             control.setGateStatus(getBackendCol(node), getBackendRow(node), false);
         }
@@ -461,7 +462,7 @@ public class GridPane extends Observable implements Observer {
             clickType = "PLAYER";
             System.out.println(((PlayerSideMenu) o).getImagePaths());
         }
-        else if (o instanceof GridSideMenu) {
+        else if (o instanceof GameSideMenu) {
             clickType = "LINK";
 
         } else if (o instanceof ItemSideMenu) {
