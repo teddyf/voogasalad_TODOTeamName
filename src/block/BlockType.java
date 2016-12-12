@@ -12,7 +12,7 @@ public enum BlockType {
     ENEMY,
     GATE,
     GROUND,
-    NPC_BLOCK,
+    NPC,
     OBSTACLE,
     POKEMON_GIVER,
     SWITCH_FLOOR,
