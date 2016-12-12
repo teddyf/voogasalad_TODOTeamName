@@ -110,7 +110,6 @@ public class EngineView extends Scene implements Observer {
     private void loadGrid() {
         int colMax = myController.getNumCols();
         int rowMax = myController.getNumRows();
-        System.out.println("poopy row = " + rowMax + "poopy col =" + colMax);
         grid.loadReset(rowMax, colMax);
         myBuilder.removeComponent(myRoot, grid.getGroup());
         for (int i = 0; i < rowMax; i++) {

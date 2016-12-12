@@ -93,7 +93,7 @@ public abstract class Grid extends Observable {
         grid = new GridPaneNode[gridHeight][gridWidth];
     }
 
-    private boolean isWrapBlock(int i, int j) {
+    public boolean isWrapBlock(int i, int j) {
         return !(i >= WRAP / 2 && i < gridHeight + WRAP / 2 &&
                 j >= WRAP / 2 && j < gridWidth + WRAP / 2);
     }

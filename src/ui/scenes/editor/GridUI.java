@@ -21,6 +21,7 @@ import java.util.*;
  *         This class initializes the grid-based UI used to create the overworld.
  */
 public class GridUI extends Observable implements Observer {
+
     private Parent myRoot;
     private ItemSideMenu myItemMenu;
     private EditorController myController;
@@ -101,21 +102,14 @@ public class GridUI extends Observable implements Observer {
 
     private void setGridClickable() {
         List<GridPaneNode> blockList = myGridPane.getNodeList();
-        System.out.println(myGridPane.getWidth() + " is the width of the gridpane");
-        System.out.println(myGridPane.getHeight() + " is the hieght of ght egridpa");
         for (GridPaneNode node : blockList) {
             node.getImage().setOnMouseClicked(e -> {
-                int WRAP = myGridPane.getWrap();
-                if (node.getCol() >= WRAP / 2 && node.getCol() < myGridPane.getWidth() + WRAP / 2 && node.getRow() >= WRAP / 2 && node.getRow() < myGridPane.getHeight() + WRAP  / 2) {
-                    System.out.println("row =" + node.getRow() + " col = " + node.getCol());
+                if (!myGridPane.isWrapBlock(node.getRow(), node.getCol())) {
                     myGridPane.click(node);
-                    if (e.getButton() == MouseButton.SECONDARY) {
+                    if (e.getButton() == MouseButton.SECONDARY)
                         myGridPane.delete(myController);
-                    } else {
-                        System.out.println("disease");
-                        myGridPane.nodeClick(myItemMenu.getSelected(),
-                                myController, playerMenu.getImagePaths());
-                    }
+                    else
+                        myGridPane.nodeClick(myItemMenu.getSelected(), myController, playerMenu.getImagePaths());
                 }
             });
         }

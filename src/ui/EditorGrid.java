@@ -35,6 +35,12 @@ public class EditorGrid extends Grid implements Observer {
 
         this.clickType = "";
         def = new GridPaneNode(0, 0, defaultText());
+
+        for (GridPaneNode node : blockList) {
+            if (!isWrapBlock(node.getRow(), node.getCol())) {
+                makeClickable(node);
+            }
+        }
     }
 
     public void click (GridPaneNode node) {
@@ -124,26 +130,26 @@ public class EditorGrid extends Grid implements Observer {
                     System.out.println("gridwidth" + grid[0].length + " gridheight" + grid.length);
                     GridPaneNode temp = grid[yPos][xPos];
                     // TODO add dimension checker
-                    
+
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
                         String message = setDialogue("Set the dialogue for the communicator block.","Dialog for the communicator block:");
                         if(!message.isEmpty()){
                             temp.swap(list.get(j), list.get(j).getImageNum());
-                            
+
                             control.addBlock(temp.getName(), obj.getBlockType(), getBackendAssociatedRow(temp),
                                              getBackendAssociatedColumn(temp));
                             control.addMessage(message, getBackendAssociatedRow(temp), getBackendAssociatedColumn(temp));
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
-                        
+
                             temp.swap(list.get(j), list.get(j).getImageNum());
                             control.addBlock(temp.getName(), obj.getBlockType(), getBackendAssociatedRow(temp),
                                              getBackendAssociatedColumn(temp));
-                        
-                        
+
+
                     }
-                    
+
                     else if(obj.getBlockType().equals(BlockType.NPC)){
                         String message = setDialogue("Set the dialogue for the NPC block", "Dialogue for the NPC block");
                         if(!message.isEmpty()){
@@ -152,7 +158,7 @@ public class EditorGrid extends Grid implements Observer {
                                              getBackendAssociatedColumn(temp));
                             control.addMessage(message, getBackendAssociatedRow(temp), getBackendAssociatedColumn(temp));
                         }
-                        
+
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
@@ -177,11 +183,11 @@ public class EditorGrid extends Grid implements Observer {
             control.setGateStatus(getBackendAssociatedRow(node), getBackendAssociatedColumn(node), true);
         }
     }
-    
+
     private void successMessage(String header, String content){
         new UIBuilder().addCustomAlert(new ComponentProperties().header(header).content(content));
     }
-    
+
     private String setDialogue (String header, String content) {
         DialogBuilder db = new DialogBuilder(new ComponentProperties()
                 .header(header)
@@ -189,7 +195,7 @@ public class EditorGrid extends Grid implements Observer {
         Optional<String> response = db.getResponse();
         return response.orElse(new String());
     }
-    
+
 
     private void resetClicked () {
         clicked = new ArrayList<GridPaneNode>();
@@ -241,11 +247,11 @@ public class EditorGrid extends Grid implements Observer {
         System.out.println("delete these: " + deleted);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i += 2) {
-                
+
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i + 1)];
                 control.addBlock(defaultText(), BlockType.GROUND, getBackendAssociatedRow(node), getBackendAssociatedColumn(node));
                 node.swap(def, node.getImageNum());
-                
+
             }
         }
         resetClicked();
@@ -275,7 +281,7 @@ public class EditorGrid extends Grid implements Observer {
             }
         }
     }
-    
+
     public void shiftAll() {
         for(int i = 0; i < blockList.size(); i++){
             GridPaneNode temp = blockList.get(i);
@@ -314,7 +320,6 @@ public class EditorGrid extends Grid implements Observer {
             node.getImage().setEffect(hoverOpacity);
         });
         node.getImage().setOnMouseClicked(e -> {
-            // node.getImage().setEffect(hoverOpacity);
             click(node);
         });
     }

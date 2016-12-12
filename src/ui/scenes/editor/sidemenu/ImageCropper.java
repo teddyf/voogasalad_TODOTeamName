@@ -16,10 +16,10 @@ class ImageCropper {
     private int myRowNumber;
     private int myColumnNumber;
 
-    ImageCropper(String originalPath, int r, int c) {
+    public ImageCropper(String originalPath, int row, int column) {
         myOriginalPath = originalPath;
-        myRowNumber = r;
-        myColumnNumber = c;
+        myRowNumber = row;
+        myColumnNumber = column;
         crop();
     }
 
