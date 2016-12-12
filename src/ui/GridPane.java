@@ -163,7 +163,12 @@ public class GridPane extends Grid implements Observer {
             clicked.get(i).getImage().setEffect(null);
         }
     }
-
+    /**
+     * Builds player
+     * @param control
+     * @param name
+     * @param imagePaths
+     */
     public void buildPlayer (EditorController control, String name, List<String> imagePaths) {
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
@@ -246,7 +251,6 @@ public class GridPane extends Grid implements Observer {
             copy = clicked;
         }
         clicked = new ArrayList<GridPaneNode>();
-        gridMap.debug();
         return copy;
     }
 
@@ -339,7 +343,7 @@ public class GridPane extends Grid implements Observer {
                 
             }
         }
-        gridMap.debug();
+
         clicked = new ArrayList<GridPaneNode>();
         // gridMap.visObjectMap();
     }

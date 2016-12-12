@@ -109,20 +109,7 @@ public class GridObjectMap {
     Map<Point,ArrayList<Point>> getMap(){
         return data;
     }
-    public void debug(){
-        for(int i = 0; i < height; i++){
-            for(int j = 0; j < width; j++){
-                if(data.get(new Point(i,j)).isEmpty()){
-                    System.out.print("O");
-                }
-                else{
-                    System.out.print("X");
-                }
-            }
-            System.out.println();
-            
-        }
-    }
+
     
     
 }
