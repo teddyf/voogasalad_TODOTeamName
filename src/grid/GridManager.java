@@ -23,51 +23,40 @@ import player.PlayerUpdate;
 
 @XStreamAlias("gridManager")
 public class GridManager extends Observable {
-	@XStreamOmitField
+
     private static final String SIZE_CHOOSER = "resources/properties/size-chooser";
-
-	@XStreamImplicit
-    private List<Grid> grids;
-    
-    @XStreamOmitField
+    private List<Grid> myGrids;
     private int currentIndex;
-
-    @XStreamOmitField
     private ResourceBundle myResources;
-    
-    @XStreamOmitField
     private Grid currentGrid;
-    
-    @XStreamOmitField
     private BlockFactory blockFactory;
-    
     private String musicFile;
 
     public GridManager() {
-        grids = new ArrayList<>();
+        myGrids = new ArrayList<>();
         currentIndex = 0;
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
     }
 
-    public GridManager(GridManager gridManager) {
-        grids = gridManager.getGrids();
-        currentIndex = gridManager.getCurrentIndex();
+    public GridManager(List<Grid> grids) {
+        myGrids = grids;
+        currentIndex = 0;
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
-        currentGrid = gridManager.getCurrentGrid();
+        currentGrid = myGrids.get(currentIndex);
         System.out.println("reset grid please " + currentGrid.getBlock(0,0).isWalkable());
     }
 
     public void addGrid(int numRows, int numCols) {
-        Grid newGrid = new Grid(grids.size(), numRows, numCols);
-        grids.add(newGrid);
-        changeGrid(grids.size() -1);
+        Grid newGrid = new Grid(myGrids.size(), numRows, numCols);
+        myGrids.add(newGrid);
+        changeGrid(myGrids.size() -1);
     }
 
     public void changeGrid(int index) {
         currentIndex = index;
-        currentGrid = grids.get(currentIndex);
+        currentGrid = myGrids.get(currentIndex);
     }
 
     public boolean changeGridSize(GridSizeDirection direction, int amount, int playerRow, int playerColumn) throws LargeGridException, DeletePlayerWarning {
@@ -192,8 +181,8 @@ public class GridManager extends Observable {
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        Grid grid1 = grids.get(index1);
-        Grid grid2 = grids.get(index2);
+        Grid grid1 = myGrids.get(index1);
+        Grid grid2 = myGrids.get(index2);
         Block block1 = grid1.getBlock(row1, col1);
         Block block2 = grid2.getBlock(row2, col2);
         boolean firstLink = block1.link(block2, index2);
@@ -202,8 +191,8 @@ public class GridManager extends Observable {
     }
 
     public boolean unlinkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
-        Grid grid1 = grids.get(index1);
-        Grid grid2 = grids.get(index2);
+        Grid grid1 = myGrids.get(index1);
+        Grid grid2 = myGrids.get(index2);
         Block block1 = grid1.getBlock(row1, col1);
         Block block2 = grid2.getBlock(row2, col2);
         return (block1.unlink(block2) || block2.unlink(block2));
@@ -221,7 +210,7 @@ public class GridManager extends Observable {
     /***** GETTERS *****/
 
     public List<Grid> getGrids() {
-        return grids;
+        return myGrids;
     }
 
     public Grid getCurrentGrid() {
