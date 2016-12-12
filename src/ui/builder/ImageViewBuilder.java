@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 public class ImageViewBuilder implements ComponentBuilder {
 
     ImageViewBuilder() {
-        super();
     }
 
     public Node createComponent(ComponentProperties properties) {

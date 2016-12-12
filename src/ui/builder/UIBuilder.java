@@ -30,7 +30,7 @@ public class UIBuilder<E> {
     private ComponentBuilder textFieldBuilder;
     private ComponentBuilder radioButtonBuilder;
     private ComponentBuilder comboBoxBuilder;
-    private DialogBubbleBuilder dialogBubbleBuilder;
+    private ComponentBuilder dialogBubbleBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();

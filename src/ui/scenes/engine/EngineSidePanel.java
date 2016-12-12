@@ -104,9 +104,7 @@ public class EngineSidePanel implements Observer {
         vbox.getChildren().add(playerPos);
         vbox.getChildren().add(createLabel("Your Number of Pokemon"));
         numPokemon = createLabel(String.valueOf(engineController.getPlayerNumPokemon()));
-        vbox.getChildren().addAll(numPokemon, createLabel("Battle History"));
-        Label color = createLabel("COLRO");
-        color.setTextFill(Color.BLUE);
+        vbox.getChildren().add(numPokemon);
         Group compass = initCompass();
         vbox.getChildren().add(compass);
 
