@@ -69,6 +69,7 @@ public class EditorController implements IEditorController {
     }
 
     public boolean setGateStatus(int row, int col, boolean isOpen) {
+
         return true;
     }
 

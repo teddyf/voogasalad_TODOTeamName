@@ -10,5 +10,6 @@ public enum BlockUpdateType {
     BATTLE,
     DISPLAY_MESSAGE,
     RE_RENDER,
+    TELEPORT,
     WIN_GAME
 }

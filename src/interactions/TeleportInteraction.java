@@ -1,6 +1,7 @@
 package interactions;
 
 import block.BlockUpdate;
+import block.BlockUpdateType;
 import player.Player;
 
 import java.util.ArrayList;
@@ -28,6 +29,9 @@ public class TeleportInteraction implements Interaction {
         player.setRow(myDestinationRow);
         player.setCol(myDestinationCol);
         player.setGridIndex(myDestinationGrid);
-        return new ArrayList<BlockUpdate>();
+        BlockUpdate update = new BlockUpdate(BlockUpdateType.TELEPORT, myDestinationRow, myDestinationCol, "");
+        List<BlockUpdate> allUpdates = new ArrayList<>();
+        allUpdates.add(update);
+        return allUpdates;
     }
 }

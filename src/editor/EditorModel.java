@@ -168,6 +168,24 @@ public class EditorModel {
         return false;
     }
 
+    public boolean setGateStatus(int row, int col, boolean isOpen) {
+        // TODO: change if needed to implement multiple grids
+        Block block = gridWorld.getCurrentGrid().getBlock(row, col);
+        if(block instanceof GateBlock) {
+            if(isOpen) {
+                ((GateBlock) block).openGate();
+                return true;
+            }
+            else {
+                ((GateBlock) block).closeGate();
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
         Grid grid1 = gridWorld.getGrid(index1);
         Grid grid2 = gridWorld.getGrid(index2);

@@ -28,7 +28,7 @@ public class InteractionHandler {
         myGridForEngine = grid;
     }
 
-    public void displayMessage(String message) {
+    private void displayMessage(String message) {
         ComponentProperties prop = new ComponentProperties();
         prop.text(message);
         prop.height(100);
@@ -36,11 +36,15 @@ public class InteractionHandler {
         myUIBuilder.addDialogBubble(myRoot, prop);
     }
 
-    public void winGame() {
+    private void renderTeleportation(int r, int c) {
+
+    }
+
+    private void winGame() {
         // TODO: win the game and display win message
     }
 
-    public void reRenderBlock(int row, int col, String imagePath) {
+    private void reRenderBlock(int row, int col, String imagePath) {
         myGridForEngine.reRender(row, col, imagePath);
     }
 
@@ -53,6 +57,9 @@ public class InteractionHandler {
                 break;
             case RE_RENDER:
                 reRenderBlock(blockUpdate.getRow(), blockUpdate.getColumn(), blockUpdate.getContent());
+                break;
+            case TELEPORT:
+                renderTeleportation(blockUpdate.getRow(), blockUpdate.getColumn());
                 break;
             case WIN_GAME:
                 winGame();
