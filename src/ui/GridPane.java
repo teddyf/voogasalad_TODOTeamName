@@ -108,12 +108,12 @@ public class GridPane extends Observable implements Observer {
                     j >= WRAP / 2 && j < gridHeight + WRAP / 2) {
                     GridPaneNode node = new GridPaneNode(i, j, defaultText());
                     blockList.add(node);
-                    grid[j][i] = node;
+                    grid[i][j] = node;
                 }
                 else {
                     GridPaneNode node = new GridPaneNode(i, j, borderPath);
                     blockList.add(node);
-                    grid[j][i] = node;
+                    grid[i][j] = node;
                 }
             }
         }
