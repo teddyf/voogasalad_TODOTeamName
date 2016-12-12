@@ -161,10 +161,8 @@ public class GridPane extends Observable implements Observer {
     }
 
     public void loadReset (double height, double width) {
-
         this.gridWidth = width;
         this.gridHeight = height;
-
         this.group = new Group();
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
@@ -173,7 +171,6 @@ public class GridPane extends Observable implements Observer {
 
     public void nodeClick (GameObject obj,
                            EditorController control,
-                           String name,
                            List<String> imagePaths) {
         setChanged();
         notifyObservers();
@@ -183,6 +180,7 @@ public class GridPane extends Observable implements Observer {
                 swap(obj, control);
             }
             else if (clickType.equals("PLAYER") && imagePaths.size() > 0) {
+                String name = setDialogue("Name for Player", "Set the name for your player");
                 buildPlayer(control, name, imagePaths);
             }
         }
@@ -239,9 +237,8 @@ public class GridPane extends Observable implements Observer {
                     // TODO add dimension checker
                     
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
-                        String message = setCommMessage();
+                        String message = setDialogue("Set the dialogue for the communicator block.","Dialog for the communicator block:");
                         if(!message.isEmpty()){
-                            System.out.println("heyo");
                             temp.swap(list.get(j), list.get(j).getImageNum());
                             
                             control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
@@ -250,10 +247,23 @@ public class GridPane extends Observable implements Observer {
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
-                        temp.swap(list.get(j), list.get(j).getImageNum());
-                        control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
-                                         getBackendCol(temp));
-                        gateTransition(temp, control);              
+                        
+                            temp.swap(list.get(j), list.get(j).getImageNum());
+                            control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                             getBackendCol(temp)); 
+                        
+                        
+                    }
+                    
+                    else if(obj.getBlockType().equals(BlockType.NPC)){
+                        String message = setDialogue("Set the dialogue for the NPC block", "Dialogue for the NPC block");
+                        if(!message.isEmpty()){
+                            temp.swap(list.get(j), list.get(j).getImageNum());
+                            control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                             getBackendCol(temp));
+                            control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                        }
+                        
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
@@ -283,13 +293,14 @@ public class GridPane extends Observable implements Observer {
         builder.addCustomAlert(new ComponentProperties().header(header).content(content));
     }
     
-    private String setCommMessage () {
+    private String setDialogue (String header, String content) {
         DialogBuilder db = new DialogBuilder(new ComponentProperties()
-                .header("Set the dialog for the communicator block.")
-                .content("Dialog for the communicator block:"));
+                .header(header)
+                .content(content));
         Optional<String> response = db.getResponse();
         return response.orElse(new String());
     }
+    
 
     private void resetClicked () {
         clicked = new ArrayList<GridPaneNode>();
@@ -344,11 +355,14 @@ public class GridPane extends Observable implements Observer {
         ArrayList<Integer> deleted = new ArrayList<Integer>();
         for (int i = 0; i < clicked.size(); i++) {
             GridPaneNode temp = clicked.get(i);
+            
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
+            gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
 
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i += 2) {
+                
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i + 1)];
                 control.addBlock(defaultText(), BlockType.GROUND, getBackendRow(node), getBackendCol(node));
                 node.swap(def, node.getImageNum());
@@ -381,6 +395,13 @@ public class GridPane extends Observable implements Observer {
                     clicked.remove(i);
                 }
             }
+        }
+    }
+    
+    public void shiftAll(){
+        for(int i = 0; i < blockList.size(); i++){
+            GridPaneNode temp = blockList.get(i);
+            temp.setImageCoord(temp.getImage().getTranslateX()+WRAP, temp.getImage().getTranslateY()+WRAP);
         }
     }
 

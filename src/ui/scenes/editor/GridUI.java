@@ -20,7 +20,7 @@ import java.util.*;
  *         <p>
  *         This class initializes the grid-based UI used to create the overworld.
  */
-public class GridUI extends Observable {
+public class GridUI extends Observable implements Observer {
     private Parent myRoot;
     private ItemSideMenu myItemMenu;
     private EditorController myController;
@@ -83,8 +83,8 @@ public class GridUI extends Observable {
     }
 
     void loadGrid() {
-        int colMax = myController.getPlayerCol();
-        int rowMax = myController.getPlayerRow();
+        int colMax = myController.getNumCols();
+        int rowMax = myController.getNumRows();
         myGridPane.loadReset(rowMax, colMax);
         myBuilder.removeComponent(myRoot, myGridPane.getGroup());
         for (int i = 0; i < rowMax; i++) {
@@ -92,6 +92,7 @@ public class GridUI extends Observable {
                 myGridPane.blockToGridPane(i, j, myController.getBlock(i, j));
             }
         }
+        myGridPane.shiftAll();
         myGridPane.setRenderMap();
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
     }
@@ -115,7 +116,7 @@ public class GridUI extends Observable {
                     } else {
                         System.out.println("disease");
                         myGridPane.nodeClick(myItemMenu.getSelected(),
-                                myController, "Teddy", playerMenu.getImagePaths());
+                                myController, playerMenu.getImagePaths());
                     }
                 }
             });
@@ -130,5 +131,11 @@ public class GridUI extends Observable {
         gameSideMenu.addObserver(myGridPane);
         playerMenu.addObserver(myGridPane);
         myItemMenu.addObserver(myGridPane);
+    }
+
+    public void update(Observable editorIO, Object controller) {
+        if (editorIO instanceof EditorIO) {
+            myController = (EditorController) controller;
+        }
     }
 }

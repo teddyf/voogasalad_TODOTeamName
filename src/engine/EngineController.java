@@ -8,7 +8,6 @@ import java.util.Observer;
 import api.IEngineController;
 import block.BlockUpdate;
 import grid.GridManager;
-import grid.GridWorld;
 import player.Player;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
@@ -16,7 +15,7 @@ import xml.GridXMLHandler;
 /**
  * This is the controller for the game engine. It allows the backend and frontend to talk to each other while the game
  * is being played.
- * @author Aninda Manocha
+ * @author Aninda Manocha, Nisakorn Valyasevi
  */
 
 public class EngineController extends Observable implements Observer, IEngineController {
@@ -30,11 +29,12 @@ public class EngineController extends Observable implements Observer, IEngineCon
         gameInstances = new ArrayList<GameInstance>();
     }
 
-    public EngineController(Player player, GridManager gridManager) {
+    public EngineController(Player player, GridManager gridManager, String musicFile) {
         xmlHandler = new GridXMLHandler();
         gameInstances = new ArrayList<GameInstance>();
         gameInstance = new GameInstance(player, gridManager);
         gameInstance.addObserver(this);
+        gameInstance.setMusic(musicFile);
     }
 
     /***** GRID METHODS *****/
@@ -76,6 +76,10 @@ public class EngineController extends Observable implements Observer, IEngineCon
 
     public int getPlayerColumn() {
         return gameInstance.getPlayer().getCol();
+    }
+    
+    public double getPlayerHealth() {
+    	return gameInstance.getPlayer().getHealth();
     }
 
     public int getPlayerGridIndex() {

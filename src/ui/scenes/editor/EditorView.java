@@ -72,6 +72,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
         setOnScrollFinished(event -> myGridUI.getScrollMechanism().trackpadEndScroll(event));
         // init file I/O
         myEditorIO = new EditorIO(myStage, myController, new EngineController(), myResources, myGridUI);
+        myEditorIO.addObserver(myGridUI);
         events = new EditorEvents(myLauncher, myEditorIO, myResources);
         // init error checking
         myController.setAlerts(this);
@@ -97,7 +98,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
      * Initializes the game editor window by prompting the user to choose an initial
      * overworld size
      */
-    public void initEditor() {
+    public void init() {
         SizeChooserUI sizeChooser = new SizeChooserUI(this, new Group());
         myBuilder.initWindow(myStage, SizeChooserUI.SIZE_CHOOSER_RESOURCES);
         myStage.setScene(sizeChooser);

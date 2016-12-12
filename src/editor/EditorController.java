@@ -29,17 +29,11 @@ public class EditorController implements IEditorController {
     private GridManager myGridManager;
     private PlayerManager myPlayerManager;
     private GridXMLHandler xmlHandler;
-
     private GameEditorAlerts myAlerts;
 
     public EditorController() {
         myGridManager = new GridManager();
         myPlayerManager = new PlayerManager(myGridManager.getCurrentGrid());
-        try {
-            System.out.println(myPlayerManager.getPlayer());
-        } catch (NoPlayerException e) {
-            System.out.println(e);
-        }
         xmlHandler = new GridXMLHandler();
         myGridManager.addObserver(myPlayerManager);
     }
@@ -72,6 +66,14 @@ public class EditorController implements IEditorController {
             return false;
         }
         return false;
+    }
+
+    public int getNumRows() {
+        return myGridManager.getCurrentGrid().getNumRows();
+    }
+
+    public int getNumCols() {
+        return myGridManager.getCurrentGrid().getNumCols();
     }
 
     public void addMusic(String file) {
@@ -200,9 +202,8 @@ public class EditorController implements IEditorController {
     public EngineController runEngine() {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
-            System.out.println("i am sad " + myGridManager.getGrids().get(0).getBlock(0,0));
             GridManager testGridManager = myGridManager.deepClone();
-            return (new EngineController(testPlayer, testGridManager));
+            return (new EngineController(testPlayer, testGridManager, testGridManager.getMusic()));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
             return null;

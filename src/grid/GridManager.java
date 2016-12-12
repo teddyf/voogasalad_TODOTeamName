@@ -46,7 +46,6 @@ public class GridManager extends Observable {
         currentIndex = 0;
         blockFactory = new BlockFactory();
         currentGrid = myGrids.get(currentIndex);
-        System.out.println("reset grid please " + currentGrid.getBlock(0,0).isWalkable());
     }
 
     public void addGrid(int numRows, int numCols) {
@@ -272,6 +271,7 @@ public class GridManager extends Observable {
             newGridManager.addGrid(tempGrid);
         }
         newGridManager.changeGrid(0);
+        newGridManager.setMusic(musicFile);
         return newGridManager;
     }
 
