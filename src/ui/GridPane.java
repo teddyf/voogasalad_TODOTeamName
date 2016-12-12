@@ -337,6 +337,7 @@ public class GridPane extends Observable implements Observer {
 
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i += 2) {
+                gridMap.collisionRemoval(deleted.get(i), deleted.get(i+1));
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i + 1)];
                 control.addBlock(defaultText(), BlockType.GROUND, getBackendRow(node), getBackendCol(node));
                 node.swap(def, node.getImageNum());
