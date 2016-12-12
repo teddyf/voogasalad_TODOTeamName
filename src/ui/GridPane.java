@@ -73,13 +73,18 @@ public class GridPane extends Grid implements Observer {
             clicked.get(i).getImage().setEffect(null);
         }
     }
-
+    /**
+     * Builds player
+     * @param control
+     * @param name
+     * @param imagePaths
+     */
     public void buildPlayer (EditorController control, String name, List<String> imagePaths) {
         GridPaneNode node = clicked.get(0);
         int col = node.getCol();
         int row = node.getRow();
         int bCol = getBackendAssociatedRow(node);
-        int bRow = getBackendAssociatedColumn(node;
+        int bRow = getBackendAssociatedColumn(node);
 
         if (control.addPlayer(imagePaths, name, bRow, bCol)) {
 
@@ -160,7 +165,6 @@ public class GridPane extends Grid implements Observer {
             copy = clicked;
         }
         clicked = new ArrayList<GridPaneNode>();
-        gridMap.debug();
         return copy;
     }
 
@@ -201,11 +205,13 @@ public class GridPane extends Grid implements Observer {
             if (!gridMap.available(yRef, xRef)) {
                 return false;
             }
+            else if(yRef >= gridHeight+WRAP/2 || yRef < 0 || xRef >= gridWidth+WRAP/2 || xRef < 0){
+                return false;
+            }
             temp.add(grid[yRef][xRef]);
         }
         gridMap.storeObject(temp);
         return true;
-        // TODO add dimension checker
     }
 
     /**
@@ -242,7 +248,6 @@ public class GridPane extends Grid implements Observer {
                 
             }
         }
-        gridMap.debug();
         resetClicked();
     }
 
@@ -335,8 +340,6 @@ public class GridPane extends Grid implements Observer {
         } else if (o instanceof ItemSideMenu) {
             clickType = "SWAP";
             resetClicked();
-        }
-        else {
         }
     }
 
