@@ -29,7 +29,6 @@ public class EditorController implements IEditorController {
     private GridManager myGridManager;
     private PlayerManager myPlayerManager;
     private GridXMLHandler xmlHandler;
-
     private GameEditorAlerts myAlerts;
 
     public EditorController() {

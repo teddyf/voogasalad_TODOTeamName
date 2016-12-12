@@ -8,7 +8,6 @@ import java.util.Observer;
 import api.IEngineController;
 import block.BlockUpdate;
 import grid.GridManager;
-import grid.GridWorld;
 import player.Player;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
