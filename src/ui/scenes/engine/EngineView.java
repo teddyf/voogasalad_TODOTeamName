@@ -33,6 +33,7 @@ public class EngineView extends Scene {
     private EngineController myController;
     private VoogaAnimation anim;
     private Character player;
+    private EngineSidePanel engineSidePanel;
 
     public EngineView(Stage stage, Parent root, UILauncher launcher) {
         super(root);
@@ -46,6 +47,7 @@ public class EngineView extends Scene {
             // closing the window takes you back to main menu
             myController = null;
             e.consume();
+            engineSidePanel.stopMusic();
             myLauncher.launchMenu();
         });
         myController = new EngineController();
@@ -110,7 +112,7 @@ public class EngineView extends Scene {
     }
     
     private void setUpSidePanel() {
-    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player,this);
+    	engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player,this);
     }
     
     private void setUpPlayer() {

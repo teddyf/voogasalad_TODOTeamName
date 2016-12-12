@@ -43,18 +43,21 @@ public class BattleView implements Observer {
 	private EnemyView enemy;
 	private PlayerView player;
 	private BattleButton reduceHP;
+	private BattleButton shield;
 	private HealthDisplay enemyHealth;
 	private HealthDisplay playerHealth;
 	private Label displayPokemon;
+    private boolean usingShield;
 
 	public BattleView(Difficulty diff, String backgroundFilePath) {
+		usingShield = false;
 		root = new Group();
 		scene = new Scene(root, WIDTH, HEIGHT);
 		root.getStylesheets().add(CSS_FILE_PATH);
 		gameDifficulty = diff;
 		setBackground(backgroundFilePath);
 		displayPokemon = new Label();
-		addButtons(500, 200, "Reduce HP by 10");
+		addButtons(500, 200, "Attack");
 	}
 	
 	public void setModel(BattleModelInView modelInView) {
@@ -91,6 +94,9 @@ public class BattleView implements Observer {
 	private void addButtons(int x, int y, String text) {
 		reduceHP = new BattleButton(text, x, y);
 		reduceHP.addToGroup(root);
+		shield = new BattleButton("Shield", x, y + 100);
+		shield.addToGroup(root);
+		addShieldHandler();
 		addReduceHandler();
 	}
 
@@ -104,13 +110,22 @@ public class BattleView implements Observer {
 	public void displayTextPokemon() {
 		displayPokemon.setText("Number of Pokemon: " + model.getNumPokemon());
 	}
-
+	private void addShieldHandler(){
+		EventHandler<ActionEvent> event = actionEvent -> {
+        	usingShield = true;
+		};
+		shield.addHandler(event);
+	}
 	private void addReduceHandler() {
 		EventHandler<ActionEvent> event = actionEvent -> {
+            System.out.println(usingShield);
 			if (!(model.checkPlayerLost() || model.checkPlayerWon())) {
 				model.setEnemyHP(model.getEnemyHP()
 						- (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH / gameDifficulty.getValue());
-				model.setPlayerHP(model.getPlayerHP() - (Math.random()) * gameDifficulty.getValue() / 3.3);
+				if(!usingShield) {
+					model.setPlayerHP(model.getPlayerHP() - (Math.random()) * gameDifficulty.getValue() / 3.3);
+				}
+				usingShield = false;
 			}
 		};
 		reduceHP.addHandler(event);
