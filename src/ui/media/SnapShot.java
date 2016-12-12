@@ -41,6 +41,7 @@ public class SnapShot {
 	 
 	 private void makeButton() {
 		 Button button = new Button();
+		 button.setFocusTraversable(false);
 		 setButtonImage(button,"resources/images/media/camera.png");
 		 button.setOnAction(new EventHandler<ActionEvent>() {
 	            @Override
