@@ -230,8 +230,7 @@ public class GridManager extends Observable {
         return currentGrid.getBlock(row, col).getName();
     }
 
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public String getMusic() {
+        return musicFile;
     }
 }

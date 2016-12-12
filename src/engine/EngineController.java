@@ -54,6 +54,10 @@ public class EngineController extends Observable implements Observer, IEngineCon
         return gameInstance.getGrid().getBlock(row, col).getName();
     }
 
+    public String getMusic() {
+        return gameInstance.getMusic();
+    }
+
     /***** PLAYER METHODS *****/
 
     public int getPlayerRow() {
