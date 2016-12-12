@@ -260,6 +260,7 @@ public class GridPane extends Observable implements Observer {
 
     private void gateTransition(GridPaneNode node, EditorController control){
         String path = node.getName();
+        System.out.println("in gateTransition");
         if(path.indexOf("open")<0){
             control.setGateStatus(getBackendCol(node), getBackendRow(node), false);
         }

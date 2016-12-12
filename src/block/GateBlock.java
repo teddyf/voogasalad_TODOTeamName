@@ -17,10 +17,12 @@ public class GateBlock extends Block {
 
     public void openGate() {
         setWalkableStatus(OPEN);
+        System.out.println("gate set as open");
     }
 
     public void closeGate() {
         setWalkableStatus(CLOSED);
+        System.out.println("gate set as closed");
     }
 
     /**
@@ -44,7 +46,7 @@ public class GateBlock extends Block {
         // TODO: refactor this ugly stuff following
         int extensionLoc = this.getName().lastIndexOf('.');
         String extension = this.getName().substring(extensionLoc);
-        int statusLoc = this.getName().lastIndexOf('_');
+        int statusLoc = this.getName().lastIndexOf('-');
         String image = this.getName().substring(0, statusLoc + 1) + status + extension;
         return new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol(), image);
     }
