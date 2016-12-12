@@ -12,12 +12,14 @@ import player.Player;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
+import java.util.Observable;
+
 /**
  * This class handles interactions on the front end.
  * @author Aninda Manocha, Filip Mazurek
  */
 
-public class InteractionHandler {
+public class InteractionHandler extends Observable {
     private Parent myRoot;
     private UIBuilder myUIBuilder;
     private GridForEngine myGridForEngine;
@@ -38,7 +40,8 @@ public class InteractionHandler {
     }
 
     private void winGame() {
-        // TODO: win the game and display win message
+        setChanged();
+        notifyObservers();
     }
 
     private void reRenderBlock(int row, int col, String imagePath) {
