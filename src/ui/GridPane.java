@@ -12,14 +12,13 @@ import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.ImageView;
 import editor.EditorController;
 
 
 /**
  * @author Teddy Franceschi, Harshil Garg
  */
-public class GridPane implements Observer {
+public class GridPane extends Observable implements Observer {
 
     private final int WRAP = 20;
     private final int CELL_PIXELS = 30;
@@ -171,6 +170,8 @@ public class GridPane implements Observer {
                            EditorController control,
                            String name,
                            List<String> imagePaths) {
+        setChanged();
+        notifyObservers();
         if (clicked.size() == 1) {
             if (clickType.equals("SWAP")) {
                 swap(obj, control);
@@ -471,11 +472,11 @@ public class GridPane implements Observer {
         }
     }
 
-    public int getBackendRow(GridPaneNode gpn) {
+    private int getBackendRow(GridPaneNode gpn) {
         return gpn.getRow() - WRAP / 2;
     }
 
-    public int getBackendCol(GridPaneNode gpn) {
+    private int getBackendCol(GridPaneNode gpn) {
         return gpn.getCol() - WRAP / 2;
     }
 
