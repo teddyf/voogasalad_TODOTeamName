@@ -34,7 +34,6 @@ public class EngineController extends Observable implements Observer, IEngineCon
         xmlHandler = new GridXMLHandler();
         gameInstances = new ArrayList<GameInstance>();
         gameInstance = new GameInstance(player, gridManager);
-        //System.out.println(gameInstance);
         gameInstance.addObserver(this);
     }
 
@@ -45,6 +44,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public int getNumCols() {
+        System.out.println(gameInstance.getGrid());
         return gameInstance.getGrid().getNumCols();
     }
 
