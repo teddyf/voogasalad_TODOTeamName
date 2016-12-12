@@ -44,6 +44,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public int getNumCols() {
+        System.out.println(gameInstance.getGrid());
         return gameInstance.getGrid().getNumCols();
     }
 
