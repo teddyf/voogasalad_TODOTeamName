@@ -32,7 +32,7 @@ public class GameSideMenu extends SideMenu {
         myEditorController = editorController;
         myItemMenu = itemMenu;
         sound = new SoundChooser(myEditorController);
-        myEditorController.addMusic("ppp");
+        myEditorController.addMusic("src/resources/sounds/Aquacorde.mp3");
         init();
         setSidePanelHeight(400);
     }

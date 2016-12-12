@@ -6,11 +6,13 @@ import java.util.Observable;
  * @author pim
  */
 
+
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 
 public class HealthDisplay {
 
@@ -39,11 +41,10 @@ public class HealthDisplay {
 
 		playerChart = new Button();
 		playerChart.getStyleClass().add("playerChart");
-		playerChart.setPrefSize(hp, 5);
+		playerChart.setPrefSize(hp, 2);
 		playerChart.setLayoutX(x + 10);
 		playerChart.setLayoutY(y + 10);
-
-
+		
 		score = new Label("HP: " + hp);
 		score.setLayoutX(x + 150);
 		score.setLayoutY(y + 10);
@@ -56,8 +57,9 @@ public class HealthDisplay {
 	}
 
 	public void update(ItemView itemView) {
-		playerChart.setPrefSize(itemView.getHP(), 5);
+		playerChart.setPrefSize(itemView.getHP(), 2);
 		score.setText("HP: " + itemView.getHP());
+		score.setFont(new Font("Pokemon GB",10));
 	}
 
 }

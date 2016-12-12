@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 public class RandomMessage {
@@ -47,8 +48,8 @@ public class RandomMessage {
 	private void initImageBox() {
 		Image image = new Image("resources/images/battles/EmptyDialog.png");
 		ImageView iView = new ImageView();
-		iView.setFitWidth(200);
-		iView.setFitHeight(50);
+		iView.setFitWidth(500);
+		iView.setFitHeight(100);
 		iView.setLayoutX(x1);
 		iView.setLayoutY(y1);
 		iView.setImage(image);  
@@ -59,8 +60,9 @@ public class RandomMessage {
 		int maximum = randomMessages.size()-1;
 		int randomNum = (int)(Math.random() * maximum);
 		label = new Label(randomMessages.get(randomNum));
-		label.setLayoutX(x1+10);
-		label.setLayoutY(y1+10);
+		label.setLayoutX(x1+30);
+		label.setLayoutY(y1+30);
+		label.setFont(new Font("Pokemon GB",30));
 		group.getChildren().add(label);
 	}
 	
@@ -68,6 +70,7 @@ public class RandomMessage {
 		int maximum = randomMessages.size()-1;
 		int randomNum = (int)(Math.random() * maximum);
 		label.setText(randomMessages.get(randomNum));
+		//label.setStyle("-fx-font: 30;");
 	}
 
 }

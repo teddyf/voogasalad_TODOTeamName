@@ -31,13 +31,11 @@ public class SoundChooser {
 		group.getChildren().add(hbox);
 		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
         playButtonClicked=true;
-        this.editorController = editorController;
         
+        this.editorController = editorController;
         initComboBox();
 		initPlayButton();
 		initPauseButton();
-		
-		editorController.addMusic(chosenSongPath);
 	}
 
 	private void initComboBox() {

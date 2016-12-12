@@ -90,10 +90,9 @@ public class EngineSidePanel implements Observer {
         itemMenuRegion.getChildren().add(vbox);
 
         vbox.setPadding(new Insets(10, 10, 10, 10));
-
-        //soundPlayer = new SoundPlayer(engineController.getMusic());
-        //soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
-        //vbox.getChildren().add(soundPlayer.getGroup());
+        soundPlayer = new SoundPlayer(engineController.getMusic());
+        soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
+        vbox.getChildren().add(soundPlayer.getGroup());
     }
 
     private void initStats() {
