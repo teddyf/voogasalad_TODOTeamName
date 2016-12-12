@@ -341,10 +341,7 @@ public class GridPane implements Observer {
     }
 
     boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-<<<<<<< HEAD
         builder.addNewAlert("", "Link added!");
-=======
->>>>>>> d7fc1a131814e7583dc565e7b4595af7f7d6d48c
         clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
                 getBackendRow(node2), getBackendCol(node2), 0);
