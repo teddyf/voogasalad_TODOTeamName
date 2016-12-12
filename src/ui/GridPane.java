@@ -181,7 +181,7 @@ public class GridPane implements Observer {
         }
         else if (clicked.size() == 2 && clickType.equals("LINK")) {
             if(buildLink(clicked.get(0), clicked.get(1), control)){
-               // myBuilder.
+                successMessage("Link forged!", "Successfully built a link between selected objects!");
             }
         }
         for (int i = 0; i < clicked.size(); i++) {
@@ -235,6 +235,7 @@ public class GridPane implements Observer {
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
+                        temp.swap(list.get(j), list.get(j).getImageNum());
                         gateTransition(temp, control);
                     }
                     else{
@@ -259,6 +260,10 @@ public class GridPane implements Observer {
         else{
             control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
         }
+    }
+    
+    private void successMessage(String header, String content){
+        builder.addCustomAlert(new ComponentProperties().header(header).content(content));
     }
     
     private String setCommMessage () {
