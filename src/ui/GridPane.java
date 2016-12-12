@@ -190,6 +190,8 @@ public class GridPane implements Observer {
     public void buildPlayer (EditorController control, String name, List<String> imagePaths) {
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
+        int bCol = getBackendRow(clicked.get(0));
+        int bRow = getBackendCol(clicked.get(0));
 
         if (control.addPlayer(imagePaths, name, getBackendRow(clicked.get(0)),
                 getBackendCol(clicked.get(0)))) {
