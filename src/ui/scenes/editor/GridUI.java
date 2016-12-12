@@ -1,4 +1,5 @@
 package ui.scenes.editor;
+
 import editor.EditorController;
 import ui.GridPane;
 import ui.GridPaneNode;
@@ -8,16 +9,18 @@ import javafx.scene.input.MouseButton;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.scenes.editor.sidemenu.EditorControls;
-import ui.scenes.editor.sidemenu.GridSideMenu;
+import ui.scenes.editor.sidemenu.GameSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
+
 import java.util.*;
+
 /**
  * @author Teddy Franceschi, Robert Steilberg, Harshil Garg
  *         <p>
  *         This class initializes the grid-based UI used to create the overworld.
  */
-public class GridUI extends Observable{
+public class GridUI extends Observable {
     private Parent myRoot;
     private ItemSideMenu myItemMenu;
     private EditorController myController;
@@ -30,8 +33,9 @@ public class GridUI extends Observable{
     private GridScrollButton gsb;
     private PlayerSideMenu playerMenu;
     private EditorControls sideControls;
-    private GridSideMenu gridSideMenu;
+    private GameSideMenu gameSideMenu;
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
+
     public GridUI(Parent root, EditorController controller, EditorControls sideMenu, int width, int height) {
         myRoot = root;
         myItemMenu = sideMenu.getMyItemMenu();
@@ -42,9 +46,10 @@ public class GridUI extends Observable{
         sideControls = sideMenu;
         myBuilder = new UIBuilder();
         hoverOpacity = new ColorAdjust();
-        gridSideMenu = sideMenu.getGridSideMenu();
+        gameSideMenu = sideMenu.getGridSideMenu();
         initGrid(width, height);
     }
+
     /**
      * Creates a grid of specified width and height, and then adds
      * functionality to the grid.
@@ -66,6 +71,7 @@ public class GridUI extends Observable{
         gsb = new GridScrollButton(myRoot, scrollAnimation);
         setupObservable();
     }
+
     /**
      * Configures grid event handlers that allow the user to add and remove
      * ui.scenes.editor.objects from it.
@@ -75,6 +81,7 @@ public class GridUI extends Observable{
         myGridPane.getGroup().toBack();
         hoverOpacity.setBrightness(myUtil.getDoubleProperty("buttonHoverOpacity"));
     }
+
     void loadGrid() {
         int colMax = myController.getPlayerCol();
         int rowMax = myController.getPlayerRow();
@@ -88,29 +95,35 @@ public class GridUI extends Observable{
         myGridPane.setRenderMap();
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
     }
+
     public GridPane getMyGridPane() {
         return myGridPane;
     }
+
     private void setGridClickable() {
         List<GridPaneNode> blockList = myGridPane.getNodeList();
         for (GridPaneNode node : blockList) {
             node.getImage().setOnMouseClicked(e -> {
-                myGridPane.click(node);
-                if (e.getButton() == MouseButton.SECONDARY) {
-                    myGridPane.delete();
-                } else {
-                    myGridPane.nodeClick(myItemMenu.getSelected(),
-                            myController, "Teddy", playerMenu.getImagePaths());
+                int WRAP = myGridPane.getWrap();
+                if (node.getCol() >= 20 / 2 && node.getCol() < myGridPane.getWidth() + 20 / 2 && node.getRow() >= 20 / 2 && node.getRow() < myGridPane.getHeight() + 20 / 2) {
+                    myGridPane.click(node);
+                    if (e.getButton() == MouseButton.SECONDARY) {
+                        myGridPane.delete();
+                    } else {
+                        myGridPane.nodeClick(myItemMenu.getSelected(),
+                                myController, "Teddy", playerMenu.getImagePaths());
+                    }
                 }
             });
         }
     }
+
     public GridScrollButton getScrollMechanism() {
         return gsb;
     }
-    
-    private void setupObservable(){
-        gridSideMenu.addObserver(myGridPane);
+
+    private void setupObservable() {
+        gameSideMenu.addObserver(myGridPane);
         playerMenu.addObserver(myGridPane);
         myItemMenu.addObserver(myGridPane);
     }

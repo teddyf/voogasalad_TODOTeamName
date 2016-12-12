@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import api.IEditorController;
 import api.IEngineController;
 import block.BlockUpdate;
+import grid.GridManager;
 import grid.GridWorld;
 import player.Player;
 import xml.GridWorldAndPlayer;
@@ -19,7 +19,7 @@ import xml.GridXMLHandler;
  * @author Aninda Manocha
  */
 
-public class EngineController extends Observable implements Observer, IEngineController {
+public class EngineController extends Observable implements Observer, IEngineController, Cloneable {
     private GridXMLHandler xmlHandler;
     private List<GameInstance> gameInstances;
     private GameInstance gameInstance;
@@ -30,10 +30,10 @@ public class EngineController extends Observable implements Observer, IEngineCon
         gameInstances = new ArrayList<GameInstance>();
     }
 
-    public EngineController(Player player, GridWorld gridWorld) {
+    public EngineController(Player player, GridManager gridManager) {
         xmlHandler = new GridXMLHandler();
         gameInstances = new ArrayList<GameInstance>();
-        gameInstance = new GameInstance(player, gridWorld);
+        gameInstance = new GameInstance(player, gridManager);
         gameInstance.addObserver(this);
     }
 
@@ -44,6 +44,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public int getNumCols() {
+        System.out.println(gameInstance.getGrid());
         return gameInstance.getGrid().getNumCols();
     }
 
@@ -53,6 +54,10 @@ public class EngineController extends Observable implements Observer, IEngineCon
 
     public String getBlock(int row, int col) {
         return gameInstance.getGrid().getBlock(row, col).getName();
+    }
+
+    public String getMusic() {
+        return gameInstance.getMusic();
     }
 
     /***** PLAYER METHODS *****/
@@ -111,8 +116,9 @@ public class EngineController extends Observable implements Observer, IEngineCon
     public void loadEngine(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         Player player = gridWorldAndPlayer.getPlayer();
-        GridWorld gridWorld = gridWorldAndPlayer.getGridWorld();
-        gameInstance = new GameInstance(player, gridWorld);
+        GridManager gridManager = new GridManager(gridWorldAndPlayer.getGridWorld().getGrids());
+        gridManager.setMusic(gridWorldAndPlayer.getGridWorld().getMusicFile());
+        gameInstance = new GameInstance(player, gridManager);
         gameInstance.addObserver(this);
     }
 }

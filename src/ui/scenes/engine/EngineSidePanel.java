@@ -1,6 +1,5 @@
 package ui.scenes.engine;
 
-
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -10,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
+import ui.media.SnapShot;
 import ui.media.SoundChooser;
 import ui.media.SoundPlayer;
 
@@ -36,6 +36,7 @@ public class EngineSidePanel implements Observer {
     private EngineController controller;
     private Label playerPos;
     private Label numPokemon;
+    private SoundPlayer soundPlayer;
 
     public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine, EngineController controller) {
         myRoot = root;
@@ -72,9 +73,9 @@ public class EngineSidePanel implements Observer {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
-        SoundPlayer soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
-        soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
-        vbox.getChildren().add(soundPlayer.getGroup());
+        // soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
+        // soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
+        // vbox.getChildren().add(soundPlayer.getGroup());
     }
     
     public void initStats() {
@@ -91,6 +92,10 @@ public class EngineSidePanel implements Observer {
         vbox.getChildren().addAll(numPokemon, new Label("Battle History"));  
         
     }
+
+	public void stopMusic() {
+		soundPlayer.stopMusic();
+	}
     
     @Override
 	public void update(Observable o, Object arg) {

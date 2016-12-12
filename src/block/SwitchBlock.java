@@ -14,10 +14,14 @@ import java.util.Set;
 
 public abstract class SwitchBlock extends Block {
     private Set<GateBlock> myGates;
+    private boolean onPosition;
+    private static final String onString = "ON";
+    private static final String offString = "OFF";
 
     public SwitchBlock(String name, int row, int col) {
         super(name, row, col);
         myGates = new HashSet<>();
+        onPosition = false;
     }
 
     /**
@@ -29,8 +33,28 @@ public abstract class SwitchBlock extends Block {
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         for(GateBlock oneGate : myGates) {
             blockUpdates.add(oneGate.toggleOpenStatus());
-
         }
+
+        // add re-rendering of the switch to the list of blockUpdates
+        // TODO: do the above
+        int extensionLoc = getName().lastIndexOf('.');
+        String extension = getName().substring(extensionLoc);
+        int statusLoc = getName().lastIndexOf('-');
+        String status;
+
+        if(onPosition) {
+            status = offString;
+            onPosition = false;
+        }
+        else{
+            status = onString;
+            onPosition = true;
+        }
+
+        String newName = this.getName().substring(0, statusLoc + 1) + status + extension;
+        System.out.println(newName);
+        blockUpdates.add(new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol(), newName));
+
         return blockUpdates;
     }
 

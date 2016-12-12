@@ -8,6 +8,7 @@ import ui.FileBrowser;
 import ui.scenes.engine.EngineView;
 
 import java.io.File;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
@@ -18,7 +19,7 @@ import java.util.ResourceBundle;
  *         exporting an editor state to a game file to be played, and opening a game file to play
  *         in the engine.
  */
-class EditorIO {
+class EditorIO extends Observable {
 
     private Stage myStage;
     private EditorController myEditorController;
@@ -40,9 +41,11 @@ class EditorIO {
      * @return true is saving successful, false otherwise
      */
     boolean saveEditorFile() {
-        File gameFile = new FileBrowser().saveEditorFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().saveEditorFile(myStage, myResources.getString("editorFilePath"));
         if (gameFile != null) {
             myEditorController.saveEditor(gameFile.getAbsolutePath());
+            setChanged();
+            notifyObservers();
             return true;
         }
         return false;
@@ -54,7 +57,7 @@ class EditorIO {
      * @return true if opening successful, false otherwise
      */
     boolean openEditorFile() {
-        File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("editorFilePath"));
         if (gameFile != null) {
             myEditorController.loadEditor(gameFile.getAbsolutePath());
             myGrid.loadGrid(); // load into grid user interface
@@ -70,7 +73,7 @@ class EditorIO {
      * @return true if export successful, false otherwise
      */
     boolean saveGameFile() {
-        File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("engineFilePath"));
         if (gameFile != null) {
             myEditorController.saveEngine(gameFile.getAbsolutePath());
             return true;

@@ -6,7 +6,7 @@ import grid.GridWorld;
 import player.Player;
 
 /**
- * Wrapper class on a GridWorld and Player used for XStream.
+ * Wrapper class on a GridManager and Player used for XStream.
  * 
  * @author Daniel Chai
  */

@@ -25,7 +25,11 @@ import interactions.Interaction;
 @XStreamAlias("player")
 public class Player implements IPlayer {
 	@XStreamOmitField
-	private static final int DEFAULT_HEALTH = 100;
+	public static final int DEFAULT_HEALTH = 100;
+	
+	@XStreamOmitField
+	public static final int DEFAULT_NUM_POKEMON = 3;
+	
 	private int battlesWon;
 	private int battlesLost;
 	private List<String> myNames;
@@ -43,13 +47,12 @@ public class Player implements IPlayer {
 	private double health;
 
 	public Player(List<String> names, String playerName, int row, int col, int gridIndex) {
-		numPokemon = 2;
 		myNames = names;
 		myPlayerName = playerName;
-		myDirection = PlayerDirection.NORTH;
 		myRow = row;
 		myCol = col;
 		myGridIndex = gridIndex;
+        myDirection = PlayerDirection.NORTH;
 		myAttributes = new ArrayList<>();
 		myInventory = new ArrayList<>();
 		myBattleHistory = new ArrayList<>();
@@ -57,7 +60,26 @@ public class Player implements IPlayer {
 		myStatus = new ArrayList<>();
 		battlesWon = battlesLost = 0;
 		health = DEFAULT_HEALTH;
+        numPokemon = DEFAULT_NUM_POKEMON;
 	}
+
+	public Player(Player player) {
+        myNames = player.getMyNames();
+        myPlayerName = player.getPlayerName();
+        myRow = player.getRow();
+        myCol = player.getCol();
+        myGridIndex = player.getGridIndex();
+        myDirection = PlayerDirection.NORTH;
+        myAttributes = new ArrayList<>();
+        myInventory = new ArrayList<>();
+        myBattleHistory = new ArrayList<>();
+        myInteractionHistory = new ArrayList<>();
+        myStatus = new ArrayList<>();
+        battlesWon = battlesLost = 0;
+        health = DEFAULT_HEALTH;
+        numPokemon = DEFAULT_NUM_POKEMON;
+    }
+
 	public int getNumPokemon(){
 		return numPokemon;
 	}
@@ -76,22 +98,6 @@ public class Player implements IPlayer {
 	}
 	public void incrementBattlesLost(){
 		battlesLost++;
-	}
-
-	public PlayerDirection getDirection() {
-		return myDirection;
-	}
-
-	public int getRow() {
-		return myRow;
-	}
-
-	public int getCol() {
-		return myCol;
-	}
-
-	public int getGridIndex() {
-		return myGridIndex;
 	}
 
 	public List<PlayerAttribute> getAttributes() {
@@ -118,14 +124,6 @@ public class Player implements IPlayer {
 		myDirection = direction;
 	}
 
-	public void setRow(int row) {
-		myRow = row;
-	}
-
-	public void setCol(int col) {
-		myCol = col;
-	}
-
 	public void setGridIndex(int gridIndex) {
 		myGridIndex = gridIndex;
 	}
@@ -138,6 +136,9 @@ public class Player implements IPlayer {
         }
 	    myAttributes.add(attribute);
 		return true;
+	}
+	public void addPokemon(){
+		numPokemon++;
 	}
 
 	public void addItem(Item item) {
@@ -159,17 +160,46 @@ public class Player implements IPlayer {
 	public void setHealth(double health) {
 		this.health = health;
 	}
-	
-	public double getHealth() {
-		return health;
-	}
-
-	public List<String> getMyNames() {
-		return myNames;
-	}
-	
 
 	/***** GETTERS *****/
 
+    public List<String> getMyNames() {
+        return myNames;
+    }
+
+    public String getPlayerName() {
+        return myPlayerName;
+    }
+
+	public int getRow() {
+        return myRow;
+    }
+
+    public int getCol() {
+        return myCol;
+    }
+
+    public int getGridIndex() {
+        return myGridIndex;
+    }
+
+    public PlayerDirection getDirection() {
+        return myDirection;
+    }
+
+    public double getHealth() {
+        return health;
+    }
+
 	/***** SETTERS *****/
+
+    public void setRow(int row) {
+		System.out.println(row);
+        myRow = row;
+    }
+
+    public void setCol(int col) {
+		System.out.println(col);
+        myCol = col;
+    }
 }

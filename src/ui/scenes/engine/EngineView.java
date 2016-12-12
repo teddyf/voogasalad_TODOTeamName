@@ -33,6 +33,7 @@ public class EngineView extends Scene {
     private EngineController myController;
     private VoogaAnimation anim;
     private Character player;
+    private EngineSidePanel engineSidePanel;
 
     public EngineView(Stage stage, Parent root, UILauncher launcher) {
         super(root);
@@ -46,6 +47,7 @@ public class EngineView extends Scene {
             // closing the window takes you back to main menu
             myController = null;
             e.consume();
+            engineSidePanel.stopMusic();
             myLauncher.launchMenu();
         });
         myController = new EngineController();
@@ -77,7 +79,7 @@ public class EngineView extends Scene {
      * @return true if initialization was successful and a valid game file was chosen
      */
     public boolean init() {
-        File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("engineFilePath"));
         if (gameFile == null) { // user clicked cancel
             return false;
         }

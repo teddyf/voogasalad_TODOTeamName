@@ -8,6 +8,7 @@ import battle.model.BattleModel;
 import battle.model.Difficulty;
 import battle.view.BattleView;
 import block.BlockUpdate;
+import block.BlockUpdateType;
 import engine.EngineController;
 import player.PlayerUpdate;
 import engine.UserInstruction;
@@ -61,8 +62,8 @@ public class VoogaAnimation implements Observer {
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
 		stack = new Stack<>();
 		finished = true;
-		duration = 200;
-		maxSteps = 200;
+		duration = 225;
+		maxSteps = 100;
 		stepCount = 0;
 		this.ec= ec;
 		pixelMovement = grid2.getBlockSize()/maxSteps;
@@ -125,7 +126,7 @@ public class VoogaAnimation implements Observer {
 
 	private void handleInteractions() {
 	    for (BlockUpdate blockUpdate : ec.getInteractions()) {
-	        interactionHandler.handleUpdate(blockUpdate);
+			interactionHandler.handleUpdate(blockUpdate);
         }
     }
 
