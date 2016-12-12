@@ -120,7 +120,7 @@ public class GridPane implements Observer {
     }
     
     public void resize(int amount, GridGrowthDirection dir){
-        gridResizer.resize(dir, amount);
+        gridResizer.resize(dir, amount, gridMap, this);
     }
 
     public void setRenderMap () {
@@ -141,70 +141,6 @@ public class GridPane implements Observer {
         }
     }
 
-    public void resize () {
-        grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
-        for (int i = 0; i < blockList.size(); i++) {
-            GridPaneNode temp = blockList.get(i);
-            temp.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
-            temp.setImageCoord(getXRender(temp.getCol()), getYRender(temp.getRow()));
-            blockList.set(i, temp);
-            grid[temp.getCol()][temp.getRow()] = temp;
-        }
-        group = new Group();
-        for (int i = 0; i < blockList.size(); i++) {
-            group.getChildren().add(blockList.get(i).getImage());
-        }
-    }
-
-    private void resizeResetLess (double x, double y) {
-        for (int i = 0; i < blockList.size(); i++) {
-            GridPaneNode temp = blockList.get(i);
-            if (temp.getCol() >= x || temp.getRow() >= y) {
-                blockList.remove(i);
-                gridMap.resizeRemove(temp.getRow(), temp.getCol());
-                i--;
-            }
-        }
-        for (int i = 0; i < blockList.size(); i++) {
-            setEmptyToDefault(blockList.get(i));
-        }
-        gridWidth = x;
-        gridHeight = y;
-        resize();
-    }
-
-    private void resizeResetMore (double x, double y) {
-        for (int i = (int) gridWidth; i < x; i++) {
-            for (int j = 0; j < y; j++) {
-                GridPaneNode node = new GridPaneNode(i, j, defaultText());
-                makeClickable(node);
-                blockList.add(node);
-                gridMap.resizeAdd(node.getRow(), node.getCol());
-            }
-        }
-
-        for (int i = 0; i < x; i++) {
-            for (int j = (int) gridHeight; j < y; j++) {
-                GridPaneNode node = new GridPaneNode(i, j, defaultText());
-                makeClickable(node);
-                blockList.add(node);
-            }
-        }
-
-        gridWidth = x;
-        gridHeight = y;
-
-        resize();
-    }
-
-    public void resizeReset (double x, double y) {
-        if (gridHeight - y < 0 || gridWidth - x < 0) {
-            resizeResetMore(x, y);
-        }
-        else if (gridHeight - y > 0 || gridWidth - x > 0) {
-            resizeResetLess(x, y);
-        }
-    }
 
     private void setEmptyToDefault (GridPaneNode node) {
         if (gridMap.available(node.getCol(), node.getRow())) {
@@ -212,9 +148,6 @@ public class GridPane implements Observer {
         }
     }
 
-    public void resetKeepSize () {
-        reset();
-    }
 
     public void click (GridPaneNode node) {
         if (clicked.contains(node)) {
@@ -226,13 +159,6 @@ public class GridPane implements Observer {
         }
     }
 
-    private void reset () {
-        this.group = new Group();
-        this.blockList = new ArrayList<GridPaneNode>();
-        this.clicked = new ArrayList<GridPaneNode>();
-        initializeGrid();
-        setRenderMap();
-    }
 
     public void loadReset (double height, double width) {
 
@@ -516,7 +442,7 @@ public class GridPane implements Observer {
         }
         else if (o instanceof GridSideMenu) {
             clickType = "LINK";
-            System.out.println(clickType);
+            
         }
 
         else if (o instanceof ItemSideMenu) {
