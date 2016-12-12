@@ -238,7 +238,7 @@ public class GridPane implements Observer {
                         control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
-                        gateTransition(temp);
+                        gateTransition(temp, control);
                     }
                     // setPlayer(temp, obj, control);
                 }
@@ -250,8 +250,14 @@ public class GridPane implements Observer {
         return copy;
     }
 
-    private void gateTransition(GridPaneNode node){
+    private void gateTransition(GridPaneNode node, EditorController control){
         String path = node.getName();
+        if(path.indexOf("open")<0){
+            control.setGateStatus(node.getBackendCol(), node.getBackendRow(), true);
+        }
+        else{
+            control.setGateStatus(node.getBackendCol(), node.getBackendRow(), false);
+        }
     }
     
     private String setCommMessage () {
