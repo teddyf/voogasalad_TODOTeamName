@@ -20,10 +20,6 @@ public class WinConditionView {
 	private PropertiesUtilities utilities;
 	private static final String BATTLE_RESOURCES = "resources/properties/game-engine-battle";
 	private ItemView itemView;
-	private ImageView itemImageView;
-	private ImageView backgroundImageView;
-	private ImageView speechImageView;
-	
 
 	public WinConditionView(String condition,ItemView itemView) {
 		label = new Label(condition);
@@ -34,11 +30,10 @@ public class WinConditionView {
 
 	protected void addToGroup(Group group) {
 		group.getChildren().clear();
-		setUpView();
-		group.getChildren().addAll(backgroundImageView,itemImageView,speechImageView,label);
+		setUpView(group);
 	}
 	
-	private void setUpView() {
+	private void setUpView(Group group) {
 
 		int messageX = utilities.getIntProperty("messageX");
 		int messageY = utilities.getIntProperty("messageY");
@@ -52,20 +47,30 @@ public class WinConditionView {
 		int speechBubbleWidth = utilities.getIntProperty("speechBubbleWidth");
 		int speechBubbleHeight = utilities.getIntProperty("speechBubbleHeight");
 
-        setImageView(itemView.getView(),winningPlayerSize,winningPlayerSize,winningPlayerX,winningPlayerY);
-        setImageView(new ImageView(new Image("resources/images/battles/background-1.jpg")),windowWidth,windowHeight,0,0);
-        setImageView(new ImageView(new Image("resources/images/battles/speech-bubble.png")),speechBubbleWidth,speechBubbleHeight,speechBubbleX,speechBubbleY);
+		ImageView p = itemView.getView();
+		p.setFitWidth(winningPlayerSize);
+        p.setFitHeight(winningPlayerSize);
+        p.setLayoutX(winningPlayerX);
+        p.setLayoutY(winningPlayerY);
+		
+        ImageView bg = new ImageView(new Image("resources/images/battles/background/background-1.jpg"));
+		bg.setFitWidth(windowWidth);
+        bg.setFitHeight(windowHeight);
+        bg.setLayoutX(0);
+        bg.setLayoutY(0);
+        
+        
+        ImageView sp = new ImageView(new Image("resources/images/battles/speech-bubble.png"));
+		sp.setFitWidth(speechBubbleWidth);
+        sp.setFitHeight(speechBubbleHeight);
+        sp.setLayoutX(speechBubbleX);
+        sp.setLayoutY(speechBubbleY);
 		
         label.setLayoutX(messageX);
         label.setLayoutY(messageY);
         label.setStyle("-fx-font-family: Pixeled; -fx-font-size: 20;");
-	}
-	
-	private void setImageView(ImageView imageView, int width, int height, int posX, int posY) {
-        imageView.setFitWidth(width);
-        imageView.setFitHeight(height);
-        imageView.setLayoutX(posX);
-        imageView.setLayoutY(posY);
+        
+        group.getChildren().addAll(bg,p,sp,label);
 	}
 	
 }

@@ -78,7 +78,7 @@ public class CustomSideMenu extends SideMenu {
                 e.printStackTrace();
             }
 
-            GridSideMenu gsm = myControls.getGridSideMenu();
+            GameSideMenu gsm = myControls.getGridSideMenu();
             gsm.refresh();
 
         });
