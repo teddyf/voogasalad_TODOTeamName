@@ -160,6 +160,18 @@ public class Player implements IPlayer {
 	public void setHealth(double health) {
 		this.health = health;
 	}
+<<<<<<< HEAD
+	
+	public double getHealth() {
+		return health;
+	}
+
+	public List<String> getMyNames() {
+		return myNames;
+	}
+	
+=======
+>>>>>>> a4b658055b998988e71fca71b47addd0cc57eb3b
 
 	/***** GETTERS *****/
 

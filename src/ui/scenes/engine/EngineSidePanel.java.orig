@@ -33,19 +33,28 @@ public class EngineSidePanel implements Observer {
     private PropertiesUtilities util;
     private Character player;
     private EngineView gameEngine;
+    private EngineController controller;
     private Label playerPos;
     private Label numPokemon;
     private SoundPlayer soundPlayer;
     private EngineController engineController;
 
+<<<<<<< HEAD
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine, EngineController controller) {
+=======
     public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,EngineView gameEngine,EngineController engineController) {
+>>>>>>> 5b5c0e07baead11be8349106e8e502b6f2fae377
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
         util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
         this.gameEngine = gameEngine;
+<<<<<<< HEAD
+        this.controller = controller;
+=======
         this.engineController = engineController;
+>>>>>>> 5b5c0e07baead11be8349106e8e502b6f2fae377
         Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 20);
         initSidePanel();
         initStats();
@@ -85,10 +94,10 @@ public class EngineSidePanel implements Observer {
         playerChart.setPrefSize(100,10);
         vbox.getChildren().add(playerChart);
         vbox.getChildren().add(new Label("Your Position"));
-        playerPos = new Label(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
+        playerPos = new Label(controller.getPlayerRow() + "," + controller.getPlayerColumn());
         vbox.getChildren().add(playerPos);
         vbox.getChildren().add(new Label("Your Number of Pokemon"));
-        numPokemon = new Label(String.valueOf(engineController.getPlayerNumPokemon()));
+        numPokemon = new Label(String.valueOf(controller.getPlayerNumPokemon()));
         vbox.getChildren().addAll(numPokemon, new Label("Battle History"));  
         
     }
@@ -99,8 +108,8 @@ public class EngineSidePanel implements Observer {
     
     @Override
 	public void update(Observable o, Object arg) {
-    	playerPos.setText(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
-        numPokemon.setText(String.valueOf(engineController.getPlayerNumPokemon()));
+    	playerPos.setText(controller.getPlayerRow() + "," + controller.getPlayerColumn());
+        numPokemon.setText(String.valueOf(controller.getPlayerNumPokemon()));
 
 	}  
 }
