@@ -35,6 +35,11 @@ public class EditorController implements IEditorController {
     public EditorController() {
         myGridManager = new GridManager();
         myPlayerManager = new PlayerManager(myGridManager.getCurrentGrid());
+        try {
+            System.out.println(myPlayerManager.getPlayer());
+        } catch (NoPlayerException e) {
+            System.out.println(e);
+        }
         xmlHandler = new GridXMLHandler();
         myGridManager.addObserver(myPlayerManager);
     }

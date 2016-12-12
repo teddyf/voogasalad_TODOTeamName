@@ -81,7 +81,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
         initObserver();
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
-            myController = null;
+            myController = new EditorController();
             sideControls.getGridSideMenu().stopMusic();
             if (!recentlySaved) {
                 events.exitPrompt(false);
