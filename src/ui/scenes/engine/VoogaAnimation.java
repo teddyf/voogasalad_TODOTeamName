@@ -74,6 +74,10 @@ public class VoogaAnimation implements Observer {
 		interactionHandler = new InteractionHandler(root, uiBuilder, grid);
 	}
 
+	public InteractionHandler getInteractionHandler() {
+		return interactionHandler;
+	}
+
 	private void setDefaultKeyBindings() {
 		keyBindings.put(KeyCode.UP, UserInstruction.UP);
 		keyBindings.put(KeyCode.DOWN, UserInstruction.DOWN);
