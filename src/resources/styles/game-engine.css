@@ -33,3 +33,8 @@
     -fx-font-family: "Pokemon GB";
     -fx-font-size: 10;
 }
+
+.header {
+    -fx-font-family: "Pokemon GB";
+    -fx-font-size: 30;
+}

@@ -19,17 +19,21 @@ public class WinConditionView {
 	private ResourceBundle resources;
 	private PropertiesUtilities utilities;
 	private static final String BATTLE_RESOURCES = "resources/properties/game-engine-battle";
+	private static final String CSS_FILE_PATH = "resources/styles/game-engine.css";
+	
 	private ItemView itemView;
 
 	public WinConditionView(String condition,ItemView itemView) {
 		label = new Label(condition);
 		resources = ResourceBundle.getBundle(BATTLE_RESOURCES);
 		utilities = new PropertiesUtilities(resources);
+		
 		this.itemView = itemView;
 	}
 
 	protected void addToGroup(Group group) {
 		group.getChildren().clear();
+		group.getStylesheets().add(CSS_FILE_PATH);
 		setUpView(group);
 	}
 	
@@ -60,17 +64,18 @@ public class WinConditionView {
         bg.setLayoutY(0);
         
         
-        ImageView sp = new ImageView(new Image("resources/images/battles/speech-bubble.png"));
-		sp.setFitWidth(speechBubbleWidth);
-        sp.setFitHeight(speechBubbleHeight);
-        sp.setLayoutX(speechBubbleX);
-        sp.setLayoutY(speechBubbleY);
+//        ImageView sp = new ImageView(new Image("resources/images/battles/speech-bubble.png"));
+//		sp.setFitWidth(speechBubbleWidth);
+//        sp.setFitHeight(speechBubbleHeight);
+//        sp.setLayoutX(speechBubbleX);
+//        sp.setLayoutY(speechBubbleY);
 		
         label.setLayoutX(messageX);
         label.setLayoutY(messageY);
-        label.setStyle("-fx-font-family: Pixeled; -fx-font-size: 20;");
+        label.getStyleClass().add("header");
+        //label.setStyle("-fx-font-family: PokemonGP; -fx-font-size: 30;");
         
-        group.getChildren().addAll(bg,p,sp,label);
+        group.getChildren().addAll(bg,p,label);
 	}
 	
 }

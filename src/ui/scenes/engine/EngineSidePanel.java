@@ -4,6 +4,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -26,17 +28,21 @@ import engine.EngineController;
  */
 public class EngineSidePanel implements Observer {
 
-    private Parent myRoot;
+    private static final double DEFAULT_HEALTH = 100;
+    private static final int HEALTH_BOX_SPACING = 5;
+	private Parent myRoot;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private VBox vbox;
     private PropertiesUtilities util;
     private Character player;
     private EngineView gameEngine;
-    private Label playerPos;
-    private Label numPokemon;
     private SoundPlayer soundPlayer;
     private EngineController engineController;
+    private ProgressBar healthBar;
+    private Label playerPos;
+    private Label numPokemon;
+    private Label healthNum;
 
     public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources, EngineView gameEngine, EngineController engineController) {
         myRoot = root;
@@ -80,17 +86,24 @@ public class EngineSidePanel implements Observer {
 
     public void initStats() {
         vbox.getChildren().add(new Label("Your HP"));
-        Button playerChart = new Button();
-        playerChart.getStyleClass().add("playerChart");
-        playerChart.setPrefSize(100, 10);
-        vbox.getChildren().add(playerChart);
-        vbox.getChildren().add(new Label("Your Position"));
+        HBox healthBox = initHealthBar();
+        vbox.getChildren().addAll(healthBox, new Label("Your Position"));
         playerPos = new Label(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
         vbox.getChildren().add(playerPos);
         vbox.getChildren().add(new Label("Your Number of Pokemon"));
         numPokemon = new Label(String.valueOf(engineController.getPlayerNumPokemon()));
         vbox.getChildren().addAll(numPokemon, new Label("Battle History"));
 
+    }
+    
+    public HBox initHealthBar() {
+    	HBox healthBox = new HBox();
+    	healthBox.setSpacing(HEALTH_BOX_SPACING);
+        healthBar = new ProgressBar();
+        healthBar.setProgress(engineController.getPlayerHealth()/100);
+        healthNum = new Label(String.valueOf(engineController.getPlayerHealth()));
+        healthBox.getChildren().addAll(healthBar, healthNum);
+        return healthBox;
     }
 
     public void stopMusic() {
@@ -103,6 +116,8 @@ public class EngineSidePanel implements Observer {
     public void update(Observable o, Object arg) {
         playerPos.setText(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
         numPokemon.setText(String.valueOf(engineController.getPlayerNumPokemon()));
+        healthBar.setProgress(engineController.getPlayerHealth()/DEFAULT_HEALTH);
+        healthNum.setText(""+engineController.getPlayerHealth());
 
     }
 }

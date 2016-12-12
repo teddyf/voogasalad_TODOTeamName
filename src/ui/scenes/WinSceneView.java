@@ -9,67 +9,75 @@ import resources.properties.PropertiesUtilities;
 import ui.UILauncher;
 import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
+import ui.scenes.engine.EngineView;
 
 import java.util.ResourceBundle;
 
 
 /**
- * @author Robert Steilberg, Harshil Garg
+ * @author Robert Steilberg
  *         <p>
- *         This class handles launching the main menu and transitioning into the
- *         game engine or game editor.
+ *         This class handles launching the win scene upon winning the game.
  *         <p>
  *         Dependencies: UILauncher, UIBuilder
  */
-public class MainMenu extends Scene {
+public class WinSceneView extends Scene {
 
-    private static final String MAINMENU_RESOURCES = "resources/properties/main-menu";
-    private static final String CSS_FILE_NAME = "resources/styles/main-menu.css";
+    private static final String WINSCENE_RESOURCES = "resources/properties/win-scene";
+    private static final String CSS_FILE_NAME = "resources/styles/win-scene.css";
     private Stage myStage;
     private UILauncher myLauncher;
     private Parent myRoot;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
     private PropertiesUtilities myUtil;
+    private EngineView myEngine;
 
-    public MainMenu(Stage stage, Parent root, UILauncher launcher) {
+    public WinSceneView(Stage stage, Parent root, UILauncher launcher, EngineView engine) {
         super(root);
         myStage = stage;
         myRoot = root;
         myBuilder = new UIBuilder();
         myLauncher = launcher;
-        myResources = ResourceBundle.getBundle(MAINMENU_RESOURCES);
+        myEngine = engine;
+        myResources = ResourceBundle.getBundle(WINSCENE_RESOURCES);
         myUtil = new PropertiesUtilities(myResources);
         root.getStylesheets().add(CSS_FILE_NAME);
-        myStage.setOnCloseRequest(e -> myStage.hide());
-        initMenu();
+        myStage.setOnCloseRequest(e -> {
+            // go back to menu on close request
+            e.consume();
+            myLauncher.launchMenu();
+        });
+        init();
     }
 
     /**
      * Initializes the navigational buttons in the main menu
      */
     private void setButtons() {
-        // create build button
+        // create play button
         String buttonCSSid = myResources.getString("buttonCSSid");
         int xPos = myUtil.getIntProperty("buildButtonX");
         int yPos = myUtil.getIntProperty("buildButtonY");
         String path = myResources.getString("buildButtonPath");
         int width = myUtil.getIntProperty("buttonWidth");
         Node buildButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        buildButton.setOnMouseClicked(e -> myLauncher.launchEditor());
-        
-        // create play button
+        buildButton.setOnMouseClicked(e -> myLauncher.launchEngine());
+        // create replay button
         xPos = myUtil.getIntProperty("playButtonX");
         yPos = myUtil.getIntProperty("playButtonY");
         path = myResources.getString("playButtonPath");
         Node playButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        playButton.setOnMouseClicked(e -> myLauncher.launchEngine());
+        playButton.setOnMouseClicked(e -> {
+            myEngine.init(true);
+            myStage.setScene(myEngine);
+        });
         // create exit button
         xPos = myUtil.getIntProperty("exitButtonX");
         yPos = myUtil.getIntProperty("exitButtonY");
         path = myResources.getString("exitButtonPath");
         Node exitButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        exitButton.setOnMouseClicked(e -> myStage.hide());
+        exitButton.setOnMouseClicked(e -> myLauncher.launchMenu());
     }
 
     /**
@@ -107,14 +115,14 @@ public class MainMenu extends Scene {
     /**
      * Initializes the main menu window
      */
-    private void initMenu() {
-        myBuilder.initWindow(myStage, MAINMENU_RESOURCES);
+    private void init() {
+        myBuilder.initWindow(myStage, WINSCENE_RESOURCES);
         setBackground();
         setText();
         setButtons();
     }
-        
-    public String getPath(){
-        return MAINMENU_RESOURCES;
+
+    public String getPath() {
+        return WINSCENE_RESOURCES;
     }
 }

@@ -65,8 +65,8 @@ public class BattleView implements Observer {
 		enemy = new EnemyView(model.getEnemyHP(), ENEMY_X, ENEMY_Y, ENEMY_IMAGE_PATH);
 		player = new PlayerView(model.getPlayerHP(), PLAYER_X, PLAYER_Y, PLAYER_IMAGE_PATH);
 
-		enemyHealth = new HealthDisplay(ENEMY_X + 50, ENEMY_Y + 200, (int)model.getEnemyHP());
-		playerHealth = new HealthDisplay(PLAYER_X - 50, PLAYER_Y + 200, (int)model.getPlayerHP());
+		enemyHealth = new HealthDisplay(ENEMY_X + 30, ENEMY_Y -100, (int)model.getEnemyHP());
+		playerHealth = new HealthDisplay(PLAYER_X - 30, PLAYER_Y -100, (int)model.getPlayerHP());
 		
 		RandomMessage rm = new RandomMessage(root,0,400);
 		

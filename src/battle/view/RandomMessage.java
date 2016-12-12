@@ -61,6 +61,7 @@ public class RandomMessage {
 		label = new Label(randomMessages.get(randomNum));
 		label.setLayoutX(x1+30);
 		label.setLayoutY(y1+30);
+		label.getStyleClass().add("header");
 		group.getChildren().add(label);
 	}
 	
