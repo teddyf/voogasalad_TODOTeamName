@@ -1,5 +1,5 @@
 <root>
-  <gridWorld>
+  <gridManager>
     <grid>
       <changed>false</changed>
       <obs/>
@@ -4447,5 +4447,5 @@
         </block>
       </block.Block-array>
     </grid>
-  </gridWorld>
+  </gridManager>
 </root>

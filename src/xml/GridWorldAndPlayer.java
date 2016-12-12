@@ -2,11 +2,11 @@ package xml;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import grid.GridWorld;
+import grid.GridManager;
 import player.Player;
 
 /**
- * Wrapper class on a GridWorld and Player used for XStream.
+ * Wrapper class on a GridManager and Player used for XStream.
  * 
  * @author Daniel Chai
  */
@@ -14,19 +14,19 @@ import player.Player;
 @XStreamAlias("root")
 public class GridWorldAndPlayer {
 	
-	@XStreamAlias("gridWorld")
-	private GridWorld myGridWorld;
+	@XStreamAlias("gridManager")
+	private GridManager myGridManager;
 	
 	@XStreamAlias("player")
 	private Player myPlayer;
 	
-	public GridWorldAndPlayer(GridWorld gridWorld, Player player) {
-		myGridWorld = gridWorld;
+	public GridWorldAndPlayer(GridManager gridManager, Player player) {
+		myGridManager = gridManager;
 		myPlayer = player;
 	}
 	
-	public GridWorld getGridWorld() {
-		return myGridWorld;
+	public GridManager getGridWorld() {
+		return myGridManager;
 	}
 	
 	public Player getPlayer() {

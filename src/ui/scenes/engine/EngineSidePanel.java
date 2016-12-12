@@ -44,7 +44,7 @@ public class EngineSidePanel {
         vbox = new VBox(10);
         this.gameEngine = gameEngine;
         this.engineController = engineController;
-        Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/Pixeled.ttf").toExternalForm(), 10);
+        Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 20);
         initSidePanel();
         initStats();
     }
@@ -71,10 +71,9 @@ public class EngineSidePanel {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
-        //get song name from engine controller
-        soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
-        soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
-        vbox.getChildren().add(soundPlayer.getGroup());
+        // soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
+        // soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
+        // vbox.getChildren().add(soundPlayer.getGroup());
     }
     
     public void initStats() {
