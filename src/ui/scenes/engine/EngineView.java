@@ -47,7 +47,7 @@ public class EngineView extends Scene {
             // closing the window takes you back to main menu
             myController = null;
             e.consume();
-            engineSidePanel.stopMusic();
+            //engineSidePanel.stopMusic();
             myLauncher.launchMenu();
         });
         myController = new EngineController();
