@@ -40,7 +40,6 @@ public class SoundChooser {
 		initPauseButton();
 		
 		editorController.addMusic(chosenSongPath);
-        
 		group.getChildren().add(hbox);
 	}
 	
@@ -127,8 +126,6 @@ public class SoundChooser {
 	}
 	
 	public void stop() {
-		if (player != null) {
-			player.stop();
-		}
+		player.stop();
 	}
 }
