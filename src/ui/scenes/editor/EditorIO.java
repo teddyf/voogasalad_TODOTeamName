@@ -45,7 +45,7 @@ class EditorIO extends Observable {
         if (gameFile != null) {
             myEditorController.saveEditor(gameFile.getAbsolutePath());
             setChanged();
-//            notifyObservers();
+            notifyObservers();
             return true;
         }
         return false;

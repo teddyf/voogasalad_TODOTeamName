@@ -127,6 +127,8 @@ public class SoundChooser {
 	}
 	
 	public void stop() {
-		player.stop();
+		if (player != null) {
+			player.stop();
+		}
 	}
 }

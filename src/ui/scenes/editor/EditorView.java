@@ -54,8 +54,6 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
         root.getStylesheets().add(CSS_FILE_NAME);
     }
 
-
-
     /**
      * Launches the editor by initializing the control panels, drawing the overworld grid,
      * initializing the IO classes for saving and loading files, and initializing the menu
@@ -87,6 +85,8 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
             sideControls.getGridSideMenu().stopMusic();
             if (!recentlySaved) {
                 events.exitPrompt(false);
+            } else {
+                myLauncher.launchMenu();
             }
             e.consume();
         });

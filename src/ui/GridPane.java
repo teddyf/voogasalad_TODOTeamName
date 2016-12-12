@@ -171,7 +171,7 @@ public class GridPane extends Observable implements Observer {
                            String name,
                            List<String> imagePaths) {
         setChanged();
-//        notifyObservers();
+        notifyObservers();
         if (clicked.size() == 1) {
             if (clickType.equals("SWAP")) {
                 swap(obj, control);
