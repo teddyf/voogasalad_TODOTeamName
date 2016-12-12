@@ -57,7 +57,7 @@ public class BattleView implements Observer {
 		gameDifficulty = diff;
 		setBackground(backgroundFilePath);
 		displayPokemon = new Label();
-		addButtons(500, 200, "Attack");
+		addButtons(DISPLAY_X, DISPLAY_Y, "Attack");
 	}
 	
 	public void setModel(BattleModelInView modelInView) {
@@ -72,7 +72,8 @@ public class BattleView implements Observer {
 		root.getChildren().addAll(enemyHealth.getGroup(), playerHealth.getGroup());
 		enemy.addToGroup(root);
 		player.addToGroup(root);
-		
+
+		displayBattleStats();
 		displayNumPokemon();
 	}
 
@@ -106,6 +107,12 @@ public class BattleView implements Observer {
 		displayPokemon.setLayoutY(DISPLAY_Y);
 		root.getChildren().add(displayPokemon);
 	}
+	private void displayBattleStats(){
+		Label l = new Label("Battle Won: " + model.battlesWon() + "  Battles Lost: " + model.battlesLost());
+        l.setLayoutX(DISPLAY_X);
+		l.setLayoutY(10);
+		root.getChildren().add(l);
+	}
 
 	public void displayTextPokemon() {
 		displayPokemon.setText("Number of Pokemon: " + model.getNumPokemon());
@@ -118,7 +125,6 @@ public class BattleView implements Observer {
 	}
 	private void addReduceHandler() {
 		EventHandler<ActionEvent> event = actionEvent -> {
-            System.out.println(usingShield);
 			if (!(model.checkPlayerLost() || model.checkPlayerWon())) {
 				model.setEnemyHP(model.getEnemyHP()
 						- (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH / gameDifficulty.getValue());

@@ -227,4 +227,8 @@ public class GameInstance extends Observable implements IGameInstance {
     public GameStatus getGameStatus() {
         return myStatus;
     }
+
+    public String getMusic() {
+        return myGridManager.getMusic();
+    }
 }
