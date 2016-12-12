@@ -23,62 +23,69 @@ import resources.properties.PropertiesUtilities;
 import ui.scenes.engine.EngineView;
 
 public class SnapShot {
-	
-	private Group group;
-	private EngineView gameEngine;
-	private PropertiesUtilities util;
-	private ResourceBundle resources;
-	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
-	
-	 public SnapShot(EngineView gameEngine) {
-		group = new Group();
-		this.gameEngine = gameEngine;
-		resources = ResourceBundle.getBundle(ENGINE_RESOURCES);
-		util = new PropertiesUtilities(resources);
-		makeButton();
-		 
-	 }
-	 
-	 private void makeButton() {
-		 Button button = new Button();
-		 setButtonImage(button,"resources/images/media/camera.png");
-		 button.setOnAction(new EventHandler<ActionEvent>() {
-	            @Override
-	            public void handle(ActionEvent event) {
-	                takeSnapShot(gameEngine);
-	            }
-	        });
-	 }
-	 
-	 private void setButtonImage(Button button, String imageFilePath) {
-			Image image = new Image(imageFilePath);
-	        ImageView itemView = new ImageView();
-	        itemView.setImage(image);
-	        itemView.setFitWidth(25);
-	        itemView.setFitHeight(25);
-	        button.setGraphic(itemView);
-	        group.getChildren().add(button);
-		}
-	 
-	 public Group getGroup() {
-		 return group;
-	 }
-	 
-	 private void takeSnapShot(Scene scene){
-	    	
-	    	int gridWidth = util.getIntProperty("gridWidth");
-	        int gridHeight = util.getIntProperty("gridHeight");
-	        
-	        WritableImage writableImage = 
-	            new WritableImage(gridWidth,gridHeight);
-	        scene.snapshot(writableImage);
-	         
-	        File file = new File("snapshot.png");
-	        try {
-	            ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", file);
-	        } catch (IOException ex) {
-	            Logger.getLogger(SnapShot.class.getName()).log(Level.SEVERE, null, ex);
-	        }
-	    }
+
+    private Group group;
+    private EngineView gameEngine;
+    private PropertiesUtilities util;
+    private ResourceBundle resources;
+    private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
+
+    public SnapShot(EngineView gameEngine) {
+        group = new Group();
+        this.gameEngine = gameEngine;
+        resources = ResourceBundle.getBundle(ENGINE_RESOURCES);
+        util = new PropertiesUtilities(resources);
+        makeButton();
+
+    }
+
+    private void makeButton() {
+        Button button = new Button();
+        button.setFocusTraversable(false);
+        setButtonImage(button, "resources/images/buttons/camera.png");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                takeSnapShot(gameEngine);
+            }
+        });
+    }
+
+    private void setButtonImage(Button button, String imageFilePath) {
+        Image image = new Image(imageFilePath);
+        ImageView itemView = new ImageView();
+        itemView.setImage(image);
+        itemView.setFitWidth(25);
+        itemView.setFitHeight(25);
+        button.setGraphic(itemView);
+        group.getChildren().add(button);
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    private void takeSnapShot(Scene scene) {
+
+        int gridWidth = util.getIntProperty("gridWidth");
+        int gridHeight = util.getIntProperty("gridHeight");
+
+        WritableImage writableImage =
+                new WritableImage(gridWidth, gridHeight);
+        scene.snapshot(writableImage);
+
+
+        String folderName = "src/data/screenshots/";
+        File file = new File(folderName);
+        String[] sounds = file.list();
+
+        int i = 1;
+        File snapShot = new File("data/screenshots/snapshot" + i + ".png");
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", snapShot);
+        } catch (IOException ex) {
+            Logger.getLogger(SnapShot.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

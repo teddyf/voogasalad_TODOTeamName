@@ -188,7 +188,6 @@ public class GridPane extends Observable implements Observer {
         for (int i = 0; i < clicked.size(); i++) {
             clicked.get(i).getImage().setEffect(null);
         }
-        resetClicked();
     }
 
     public void buildPlayer (EditorController control, String name, List<String> imagePaths) {
@@ -261,12 +260,11 @@ public class GridPane extends Observable implements Observer {
 
     private void gateTransition(GridPaneNode node, EditorController control){
         String path = node.getName();
-        System.out.println("in gateTransition");
-        if(path.indexOf("open")<0){
-            control.setGateStatus(getBackendCol(node), getBackendRow(node), false);
+        if(path.indexOf("OPEN")<0){
+            control.setGateStatus(getBackendRow(node), getBackendCol(node), false);
         }
         else{
-            control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
+            control.setGateStatus(getBackendRow(node), getBackendCol(node), true);
         }
     }
     
@@ -459,12 +457,15 @@ public class GridPane extends Observable implements Observer {
         if (o instanceof PlayerSideMenu) {
             clickType = "PLAYER";
             System.out.println(((PlayerSideMenu) o).getImagePaths());
+            resetClicked();
         }
         else if (o instanceof GameSideMenu) {
             clickType = "LINK";
+            //resetClicked();
 
         } else if (o instanceof ItemSideMenu) {
             clickType = "SWAP";
+            resetClicked();
         }
         else {
             System.out.println("fuck off Robert");

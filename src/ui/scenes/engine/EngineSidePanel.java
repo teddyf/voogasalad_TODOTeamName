@@ -20,11 +20,11 @@ import java.util.ResourceBundle;
 import engine.EngineController;
 
 /**
- * @author Pim Chuaylua
+ * @author Pim Chuaylua, Nisakorn Valyasevi
  *         <p>
  *         This class initializes player status ui.
  */
-public class EngineSidePanel {
+public class EngineSidePanel implements Observer {
 
     private Parent myRoot;
     private UIBuilder myBuilder;
@@ -33,10 +33,12 @@ public class EngineSidePanel {
     private PropertiesUtilities util;
     private Character player;
     private EngineView gameEngine;
+    private Label playerPos;
+    private Label numPokemon;
     private SoundPlayer soundPlayer;
     private EngineController engineController;
 
-    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,EngineView gameEngine,EngineController engineController) {
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources, EngineView gameEngine, EngineController engineController) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
@@ -57,36 +59,50 @@ public class EngineSidePanel {
      */
     public void initSidePanel() {
 
-    	int itemMenuXPos = util.getIntProperty("statusPanelPosX");
+        int itemMenuXPos = util.getIntProperty("statusPanelPosX");
         int itemMenuYPos = util.getIntProperty("statusPanelPosY");
-        
+
         Pane itemMenuRegion = myBuilder.addRegion(itemMenuXPos, itemMenuYPos);
-        Pane canvas = new Pane(); 
+        Pane canvas = new Pane();
         canvas.getStyleClass().add("canvas");
-        canvas.setPrefSize(300,1000);
+        canvas.setPrefSize(300, 1000);
         itemMenuRegion.getChildren().add(canvas);
-        
+
         myBuilder.addComponent(myRoot, itemMenuRegion);
         itemMenuRegion.getChildren().add(vbox);
-        
-        vbox.setPadding(new Insets(10, 10, 10, 10));  
-        
-        soundPlayer= new SoundPlayer(engineController.getMusic());
+
+        vbox.setPadding(new Insets(10, 10, 10, 10));
+
+        soundPlayer = new SoundPlayer(engineController.getMusic());
         soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
         vbox.getChildren().add(soundPlayer.getGroup());
     }
-    
+
     public void initStats() {
-    	vbox.getChildren().add(new Label("Your HP"));  
+        vbox.getChildren().add(new Label("Your HP"));
         Button playerChart = new Button();
         playerChart.getStyleClass().add("playerChart");
-        playerChart.setPrefSize(100,10);
+        playerChart.setPrefSize(100, 10);
         vbox.getChildren().add(playerChart);
-        vbox.getChildren().add(new Label("Battle History"));  
-        
+        vbox.getChildren().add(new Label("Your Position"));
+        playerPos = new Label(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
+        vbox.getChildren().add(playerPos);
+        vbox.getChildren().add(new Label("Your Number of Pokemon"));
+        numPokemon = new Label(String.valueOf(engineController.getPlayerNumPokemon()));
+        vbox.getChildren().addAll(numPokemon, new Label("Battle History"));
+
     }
 
-	public void stopMusic() {
-		soundPlayer.stopMusic();
-	}
+    public void stopMusic() {
+        if (soundPlayer != null) {
+            soundPlayer.stopMusic();
+        }
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        playerPos.setText(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
+        numPokemon.setText(String.valueOf(engineController.getPlayerNumPokemon()));
+
+    }
 }

@@ -20,7 +20,7 @@ import player.PlayerUpdate;
 
 /**
  * This class manages all of the grids in the editor or engine
- * @author Aninda Manocha, Daniel Chai
+ * @author Aninda Manocha, Daniel Chai, Filip Mazurek
  */
 
 public class GridManager extends Observable {
@@ -64,7 +64,8 @@ public class GridManager extends Observable {
         currentGrid = myGrids.get(currentIndex);
     }
 
-    public boolean changeGridSize(GridSizeDirection direction, int amount, int playerRow, int playerColumn) throws LargeGridException, DeletePlayerWarning {
+    public boolean changeGridSize(GridSizeDirection direction, int amount, int playerRow, int playerColumn)
+            throws LargeGridException, DeletePlayerWarning {
         if (amount >= 0) {
             return growGrid(direction, amount);
         }
@@ -83,7 +84,8 @@ public class GridManager extends Observable {
      * @return whether the grid can shrink without deleting the player
      * @throws DeletePlayerWarning
      */
-    private boolean checkShrink(GridSizeDirection direction, int amount, int playerRow, int playerColumn) throws DeletePlayerWarning {
+    private boolean checkShrink(GridSizeDirection direction, int amount, int playerRow, int playerColumn)
+            throws DeletePlayerWarning {
         switch (direction) {
             case TOP:
                 if (playerRow < amount) {
@@ -196,12 +198,8 @@ public class GridManager extends Observable {
 
     public boolean setGateStatus(int row, int col, boolean isOpen) {
         Block block = currentGrid.getBlock(row, col);
-        System.out.println("back end block got");
-        System.out.println("row= " + row);
-        System.out.println("col= " + col);
 
         if(block instanceof GateBlock) {
-            System.out.println("it is a gate block check");
             if(isOpen) {
                 ((GateBlock) block).openGate();
                 return true;

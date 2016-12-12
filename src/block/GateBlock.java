@@ -17,12 +17,10 @@ public class GateBlock extends Block {
 
     public void openGate() {
         setWalkableStatus(OPEN);
-        System.out.println("gate set as open");
     }
 
     public void closeGate() {
         setWalkableStatus(CLOSED);
-        System.out.println("gate set as closed");
     }
 
     /**
