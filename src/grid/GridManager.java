@@ -220,6 +220,15 @@ public class GridManager extends Observable {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
+    /*public GridManager copy() {
+        GridManager newGridManager = new GridManager();
+        for(int a = 0; a < myGrids.size(); a++) {
+            //myGrids.get(a)
+            //for (int b = 0; b <
+        }
+        return null;
+    }*/
+
     /***** GETTERS *****/
 
     public List<Grid> getGrids() {
@@ -240,5 +249,9 @@ public class GridManager extends Observable {
 
     public String getMusic() {
         return musicFile;
+    }
+
+    public void setMusic(String file) {
+        musicFile = file;
     }
 }

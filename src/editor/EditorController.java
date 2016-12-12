@@ -168,7 +168,7 @@ public class EditorController implements IEditorController {
     /***** DATA METHODS *****/
 
     public void saveEditor(String file) {
-        GridWorld gridWorld = new GridWorld(myGridManager);
+        GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         try {
             xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
@@ -184,7 +184,7 @@ public class EditorController implements IEditorController {
     }
 
     public void saveEngine(String file) {
-        GridWorld gridWorld = new GridWorld(myGridManager);
+        GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         try {
             xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
@@ -196,9 +196,7 @@ public class EditorController implements IEditorController {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
             System.out.println("i am sad " + myGridManager.getGrids().get(0).getBlock(0,0));
-            List<Grid> testGrids = new ArrayList<>();
-            testGrids.addAll(myGridManager.getGrids());
-            GridManager testGridManager = new GridManager(testGrids);
+            GridManager testGridManager = new GridManager();
             return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
