@@ -47,11 +47,9 @@ public class SoundPlayer {
 	}
 	
 	private void setPlayinLoop(MediaPlayer mediaPlayer) {
-		mediaPlayer.setOnEndOfMedia(new Runnable() {
-		       public void run() {
-		    	   mediaPlayer.seek(Duration.ZERO);
-		       }
-		   });
+		if (mediaPlayer != null) {
+			mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
+		}
 	}
 	
 	private void initPlayButton() {
