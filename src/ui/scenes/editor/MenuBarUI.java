@@ -45,7 +45,7 @@ class MenuBarUI {
 //        myEditorEvents.addSecondMenuEvents(secondMenu);
         Menu thirdMenu = new Menu(myResources.getString("thirdMenu"));
         myEditorEvents.addThirdMenuEvents(thirdMenu);
-        menu.getMenus().addAll(firstMenu, thirdMenu);
+        menu.getMenus().addAll(firstMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu, thirdMenu);
         myBuilder.addComponent(myRoot, menu);
     }
 
