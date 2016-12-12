@@ -28,7 +28,7 @@ public class InteractionHandler {
         myGridForEngine = grid;
     }
 
-    public void displayMessage(String message) {
+    private void displayMessage(String message) {
         myUIBuilder.addDialogBubble(myRoot, message);
     }
 
