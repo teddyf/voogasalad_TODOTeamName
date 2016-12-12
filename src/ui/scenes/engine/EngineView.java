@@ -47,7 +47,7 @@ public class EngineView extends Scene implements Observer {
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
         myRoot.getStylesheets().add(CSS_FILE_NAME);
         myController = new EngineController();
-        engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
+        //engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
         
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu

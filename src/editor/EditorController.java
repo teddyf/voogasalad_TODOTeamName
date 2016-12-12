@@ -203,7 +203,9 @@ public class EditorController implements IEditorController {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
             GridManager testGridManager = myGridManager.deepClone();
-            return (new EngineController(testPlayer, testGridManager, testGridManager.getMusic()));
+            EngineController testEngineController = new EngineController(testPlayer, myGridManager, testGridManager.getMusic());
+            myGridManager = testGridManager;
+            return testEngineController;
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
             return null;
