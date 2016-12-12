@@ -183,7 +183,6 @@ public class GridManager extends Observable {
     }
 
     public boolean setGateStatus(int row, int col, boolean isOpen) {
-        // TODO: change if needed to implement multiple grids
         Block block = currentGrid.getBlock(row, col);
         if(block instanceof GateBlock) {
             if(isOpen) {
