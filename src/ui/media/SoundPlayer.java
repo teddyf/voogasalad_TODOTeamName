@@ -29,20 +29,23 @@ public class SoundPlayer {
 		hbox = new HBox(10);
 		group.getChildren().add(hbox);
 		
-        initPlayer();
-		initPlayButton();
-		initPauseButton();
+        //initPlayer();
+		//initPlayButton();
+		//initPauseButton();
 	}
 	
 	private void initPlayer() {
 		player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
-		setPlayinLoop(player);
-		//player.play();
+		group.getChildren().add(hbox);
 	}
 	
 	public Group getGroup() {
+		setPlayinLoop(player);
+		initPlayButton();
+		initPauseButton();
 		return group;
 	}
+	
 	private void setPlayinLoop(MediaPlayer mediaPlayer) {
 		mediaPlayer.setOnEndOfMedia(new Runnable() {
 		       public void run() {
@@ -89,6 +92,10 @@ public class SoundPlayer {
         itemView.setFitWidth(25);
         itemView.setFitHeight(25);
         button.setGraphic(itemView);
+	}
+	
+	public void stopMusic() {
+		player.stop();
 	}
 
 

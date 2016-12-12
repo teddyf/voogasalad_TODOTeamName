@@ -23,7 +23,7 @@ public class SoundChooser {
 	private ComboBox comboBox;
 	private HBox hbox;
 	private boolean playButtonClicked;
-	private String chosenSongPath = "src/resources/songs/aquacorde.mp3";
+	private String chosenSongPath = "src/resources/sounds/aquacorde.mp3";
 	
 	public SoundChooser() {
 		group = new Group();
@@ -31,8 +31,6 @@ public class SoundChooser {
 		hbox = new HBox(10);
 		
 		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
-		setPlayinLoop(player);
-		//player.play();
         playButtonClicked=true;
         
         initComboBox();
@@ -46,9 +44,15 @@ public class SoundChooser {
 		comboBox = new ComboBox();
 		comboBox.setPromptText("Choose song");
 		hbox.getChildren().add(comboBox);
-		addSong("Aquacorde","src/resources/songs/aquacorde.mp3");
-		addSong("Fallarbor","src/resources/songs/fallarbor.mp3");
-		addSong("Pallettown","src/resources/songs/pallettown.mp3");
+
+		String folderName = "src/resources/sounds/";
+		File file = new File(folderName);
+	    String[] sounds = file.list();
+		
+	    for (String sound:sounds) {
+	    	addSong(sound.split("\\.")[0],folderName+sound);
+	    }
+		
 	}
 	
 	private void addSong(String songName, String filePath) {
@@ -89,10 +93,6 @@ public class SoundChooser {
         playButtonClicked=true;
 	}
 	
-	public void addNodeToControl(Node node) {
-		hbox.getChildren().add(node);
-	}
-	
 	public String getChosenSongPath() {
 		return chosenSongPath;
 	}
@@ -124,5 +124,9 @@ public class SoundChooser {
 		    	   mediaPlayer.seek(Duration.ZERO);
 		       }
 		   });
+	}
+	
+	public void stop() {
+		player.stop();
 	}
 }

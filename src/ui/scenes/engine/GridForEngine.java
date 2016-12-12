@@ -18,7 +18,7 @@ import editor.EditorController;
  */
 public class GridForEngine {
 
-    private final int WRAP = 10;
+    private final int WRAP = 20;
     private final int CELL_PIXELS = 50;
 
     private Group group;
@@ -38,7 +38,7 @@ public class GridForEngine {
     private GridPaneNode def;
 
     private String DEFAULT = "resources/images/tiles/ground/grass-";
-    private static final String wall= "resources/images/tiles/obstacle/rock-1.png";
+    private static final String wall= "resources/images/tiles/obstacle/tree-4.png";
 
     public GridForEngine (int gridWidth, int gridHeight, int renderWidth,
                      int renderHeight, int renderTopLeftX, int renderTopLeftY) {
@@ -193,8 +193,8 @@ public class GridForEngine {
                     GridPaneNode temp = grid[xPos][yPos];
                     // TODO add dimension checker
                     temp.swap(list.get(j), list.get(j).getImageNum());
-                    control.addBlock(temp.getName(), obj.getBlockType(), temp.getBackendRow(),
-                            temp.getBackendCol());
+                    control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                            getBackendCol(temp));
                     setPlayer(temp, obj, control);
                 }
             }
@@ -229,9 +229,9 @@ public class GridForEngine {
         List<String> names = new ArrayList<>();
         names.add(temp.getName());
         if (gameObject instanceof Player1) {
-            control.addPlayer(names, "name", temp.getBackendRow(), temp.getBackendCol());
-            control.addBlock("resources/images/tiles/ground/grass-1.png", BlockType.DECORATION, temp.getBackendRow(),
-            temp.getBackendCol());
+            control.addPlayer(names, "name", getBackendRow(temp), getBackendCol(temp));
+            control.addBlock("resources/images/tiles/ground/grass-1.png", BlockType.DECORATION, getBackendRow(temp),
+            getBackendCol(temp));
         }
     }
 
@@ -270,7 +270,7 @@ public class GridForEngine {
     }
 
     public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        return controller.linkBlocks(node1.getBackendRow(), node1.getBackendCol(), 0, node2.getBackendRow(), node2.getBackendCol(), 0);
+        return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0, getBackendRow(node2), getBackendCol(node2), 0);
     }
 
     /**
@@ -365,7 +365,7 @@ public class GridForEngine {
         return -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
     }
 
-    public boolean reRender(int row, int col, String newPath) {
+    public boolean reRender(int col, int row, String newPath) {
         GridPaneNode newGPN = new GridPaneNode(row, col, newPath);
         GridPaneNode temp = grid[row + WRAP/2][col + WRAP/2];
                 temp.swap(newGPN, 0);
@@ -375,5 +375,13 @@ public class GridForEngine {
         gridMap.storeObject(list);
         clicked = new ArrayList<GridPaneNode>();
         return true;
+    }
+
+    public int getBackendRow(GridPaneNode gpn) {
+        return gpn.getRow() - WRAP/2;
+    }
+
+    public int getBackendCol(GridPaneNode gpn){
+        return gpn.getCol() - WRAP/2;
     }
 }

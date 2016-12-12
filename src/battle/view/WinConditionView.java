@@ -51,35 +51,21 @@ public class WinConditionView {
 		int speechBubbleY = utilities.getIntProperty("speechBubbleY");
 		int speechBubbleWidth = utilities.getIntProperty("speechBubbleWidth");
 		int speechBubbleHeight = utilities.getIntProperty("speechBubbleHeight");
-		
-		//set background
-		Image backgroundImage = new Image("resources/images/battles/background/background-1.jpg");
-        backgroundImageView = new ImageView();
-        backgroundImageView.setFitWidth(windowWidth);
-        backgroundImageView.setFitHeight(windowHeight);
-        backgroundImageView.setImage(backgroundImage);
-        backgroundImageView.setLayoutX(0);
-        backgroundImageView.setLayoutY(0);
-        
-		//set player image
-        itemImageView = itemView.getView();
-        itemImageView.setFitWidth(winningPlayerSize);
-        itemImageView.setFitHeight(winningPlayerSize);
-        itemImageView.setLayoutX(winningPlayerX);
-        itemImageView.setLayoutY(winningPlayerY);
-		
-		//set speech bubble image
-        Image speechImage = new Image("resources/images/battles/speech-bubble.png");
-        speechImageView = new ImageView();
-        speechImageView.setFitWidth(speechBubbleWidth);
-        speechImageView.setFitHeight(speechBubbleHeight);
-        speechImageView.setImage(speechImage);
-        speechImageView.setImage(speechImage);
-        speechImageView.setLayoutX(speechBubbleX);
-        speechImageView.setLayoutY(speechBubbleY);
+
+        setImageView(itemView.getView(),winningPlayerSize,winningPlayerSize,winningPlayerX,winningPlayerY);
+        setImageView(new ImageView(new Image("resources/images/battles/background-1.jpg")),windowWidth,windowHeight,0,0);
+        setImageView(new ImageView(new Image("resources/images/battles/speech-bubble.png")),speechBubbleWidth,speechBubbleHeight,speechBubbleX,speechBubbleY);
 		
         label.setLayoutX(messageX);
         label.setLayoutY(messageY);
         label.setStyle("-fx-font-family: Pixeled; -fx-font-size: 20;");
 	}
+	
+	private void setImageView(ImageView imageView, int width, int height, int posX, int posY) {
+        imageView.setFitWidth(width);
+        imageView.setFitHeight(height);
+        imageView.setLayoutX(posX);
+        imageView.setLayoutY(posY);
+	}
+	
 }

@@ -2,6 +2,8 @@ package ui.builder;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * @author Robert Steilberg
@@ -14,7 +16,15 @@ public class ButtonBuilder implements ComponentBuilder {
     }
 
     public Node createComponent(ComponentProperties properties) {
-        Button button = new Button();
+        Button button;
+        if (properties.path != null) {
+            ImageView buttonImage = new ImageView(new Image(properties.path));
+            buttonImage.setPreserveRatio(true);
+            buttonImage.setFitWidth(properties.height/2);
+            button = new Button(properties.text, buttonImage);
+        } else {
+            button = new Button(properties.text);
+        }
         button.setId(properties.id);
         button.setLayoutX(properties.x);
         button.setLayoutY(properties.y);
@@ -26,7 +36,6 @@ public class ButtonBuilder implements ComponentBuilder {
             button.setMinHeight(properties.height);
             button.setMaxHeight(properties.height);
         }
-        button.setText(properties.text);
         return button;
     }
 }
