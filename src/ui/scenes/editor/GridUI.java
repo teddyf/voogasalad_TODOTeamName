@@ -108,7 +108,7 @@ public class GridUI extends Observable {
                 if (node.getCol() >= 20 / 2 && node.getCol() < myGridPane.getWidth() + 20 / 2 && node.getRow() >= 20 / 2 && node.getRow() < myGridPane.getHeight() + 20 / 2) {
                     myGridPane.click(node);
                     if (e.getButton() == MouseButton.SECONDARY) {
-                        myGridPane.delete();
+                        myGridPane.delete(myController);
                     } else {
                         myGridPane.nodeClick(myItemMenu.getSelected(),
                                 myController, "Teddy", playerMenu.getImagePaths());

@@ -1,5 +1,6 @@
 package ui.scenes.editor.sidemenu;
 
+import block.BlockType;
 import editor.EditorController;
 import grid.GridSizeDirection;
 import javafx.collections.FXCollections;
@@ -24,10 +25,12 @@ public class GameSideMenu extends SideMenu {
     private EditorController myEditorController;
     private boolean clickedStatus;
     private SoundChooser sound;
+    private ItemSideMenu myItemMenu;
 
-    GameSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
+    GameSideMenu(Parent root, ResourceBundle resources, EditorController editorController, ItemSideMenu itemMenu) {
         super(root, resources);
         myEditorController = editorController;
+        myItemMenu = itemMenu;
         sound = new SoundChooser(myEditorController);
         myEditorController.addMusic("ppp");
         init();
@@ -38,6 +41,10 @@ public class GameSideMenu extends SideMenu {
         myPanel.getTabs().clear();
         setSidePanelHeight(400);
         init();
+    }
+
+    private ScrollPane addWinBlocks() {
+        return myItemMenu.createScrollPane(BlockType.WIN_TALK);
     }
 
     private boolean invalidValue(GridSizeDirection dir, String val) {
@@ -132,7 +139,8 @@ public class GameSideMenu extends SideMenu {
         Tab resizeTab = createTab("Resize", createGridResizePane());
         Tab linkTab = createTab("Link", createLinkPane());
         Tab musicTab = createTab("Music", createMusicPane());
-        myPanel.getTabs().addAll(resizeTab, linkTab, musicTab);
+        Tab winTab = createTab("Winning",addWinBlocks());
+        myPanel.getTabs().addAll(resizeTab, linkTab, musicTab, winTab);
     }
 
     private void changeStatus() {
