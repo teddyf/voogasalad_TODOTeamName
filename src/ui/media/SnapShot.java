@@ -1,4 +1,4 @@
-package ui.scenes.engine;
+package ui.media;
 
 
 import java.io.File;
@@ -20,6 +20,7 @@ import javafx.scene.image.WritableImage;
 import javax.imageio.ImageIO;
 
 import resources.properties.PropertiesUtilities;
+import ui.scenes.engine.EngineView;
 
 public class SnapShot {
 	
@@ -29,7 +30,7 @@ public class SnapShot {
 	private ResourceBundle resources;
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 	
-	 SnapShot(EngineView gameEngine) {
+	 public SnapShot(EngineView gameEngine) {
 		group = new Group();
 		this.gameEngine = gameEngine;
 		resources = ResourceBundle.getBundle(ENGINE_RESOURCES);

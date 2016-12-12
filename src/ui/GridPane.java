@@ -382,6 +382,7 @@ public class GridPane implements Observer {
 
     boolean buildLink(GridPaneNode node1, GridPaneNode node2, EditorController controller) {
         System.out.println("link!");
+        clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
                                      getBackendRow(node2), getBackendCol(node2), 0);
     }
@@ -495,4 +496,7 @@ public class GridPane implements Observer {
         return gpn.getCol() - WRAP/2;
     }
 
+    public int getWrap() {
+        return WRAP;
+    }
 }

@@ -11,4 +11,5 @@ public class PlayerView extends ItemView {
 	public PlayerView(double hp, int x, int y, String filePath) {
 		super(PLAYER_NAME, hp, x, y, filePath);
 	}
+	
 }
