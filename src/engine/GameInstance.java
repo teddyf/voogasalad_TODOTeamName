@@ -7,13 +7,11 @@ import battle.model.Difficulty;
 import battle.view.BattleView;
 import block.*;
 import grid.Grid;
-import grid.GridWorld;
+import grid.GridManager;
 import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
-import ui.scenes.engine.InteractionHandler;
-import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
 import java.util.ArrayList;
@@ -33,18 +31,19 @@ public class GameInstance extends Observable implements IGameInstance {
     private static final PlayerDirection WEST = PlayerDirection.WEST;
 
     private GridXMLHandler xmlHandler;
-    private GridWorld myGridWorld;
+    private GridManager myGridManager;
 	private Grid myGrid;
     private Player myPlayer;
 
 	private int myScore;
 	private GameStatus myStatus;
 	private List<BlockUpdate> blockUpdates;
-
-	public GameInstance(Player player, GridWorld gridWorld) {
+	private BattleController battleController;
+	
+	public GameInstance(Player player, GridManager gridManager) {
         xmlHandler = new GridXMLHandler();
-	    myGridWorld = gridWorld;
-	    myGrid = myGridWorld.getCurrentGrid();
+	    myGridManager = gridManager;
+	    myGrid = myGridManager.getCurrentGrid();
         myPlayer = player;
 	    myScore = 0;
 		myStatus = new GameStatus();
@@ -52,7 +51,8 @@ public class GameInstance extends Observable implements IGameInstance {
 	}
 
     public void changeGrid(int index) {
-        myGrid = myGridWorld.changeGrid(index);
+        myGridManager.changeGrid(index);
+        myGrid = myGridManager.getCurrentGrid();
     }
 
 	public void processInput(UserInstruction input) {
@@ -205,7 +205,7 @@ public class GameInstance extends Observable implements IGameInstance {
     /***** DATA METHODS *****/
 
     public void saveEngine(String file) {
-        xmlHandler.saveContents(file, myGridWorld, myPlayer);
+        xmlHandler.saveContents(file, myGridManager, myPlayer);
     }
 
     /***** GETTERS *****/

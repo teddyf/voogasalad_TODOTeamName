@@ -1,5 +1,5 @@
 <root>
-  <gridWorld>
+  <gridManager>
     <grid>
       <changed>false</changed>
       <obs/>
@@ -12331,7 +12331,7 @@
         </block.DecorationBlock>
       </block.Block-array>
     </grid>
-  </gridWorld>
+  </gridManager>
   <player>
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>

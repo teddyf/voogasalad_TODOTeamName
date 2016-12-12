@@ -1,10 +1,8 @@
 package xml;
 
 import grid.Grid;
-import grid.GridWorld;
+import grid.GridManager;
 import player.Player;
-import xml.BlockAliasFactory;
-import xml.GridWorldAndPlayer;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,8 +13,8 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 /**
- * Handles saving a GridWorld and PLayer to XML.
- * Handles loading a GridWorld and Player from XML.
+ * Handles saving a GridManager and PLayer to XML.
+ * Handles loading a GridManager and Player from XML.
  * 
  * @author Daniel Chai
  */
@@ -29,11 +27,11 @@ public class GridXMLHandler {
 	}
 	
 	/**
-	 * Saves the XML file representing a GridWorld and Player.
+	 * Saves the XML file representing a GridManager and Player.
 	 * Returns the success/failure of the operation.
 	 */
-	public boolean saveContents(String filePath, GridWorld gridWorld, Player player) {
-		String fileContent = xstream.toXML(new GridWorldAndPlayer(gridWorld, player));
+	public boolean saveContents(String filePath, GridManager gridManager, Player player) {
+		String fileContent = xstream.toXML(new GridWorldAndPlayer(gridManager, player));
 		
 		try { 
 			File file = new File(filePath);
@@ -49,7 +47,7 @@ public class GridXMLHandler {
 	}
 	
 	/**
-	 * Returns the GridWorld and Player represented by a XML file.
+	 * Returns the GridManager and Player represented by a XML file.
 	 */
 	public GridWorldAndPlayer loadContents(String filePath) {
 		File file = new File(filePath);
@@ -58,7 +56,7 @@ public class GridXMLHandler {
 	
 	private void initXStream() {
 		xstream.processAnnotations(GridWorldAndPlayer.class);
-		xstream.processAnnotations(GridWorld.class);
+		xstream.processAnnotations(GridManager.class);
 		xstream.processAnnotations(Grid.class);
 		xstream.processAnnotations(Player.class);
 		
@@ -72,7 +70,7 @@ public class GridXMLHandler {
 	/*public static void main(String[] args) {
 		GridXMLHandler test = new GridXMLHandler();
 		
-		GridWorld gridWorld = new GridWorld();
+		GridManager gridWorld = new GridManager();
 		Grid grid = new Grid(0,2, 2); // grid of index 0
 		for (int row = 0; row < grid.getNumRows(); row++) {
 			for (int col = 0; col < grid.getNumCols(); col++) {
