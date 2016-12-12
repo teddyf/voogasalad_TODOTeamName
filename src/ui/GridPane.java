@@ -287,6 +287,9 @@ public class GridPane extends Grid implements Observer {
             if (!gridMap.available(yRef, xRef)) {
                 return false;
             }
+            else if(yRef >= gridHeight+WRAP/2 || yRef < 0 || xRef >= gridWidth+WRAP/2 || xRef < 0){
+                return false;
+            }
             temp.add(grid[yRef][xRef]);
         }
         gridMap.storeObject(temp);
