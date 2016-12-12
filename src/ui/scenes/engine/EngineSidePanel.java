@@ -1,5 +1,6 @@
 package ui.scenes.engine;
 
+
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -16,8 +17,10 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
+import engine.EngineController;
+
 /**
- * @author Pim Chuaylua
+ * @author Pim Chuaylua, Nisakorn Valyasevi
  *         <p>
  *         This class initializes player status ui.
  */
@@ -30,14 +33,18 @@ public class EngineSidePanel implements Observer {
     private PropertiesUtilities util;
     private Character player;
     private EngineView gameEngine;
+    private EngineController controller;
+    private Label playerPos;
+    private Label numPokemon;
 
-    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine) {
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine, EngineController controller) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
         util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
         this.gameEngine = gameEngine;
+        this.controller = controller;
         Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 20);
         initSidePanel();
         initStats();
@@ -76,14 +83,19 @@ public class EngineSidePanel implements Observer {
         playerChart.getStyleClass().add("playerChart");
         playerChart.setPrefSize(100,10);
         vbox.getChildren().add(playerChart);
-        
-        vbox.getChildren().add(new Label("Battle History"));  
+        vbox.getChildren().add(new Label("Your Position"));
+        playerPos = new Label(controller.getPlayerRow() + "," + controller.getPlayerColumn());
+        vbox.getChildren().add(playerPos);
+        vbox.getChildren().add(new Label("Your Number of Pokemon"));
+        numPokemon = new Label(String.valueOf(controller.getPlayerNumPokemon()));
+        vbox.getChildren().addAll(numPokemon, new Label("Battle History"));  
         
     }
-
-	@Override
+    
+    @Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+    	playerPos.setText(controller.getPlayerRow() + "," + controller.getPlayerColumn());
+        numPokemon.setText(String.valueOf(controller.getPlayerNumPokemon()));
 
 	}  
 }

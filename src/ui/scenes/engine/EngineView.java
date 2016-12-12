@@ -110,7 +110,9 @@ public class EngineView extends Scene {
     }
     
     private void setUpSidePanel() {
-    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player,this);
+    	EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,player,this, myController);
+    	myController.addObserver(engineSidePanel);
+    	engineSidePanel.update(myController, myController.getPlayer());
     }
     
     private void setUpPlayer() {
