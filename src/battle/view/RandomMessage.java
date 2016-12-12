@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 public class RandomMessage {
@@ -61,7 +62,7 @@ public class RandomMessage {
 		label = new Label(randomMessages.get(randomNum));
 		label.setLayoutX(x1+30);
 		label.setLayoutY(y1+30);
-		label.getStyleClass().add("header");
+		label.setFont(new Font("Pokemon GB",30));
 		group.getChildren().add(label);
 	}
 	

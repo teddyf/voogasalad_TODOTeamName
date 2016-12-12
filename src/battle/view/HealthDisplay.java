@@ -6,11 +6,13 @@ import java.util.Observable;
  * @author pim
  */
 
+
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 
 public class HealthDisplay {
 
@@ -57,6 +59,7 @@ public class HealthDisplay {
 	public void update(ItemView itemView) {
 		playerChart.setPrefSize(itemView.getHP(), 2);
 		score.setText("HP: " + itemView.getHP());
+		score.setFont(new Font("Pokemon GB",10));
 	}
 
 }

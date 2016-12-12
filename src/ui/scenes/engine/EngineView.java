@@ -61,21 +61,6 @@ public class EngineView extends Scene implements Observer {
         
     }
 
-//    public EngineView(Stage stage, Parent root) {
-//        super(root);
-//        myStage = stage;
-//        myRoot = root;
-//        myBuilder = new UIBuilder();
-//        myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
-//        myRoot.getStylesheets().add(CSS_FILE_NAME);
-////        myStage.setOnCloseRequest(e -> {
-////            // closing the window takes you back to main menu
-////            e.consume();
-////            myLauncher.launchMenu();
-////        });
-//        myController = new EngineController();
-//    }
-
     public EngineView(Stage stage, Parent root) {
         super(root);
         myStage = stage;
@@ -139,11 +124,7 @@ public class EngineView extends Scene implements Observer {
     	myController.addObserver(engineSidePanel);
     	engineSidePanel.update(myController, myController.getPlayer());
     }
-//    private void setUpSidePanel() {
-//        EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot, myBuilder, myResources, this, myController);
-//        myController.addObserver(engineSidePanel);
-//        engineSidePanel.update(myController, myController.getPlayer());
-//    }
+
 
     private void setUpPlayer() {
         List<String> playerImagePaths = myController.getPlayerImages();

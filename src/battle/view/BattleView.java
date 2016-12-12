@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 
 /**
  * @author Daniel Chai, Bill Xiong
@@ -112,11 +113,13 @@ public class BattleView implements Observer {
 		Label l = new Label("Battle Won: " + model.battlesWon() + "  Battles Lost: " + model.battlesLost());
         l.setLayoutX(DISPLAY_X);
 		l.setLayoutY(10);
+		l.setFont(new Font("Pokemon GB",10));
 		root.getChildren().add(l);
 	}
 
 	public void displayTextPokemon() {
 		displayPokemon.setText("Number of Pokemon: " + model.getNumPokemon());
+		displayPokemon.setFont(new Font("Pokemon GB",10));
 	}
 	private void addShieldHandler(){
 		EventHandler<ActionEvent> event = actionEvent -> {

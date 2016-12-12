@@ -4,6 +4,7 @@ import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 
 /**
  * Created by Bill Xiong on 12/7/16. abstract class for views, such as itemView,
@@ -24,6 +25,7 @@ public abstract class ItemView {
 		// itemHP = new Label("HP: " + hp);
 		// set image
 		setImageView(filePath, 150, 150, x, y);
+		
 		/*
 		 * //name this.name = new Label(name); this.name.setLayoutX(x +
 		 * BattleView.OFFSET); this.name.setLayoutY(y + BattleView.OFFSET_Y);
@@ -59,6 +61,7 @@ public abstract class ItemView {
 	}
 
 	protected Label getItemHP() {
+		
 		return itemHP;
 	}
 

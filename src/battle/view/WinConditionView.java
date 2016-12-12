@@ -72,8 +72,7 @@ public class WinConditionView {
 		
         label.setLayoutX(messageX);
         label.setLayoutY(messageY);
-        label.getStyleClass().add("header");
-        //label.setStyle("-fx-font-family: PokemonGP; -fx-font-size: 30;");
+        label.setFont(new Font("Pokemon GB",30));
         
         group.getChildren().addAll(bg,p,label);
 	}
