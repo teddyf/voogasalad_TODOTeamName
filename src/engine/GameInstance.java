@@ -6,6 +6,7 @@ import battle.model.BattleModel;
 import battle.model.Difficulty;
 import battle.view.BattleView;
 import block.*;
+import com.thoughtworks.xstream.mapper.Mapper;
 import grid.Grid;
 import grid.GridManager;
 import grid.GridWorld;
@@ -33,92 +34,96 @@ public class GameInstance extends Observable implements IGameInstance {
 
     private GridXMLHandler xmlHandler;
     private GridManager myGridManager;
-	private Grid myGrid;
+    private Grid myGrid;
     private Player myPlayer;
 
-	private int myScore;
-	private GameStatus myStatus;
-	private List<BlockUpdate> blockUpdates;
-	private BattleController battleController;
-	
-	public GameInstance(Player player, GridManager gridManager) {
+    private int myScore;
+    private GameStatus myStatus;
+    private List<BlockUpdate> blockUpdates;
+    private BattleController battleController;
+
+    public GameInstance(Player player, GridManager gridManager) {
         xmlHandler = new GridXMLHandler();
-	    myGridManager = gridManager;
-	    myGrid = myGridManager.getCurrentGrid();
+        myGridManager = gridManager;
+        myGrid = myGridManager.getCurrentGrid();
         myPlayer = player;
-	    myScore = 0;
-		myStatus = new GameStatus();
-		blockUpdates = new ArrayList<>();
-	}
+        myScore = 0;
+        myStatus = new GameStatus();
+        blockUpdates = new ArrayList<>();
+    }
 
     public void changeGrid(int index) {
         myGridManager.changeGrid(index);
         myGrid = myGridManager.getCurrentGrid();
     }
 
-	public void processInput(UserInstruction input) {
-		int row = myPlayer.getRow();
-		int col = myPlayer.getCol();
-		PlayerUpdate playerUpdate = null;
-		PlayerDirection direction = myPlayer.getDirection();
+    public void processInput(UserInstruction input) {
+        int row = myPlayer.getRow();
+        int col = myPlayer.getCol();
+        PlayerUpdate playerUpdate = null;
+        PlayerDirection direction = myPlayer.getDirection();
 
-		switch (input) {
-			case UP:
-			    if(direction == NORTH) {
+        switch (input) {
+            case UP:
+                if(direction == NORTH) {
                     playerUpdate = handleMovement(row-1, col, PlayerUpdate.ROW);
                 } else {
-			        playerUpdate = handleDirection(PlayerDirection.NORTH);
+                    playerUpdate = handleDirection(PlayerDirection.NORTH);
                 }
-				break;
-			case DOWN:
-				if(direction == SOUTH) {
+                break;
+            case DOWN:
+                if(direction == SOUTH) {
                     playerUpdate = handleMovement(row+1, col, PlayerUpdate.ROW);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.SOUTH);
                 }
-				break;
-			case RIGHT:
-			    if(direction == EAST) {
+                break;
+            case RIGHT:
+                if(direction == EAST) {
                     playerUpdate = handleMovement(row, col+1, PlayerUpdate.COLUMN);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.EAST);
                 }
-				break;
-			case LEFT:
-			    if(direction == WEST) {
+                break;
+            case LEFT:
+                if(direction == WEST) {
                     playerUpdate = handleMovement(row, col-1, PlayerUpdate.COLUMN);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.WEST);
                 }
-				break;
-			case TALK:
-			    Block block = blockInFacedDirection(row, col, direction);
-			    
-			    if (block instanceof EnemyBlock) {
-			    	//TODO: take in a difficulty parameter from block
-			    	enterBattle((EnemyBlock)block, Difficulty.MEDIUM);
-			    }
-			    else if(!(block instanceof DecorationBlock || !(block instanceof CommunicatorBlock))) {
-                    myPlayer.addPokemon();
-			    	blockUpdates = block.talkInteract(myPlayer);
-					playerUpdate = PlayerUpdate.TALK;
-					setChanged();
-			    }
-			default:
-				break;
-		}
-		
+                break;
+            case TALK:
+                try {
+                    Block block = blockInFacedDirection(row, col, direction);
+
+                    if (block instanceof EnemyBlock) {
+                        //TODO: take in a difficulty parameter from block
+                        enterBattle((EnemyBlock) block, Difficulty.HARD);
+                    } else {
+                        blockUpdates = block.talkInteract(myPlayer);
+                        playerUpdate = PlayerUpdate.TALK;
+                        setChanged();
+                    }
+                }
+                catch(NullPointerException e) {
+                    // talking off the edge of the grid
+                    break;
+                }
+            default:
+                break;
+        }
+
         notifyObservers(playerUpdate);
-	}
-	
-	private void enterBattle(EnemyBlock enemy, Difficulty diff) {
-		Stage primaryStage = new Stage();
+    }
+
+    private void enterBattle(EnemyBlock enemy, Difficulty diff) {
+        Stage primaryStage = new Stage();
         BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
         BattleModel model = new BattleModel(myPlayer, enemy);
         BattleController controller = new BattleController(view, model);
         primaryStage.setScene(controller.getView().getScene());
         primaryStage.show();
-	}
+    }
 
     /**
      * Determines if a block is within the bounds of the grid
@@ -149,7 +154,7 @@ public class GameInstance extends Observable implements IGameInstance {
      * @param playerUpdate - the player update type depending on whether the row or column changes (ROW or COLUMN)
      * @return the player update type
      */
-	private PlayerUpdate handleMovement(int row, int col, PlayerUpdate playerUpdate) {
+    private PlayerUpdate handleMovement(int row, int col, PlayerUpdate playerUpdate) {
         Block newBlock = myGrid.getBlock(row, col);
         if (inBounds(newBlock) && isWalkable(newBlock)) {
             myPlayer.setRow(newBlock.getRow());
@@ -178,22 +183,18 @@ public class GameInstance extends Observable implements IGameInstance {
      * @param direction - the direction of the player
      * @return the block the player is facing
      */
-	private Block blockInFacedDirection(int row, int col, PlayerDirection direction) {
-	    try {
-            switch (direction) {
-                case NORTH:
-                    return myGrid.getBlock(row - 1, col);
-                case SOUTH:
-                    return myGrid.getBlock(row + 1, col);
-                case EAST:
-                    return myGrid.getBlock(row, col + 1);
-                case WEST:
-                    return myGrid.getBlock(row, col - 1);
-                default:
-                    return null;
-            }
-        } catch (NullPointerException e) {
-	        return null;
+    private Block blockInFacedDirection(int row, int col, PlayerDirection direction) {
+        switch (direction) {
+            case NORTH:
+                return myGrid.getBlock(row - 1, col);
+            case SOUTH:
+                return myGrid.getBlock(row + 1, col);
+            case EAST:
+                return myGrid.getBlock(row, col + 1);
+            case WEST:
+                return myGrid.getBlock(row, col - 1);
+            default:
+                return null;
         }
     }
 

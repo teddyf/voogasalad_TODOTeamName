@@ -9,5 +9,5 @@ public enum PlayerDirection {
     NORTH,
     EAST,
     SOUTH,
-    WEST;
+    WEST
 }

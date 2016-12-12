@@ -3,7 +3,6 @@ package interactions;
 import block.BlockUpdate;
 import block.SwitchBlock;
 import player.Player;
-
 import java.util.List;
 
 /**

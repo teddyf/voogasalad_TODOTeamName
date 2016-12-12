@@ -5,10 +5,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
-import block.Block;
-import block.BlockFactory;
-import block.BlockType;
-import block.CommunicatorBlock;
+import block.*;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
@@ -180,6 +177,32 @@ public class GridManager extends Observable {
         currentGrid.setBlock(row, col, block);
     }
 
+    public boolean addMessage(String message, int row, int col) {
+        Block block = currentGrid.getBlock(row, col);
+        if(block instanceof CommunicatorBlock) {
+            block.setMessage(message);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setGateStatus(int row, int col, boolean isOpen) {
+        Block block = currentGrid.getBlock(row, col);
+        if(block instanceof GateBlock) {
+            if(isOpen) {
+                ((GateBlock) block).openGate();
+                return true;
+            }
+            else {
+                ((GateBlock) block).closeGate();
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
         Grid grid1 = myGrids.get(index1);
         Grid grid2 = myGrids.get(index2);
@@ -196,15 +219,6 @@ public class GridManager extends Observable {
         Block block1 = grid1.getBlock(row1, col1);
         Block block2 = grid2.getBlock(row2, col2);
         return (block1.unlink(block2) || block2.unlink(block2));
-    }
-
-    public boolean addMessage(String message, int row, int col) {
-        Block block = currentGrid.getBlock(row, col);
-        if(block instanceof CommunicatorBlock) {
-            block.setMessage(message);
-            return true;
-        }
-        return false;
     }
 
     /***** GETTERS *****/

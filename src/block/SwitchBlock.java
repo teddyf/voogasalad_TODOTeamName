@@ -14,10 +14,12 @@ import java.util.Set;
 
 public abstract class SwitchBlock extends Block {
     private Set<GateBlock> myGates;
+    private boolean onPosition;
 
     public SwitchBlock(String name, int row, int col) {
         super(name, row, col);
         myGates = new HashSet<>();
+        onPosition = false;
     }
 
     /**
@@ -29,8 +31,11 @@ public abstract class SwitchBlock extends Block {
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         for(GateBlock oneGate : myGates) {
             blockUpdates.add(oneGate.toggleOpenStatus());
-
         }
+
+        // add re-rendering of the switch to the list of blockUpdates
+        // TODO: do the above
+
         return blockUpdates;
     }
 
