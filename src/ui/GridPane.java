@@ -180,7 +180,9 @@ public class GridPane implements Observer {
             }
         }
         else if (clicked.size() == 2 && clickType.equals("LINK")) {
-            buildLink(clicked.get(0), clicked.get(1), control);
+            if(buildLink(clicked.get(0), clicked.get(1), control)){
+               // myBuilder.
+            }
         }
         for (int i = 0; i < clicked.size(); i++) {
             clicked.get(i).getImage().setEffect(null);
@@ -223,17 +225,23 @@ public class GridPane implements Observer {
                     int yPos = clicked.get(i).getRow() + list.get(j).getRow();
                     GridPaneNode temp = grid[xPos][yPos];
                     // TODO add dimension checker
-                    temp.swap(list.get(j), list.get(j).getImageNum());
-                    control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
-                                     getBackendCol(temp));
+                    
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
                         String message = setCommMessage();
-                        control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                        if(!message.isEmpty()){
+                            System.out.println("heyo");
+                            temp.swap(list.get(j), list.get(j).getImageNum());
+                            control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                        }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
                         gateTransition(temp, control);
                     }
-                    // setPlayer(temp, obj, control);
+                    else{
+                        temp.swap(list.get(j), list.get(j).getImageNum());
+                        control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                         getBackendCol(temp));
+                    }
                 }
             }
             clicked.get(i).getImage().setEffect(null);
@@ -246,10 +254,10 @@ public class GridPane implements Observer {
     private void gateTransition(GridPaneNode node, EditorController control){
         String path = node.getName();
         if(path.indexOf("open")<0){
-            control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
+            control.setGateStatus(getBackendCol(node), getBackendRow(node), false);
         }
         else{
-            control.setGateStatus(getBackendCol(node), getBackendRow(node), false);
+            control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
         }
     }
     
@@ -258,7 +266,7 @@ public class GridPane implements Observer {
                 .header("Set the dialog for the communicator block.")
                 .content("Dialog for the communicator block:"));
         Optional<String> response = db.getResponse();
-        return response.orElse("");
+        return response.orElse(new String());
     }
 
     private void communicateMessage () {
@@ -333,7 +341,7 @@ public class GridPane implements Observer {
     }
 
     boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        System.out.println("link!");
+        builder.addNewAlert("", "Link added!");
         clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
                 getBackendRow(node2), getBackendCol(node2), 0);

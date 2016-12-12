@@ -28,12 +28,8 @@ public class InteractionHandler {
         myGridForEngine = grid;
     }
 
-    private void displayMessage(String message) {
-        ComponentProperties prop = new ComponentProperties();
-        prop.text(message);
-        prop.height(100);
-        prop.width(600);
-        myUIBuilder.addDialogBubble(myRoot, prop);
+    public void displayMessage(String message) {
+        myUIBuilder.addDialogBubble(myRoot, message);
     }
 
     private void renderTeleportation(int r, int c) {
