@@ -80,13 +80,6 @@ public class GridPaneNode {
         return imageView;
     }
     
-    public int getBackendRow() {
-        return getRow() - 5;
-    }
-    public int getBackendCol(){
-        return getCol() - 5;
-    }
-
     //Setters
 
     public void setName(String a) {
