@@ -23,6 +23,7 @@ public class GridSideMenu extends SideMenu {
 
     private EditorController myEditorController;
     private boolean clickedStatus;
+    private SoundChooser sound;
 
     GridSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
         super(root, resources);
@@ -44,7 +45,8 @@ public class GridSideMenu extends SideMenu {
     private ScrollPane createMusicPane() {
         Pane musicPanel = new Pane();
         myBuilder.addCustomLabel(musicPanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
-        myBuilder.addComponent(musicPanel, new SoundChooser().getGroup());
+        sound = new SoundChooser();
+        myBuilder.addComponent(musicPanel, sound.getGroup());
         return new ScrollPane(musicPanel);
     }
 
@@ -117,6 +119,10 @@ public class GridSideMenu extends SideMenu {
 
     private void changeStatus() {
         clickedStatus = !clickedStatus;
+    }
+    
+    public void stopMusic() {
+    	sound.stop();
     }
 
 }
