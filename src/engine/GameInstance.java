@@ -1,6 +1,7 @@
 package engine;
 
 import api.IGameInstance;
+import battle.BattleHandler;
 import battle.controller.BattleController;
 import battle.model.BattleModel;
 import battle.model.Difficulty;
@@ -108,7 +109,8 @@ public class GameInstance extends Observable implements IGameInstance {
 			    	box.showAndWait();
 			    	
 			    	Difficulty diff = (Difficulty) box.getSelectedItem();
-			    	enterBattle((EnemyBlock)block, diff);
+                    BattleHandler handler = new BattleHandler(myPlayer,(EnemyBlock) block);
+                    handler.enterBattle(diff);
 			    }
 			    
 			    else if (block instanceof PokemonGiverBlock) {
@@ -134,14 +136,6 @@ public class GameInstance extends Observable implements IGameInstance {
         notifyObservers(playerUpdate);
     }
 
-    private void enterBattle(EnemyBlock enemy, Difficulty diff) {
-        Stage primaryStage = new Stage();
-        BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
-        BattleModel model = new BattleModel(myPlayer, enemy);
-        BattleController controller = new BattleController(view, model);
-        primaryStage.setScene(controller.getView().getScene());
-        primaryStage.show();
-    }
 
     /**
      * Determines if a block is within the bounds of the grid
