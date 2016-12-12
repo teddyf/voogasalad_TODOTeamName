@@ -61,7 +61,7 @@ public class GridUI extends Observable {
                 myUtil.getIntProperty("windowHeight"),
                 myUtil.getIntProperty("gridX"),
                 myUtil.getIntProperty("gridY"));
-        myController.addGrid(width, height);
+        myController.addGrid(height, width);
         myController.changeGrid(0);
         initGridControl();
         setGridClickable();
@@ -102,14 +102,18 @@ public class GridUI extends Observable {
 
     private void setGridClickable() {
         List<GridPaneNode> blockList = myGridPane.getNodeList();
+        System.out.println(myGridPane.getWidth() + " is the width of the gridpane");
+        System.out.println(myGridPane.getHeight() + " is the hieght of ght egridpa");
         for (GridPaneNode node : blockList) {
             node.getImage().setOnMouseClicked(e -> {
                 int WRAP = myGridPane.getWrap();
-                if (node.getCol() >= 20 / 2 && node.getCol() < myGridPane.getWidth() + 20 / 2 && node.getRow() >= 20 / 2 && node.getRow() < myGridPane.getHeight() + 20 / 2) {
+                if (node.getCol() >= WRAP / 2 && node.getCol() < myGridPane.getWidth() + WRAP / 2 && node.getRow() >= WRAP / 2 && node.getRow() < myGridPane.getHeight() + WRAP  / 2) {
+                    System.out.println("row =" + node.getRow() + " col = " + node.getCol());
                     myGridPane.click(node);
                     if (e.getButton() == MouseButton.SECONDARY) {
                         myGridPane.delete(myController);
                     } else {
+                        System.out.println("disease");
                         myGridPane.nodeClick(myItemMenu.getSelected(),
                                 myController, "Teddy", playerMenu.getImagePaths());
                     }

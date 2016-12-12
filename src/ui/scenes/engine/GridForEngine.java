@@ -120,53 +120,8 @@ public class GridForEngine {
             }*/
 
             group.getChildren().add(node.getImage());
-            grid[node.getCol()][node.getRow()] = node;
+            grid[node.getRow()][node.getCol()] = node;
         }
-    }
-
-    public void resize () {
-        grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
-        for (int i = 0; i < blockList.size(); i++) {
-            GridPaneNode temp = blockList.get(i);
-            temp.setImageSize(renderWidth / gridWidth, renderHeight / gridHeight);
-            temp.setImageCoord(getXRender(temp.getCol()), getYRender(temp.getRow()));
-            blockList.set(i, temp);
-            grid[temp.getCol()][temp.getRow()] = temp;
-        }
-        group = new Group();
-        for (int i = 0; i < blockList.size(); i++) {
-            group.getChildren().add(blockList.get(i).getImage());
-        }
-    }
-
-
-    private void setEmptyToDefault (GridPaneNode node) {
-        if (gridMap.available(node.getCol(), node.getRow())) {
-            node.swap(def, node.getImageNum());
-        }
-    }
-
-    public void resetKeepSize () {
-        reset();
-    }
-
-    public void click (GridPaneNode node) {
-        if (clicked.contains(node)) {
-            node.getImage().setEffect(null);
-            clicked.remove(node);
-        }
-        else {
-
-            clicked.add(node);
-        }
-    }
-
-    private void reset () {
-        this.group = new Group();
-        this.blockList = new ArrayList<GridPaneNode>();
-        this.clicked = new ArrayList<GridPaneNode>();
-        initializeGrid();
-        setRenderMap();
     }
 
     public void loadReset (double height, double width) {
@@ -178,118 +133,6 @@ public class GridForEngine {
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
         grid = new GridPaneNode[(int) gridHeight][(int) gridWidth];
-    }
-
-
-    public List<GridPaneNode> swap (GameObject obj, EditorController control) {
-        List<GridPaneNode> list = obj.getImageTiles();
-        List<GridPaneNode> copy = new ArrayList<GridPaneNode>();
-        getObjectNeighbors(list);
-        for (int i = 0; i < clicked.size(); i++) {
-            if (addObjToMap(list, clicked.get(i))) {
-                for (int j = 0; j < list.size(); j++) {
-                    int xPos = clicked.get(i).getCol() + list.get(j).getCol();
-                    int yPos = clicked.get(i).getRow() + list.get(j).getRow();
-                    GridPaneNode temp = grid[xPos][yPos];
-                    // TODO add dimension checker
-                    temp.swap(list.get(j), list.get(j).getImageNum());
-                    control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
-                            getBackendCol(temp));
-                    setPlayer(temp, obj, control);
-                }
-            }
-            clicked.get(i).getImage().setEffect(null);
-            copy = clicked;
-        }
-        clicked = new ArrayList<GridPaneNode>();
-//        gridMap.visObjectMap();
-        return copy;
-    }
-
-    private boolean addObjToMap (List<GridPaneNode> list, GridPaneNode objRoot) {
-        int xPos = objRoot.getCol();
-        int yPos = objRoot.getRow();
-        List<GridPaneNode> temp = new ArrayList<GridPaneNode>();
-        for (int i = 0; i < list.size(); i++) {
-            int xRef = xPos + list.get(i).getCol();
-            int yRef = yPos + list.get(i).getRow();
-            if (!gridMap.available(xRef, yRef)) {
-                return false;
-            }
-            temp.add(grid[xRef][yRef]);
-        }
-        gridMap.storeObject(temp);
-
-        return true;
-
-        // TODO add dimension checker
-    }
-
-    private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
-        List<String> names = new ArrayList<>();
-        names.add(temp.getName());
-        if (gameObject instanceof Player1) {
-            control.addPlayer(names, "name", getBackendRow(temp), getBackendCol(temp));
-            control.addBlock("resources/images/tiles/ground/grass-1.png", BlockType.DECORATION, getBackendRow(temp),
-            getBackendCol(temp));
-        }
-    }
-
-    /**
-     * Gets neighbors if object is placed
-     *
-     * @param list
-     */
-    private void getObjectNeighbors (List<GridPaneNode> list) {
-        ArrayList<Integer> xPos = new ArrayList<Integer>();
-        ArrayList<Integer> yPos = new ArrayList<Integer>();
-        for (int i = 0; i < clicked.size(); i++) {
-            for (int j = 0; j < list.size(); j++) {
-                xPos.add(clicked.get(i).getCol() + list.get(j).getCol());
-                yPos.add(clicked.get(i).getRow() + list.get(j).getRow());
-            }
-            checkNeighbors(xPos, yPos, list.size());
-        }
-    }
-
-    public void delete (List<GridPaneNode> list) {
-        ArrayList<Integer> deleted = new ArrayList<Integer>();
-        for (int i = 0; i < list.size(); i++) {
-            GridPaneNode temp = list.get(i);
-            deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
-            gridMap.collisionRemoval(temp.getRow(), temp.getCol());
-        }
-        if (!deleted.isEmpty()) {
-            for (int i = 0; i < deleted.size(); i+=2) {
-                GridPaneNode node = grid[deleted.get(i)][deleted.get(i+1)];
-                node.swap(def, node.getImageNum());
-            }
-        }
-        clicked = new ArrayList<GridPaneNode>();
-//        gridMap.visObjectMap();
-    }
-
-    public boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0, getBackendRow(node2), getBackendCol(node2), 0);
-    }
-
-    /**
-     * Removes neighbors in clicked if object would contain both
-     *
-     * @param xCoords
-     * @param yCoords
-     * @param objSize
-     */
-    private void checkNeighbors (List<Integer> xCoords, List<Integer> yCoords, int objSize) {
-        for (int i = 0; i < clicked.size(); i++) {
-            GridPaneNode temp = clicked.get(i);
-            for (int j = 0; j < xCoords.size(); j++) {
-                if (temp.getCol() == xCoords.get(j) && temp.getRow() == yCoords.get(j) &&
-                        j % objSize != 0) {
-                    clicked.remove(i);
-                }
-            }
-        }
     }
 
     /**
@@ -315,20 +158,8 @@ public class GridForEngine {
         }
     }
 
-    public List<GridPaneNode> getNodeList () {
-        return blockList;
-    }
-
-    public void setNodes (List<GridPaneNode> list) {
-        this.blockList = list;
-    }
-
     public Group getGroup () {
         return group;
-    }
-
-    public List<GridPaneNode> getClicked () {
-        return clicked;
     }
 
     public double getBlockSize () {
@@ -343,28 +174,6 @@ public class GridForEngine {
         return gridHeight;
     }
 
-//    public void makeClickable (GridPaneNode node) {
-//        node.getImage().setOnMouseExited(e -> {
-//            if (!clicked.contains(node))
-//                node.getImage().setEffect(null);
-//        });
-//        node.getImage().setOnMouseEntered(e -> {
-//            node.getImage().setEffect(hoverOpacity);
-//        });
-//        node.getImage().setOnMouseClicked(e -> {
-//            node.getImage().setEffect(hoverOpacity);
-//            click(node);
-//        });
-//    }
-
-    public double getXMin() {
-        return -0.5 * CELL_PIXELS * (gridWidth + WRAP  - renderWidth/CELL_PIXELS);
-    }
-
-    public double getYMin() {
-        return -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
-    }
-
     public boolean reRender(int col, int row, String newPath) {
         GridPaneNode newGPN = new GridPaneNode(row, col, newPath);
         GridPaneNode temp = grid[row + WRAP/2][col + WRAP/2];
@@ -377,11 +186,4 @@ public class GridForEngine {
         return true;
     }
 
-    public int getBackendRow(GridPaneNode gpn) {
-        return gpn.getRow() - WRAP/2;
-    }
-
-    public int getBackendCol(GridPaneNode gpn){
-        return gpn.getCol() - WRAP/2;
-    }
 }
