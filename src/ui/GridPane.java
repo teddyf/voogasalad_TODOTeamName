@@ -181,7 +181,7 @@ public class GridPane implements Observer {
         }
         else if (clicked.size() == 2 && clickType.equals("LINK")) {
             if(buildLink(clicked.get(0), clicked.get(1), control)){
-               // myBuilder.
+                successMessage("Link forged!", "Successfully built a link between selected objects!");
             }
         }
         for (int i = 0; i < clicked.size(); i++) {
@@ -232,10 +232,15 @@ public class GridPane implements Observer {
                             System.out.println("heyo");
                             temp.swap(list.get(j), list.get(j).getImageNum());
                             control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                            control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                             getBackendCol(temp));
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
+                        temp.swap(list.get(j), list.get(j).getImageNum());
                         gateTransition(temp, control);
+                        control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                         getBackendCol(temp));
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
@@ -259,6 +264,10 @@ public class GridPane implements Observer {
         else{
             control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
         }
+    }
+    
+    private void successMessage(String header, String content){
+        builder.addCustomAlert(new ComponentProperties().header(header).content(content));
     }
     
     private String setCommMessage () {
@@ -341,7 +350,6 @@ public class GridPane implements Observer {
     }
 
     boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        builder.addNewAlert("", "Link added!");
         clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
                 getBackendRow(node2), getBackendCol(node2), 0);
