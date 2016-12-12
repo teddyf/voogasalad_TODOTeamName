@@ -62,8 +62,8 @@ public class VoogaAnimation implements Observer {
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
 		stack = new Stack<>();
 		finished = true;
-		duration = 200;
-		maxSteps = 200;
+		duration = 225;
+		maxSteps = 100;
 		stepCount = 0;
 		this.ec= ec;
 		pixelMovement = grid2.getBlockSize()/maxSteps;

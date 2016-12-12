@@ -5,6 +5,7 @@ import block.BlockFactory;
 import block.BlockType;
 import engine.EngineController;
 import exceptions.*;
+import grid.Grid;
 import grid.GridManager;
 import grid.GridSizeDirection;
 import grid.GridWorld;
@@ -14,6 +15,7 @@ import ui.scenes.editor.GameEditorAlerts;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -166,7 +168,7 @@ public class EditorController implements IEditorController {
     /***** DATA METHODS *****/
 
     public void saveEditor(String file) {
-        GridWorld gridWorld = new GridWorld(myGridManager);
+        GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         try {
             xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
@@ -182,7 +184,7 @@ public class EditorController implements IEditorController {
     }
 
     public void saveEngine(String file) {
-        GridWorld gridWorld = new GridWorld(myGridManager);
+        GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         try {
             xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
@@ -193,7 +195,8 @@ public class EditorController implements IEditorController {
     public EngineController runEngine() {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
-            GridManager testGridManager = new GridManager(myGridManager.getGrids());
+            System.out.println("i am sad " + myGridManager.getGrids().get(0).getBlock(0,0));
+            GridManager testGridManager = new GridManager();
             return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());

@@ -27,7 +27,7 @@ public class DisappearInteraction implements Interaction {
         List<BlockUpdate> updatesList = new ArrayList<>();
         int myRow = myBlock.getRow();
         int myCol = myBlock.getCol();
-
+        myBlock.setWalkableStatus(true);
         myBlock = new DecorationBlock(DEFAULT, myRow, myCol);
         updatesList.add(new BlockUpdate(BlockUpdateType.RE_RENDER, myBlock.getRow(), myBlock.getCol(), DEFAULT));
 
