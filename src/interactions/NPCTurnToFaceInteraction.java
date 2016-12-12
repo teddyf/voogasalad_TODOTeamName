@@ -31,11 +31,11 @@ public class NPCTurnToFaceInteraction implements Interaction {
         switch (player.getDirection()) {
             case NORTH:
                 myNPCBlock.switchDirection(NPCDirection.DOWN);
-                status = "up";
+                status = "down";
                 break;
             case SOUTH:
                 myNPCBlock.switchDirection(NPCDirection.UP);
-                status = "down";
+                status = "up";
                 break;
             case EAST:
                 myNPCBlock.switchDirection(NPCDirection.LEFT);
