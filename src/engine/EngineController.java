@@ -104,6 +104,13 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public List<BlockUpdate> getInteractions() {
+        if (gameInstance.getInteractions().size() > 1) {
+            System.out.println("motherfuckers");
+            System.out.println(gameInstance.getInteractions().size() > 1);
+            System.out.println("why");
+            System.out.println("size " + gameInstance.getInteractions().size());
+            System.out.println(gameInstance.getInteractions().get(0).getType());
+        }
         return gameInstance.getInteractions();
     }
 

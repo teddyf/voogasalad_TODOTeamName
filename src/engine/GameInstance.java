@@ -67,6 +67,7 @@ public class GameInstance extends Observable implements IGameInstance {
         switch (input) {
             case UP:
                 System.out.println(myGrid.getBlock(row-1,col).isWalkable());
+                System.out.println("0 " + myGrid.getBlock(0,0).isWalkable());
                 if(direction == NORTH) {
                     playerUpdate = handleMovement(row-1, col, PlayerUpdate.ROW);
                 } else {
@@ -221,7 +222,7 @@ public class GameInstance extends Observable implements IGameInstance {
     public List<BlockUpdate> getInteractions() {
         List<BlockUpdate> tempList = new ArrayList<>();
         tempList.addAll(blockUpdates);
-        blockUpdates.clear();
+        //blockUpdates.clear();
         return tempList;
     }
 
