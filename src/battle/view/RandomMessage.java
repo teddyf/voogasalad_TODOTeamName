@@ -45,7 +45,7 @@ public class RandomMessage {
 	}
 	
 	private void initImageBox() {
-		Image image = new Image("resources/photos/EmptyDialog.png");
+		Image image = new Image("resources/images/battles/EmptyDialog.png");
 		ImageView iView = new ImageView();
 		iView.setFitWidth(200);
 		iView.setFitHeight(50);

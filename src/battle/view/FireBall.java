@@ -38,12 +38,12 @@ public class FireBall {
 	}
 	
 	private void initBallImage(int x1,int y1) {
-		File file = new File("src/resources/weapons");
-		String[] images = file.list();
-		int maximum = images.length-1;
-		int randomNum = (int)(Math.random() * maximum); 
+//		File file = new File("src/resources/images/battles/weapons");
+//		String[] images = file.list();
+//		int maximum = images.length-1;
+//		int randomNum = (int)(Math.random() * maximum); 
 		
-		Image image = new Image("resources/weapons/"+images[randomNum]);
+		Image image = new Image("resources/images/battles/ball-1.png");
 		iView = new ImageView();
 		iView.setFitWidth(50);
 		iView.setFitHeight(50);
