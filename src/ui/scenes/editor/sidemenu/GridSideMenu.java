@@ -47,6 +47,7 @@ public class GridSideMenu extends SideMenu {
         myBuilder.addCustomLabel(musicPanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
         sound = new SoundChooser();
         myBuilder.addComponent(musicPanel, sound.getGroup());
+        myEditorController.addMusic(sound.getChosenSongPath());
         return new ScrollPane(musicPanel);
     }
 

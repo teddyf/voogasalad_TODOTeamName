@@ -1,5 +1,4 @@
 package battle.view;
-
 import java.util.Observable;
 import java.util.Observer;
 
@@ -68,7 +67,9 @@ public class BattleView implements Observer {
 
 		enemyHealth = new HealthDisplay(ENEMY_X + 50, ENEMY_Y + 200, (int)model.getEnemyHP());
 		playerHealth = new HealthDisplay(PLAYER_X - 50, PLAYER_Y + 200, (int)model.getPlayerHP());
-
+		
+		RandomMessage rm = new RandomMessage(root,30,30);
+		
 		root.getChildren().addAll(enemyHealth.getGroup(), playerHealth.getGroup());
 		enemy.addToGroup(root);
 		player.addToGroup(root);
@@ -119,6 +120,8 @@ public class BattleView implements Observer {
 	private void addReduceHandler() {
 		EventHandler<ActionEvent> event = actionEvent -> {
             System.out.println(usingShield);
+            FireBall f = new FireBall(root);
+		    f.throwFireBall(20,20,300);
 			if (!(model.checkPlayerLost() || model.checkPlayerWon())) {
 				model.setEnemyHP(model.getEnemyHP()
 						- (Math.random() * 1.45) * EnemyBlock.DEFAULT_HEALTH / gameDifficulty.getValue());
