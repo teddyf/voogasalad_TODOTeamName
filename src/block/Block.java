@@ -89,6 +89,20 @@ public abstract class Block implements IBlock, Serializable {
         return false;
     }
 
+    /**
+     * Works to prepare a new image path name for new rendering. This is how blocks in the grid change how they look.
+     *
+     * @param name: the full original file path name
+     * @param status: the new different status
+     * @return the new file path
+     */
+    public String replaceNameStatus(String name, String status) {
+        int extensionLoc = name.lastIndexOf('.');
+        String extension = name.substring(extensionLoc);
+        int statusLoc = name.lastIndexOf('-');
+        return name.substring(0, statusLoc + 1) + status + extension;
+    }
+
     /*****GETTERS*****/
 
     public String getName() {

@@ -49,8 +49,7 @@ public abstract class SwitchBlock extends Block {
             onPosition = true;
         }
 
-        String newName = this.getName().substring(0, statusLoc + 1) + status + extension;
-        System.out.println(newName);
+        String newName = replaceNameStatus(getName(), status);
         blockUpdates.add(new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol(), newName));
 
         return blockUpdates;
