@@ -13,6 +13,8 @@ import player.PlayerDirection;
 
 public interface IPlayer {
 
+    /***** GETTERS *****/
+
     /**
      * Gets the list of image path names that correspond to the player
      * @return the list of image path names
@@ -37,6 +39,12 @@ public interface IPlayer {
 	 */
 	int getCol();
 
+    /**
+     * Gets the index of the grid that the player is located on
+     * @return the grid index
+     */
+	int getGridIndex();
+
 	/**
 	 * Gets the direction of the player
 	 * @return the direction
@@ -47,52 +55,87 @@ public interface IPlayer {
 	 * Gets a list of all of the attributes of the player
 	 * @return the list of attributes
 	 */
-	public List<PlayerAttribute> getAttributes();
+	List<PlayerAttribute> getAttributes();
+
  	/**
 	 * Gets the list of all items that the player possesses
 	 * @return the list of items
 	 */
-	public List<Item> getInventory();
+	List<Item> getInventory();
 	
 	/**
 	 * Gets the list of all the battles that the player has had
 	 * @return the list of battles
 	 */
-	public List<Battle> getBattleHistory();
+	List<Battle> getBattleHistory();
 	
 	/**
 	 * Gets the list of all the interactions that the player has had
 	 * @return the list of interactions
 	 */
-	public List<Interaction> getInteractionHistory();
+	List<Interaction> getInteractionHistory();
 
-	/**
-	 * Sets the direction (orientation) of the player
-	 * @param direction - the direction of the player
-	 */
-	public void setDirection(PlayerDirection direction);
+    /**
+     * Gets the number of battles the player has won
+     * @return the number of battles won
+     */
+    public int getBattlesWon();
+
+    /**
+     * Gets the number of battles the player has lost
+     * @return the number of battles lost
+     */
+    public int getBattlesLost();
+
+    /**
+     * Gets the health of the player
+     * @return the health
+     */
+    public double getHealth();
+
+    /**
+     * Gets the number of pokemon the player has
+     * @return the number of pokemon
+     */
+    public int getNumPokemon();
+
+    /***** SETTERS *****/
+
 	/**
 	 * Sets the row of the player
 	 * @param row - the row of the grid that the player should be moved to
 	 */
-	public void setRow(int row);
+	void setRow(int row);
 	/**
 	 * Sets the column of the player
 	 * @param col - the column of the grid that the player should be moved to
 	 */
-	public void setCol(int col);
+	void setCol(int col);
+
+    /**
+     * Sets the index of the grid that the player is located on
+     * @param gridIndex - the index of the grid
+     */
+    void setGridIndex(int gridIndex);
+
+    /**
+     * Sets the direction (orientation) of the player
+     * @param direction - the direction of the player
+     */
+    void setDirection(PlayerDirection direction);
 
 	/**
 	 * Adds an attribute to the list of attributes. This method returns false if the attribute type already exists.
 	 * @param attribute the attribute to add
 	 * @return whether an attribute was successfully added
 	 */
-	public boolean addAttribute(PlayerAttribute attribute);
+	boolean addAttribute(PlayerAttribute attribute);
+
 	/**
 	 * Adds an item to the inventory 
 	 * @param item - the item to add
 	 */
-	public void addItem(Item item);
+	void addItem(Item item);
 	
 	/**
 	 * Adds an interaction to the interaction history
