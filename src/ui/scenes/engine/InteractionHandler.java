@@ -28,15 +28,22 @@ public class InteractionHandler {
         myGridForEngine = grid;
     }
 
-    public void displayMessage(String message) {
+    private void displayMessage(String message) {
         myUIBuilder.addDialogBubble(myRoot, message);
     }
 
-    public void winGame() {
+    private void renderTeleportation(int rowdiff, int columndiff) {
+        System.out.println(rowdiff);
+        System.out.println(columndiff);
+        myGridForEngine.getGroup().setLayoutX(myGridForEngine.getGroup().getLayoutX() - columndiff*50);
+        myGridForEngine.getGroup().setLayoutY(myGridForEngine.getGroup().getLayoutY() - rowdiff*50);
+    }
+
+    private void winGame() {
         // TODO: win the game and display win message
     }
 
-    public void reRenderBlock(int row, int col, String imagePath) {
+    private void reRenderBlock(int row, int col, String imagePath) {
         myGridForEngine.reRender(row, col, imagePath);
     }
 
@@ -51,8 +58,7 @@ public class InteractionHandler {
                 reRenderBlock(blockUpdate.getRow(), blockUpdate.getColumn(), blockUpdate.getContent());
                 break;
             case TELEPORT:
-                System.out.println("gay");
-                teleportx(blockUpdate.getRow(), blockUpdate.getColumn());
+                renderTeleportation(blockUpdate.getRow(), blockUpdate.getColumn());
                 break;
             case WIN_GAME:
                 winGame();
@@ -62,10 +68,4 @@ public class InteractionHandler {
         }
     }
 
-    private void teleportx(int rowdiff, int columndiff) {
-        System.out.println(rowdiff);
-        System.out.println(columndiff);
-        myGridForEngine.getGroup().setLayoutX(myGridForEngine.getGroup().getLayoutX() - columndiff*50);
-        myGridForEngine.getGroup().setLayoutY(myGridForEngine.getGroup().getLayoutY() - rowdiff*50);
-    }
 }

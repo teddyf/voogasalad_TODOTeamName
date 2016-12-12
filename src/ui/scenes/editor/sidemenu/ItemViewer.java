@@ -14,6 +14,8 @@ import java.util.TreeMap;
 
 /**
  * @author Harshil Garg, Ryan Anders
+ *         <p>
+ *         Used for displaying overworld items.
  */
 public class ItemViewer {
 
@@ -108,5 +110,4 @@ public class ItemViewer {
 		}
     	
     }
- 
 }

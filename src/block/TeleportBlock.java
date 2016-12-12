@@ -44,7 +44,7 @@ public class TeleportBlock extends Block {
     @Override
     public boolean unlink(Block receiver) {
         if (receiver.equals(myReceiveBlock)) {
-            for(Interaction interaction : getStepInteractions()) { // if a new destination is set, ensure old one is erased
+            for(Interaction interaction : getStepInteractions()) { // if a new destination is set, old one is erased
                 if(interaction instanceof TeleportInteraction) {
                     removeStepInteraction(interaction);
                 }

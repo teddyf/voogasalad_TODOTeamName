@@ -175,7 +175,7 @@ public class GridPane implements Observer {
             if (clickType.equals("SWAP")) {
                 swap(obj, control);
             }
-            else if (clickType.equals("PLAYER")) {
+            else if (clickType.equals("PLAYER") && imagePaths.size() > 0) {
                 buildPlayer(control, name, imagePaths);
             }
         }

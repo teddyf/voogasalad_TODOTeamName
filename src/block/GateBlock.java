@@ -9,22 +9,18 @@ package block;
 public class GateBlock extends Block {
     private static final boolean OPEN = true;
     private static final boolean CLOSED = false;
-    private boolean isOpen;
 
     public GateBlock(String name, int row, int col) {
         super(name, row, col);
         setWalkableStatus(CLOSED);
-        isOpen = CLOSED;
     }
 
     public void openGate() {
-        isOpen = OPEN;
-        setWalkableStatus(true);
+        setWalkableStatus(OPEN);
     }
 
     public void closeGate() {
-        isOpen = CLOSED;
-        setWalkableStatus(false);
+        setWalkableStatus(CLOSED);
     }
 
     /**
@@ -37,12 +33,10 @@ public class GateBlock extends Block {
         String status;
         if(this.isWalkable()) {
             setWalkableStatus(CLOSED);
-            isOpen = CLOSED;
             status = "CLOSED";
         }
         else {
             setWalkableStatus(OPEN);
-            isOpen = OPEN;
             status = "OPEN";
         }
 
