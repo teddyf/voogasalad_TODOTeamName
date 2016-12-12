@@ -180,7 +180,9 @@ public class GridPane implements Observer {
             }
         }
         else if (clicked.size() == 2 && clickType.equals("LINK")) {
-            buildLink(clicked.get(0), clicked.get(1), control);
+            if(buildLink(clicked.get(0), clicked.get(1), control)){
+                successMessage("Link forged!", "Successfully built a link between selected objects!");
+            }
         }
         for (int i = 0; i < clicked.size(); i++) {
             clicked.get(i).getImage().setEffect(null);
@@ -229,13 +231,18 @@ public class GridPane implements Observer {
                         if(!message.isEmpty()){
                             System.out.println("heyo");
                             temp.swap(list.get(j), list.get(j).getImageNum());
+                            
+                            control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                             getBackendCol(temp));
                             control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
+                        temp.swap(list.get(j), list.get(j).getImageNum());
                         gateTransition(temp, control);
+                        control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                         getBackendCol(temp));
                     }
-                    // setPlayer(temp, obj, control);
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
                         control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
@@ -253,11 +260,15 @@ public class GridPane implements Observer {
     private void gateTransition(GridPaneNode node, EditorController control){
         String path = node.getName();
         if(path.indexOf("open")<0){
-            control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
-        }
-        else{
             control.setGateStatus(getBackendCol(node), getBackendRow(node), false);
         }
+        else{
+            control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
+        }
+    }
+    
+    private void successMessage(String header, String content){
+        builder.addCustomAlert(new ComponentProperties().header(header).content(content));
     }
     
     private String setCommMessage () {
@@ -340,7 +351,6 @@ public class GridPane implements Observer {
     }
 
     boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        System.out.println("link!");
         clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
                 getBackendRow(node2), getBackendCol(node2), 0);

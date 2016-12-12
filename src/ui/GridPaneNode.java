@@ -79,7 +79,7 @@ public class GridPaneNode {
     public ImageView getImage() {
         return imageView;
     }
-    
+
     //Setters
 
     public void setName(String a) {
@@ -106,5 +106,13 @@ public class GridPaneNode {
 
     public void setRow(int row) {
         this.row = row;
+    }
+
+    public int getBackendRow() {
+        return getRow() - 5;
+    }
+
+    public int getBackendCol(){
+        return getCol() - 5;
     }
 }

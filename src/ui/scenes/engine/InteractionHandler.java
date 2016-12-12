@@ -29,11 +29,7 @@ public class InteractionHandler {
     }
 
     public void displayMessage(String message) {
-        ComponentProperties prop = new ComponentProperties();
-        prop.text(message);
-        prop.height(100);
-        prop.width(600);
-        myUIBuilder.addDialogBubble(myRoot, prop);
+        myUIBuilder.addDialogBubble(myRoot, message);
     }
 
     public void winGame() {
@@ -54,11 +50,22 @@ public class InteractionHandler {
             case RE_RENDER:
                 reRenderBlock(blockUpdate.getRow(), blockUpdate.getColumn(), blockUpdate.getContent());
                 break;
+            case TELEPORT:
+                System.out.println("gay");
+                teleportx(blockUpdate.getRow(), blockUpdate.getColumn());
+                break;
             case WIN_GAME:
                 winGame();
                 break;
             default:
                 break;
         }
+    }
+
+    private void teleportx(int rowdiff, int columndiff) {
+        System.out.println(rowdiff);
+        System.out.println(columndiff);
+        myGridForEngine.getGroup().setLayoutX(myGridForEngine.getGroup().getLayoutX() - columndiff*50);
+        myGridForEngine.getGroup().setLayoutY(myGridForEngine.getGroup().getLayoutY() - rowdiff*50);
     }
 }
