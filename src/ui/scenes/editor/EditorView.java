@@ -7,9 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import ui.GridPane;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 import ui.media.SoundChooser;
@@ -22,7 +25,7 @@ import ui.scenes.editor.sidemenu.*;
  *         creates the grid on which the overworld is created along with control
  *         panels for handling the control flow of the editing process.
  */
-public class EditorView extends Scene implements GameEditorAlerts {
+public class EditorView extends Scene implements GameEditorAlerts, Observer {
 
     private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
     private static final String ALERT_RESOURCES = "resources/properties/alerts-text";
@@ -35,6 +38,9 @@ public class EditorView extends Scene implements GameEditorAlerts {
     private ResourceBundle myAlertResources;
     private EditorController myController;
     private EditorEvents events;
+    private GridUI myGridUI;
+    private EditorIO myEditorIO;
+    private boolean recentlySaved = false;
 
     public EditorView(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
         super(root, Color.GRAY);
@@ -61,22 +67,28 @@ public class EditorView extends Scene implements GameEditorAlerts {
         // init side control panels
         EditorControls sideControls = new EditorControls(myRoot, myResources, myController);
         // init grid
-        GridUI grid = new GridUI(myRoot, myController, sideControls, width, height);
-        setOnScrollStarted(event -> grid.getScrollMechanism().trackpadStartScroll(event));
-        setOnScrollFinished(event -> grid.getScrollMechanism().trackpadEndScroll(event));
+        myGridUI = new GridUI(myRoot, myController, sideControls, width, height);
+        setOnScrollStarted(event -> myGridUI.getScrollMechanism().trackpadStartScroll(event));
+        setOnScrollFinished(event -> myGridUI.getScrollMechanism().trackpadEndScroll(event));
         // init file I/O
-        EditorIO IO = new EditorIO(myStage, myController, new EngineController(), myResources, grid);
-        events = new EditorEvents(myLauncher, IO, myResources);
+        myEditorIO = new EditorIO(myStage, myController, new EngineController(), myResources, myGridUI);
+        events = new EditorEvents(myLauncher, myEditorIO, myResources);
         // init error checking
         myController.setAlerts(this);
         // init menu bar
         new MenuBarUI(myStage, myRoot, events, myResources);
+        // add observer
+        initObserver();
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             myController = null;
             sideControls.getGridSideMenu().stopMusic();
+            if (!recentlySaved) {
+                events.exitPrompt(false);
+            } else {
+                myLauncher.launchMenu();
+            }
             e.consume();
-            events.exitPrompt(false);
         });
         myStage.setScene(this);
     }
@@ -98,4 +110,20 @@ public class EditorView extends Scene implements GameEditorAlerts {
     public void exceptionDisplay(String content) {
         myBuilder.addNewAlert(myAlertResources.getString("EXCEPTION").toUpperCase(), content);
     }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof GridPane){
+            recentlySaved = false;
+        }
+        if (o instanceof EditorIO) {
+            recentlySaved = true;
+        }
+    }
+
+    private void initObserver() {
+        myGridUI.getMyGridPane().addObserver(this);
+        myEditorIO.addObserver(this);
+    }
+
 }
