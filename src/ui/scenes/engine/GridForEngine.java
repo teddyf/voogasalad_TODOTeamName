@@ -3,6 +3,7 @@ package ui.scenes.engine;
 import java.util.*;
 
 import block.BlockType;
+import ui.Grid;
 import ui.GridObjectMap;
 import ui.GridPaneNode;
 import ui.scenes.editor.objects.GameObject;
@@ -16,20 +17,12 @@ import editor.EditorController;
  * @author Teddy Franceschi, Harshil Garg
  *
  */
-public class GridForEngine {
+public class GridForEngine extends Grid {
 
     private final int WRAP = 20;
     private final int CELL_PIXELS = 50;
 
-    private Group group;
-    private List<GridPaneNode> blockList;
-    private List<GridPaneNode> clicked;
     private GridPaneNode[][] grid;
-
-    private double gridWidth;
-    private double gridHeight;
-    private double renderWidth;
-    private double renderHeight;
 
     private ColorAdjust hoverOpacity;
     private GridObjectMap gridMap;
@@ -38,20 +31,11 @@ public class GridForEngine {
     private String DEFAULT = "resources/images/tiles/ground/grass-";
     private static final String wall= "resources/images/tiles/obstacle/tree-4.png";
 
-    public GridForEngine (int gridWidth, int gridHeight, int renderWidth,
-                     int renderHeight) {
-
-        group = new Group();
-        blockList = new ArrayList<GridPaneNode>();
-        clicked = new ArrayList<GridPaneNode>();
+    public GridForEngine (int gridWidth, int gridHeight, int renderWidth, int renderHeight) {
+        super(gridWidth, gridHeight, renderWidth, renderHeight);
 
         hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(-.3);
-
-        this.gridWidth = gridWidth;
-        this.gridHeight = gridHeight;
-        this.renderWidth = renderWidth;
-        this.renderHeight = renderHeight;
 
         def = new GridPaneNode(0, 0, defaultText());
         initializeGrid();
@@ -120,7 +104,7 @@ public class GridForEngine {
         }
     }
 
-    public void loadReset (double height, double width) {
+    public void loadReset (int height, int width) {
 
         this.gridWidth = width+WRAP;
         this.gridHeight = height+WRAP;

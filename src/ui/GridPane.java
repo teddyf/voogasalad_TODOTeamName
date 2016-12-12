@@ -2,7 +2,6 @@ package ui;
 
 import java.util.*;
 import block.BlockType;
-import grid.GridSizeDirection;
 import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
 import ui.builder.DialogBuilder;
@@ -18,25 +17,16 @@ import editor.EditorController;
 /**
  * @author Teddy Franceschi, Harshil Garg
  */
-public class GridPane extends Observable implements Observer {
+public class GridPane extends Grid implements Observer {
 
     private final int WRAP = 20;
     private final int CELL_PIXELS = 30;
 
-    private Group group;
-    private List<GridPaneNode> blockList;
-    private List<GridPaneNode> clicked;
     private GridPaneNode[][] grid;
-
-    private double gridWidth;
-    private double gridHeight;
-    private double renderWidth;
-    private double renderHeight;
 
     private ColorAdjust hoverOpacity;
     private GridObjectMap gridMap;
     private UIBuilder builder;
-    private GridPaneResizer gridResizer;
     //private GridPaneNode def;
 
     private GridPaneNode def;
@@ -46,25 +36,16 @@ public class GridPane extends Observable implements Observer {
 
     private String borderPath = "resources/images/tiles/obstacle/tree-4.png";
 
-    public GridPane (int gridWidth,
-                     int gridHeight,
-                     int renderWidth,
-                     int renderHeight) {
+    public GridPane (int gridWidth, int gridHeight, int renderWidth, int renderHeight) {
 
-        group = new Group();
-        blockList = new ArrayList<GridPaneNode>();
-        clicked = new ArrayList<GridPaneNode>();
+        super(gridWidth, gridHeight, renderWidth, renderHeight);
 
         hoverOpacity = new ColorAdjust();
         hoverOpacity.setBrightness(-.1);
         builder = new UIBuilder();
 
-        this.gridWidth = gridWidth;
-        this.gridHeight = gridHeight;
-        this.renderWidth = renderWidth;
-        this.renderHeight = renderHeight;
         this.clickType = "";
-        this.gridResizer = new GridPaneResizer();
+        //this.gridResizer = new GridPaneResizer();
         def = new GridPaneNode(0, 0, defaultText());
         initializeGrid();
         setRenderMap();
@@ -114,11 +95,6 @@ public class GridPane extends Observable implements Observer {
         }
     }
 
-    public void resize(int amount, GridSizeDirection dir){
-
-        gridResizer.resize(dir, amount, gridMap, this);
-    }
-
     public void setRenderMap () {
         group = new Group();
         for (int i = 0; i < blockList.size(); i++) {
@@ -154,7 +130,7 @@ public class GridPane extends Observable implements Observer {
         }
     }
 
-    public void loadReset (double height, double width) {
+    public void loadReset (int height, int width) {
         this.gridWidth = width;
         this.gridHeight = height;
         this.group = new Group();
@@ -423,11 +399,11 @@ public class GridPane extends Observable implements Observer {
         this.grid = gridArray;
     }
 
-    public void setGridHeight(double height) {
+    public void setGridHeight(int height) {
         this.gridHeight = height;
     }
 
-    public void setGridWidth(double width) {
+    public void setGridWidth(int width) {
         this.gridWidth = width;
     }
 
