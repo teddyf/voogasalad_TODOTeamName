@@ -1,12 +1,9 @@
 package ui.scenes.editor.sidemenu;
 
 import block.BlockType;
-import grid.GridGrowthDirection;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
@@ -125,7 +122,6 @@ public class CustomSideMenu extends SideMenu {
 
     private boolean customItemError(File file) {
         if (file == null) {
-            alert("Please select a valid image file.");
             return true;
         }
         if (file.getName().replace(".png", "").contains(".") ||

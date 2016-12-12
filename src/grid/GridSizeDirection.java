@@ -6,7 +6,7 @@ package grid;
  * @author Filip Mazurek
  */
 
-public enum GridGrowthDirection {
+public enum GridSizeDirection {
     TOP,
     RIGHT,
     BOTTOM,
