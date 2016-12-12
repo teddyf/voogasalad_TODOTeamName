@@ -19,12 +19,10 @@ public class UILauncher {
 
     private Stage myStage;
     private MainMenu myMainMenu;
-    private EditorController myController;
 
     public UILauncher(Stage stage) {
         myStage = stage;
         myStage.setResizable(false);
-        myController = new EditorController();
     }
 
     /**
@@ -41,10 +39,9 @@ public class UILauncher {
      * Navigates to the game editor
      */
     public void launchEditor() {
-        EditorView editor = new EditorView(myStage, new Group(), this, myController);
+        EditorView editor = new EditorView(myStage, new Group(), this, new EditorController());
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
-            myController = new EditorController();
             e.consume();
             launchMenu();
         });
