@@ -1,8 +1,6 @@
 package grid;
 
-import java.util.*;
-
-import ui.GridPane;
+import ui.EditorGrid;
 import ui.GridPaneNode;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -10,9 +8,9 @@ import javafx.scene.input.MouseEvent;
 public class GridPaneRunnable {
 	private final int GRID_WIDTH = 15;
     private final int GRID_HEIGHT = 15;
-    private GridPane myGrid;
+    private EditorGrid myGrid;
     
-    public GridPaneRunnable(GridPane grid) {
+    public GridPaneRunnable(EditorGrid grid) {
     	myGrid = grid;
     }
     

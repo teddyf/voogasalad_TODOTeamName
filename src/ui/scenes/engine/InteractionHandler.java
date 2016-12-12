@@ -1,15 +1,8 @@
 package ui.scenes.engine;
 
-import battle.controller.BattleController;
-import battle.model.BattleModel;
-import battle.model.Difficulty;
-import battle.view.BattleView;
 import block.BlockUpdate;
-import block.EnemyBlock;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
-import player.Player;
-import ui.builder.ComponentProperties;
 import ui.builder.UIBuilder;
 
 import java.util.Observable;
@@ -22,10 +15,10 @@ import java.util.Observable;
 public class InteractionHandler extends Observable {
     private Parent myRoot;
     private UIBuilder myUIBuilder;
-    private GridForEngine myGridForEngine;
+    private EngineGrid myGridForEngine;
     private Stage myStage;
 
-    public InteractionHandler(Parent root, Stage stage,  UIBuilder uiBuilder, GridForEngine grid) {
+    public InteractionHandler(Parent root, Stage stage,  UIBuilder uiBuilder, EngineGrid grid) {
         myRoot = root;
         myStage = stage;
         myUIBuilder = uiBuilder;

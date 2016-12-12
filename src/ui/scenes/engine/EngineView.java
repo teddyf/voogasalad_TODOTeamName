@@ -31,10 +31,10 @@ public class EngineView extends Scene implements Observer {
     private UILauncher myLauncher;
     private UIBuilder myBuilder;
     private ResourceBundle myResources;
-    private GridForEngine grid;
+    private EngineGrid grid;
     private EngineController myController;
-    private VoogaAnimation anim;
-    private Character player;
+    private EngineAnimation anim;
+    private EngineCharacter player;
     private EngineSidePanel engineSidePanel;
     private File myGameFile;
 
@@ -109,7 +109,7 @@ public class EngineView extends Scene implements Observer {
     private void setUpGrid() {
         setUpKeys();
         setUpPlayer();
-        anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController, myStage);
+        anim = new EngineAnimation(myRoot, grid, player, myBuilder, myController, myStage);
         initObserver();
         myController.addObserver(anim);
     }
@@ -130,7 +130,7 @@ public class EngineView extends Scene implements Observer {
         List<String> playerImagePaths = myController.getPlayerImages();
         String defaultPath = playerImagePaths.get(0);
 
-        player = new Character(playerImagePaths, defaultPath);
+        player = new EngineCharacter(playerImagePaths, defaultPath);
         player.setSize(grid.getBlockSize());
 
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
@@ -173,7 +173,7 @@ public class EngineView extends Scene implements Observer {
         int gridCellsHeight = Integer.parseInt(myResources.getString("gridCellsHeight"));
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
-        grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight);
+        grid = new EngineGrid(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight);
     }
 
     private void loadGrid() {

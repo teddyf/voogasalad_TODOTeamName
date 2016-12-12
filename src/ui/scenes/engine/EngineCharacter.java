@@ -11,13 +11,13 @@ import java.util.List;
  *
  */
 
-public class Character {
+public class EngineCharacter {
 	
 	private ImageView myImageView;
 
 	private List<String> myImagePaths;
 	
-	public Character(List<String> imagePaths, String defaultPath) {
+	public EngineCharacter(List<String> imagePaths, String defaultPath) {
 		myImagePaths = imagePaths;
 		myImageView = new ImageView(defaultPath);
 	}
@@ -38,7 +38,7 @@ public class Character {
 	}
 
 	/**
-	 * @return ImageView associated with the Character
+	 * @return ImageView associated with the EngineCharacter
 	 */
 	public ImageView getImageView() {
 		return myImageView;

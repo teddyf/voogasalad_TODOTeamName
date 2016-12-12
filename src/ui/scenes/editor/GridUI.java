@@ -1,7 +1,7 @@
 package ui.scenes.editor;
 
 import editor.EditorController;
-import ui.GridPane;
+import ui.EditorGrid;
 import ui.GridPaneNode;
 import javafx.scene.Parent;
 import javafx.scene.effect.ColorAdjust;
@@ -28,7 +28,7 @@ public class GridUI extends Observable implements Observer {
     private PropertiesUtilities myUtil;
     private UIBuilder myBuilder;
     private ColorAdjust hoverOpacity;
-    private GridPane myGridPane;
+    private EditorGrid myGridPane;
     private ScrollAnimation scrollAnimation;
     private GridScrollButton gsb;
     private PlayerSideMenu playerMenu;
@@ -55,7 +55,7 @@ public class GridUI extends Observable implements Observer {
      * functionality to the grid.
      */
     private void initGrid(int width, int height) {
-        myGridPane = new GridPane(width,
+        myGridPane = new EditorGrid(width,
                 height,
                 myUtil.getIntProperty("windowWidth"),
                 myUtil.getIntProperty("windowHeight"));
@@ -95,7 +95,7 @@ public class GridUI extends Observable implements Observer {
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
     }
 
-    public GridPane getMyGridPane() {
+    public EditorGrid getMyGridPane() {
         return myGridPane;
     }
 

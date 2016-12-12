@@ -11,11 +11,11 @@ import java.util.ArrayList;
  * @author Teddy Franceschi, Harshil Garg
  *
  */
-public class GridForEngine extends Grid {
+public class EngineGrid extends Grid {
 
     private static final int CELL_PIXELS = 50;
 
-    public GridForEngine (int gridWidth, int gridHeight, int renderWidth, int renderHeight) {
+    public EngineGrid(int gridWidth, int gridHeight, int renderWidth, int renderHeight) {
         super(gridWidth, gridHeight, renderWidth, renderHeight, CELL_PIXELS);
     }
 

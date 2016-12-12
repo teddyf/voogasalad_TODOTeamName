@@ -4,11 +4,7 @@ package ui.scenes.engine;
 import java.util.*;
 
 //import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
-import battle.model.BattleModel;
-import battle.model.Difficulty;
-import battle.view.BattleView;
 import block.BlockUpdate;
-import block.BlockUpdateType;
 import engine.EngineController;
 import player.PlayerUpdate;
 import engine.UserInstruction;
@@ -26,11 +22,11 @@ import ui.builder.UIBuilder;
  * @author Harshil Garg, Nisakorn Valyasevi
  *
  */
-public class VoogaAnimation implements Observer {
+public class EngineAnimation implements Observer {
 
 	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 
-	private GridForEngine grid;
+	private EngineGrid grid;
 	
 	private Stack<UserInstruction> stack;
 	
@@ -40,7 +36,7 @@ public class VoogaAnimation implements Observer {
 	private int maxSteps;
 	private int stepCount;
 
-	private Character player;
+	private EngineCharacter player;
 	private Parent root;
 	private UIBuilder uiBuilder;
 	private ResourceBundle myResources;
@@ -56,7 +52,7 @@ public class VoogaAnimation implements Observer {
 	private Stage stage;
 
 
-	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec, Stage stage) {
+	public EngineAnimation(Parent root, EngineGrid grid2, EngineCharacter player, UIBuilder uiBuilder, EngineController ec, Stage stage) {
 		this.root = root;
 		this.grid = grid2;
 		this.player = player;

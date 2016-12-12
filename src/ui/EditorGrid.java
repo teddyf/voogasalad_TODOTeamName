@@ -17,7 +17,7 @@ import editor.EditorController;
 /**
  * @author Teddy Franceschi, Harshil Garg
  */
-public class GridPane extends Grid implements Observer {
+public class EditorGrid extends Grid implements Observer {
 
     private static final int CELL_PIXELS = 30;
 
@@ -27,7 +27,7 @@ public class GridPane extends Grid implements Observer {
 
     private String clickType;
 
-    public GridPane (int gridWidth, int gridHeight, int renderWidth, int renderHeight) {
+    public EditorGrid(int gridWidth, int gridHeight, int renderWidth, int renderHeight) {
         super(gridWidth, gridHeight, renderWidth, renderHeight, CELL_PIXELS);
 
         hoverOpacity = new ColorAdjust();

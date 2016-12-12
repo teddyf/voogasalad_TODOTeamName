@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import ui.GridPane;
+import ui.EditorGrid;
 import ui.UILauncher;
 import ui.builder.UIBuilder;
 
@@ -15,7 +15,6 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
-import ui.media.SoundChooser;
 import ui.scenes.editor.sidemenu.*;
 
 /**
@@ -114,7 +113,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        if (o instanceof GridPane){
+        if (o instanceof EditorGrid){
             recentlySaved = false;
         }
         if (o instanceof EditorIO) {

@@ -3,7 +3,6 @@ package ui.scenes.engine;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -12,19 +11,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
 import ui.media.SnapShot;
-import ui.media.SoundChooser;
 import ui.media.SoundPlayer;
 
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
-
-import javax.sound.midi.ControllerEventListener;
 
 import player.PlayerDirection;
 import engine.EngineController;
@@ -44,7 +39,7 @@ public class EngineSidePanel implements Observer {
     private ResourceBundle myResources;
     private VBox vbox;
     private PropertiesUtilities util;
-    private Character player;
+    private EngineCharacter player;
     private EngineView gameEngine;
     private SoundPlayer soundPlayer;
     private EngineController engineController;
