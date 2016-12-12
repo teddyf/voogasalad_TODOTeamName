@@ -45,8 +45,6 @@ public class GridPane implements Observer {
     private GridObjectMap gridMap;
     private GridPaneNode def;
 
-    private ImageView player;
-
     private String DEFAULT = "resources/images/tiles/ground/grass-";
     private String clickType;
 
