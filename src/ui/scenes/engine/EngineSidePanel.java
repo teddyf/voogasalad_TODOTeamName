@@ -65,7 +65,6 @@ public class EngineSidePanel implements Observer {
         vbox = new VBox(10);
         this.gameEngine = gameEngine;
         this.engineController = engineController;
-        Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 20);
         initSidePanel();
         initStats();
     }
@@ -98,15 +97,15 @@ public class EngineSidePanel implements Observer {
     }
 
     private void initStats() {
-        vbox.getChildren().addAll(new Label("Player " + engineController.getPlayerName()), new Label("Your HP"));
+        vbox.getChildren().addAll(createLabel("Player " + engineController.getPlayerName()), createLabel("Your HP"));
         HBox healthBox = initHealthBar();
-        vbox.getChildren().addAll(healthBox, new Label("Your Position"));
-        playerPos = new Label(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
+        vbox.getChildren().addAll(healthBox, createLabel("Your Position"));
+        playerPos = createLabel(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
         vbox.getChildren().add(playerPos);
-        vbox.getChildren().add(new Label("Your Number of Pokemon"));
-        numPokemon = new Label(String.valueOf(engineController.getPlayerNumPokemon()));
-        vbox.getChildren().addAll(numPokemon, new Label("Battle History"));
-        Label color = new Label("COLRO");
+        vbox.getChildren().add(createLabel("Your Number of Pokemon"));
+        numPokemon = createLabel(String.valueOf(engineController.getPlayerNumPokemon()));
+        vbox.getChildren().addAll(numPokemon, createLabel("Battle History"));
+        Label color = createLabel("COLRO");
         color.setTextFill(Color.BLUE);
         Group compass = initCompass();
         vbox.getChildren().add(compass);
@@ -118,7 +117,7 @@ public class EngineSidePanel implements Observer {
     	healthBox.setSpacing(HEALTH_BOX_SPACING);
         healthBar = new ProgressBar();
         healthBar.setProgress(engineController.getPlayerHealth()/100);
-        healthNum = new Label(String.valueOf(engineController.getPlayerHealth()));
+        healthNum = createLabel(String.valueOf(engineController.getPlayerHealth()));
         healthBox.getChildren().addAll(healthBar, healthNum);
         return healthBox;
     }
@@ -128,17 +127,17 @@ public class EngineSidePanel implements Observer {
     	ImageView compassImage = new ImageView(new Image(imagePath + "compass.png")); // please clean up later
     	compassImage.setFitHeight(140);
     	compassImage.setFitWidth(140);
-    	north = new Label("N");
-    	west = new Label("W");
-    	east = new Label("E");
-    	south = new Label("S");
+    	north = createLabel("N");
+    	west = createLabel("W");
+    	east = createLabel("E");
+    	south = createLabel("S");
     	playerCompass.getChildren().addAll(north, west, compassImage, east, south);
-    	north.setLayoutX(82.5);
-    	west.setLayoutY(87.5);
+    	north.setLayoutX(80);
+    	west.setLayoutY(80);
     	east.setLayoutX(160);
-    	east.setLayoutY(87.5);
-    	south.setLayoutY(170);
-    	south.setLayoutX(87.5);
+    	east.setLayoutY(80);
+    	south.setLayoutY(160);
+    	south.setLayoutX(80);
     	compassImage.setLayoutY(15);
     	compassImage.setLayoutX(15);
     	return playerCompass;
@@ -147,7 +146,7 @@ public class EngineSidePanel implements Observer {
     private void changeCompassDirection(PlayerDirection direction) {
     	switch(direction) {
     	case NORTH:
-    		north.setTextFill(Color.GREENYELLOW);
+    		north.setTextFill(Color.BLUEVIOLET);
     		east.setTextFill(Color.BLACK);
     		west.setTextFill(Color.BLACK);
     		south.setTextFill(Color.BLACK);
@@ -156,21 +155,28 @@ public class EngineSidePanel implements Observer {
     		north.setTextFill(Color.BLACK);
     		east.setTextFill(Color.BLACK);
     		west.setTextFill(Color.BLACK);
-    		south.setTextFill(Color.GREENYELLOW);
+    		south.setTextFill(Color.BLUEVIOLET);
     		break;
     	case WEST:
     		north.setTextFill(Color.BLACK);
     		east.setTextFill(Color.BLACK);
-    		west.setTextFill(Color.GREENYELLOW);
+    		west.setTextFill(Color.BLUEVIOLET);
     		south.setTextFill(Color.BLACK);
     		break;
     	case EAST:
     		north.setTextFill(Color.BLACK);
-    		east.setTextFill(Color.GREENYELLOW);
+    		east.setTextFill(Color.BLUEVIOLET);
     		west.setTextFill(Color.BLACK);
     		south.setTextFill(Color.BLACK);
     		break;
     	}
+    }
+    
+    private Label createLabel(String text) {
+    	Label label = new Label(text);
+    	Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 12);
+    	label.setFont(new Font("Pokemon GB", 12));
+    	return label;
     }
 
     public void stopMusic() {

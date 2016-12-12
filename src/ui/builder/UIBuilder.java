@@ -263,7 +263,6 @@ public class UIBuilder<E> {
     	properties.text(message);
     	Node dialogNode = dialogBubbleBuilder.createComponent(properties);
     	stage.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
-    		System.out.println("KEY" + keyEvent.getCode());
     		if ((keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN ||
     				keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
     				&& layout.getChildrenUnmodifiable().contains(dialogNode)) {

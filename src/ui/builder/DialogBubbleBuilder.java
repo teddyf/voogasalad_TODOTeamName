@@ -3,6 +3,7 @@ package ui.builder;
 
 import java.util.*;
 
+import ui.scenes.engine.EngineSidePanel;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -10,6 +11,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
@@ -27,6 +29,8 @@ public class DialogBubbleBuilder implements ComponentBuilder {
 		dialogImage.setFitHeight(properties.height);
 		dialogImage.setFitWidth(properties.width);
 		Label textArea = new Label(properties.text);
+		Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 30);
+		textArea.setFont(new Font("Pokemon GB", 15));
 		textArea.setWrapText(true);
 		textArea.setMaxHeight(properties.height - (properties.height/6));
 		textArea.setMaxWidth(properties.width - (properties.width/10));
@@ -34,17 +38,6 @@ public class DialogBubbleBuilder implements ComponentBuilder {
 		textArea.setLayoutY(properties.height/12);
 		dialogBubble.getChildren().addAll(dialogImage, textArea);
 		return dialogBubble;
-	}
-	
-	public List<String> processText(String message) {
-		List<String> messageList = new ArrayList<String>();
-		String splitMessage = message;
-		while (splitMessage.length() > 235) {
-			messageList.add(splitMessage.substring(0, 235));
-			splitMessage = splitMessage.substring(235);
-		}
-		messageList.add(splitMessage);
-		return messageList;
 	}
 	
 }
