@@ -191,14 +191,8 @@ public class GridManager extends Observable {
 
     public boolean setGateStatus(int row, int col, boolean isOpen) {
         Block block = currentGrid.getBlock(row, col);
-        System.out.println("back end block got");
-        System.out.println("row= " + row);
-        System.out.println("col= " + col);
-        System.out.println(block.getName());
-        System.out.println(block.getClass());
 
         if(block instanceof GateBlock) {
-            System.out.println("it is a gate block check");
             if(isOpen) {
                 ((GateBlock) block).openGate();
                 return true;
