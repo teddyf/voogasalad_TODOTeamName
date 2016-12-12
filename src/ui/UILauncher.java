@@ -1,8 +1,9 @@
 package ui;
 
+import ui.scenes.MainMenuView;
+import ui.scenes.WinSceneView;
 import ui.scenes.editor.EditorView;
 import ui.scenes.engine.EngineView;
-import ui.scenes.MainMenu;
 import editor.EditorController;
 import javafx.scene.Group;
 import javafx.stage.Stage;
@@ -13,25 +14,36 @@ import javafx.stage.Stage;
  *         Launches the main menu, which is used to navigate to either the game
  *         builder or the game engine.
  *         <p>
- *         Dependencies: MainMenu.java
+ *         Dependencies: MainMenuView.java
  */
 public class UILauncher {
 
     private Stage myStage;
-    private MainMenu myMainMenu;
+    private MainMenuView myMainMenu;
+    private EngineView myEngine;
 
     public UILauncher(Stage stage) {
         myStage = stage;
         myStage.setResizable(false);
     }
 
+    public void launchWinScene() {
+        WinSceneView winScene = new WinSceneView(myStage, new Group(), this, myEngine);
+        myStage.setOnCloseRequest(e -> {
+            // closing the window takes you back to main menu
+            e.consume();
+            launchMenu();
+        });
+        myStage.setScene(winScene);
+    }
+
     /**
      * Navigates to the game engine
      */
     public void launchEngine() {
-        EngineView engine = new EngineView(myStage, new Group(), this);
-        if (engine.init()) { // successfully opened a game file
-            myStage.setScene(engine);
+        myEngine = new EngineView(myStage, new Group(), this);
+        if (myEngine.init(false)) { // successfully opened a game file
+            myStage.setScene(myEngine);
         }
     }
 
@@ -45,14 +57,14 @@ public class UILauncher {
             e.consume();
             launchMenu();
         });
-        editor.initEditor();
+        editor.init();
     }
 
     /**
      * Navigates to the main menu
      */
     public void launchMenu() {
-        myMainMenu = new MainMenu(myStage, new Group(), this);
+        myMainMenu = new MainMenuView(myStage, new Group(), this);
         myStage.setScene(myMainMenu);
     }
 
