@@ -72,6 +72,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
         setOnScrollFinished(event -> myGridUI.getScrollMechanism().trackpadEndScroll(event));
         // init file I/O
         myEditorIO = new EditorIO(myStage, myController, new EngineController(), myResources, myGridUI);
+        myEditorIO.addObserver(myGridUI);
         events = new EditorEvents(myLauncher, myEditorIO, myResources);
         // init error checking
         myController.setAlerts(this);

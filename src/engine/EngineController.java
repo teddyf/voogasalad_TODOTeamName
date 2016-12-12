@@ -30,11 +30,12 @@ public class EngineController extends Observable implements Observer, IEngineCon
         gameInstances = new ArrayList<GameInstance>();
     }
 
-    public EngineController(Player player, GridManager gridManager) {
+    public EngineController(Player player, GridManager gridManager, String musicFile) {
         xmlHandler = new GridXMLHandler();
         gameInstances = new ArrayList<GameInstance>();
         gameInstance = new GameInstance(player, gridManager);
         gameInstance.addObserver(this);
+        gameInstance.setMusic(musicFile);
     }
 
     /***** GRID METHODS *****/

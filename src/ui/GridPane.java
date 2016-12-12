@@ -156,10 +156,8 @@ public class GridPane extends Observable implements Observer {
     }
 
     public void loadReset (double height, double width) {
-
         this.gridWidth = width;
         this.gridHeight = height;
-
         this.group = new Group();
         this.blockList = new ArrayList<GridPaneNode>();
         this.clicked = new ArrayList<GridPaneNode>();
