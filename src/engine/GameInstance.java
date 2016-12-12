@@ -9,6 +9,8 @@ import block.*;
 import grid.Grid;
 import grid.GridManager;
 import grid.GridWorld;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ChoiceDialog;
 import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
@@ -16,6 +18,7 @@ import player.PlayerUpdate;
 import xml.GridXMLHandler;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Observable;
 
@@ -95,8 +98,18 @@ public class GameInstance extends Observable implements IGameInstance {
 			    Block block = blockInFacedDirection(row, col, direction);
 			    
 			    if (block instanceof EnemyBlock) {
-			    	//TODO: take in a difficulty parameter from block
-			    	enterBattle((EnemyBlock)block, Difficulty.MEDIUM);
+			    	Collection<Difficulty> choices = new ArrayList<Difficulty>();
+			    	choices.add(Difficulty.EASY);
+			    	choices.add(Difficulty.MEDIUM);
+			    	choices.add(Difficulty.HARD);
+			    	
+			    	ChoiceDialog box = new ChoiceDialog(Difficulty.EASY, choices);
+			    	box.setHeaderText("Enter battle");
+			    	box.setContentText("Choose Difficulty");
+			    	box.showAndWait();
+			    	
+			    	Difficulty diff = (Difficulty) box.getSelectedItem();
+			    	enterBattle((EnemyBlock)block, diff);
 			    }
 			    else if(!(block instanceof DecorationBlock || !(block instanceof CommunicatorBlock))) {
                     myPlayer.addPokemon();
