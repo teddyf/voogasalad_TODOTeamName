@@ -196,7 +196,7 @@ public class EditorController implements IEditorController {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
             System.out.println("i am sad " + myGridManager.getGrids().get(0).getBlock(0,0));
-            GridManager testGridManager = new GridManager();
+            GridManager testGridManager = myGridManager.copy();
             return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
