@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.util.*;
 import java.util.ResourceBundle;
 
 /**
@@ -29,7 +30,7 @@ public class UIBuilder<E> {
     private ComponentBuilder textFieldBuilder;
     private ComponentBuilder radioButtonBuilder;
     private ComponentBuilder comboBoxBuilder;
-    private ComponentBuilder dialogBubbleBuilder;
+    private DialogBubbleBuilder dialogBubbleBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -253,22 +254,23 @@ public class UIBuilder<E> {
      * @param properties
      * @return
      */
-    public Node addDialogBubble(Parent layout, String message) {
+    public void addDialogBubble(Parent layout, String message) {
     	ComponentProperties properties = new ComponentProperties();
-        properties.height(100);
-        properties.width(600);
-        Node dialogNode = dialogBubbleBuilder.createComponent(properties);
-        layout.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
-            if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
-                removeComponent(layout, dialogNode);
-            }
-        });
-        addComponent(layout, dialogNode);
-        dialogNode.setLayoutX(50);
-        dialogNode.setLayoutY(550);
-        return dialogNode;
-    }
+    	properties.height(100);
+    	properties.width(600);
+    	properties.text(message);
+    	Node dialogNode = dialogBubbleBuilder.createComponent(properties);
+    	layout.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
+    		if ((keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN) && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+    			removeComponent(layout, dialogNode);
+    		}
+    	});
+    	addComponent(layout, dialogNode);
+    	dialogNode.setLayoutX(50);
+    	dialogNode.setLayoutY(550);
 
+    }
+    
     /**
      * Initializes a JavaFX window with the specified stage and parameters given
      * in a properties file

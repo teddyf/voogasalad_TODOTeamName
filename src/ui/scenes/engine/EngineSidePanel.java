@@ -38,7 +38,7 @@ public class EngineSidePanel implements Observer {
         util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
         this.gameEngine = gameEngine;
-        Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/Pixeled.ttf").toExternalForm(), 10);
+        Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 20);
         initSidePanel();
         initStats();
     }

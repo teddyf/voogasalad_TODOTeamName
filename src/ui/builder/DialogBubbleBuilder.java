@@ -2,9 +2,12 @@ package ui.builder;
 
 
 import java.util.*;
+
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.TextAlignment;
@@ -25,20 +28,23 @@ public class DialogBubbleBuilder implements ComponentBuilder {
 		dialogImage.setFitWidth(properties.width);
 		Label textArea = new Label(properties.text);
 		textArea.setWrapText(true);
-		textArea.setMaxHeight(properties.height - (properties.height/12));
+		textArea.setMaxHeight(properties.height - (properties.height/6));
 		textArea.setMaxWidth(properties.width - (properties.width/10));
-		dialogBubble.getChildren().addAll(dialogImage, textArea);
 		textArea.setLayoutX(properties.width/20);
-		textArea.setLayoutY(properties.height/10);
+		textArea.setLayoutY(properties.height/12);
+		dialogBubble.getChildren().addAll(dialogImage, textArea);
 		return dialogBubble;
 	}
 	
 	public List<String> processText(String message) {
+		List<String> messageList = new ArrayList<String>();
 		String splitMessage = message;
 		while (splitMessage.length() > 235) {
-			
+			messageList.add(splitMessage.substring(0, 235));
+			splitMessage = splitMessage.substring(235);
 		}
-		
+		messageList.add(splitMessage);
+		return messageList;
 	}
 	
 }
