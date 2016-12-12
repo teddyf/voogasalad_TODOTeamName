@@ -69,6 +69,14 @@ public class EditorController implements IEditorController {
         return false;
     }
 
+    public int getNumRows() {
+        return myGridManager.getCurrentGrid().getNumRows();
+    }
+
+    public int getNumCols() {
+        return myGridManager.getCurrentGrid().getNumCols();
+    }
+
     public void addMusic(String file) {
         myGridManager.addMusic(file);
     }
@@ -196,7 +204,7 @@ public class EditorController implements IEditorController {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
             GridManager testGridManager = myGridManager.deepClone();
-            return (new EngineController(testPlayer, testGridManager));
+            return (new EngineController(testPlayer, testGridManager, testGridManager.getMusic()));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
             return null;

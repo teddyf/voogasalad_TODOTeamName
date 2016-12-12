@@ -475,42 +475,33 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.SwitchFloorBlock>
+          <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
           <myRow>2</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
-          <myStepInteractions/>
+          <myStepInteractions>
+            <interactions.SwitchInteraction>
+              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+            </interactions.SwitchInteraction>
+          </myStepInteractions>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+          <myGates>
+            <block.GateBlock>
+              <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/1-CLOSED.png</myName>
+              <myRow>4</myRow>
+              <myCol>6</myCol>
+              <isWalkable>true</isWalkable>
+              <myStepInteractions/>
+              <myTalkInteractions/>
+            </block.GateBlock>
+          </myGates>
+          <onPosition>true</onPosition>
+        </block.SwitchFloorBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>9</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>10</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>11</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>2</myRow>
-          <myCol>12</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
@@ -518,6 +509,30 @@
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
+          <myCol>10</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>11</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
+          <myCol>12</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>2</myRow>
           <myCol>13</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
@@ -863,14 +878,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
-          <myRow>4</myRow>
-          <myCol>6</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
+        <block.GateBlock reference="../../block.Block-array[3]/block.SwitchFloorBlock/myGates/block.GateBlock"/>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -4418,7 +4426,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>21</myRow>
           <myCol>21</myCol>
           <isWalkable>true</isWalkable>
@@ -4604,7 +4612,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>22</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -4822,7 +4830,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>23</myRow>
           <myCol>21</myCol>
           <isWalkable>true</isWalkable>
@@ -5069,9 +5077,9 @@
       <string>resources/images/sprites/1-up.png</string>
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
-    <myDirection>SOUTH</myDirection>
-    <myRow>22</myRow>
-    <myCol>16</myCol>
+    <myDirection>NORTH</myDirection>
+    <myRow>1</myRow>
+    <myCol>0</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>
