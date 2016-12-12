@@ -48,6 +48,7 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public void setEnemyHP(double enemyHP) {
 		if (enemyHP <= 0) {
 			playerWon = true;
+			enemy.setWalkableStatus(true);
 			enemy.setHealth(0);
 		}
 		else {

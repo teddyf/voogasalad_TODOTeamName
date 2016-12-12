@@ -24,7 +24,7 @@ public class Player implements IPlayer {
 	public static final int DEFAULT_HEALTH = 100;
 	
 	@XStreamOmitField
-	public static final int DEFAULT_NUM_POKEMON = 2;
+	public static final int DEFAULT_NUM_POKEMON = 3;
 	
 	private int battlesWon;
 	private int battlesLost;
@@ -132,6 +132,9 @@ public class Player implements IPlayer {
         }
 	    myAttributes.add(attribute);
 		return true;
+	}
+	public void addPokemon(){
+		numPokemon++;
 	}
 
 	public void addItem(Item item) {

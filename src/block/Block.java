@@ -137,7 +137,7 @@ public abstract class Block implements IBlock {
     public void setMessage(String message){
         this.myMessage = message;
     }
-    protected void setWalkableStatus(boolean status) {
+    public void setWalkableStatus(boolean status) {
         isWalkable = status;
     }
 }
