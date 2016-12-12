@@ -58,7 +58,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -219,25 +219,4 @@
     </grid>
     <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>
   </gridWorld>
-  <player>
-    <myNames>
-      <string>resources/images/sprites/1-down.png</string>
-      <string>resources/images/sprites/1-left.png</string>
-      <string>resources/images/sprites/1-right.png</string>
-      <string>resources/images/sprites/1-up.png</string>
-    </myNames>
-    <myPlayerName>player</myPlayerName>
-    <myRow>2</myRow>
-    <myCol>1</myCol>
-    <myGridIndex>0</myGridIndex>
-    <myDirection>SOUTH</myDirection>
-    <myAttributes/>
-    <myInventory/>
-    <myBattleHistory/>
-    <myInteractionHistory/>
-    <battlesWon>0</battlesWon>
-    <battlesLost>0</battlesLost>
-    <health>100.0</health>
-    <numPokemon>3</numPokemon>
-  </player>
 </root>

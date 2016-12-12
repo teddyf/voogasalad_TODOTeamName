@@ -79,25 +79,25 @@ public interface IPlayer {
      * Gets the number of battles the player has won
      * @return the number of battles won
      */
-    public int getBattlesWon();
+    int getBattlesWon();
 
     /**
      * Gets the number of battles the player has lost
      * @return the number of battles lost
      */
-    public int getBattlesLost();
+    int getBattlesLost();
 
     /**
      * Gets the health of the player
      * @return the health
      */
-    public double getHealth();
+    double getHealth();
 
     /**
      * Gets the number of pokemon the player has
      * @return the number of pokemon
      */
-    public int getNumPokemon();
+    int getNumPokemon();
 
     /***** SETTERS *****/
 
@@ -136,10 +136,39 @@ public interface IPlayer {
 	 * @param item - the item to add
 	 */
 	void addItem(Item item);
-	
+
+    /**
+     * Adds a battle to the battle history
+     * @param battle - the battle to add
+     */
+	void addBattle(Battle battle);
+
 	/**
 	 * Adds an interaction to the interaction history
 	 * @param interaction - the interaction to add
 	 */
-	public void addInteraction(Interaction interaction);
+	void addInteraction(Interaction interaction);
+
+    /**
+     * Increments the number of battles won
+     */
+    void incrementBattlesWon();
+
+    /**
+     * Increments the number of battles lost
+     */
+    void incrementBattlesLost();
+
+    /**
+     * Sets the health of the player
+     * @param health - the health of the player
+     */
+    void setHealth(double health);
+
+    /**
+     * Increments the number of pokemon
+     */
+    void incrementNumPokemon();
+
+    void decrementNumPokemon();
 }

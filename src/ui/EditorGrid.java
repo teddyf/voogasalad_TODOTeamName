@@ -100,6 +100,7 @@ public class EditorGrid extends Grid implements Observer {
             GridPaneNode player = new GridPaneNode(row, col, imagePaths.get(0));
             player.setImageSize(CELL_PIXELS, CELL_PIXELS);
             player.setImageCoord(getXRender(col), getYRender(row));
+            System.out.println("player " + player.getImage().getX());
             group.getChildren().add(player.getImage());
 
             ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
@@ -285,12 +286,14 @@ public class EditorGrid extends Grid implements Observer {
     public void shiftAll() {
         for(int i = 0; i < blockList.size(); i++){
             GridPaneNode temp = blockList.get(i);
-            temp.setImageCoord(temp.getImage().getTranslateX() + WRAP, temp.getImage().getTranslateY() + WRAP);
+            //temp.setImageCoord(getXRender(temp.getCol()) + 355, getYRender(temp.getRow()) + 655);
+            temp.setImageCoord(temp.getImage().getLayoutX() + WRAP, temp.getImage().getLayoutY() + WRAP);
         }
     }
 
     public void blockToGridPane (int row, int col, String name) {
         GridPaneNode temp = new GridPaneNode(row, col, name);
+        makeClickable(temp);
         blockList.add(temp);
     }
 
