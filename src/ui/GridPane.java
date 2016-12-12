@@ -451,7 +451,6 @@ public class GridPane extends Grid implements Observer {
 
     @Override
     public void update (Observable o, Object arg) {
-        // System.out.println("here");
         if (o instanceof PlayerSideMenu) {
             clickType = "PLAYER";
             System.out.println(((PlayerSideMenu) o).getImagePaths());
@@ -459,7 +458,6 @@ public class GridPane extends Grid implements Observer {
         }
         else if (o instanceof GameSideMenu) {
             clickType = "LINK";
-            //resetClicked();
 
         } else if (o instanceof ItemSideMenu) {
             clickType = "SWAP";
