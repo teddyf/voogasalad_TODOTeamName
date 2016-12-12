@@ -21,7 +21,11 @@ import interactions.Interaction;
 @XStreamAlias("player")
 public class Player implements IPlayer {
 	@XStreamOmitField
-	private static final int DEFAULT_HEALTH = 100;
+	public static final int DEFAULT_HEALTH = 100;
+	
+	@XStreamOmitField
+	public static final int DEFAULT_NUM_POKEMON = 2;
+	
 	private int battlesWon;
 	private int battlesLost;
 	private List<String> myNames;
@@ -39,7 +43,7 @@ public class Player implements IPlayer {
 	private double health;
 
 	public Player(List<String> names, String playerName, int row, int col, int gridIndex) {
-        myNames = names;
+		myNames = names;
 		myPlayerName = playerName;
 		myRow = row;
 		myCol = col;
@@ -52,7 +56,7 @@ public class Player implements IPlayer {
 		myStatus = new ArrayList<>();
 		battlesWon = battlesLost = 0;
 		health = DEFAULT_HEALTH;
-        numPokemon = 2;
+        numPokemon = DEFAULT_NUM_POKEMON;
 	}
 
 	public Player(Player player) {
@@ -69,7 +73,7 @@ public class Player implements IPlayer {
         myStatus = new ArrayList<>();
         battlesWon = battlesLost = 0;
         health = DEFAULT_HEALTH;
-        numPokemon = 2;
+        numPokemon = DEFAULT_NUM_POKEMON;
     }
 
 	public int getNumPokemon(){

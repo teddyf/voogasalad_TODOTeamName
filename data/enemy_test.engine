@@ -4012,7 +4012,7 @@
         <block.EnemyBlock>
           <changed>false</changed>
           <obs/>
-          <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
+          <myName>resources/images/tiles/enemy/4-left.png</myName>
           <myRow>11</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>

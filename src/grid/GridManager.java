@@ -12,9 +12,7 @@ import block.CommunicatorBlock;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
-import exceptions.BlockCreationException;
-import exceptions.DeletePlayerWarning;
-import exceptions.LargeGridException;
+import exceptions.*;
 import player.PlayerBlockUpdate;
 import player.PlayerUpdate;
 
@@ -199,7 +197,7 @@ public class GridManager extends Observable {
     public boolean addMessage(String message, int row, int col) {
         Block block = currentGrid.getBlock(row, col);
         if(block instanceof CommunicatorBlock) {
-            ((CommunicatorBlock) block).setMessage(message);
+            block.setMessage(message);
             return true;
         }
         return false;

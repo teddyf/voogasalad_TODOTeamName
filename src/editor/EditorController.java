@@ -85,6 +85,10 @@ public class EditorController implements IEditorController {
         return (myGridManager.addMessage(message, row, col));
     }
 
+    public boolean setGateStatus(int row, int col, boolean isOpen) {
+        return true;
+    }
+
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
         return myGridManager.linkBlocks(row1, col1, index1, row2, col2, index2);
     }

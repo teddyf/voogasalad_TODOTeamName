@@ -16,7 +16,6 @@ public class BattleModel extends Observable implements BattleModelInView {
 	private boolean playerLost = false;
 
 	public BattleModel(Player player, EnemyBlock enemy) {
-		System.out.println(player.getNumPokemon());
 		this.player = player;
 		this.enemy = enemy;
 	}
@@ -35,9 +34,12 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public void setPlayerHP(double playerHP) {
 		if (playerHP <= 0) {
 			playerLost = true;
+			player.setHealth(0);
 		}
-
-		player.setHealth(playerHP);
+		else {
+			player.setHealth(playerHP);
+		}
+		
 		setChanged();
 		notifyObservers();
 	}
@@ -46,15 +48,12 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public void setEnemyHP(double enemyHP) {
 		if (enemyHP <= 0) {
 			playerWon = true;
+			enemy.setHealth(0);
+		}
+		else {
+			enemy.setHealth(enemyHP);
 		}
 
-		enemy.setHealth(enemyHP);
-		setChanged();
-		notifyObservers();
-	}
-	public void resetPlayer(){
-		playerLost = false;
-		player.setHealth(100);
 		setChanged();
 		notifyObservers();
 	}
@@ -68,7 +67,7 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public boolean checkPlayerLost() {
 		return playerLost;
 	}
-	
+
 	@Override
 	public void addBattleWon() {
 		player.incrementBattlesWon();
@@ -79,12 +78,22 @@ public class BattleModel extends Observable implements BattleModelInView {
 		player.incrementBattlesLost();
 	}
 
-	public int getNumPokemon(){
+	@Override
+	public int getNumPokemon() {
 		return player.getNumPokemon();
 	}
 
-	public void reduceNumPokemon(){
+	@Override
+	public void reduceNumPokemon() {
 		player.decrementNumPokemon();
 	}
 
+	@Override
+	public void resetPlayer() {
+		playerWon = false;
+		playerLost = false;
+		player.setHealth(Player.DEFAULT_HEALTH);
+		setChanged();
+		notifyObservers();
+	}
 }
