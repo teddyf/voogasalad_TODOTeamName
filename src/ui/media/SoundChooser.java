@@ -30,14 +30,12 @@ public class SoundChooser {
 		playlist = new HashMap<String,String>();
 		hbox = new HBox(10);
 		
-		//player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
-		//setPlayinLoop(player);
-		//player.play();
+		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
         playButtonClicked=true;
         
-        //initComboBox();
-		//initPlayButton();
-		//initPauseButton();
+        initComboBox();
+		initPlayButton();
+		initPauseButton();
         
 		group.getChildren().add(hbox);
 	}
@@ -95,10 +93,6 @@ public class SoundChooser {
         playButtonClicked=true;
 	}
 	
-	public void addNodeToControl(Node node) {
-		hbox.getChildren().add(node);
-	}
-	
 	public String getChosenSongPath() {
 		return chosenSongPath;
 	}
@@ -130,5 +124,9 @@ public class SoundChooser {
 		    	   mediaPlayer.seek(Duration.ZERO);
 		       }
 		   });
+	}
+	
+	public void stop() {
+		player.stop();
 	}
 }

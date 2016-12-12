@@ -20,6 +20,8 @@ public class GridWorld {
     
     @XStreamOmitField
     private int currentIndex;
+    
+    
 
     public GridWorld() {
         grids = new ArrayList<>();

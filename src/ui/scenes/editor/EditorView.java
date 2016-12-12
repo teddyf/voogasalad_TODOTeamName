@@ -12,6 +12,7 @@ import ui.builder.UIBuilder;
 
 import java.util.ResourceBundle;
 
+import ui.media.SoundChooser;
 import ui.scenes.editor.sidemenu.*;
 
 /**
@@ -69,6 +70,7 @@ public class EditorView extends Scene implements GameEditorAlerts {
         myStage.setOnCloseRequest(e -> {
             // closing the window prompts save and takes you back to main menu
             myController = null;
+            sideControls.getGridSideMenu().stopMusic();
             e.consume();
             events.exitPrompt(false);
         });
