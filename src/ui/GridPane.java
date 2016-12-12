@@ -32,8 +32,6 @@ public class GridPane extends Observable implements Observer {
     private double gridHeight;
     private double renderWidth;
     private double renderHeight;
-    private int renderTopLeftX;
-    private int renderTopLeftY;
 
     private ColorAdjust hoverOpacity;
     private GridObjectMap gridMap;
@@ -51,9 +49,7 @@ public class GridPane extends Observable implements Observer {
     public GridPane (int gridWidth,
                      int gridHeight,
                      int renderWidth,
-                     int renderHeight,
-                     int renderTopLeftX,
-                     int renderTopLeftY) {
+                     int renderHeight) {
 
         group = new Group();
         blockList = new ArrayList<GridPaneNode>();
@@ -67,8 +63,6 @@ public class GridPane extends Observable implements Observer {
         this.gridHeight = gridHeight;
         this.renderWidth = renderWidth;
         this.renderHeight = renderHeight;
-        this.renderTopLeftX = renderTopLeftX;
-        this.renderTopLeftY = renderTopLeftY;
         this.clickType = "";
         this.gridResizer = new GridPaneResizer();
         def = new GridPaneNode(0, 0, defaultText());
@@ -88,12 +82,12 @@ public class GridPane extends Observable implements Observer {
 
     private double getXRender (int column) {
         double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP - renderWidth / CELL_PIXELS);
-        return column * CELL_PIXELS + renderTopLeftX + offset;
+        return column * CELL_PIXELS + offset;
     }
 
     private double getYRender (int row) {
         double offset = -0.5 * CELL_PIXELS * (gridHeight + WRAP - renderHeight / CELL_PIXELS);
-        return row * CELL_PIXELS + renderTopLeftY + offset;
+        return row * CELL_PIXELS + offset;
     }
 
     private void initializeGrid () {

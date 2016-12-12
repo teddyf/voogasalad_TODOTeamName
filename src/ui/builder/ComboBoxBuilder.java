@@ -9,10 +9,8 @@ import javafx.scene.control.ComboBox;
 public class ComboBoxBuilder<E> implements ComponentBuilder {
 
     ComboBoxBuilder() {
-        super();
     }
 
-    @Override
     public Node createComponent(ComponentProperties properties) {
         ComboBox<E> newComboBox = new ComboBox<>();
         newComboBox.setLayoutX(properties.x);

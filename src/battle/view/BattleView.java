@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 
 /**
  * @author Daniel Chai, Bill Xiong
@@ -26,15 +27,15 @@ public class BattleView implements Observer {
 
 	private Difficulty gameDifficulty;
 
-	private static final int WIDTH = 1000;
+	private static final int WIDTH = 500;
 	private static final int HEIGHT = 500;
 	public static final int DAMAGE = 10;
 	public static final int DISPLAY_X = 500;
 	public static final int DISPLAY_Y = 250;
-	private final int PLAYER_X = 300;
-	private final int PLAYER_Y = 200;
-	private final int ENEMY_X = 500;
-	private final int ENEMY_Y = 200;
+	private final int PLAYER_X = 50;
+	private final int PLAYER_Y = 250;
+	private final int ENEMY_X = 250;
+	private final int ENEMY_Y = 250;
 
 	private Scene scene;
 	private Group root;
@@ -65,10 +66,10 @@ public class BattleView implements Observer {
 		enemy = new EnemyView(model.getEnemyHP(), ENEMY_X, ENEMY_Y, ENEMY_IMAGE_PATH);
 		player = new PlayerView(model.getPlayerHP(), PLAYER_X, PLAYER_Y, PLAYER_IMAGE_PATH);
 
-		enemyHealth = new HealthDisplay(ENEMY_X + 50, ENEMY_Y + 200, (int)model.getEnemyHP());
-		playerHealth = new HealthDisplay(PLAYER_X - 50, PLAYER_Y + 200, (int)model.getPlayerHP());
+		enemyHealth = new HealthDisplay(ENEMY_X + 30, ENEMY_Y -100, (int)model.getEnemyHP());
+		playerHealth = new HealthDisplay(PLAYER_X - 30, PLAYER_Y -100, (int)model.getPlayerHP());
 		
-		RandomMessage rm = new RandomMessage(root,30,30);
+		RandomMessage rm = new RandomMessage(root,0,400);
 		
 		root.getChildren().addAll(enemyHealth.getGroup(), playerHealth.getGroup());
 		enemy.addToGroup(root);
@@ -112,11 +113,13 @@ public class BattleView implements Observer {
 		Label l = new Label("Battle Won: " + model.battlesWon() + "  Battles Lost: " + model.battlesLost());
         l.setLayoutX(DISPLAY_X);
 		l.setLayoutY(10);
+		l.setFont(new Font("Pokemon GB",10));
 		root.getChildren().add(l);
 	}
 
 	public void displayTextPokemon() {
 		displayPokemon.setText("Number of Pokemon: " + model.getNumPokemon());
+		displayPokemon.setFont(new Font("Pokemon GB",10));
 	}
 	private void addShieldHandler(){
 		EventHandler<ActionEvent> event = actionEvent -> {

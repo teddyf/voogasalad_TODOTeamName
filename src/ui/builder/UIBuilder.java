@@ -30,7 +30,7 @@ public class UIBuilder<E> {
     private ComponentBuilder textFieldBuilder;
     private ComponentBuilder radioButtonBuilder;
     private ComponentBuilder comboBoxBuilder;
-    private DialogBubbleBuilder dialogBubbleBuilder;
+    private ComponentBuilder dialogBubbleBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -263,7 +263,6 @@ public class UIBuilder<E> {
     	properties.text(message);
     	Node dialogNode = dialogBubbleBuilder.createComponent(properties);
     	stage.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
-    		System.out.println("KEY" + keyEvent.getCode());
     		if ((keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN ||
     				keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
     				&& layout.getChildrenUnmodifiable().contains(dialogNode)) {

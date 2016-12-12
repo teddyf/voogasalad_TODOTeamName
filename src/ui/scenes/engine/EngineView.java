@@ -46,6 +46,9 @@ public class EngineView extends Scene implements Observer {
         myBuilder = new UIBuilder();
         myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
         myRoot.getStylesheets().add(CSS_FILE_NAME);
+        myController = new EngineController();
+        engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
+        
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
             myController = null;
@@ -55,7 +58,7 @@ public class EngineView extends Scene implements Observer {
             }
             myLauncher.launchMenu();
         });
-        myController = new EngineController();
+        
     }
 
     public EngineView(Stage stage, Parent root) {
@@ -67,6 +70,7 @@ public class EngineView extends Scene implements Observer {
         myRoot.getStylesheets().add(CSS_FILE_NAME);
         myController = new EngineController();
     }
+
 
     public void setController(EngineController controller) {
         myController = controller;
@@ -113,12 +117,14 @@ public class EngineView extends Scene implements Observer {
     public String getPath() {
         return ENGINE_RESOURCES;
     }
-
+    
+    
     private void setUpSidePanel() {
-        EngineSidePanel engineSidePanel = new EngineSidePanel(myRoot, myBuilder, myResources, this, myController);
-        myController.addObserver(engineSidePanel);
-        engineSidePanel.update(myController, myController.getPlayer());
+    	engineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources,this, myController);
+    	myController.addObserver(engineSidePanel);
+    	engineSidePanel.update(myController, myController.getPlayer());
     }
+
 
     private void setUpPlayer() {
         List<String> playerImagePaths = myController.getPlayerImages();
@@ -167,9 +173,7 @@ public class EngineView extends Scene implements Observer {
         int gridCellsHeight = Integer.parseInt(myResources.getString("gridCellsHeight"));
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
-        int gridX = Integer.parseInt(myResources.getString("gridX"));
-        int gridY = Integer.parseInt(myResources.getString("gridY"));
-        grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight, gridX, gridY);
+        grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight);
     }
 
     private void loadGrid() {

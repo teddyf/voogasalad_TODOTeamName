@@ -12,10 +12,8 @@ import javafx.scene.image.ImageView;
 public class RadioButtonBuilder implements ComponentBuilder {
 
     public RadioButtonBuilder() {
-        super();
     }
 
-    @Override
     public Node createComponent(ComponentProperties properties) {
         RadioButton newButton = new RadioButton(properties.text);
         newButton.setId(properties.id);

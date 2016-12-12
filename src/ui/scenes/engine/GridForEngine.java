@@ -30,8 +30,6 @@ public class GridForEngine {
     private double gridHeight;
     private double renderWidth;
     private double renderHeight;
-    private int renderTopLeftX;
-    private int renderTopLeftY;
 
     private ColorAdjust hoverOpacity;
     private GridObjectMap gridMap;
@@ -41,7 +39,7 @@ public class GridForEngine {
     private static final String wall= "resources/images/tiles/obstacle/tree-4.png";
 
     public GridForEngine (int gridWidth, int gridHeight, int renderWidth,
-                     int renderHeight, int renderTopLeftX, int renderTopLeftY) {
+                     int renderHeight) {
 
         group = new Group();
         blockList = new ArrayList<GridPaneNode>();
@@ -54,8 +52,6 @@ public class GridForEngine {
         this.gridHeight = gridHeight;
         this.renderWidth = renderWidth;
         this.renderHeight = renderHeight;
-        this.renderTopLeftX = renderTopLeftX;
-        this.renderTopLeftY = renderTopLeftY;
 
         def = new GridPaneNode(0, 0, defaultText());
         initializeGrid();
@@ -76,13 +72,13 @@ public class GridForEngine {
     private double getXRender (int column) {
         double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP  - renderWidth/CELL_PIXELS);
         //offset = 0;
-        return column * CELL_PIXELS + renderTopLeftX + offset;
+        return column * CELL_PIXELS + offset;
     }
 
     private double getYRender (int row) {
         double offset = -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
         //offset = 0;
-        return row * CELL_PIXELS + renderTopLeftY + offset;
+        return row * CELL_PIXELS + offset;
     }
 
     private void initializeGrid () {
