@@ -188,6 +188,7 @@ public class GridPane extends Observable implements Observer {
         for (int i = 0; i < clicked.size(); i++) {
             clicked.get(i).getImage().setEffect(null);
         }
+        resetClicked();
     }
 
     public void buildPlayer (EditorController control, String name, List<String> imagePaths) {
@@ -280,10 +281,6 @@ public class GridPane extends Observable implements Observer {
         return response.orElse(new String());
     }
 
-    private void communicateMessage () {
-        // builder.add
-    }
-
     private void resetClicked () {
         clicked = new ArrayList<GridPaneNode>();
     }
@@ -333,18 +330,19 @@ public class GridPane extends Observable implements Observer {
         }
     }
 
-    public void delete () {
+    public void delete (EditorController control) {
         ArrayList<Integer> deleted = new ArrayList<Integer>();
         for (int i = 0; i < clicked.size(); i++) {
             GridPaneNode temp = clicked.get(i);
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
-            gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
 
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i += 2) {
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i + 1)];
+                control.addBlock(defaultText(), BlockType.GROUND, getBackendRow(node), getBackendCol(node));
                 node.swap(def, node.getImageNum());
+                
             }
         }
         clicked = new ArrayList<GridPaneNode>();
