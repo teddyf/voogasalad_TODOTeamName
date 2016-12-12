@@ -1,13 +1,13 @@
 package ui;
 
 import java.util.*;
-import grid.GridGrowthDirection;
+import grid.GridSizeDirection;
 
 public class GridPaneResizer {
     
     private GridPane gridPane;
     private int amount;
-    private GridGrowthDirection dir;
+    private GridSizeDirection dir;
     private GridObjectMap objMap;
     
     private String DEFAULT = "resources/images/tiles/ground/grass-";
@@ -17,9 +17,9 @@ public class GridPaneResizer {
     }
     
     
-    public void resize(GridGrowthDirection dir, int amount, GridObjectMap objMap, GridPane gridPane){
+    public void resize(GridSizeDirection dir, int amount, GridObjectMap objMap, GridPane gridPane){
         
-        if(dir == GridGrowthDirection.RIGHT){
+        if(dir == GridSizeDirection.RIGHT){
             if(amount>=0){
                 List<GridPaneNode> blockList = addHorizontalBlocks(amount);
                 gridPane.setGridHeight(gridPane.getHeight()+amount);
@@ -27,7 +27,7 @@ public class GridPaneResizer {
                 setGridArray(blockList);
             }
         }
-        else if(dir == GridGrowthDirection.BOTTOM){
+        else if(dir == GridSizeDirection.BOTTOM){
             if(amount>=0){
                 List<GridPaneNode> blockList = addVerticalBlocks(amount);
                 gridPane.setGridHeight(gridPane.getHeight()+amount);
@@ -35,7 +35,7 @@ public class GridPaneResizer {
                 setGridArray(blockList);
             }
         }
-        else if(dir == GridGrowthDirection.TOP){
+        else if(dir == GridSizeDirection.TOP){
             if(amount>=0){
                 List<GridPaneNode> blockList = addVerticalBlocks(amount);
                 shiftTopAdd(amount, blockList);
@@ -44,7 +44,7 @@ public class GridPaneResizer {
                 setGridArray(blockList);
             }
         }
-        else if(dir == GridGrowthDirection.LEFT){
+        else if(dir == GridSizeDirection.LEFT){
             if(amount >= 0){
                 List<GridPaneNode> blockList = addHorizontalBlocks(amount);
                 shiftLeftAdd(amount, blockList);

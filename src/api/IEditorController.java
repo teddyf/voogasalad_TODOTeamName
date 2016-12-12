@@ -1,11 +1,8 @@
 package api;
 
 import block.BlockType;
-import editor.EditorModel;
 import engine.EngineController;
-import exceptions.*;
-import grid.GridGrowthDirection;
-import ui.scenes.editor.GameEditorAlerts;
+import grid.GridSizeDirection;
 
 import java.util.List;
 
@@ -31,7 +28,7 @@ public interface IEditorController extends IController {
      * @param amount - the amount by which the grid size in the specified direction should change
      * @return whether or not the grid was changed
      */
-    boolean changeGridSize(GridGrowthDirection direction, int amount);
+    boolean changeGridSize(GridSizeDirection direction, int amount);
 
     /**
      * Changes a block's properties in the current grid
