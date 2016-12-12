@@ -67,7 +67,7 @@ public class SoundChooser {
 		Button button = new Button();
 		setButtonImage(button,"resources/images/media/play.png");
 		button.setOnAction(event -> {
-            if (playButtonClicked==true) {
+            if (playButtonClicked) {
                 player.stop();
             }
             String chosenSong = (String) comboBox.getValue();
