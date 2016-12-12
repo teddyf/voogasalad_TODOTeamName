@@ -1,13 +1,18 @@
 package ui.scenes.engine;
 
 import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import resources.properties.PropertiesUtilities;
 import ui.builder.UIBuilder;
@@ -19,6 +24,9 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
+import javax.sound.midi.ControllerEventListener;
+
+import player.PlayerDirection;
 import engine.EngineController;
 
 /**
@@ -28,7 +36,8 @@ import engine.EngineController;
  */
 public class EngineSidePanel implements Observer {
 
-    private static final double DEFAULT_HEALTH = 100;
+    private static final String imagePath = "resources/images/sidepanel/";
+	private static final double DEFAULT_HEALTH = 100;
     private static final int HEALTH_BOX_SPACING = 5;
 	private Parent myRoot;
     private UIBuilder myBuilder;
@@ -43,6 +52,10 @@ public class EngineSidePanel implements Observer {
     private Label playerPos;
     private Label numPokemon;
     private Label healthNum;
+    private Label north;
+    private Label west;
+    private Label east;
+    private Label south;
 
     public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources, EngineView gameEngine, EngineController engineController) {
         myRoot = root;
@@ -84,8 +97,8 @@ public class EngineSidePanel implements Observer {
         //vbox.getChildren().add(soundPlayer.getGroup());
     }
 
-    public void initStats() {
-        vbox.getChildren().add(new Label("Your HP"));
+    private void initStats() {
+        vbox.getChildren().addAll(new Label("Player " + engineController.getPlayerName()), new Label("Your HP"));
         HBox healthBox = initHealthBar();
         vbox.getChildren().addAll(healthBox, new Label("Your Position"));
         playerPos = new Label(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
@@ -93,10 +106,14 @@ public class EngineSidePanel implements Observer {
         vbox.getChildren().add(new Label("Your Number of Pokemon"));
         numPokemon = new Label(String.valueOf(engineController.getPlayerNumPokemon()));
         vbox.getChildren().addAll(numPokemon, new Label("Battle History"));
+        Label color = new Label("COLRO");
+        color.setTextFill(Color.BLUE);
+        Group compass = initCompass();
+        vbox.getChildren().add(compass);
 
     }
     
-    public HBox initHealthBar() {
+    private HBox initHealthBar() {
     	HBox healthBox = new HBox();
     	healthBox.setSpacing(HEALTH_BOX_SPACING);
         healthBar = new ProgressBar();
@@ -104,6 +121,56 @@ public class EngineSidePanel implements Observer {
         healthNum = new Label(String.valueOf(engineController.getPlayerHealth()));
         healthBox.getChildren().addAll(healthBar, healthNum);
         return healthBox;
+    }
+    
+    private Group initCompass() {
+    	Group playerCompass = new Group();
+    	ImageView compassImage = new ImageView(new Image(imagePath + "compass.png")); // please clean up later
+    	compassImage.setFitHeight(140);
+    	compassImage.setFitWidth(140);
+    	north = new Label("N");
+    	west = new Label("W");
+    	east = new Label("E");
+    	south = new Label("S");
+    	playerCompass.getChildren().addAll(north, west, compassImage, east, south);
+    	north.setLayoutX(82.5);
+    	west.setLayoutY(87.5);
+    	east.setLayoutX(160);
+    	east.setLayoutY(87.5);
+    	south.setLayoutY(170);
+    	south.setLayoutX(87.5);
+    	compassImage.setLayoutY(15);
+    	compassImage.setLayoutX(15);
+    	return playerCompass;
+    }
+    
+    private void changeCompassDirection(PlayerDirection direction) {
+    	switch(direction) {
+    	case NORTH:
+    		north.setTextFill(Color.GREENYELLOW);
+    		east.setTextFill(Color.BLACK);
+    		west.setTextFill(Color.BLACK);
+    		south.setTextFill(Color.BLACK);
+    		break;
+    	case SOUTH:
+    		north.setTextFill(Color.BLACK);
+    		east.setTextFill(Color.BLACK);
+    		west.setTextFill(Color.BLACK);
+    		south.setTextFill(Color.GREENYELLOW);
+    		break;
+    	case WEST:
+    		north.setTextFill(Color.BLACK);
+    		east.setTextFill(Color.BLACK);
+    		west.setTextFill(Color.GREENYELLOW);
+    		south.setTextFill(Color.BLACK);
+    		break;
+    	case EAST:
+    		north.setTextFill(Color.BLACK);
+    		east.setTextFill(Color.GREENYELLOW);
+    		west.setTextFill(Color.BLACK);
+    		south.setTextFill(Color.BLACK);
+    		break;
+    	}
     }
 
     public void stopMusic() {
@@ -117,7 +184,7 @@ public class EngineSidePanel implements Observer {
         playerPos.setText(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
         numPokemon.setText(String.valueOf(engineController.getPlayerNumPokemon()));
         healthBar.setProgress(engineController.getPlayerHealth()/DEFAULT_HEALTH);
-        healthNum.setText(""+engineController.getPlayerHealth());
-
+        healthNum.setText("" + engineController.getPlayerHealth());
+        changeCompassDirection(engineController.getPlayerDirection());
     }
 }

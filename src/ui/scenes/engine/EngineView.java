@@ -105,7 +105,7 @@ public class EngineView extends Scene implements Observer {
     private void setUpGrid() {
     	setUpKeys();
     	setUpPlayer();
-    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController);
+    	anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController, myStage);
         initObserver();
     	myController.addObserver(anim);
     }
