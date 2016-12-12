@@ -1,8 +1,11 @@
 package block;
 
 import api.IBlock;
+import grid.GridManager;
 import interactions.Interaction;
 import player.Player;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -14,7 +17,7 @@ import java.util.List;
  * @author Filip Mazurek, Daniel Chai, Aninda Manocha
  */
 
-public abstract class Block implements IBlock {
+public abstract class Block implements IBlock, Serializable {
 
     private String myName;
     private int myRow;
@@ -139,5 +142,19 @@ public abstract class Block implements IBlock {
     }
     public void setWalkableStatus(boolean status) {
         isWalkable = status;
+    }
+
+    public Block deepClone() {
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(this);
+            ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            return (Block) ois.readObject();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

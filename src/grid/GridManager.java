@@ -260,17 +260,21 @@ public class GridManager extends Observable {
     }
 
     public GridManager deepClone() {
-        try {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(baos);
-            oos.writeObject(this);
-            ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-            ObjectInputStream ois = new ObjectInputStream(bais);
-            return (GridManager) ois.readObject();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        GridManager newGridManager = new GridManager();
+        for(int i = 0; i < myGrids.size(); i++) {
+            Grid grid = myGrids.get(i);
+            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
+            for (int row = 0; row < grid.getNumRows(); row++) {
+                for (int col = 0; col < grid.getNumCols(); col++) {
+                    Block block = grid.getBlock(row, col);
+                    Block tempBlock = block.deepClone();
+                    tempGrid.setBlock(row, col, tempBlock);
+                }
+            }
+            newGridManager.addGrid(tempGrid);
         }
+        newGridManager.changeGrid(0);
+        return newGridManager;
     }
 
     /***** GETTERS *****/
