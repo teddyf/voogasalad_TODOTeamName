@@ -371,6 +371,13 @@ public class GridPane extends Observable implements Observer {
             }
         }
     }
+    
+    public void shiftAll(){
+        for(int i = 0; i < blockList.size(); i++){
+            GridPaneNode temp = blockList.get(i);
+            temp.setImageCoord(temp.getImage().getTranslateX()+WRAP, temp.getImage().getTranslateY()+WRAP);
+        }
+    }
 
     /**
      * Converts backend block to front end grid
