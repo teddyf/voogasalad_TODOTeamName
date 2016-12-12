@@ -17,6 +17,8 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
+import engine.EngineController;
+
 /**
  * @author Pim Chuaylua
  *         <p>
@@ -32,14 +34,16 @@ public class EngineSidePanel {
     private Character player;
     private EngineView gameEngine;
     private SoundPlayer soundPlayer;
+    private EngineController engineController;
 
-    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine) {
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,EngineView gameEngine,EngineController engineController) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
         util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
         this.gameEngine = gameEngine;
+        this.engineController = engineController;
         Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/Pixeled.ttf").toExternalForm(), 10);
         initSidePanel();
         initStats();
@@ -67,6 +71,7 @@ public class EngineSidePanel {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
+        //get song name from engine controller
         soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
         soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
         vbox.getChildren().add(soundPlayer.getGroup());
