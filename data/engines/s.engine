@@ -3802,7 +3802,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/Users/pimchanok/Documents/workspace/308/voogasalad_todoteamname/src/resources/images/tiles/ground/sand-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>13</myRow>
           <myCol>16</myCol>
           <isWalkable>true</isWalkable>
@@ -9877,21 +9877,21 @@
         </block.DecorationBlock>
       </block.Block-array>
     </grid>
-    <myMusicFile>src/resources/sounds/Fallarbor.mp3</myMusicFile>
+    <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>
   </gridWorld>
   <player>
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
     <myNames>
-      <string>resources/images/sprites/12-down.png</string>
-      <string>resources/images/sprites/12-left.png</string>
-      <string>resources/images/sprites/12-right.png</string>
-      <string>resources/images/sprites/12-up.png</string>
+      <string>resources/images/sprites/23-down.png</string>
+      <string>resources/images/sprites/23-left.png</string>
+      <string>resources/images/sprites/23-right.png</string>
+      <string>resources/images/sprites/23-up.png</string>
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
     <myDirection>NORTH</myDirection>
-    <myRow>13</myRow>
-    <myCol>17</myCol>
+    <myRow>15</myRow>
+    <myCol>18</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>
