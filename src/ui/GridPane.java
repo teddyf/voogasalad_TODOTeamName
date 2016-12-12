@@ -246,6 +246,7 @@ public class GridPane extends Grid implements Observer {
             copy = clicked;
         }
         clicked = new ArrayList<GridPaneNode>();
+        gridMap.debug();
         return copy;
     }
 
@@ -325,11 +326,10 @@ public class GridPane extends Grid implements Observer {
         ArrayList<Integer> deleted = new ArrayList<Integer>();
         for (int i = 0; i < clicked.size(); i++) {
             GridPaneNode temp = clicked.get(i);
-            
-            deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
+            deleted.addAll(gridMap.sharesObjWith(temp.getRow(), temp.getCol()));
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
-
+        System.out.println("delete these: " + deleted);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i += 2) {
                 
@@ -339,6 +339,7 @@ public class GridPane extends Grid implements Observer {
                 
             }
         }
+        gridMap.debug();
         clicked = new ArrayList<GridPaneNode>();
         // gridMap.visObjectMap();
     }
