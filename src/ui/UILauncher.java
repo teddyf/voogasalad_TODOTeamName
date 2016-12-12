@@ -44,8 +44,9 @@ public class UILauncher {
         EditorView editor = new EditorView(myStage, new Group(), this, myController);
         myStage.setOnCloseRequest(e -> {
             // closing the window takes you back to main menu
-           e.consume();
-           launchMenu();
+            myController = new EditorController();
+            e.consume();
+            launchMenu();
         });
         editor.initEditor();
     }

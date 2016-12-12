@@ -52,7 +52,7 @@ public class Player implements IPlayer {
 		myRow = row;
 		myCol = col;
 		myGridIndex = gridIndex;
-        myDirection = PlayerDirection.NORTH;
+        myDirection = PlayerDirection.SOUTH;
 		myAttributes = new ArrayList<>();
 		myInventory = new ArrayList<>();
 		myBattleHistory = new ArrayList<>();
@@ -69,7 +69,7 @@ public class Player implements IPlayer {
         myRow = player.getRow();
         myCol = player.getCol();
         myGridIndex = player.getGridIndex();
-        myDirection = PlayerDirection.NORTH;
+        myDirection = PlayerDirection.SOUTH;
         myAttributes = new ArrayList<>();
         myInventory = new ArrayList<>();
         myBattleHistory = new ArrayList<>();
