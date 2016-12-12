@@ -7,6 +7,7 @@ import engine.EngineController;
 import exceptions.*;
 import grid.GridManager;
 import grid.GridSizeDirection;
+import player.Player;
 import player.PlayerManager;
 import ui.scenes.editor.GameEditorAlerts;
 import xml.GridWorldAndPlayer;
@@ -63,6 +64,10 @@ public class EditorController implements IEditorController {
             return false;
         }
         return false;
+    }
+
+    public void addMusic(String file) {
+        myGridManager.addMusic(file);
     }
 
     /***** BLOCK METHODS *****/
@@ -173,7 +178,9 @@ public class EditorController implements IEditorController {
 
     public EngineController runEngine() {
         try {
-            return (new EngineController(myPlayerManager.getPlayer(), myGridManager));
+            Player testPlayer = new Player(myPlayerManager.getPlayer());
+            GridManager testGridManager = myGridManager;
+            return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
             return null;

@@ -12,8 +12,6 @@ import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;
-import ui.scenes.engine.InteractionHandler;
-import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
 import java.util.ArrayList;
@@ -43,7 +41,6 @@ public class GameInstance extends Observable implements IGameInstance {
 	private BattleController battleController;
 	
 	public GameInstance(Player player, GridManager gridManager) {
-
         xmlHandler = new GridXMLHandler();
 	    myGridManager = gridManager;
 	    myGrid = myGridManager.getCurrentGrid();

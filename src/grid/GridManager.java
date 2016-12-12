@@ -37,6 +37,7 @@ public class GridManager extends Observable {
     private ResourceBundle myResources;
     private Grid currentGrid;
     private BlockFactory blockFactory;
+    private String musicFile;
 
     public GridManager() {
         grids = new ArrayList<>();
@@ -62,6 +63,11 @@ public class GridManager extends Observable {
         }
         return checkShrink(direction, amount, playerRow, playerColumn);
     }
+
+    public void addMusic(String file) {
+        musicFile = file;
+    }
+
     /**
      * Determines if the grid can shrink without deleting the player. If not, the user receives a warning about deleting
      * the player.

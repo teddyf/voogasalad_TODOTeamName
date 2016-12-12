@@ -18,7 +18,7 @@ import xml.GridXMLHandler;
  * @author Aninda Manocha
  */
 
-public class EngineController extends Observable implements Observer, IEngineController {
+public class EngineController extends Observable implements Observer, IEngineController, Cloneable {
     private GridXMLHandler xmlHandler;
     private List<GameInstance> gameInstances;
     private GameInstance gameInstance;
