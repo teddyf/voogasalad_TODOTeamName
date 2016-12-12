@@ -1,5 +1,10 @@
 package grid;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -15,7 +20,7 @@ import player.PlayerUpdate;
 
 /**
  * This class manages all of the grids in the editor or engine
- * @author Aninda Manocha, Daniel Chai
+ * @author Aninda Manocha, Daniel Chai, Filip Mazurek
  */
 
 public class GridManager extends Observable {
@@ -59,7 +64,8 @@ public class GridManager extends Observable {
         currentGrid = myGrids.get(currentIndex);
     }
 
-    public boolean changeGridSize(GridSizeDirection direction, int amount, int playerRow, int playerColumn) throws LargeGridException, DeletePlayerWarning {
+    public boolean changeGridSize(GridSizeDirection direction, int amount, int playerRow, int playerColumn)
+            throws LargeGridException, DeletePlayerWarning {
         if (amount >= 0) {
             return growGrid(direction, amount);
         }
@@ -78,7 +84,8 @@ public class GridManager extends Observable {
      * @return whether the grid can shrink without deleting the player
      * @throws DeletePlayerWarning
      */
-    private boolean checkShrink(GridSizeDirection direction, int amount, int playerRow, int playerColumn) throws DeletePlayerWarning {
+    private boolean checkShrink(GridSizeDirection direction, int amount, int playerRow, int playerColumn)
+            throws DeletePlayerWarning {
         switch (direction) {
             case TOP:
                 if (playerRow < amount) {
@@ -191,12 +198,8 @@ public class GridManager extends Observable {
 
     public boolean setGateStatus(int row, int col, boolean isOpen) {
         Block block = currentGrid.getBlock(row, col);
-        System.out.println("back end block got");
-        System.out.println("row= " + row);
-        System.out.println("col= " + col);
 
         if(block instanceof GateBlock) {
-            System.out.println("it is a gate block check");
             if(isOpen) {
                 ((GateBlock) block).openGate();
                 return true;
@@ -237,7 +240,32 @@ public class GridManager extends Observable {
             for (int row = 0; row < grid.getNumRows(); row++) {
                 for (int col = 0; col < grid.getNumCols(); col++) {
                     Block block = grid.getBlock(row, col);
-                    Block tempBlock = block;
+                    Class<?> blockClass = block.getClass();
+                    try {
+                        Constructor<?> constructor = blockClass.getDeclaredConstructor(String.class, int.class, int.class);
+                        Object object = constructor.newInstance(block.getName(), block.getRow(), block.getCol());
+                        Block tempBlock = (Block) object;
+                        tempGrid.setBlock(row, col, tempBlock);
+                    } catch (Exception e) {
+                        System.out.println("");
+                    }
+                }
+            }
+            newGridManager.addGrid(tempGrid);
+        }
+        newGridManager.changeGrid(0);
+        return newGridManager;
+    }
+
+    public GridManager deepClone() {
+        GridManager newGridManager = new GridManager();
+        for(int i = 0; i < myGrids.size(); i++) {
+            Grid grid = myGrids.get(i);
+            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
+            for (int row = 0; row < grid.getNumRows(); row++) {
+                for (int col = 0; col < grid.getNumCols(); col++) {
+                    Block block = grid.getBlock(row, col);
+                    Block tempBlock = block.deepClone();
                     tempGrid.setBlock(row, col, tempBlock);
                 }
             }

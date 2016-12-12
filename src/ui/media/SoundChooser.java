@@ -3,10 +3,7 @@ import java.io.File;
 import java.util.HashMap;
 
 import editor.EditorController;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
@@ -68,7 +65,8 @@ public class SoundChooser {
 
 	private void initPlayButton() {
 		Button button = new Button();
-		setButtonImage(button,"resources/images/media/play.png");
+        button.setFocusTraversable(false);
+        setButtonImage(button, "resources/images/buttons/play.png");
 		button.setOnAction(event -> {
             if (playButtonClicked) {
                 player.stop();
@@ -94,7 +92,8 @@ public class SoundChooser {
 
 	private void initPauseButton() {
 		Button button = new Button();
-        setButtonImage(button,"resources/images/media/pause.png");
+        button.setFocusTraversable(false);
+        setButtonImage(button, "resources/images/buttons/pause.png");
 		button.setOnAction(event -> player.stop());
 		hbox.getChildren().add(button);
 	}

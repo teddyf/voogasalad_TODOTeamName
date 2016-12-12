@@ -3,6 +3,7 @@ package interactions;
 import block.BlockUpdate;
 import player.Player;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ import java.util.List;
  * @author Filip Mazurek, Aninda Manocha
  */
 
-public interface Interaction {
+public interface Interaction extends Serializable {
 
     /**
      * Apply the interaction in the back end.
