@@ -28,11 +28,14 @@ public class TeleportInteraction implements Interaction {
 
     @Override
     public List<BlockUpdate> act(Player player) {
+        int originalRow = player.getRow();
+        int originalCol = player.getCol();
         player.setRow(myDestinationRow);
         player.setCol(myDestinationCol);
         player.setGridIndex(myDestinationGrid);
         List<BlockUpdate> updateList = new ArrayList<>();
-        updateList.add(new BlockUpdate(BlockUpdateType.TELEPORT, myDestinationRow, myDestinationCol, "teleport"));
+        updateList.add(new BlockUpdate(BlockUpdateType.TELEPORT, myDestinationRow - originalRow,
+                myDestinationCol - originalCol, "teleport"));
         return updateList;
     }
 }
