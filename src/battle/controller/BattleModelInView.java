@@ -21,12 +21,14 @@ public interface BattleModelInView {
 	void addBattleWon();
 
 	void addBattleLost();
+
 	int battlesWon();
+
 	int battlesLost();
 
-    int getNumPokemon();
+	int getNumPokemon();
 
 	void reduceNumPokemon();
-	
+
 	void resetPlayer();
 }

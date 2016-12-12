@@ -106,7 +106,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     public void loadEngine(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         Player player = gridWorldAndPlayer.getPlayer();
-        GridManager gridManager = gridWorldAndPlayer.getGridWorld();
+        GridManager gridManager = new GridManager(gridWorldAndPlayer.getGridWorld().getGrids());
         gameInstance = new GameInstance(player, gridManager);
         gameInstance.addObserver(this);
     }

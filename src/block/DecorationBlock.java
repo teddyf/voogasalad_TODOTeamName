@@ -3,7 +3,7 @@ package block;
 /**
  * A board object which should have no interaction with the player character.
  *
- * @author Filip Mazurek, Daniel Chai, Aninda Manocha
+ * @author Filip Mazurek, Aninda Manocha
  */
 public class DecorationBlock extends Block {
 
