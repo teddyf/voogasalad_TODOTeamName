@@ -35,8 +35,6 @@ public abstract class SwitchBlock extends Block {
             blockUpdates.add(oneGate.toggleOpenStatus());
         }
 
-        // add re-rendering of the switch to the list of blockUpdates
-        // TODO: do the above
         int extensionLoc = getName().lastIndexOf('.');
         String extension = getName().substring(extensionLoc);
         int statusLoc = getName().lastIndexOf('-');

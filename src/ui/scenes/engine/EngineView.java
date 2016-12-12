@@ -53,7 +53,9 @@ public class EngineView extends Scene implements Observer {
             // closing the window takes you back to main menu
             myController = null;
             e.consume();
-            engineSidePanel.stopMusic();
+            if (engineSidePanel != null) {
+                engineSidePanel.stopMusic();
+            }
             myLauncher.launchMenu();
         });
         
@@ -98,7 +100,7 @@ public class EngineView extends Scene implements Observer {
     public boolean init(boolean replay) {
         if (!replay) {
             myGameFile = new FileBrowser().openGameFile(myStage, myResources.getString("engineFilePath"));
-            if (myGameFile == null) { // user clicked cancel
+            if (myGameFile == null) { // user click ed cancel
                 return false;
             }
         }

@@ -26,8 +26,6 @@ public class SizeChooserUI extends Scene {
     private static ResourceBundle myResources;
     private static PropertiesUtilities myUtil;
     private static EditorView myEditor;
-    private static int chosenGridHeight;
-    private static int chosenGridWidth;
 
     SizeChooserUI(EditorView editor, Parent root) {
         super(root, Color.web("#0585B2"));
@@ -40,11 +38,6 @@ public class SizeChooserUI extends Scene {
         init();
     }
 
-    private void setChosenDimension(int height, int width) {
-        chosenGridHeight = height;
-        chosenGridWidth = width;
-    }
-
     /**
      * Prompts the user to choose a custom size for the initial overworld
      */
@@ -53,7 +46,7 @@ public class SizeChooserUI extends Scene {
         Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty("maxDim"));
         if (result != null) {
             myEditor.launchEditor(result.width(), result.height());
-            setChosenDimension(result.width(),result.height());
+            System.out.println(result.width() + " is width " + result.height() + " is height");
         }
     }
 
