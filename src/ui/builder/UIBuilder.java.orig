@@ -12,7 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-import java.util.*;
 import java.util.ResourceBundle;
 
 /**
@@ -30,7 +29,7 @@ public class UIBuilder<E> {
     private ComponentBuilder textFieldBuilder;
     private ComponentBuilder radioButtonBuilder;
     private ComponentBuilder comboBoxBuilder;
-    private DialogBubbleBuilder dialogBubbleBuilder;
+    private ComponentBuilder dialogBubbleBuilder;
 
     public UIBuilder() {
         alertBuilder = new AlertBuilder();
@@ -122,10 +121,8 @@ public class UIBuilder<E> {
      * @param width  Width of the button
      * @return
      */
-    public Node addCustomButton(Parent layout, String text, String imgPath, int x, int y, int width, int height) {
-        return addNewButton(layout, new ComponentProperties(x, y)
-                .text(text)
-                .path(imgPath)
+    public Node addCustomButton(Parent layout, String text, int x, int y, int width, int height) {
+        return addNewButton(layout, new ComponentProperties(x, y).path(text)
                 .preserveRatio(true)
                 .width(width)
                 .height(height));
@@ -256,23 +253,37 @@ public class UIBuilder<E> {
      * @param properties
      * @return
      */
-    public void addDialogBubble(Parent layout, String message) {
-    	ComponentProperties properties = new ComponentProperties();
-    	properties.height(100);
-    	properties.width(600);
-    	properties.text(message);
-    	Node dialogNode = dialogBubbleBuilder.createComponent(properties);
-    	layout.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
-    		if ((keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN) && layout.getChildrenUnmodifiable().contains(dialogNode)) {
-    			removeComponent(layout, dialogNode);
-    		}
-    	});
+    public Node addDialogBubble(Parent layout, ComponentProperties properties) {
+<<<<<<< HEAD
+        Node dialogNode = dialogBubbleBuilder.createComponent(properties);
+        dialogNode.setFocusTraversable(true);
+        layout.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+                removeComponent(layout, dialogNode);
+            }
+        });
+        addComponent(layout, dialogNode);
+        dialogNode.setLayoutX(50);
+        dialogNode.setLayoutY(550);
+        return dialogNode;
+=======
+    	Node dialogNode = dialogBuilder.createComponent(properties);
+    	dialogNode.setFocusTraversable(true);
+    	layout.addEventHandler(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>()  {
+			public void handle(final KeyEvent keyEvent) {
+                if (layout.getChildrenUnmodifiable().contains(dialogNode)) {
+                	removeComponent(layout, dialogNode);
+                }
+			}
+	
+		});
     	addComponent(layout, dialogNode);
     	dialogNode.setLayoutX(50);
     	dialogNode.setLayoutY(550);
-
+    	return dialogNode;
+>>>>>>> fec872d07bed75bd45b0288ac91553b8b6b47247
     }
-    
+
     /**
      * Initializes a JavaFX window with the specified stage and parameters given
      * in a properties file
