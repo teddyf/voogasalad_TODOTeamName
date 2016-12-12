@@ -33,8 +33,8 @@ public class GridManager extends Observable {
     private int currentIndex;
 
     private ResourceBundle myResources;
-    private Grid currentGrid;
     private BlockFactory blockFactory;
+    private Grid currentGrid;
     private String musicFile;
 
     public GridManager() {
@@ -42,6 +42,15 @@ public class GridManager extends Observable {
         currentIndex = 0;
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
+    }
+
+    public GridManager(GridManager gridManager) {
+        grids = gridManager.getGrids();
+        currentIndex = gridManager.getCurrentIndex();
+        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
+        blockFactory = new BlockFactory();
+        currentGrid = gridManager.getCurrentGrid();
+        System.out.println("reset grid please " + currentGrid.getBlock(0,0).getName());
     }
 
     public void addGrid(int numRows, int numCols) {
@@ -205,6 +214,10 @@ public class GridManager extends Observable {
 
     /***** GETTERS *****/
 
+    public List<Grid> getGrids() {
+        return grids;
+    }
+
     public Grid getCurrentGrid() {
         return currentGrid;
     }
@@ -215,5 +228,9 @@ public class GridManager extends Observable {
 
     public String getBlock(int row, int col) {
         return currentGrid.getBlock(row, col).getName();
+    }
+
+    public String getMusic() {
+        return musicFile;
     }
 }
