@@ -18,7 +18,7 @@ public class GridObjectMap {
     private void initMap(){
         for(int i = 0; i < height; i++){
             for(int j = 0; j < width; j++){
-                data.put(new Point(j,i), new ArrayList<Point>());
+                data.put(new Point(i,j), new ArrayList<Point>());
             }
         }
     }
@@ -62,7 +62,7 @@ public class GridObjectMap {
     
     
     public void collisionRemoval(int row, int col){
-        Point a = new Point(col,row);
+        Point a = new Point(row, col);
         ArrayList<Point>temp = data.get(a);
         for(int i = 0; i < temp.size(); i++){
             data.put(temp.get(i),new ArrayList<Point>());
@@ -99,7 +99,7 @@ public class GridObjectMap {
     }
     
     private Point nodeToPoint(GridPaneNode node){
-        return new Point(node.getCol(), node.getRow());
+        return new Point(node.getRow(), node.getCol());
     }
     
     public String toString(){

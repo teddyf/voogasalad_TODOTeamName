@@ -23,15 +23,17 @@ public class InteractionHandler extends Observable {
     private Parent myRoot;
     private UIBuilder myUIBuilder;
     private GridForEngine myGridForEngine;
+    private Stage myStage;
 
-    public InteractionHandler(Parent root, UIBuilder uiBuilder, GridForEngine grid) {
+    public InteractionHandler(Parent root, Stage stage,  UIBuilder uiBuilder, GridForEngine grid) {
         myRoot = root;
+        myStage = stage;
         myUIBuilder = uiBuilder;
         myGridForEngine = grid;
     }
 
     private void displayMessage(String message) {
-        myUIBuilder.addDialogBubble(myRoot, message);
+        myUIBuilder.addDialogBubble(myRoot, myStage, message);
     }
 
     private void renderTeleportation(int rowdiff, int columndiff) {

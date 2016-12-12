@@ -41,6 +41,7 @@ public class Grid extends Observable implements IGrid {
                 myGrid[i][j] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", i, j);
             }
         }
+        System.out.println("backend grid " + myNumRows + "backend grid " + myNumCols);
     }
 
     /**

@@ -9,6 +9,7 @@ import api.IEngineController;
 import block.BlockUpdate;
 import grid.GridManager;
 import player.Player;
+import player.PlayerDirection;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
@@ -66,6 +67,10 @@ public class EngineController extends Observable implements Observer, IEngineCon
     	return gameInstance.getPlayer();
     }
     
+    public String getPlayerName() {
+    	return gameInstance.getPlayer().getPlayerName();
+    }
+    
     public int getPlayerNumPokemon() {
     	return gameInstance.getPlayer().getNumPokemon();
     }
@@ -80,6 +85,10 @@ public class EngineController extends Observable implements Observer, IEngineCon
     
     public double getPlayerHealth() {
     	return gameInstance.getPlayer().getHealth();
+    }
+    
+    public PlayerDirection getPlayerDirection() {
+    	return gameInstance.getPlayer().getDirection();
     }
 
     public int getPlayerGridIndex() {

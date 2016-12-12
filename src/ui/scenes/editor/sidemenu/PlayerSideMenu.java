@@ -40,9 +40,18 @@ public class PlayerSideMenu extends SideMenu {
      * Adds communicator blocks that represent NPCs with which the user
      * can speak.
      *
-     * @return a ScrollPane displaying the communicator blocks
+     * @return a ScrollPane displaying the NPC blocks
      */
     private ScrollPane addNPCs() {
+        return myItemMenu.createScrollPane(BlockType.NPC);
+    }
+
+    /**
+     * Adds communicator blocks that communicate with the user
+     *
+     * @return a ScrollPane displaying the communicator blocks
+     */
+    private ScrollPane addCommunicators() {
         return myItemMenu.createScrollPane(BlockType.COMMUNICATOR);
     }
 
@@ -162,9 +171,10 @@ public class PlayerSideMenu extends SideMenu {
      */
     protected void addTabs() {
         Tab spriteTab = createTab(myResources.getString("spriteTab"), addSprites());
-        Tab enemyTab = createTab(myResources.getString("enemyTab"), addEnemies());
         Tab npcTab = createTab(myResources.getString("npcTab"), addNPCs());
-        myPanel.getTabs().addAll(spriteTab, enemyTab, npcTab);
+        Tab enemyTab = createTab(myResources.getString("enemyTab"), addEnemies());
+        Tab communicatorTab = createTab(myResources.getString("communicatorTab"), addCommunicators());
+        myPanel.getTabs().addAll(spriteTab, npcTab, enemyTab, communicatorTab);
     }
 
     /**

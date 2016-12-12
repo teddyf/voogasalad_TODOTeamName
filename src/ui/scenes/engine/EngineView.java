@@ -50,7 +50,9 @@ public class EngineView extends Scene implements Observer {
             // closing the window takes you back to main menu
             myController = null;
             e.consume();
-            engineSidePanel.stopMusic();
+            if (engineSidePanel != null) {
+                engineSidePanel.stopMusic();
+            }
             myLauncher.launchMenu();
         });
         myController = new EngineController();
@@ -79,7 +81,7 @@ public class EngineView extends Scene implements Observer {
     public boolean init(boolean replay) {
         if (!replay) {
             myGameFile = new FileBrowser().openGameFile(myStage, myResources.getString("engineFilePath"));
-            if (myGameFile == null) { // user clicked cancel
+            if (myGameFile == null) { // user click ed cancel
                 return false;
             }
         }
@@ -103,7 +105,7 @@ public class EngineView extends Scene implements Observer {
     private void setUpGrid() {
         setUpKeys();
         setUpPlayer();
-        anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController);
+        anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController, myStage);
         initObserver();
         myController.addObserver(anim);
     }
@@ -170,7 +172,7 @@ public class EngineView extends Scene implements Observer {
         grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight, gridX, gridY);
     }
 
-    void loadGrid() {
+    private void loadGrid() {
         int colMax = myController.getNumCols();
         int rowMax = myController.getNumRows();
         grid.loadReset(rowMax, colMax);
