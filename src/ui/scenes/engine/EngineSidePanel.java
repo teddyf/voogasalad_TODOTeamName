@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
  *         <p>
  *         This class initializes player status ui.
  */
-public class EngineSidePanel implements Observer {
+public class EngineSidePanel {
 
     private Parent myRoot;
     private UIBuilder myBuilder;
@@ -31,6 +31,7 @@ public class EngineSidePanel implements Observer {
     private PropertiesUtilities util;
     private Character player;
     private EngineView gameEngine;
+    private SoundPlayer soundPlayer;
 
     public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine) {
         myRoot = root;
@@ -66,7 +67,7 @@ public class EngineSidePanel implements Observer {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
-        SoundPlayer soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
+        soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
         soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
         vbox.getChildren().add(soundPlayer.getGroup());
     }
@@ -81,9 +82,7 @@ public class EngineSidePanel implements Observer {
         
     }
 
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-
-	}  
+	public void stopMusic() {
+		soundPlayer.stopMusic();
+	}
 }

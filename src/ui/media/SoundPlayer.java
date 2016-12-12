@@ -93,6 +93,10 @@ public class SoundPlayer {
         itemView.setFitHeight(25);
         button.setGraphic(itemView);
 	}
+	
+	public void stopMusic() {
+		player.stop();
+	}
 
 
 }
