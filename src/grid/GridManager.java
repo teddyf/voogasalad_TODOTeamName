@@ -18,28 +18,27 @@ import player.PlayerUpdate;
  * @author Aninda Manocha, Daniel Chai
  */
 
-@XStreamAlias("gridManager")
 public class GridManager extends Observable {
 
     private static final String SIZE_CHOOSER = "resources/properties/size-chooser";
+    private ResourceBundle myResources;
     private List<Grid> myGrids;
     private int currentIndex;
-    private ResourceBundle myResources;
     private Grid currentGrid;
     private BlockFactory blockFactory;
     private String musicFile;
 
     public GridManager() {
+        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         myGrids = new ArrayList<>();
         currentIndex = 0;
-        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
     }
 
     public GridManager(List<Grid> grids) {
+        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         myGrids = grids;
         currentIndex = 0;
-        myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
         currentGrid = myGrids.get(currentIndex);
         System.out.println("reset grid please " + currentGrid.getBlock(0,0).isWalkable());
@@ -221,6 +220,15 @@ public class GridManager extends Observable {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
+    /*public GridManager copy() {
+        GridManager newGridManager = new GridManager();
+        for(int a = 0; a < myGrids.size(); a++) {
+            //myGrids.get(a)
+            //for (int b = 0; b <
+        }
+        return null;
+    }*/
+
     /***** GETTERS *****/
 
     public List<Grid> getGrids() {
@@ -241,5 +249,9 @@ public class GridManager extends Observable {
 
     public String getMusic() {
         return musicFile;
+    }
+
+    public void setMusic(String file) {
+        musicFile = file;
     }
 }

@@ -226,10 +226,8 @@ public class GameInstance extends Observable implements IGameInstance {
         return tempList;
     }
 
-    /***** DATA METHODS *****/
-
     public void saveEngine(String file) {
-        GridWorld gridWorld = new GridWorld(myGridManager);
+        GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         xmlHandler.saveContents(file, gridWorld, myPlayer);
     }
 
