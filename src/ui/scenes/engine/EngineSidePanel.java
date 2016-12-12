@@ -67,9 +67,9 @@ public class EngineSidePanel {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
-        soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
-        soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
-        vbox.getChildren().add(soundPlayer.getGroup());
+        // soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
+        // soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
+        // vbox.getChildren().add(soundPlayer.getGroup());
     }
     
     public void initStats() {

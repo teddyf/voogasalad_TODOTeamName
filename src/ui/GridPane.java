@@ -46,11 +46,9 @@ public class GridPane implements Observer {
     private GridObjectMap gridMap;
     private UIBuilder builder;
     private GridPaneResizer gridResizer;
-    // private GridPaneNode def;
+    //private GridPaneNode def;
 
     private GridPaneNode def;
-
-    private ImageView player;
 
     private String DEFAULT = "resources/images/tiles/ground/grass-";
     private String clickType;
@@ -158,8 +156,7 @@ public class GridPane implements Observer {
         if (clicked.contains(node)) {
             node.getImage().setEffect(null);
             clicked.remove(node);
-        }
-        else {
+        } else {
             clicked.add(node);
         }
     }
@@ -200,7 +197,7 @@ public class GridPane implements Observer {
         int row = clicked.get(0).getRow();
 
         if (control.addPlayer(imagePaths, name, getBackendRow(clicked.get(0)),
-                              getBackendCol(clicked.get(0)))) {
+                getBackendCol(clicked.get(0)))) {
             GridPaneNode temp = grid[col][row];
             GridPaneNode gpn = new GridPaneNode(row, col, imagePaths.get(0));
             gpn.setImageSize(CELL_PIXELS, CELL_PIXELS);
@@ -343,7 +340,7 @@ public class GridPane implements Observer {
         System.out.println("link!");
         clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
-                                     getBackendRow(node2), getBackendCol(node2), 0);
+                getBackendRow(node2), getBackendCol(node2), 0);
     }
 
     /**
@@ -385,15 +382,15 @@ public class GridPane implements Observer {
         this.blockList = list;
     }
 
-    public void setGridArray (GridPaneNode[][] gridArray) {
+    public void setGridArray(GridPaneNode[][] gridArray) {
         this.grid = gridArray;
     }
 
-    public void setGridHeight (double height) {
+    public void setGridHeight(double height) {
         this.gridHeight = height;
     }
 
-    public void setGridWidth (double width) {
+    public void setGridWidth(double width) {
         this.gridWidth = width;
     }
 
@@ -417,7 +414,7 @@ public class GridPane implements Observer {
         return gridHeight;
     }
 
-    public void makeClickable (GridPaneNode node) {
+    public void makeClickable(GridPaneNode node) {
         node.getImage().setOnMouseExited(e -> {
             if (!clicked.contains(node))
                 node.getImage().setEffect(null);
@@ -453,9 +450,7 @@ public class GridPane implements Observer {
         else if (o instanceof GridSideMenu) {
             clickType = "LINK";
 
-        }
-
-        else if (o instanceof ItemSideMenu) {
+        } else if (o instanceof ItemSideMenu) {
             clickType = "SWAP";
         }
         else {
@@ -463,11 +458,11 @@ public class GridPane implements Observer {
         }
     }
 
-    public int getBackendRow (GridPaneNode gpn) {
+    public int getBackendRow(GridPaneNode gpn) {
         return gpn.getRow() - WRAP / 2;
     }
 
-    public int getBackendCol (GridPaneNode gpn) {
+    public int getBackendCol(GridPaneNode gpn) {
         return gpn.getCol() - WRAP / 2;
     }
 
