@@ -97,7 +97,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
      * Initializes the game editor window by prompting the user to choose an initial
      * overworld size
      */
-    public void initEditor() {
+    public void init() {
         SizeChooserUI sizeChooser = new SizeChooserUI(this, new Group());
         myBuilder.initWindow(myStage, SizeChooserUI.SIZE_CHOOSER_RESOURCES);
         myStage.setScene(sizeChooser);
