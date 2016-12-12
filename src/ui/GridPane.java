@@ -223,17 +223,24 @@ public class GridPane implements Observer {
                     int yPos = clicked.get(i).getRow() + list.get(j).getRow();
                     GridPaneNode temp = grid[xPos][yPos];
                     // TODO add dimension checker
-                    temp.swap(list.get(j), list.get(j).getImageNum());
-                    control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
-                                     getBackendCol(temp));
+                    
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
                         String message = setCommMessage();
-                        control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                        if(!message.isEmpty()){
+                            System.out.println("heyo");
+                            temp.swap(list.get(j), list.get(j).getImageNum());
+                            control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                        }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
                         gateTransition(temp, control);
                     }
                     // setPlayer(temp, obj, control);
+                    else{
+                        temp.swap(list.get(j), list.get(j).getImageNum());
+                        control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                         getBackendCol(temp));
+                    }
                 }
             }
             clicked.get(i).getImage().setEffect(null);
@@ -258,7 +265,7 @@ public class GridPane implements Observer {
                 .header("Set the dialog for the communicator block.")
                 .content("Dialog for the communicator block:"));
         Optional<String> response = db.getResponse();
-        return response.orElse("");
+        return response.orElse(new String());
     }
 
     private void communicateMessage () {

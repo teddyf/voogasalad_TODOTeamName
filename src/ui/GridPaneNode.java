@@ -79,7 +79,7 @@ public class GridPaneNode {
     public ImageView getImage() {
         return imageView;
     }
-
+    
     //Setters
 
     public void setName(String a) {
