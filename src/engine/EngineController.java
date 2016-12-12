@@ -8,6 +8,7 @@ import java.util.Observer;
 import api.IEngineController;
 import block.BlockUpdate;
 import grid.GridManager;
+import grid.GridWorld;
 import player.Player;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
@@ -43,6 +44,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public int getNumCols() {
+        System.out.println(gameInstance.getGrid());
         return gameInstance.getGrid().getNumCols();
     }
 
@@ -52,6 +54,10 @@ public class EngineController extends Observable implements Observer, IEngineCon
 
     public String getBlock(int row, int col) {
         return gameInstance.getGrid().getBlock(row, col).getName();
+    }
+
+    public String getMusic() {
+        return gameInstance.getMusic();
     }
 
     /***** PLAYER METHODS *****/
@@ -102,7 +108,8 @@ public class EngineController extends Observable implements Observer, IEngineCon
     public void loadEngine(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         Player player = gridWorldAndPlayer.getPlayer();
-        GridManager gridManager = gridWorldAndPlayer.getGridWorld();
+        GridManager gridManager = new GridManager(gridWorldAndPlayer.getGridWorld().getGrids());
+        gridManager.setMusic(gridWorldAndPlayer.getGridWorld().getMusicFile());
         gameInstance = new GameInstance(player, gridManager);
         gameInstance.addObserver(this);
     }

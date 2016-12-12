@@ -7,19 +7,18 @@ import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
 import ui.builder.DialogBuilder;
 import ui.scenes.editor.objects.GameObject;
-import ui.scenes.editor.sidemenu.GridSideMenu;
+import ui.scenes.editor.sidemenu.GameSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.ImageView;
 import editor.EditorController;
 
 
 /**
  * @author Teddy Franceschi, Harshil Garg
  */
-public class GridPane implements Observer {
+public class GridPane extends Observable implements Observer {
 
     private final int WRAP = 20;
     private final int CELL_PIXELS = 30;
@@ -171,17 +170,19 @@ public class GridPane implements Observer {
                            EditorController control,
                            String name,
                            List<String> imagePaths) {
+        setChanged();
+        notifyObservers();
         if (clicked.size() == 1) {
             if (clickType.equals("SWAP")) {
                 swap(obj, control);
             }
-            else if (clickType.equals("PLAYER")) {
+            else if (clickType.equals("PLAYER") && imagePaths.size() > 0) {
                 buildPlayer(control, name, imagePaths);
             }
         }
         else if (clicked.size() == 2 && clickType.equals("LINK")) {
             if(buildLink(clicked.get(0), clicked.get(1), control)){
-               // myBuilder.
+                successMessage("Link forged!", "Successfully built a link between selected objects!");
             }
         }
         for (int i = 0; i < clicked.size(); i++) {
@@ -231,11 +232,17 @@ public class GridPane implements Observer {
                         if(!message.isEmpty()){
                             System.out.println("heyo");
                             temp.swap(list.get(j), list.get(j).getImageNum());
+                            
+                            control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                             getBackendCol(temp));
                             control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
-                        gateTransition(temp, control);
+                        temp.swap(list.get(j), list.get(j).getImageNum());
+                        control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                         getBackendCol(temp));
+                        gateTransition(temp, control);              
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
@@ -259,6 +266,10 @@ public class GridPane implements Observer {
         else{
             control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
         }
+    }
+    
+    private void successMessage(String header, String content){
+        builder.addCustomAlert(new ComponentProperties().header(header).content(content));
     }
     
     private String setCommMessage () {
@@ -341,7 +352,6 @@ public class GridPane implements Observer {
     }
 
     boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
-        builder.addNewAlert("", "Link added!");
         clicked.clear();
         return controller.linkBlocks(getBackendRow(node1), getBackendCol(node1), 0,
                 getBackendRow(node2), getBackendCol(node2), 0);
@@ -451,7 +461,7 @@ public class GridPane implements Observer {
             clickType = "PLAYER";
             System.out.println(((PlayerSideMenu) o).getImagePaths());
         }
-        else if (o instanceof GridSideMenu) {
+        else if (o instanceof GameSideMenu) {
             clickType = "LINK";
 
         } else if (o instanceof ItemSideMenu) {
@@ -462,11 +472,11 @@ public class GridPane implements Observer {
         }
     }
 
-    public int getBackendRow(GridPaneNode gpn) {
+    private int getBackendRow(GridPaneNode gpn) {
         return gpn.getRow() - WRAP / 2;
     }
 
-    public int getBackendCol(GridPaneNode gpn) {
+    private int getBackendCol(GridPaneNode gpn) {
         return gpn.getCol() - WRAP / 2;
     }
 

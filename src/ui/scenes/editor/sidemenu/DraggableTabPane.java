@@ -1,12 +1,12 @@
 package ui.scenes.editor.sidemenu;
 
-import javafx.scene.Node;
 import javafx.scene.control.TabPane;
 
 /**
  * @author Robert Steilberg
  *         <p>
- *         This class implements draggable TabPanes.
+ *         This class implements TabPanes that can be dragged
+ *         across the screen with the cursor.
  */
 public class DraggableTabPane extends TabPane {
 
@@ -16,17 +16,8 @@ public class DraggableTabPane extends TabPane {
     // mouse position
     private double mouseX = 0;
     private double mouseY = 0;
-    private Node view;
-    private boolean dragging = false;
-    private boolean moveToFront = true;
 
-    public DraggableTabPane() {
-        init();
-    }
-
-    public DraggableTabPane(Node view) {
-        this.view = view;
-        getChildren().add(view);
+    DraggableTabPane() {
         init();
     }
 
@@ -49,12 +40,10 @@ public class DraggableTabPane extends TabPane {
             double scaledY = y;
             setLayoutX(scaledX);
             setLayoutY(scaledY);
-            dragging = true;
             // again set current Mouse x and y position
             mouseX = event.getSceneX();
             mouseY = event.getSceneY();
             event.consume();
         });
-        onMouseClickedProperty().set(event -> dragging = false);
     }
 }

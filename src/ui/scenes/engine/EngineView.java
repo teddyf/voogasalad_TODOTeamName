@@ -79,7 +79,7 @@ public class EngineView extends Scene {
      * @return true if initialization was successful and a valid game file was chosen
      */
     public boolean init() {
-        File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().openGameFile(myStage, myResources.getString("engineFilePath"));
         if (gameFile == null) { // user clicked cancel
             return false;
         }

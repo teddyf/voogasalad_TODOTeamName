@@ -49,6 +49,42 @@ public class CustomSideMenu extends SideMenu {
         }
     }
 
+    private ScrollPane addCustomSoundScrollPane() {
+        Pane addSoundPanel = new Pane();
+        myBuilder.addCustomLabel(addSoundPanel, "Import a new sound into the editor by\nimporting an MP3 file.", 20, 20, null, Color.WHITE, 20);
+        Button addButton = (Button) myBuilder.addNewButton(addSoundPanel, new ComponentProperties(20, 100).text("Add New Sound"));
+
+
+        addButton.setOnMouseClicked(event -> {
+
+            FileChooser browser = new FileChooser();
+            FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("MP3, M4A, AIFF, AVI, MPG, MP2, WAV", "*.mp3", "*.m4a", "*.aiff", "*.avi", "*.mpg", "*.mp2", "*.wav");
+            browser.getExtensionFilters().add(filter);
+
+            File file = browser.showOpenDialog(myRoot.getScene().getWindow());
+
+            Path source = Paths.get(file.getPath());
+
+            Path destination = Paths.get("src/resources/sounds/" + source.getFileName().toString());
+
+            if (new File(destination.toString()).exists()) {
+                alert("You can't overwrite previously added files.");
+                return;
+            }
+
+            try {
+                Files.copy(source, destination);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            GameSideMenu gsm = myControls.getGridSideMenu();
+            gsm.refresh();
+
+        });
+        return new ScrollPane(addSoundPanel);
+    }
+
     private ScrollPane addCustomItemScrollPane() {
         Pane addItemPanel = new Pane();
 
@@ -67,9 +103,8 @@ public class CustomSideMenu extends SideMenu {
         myBuilder.addCustomLabel(addItemPanel, "Number of columns", 25, 255, null, Color.WHITE, 15);
 
 
-        TextField rowInput = (TextField) myBuilder.addNewTextField(addItemPanel, new ComponentProperties(250, 200).text("row").width(50));
-        TextField colInput = (TextField) myBuilder.addNewTextField(addItemPanel, new ComponentProperties(250, 250).text("col").width(50));
-
+        TextField rowInput = (TextField) myBuilder.addNewTextField(addItemPanel, new ComponentProperties(200, 200).text("row").width(50));
+        TextField colInput = (TextField) myBuilder.addNewTextField(addItemPanel, new ComponentProperties(200, 250).text("col").width(50));
 
         Button addButton = (Button) myBuilder.addNewButton(addItemPanel, new ComponentProperties(20, 300).text("Add New Object"));
 
@@ -141,8 +176,9 @@ public class CustomSideMenu extends SideMenu {
     }
 
     public void addTabs() {
-        Tab tab = createTab("Add New Items", addCustomItemScrollPane());
-        myPanel.getTabs().add(tab);
+        Tab newImageTab = createTab("Add New Items", addCustomItemScrollPane());
+        Tab newSoundTab = createTab("Add New Sounds", addCustomSoundScrollPane());
+        myPanel.getTabs().addAll(newImageTab, newSoundTab);
     }
 
 }

@@ -5,14 +5,17 @@ import block.BlockFactory;
 import block.BlockType;
 import engine.EngineController;
 import exceptions.*;
+import grid.Grid;
 import grid.GridManager;
 import grid.GridSizeDirection;
+import grid.GridWorld;
 import player.Player;
 import player.PlayerManager;
 import ui.scenes.editor.GameEditorAlerts;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -85,8 +88,15 @@ public class EditorController implements IEditorController {
         return (myGridManager.addMessage(message, row, col));
     }
 
+    /**
+     * Change the first setting of the gate in editor. Must set the status to open or closed when making a gate
+     * @param row: row of the gate block
+     * @param col: column of the gate block
+     * @param isOpen: true if open the gate, false if close the gate
+     * @return if the gate status was set correctly
+     */
     public boolean setGateStatus(int row, int col, boolean isOpen) {
-        return true;
+        return myGridManager.setGateStatus(row, col, isOpen);
     }
 
     public boolean linkBlocks(int row1, int col1, int index1, int row2, int col2, int index2) {
@@ -158,23 +168,25 @@ public class EditorController implements IEditorController {
     /***** DATA METHODS *****/
 
     public void saveEditor(String file) {
+        GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         try {
-            xmlHandler.saveContents(file, myGridManager, myPlayerManager.getPlayer());
+            xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
-            xmlHandler.saveContents(file, myGridManager, null);
+            xmlHandler.saveContents(file, gridWorld, null);
         }
     }
 
     public void loadEditor(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         myPlayerManager.setPlayer(gridWorldAndPlayer.getPlayer());
-        myGridManager = gridWorldAndPlayer.getGridWorld();
+        myGridManager = new GridManager(gridWorldAndPlayer.getGridWorld().getGrids());
         changeGrid(myGridManager.getCurrentIndex());
     }
 
     public void saveEngine(String file) {
+        GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         try {
-            xmlHandler.saveContents(file, myGridManager, myPlayerManager.getPlayer());
+            xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
         }
@@ -183,7 +195,8 @@ public class EditorController implements IEditorController {
     public EngineController runEngine() {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
-            GridManager testGridManager = myGridManager;
+            System.out.println("i am sad " + myGridManager.getGrids().get(0).getBlock(0,0));
+            GridManager testGridManager = myGridManager.copy();
             return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
