@@ -172,7 +172,7 @@ public class EngineView extends Scene implements Observer {
         grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight, gridX, gridY);
     }
 
-    void loadGrid() {
+    private void loadGrid() {
         int colMax = myController.getNumCols();
         int rowMax = myController.getNumRows();
         grid.loadReset(rowMax, colMax);

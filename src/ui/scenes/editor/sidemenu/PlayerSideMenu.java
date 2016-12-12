@@ -36,13 +36,18 @@ public class PlayerSideMenu extends SideMenu {
         init();
     }
 
+    /**
+     * Adds communicator blocks that represent NPCs with which the user
+     * can speak.
+     *
+     * @return a ScrollPane displaying the NPC blocks
+     */
     private ScrollPane addNPCs() {
         return myItemMenu.createScrollPane(BlockType.NPC);
     }
 
     /**
-     * Adds communicator blocks that represent NPCs with which the user
-     * can speak.
+     * Adds communicator blocks that communicate with the user
      *
      * @return a ScrollPane displaying the communicator blocks
      */

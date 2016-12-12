@@ -64,6 +64,9 @@ public class ItemSideMenu extends SideMenu {
         List<GameObject> list = myViewer.getObjects(type);
         for (GameObject object : list) {
             String path = object.getIconPath();
+            if (type == BlockType.NPC) {
+                if (!path.contains("down")) continue;
+            }
             ImageView icon = (ImageView) myBuilder.addNewImageView(itemPane, new ComponentProperties()
                     .path(path)
                     .width(myUtil.getIntProperty("itemWidth"))
