@@ -22,9 +22,9 @@ public class MultipleBlockGameObject extends GameObject {
 
         for (int i = 0; i < myDisplayPaths.length; i++) {
             for (int j = 0; j < myDisplayPaths[0].length; j++) {
-                int i2 = i + 1;
-                int j2 = j + 1;
-                myDisplayPaths[i][j] = myIconPath.substring(0, index) + "." + i2 + "_" + j2 + myIconPath.substring(index);
+                int i_name = i + 1;
+                int j_name = j + 1;
+                myDisplayPaths[i][j] = myIconPath.substring(0, index) + "." + i_name + "_" + j_name + myIconPath.substring(index);
                 GridPaneNode node = new GridPaneNode(i, j, myDisplayPaths[i][j]);
                 myImageTiles.add(node);
             }
