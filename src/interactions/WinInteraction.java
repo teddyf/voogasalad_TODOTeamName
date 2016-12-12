@@ -14,10 +14,6 @@ import java.util.List;
  */
 public class WinInteraction implements Interaction {
 
-    public WinInteraction() {
-
-    }
-
     @Override
     public List<BlockUpdate> act(Player player) {
         List<BlockUpdate> updateList = new ArrayList<>();

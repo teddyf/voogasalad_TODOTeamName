@@ -10,6 +10,8 @@ import ui.builder.UIBuilder;
 
 import java.io.File;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
 /**
@@ -19,7 +21,7 @@ import java.util.ResourceBundle;
  *
  *         Dependencies: FileBrowser.java
  */
-public class EngineView extends Scene {
+public class EngineView extends Scene implements Observer {
 
     private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
     private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
@@ -104,6 +106,7 @@ public class EngineView extends Scene {
     	setUpKeys();
     	setUpPlayer();
     	anim = new VoogaAnimation(myRoot, grid, player, myBuilder, myController);
+        initObserver();
     	myController.addObserver(anim);
     }
     
@@ -169,7 +172,7 @@ public class EngineView extends Scene {
         grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight, gridX, gridY);
     }
     
-    public void loadGrid(){
+    void loadGrid(){
         int colMax = myController.getNumCols();
         int rowMax = myController.getNumRows();
         grid.loadReset(rowMax, colMax);
@@ -183,5 +186,17 @@ public class EngineView extends Scene {
         grid.setRenderMap();
         myBuilder.addComponent(myRoot, grid.getGroup());
     }
-	
+
+    private void winGame() {
+    }
+
+    private void initObserver() {
+        InteractionHandler handler = anim.getInteractionHandler();
+        handler.addObserver(this);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        winGame();
+    }
 }

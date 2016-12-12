@@ -6,11 +6,9 @@ import battle.model.BattleModel;
 import battle.model.Difficulty;
 import battle.view.BattleView;
 import block.*;
-import com.thoughtworks.xstream.mapper.Mapper;
 import grid.Grid;
 import grid.GridManager;
 import grid.GridWorld;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ChoiceDialog;
 import javafx.stage.Stage;
 import player.Player;
@@ -251,5 +249,9 @@ public class GameInstance extends Observable implements IGameInstance {
 
     public String getMusic() {
         return myGridManager.getMusic();
+    }
+
+    public void setMusic(String file) {
+        myGridManager.setMusic(file);
     }
 }

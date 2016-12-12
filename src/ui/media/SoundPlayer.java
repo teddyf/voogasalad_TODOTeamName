@@ -28,11 +28,13 @@ public class SoundPlayer {
 		this.filePath = filePath;
 		hbox = new HBox(10);
 		group.getChildren().add(hbox);
-		
-		player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
-		setPlayinLoop(player);
-		initPlayButton();
-		initPauseButton();
+
+		if (filePath != null) {
+			player = new MediaPlayer(new Media(new File(filePath).toURI().toString()));
+			setPlayinLoop(player);
+			initPlayButton();
+			initPauseButton();
+		}
 	}
 	
 	
