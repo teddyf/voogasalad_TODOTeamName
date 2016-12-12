@@ -2,24 +2,18 @@ package ui;
 
 import java.util.*;
 import block.BlockType;
+import grid.GridSizeDirection;
 import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
 import ui.builder.DialogBuilder;
-import ui.scenes.editor.GridUI;
 import ui.scenes.editor.objects.GameObject;
-import ui.scenes.editor.objects.Player1;
 import ui.scenes.editor.sidemenu.GridSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import editor.EditorController;
-import grid.GridGrowthDirection;
 
 
 /**
@@ -126,7 +120,8 @@ public class GridPane implements Observer {
         }
     }
 
-    public void resize (int amount, GridGrowthDirection dir) {
+    public void resize(int amount, GridSizeDirection dir){
+
         gridResizer.resize(dir, amount, gridMap, this);
     }
 
@@ -195,6 +190,8 @@ public class GridPane implements Observer {
     public void buildPlayer (EditorController control, String name, List<String> imagePaths) {
         int col = clicked.get(0).getCol();
         int row = clicked.get(0).getRow();
+        int bCol = getBackendRow(clicked.get(0));
+        int bRow = getBackendCol(clicked.get(0));
 
         if (control.addPlayer(imagePaths, name, getBackendRow(clicked.get(0)),
                 getBackendCol(clicked.get(0)))) {
@@ -226,18 +223,24 @@ public class GridPane implements Observer {
                     int yPos = clicked.get(i).getRow() + list.get(j).getRow();
                     GridPaneNode temp = grid[xPos][yPos];
                     // TODO add dimension checker
-                    temp.swap(list.get(j), list.get(j).getImageNum());
-                    control.addBlock(temp.getName(), obj.getBlockType(), temp.getBackendRow(),
-                                     temp.getBackendCol());
-                    temp.getBackendCol();
+                    
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
                         String message = setCommMessage();
-                        control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                        if(!message.isEmpty()){
+                            System.out.println("heyo");
+                            temp.swap(list.get(j), list.get(j).getImageNum());
+                            control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                        }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
                         gateTransition(temp, control);
                     }
                     // setPlayer(temp, obj, control);
+                    else{
+                        temp.swap(list.get(j), list.get(j).getImageNum());
+                        control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                         getBackendCol(temp));
+                    }
                 }
             }
             clicked.get(i).getImage().setEffect(null);
@@ -250,10 +253,10 @@ public class GridPane implements Observer {
     private void gateTransition(GridPaneNode node, EditorController control){
         String path = node.getName();
         if(path.indexOf("open")<0){
-            control.setGateStatus(node.getBackendCol(), node.getBackendRow(), true);
+            control.setGateStatus(getBackendCol(node), getBackendRow(node), true);
         }
         else{
-            control.setGateStatus(node.getBackendCol(), node.getBackendRow(), false);
+            control.setGateStatus(getBackendCol(node), getBackendRow(node), false);
         }
     }
     
@@ -262,7 +265,7 @@ public class GridPane implements Observer {
                 .header("Set the dialog for the communicator block.")
                 .content("Dialog for the communicator block:"));
         Optional<String> response = db.getResponse();
-        return response.orElse("");
+        return response.orElse(new String());
     }
 
     private void communicateMessage () {
