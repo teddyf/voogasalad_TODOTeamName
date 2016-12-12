@@ -50,7 +50,7 @@ public class GridPane implements Observer {
     private String DEFAULT = "resources/images/tiles/ground/grass-";
     private String clickType;
 
-    private String borderPath = "resources/images/tiles/gate/1-closed.png";
+    private String borderPath = "resources/images/tiles/obstacle/tree-4.png";
 
     public GridPane(int gridWidth,
                     int gridHeight,
