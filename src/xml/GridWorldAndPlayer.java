@@ -2,7 +2,7 @@ package xml;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-import grid.GridManager;
+import grid.GridWorld;
 import player.Player;
 
 /**
@@ -14,19 +14,19 @@ import player.Player;
 @XStreamAlias("root")
 public class GridWorldAndPlayer {
 	
-	@XStreamAlias("gridManager")
-	private GridManager myGridManager;
+	@XStreamAlias("gridWorld")
+	private GridWorld myGridWorld;
 	
 	@XStreamAlias("player")
 	private Player myPlayer;
 	
-	public GridWorldAndPlayer(GridManager gridManager, Player player) {
-		myGridManager = gridManager;
+	public GridWorldAndPlayer(GridWorld gridWorld, Player player) {
+		myGridWorld = gridWorld;
 		myPlayer = player;
 	}
 	
-	public GridManager getGridWorld() {
-		return myGridManager;
+	public GridWorld getGridWorld() {
+		return myGridWorld;
 	}
 	
 	public Player getPlayer() {

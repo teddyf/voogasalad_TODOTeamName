@@ -8,6 +8,7 @@ import battle.view.BattleView;
 import block.*;
 import grid.Grid;
 import grid.GridManager;
+import grid.GridWorld;
 import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
@@ -95,9 +96,10 @@ public class GameInstance extends Observable implements IGameInstance {
 			    
 			    if (block instanceof EnemyBlock) {
 			    	//TODO: take in a difficulty parameter from block
-			    	enterBattle((EnemyBlock)block, Difficulty.HARD);
+			    	enterBattle((EnemyBlock)block, Difficulty.MEDIUM);
 			    }
-			    else {
+			    else if(!(block instanceof DecorationBlock || !(block instanceof CommunicatorBlock))) {
+                    myPlayer.addPokemon();
 			    	blockUpdates = block.talkInteract(myPlayer);
 					playerUpdate = PlayerUpdate.TALK;
 					setChanged();
@@ -205,7 +207,8 @@ public class GameInstance extends Observable implements IGameInstance {
     /***** DATA METHODS *****/
 
     public void saveEngine(String file) {
-        xmlHandler.saveContents(file, myGridManager, myPlayer);
+        GridWorld gridWorld = new GridWorld(myGridManager);
+        xmlHandler.saveContents(file, gridWorld, myPlayer);
     }
 
     /***** GETTERS *****/
