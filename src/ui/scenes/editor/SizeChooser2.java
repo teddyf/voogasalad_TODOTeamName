@@ -28,7 +28,7 @@ public class SizeChooser2 extends Scene {
 	private String [] inputs = {"title-field", "description-field", "rows", "columns"};
 	
 	private String [] buttonsProperties = {"XPos", "YPos", "Width", "Text", "Id"};
-	private String [] buttons = {"create", "small", "medium", "large"};
+	private String [] buttons = {"create"};
 	
 	private EditorView myEditor;
 	private Parent myRoot;
@@ -54,9 +54,9 @@ public class SizeChooser2 extends Scene {
 	}
 
 	private void initialize() {
-//		setButton();
+		setButton();
 		setInputs();
-//		setLabels();
+		setLabels();
 	}
 	
 	private void setLabels() {

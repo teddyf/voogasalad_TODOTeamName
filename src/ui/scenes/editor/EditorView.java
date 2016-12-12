@@ -43,7 +43,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
     private boolean recentlySaved = false;
 
     public EditorView(Stage stage, Parent root, UILauncher launcher, EditorController controller) {
-        super(root, Color.GRAY);
+        super(root, Color.web("#1D3461"));
         myController = controller;
         myStage = stage;
         myRoot = root;
@@ -99,8 +99,8 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
      * overworld size
      */
     public void init() {
-        SizeChooserUI sizeChooser = new SizeChooserUI(this, new Group());
-        myBuilder.initWindow(myStage, SizeChooserUI.SIZE_CHOOSER_RESOURCES);
+        SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
+        myBuilder.initWindow(myStage, SizeChooser2.SIZE_CHOOSER_RESOURCES);
         myStage.setScene(sizeChooser);
     }
 
