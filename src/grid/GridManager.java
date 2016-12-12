@@ -50,7 +50,7 @@ public class GridManager extends Observable {
         myResources = ResourceBundle.getBundle(SIZE_CHOOSER);
         blockFactory = new BlockFactory();
         currentGrid = gridManager.getCurrentGrid();
-        System.out.println("reset grid please " + currentGrid.getBlock(0,0).getName());
+        System.out.println("reset grid please " + currentGrid.getBlock(0,0).isWalkable());
     }
 
     public void addGrid(int numRows, int numCols) {

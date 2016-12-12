@@ -7,6 +7,7 @@ import engine.EngineController;
 import exceptions.*;
 import grid.GridManager;
 import grid.GridSizeDirection;
+import grid.GridWorld;
 import player.Player;
 import player.PlayerManager;
 import ui.scenes.editor.GameEditorAlerts;
@@ -159,9 +160,10 @@ public class EditorController implements IEditorController {
 
     public void saveEditor(String file) {
         try {
-            xmlHandler.saveContents(file, myGridManager, myPlayerManager.getPlayer());
+            GridWorld gridWorld = new GridWorld(myGridManager);
+            xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
-            xmlHandler.saveContents(file, myGridManager, null);
+            xmlHandler.saveContents(file, gridWorld, null);
         }
     }
 
