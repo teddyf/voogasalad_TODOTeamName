@@ -31,7 +31,7 @@ public class SoundChooser {
 		group.getChildren().add(hbox);
 		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
         playButtonClicked=true;
-        editorController.addMusic("src/resources/sounds/Aquacorde.mp3");
+        
         this.editorController = editorController;
         initComboBox();
 		initPlayButton();
