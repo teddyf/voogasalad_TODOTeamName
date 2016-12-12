@@ -41,7 +41,6 @@ public class GameInstance extends Observable implements IGameInstance {
     private int myScore;
     private GameStatus myStatus;
     private List<BlockUpdate> blockUpdates;
-    private BattleController battleController;
 
     public GameInstance(Player player, GridManager gridManager) {
         xmlHandler = new GridXMLHandler();
@@ -150,11 +149,7 @@ public class GameInstance extends Observable implements IGameInstance {
      * @return whether the block is in bounds
      */
     private boolean inBounds(Block block) {
-        if (block == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return (block != null);
     }
 
     /**

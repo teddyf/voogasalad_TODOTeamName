@@ -1,6 +1,8 @@
 package block;
 
 import exceptions.BlockCreationException;
+
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.util.ResourceBundle;
 

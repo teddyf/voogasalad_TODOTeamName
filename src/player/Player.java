@@ -3,9 +3,6 @@ package player;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Observable;
-
-import ui.scenes.engine.EngineSidePanel;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
@@ -13,7 +10,6 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import api.IPlayer;
 import editor.backend.Battle;
 import editor.backend.Item;
-import editor.backend.Status;
 import interactions.Interaction;
 
 /**
@@ -42,7 +38,6 @@ public class Player implements IPlayer {
 	private List<Item> myInventory;
 	private List<Battle> myBattleHistory;
 	private List<Interaction> myInteractionHistory;
-	private List<Status> myStatus;
 	private int numPokemon;
 	private double health;
 
@@ -57,7 +52,6 @@ public class Player implements IPlayer {
 		myInventory = new ArrayList<>();
 		myBattleHistory = new ArrayList<>();
 		myInteractionHistory = new ArrayList<>();
-		myStatus = new ArrayList<>();
 		battlesWon = battlesLost = 0;
 		health = DEFAULT_HEALTH;
         numPokemon = DEFAULT_NUM_POKEMON;
@@ -74,7 +68,6 @@ public class Player implements IPlayer {
         myInventory = new ArrayList<>();
         myBattleHistory = new ArrayList<>();
         myInteractionHistory = new ArrayList<>();
-        myStatus = new ArrayList<>();
         battlesWon = battlesLost = 0;
         health = DEFAULT_HEALTH;
         numPokemon = DEFAULT_NUM_POKEMON;
@@ -116,10 +109,6 @@ public class Player implements IPlayer {
 		return myInteractionHistory;
 	}
 
-	public List<Status> getPlayerStatus() {
-		return myStatus;
-	}
-
 	public void setDirection(PlayerDirection direction) {
 		myDirection = direction;
 	}
@@ -151,10 +140,6 @@ public class Player implements IPlayer {
 
 	public void addInteraction(Interaction interaction) {
 		myInteractionHistory.add(interaction);
-	}
-
-	public void addStatus(Status status) {
-		myStatus.add(status);
 	}
 	
 	public void setHealth(double health) {
