@@ -167,9 +167,7 @@ public class EngineView extends Scene implements Observer {
         int gridCellsHeight = Integer.parseInt(myResources.getString("gridCellsHeight"));
         int gridWidth = Integer.parseInt(myResources.getString("gridWidth"));
         int gridHeight = Integer.parseInt(myResources.getString("gridHeight"));
-        int gridX = Integer.parseInt(myResources.getString("gridX"));
-        int gridY = Integer.parseInt(myResources.getString("gridY"));
-        grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight, gridX, gridY);
+        grid = new GridForEngine(gridCellsWidth, gridCellsHeight, gridWidth, gridHeight);
     }
 
     private void loadGrid() {
