@@ -187,10 +187,12 @@ public class Player implements IPlayer {
 	/***** SETTERS *****/
 
     public void setRow(int row) {
+		System.out.println(row);
         myRow = row;
     }
 
     public void setCol(int col) {
+		System.out.println(col);
         myCol = col;
     }
 }
