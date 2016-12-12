@@ -97,15 +97,16 @@ public class GridPane extends Observable implements Observer {
     }
 
     private void initializeGrid () {
-        int columns = (int) gridWidth + WRAP;
         int rows = (int) gridHeight + WRAP;
+        int columns = (int) gridWidth + WRAP;
         gridMap = new GridObjectMap(columns, rows);
-        grid = new GridPaneNode[columns][rows];
-        for (int i = 0; i < columns; i++) {
-            for (int j = 0; j < rows; j++) {
+        grid = new GridPaneNode[rows][columns];
 
-                if (i >= WRAP / 2 && i < gridWidth + WRAP / 2 &&
-                    j >= WRAP / 2 && j < gridHeight + WRAP / 2) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+
+                if (i >= WRAP / 2 && i < gridHeight + WRAP / 2 &&
+                    j >= WRAP / 2 && j < gridWidth + WRAP / 2) {
                     GridPaneNode node = new GridPaneNode(i, j, defaultText());
                     blockList.add(node);
                     grid[i][j] = node;
@@ -136,7 +137,8 @@ public class GridPane extends Observable implements Observer {
                 node.getRow() >= WRAP / 2 && node.getRow() < gridHeight + WRAP / 2)
                 makeClickable(node);
             group.getChildren().add(node.getImage());
-            grid[node.getCol()][node.getRow()] = node;
+            //System.out.println("row =" + node.getRow() + " col = " + node.getCol());
+            grid[node.getRow()][node.getCol()] = node;
         }
     }
 
@@ -147,10 +149,13 @@ public class GridPane extends Observable implements Observer {
     }
 
     public void click (GridPaneNode node) {
+        System.out.println("in here");
         if (clicked.contains(node)) {
+            System.out.println("in here 2");
             node.getImage().setEffect(null);
             clicked.remove(node);
         } else {
+            System.out.println("in here 3");
             clicked.add(node);
         }
     }
@@ -171,6 +176,7 @@ public class GridPane extends Observable implements Observer {
         notifyObservers();
         if (clicked.size() == 1) {
             if (clickType.equals("SWAP")) {
+                System.out.println("in here 8");
                 swap(obj, control);
             }
             else if (clickType.equals("PLAYER") && imagePaths.size() > 0) {
@@ -218,17 +224,21 @@ public class GridPane extends Observable implements Observer {
         List<GridPaneNode> list = obj.getImageTiles();
         getObjectNeighbors(list);
         for (int i = 0; i < clicked.size(); i++) {
+            System.out.println("clicked index" + i);
             if (addObjToMap(list, clicked.get(i))) {
+                System.out.println("hiiijdifjds");
                 for (int j = 0; j < list.size(); j++) {
                     int xPos = clicked.get(i).getCol() + list.get(j).getCol();
                     int yPos = clicked.get(i).getRow() + list.get(j).getRow();
-                    GridPaneNode temp = grid[xPos][yPos];
+                    System.out.println(xPos);
+                    System.out.println(yPos);
+                    System.out.println("gridwidth" + grid[0].length + " gridheight" + grid.length);
+                    GridPaneNode temp = grid[yPos][xPos];
                     // TODO add dimension checker
                     
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
-                        String message = setDialogue("Set the dialog for the communicator block.","Dialog for the communicator block:");
+                        String message = setDialogue("Set the dialogue for the communicator block.","Dialog for the communicator block:");
                         if(!message.isEmpty()){
-                            System.out.println("heyo");
                             temp.swap(list.get(j), list.get(j).getImageNum());
                             
                             control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
@@ -237,10 +247,23 @@ public class GridPane extends Observable implements Observer {
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
-                        temp.swap(list.get(j), list.get(j).getImageNum());
-                        control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
-                                         getBackendCol(temp));
-                        gateTransition(temp, control);              
+                        
+                            temp.swap(list.get(j), list.get(j).getImageNum());
+                            control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                             getBackendCol(temp)); 
+                        
+                        
+                    }
+                    
+                    else if(obj.getBlockType().equals(BlockType.NPC)){
+                        String message = setDialogue("Set the dialogue for the NPC block", "Dialogue for the NPC block");
+                        if(!message.isEmpty()){
+                            temp.swap(list.get(j), list.get(j).getImageNum());
+                            control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                             getBackendCol(temp));
+                            control.addMessage(message, getBackendRow(temp), getBackendCol(temp));
+                        }
+                        
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
@@ -290,10 +313,10 @@ public class GridPane extends Observable implements Observer {
         for (int i = 0; i < list.size(); i++) {
             int xRef = xPos + list.get(i).getCol();
             int yRef = yPos + list.get(i).getRow();
-            if (!gridMap.available(xRef, yRef)) {
+            if (!gridMap.available(yRef, xRef)) {
                 return false;
             }
-            temp.add(grid[xRef][yRef]);
+            temp.add(grid[yRef][xRef]);
         }
         gridMap.storeObject(temp);
         return true;
@@ -332,11 +355,14 @@ public class GridPane extends Observable implements Observer {
         ArrayList<Integer> deleted = new ArrayList<Integer>();
         for (int i = 0; i < clicked.size(); i++) {
             GridPaneNode temp = clicked.get(i);
+            
             deleted.addAll(gridMap.sharesObjWith(temp.getCol(), temp.getRow()));
+            gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
 
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i += 2) {
+                
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i + 1)];
                 control.addBlock(defaultText(), BlockType.GROUND, getBackendRow(node), getBackendCol(node));
                 node.swap(def, node.getImageNum());
@@ -369,6 +395,13 @@ public class GridPane extends Observable implements Observer {
                     clicked.remove(i);
                 }
             }
+        }
+    }
+    
+    public void shiftAll(){
+        for(int i = 0; i < blockList.size(); i++){
+            GridPaneNode temp = blockList.get(i);
+            temp.setImageCoord(temp.getImage().getTranslateX()+WRAP, temp.getImage().getTranslateY()+WRAP);
         }
     }
 
