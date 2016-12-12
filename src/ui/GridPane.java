@@ -240,9 +240,9 @@ public class GridPane extends Observable implements Observer {
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
                         temp.swap(list.get(j), list.get(j).getImageNum());
-                        gateTransition(temp, control);
                         control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
                                          getBackendCol(temp));
+                        gateTransition(temp, control);              
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
