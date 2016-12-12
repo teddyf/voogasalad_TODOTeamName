@@ -111,7 +111,7 @@ public class GridUI extends Observable {
                         myGridPane.delete(myController);
                     } else {
                         myGridPane.nodeClick(myItemMenu.getSelected(),
-                                myController, "Teddy", playerMenu.getImagePaths());
+                                myController, playerMenu.getImagePaths());
                     }
                 }
             });
