@@ -41,7 +41,6 @@ public class GameInstance extends Observable implements IGameInstance {
     private int myScore;
     private GameStatus myStatus;
     private List<BlockUpdate> blockUpdates;
-    private BattleController battleController;
 
     public GameInstance(Player player, GridManager gridManager) {
         xmlHandler = new GridXMLHandler();
@@ -66,8 +65,6 @@ public class GameInstance extends Observable implements IGameInstance {
 
         switch (input) {
             case UP:
-                System.out.println(myGrid.getBlock(row-1,col).isWalkable());
-                System.out.println("0 " + myGrid.getBlock(0,0).isWalkable());
                 if(direction == NORTH) {
                     playerUpdate = handleMovement(row-1, col, PlayerUpdate.ROW);
                 } else {
@@ -152,11 +149,7 @@ public class GameInstance extends Observable implements IGameInstance {
      * @return whether the block is in bounds
      */
     private boolean inBounds(Block block) {
-        if (block == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return (block != null);
     }
 
     /**
@@ -222,7 +215,7 @@ public class GameInstance extends Observable implements IGameInstance {
     public List<BlockUpdate> getInteractions() {
         List<BlockUpdate> tempList = new ArrayList<>();
         tempList.addAll(blockUpdates);
-        //blockUpdates.clear();
+        blockUpdates.clear();
         return tempList;
     }
 

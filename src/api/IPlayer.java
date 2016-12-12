@@ -4,7 +4,6 @@ import java.util.List;
 import editor.backend.Battle;
 import interactions.Interaction;
 import editor.backend.Item;
-import editor.backend.Status;
 import player.PlayerAttribute;
 import player.PlayerDirection;
 /**
@@ -51,12 +50,7 @@ public interface IPlayer {
 	 * @return the list of interactions
 	 */
 	public List<Interaction> getInteractionHistory();
-	
-	/**
-	 * Gets the list of all statuses that the player has
-	 * @return the list of statuses
-	 */
-	public List<Status> getPlayerStatus();
+
 	/**
 	 * Sets the direction (orientation) of the player
 	 * @param direction - the direction of the player
@@ -86,20 +80,8 @@ public interface IPlayer {
 	public void addItem(Item item);
 	
 	/**
-	 * Adds a battle to the battle history
-	 * @param battle - the battle to add
-	 */
-	public void addBattle(Battle battle);
-	
-	/**
 	 * Adds an interaction to the interaction history
 	 * @param interaction - the interaction to add
 	 */
 	public void addInteraction(Interaction interaction);
-	
-	/**
-	 * Adds a status to the list of statuses
-	 * @param status - the status to add
-	 */
-	public void addStatus(Status status);
 }
