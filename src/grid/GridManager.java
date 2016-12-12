@@ -50,6 +50,10 @@ public class GridManager extends Observable {
         changeGrid(myGrids.size() -1);
     }
 
+    private void addGrid(Grid grid) {
+        myGrids.add(grid);
+    }
+
     public void changeGrid(int index) {
         currentIndex = index;
         currentGrid = myGrids.get(currentIndex);
@@ -187,7 +191,12 @@ public class GridManager extends Observable {
 
     public boolean setGateStatus(int row, int col, boolean isOpen) {
         Block block = currentGrid.getBlock(row, col);
+        System.out.println("back end block got");
+        System.out.println("row= " + row);
+        System.out.println("col= " + col);
+
         if(block instanceof GateBlock) {
+            System.out.println("it is a gate block check");
             if(isOpen) {
                 ((GateBlock) block).openGate();
                 return true;
@@ -220,14 +229,23 @@ public class GridManager extends Observable {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
-    /*public GridManager copy() {
+    public GridManager copy() {
         GridManager newGridManager = new GridManager();
-        for(int a = 0; a < myGrids.size(); a++) {
-            //myGrids.get(a)
-            //for (int b = 0; b <
+        for(int i = 0; i < myGrids.size(); i++) {
+            Grid grid = myGrids.get(i);
+            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
+            for (int row = 0; row < grid.getNumRows(); row++) {
+                for (int col = 0; col < grid.getNumCols(); col++) {
+                    Block block = grid.getBlock(row, col);
+                    Block tempBlock = block;
+                    tempGrid.setBlock(row, col, tempBlock);
+                }
+            }
+            newGridManager.addGrid(tempGrid);
         }
-        return null;
-    }*/
+        newGridManager.changeGrid(0);
+        return newGridManager;
+    }
 
     /***** GETTERS *****/
 

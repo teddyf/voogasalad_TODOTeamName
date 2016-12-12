@@ -17,12 +17,14 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
+import engine.EngineController;
+
 /**
- * @author Pim Chuaylua
+ * @author Pim Chuaylua, Nisakorn Valyasevi
  *         <p>
  *         This class initializes player status ui.
  */
-public class EngineSidePanel {
+public class EngineSidePanel implements Observer {
 
     private Parent myRoot;
     private UIBuilder myBuilder;
@@ -31,15 +33,19 @@ public class EngineSidePanel {
     private PropertiesUtilities util;
     private Character player;
     private EngineView gameEngine;
+    private Label playerPos;
+    private Label numPokemon;
     private SoundPlayer soundPlayer;
+    private EngineController engineController;
 
-    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,Character player,EngineView gameEngine) {
+    public EngineSidePanel(Parent root, UIBuilder builder, ResourceBundle resources,EngineView gameEngine,EngineController engineController) {
         myRoot = root;
         myBuilder = builder;
         myResources = resources;
         util = new PropertiesUtilities(myResources);
         vbox = new VBox(10);
         this.gameEngine = gameEngine;
+        this.engineController = engineController;
         Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 20);
         initSidePanel();
         initStats();
@@ -67,9 +73,9 @@ public class EngineSidePanel {
         
         vbox.setPadding(new Insets(10, 10, 10, 10));  
         
-        // soundPlayer= new SoundPlayer("src/resources/songs/aquacorde.mp3");
-        // soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
-        // vbox.getChildren().add(soundPlayer.getGroup());
+        soundPlayer= new SoundPlayer(engineController.getMusic());
+        soundPlayer.addNodeToControl(new SnapShot(gameEngine).getGroup());
+        vbox.getChildren().add(soundPlayer.getGroup());
     }
     
     public void initStats() {
@@ -78,11 +84,23 @@ public class EngineSidePanel {
         playerChart.getStyleClass().add("playerChart");
         playerChart.setPrefSize(100,10);
         vbox.getChildren().add(playerChart);
-        vbox.getChildren().add(new Label("Battle History"));  
+        vbox.getChildren().add(new Label("Your Position"));
+        playerPos = new Label(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
+        vbox.getChildren().add(playerPos);
+        vbox.getChildren().add(new Label("Your Number of Pokemon"));
+        numPokemon = new Label(String.valueOf(engineController.getPlayerNumPokemon()));
+        vbox.getChildren().addAll(numPokemon, new Label("Battle History"));  
         
     }
 
 	public void stopMusic() {
 		soundPlayer.stopMusic();
 	}
+    
+    @Override
+	public void update(Observable o, Object arg) {
+    	playerPos.setText(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
+        numPokemon.setText(String.valueOf(engineController.getPlayerNumPokemon()));
+
+	}  
 }

@@ -44,6 +44,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public int getNumCols() {
+        System.out.println(gameInstance.getGrid());
         return gameInstance.getGrid().getNumCols();
     }
 
@@ -60,7 +61,15 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     /***** PLAYER METHODS *****/
-
+    
+    public Player getPlayer() {
+    	return gameInstance.getPlayer();
+    }
+    
+    public int getPlayerNumPokemon() {
+    	return gameInstance.getPlayer().getNumPokemon();
+    }
+    
     public int getPlayerRow() {
         return gameInstance.getPlayer().getRow();
     }
