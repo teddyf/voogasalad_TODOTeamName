@@ -122,7 +122,6 @@ public class CustomSideMenu extends SideMenu {
 
     private boolean customItemError(File file) {
         if (file == null) {
-            alert("Please select a valid image file.");
             return true;
         }
         if (file.getName().replace(".png", "").contains(".") ||
