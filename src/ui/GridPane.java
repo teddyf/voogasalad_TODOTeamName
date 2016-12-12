@@ -7,7 +7,7 @@ import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
 import ui.builder.DialogBuilder;
 import ui.scenes.editor.objects.GameObject;
-import ui.scenes.editor.sidemenu.GridSideMenu;
+import ui.scenes.editor.sidemenu.GameSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
@@ -461,7 +461,7 @@ public class GridPane extends Observable implements Observer {
             clickType = "PLAYER";
             System.out.println(((PlayerSideMenu) o).getImagePaths());
         }
-        else if (o instanceof GridSideMenu) {
+        else if (o instanceof GameSideMenu) {
             clickType = "LINK";
 
         } else if (o instanceof ItemSideMenu) {

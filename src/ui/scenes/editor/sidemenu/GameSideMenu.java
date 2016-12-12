@@ -19,13 +19,13 @@ import ui.media.SoundChooser;
  *         <p>
  *         This class adds functionality for the grid's control panel.
  */
-public class GridSideMenu extends SideMenu {
+public class GameSideMenu extends SideMenu {
 
     private EditorController myEditorController;
     private boolean clickedStatus;
     private SoundChooser sound;
 
-    GridSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
+    GameSideMenu(Parent root, ResourceBundle resources, EditorController editorController) {
         super(root, resources);
         myEditorController = editorController;
         sound = new SoundChooser(myEditorController);

@@ -40,9 +40,23 @@ public class SoundChooser {
 		initPauseButton();
 		
 		editorController.addMusic(chosenSongPath);
+	}
+
+	public SoundChooser() {
+		group = new Group();
+		playlist = new HashMap<>();
+		hbox = new HBox(10);
+
+		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));
+        playButtonClicked=true;
+
+        initComboBox();
+		initPlayButton();
+		initPauseButton();
+
 		group.getChildren().add(hbox);
 	}
-	
+
 	private void initComboBox() {
 		comboBox = new ComboBox();
 		comboBox.setPromptText("Choose song");
@@ -51,38 +65,34 @@ public class SoundChooser {
 		String folderName = "src/resources/sounds/";
 		File file = new File(folderName);
 	    String[] sounds = file.list();
-		
+
 	    for (String sound:sounds) {
 	    	addSong(sound.split("\\.")[0],folderName+sound);
 	    }
-		
 	}
-	
+
 	private void addSong(String songName, String filePath) {
 		playlist.put(songName,filePath);
 		comboBox.getItems().add(songName);
 	}
-	
+
 	public Group getGroup() {
 		return group;
 	}
-	
+
 	private void initPlayButton() {
 		Button button = new Button();
 		setButtonImage(button,"resources/images/media/play.png");
-		button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-            	if (playButtonClicked==true) {
-            		player.stop();
-            	}
-                String chosenSong = (String) comboBox.getValue();
-                playSong(chosenSong);
+		button.setOnAction(event -> {
+            if (playButtonClicked) {
+                player.stop();
             }
+            String chosenSong = (String) comboBox.getValue();
+            playSong(chosenSong);
         });
-		hbox.getChildren().add(button);	
+		hbox.getChildren().add(button);
 	}
-	
+
 	private void playSong(String songName){
 		if (playButtonClicked==true) {
     		player.stop();
@@ -95,19 +105,14 @@ public class SoundChooser {
         player.play();
         playButtonClicked=true;
 	}
-	
+
 	private void initPauseButton() {
 		Button button = new Button();
         setButtonImage(button,"resources/images/media/pause.png");
-		button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                player.stop();
-            }
-        });
+		button.setOnAction(event -> player.stop());
 		hbox.getChildren().add(button);
 	}
-	
+
 	private void setButtonImage(Button button, String imageFilePath) {
 		Image image = new Image(imageFilePath);
         ImageView itemView = new ImageView();
@@ -116,15 +121,11 @@ public class SoundChooser {
         itemView.setFitHeight(25);
         button.setGraphic(itemView);
 	}
-	
+
 	private void setPlayinLoop(MediaPlayer mediaPlayer) {
-		mediaPlayer.setOnEndOfMedia(new Runnable() {
-		       public void run() {
-		    	   mediaPlayer.seek(Duration.ZERO);
-		       }
-		   });
+		mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
 	}
-	
+
 	public void stop() {
 		player.stop();
 	}
