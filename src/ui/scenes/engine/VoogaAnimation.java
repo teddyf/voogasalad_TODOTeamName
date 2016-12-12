@@ -18,6 +18,7 @@ import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import ui.builder.UIBuilder;
 
@@ -52,13 +53,15 @@ public class VoogaAnimation implements Observer {
 
 	private Group gridLayout;
 	private InteractionHandler interactionHandler;
+	private Stage stage;
 
 
-	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec) {
+	public VoogaAnimation(Parent root, GridForEngine grid2, Character player, UIBuilder uiBuilder, EngineController ec, Stage stage) {
 		this.root = root;
 		this.grid = grid2;
 		this.player = player;
 		this.uiBuilder = uiBuilder;
+		this.stage = stage;
 		myResources = ResourceBundle.getBundle(ENGINE_RESOURCES);
 		stack = new Stack<>();
 		finished = true;
@@ -71,7 +74,7 @@ public class VoogaAnimation implements Observer {
 		setDefaultKeyBindings();
 		gridLayout = grid.getGroup();
 		ec.addObserver(this);
-		interactionHandler = new InteractionHandler(root, uiBuilder, grid);
+		interactionHandler = new InteractionHandler(root, stage, uiBuilder, grid);
 	}
 
 	public InteractionHandler getInteractionHandler() {
