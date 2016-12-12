@@ -291,23 +291,15 @@ public class GridPane extends Grid implements Observer {
             if (!gridMap.available(yRef, xRef)) {
                 return false;
             }
+            else if(yRef > gridHeight || yRef < 0 || xRef > gridWidth || xRef < 0){
+                return false;
+            }
             temp.add(grid[yRef][xRef]);
         }
         gridMap.storeObject(temp);
         return true;
-        // TODO add dimension checker
     }
 
-    /*
-     * wtf is this
-     * private void setPlayer (GridPaneNode temp, GameObject gameObject, EditorController control) {
-     * if (gameObject instanceof Player1) {
-     * //control.addPlayer(temp.getName(), "name", temp.getBackendRow(), temp.getBackendCol());
-     * control.addBlock("resources/Default.png", BlockType.DECORATION, temp.getBackendRow(),
-     * temp.getBackendCol());
-     * }
-     * }
-     */
 
     /**
      * Gets neighbors if object is placed
@@ -345,7 +337,6 @@ public class GridPane extends Grid implements Observer {
         }
 
         clicked = new ArrayList<GridPaneNode>();
-        // gridMap.visObjectMap();
     }
 
     boolean buildLink (GridPaneNode node1, GridPaneNode node2, EditorController controller) {
