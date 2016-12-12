@@ -96,7 +96,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public List<String> getPlayerImages() {
-        return gameInstance.getPlayer().getMyNames();
+        return gameInstance.getPlayer().getNames();
     }
 
     public void keyListener(UserInstruction input) {

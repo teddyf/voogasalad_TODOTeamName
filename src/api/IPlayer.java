@@ -10,24 +10,39 @@ import player.PlayerDirection;
  * The player interface
  * @author Aninda Manocha
  */
+
 public interface IPlayer {
+
+    /**
+     * Gets the list of image path names that correspond to the player
+     * @return the list of image path names
+     */
+    List<String> getNames();
+
+    /**
+     * Gets the name of the player that the user entered
+     * @return the name
+     */
+    String getPlayerName();
+
+	/**
+	 * Gets the row that the player is located in
+	 * @return the row
+	 */
+	int getRow();
+
+	/**
+	 * Gets the column that the player is located in
+	 * @return the column
+	 */
+	int getCol();
 
 	/**
 	 * Gets the direction of the player
 	 * @return the direction
 	 */
-	public PlayerDirection getDirection();
-	/**
-	 * Gets the row that the player is located in
-	 * @return the row
-	 */
-	public int getRow();
-	
-	/**
-	 * Gets the column that the player is located in
-	 * @return the column
-	 */
-	public int getCol();
+	PlayerDirection getDirection();
+
 	/**
 	 * Gets a list of all of the attributes of the player
 	 * @return the list of attributes
