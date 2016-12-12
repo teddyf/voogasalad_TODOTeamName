@@ -1,7 +1,6 @@
 package ui.scenes.editor.sidemenu;
 
 import block.BlockType;
-import editor.EditorController;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
@@ -23,10 +22,11 @@ import java.util.ResourceBundle;
  *         can add their sprite representation to the game.
  */
 public class PlayerSideMenu extends SideMenu {
+
     private ResourceBundle myResources;
-    private String selectedPlayerImagePath = "";
     private List<String> mySelectedPaths;
     private ItemSideMenu myItemMenu;
+    private String[] mySpriteImagePaths;
 
     PlayerSideMenu(Parent root, ResourceBundle resources, ItemSideMenu itemMenu) {
         super(root, resources);
@@ -55,36 +55,42 @@ public class PlayerSideMenu extends SideMenu {
         return myItemMenu.createScrollPane(BlockType.ENEMY);
     }
 
-    private void setSpriteDirections(int id, String[] spriteImagePaths) {
-        for (String i : spriteImagePaths) {
-            StringBuilder sb2 = new StringBuilder();
+    /**
+     * Gets all image paths corresponding the various directions of a single
+     * sprite
+     *
+     * @param id the id of the sprite
+     */
+    private void setSpriteDirections(int id) {
+        mySelectedPaths.clear();
+        for (String i : mySpriteImagePaths) {
+            StringBuilder sb = new StringBuilder();
             for (char c : i.toCharArray()) {
                 if (c == '-') break;
-                sb2.append(c);
+                sb.append(c);
             }
-            if (id == Integer.parseInt(sb2.toString())) {
+            if (id == Integer.parseInt(sb.toString())) {
                 mySelectedPaths.add(myResources.getString("spritePath") + i);
             }
-
         }
     }
 
-    private void addEventHandler(Node sprite, int id, String imagePath, String[] spriteImagePaths, List<Node> otherSprites) {
+    /**
+     * Adds an event handler to each sprite icon that selects the sprite and displays
+     * a visual effect to the user confirming the selection
+     *
+     * @param sprite     the Node representing the sprite
+     * @param id         the sprite's id
+     * @param allSprites the Nodes of all other sprites
+     */
+    private void addEventHandler(Node sprite, int id, List<Node> allSprites) {
         sprite.setOnMouseClicked(e -> {
-            for (Node otherSprite : otherSprites) {
+            for (Node otherSprite : allSprites) {
                 resetHoverEffect(otherSprite);
             }
-            if (selectedPlayerImagePath.equals(imagePath)) {
-                // deselect
-                selectedPlayerImagePath = "";
-                mySelectedPaths.clear();
-            } else {
-                sprite.setStyle(myResources.getString("selectedEffect"));
-                sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
-                selectedPlayerImagePath = imagePath;
-                mySelectedPaths.clear();
-                setSpriteDirections(id, spriteImagePaths);
-            }
+            sprite.setStyle(myResources.getString("selectedEffect"));
+            sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
+            setSpriteDirections(id);
             setChanged();
             notifyObservers(mySelectedPaths);
         });
@@ -139,18 +145,14 @@ public class PlayerSideMenu extends SideMenu {
      */
     private ScrollPane addSprites() {
         FlowPane sprites = createFlowPane();
-        String[] spriteImagePaths = getSpriteImagePaths(myResources.getString("rawSpritePath"));
-
-        for (String image : spriteImagePaths) {
+        mySpriteImagePaths = getSpriteImagePaths(myResources.getString("rawSpritePath"));
+        for (String image : mySpriteImagePaths) {
             int id = getId(image); // number representing the image
-
             if (image.contains(myResources.getString("spriteDisplayDirection"))) {
-                String imagePath = myResources.getString("spritePath") + image;
                 Node sprite = addSpriteIcon(image);
-                addEventHandler(sprite, id, imagePath, spriteImagePaths, sprites.getChildren());
+                addEventHandler(sprite, id, sprites.getChildren());
                 sprites.getChildren().add(sprite);
             }
-
         }
         return new ScrollPane(sprites);
     }

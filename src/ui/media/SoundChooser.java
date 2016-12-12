@@ -23,11 +23,11 @@ public class SoundChooser {
 	private ComboBox comboBox;
 	private HBox hbox;
 	private boolean playButtonClicked;
-	private String chosenSongPath = "src/resources/sounds/aquacorde.mp3";
+	private String chosenSongPath = "src/resources/sounds/Aquacorde.mp3";
 	
 	public SoundChooser() {
 		group = new Group();
-		playlist = new HashMap<String,String>();
+		playlist = new HashMap<>();
 		hbox = new HBox(10);
 		
 		player = new MediaPlayer(new Media(new File(chosenSongPath).toURI().toString()));

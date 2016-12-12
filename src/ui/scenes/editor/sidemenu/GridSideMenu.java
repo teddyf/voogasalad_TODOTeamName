@@ -29,8 +29,13 @@ public class GridSideMenu extends SideMenu {
         super(root, resources);
         myEditorController = editorController;
         init();
-        myPanel.setMinHeight(400);
-        myPanel.setMaxHeight(400);
+        setSidePanelHeight(400);
+    }
+
+    void refresh() {
+        myPanel.getTabs().clear();
+        setSidePanelHeight(400);
+        init();
     }
 
     private boolean invalidValue(GridSizeDirection dir, String val) {
@@ -44,9 +49,11 @@ public class GridSideMenu extends SideMenu {
 
     private ScrollPane createMusicPane() {
         Pane musicPanel = new Pane();
-        myBuilder.addCustomLabel(musicPanel, "Grid side from which to\nadd or remove blocks", 20, 120, null, Color.WHITE, 15);
+        myBuilder.addCustomLabel(musicPanel, "Choose a song to play during your game.", 20, 20, null, Color.WHITE, 20);
         sound = new SoundChooser();
-        myBuilder.addComponent(musicPanel, sound.getGroup());
+        Node n = myBuilder.addComponent(musicPanel, sound.getGroup());
+        n.setLayoutX(20);
+        n.setLayoutY(80);
         return new ScrollPane(musicPanel);
     }
 
@@ -110,7 +117,7 @@ public class GridSideMenu extends SideMenu {
                     setChanged();
                 }
             } catch (ArrayIndexOutOfBoundsException exc) {
-                myBuilder.addNewAlert("Error", "Error");
+                myBuilder.addNewAlert("File Error", "Error");
             }
         });
 
@@ -130,9 +137,9 @@ public class GridSideMenu extends SideMenu {
     private void changeStatus() {
         clickedStatus = !clickedStatus;
     }
-    
+
     public void stopMusic() {
-    	sound.stop();
+        sound.stop();
     }
 
 }

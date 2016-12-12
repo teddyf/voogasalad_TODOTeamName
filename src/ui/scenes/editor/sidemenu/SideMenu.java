@@ -101,6 +101,11 @@ public abstract class SideMenu extends Observable {
         return newTab;
     }
 
+    void setSidePanelHeight(int height) {
+        myPanel.setMinHeight(height);
+        myPanel.setMaxHeight(height);
+    }
+
     /**
      * Basic configuration setup for side menus; implementing classes can
      * override
