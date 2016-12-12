@@ -126,11 +126,7 @@ public class VoogaAnimation implements Observer {
 
 	private void handleInteractions() {
 	    for (BlockUpdate blockUpdate : ec.getInteractions()) {
-	        if (blockUpdate.getType() == BlockUpdateType.TELEPORT) {
-                processMove(stack.peek());
-            } else {
-                interactionHandler.handleUpdate(blockUpdate);
-            }
+			interactionHandler.handleUpdate(blockUpdate);
         }
     }
 

@@ -40,7 +40,7 @@ class EditorIO {
      * @return true is saving successful, false otherwise
      */
     boolean saveEditorFile() {
-        File gameFile = new FileBrowser().saveEditorFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().saveEditorFile(myStage, myResources.getString("editorFilePath"));
         if (gameFile != null) {
             myEditorController.saveEditor(gameFile.getAbsolutePath());
             return true;
@@ -54,7 +54,7 @@ class EditorIO {
      * @return true if opening successful, false otherwise
      */
     boolean openEditorFile() {
-        File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("editorFilePath"));
         if (gameFile != null) {
             myEditorController.loadEditor(gameFile.getAbsolutePath());
             myGrid.loadGrid(); // load into grid user interface
@@ -70,7 +70,7 @@ class EditorIO {
      * @return true if export successful, false otherwise
      */
     boolean saveGameFile() {
-        File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("gameFilePath"));
+        File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("engineFilePath"));
         if (gameFile != null) {
             myEditorController.saveEngine(gameFile.getAbsolutePath());
             return true;

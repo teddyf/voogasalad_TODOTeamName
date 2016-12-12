@@ -8,6 +8,7 @@ import battle.view.BattleView;
 import block.*;
 import grid.Grid;
 import grid.GridManager;
+import grid.GridWorld;
 import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
@@ -206,7 +207,8 @@ public class GameInstance extends Observable implements IGameInstance {
     /***** DATA METHODS *****/
 
     public void saveEngine(String file) {
-        xmlHandler.saveContents(file, myGridManager, myPlayer);
+        GridWorld gridWorld = new GridWorld(myGridManager);
+        xmlHandler.saveContents(file, gridWorld, myPlayer);
     }
 
     /***** GETTERS *****/
