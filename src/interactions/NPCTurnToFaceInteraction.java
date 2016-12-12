@@ -23,9 +23,6 @@ public class NPCTurnToFaceInteraction implements Interaction {
     public List<BlockUpdate> act(Player player) {
         List<BlockUpdate> updatesList = new ArrayList<>();
 
-        int extensionLoc = myNPCBlock.getName().lastIndexOf('.');
-        String extension = myNPCBlock.getName().substring(extensionLoc);
-        int statusLoc = myNPCBlock.getName().lastIndexOf('-');
         String status = "";
 
         switch (player.getDirection()) {
@@ -47,7 +44,7 @@ public class NPCTurnToFaceInteraction implements Interaction {
                 break;
         }
 
-        String newName = myNPCBlock.getName().substring(0, statusLoc + 1) + status + extension;
+        String newName = myNPCBlock.replaceNameStatus(myNPCBlock.getName(), status);
         updatesList.add(new BlockUpdate(BlockUpdateType.RE_RENDER, myNPCBlock.getRow(), myNPCBlock.getCol(), newName));
         return updatesList;
     }

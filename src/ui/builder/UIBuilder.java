@@ -256,21 +256,24 @@ public class UIBuilder<E> {
      * @param properties
      * @return
      */
-    public void addDialogBubble(Parent layout, String message) {
+    public Node addDialogBubble(Parent layout, Stage stage, String message) {
     	ComponentProperties properties = new ComponentProperties();
     	properties.height(100);
     	properties.width(600);
     	properties.text(message);
     	Node dialogNode = dialogBubbleBuilder.createComponent(properties);
-    	layout.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
-    		if ((keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN) && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+    	stage.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
+    		System.out.println("KEY" + keyEvent.getCode());
+    		if ((keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN ||
+    				keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
+    				&& layout.getChildrenUnmodifiable().contains(dialogNode)) {
     			removeComponent(layout, dialogNode);
     		}
     	});
     	addComponent(layout, dialogNode);
     	dialogNode.setLayoutX(50);
     	dialogNode.setLayoutY(550);
-
+    	return dialogNode;
     }
     
     /**

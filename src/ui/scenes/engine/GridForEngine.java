@@ -174,7 +174,7 @@ public class GridForEngine {
         return gridHeight;
     }
 
-    public boolean reRender(int col, int row, String newPath) {
+    public boolean reRender(int row, int col, String newPath) {
         GridPaneNode newGPN = new GridPaneNode(row, col, newPath);
         GridPaneNode temp = grid[row + WRAP/2][col + WRAP/2];
                 temp.swap(newGPN, 0);

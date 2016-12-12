@@ -9,6 +9,8 @@ package block;
 public class GateBlock extends Block {
     private static final boolean OPEN = true;
     private static final boolean CLOSED = false;
+    private static final String closedString = "CLOSED";
+    private static final String openString = "OPEN";
 
     public GateBlock(String name, int row, int col) {
         super(name, row, col);
@@ -29,23 +31,17 @@ public class GateBlock extends Block {
      *
      * @return the rendering change for the front end
      */
-    public BlockUpdate toggleOpenStatus() {
+    BlockUpdate toggleOpenStatus() {
         String status;
         if(this.isWalkable()) {
             setWalkableStatus(CLOSED);
-            status = "CLOSED";
+            status = closedString;
         }
         else {
             setWalkableStatus(OPEN);
-            status = "OPEN";
+            status = openString;
         }
-
-        // notify front end to render the gate differently
-        // TODO: refactor this ugly stuff following
-        int extensionLoc = this.getName().lastIndexOf('.');
-        String extension = this.getName().substring(extensionLoc);
-        int statusLoc = this.getName().lastIndexOf('-');
-        String image = this.getName().substring(0, statusLoc + 1) + status + extension;
+        String image = replaceNameStatus(getName(), status);
         return new BlockUpdate(BlockUpdateType.RE_RENDER, getRow(), getCol(), image);
     }
 }
