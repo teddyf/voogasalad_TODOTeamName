@@ -98,7 +98,7 @@ public class GridSideMenu extends SideMenu {
         button.setDisable(true);
 
         button.setOnMouseClicked(e -> {
-            GridGrowthDirection dir = directionComboBox.getValue();
+            GridSizeDirection dir = directionComboBox.getValue();
             int resize = Integer.parseInt(sizeInput.getText());
             if (radioGroup.getSelectedToggle() == decrease) {
                 resize = resize * -1;

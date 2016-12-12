@@ -3,24 +3,18 @@ package ui;
 import java.util.*;
 
 import block.BlockType;
+import grid.GridSizeDirection;
 import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
 import ui.builder.DialogBuilder;
-import ui.scenes.editor.GridUI;
 import ui.scenes.editor.objects.GameObject;
-import ui.scenes.editor.objects.Player1;
 import ui.scenes.editor.sidemenu.GridSideMenu;
 import ui.scenes.editor.sidemenu.ItemSideMenu;
 import ui.scenes.editor.sidemenu.PlayerSideMenu;
 import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import editor.EditorController;
-import grid.GridGrowthDirection;
 
 
 /**
@@ -128,7 +122,7 @@ public class GridPane implements Observer {
         }
     }
     
-    public void resize(int amount, GridGrowthDirection dir){
+    public void resize(int amount, GridSizeDirection dir){
         gridResizer.resize(dir, amount, gridMap, this);
     }
 
