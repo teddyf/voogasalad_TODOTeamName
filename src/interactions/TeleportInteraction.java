@@ -12,7 +12,7 @@ import java.util.Observable;
 /**
  * Allows the player to be teleported to a destination block from a teleporter.
  *
- * @author Filip Mazurek, Aninda Manocha
+ * @author Filip Mazurek, Aninda Manocha, Harshil Garg
  */
 
 public class TeleportInteraction implements Interaction {
@@ -28,11 +28,11 @@ public class TeleportInteraction implements Interaction {
 
     @Override
     public List<BlockUpdate> act(Player player) {
+        List<BlockUpdate> updateList = new ArrayList<>();
+        updateList.add(new BlockUpdate(BlockUpdateType.TELEPORT, myDestinationRow - player.getRow(), myDestinationCol - player.getCol(), "teleport"));
         player.setRow(myDestinationRow);
         player.setCol(myDestinationCol);
         player.setGridIndex(myDestinationGrid);
-        List<BlockUpdate> updateList = new ArrayList<>();
-        updateList.add(new BlockUpdate(BlockUpdateType.TELEPORT, myDestinationRow, myDestinationCol, "teleport"));
         return updateList;
     }
 }

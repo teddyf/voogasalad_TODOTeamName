@@ -709,15 +709,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.EnemyBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>12</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <health>100.0</health>
-        </block.EnemyBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
@@ -726,15 +725,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.EnemyBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>14</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-          <health>100.0</health>
-        </block.EnemyBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
@@ -890,7 +888,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
@@ -905,38 +903,38 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>4</myRow>
           <myCol>11</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        </block.ObstacleBlock>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>4</myRow>
           <myCol>12</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        </block.ObstacleBlock>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>4</myRow>
           <myCol>13</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        </block.ObstacleBlock>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>4</myRow>
           <myCol>14</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.ObstacleBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -1060,7 +1058,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/path-2.png</myName>
           <myRow>5</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -1068,7 +1066,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/path-2.png</myName>
           <myRow>5</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
@@ -1076,7 +1074,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/path-2.png</myName>
           <myRow>5</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
@@ -1084,7 +1082,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/path-2.png</myName>
           <myRow>5</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -1092,7 +1090,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/path-2.png</myName>
           <myRow>5</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
@@ -1100,7 +1098,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/path-2.png</myName>
           <myRow>5</myRow>
           <myCol>10</myCol>
           <isWalkable>true</isWalkable>
@@ -1108,7 +1106,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>11</myCol>
           <isWalkable>true</isWalkable>
@@ -1123,22 +1121,29 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.CommunicatorBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/communicator/npc-3-down.png</myName>
           <myRow>5</myRow>
           <myCol>13</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myTalkInteractions>
+            <interactions.MessageInteraction>
+              <myRow>5</myRow>
+              <myCol>13</myCol>
+              <myMessage></myMessage>
+            </interactions.MessageInteraction>
+          </myTalkInteractions>
+          <myMessage></myMessage>
+        </block.CommunicatorBlock>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>5</myRow>
           <myCol>14</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.ObstacleBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
@@ -1229,14 +1234,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>1</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
@@ -1286,7 +1291,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/path-2.png</myName>
           <myRow>6</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -1294,7 +1299,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/path-2.png</myName>
           <myRow>6</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
@@ -1302,29 +1307,36 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>10</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>6</myRow>
           <myCol>11</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+        </block.ObstacleBlock>
+        <block.CommunicatorBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/communicator/npc-3-down.png</myName>
           <myRow>6</myRow>
           <myCol>12</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.DecorationBlock>
+          <myTalkInteractions>
+            <interactions.MessageInteraction>
+              <myRow>6</myRow>
+              <myCol>12</myCol>
+              <myMessage>picked up pokemon</myMessage>
+            </interactions.MessageInteraction>
+          </myTalkInteractions>
+          <myMessage>picked up pokemon</myMessage>
+        </block.CommunicatorBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
@@ -1333,14 +1345,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>6</myRow>
           <myCol>14</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.ObstacleBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
@@ -1357,14 +1369,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>17</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
@@ -1487,14 +1499,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>8</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
@@ -1511,54 +1523,54 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>7</myRow>
           <myCol>11</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        </block.ObstacleBlock>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>7</myRow>
           <myCol>12</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+        </block.ObstacleBlock>
+        <block.ObstacleBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>7</myRow>
           <myCol>13</myCol>
-          <isWalkable>true</isWalkable>
+          <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.ObstacleBlock>
         <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1NE.png</myName>
           <myRow>7</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>15</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>16</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
@@ -1633,22 +1645,22 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>1</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>2</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
@@ -1657,14 +1669,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>4</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
@@ -1681,22 +1693,29 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
+        <block.CommunicatorBlock>
+          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/communicator/npc-1-down.png</myName>
+          <myRow>8</myRow>
+          <myCol>7</myCol>
+          <isWalkable>false</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions>
+            <interactions.MessageInteraction>
+              <myRow>8</myRow>
+              <myCol>7</myCol>
+              <myMessage></myMessage>
+            </interactions.MessageInteraction>
+          </myTalkInteractions>
+          <myMessage></myMessage>
+        </block.CommunicatorBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
-          <myCol>7</myCol>
+          <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
-          <myRow>8</myRow>
-          <myCol>8</myCol>
-          <isWalkable>false</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.ObstacleBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
@@ -1706,7 +1725,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>10</myCol>
           <isWalkable>true</isWalkable>
@@ -1753,14 +1772,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/water-1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>16</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
@@ -1827,14 +1846,14 @@
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>0</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
@@ -1851,22 +1870,22 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>3</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>4</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
@@ -1892,7 +1911,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -2029,14 +2048,14 @@
         </block.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>
           <myCol>0</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>
@@ -2053,22 +2072,22 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>
           <myCol>3</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>
           <myCol>4</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>
@@ -2142,7 +2161,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>
           <myCol>14</myCol>
           <isWalkable>true</isWalkable>
@@ -2263,14 +2282,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>11</myRow>
           <myCol>4</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>11</myRow>
@@ -2279,14 +2298,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>11</myRow>
           <myCol>6</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>11</myRow>
@@ -2304,7 +2323,7 @@
           <myTalkInteractions/>
         </block.DecorationBlock>
         <block.DecorationBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>11</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
@@ -2683,14 +2702,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>13</myRow>
           <myCol>6</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>13</myRow>
@@ -2699,14 +2718,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/fence-1E.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>13</myRow>
           <myCol>8</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>13</myRow>
@@ -3151,46 +3170,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>15</myRow>
           <myCol>14</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>15</myRow>
           <myCol>15</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>15</myRow>
           <myCol>16</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>15</myRow>
           <myCol>17</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>15</myRow>
           <myCol>18</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>15</myRow>
@@ -3353,46 +3372,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>16</myRow>
           <myCol>14</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>16</myRow>
           <myCol>15</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>16</myRow>
           <myCol>16</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>16</myRow>
           <myCol>17</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>16</myRow>
           <myCol>18</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>16</myRow>
@@ -3491,46 +3510,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>6</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>7</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>8</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>9</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.1_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>10</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
@@ -3555,46 +3574,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>14</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>15</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>16</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>17</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
           <myCol>18</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>17</myRow>
@@ -3693,46 +3712,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>6</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>7</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>8</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>9</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.2_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>10</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
@@ -3757,46 +3776,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>14</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>15</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>16</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>17</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
           <myCol>18</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>18</myRow>
@@ -3895,46 +3914,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>6</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>7</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>8</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>9</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.3_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>10</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
@@ -3959,46 +3978,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>14</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>15</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>16</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>17</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
           <myCol>18</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>19</myRow>
@@ -4097,46 +4116,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>20</myRow>
           <myCol>6</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>20</myRow>
           <myCol>7</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>20</myRow>
           <myCol>8</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>20</myRow>
           <myCol>9</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.4_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>20</myRow>
           <myCol>10</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>20</myRow>
@@ -4299,46 +4318,46 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_1.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>21</myRow>
           <myCol>6</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_2.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>21</myRow>
           <myCol>7</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_3.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>21</myRow>
           <myCol>8</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_4.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>21</myRow>
           <myCol>9</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
-          <myName>file:/home/billxiong24/IdeaProjects/voogasalad_todoteamname/src/resources/images/tiles/obstacle/house-1.5_5.png</myName>
+        </block.DecorationBlock>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>21</myRow>
           <myCol>10</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>21</myRow>
@@ -5064,21 +5083,22 @@
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
     <myNames>
-      <string>resources/images/sprites/22-down.png</string>
-      <string>resources/images/sprites/22-up.png</string>
-      <string>resources/images/sprites/22-left.png</string>
-      <string>resources/images/sprites/22-right.png</string>
+      <string>resources/images/sprites/7-right.png</string>
+      <string>resources/images/sprites/7-down.png</string>
+      <string>resources/images/sprites/7-left.png</string>
+      <string>resources/images/sprites/7-up.png</string>
     </myNames>
     <myPlayerName>Teddy</myPlayerName>
     <myDirection>NORTH</myDirection>
-    <myRow>6</myRow>
-    <myCol>5</myCol>
+    <myRow>9</myRow>
+    <myCol>8</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>
     <myBattleHistory/>
     <myInteractionHistory/>
     <myStatus/>
+    <numPokemon>2</numPokemon>
     <health>100.0</health>
   </player>
 </root>

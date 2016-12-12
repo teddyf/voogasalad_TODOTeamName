@@ -23,7 +23,7 @@ import player.PlayerUpdate;
 
 @XStreamAlias("gridManager")
 public class GridManager extends Observable {
-
+	@XStreamOmitField
     private static final String SIZE_CHOOSER = "resources/properties/size-chooser";
 
 	@XStreamImplicit
@@ -32,9 +32,15 @@ public class GridManager extends Observable {
     @XStreamOmitField
     private int currentIndex;
 
+    @XStreamOmitField
     private ResourceBundle myResources;
-    private BlockFactory blockFactory;
+    
+    @XStreamOmitField
     private Grid currentGrid;
+    
+    @XStreamOmitField
+    private BlockFactory blockFactory;
+    
     private String musicFile;
 
     public GridManager() {

@@ -1,7 +1,7 @@
 package xml;
 
 import grid.Grid;
-import grid.GridManager;
+import grid.GridWorld;
 import player.Player;
 
 import java.io.BufferedWriter;
@@ -30,8 +30,8 @@ public class GridXMLHandler {
 	 * Saves the XML file representing a GridManager and Player.
 	 * Returns the success/failure of the operation.
 	 */
-	public boolean saveContents(String filePath, GridManager gridManager, Player player) {
-		String fileContent = xstream.toXML(new GridWorldAndPlayer(gridManager, player));
+	public boolean saveContents(String filePath, GridWorld gridWorld, Player player) {
+		String fileContent = xstream.toXML(new GridWorldAndPlayer(gridWorld, player));
 		
 		try { 
 			File file = new File(filePath);
@@ -56,7 +56,7 @@ public class GridXMLHandler {
 	
 	private void initXStream() {
 		xstream.processAnnotations(GridWorldAndPlayer.class);
-		xstream.processAnnotations(GridManager.class);
+		xstream.processAnnotations(GridWorld.class);
 		xstream.processAnnotations(Grid.class);
 		xstream.processAnnotations(Player.class);
 		

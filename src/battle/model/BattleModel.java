@@ -77,6 +77,12 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public void addBattleLost() {
 		player.incrementBattlesLost();
 	}
+	public int battlesWon(){
+		return player.getBattlesWon();
+	}
+	public int battlesLost(){
+		return player.getBattlesLost();
+	}
 
 	@Override
 	public int getNumPokemon() {
