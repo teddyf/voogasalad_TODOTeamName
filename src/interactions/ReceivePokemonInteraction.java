@@ -2,7 +2,7 @@ package interactions;
 
 import block.BlockUpdate;
 import player.Player;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +11,7 @@ import java.util.List;
 public class ReceivePokemonInteraction implements Interaction {
 
     public List<BlockUpdate> act(Player player) {
-//        player.addP
+        player.addPokemon();
+        return new ArrayList<>();
     }
 }

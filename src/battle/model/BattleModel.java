@@ -35,11 +35,10 @@ public class BattleModel extends Observable implements BattleModelInView {
 		if (playerHP <= 0) {
 			playerLost = true;
 			player.setHealth(0);
-		}
-		else {
+		} else {
 			player.setHealth(playerHP);
 		}
-		
+
 		setChanged();
 		notifyObservers();
 	}
@@ -48,9 +47,9 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public void setEnemyHP(double enemyHP) {
 		if (enemyHP <= 0) {
 			playerWon = true;
+			enemy.setWalkableStatus(true);
 			enemy.setHealth(0);
-		}
-		else {
+		} else {
 			enemy.setHealth(enemyHP);
 		}
 
@@ -77,10 +76,14 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public void addBattleLost() {
 		player.incrementBattlesLost();
 	}
-	public int battlesWon(){
+
+	@Override
+	public int battlesWon() {
 		return player.getBattlesWon();
 	}
-	public int battlesLost(){
+
+	@Override
+	public int battlesLost() {
 		return player.getBattlesLost();
 	}
 

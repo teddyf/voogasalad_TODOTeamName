@@ -18,13 +18,19 @@ public class EditorEvents {
     private ResourceBundle myResources;
 
 
-    public EditorEvents(UILauncher launcher, EditorIO IO, ResourceBundle resources) {
+    EditorEvents(UILauncher launcher, EditorIO IO, ResourceBundle resources) {
         myLauncher = launcher;
         myIO = IO;
         myResources = resources;
     }
 
-    public boolean createWarning(String warningKey) {
+    /**
+     * Warns the user upon causing an error
+     *
+     * @param warningKey is the header of the warning
+     * @return true if the user clicked OK, false otherwise
+     */
+    boolean createWarning(String warningKey) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText(myResources.getString("WARNING"));
         alert.setHeaderText(myResources.getString(warningKey));
@@ -32,10 +38,7 @@ public class EditorEvents {
         ButtonType cancel = new ButtonType(myResources.getString("CANCEL"));
         alert.getButtonTypes().setAll(cancel, ok);
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ok) {
-            return true;
-        }
-        return false;
+        return result.get() == ok;
     }
 
     /**
@@ -45,7 +48,7 @@ public class EditorEvents {
      * @param newEditor is true if a new editor instance should be created, false
      *                  if returning to the main menu
      */
-    public void exitPrompt(boolean newEditor) {
+    void exitPrompt(boolean newEditor) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText(myResources.getString("exitPromptHeader"));
         alert.setContentText(myResources.getString("exitPromptContent"));
@@ -78,7 +81,7 @@ public class EditorEvents {
      *
      * @param thirdMenu is the menu to which events are added
      */
-    public void addThirdMenuEvents(Menu thirdMenu) {
+    void addThirdMenuEvents(Menu thirdMenu) {
         thirdMenu.setOnShowing(e -> thirdMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
         thirdMenu.setOnHidden(e -> thirdMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
         // create test game menu option
@@ -100,7 +103,7 @@ public class EditorEvents {
      *
      * @param secondMenu is the menu to which events are added
      */
-    public void addSecondMenuEvents(Menu secondMenu) {
+    void addSecondMenuEvents(Menu secondMenu) {
         secondMenu.setOnShowing(e -> secondMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
         secondMenu.setOnHidden(e -> secondMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
         // create undo menu option
@@ -131,7 +134,7 @@ public class EditorEvents {
      *
      * @param firstMenu is the menu to which events are added
      */
-    public void addFirstMenuEvents(Menu firstMenu) {
+    void addFirstMenuEvents(Menu firstMenu) {
         firstMenu.setOnShowing(e -> firstMenu.setStyle("-fx-background-color: " + myResources.getString("menuHoverColor")));
         firstMenu.setOnHidden(e -> firstMenu.setStyle("-fx-background-color: " + myResources.getString("menuColor")));
         // create new editor menu option

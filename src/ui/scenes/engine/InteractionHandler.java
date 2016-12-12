@@ -32,8 +32,11 @@ public class InteractionHandler {
         myUIBuilder.addDialogBubble(myRoot, message);
     }
 
-    private void renderTeleportation(int r, int c) {
-
+    private void renderTeleportation(int rowdiff, int columndiff) {
+        System.out.println(rowdiff);
+        System.out.println(columndiff);
+        myGridForEngine.getGroup().setLayoutX(myGridForEngine.getGroup().getLayoutX() - columndiff*50);
+        myGridForEngine.getGroup().setLayoutY(myGridForEngine.getGroup().getLayoutY() - rowdiff*50);
     }
 
     private void winGame() {
@@ -64,4 +67,5 @@ public class InteractionHandler {
                 break;
         }
     }
+
 }

@@ -6,19 +6,22 @@ import ui.scenes.editor.objects.MultipleBlockGameObject;
 import ui.scenes.editor.objects.SingleBlockGameObject;
 
 import java.io.File;
-
+import java.io.FilenameFilter;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * @author Harshil Garg
+ * @author Harshil Garg, Ryan Anders
+ *         <p>
+ *         Used for displaying overworld items.
  */
 public class ItemViewer {
 
     private final String image_root_path = "resources/images/tiles/";
     private final String root_path = "src/" + image_root_path;
+    private final String on_string = "ON";
     private final String extension = ".png";
 
     private GameObject selected = null;
@@ -28,6 +31,12 @@ public class ItemViewer {
         String directory = root_path + type.name().toLowerCase();
         File file = new File(directory);
         String[] contents = file.list();
+
+        if (type == BlockType.SWITCH_FLOOR) {
+        	String[] noOnSwitchContents = file.list(new myFilenameFilter());
+        	contents = noOnSwitchContents;
+        }
+
         List<GameObject> items = new ArrayList<>();
         Map<String, ArrayList<String>> map = new TreeMap<>();
         for (String content : contents) {
@@ -82,12 +91,23 @@ public class ItemViewer {
         return file.toURI().toString();
     }
 
+    
     void select(GameObject obj) {
         selected = obj;
     }
+    
 
     GameObject getSelected() {
         return selected;
     }
-
+    
+    class myFilenameFilter implements FilenameFilter {
+		@Override
+		public boolean accept(File dir, String name) {
+			int len = name.length();
+    		String onPic = name.substring(len-6, len-4);
+			return !onPic.equals(on_string);
+		}
+    	
+    }
 }

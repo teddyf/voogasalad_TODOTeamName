@@ -7,6 +7,7 @@ import engine.EngineController;
 import exceptions.*;
 import grid.GridManager;
 import grid.GridSizeDirection;
+import grid.GridWorld;
 import player.Player;
 import player.PlayerManager;
 import ui.scenes.editor.GameEditorAlerts;
@@ -165,23 +166,25 @@ public class EditorController implements IEditorController {
     /***** DATA METHODS *****/
 
     public void saveEditor(String file) {
+        GridWorld gridWorld = new GridWorld(myGridManager);
         try {
-            xmlHandler.saveContents(file, myGridManager, myPlayerManager.getPlayer());
+            xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
-            xmlHandler.saveContents(file, myGridManager, null);
+            xmlHandler.saveContents(file, gridWorld, null);
         }
     }
 
     public void loadEditor(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         myPlayerManager.setPlayer(gridWorldAndPlayer.getPlayer());
-        myGridManager = gridWorldAndPlayer.getGridWorld();
+        myGridManager = new GridManager(gridWorldAndPlayer.getGridWorld().getGrids());
         changeGrid(myGridManager.getCurrentIndex());
     }
 
     public void saveEngine(String file) {
+        GridWorld gridWorld = new GridWorld(myGridManager);
         try {
-            xmlHandler.saveContents(file, myGridManager, myPlayerManager.getPlayer());
+            xmlHandler.saveContents(file, gridWorld, myPlayerManager.getPlayer());
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());
         }
@@ -190,7 +193,7 @@ public class EditorController implements IEditorController {
     public EngineController runEngine() {
         try {
             Player testPlayer = new Player(myPlayerManager.getPlayer());
-            GridManager testGridManager = new GridManager(myGridManager);
+            GridManager testGridManager = new GridManager(myGridManager.getGrids());
             return (new EngineController(testPlayer, testGridManager));
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());

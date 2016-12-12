@@ -24,7 +24,7 @@ public class Player implements IPlayer {
 	public static final int DEFAULT_HEALTH = 100;
 	
 	@XStreamOmitField
-	public static final int DEFAULT_NUM_POKEMON = 2;
+	public static final int DEFAULT_NUM_POKEMON = 3;
 	
 	private int battlesWon;
 	private int battlesLost;
@@ -133,6 +133,9 @@ public class Player implements IPlayer {
 	    myAttributes.add(attribute);
 		return true;
 	}
+	public void addPokemon(){
+		numPokemon++;
+	}
 
 	public void addItem(Item item) {
 		myInventory.add(item);
@@ -187,10 +190,12 @@ public class Player implements IPlayer {
 	/***** SETTERS *****/
 
     public void setRow(int row) {
+		System.out.println(row);
         myRow = row;
     }
 
     public void setCol(int col) {
+		System.out.println(col);
         myCol = col;
     }
 }

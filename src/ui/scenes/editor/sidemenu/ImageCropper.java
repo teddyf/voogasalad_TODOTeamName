@@ -10,13 +10,13 @@ import java.io.IOException;
  *         <p>
  *         Crops images for adding new user-created game objects.
  */
-public class ImageCropper {
+class ImageCropper {
 
     private String myOriginalPath;
     private int myRowNumber;
     private int myColumnNumber;
 
-    public ImageCropper(String originalPath, int r, int c) {
+    ImageCropper(String originalPath, int r, int c) {
         myOriginalPath = originalPath;
         myRowNumber = r;
         myColumnNumber = c;
@@ -54,7 +54,5 @@ public class ImageCropper {
             e.printStackTrace();
         }
     }
-
-
 }
 
