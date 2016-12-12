@@ -140,18 +140,23 @@ public abstract class Block implements IBlock, Serializable {
     public void setMessage(String message){
         this.myMessage = message;
     }
+
     public void setWalkableStatus(boolean status) {
         isWalkable = status;
     }
 
+    /**
+     *
+     * @return
+     */
     public Block deepClone() {
         try {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(baos);
-            oos.writeObject(this);
-            ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-            ObjectInputStream ois = new ObjectInputStream(bais);
-            return (Block) ois.readObject();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+            objectOutputStream.writeObject(this);
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+            return (Block) objectInputStream.readObject();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
