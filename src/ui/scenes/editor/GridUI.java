@@ -58,9 +58,7 @@ public class GridUI extends Observable implements Observer {
         myGridPane = new GridPane(width,
                 height,
                 myUtil.getIntProperty("windowWidth"),
-                myUtil.getIntProperty("windowHeight"),
-                myUtil.getIntProperty("gridX"),
-                myUtil.getIntProperty("gridY"));
+                myUtil.getIntProperty("windowHeight"));
         myController.addGrid(height, width);
         myController.changeGrid(0);
         initGridControl();

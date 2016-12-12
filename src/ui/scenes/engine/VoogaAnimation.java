@@ -115,10 +115,8 @@ public class VoogaAnimation implements Observer {
 
 	@Override
 	public void update(Observable observable, Object value) {
-		//if (observable instanceof GameInstance) {
-			PlayerUpdate update = (PlayerUpdate) value;
-			updatePlayer(update);
-		//}
+		PlayerUpdate update = (PlayerUpdate) value;
+		updatePlayer(update);
 	}
 
 	private void updatePlayer(PlayerUpdate update) {
