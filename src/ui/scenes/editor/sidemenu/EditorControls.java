@@ -35,7 +35,7 @@ public class EditorControls {
         myItemMenu = new ItemSideMenu(myRoot, myResources);
         myPlayerMenu = new PlayerSideMenu(myRoot, myResources, (ItemSideMenu) myItemMenu);
         myCustomMenu = new CustomSideMenu(myRoot, myResources, this);
-        myGridMenu = new GridSideMenu(myRoot, myResources, controller);
+        myGridMenu = new GameSideMenu(myRoot, myResources, controller);
         init();
     }
 
@@ -89,8 +89,8 @@ public class EditorControls {
         List<Tab> tabs = new ArrayList<>();
         tabs.add(createSideTab(myResources.getString("tab1"), myItemMenu.getPanel()));
         tabs.add(createSideTab(myResources.getString("tab2"), myPlayerMenu.getPanel()));
-        tabs.add(createSideTab(myResources.getString("tab3"), myCustomMenu.getPanel()));
-        tabs.add(createSideTab(myResources.getString("tab4"), myGridMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("tab3"), myGridMenu.getPanel()));
+        tabs.add(createSideTab(myResources.getString("tab4"), myCustomMenu.getPanel()));
         tabs.add(createSideTab(myResources.getString("tab5"), null));
         return tabs;
     }
@@ -115,8 +115,8 @@ public class EditorControls {
         return (PlayerSideMenu) myPlayerMenu;
     }
     
-    public GridSideMenu getGridSideMenu(){
-        return (GridSideMenu) myGridMenu;
+    public GameSideMenu getGridSideMenu(){
+        return (GameSideMenu) myGridMenu;
     }
     
 }
