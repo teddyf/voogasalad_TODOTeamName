@@ -113,8 +113,19 @@ public class GameInstance extends Observable implements IGameInstance {
 			    	Difficulty diff = (Difficulty) box.getSelectedItem();
 			    	enterBattle((EnemyBlock)block, diff);
 			    }
-			    else if(!(block instanceof DecorationBlock || !(block instanceof CommunicatorBlock))) {
-                    myPlayer.addPokemon();
+			    
+			    else if (block instanceof PokemonGiverBlock) {
+			    	PokemonGiverBlock pokeBlock = (PokemonGiverBlock) block;
+			    	
+			    	if (pokeBlock.getHasPokemon()) {
+			    		pokeBlock.setHasPokemon(false);
+					    blockUpdates = block.talkInteract(myPlayer);
+						playerUpdate = PlayerUpdate.TALK;
+						setChanged();
+			    	}
+			    }
+			    
+			    else {
 			    	blockUpdates = block.talkInteract(myPlayer);
 					playerUpdate = PlayerUpdate.TALK;
 					setChanged();
