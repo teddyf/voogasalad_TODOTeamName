@@ -166,7 +166,6 @@ public class GridPane extends Observable implements Observer {
 
     public void nodeClick (GameObject obj,
                            EditorController control,
-                           String name,
                            List<String> imagePaths) {
         setChanged();
         notifyObservers();
@@ -175,6 +174,7 @@ public class GridPane extends Observable implements Observer {
                 swap(obj, control);
             }
             else if (clickType.equals("PLAYER") && imagePaths.size() > 0) {
+                String name = setDialogue("Name for Player", "Set the name for your player");
                 buildPlayer(control, name, imagePaths);
             }
         }
@@ -226,7 +226,7 @@ public class GridPane extends Observable implements Observer {
                     // TODO add dimension checker
                     
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
-                        String message = setCommMessage();
+                        String message = setDialogue("Set the dialog for the communicator block.","Dialog for the communicator block:");
                         if(!message.isEmpty()){
                             System.out.println("heyo");
                             temp.swap(list.get(j), list.get(j).getImageNum());
@@ -270,13 +270,14 @@ public class GridPane extends Observable implements Observer {
         builder.addCustomAlert(new ComponentProperties().header(header).content(content));
     }
     
-    private String setCommMessage () {
+    private String setDialogue (String header, String content) {
         DialogBuilder db = new DialogBuilder(new ComponentProperties()
-                .header("Set the dialog for the communicator block.")
-                .content("Dialog for the communicator block:"));
+                .header(header)
+                .content(content));
         Optional<String> response = db.getResponse();
         return response.orElse(new String());
     }
+    
 
     private void resetClicked () {
         clicked = new ArrayList<GridPaneNode>();
