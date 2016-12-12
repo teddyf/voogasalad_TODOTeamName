@@ -228,7 +228,6 @@ public class GridPane extends Observable implements Observer {
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
                         String message = setDialogue("Set the dialog for the communicator block.","Dialog for the communicator block:");
                         if(!message.isEmpty()){
-                            System.out.println("heyo");
                             temp.swap(list.get(j), list.get(j).getImageNum());
                             
                             control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
@@ -237,10 +236,20 @@ public class GridPane extends Observable implements Observer {
                         }
                     }
                     else if(obj.getBlockType().equals(BlockType.GATE)){
+                        String message = setDialogue("Set dialogue for NPC", "Dialogue for the NPC block");
+                        if(!message.isEmpty()){
+                            temp.swap(list.get(j), list.get(j).getImageNum());
+                            control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
+                                             getBackendCol(temp));
+                            control.addMessage(message, getBackendRow(temp), getBackendCol(temp)); 
+                        
+                        }
+                    }
+                    
+                    else if(obj.getBlockType().equals(BlockType.NPC)){
                         temp.swap(list.get(j), list.get(j).getImageNum());
                         control.addBlock(temp.getName(), obj.getBlockType(), getBackendRow(temp),
                                          getBackendCol(temp));
-                        gateTransition(temp, control);              
                     }
                     else{
                         temp.swap(list.get(j), list.get(j).getImageNum());
