@@ -12,7 +12,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 /**
- * @author Robert Steilberg
+ * @author Robert Steilberg, Aninda Manocha
  *         <p>
  *         This class handles IO for the game authoring engine. Functionality includes saving an
  *         editor state to re-open and continue building a game later, opening an editor state,
@@ -60,6 +60,8 @@ class EditorIO extends Observable {
         File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("editorFilePath"));
         if (gameFile != null) {
             myEditorController.loadEditor(gameFile.getAbsolutePath());
+            setChanged();
+            notifyObservers(myEditorController);
             myGrid.loadGrid(); // load into grid user interface
             return true;
         }

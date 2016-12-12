@@ -35,8 +35,6 @@ public class InteractionHandler extends Observable {
     }
 
     private void renderTeleportation(int rowdiff, int columndiff) {
-        System.out.println(rowdiff);
-        System.out.println(columndiff);
         myGridForEngine.getGroup().setLayoutX(myGridForEngine.getGroup().getLayoutX() - columndiff*50);
         myGridForEngine.getGroup().setLayoutY(myGridForEngine.getGroup().getLayoutY() - rowdiff*50);
     }
