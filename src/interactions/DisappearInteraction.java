@@ -1,11 +1,10 @@
 package interactions;
 
-import block.Block;
+import api.Block;
 import block.BlockUpdate;
 import block.BlockUpdateType;
 import block.DecorationBlock;
 import player.Player;
-
 import java.util.ArrayList;
 import java.util.List;
 

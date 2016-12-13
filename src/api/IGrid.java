@@ -1,8 +1,5 @@
 package api;
 
-import block.Block;
-import grid.Grid;
-
 /**
  * The grid interface
  * @author Aninda Manocha, Filip Mazurek

@@ -1,10 +1,8 @@
 package block;
 
-import api.IBlock;
-import grid.GridManager;
+import api.Block;
 import interactions.Interaction;
 import player.Player;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,10 +12,10 @@ import java.util.List;
 /**
  * The general type of object which may be placed on the board (back end representation).
  *
- * @author Filip Mazurek, Daniel Chai, Aninda Manocha
+ * @author Filip Mazurek, Aninda Manocha
  */
 
-public abstract class Block implements IBlock, Serializable {
+public abstract class AbstractBlock implements Block {
 
     private String myName;
     private int myRow;
@@ -27,7 +25,7 @@ public abstract class Block implements IBlock, Serializable {
     private List<Interaction> myTalkInteractions;
     private String myMessage;
 
-    public Block(String name,  int row, int col) {
+    public AbstractBlock(String name, int row, int col) {
         myName = name;
         myRow = row;
         myCol = col;
@@ -36,12 +34,6 @@ public abstract class Block implements IBlock, Serializable {
         myTalkInteractions = new ArrayList<>();
     }
 
-    /**
-     * Apply all the interactions in the block which are triggered by stepping on that block tile.
-     *
-     * @param player: the player object--in case of player modification (e.g. teleportation, etc.)
-     * @return list of updates which need to be applied by the front end (e.g. re-rendering, etc.)
-     */
     public List<BlockUpdate> stepInteract(Player player) {
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         for (Interaction interaction : myStepInteractions) {
@@ -50,13 +42,7 @@ public abstract class Block implements IBlock, Serializable {
         return blockUpdates;
     }
 
-    /**
-     * Apply all the interactions in the block which are triggered by talking to that block tile.
-     *
-     * @param player: the player object--in case of player modification (e.g. teleportation, etc.)
-     * @return list of updates which need to be applied by the front end (e.g. re-rendering, etc.)
-     */
-    public List<BlockUpdate> talkInteract(Player player){
+    public List<BlockUpdate> talkInteract(Player player) {
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         if (myTalkInteractions.size() > 0) {
             for(Interaction interaction : myTalkInteractions) {
@@ -67,43 +53,20 @@ public abstract class Block implements IBlock, Serializable {
 
     }
 
-    /**
-     * Make a link between this block and another selected block. Only applies if both blocks may be linked to each
-     * other. If block has no such ability, default behavior is to return false.
-     *
-     * @param block: block to be linked to from this block
-     * @param gridIndex: the grid on which the block resides (for multiple grid levels)
-     * @return whether the link was successful
-     */
     public boolean link(Block block, int gridIndex) {
         return false;
     }
 
-    /**
-     * Remove the link between the selected linked blocks. Fails if the blocks were not linked originally.
-     *
-     * @param block: block with which the link must be broken
-     * @return whether the unlink was successful
-     */
     public boolean unlink(Block block) {
         return false;
     }
 
-    /**
-     * Works to prepare a new image path name for new rendering. This is how blocks in the grid change how they look.
-     *
-     * @param name: the full original file path name
-     * @param status: the new different status
-     * @return the new file path
-     */
     public String replaceNameStatus(String name, String status) {
         int extensionLoc = name.lastIndexOf('.');
         String extension = name.substring(extensionLoc);
         int statusLoc = name.lastIndexOf('-');
         return name.substring(0, statusLoc + 1) + status + extension;
     }
-
-    /*****GETTERS*****/
 
     public String getName() {
         return myName;
@@ -130,7 +93,7 @@ public abstract class Block implements IBlock, Serializable {
         return myStepInteractions.add(stepInteraction);
     }
 
-    protected boolean removeStepInteraction(Interaction stepInteraction) {
+    public boolean removeStepInteraction(Interaction stepInteraction) {
         return myStepInteractions.remove(stepInteraction);
     }
 
@@ -142,7 +105,7 @@ public abstract class Block implements IBlock, Serializable {
         return myTalkInteractions.add(talkInteraction);
     }
 
-    protected boolean removeTalkInteraction(Interaction talkInteraction) {
+    public boolean removeTalkInteraction(Interaction talkInteraction) {
         return myTalkInteractions.remove(talkInteraction);
     }
 
@@ -150,7 +113,6 @@ public abstract class Block implements IBlock, Serializable {
         return myMessage;
     }
 
-    /*****SETTERS******/
     public void setMessage(String message){
         this.myMessage = message;
     }
@@ -159,10 +121,6 @@ public abstract class Block implements IBlock, Serializable {
         isWalkable = status;
     }
 
-    /**
-     *
-     * @return
-     */
     public Block deepClone() {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -170,7 +128,7 @@ public abstract class Block implements IBlock, Serializable {
             objectOutputStream.writeObject(this);
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-            return (Block) objectInputStream.readObject();
+            return (AbstractBlock) objectInputStream.readObject();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

@@ -1,5 +1,6 @@
 package block;
 
+import api.Block;
 import interactions.Interaction;
 import interactions.TeleportInteraction;
 
@@ -9,7 +10,7 @@ import interactions.TeleportInteraction;
  * @author Aninda Manocha, Filip Mazurek
  */
 
-public class TeleportBlock extends Block {
+public class TeleportBlock extends AbstractBlock {
     private TeleportBlock myReceiveBlock;
 
     public TeleportBlock(String name, int row, int col) {

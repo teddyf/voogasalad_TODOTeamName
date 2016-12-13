@@ -1,5 +1,6 @@
 package block;
 
+import api.Block;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.Set;
  * @author Filip Mazurek, Aninda Manocha
  */
 
-public abstract class SwitchBlock extends Block {
+public abstract class SwitchBlock extends AbstractBlock {
     private Set<GateBlock> myGates;
     private boolean onPosition;
     private static final String onString = "ON";

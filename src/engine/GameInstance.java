@@ -1,17 +1,14 @@
 package engine;
 
+import api.Block;
 import api.IGameInstance;
 import battle.BattleHandler;
-import battle.controller.BattleController;
-import battle.model.BattleModel;
 import battle.model.Difficulty;
-import battle.view.BattleView;
 import block.*;
 import grid.Grid;
 import grid.GridManager;
 import grid.GridWorld;
 import javafx.scene.control.ChoiceDialog;
-import javafx.stage.Stage;
 import player.Player;
 import player.PlayerDirection;
 import player.PlayerUpdate;

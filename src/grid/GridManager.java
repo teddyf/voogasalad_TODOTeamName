@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import api.Block;
 import block.*;
 import exceptions.*;
 import player.PlayerBlockUpdate;

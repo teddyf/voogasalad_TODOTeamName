@@ -1,6 +1,6 @@
 package player;
 
-import block.Block;
+import api.Block;
 import block.DecorationBlock;
 import exceptions.BadPlayerPlacementException;
 import exceptions.DuplicateAttributeException;
@@ -8,7 +8,6 @@ import exceptions.DuplicatePlayerException;
 import exceptions.NoPlayerException;
 import grid.Grid;
 import grid.GridManager;
-
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;

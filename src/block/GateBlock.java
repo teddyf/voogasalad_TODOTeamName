@@ -6,7 +6,7 @@ package block;
  *
  * @author Filip Mazurek
  */
-public class GateBlock extends Block {
+public class GateBlock extends AbstractBlock {
     private static final boolean OPEN = true;
     private static final boolean CLOSED = false;
     private static final String closedString = "CLOSED";

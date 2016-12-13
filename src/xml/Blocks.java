@@ -2,8 +2,7 @@ package xml;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import block.Block;
+import api.Block;
 
 /**
  * Wrapper class on a list of Blocks used for XStream.
