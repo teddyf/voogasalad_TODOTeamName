@@ -1,11 +1,9 @@
 package editor;
 
 import api.IEditorController;
-import block.BlockFactory;
 import block.BlockType;
 import engine.EngineController;
 import exceptions.*;
-import grid.Grid;
 import grid.GridManager;
 import grid.GridSizeDirection;
 import grid.GridWorld;
@@ -15,7 +13,6 @@ import ui.scenes.editor.GameEditorAlerts;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

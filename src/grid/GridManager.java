@@ -8,6 +8,7 @@ import java.util.Observable;
 import java.util.ResourceBundle;
 
 import api.Block;
+import api.Grid;
 import block.*;
 import exceptions.*;
 import player.PlayerBlockUpdate;
@@ -44,7 +45,7 @@ public class GridManager extends Observable implements Serializable {
     }
 
     public void addGrid(int numRows, int numCols) {
-        Grid newGrid = new Grid(myGrids.size(), numRows, numCols);
+        Grid newGrid = new GridInstance(myGrids.size(), numRows, numCols);
         myGrids.add(newGrid);
         changeGrid(myGrids.size() -1);
     }
@@ -230,7 +231,7 @@ public class GridManager extends Observable implements Serializable {
         GridManager newGridManager = new GridManager();
         for(int i = 0; i < myGrids.size(); i++) {
             Grid grid = myGrids.get(i);
-            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
+            Grid tempGrid = new GridInstance(i, grid.getNumRows(), grid.getNumCols());
             for (int row = 0; row < grid.getNumRows(); row++) {
                 for (int col = 0; col < grid.getNumCols(); col++) {
                     Block block = grid.getBlock(row, col);
@@ -255,7 +256,7 @@ public class GridManager extends Observable implements Serializable {
         GridManager newGridManager = new GridManager();
         for(int i = 0; i < myGrids.size(); i++) {
             Grid grid = myGrids.get(i);
-            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
+            Grid tempGrid = new GridInstance(i, grid.getNumRows(), grid.getNumCols());
             for (int row = 0; row < grid.getNumRows(); row++) {
                 for (int col = 0; col < grid.getNumCols(); col++) {
                     Block block = grid.getBlock(row, col);

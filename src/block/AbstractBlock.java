@@ -10,11 +10,10 @@ import java.util.List;
 
 
 /**
- * The general type of object which may be placed on the board (back end representation).
+ * Parent class of all blocks.
  *
  * @author Filip Mazurek, Aninda Manocha
  */
-
 public abstract class AbstractBlock implements Block {
 
     private String myName;
