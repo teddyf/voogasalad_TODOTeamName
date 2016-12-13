@@ -1,6 +1,6 @@
 package ui.scenes.editor.sidemenu;
 
-import block.BlockType;
+import block.blocktypes.BlockType;
 import javafx.collections.FXCollections;
 import javafx.scene.Parent;
 import javafx.scene.control.*;

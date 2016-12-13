@@ -1,6 +1,7 @@
-package block;
+package block.blocktypes;
 
 import api.Block;
+import block.AbstractBlock;
 import interactions.Interaction;
 import interactions.TeleportInteraction;
 

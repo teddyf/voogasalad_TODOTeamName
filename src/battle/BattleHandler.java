@@ -5,7 +5,7 @@ import battle.controller.BattleController;
 import battle.model.BattleModel;
 import battle.model.Difficulty;
 import battle.view.BattleView;
-import block.EnemyBlock;
+import block.blocktypes.EnemyBlock;
 import javafx.stage.Stage;
 
 /**

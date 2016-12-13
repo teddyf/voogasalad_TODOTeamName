@@ -233,7 +233,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.NPCBlock>
+        <block.blocktypes.NPCBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/npc/npc-1-down.png</myName>
           <myRow>1</myRow>
           <myCol>3</myCol>
@@ -251,7 +251,7 @@
           </myTalkInteractions>
           <myMessage>i am a fag</myMessage>
           <myDirection>DOWN</myDirection>
-        </block.NPCBlock>
+        </block.blocktypes.NPCBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
@@ -470,14 +470,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/1-CLOSED.png</myName>
           <myRow>2</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
+        </block.blocktypes.GateBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
@@ -648,7 +648,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.NPCBlock>
+        <block.blocktypes.NPCBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/npc/npc-17-down.png</myName>
           <myRow>3</myRow>
           <myCol>3</myCol>
@@ -666,7 +666,7 @@
           </myTalkInteractions>
           <myMessage>lol</myMessage>
           <myDirection>DOWN</myDirection>
-        </block.NPCBlock>
+        </block.blocktypes.NPCBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
@@ -909,14 +909,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/grave-2.1_1.png</myName>
           <myRow>4</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -1063,7 +1063,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-14-left.png</myName>
           <myRow>5</myRow>
           <myCol>3</myCol>
@@ -1071,7 +1071,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
@@ -1088,22 +1088,22 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.SwitchFloorBlock>
+        <block.blocktypes.SwitchFloorBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
           <myRow>5</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions>
             <interactions.SwitchInteraction>
-              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+              <mySwitchBlock class="block.blocktypes.SwitchFloorBlock" reference="../../.."/>
             </interactions.SwitchInteraction>
           </myStepInteractions>
           <myTalkInteractions/>
           <myGates>
-            <block.GateBlock reference="../../../../block.Block-array[3]/block.GateBlock"/>
+            <block.blocktypes.GateBlock reference="../../../../block.Block-array[3]/block.blocktypes.GateBlock"/>
           </myGates>
           <onPosition>false</onPosition>
-        </block.SwitchFloorBlock>
+        </block.blocktypes.SwitchFloorBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
@@ -1120,14 +1120,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/grave-2.2_1.png</myName>
           <myRow>5</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
@@ -1507,7 +1507,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.TeleportBlock>
+        <block.blocktypes.TeleportBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/teleport/portal-1.png</myName>
           <myRow>7</myRow>
           <myCol>6</myCol>
@@ -1535,7 +1535,7 @@
             <myTalkInteractions/>
             <myReceiveBlock reference="../.."/>
           </myReceiveBlock>
-        </block.TeleportBlock>
+        </block.blocktypes.TeleportBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
@@ -1908,14 +1908,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>9</myRow>
           <myCol>3</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
@@ -1932,7 +1932,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.TeleportBlock reference="../../block.Block-array[8]/block.TeleportBlock/myReceiveBlock"/>
+        <block.blocktypes.TeleportBlock reference="../../block.Block-array[8]/block.blocktypes.TeleportBlock/myReceiveBlock"/>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>

@@ -3519,7 +3519,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <myName>file:/Users/pimchanok/Documents/workspace/308/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-1-left.png</myName>
           <myRow>12</myRow>
           <myCol>16</myCol>
@@ -3527,7 +3527,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>12</myRow>

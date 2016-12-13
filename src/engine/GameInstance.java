@@ -7,6 +7,8 @@ import api.Player;
 import battle.BattleHandler;
 import battle.model.Difficulty;
 import block.*;
+import block.blocktypes.EnemyBlock;
+import block.blocktypes.PokemonGiverBlock;
 import grid.GridManager;
 import grid.GridWorld;
 import javafx.scene.control.ChoiceDialog;

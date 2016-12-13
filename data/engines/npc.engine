@@ -195,7 +195,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.NPCBlock>
+        <block.blocktypes.NPCBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/npc/npc-10-down.png</myName>
           <myRow>2</myRow>
           <myCol>3</myCol>
@@ -213,7 +213,7 @@
           </myTalkInteractions>
           <myMessage>hello</myMessage>
           <myDirection>DOWN</myDirection>
-        </block.NPCBlock>
+        </block.blocktypes.NPCBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>

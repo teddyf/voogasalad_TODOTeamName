@@ -7,54 +7,54 @@
       <myNumRows>35</myNumRows>
       <myNumCols>35</myNumCols>
       <block.Block-array>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>0</myRow>
           <myCol>0</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>0</myRow>
           <myCol>1</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>0</myRow>
           <myCol>2</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>0</myRow>
           <myCol>3</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>0</myRow>
           <myCol>4</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>0</myRow>
           <myCol>5</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
@@ -289,46 +289,46 @@
         </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>1</myRow>
           <myCol>0</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>1</myRow>
           <myCol>2</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>1</myRow>
           <myCol>3</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>1</myRow>
           <myCol>4</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
@@ -571,38 +571,38 @@
         </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>2</myRow>
           <myCol>0</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>2</myRow>
           <myCol>1</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>2</myRow>
           <myCol>2</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>2</myRow>
           <myCol>3</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
@@ -853,30 +853,30 @@
         </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>3</myRow>
           <myCol>0</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>3</myRow>
           <myCol>1</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>3</myRow>
           <myCol>2</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
@@ -1135,22 +1135,22 @@
         </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>4</myRow>
           <myCol>0</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
-        <block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>4</myRow>
           <myCol>1</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -1417,14 +1417,14 @@
         </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.ObstacleBlock>
+        <block.blocktypes.ObstacleBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/obstacle/box-2.png</myName>
           <myRow>5</myRow>
           <myCol>0</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.ObstacleBlock>
+        </block.blocktypes.ObstacleBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>

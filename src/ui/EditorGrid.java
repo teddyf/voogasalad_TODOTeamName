@@ -1,7 +1,7 @@
 package ui;
 
 import java.util.*;
-import block.BlockType;
+import block.blocktypes.BlockType;
 import ui.builder.UIBuilder;
 import ui.builder.ComponentProperties;
 import ui.builder.DialogBuilder;

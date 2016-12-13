@@ -4,7 +4,7 @@ import java.util.Observable;
 
 import api.Player;
 import battle.controller.BattleModelInView;
-import block.EnemyBlock;
+import block.blocktypes.EnemyBlock;
 
 /**
  * @author Daniel Chai

@@ -41,7 +41,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/Users/filipmazurek/GoogleDrive/Fall_2016/CompSci_308/voogasalad_todoteamname/src/resources/images/tiles/decoration/weed-1_CLOSED.png</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
@@ -49,22 +49,22 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <isOpen>false</isOpen>
-        </block.GateBlock>
-        <block.SwitchFloorBlock>
+        </block.blocktypes.GateBlock>
+        <block.blocktypes.SwitchFloorBlock>
           <myName>file:/Users/filipmazurek/GoogleDrive/Fall_2016/CompSci_308/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-1.png</myName>
           <myRow>1</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions>
             <interactions.SwitchInteraction>
-              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+              <mySwitchBlock class="block.blocktypes.SwitchFloorBlock" reference="../../.."/>
             </interactions.SwitchInteraction>
           </myStepInteractions>
           <myTalkInteractions/>
           <myGates>
-            <block.GateBlock reference="../../../block.GateBlock"/>
+            <block.blocktypes.GateBlock reference="../../../block.blocktypes.GateBlock"/>
           </myGates>
-        </block.SwitchFloorBlock>
+        </block.blocktypes.SwitchFloorBlock>
       </block.Block-array>
       <block.Block-array>
         <block.blocktypes.DecorationBlock>

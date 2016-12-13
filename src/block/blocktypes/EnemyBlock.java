@@ -1,4 +1,6 @@
-package block;
+package block.blocktypes;
+
+import block.AbstractBlock;
 
 /**
  * Class for putting enemies on the board

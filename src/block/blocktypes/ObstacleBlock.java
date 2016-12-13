@@ -1,4 +1,6 @@
-package block;
+package block.blocktypes;
+
+import block.AbstractBlock;
 
 /**
  * A board object which does not allow the player character to step on or otherwise interact with.

@@ -903,7 +903,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_1.png</myName>
           <myRow>4</myRow>
           <myCol>11</myCol>
@@ -912,13 +912,13 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
-        <block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_2.png</myName>
           <myRow>4</myRow>
           <myCol>12</myCol>
@@ -927,12 +927,12 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -1111,7 +1111,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_1.png</myName>
           <myRow>5</myRow>
           <myCol>10</myCol>
@@ -1120,13 +1120,13 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
-        <block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_2.png</myName>
           <myRow>5</myRow>
           <myCol>11</myCol>
@@ -1135,13 +1135,13 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
-        <block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_1.png</myName>
           <myRow>5</myRow>
           <myCol>12</myCol>
@@ -1150,13 +1150,13 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
-        <block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_2.png</myName>
           <myRow>5</myRow>
           <myCol>13</myCol>
@@ -1165,12 +1165,12 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
@@ -1349,7 +1349,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_1.png</myName>
           <myRow>6</myRow>
           <myCol>11</myCol>
@@ -1358,13 +1358,13 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
-        <block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/bridge-1.1_2.png</myName>
           <myRow>6</myRow>
           <myCol>12</myCol>
@@ -1373,12 +1373,12 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
@@ -1775,7 +1775,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-17-left.png</myName>
           <myRow>8</myRow>
           <myCol>12</myCol>
@@ -1783,7 +1783,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
@@ -1978,7 +1978,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-17-left.png</myName>
           <myRow>9</myRow>
           <myCol>12</myCol>
@@ -1986,7 +1986,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
@@ -2181,7 +2181,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-17-left.png</myName>
           <myRow>10</myRow>
           <myCol>12</myCol>
@@ -2189,7 +2189,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>
@@ -2384,7 +2384,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-17-left.png</myName>
           <myRow>11</myRow>
           <myCol>12</myCol>
@@ -2392,7 +2392,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>11</myRow>
@@ -2587,7 +2587,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/npc-17-left.png</myName>
           <myRow>12</myRow>
           <myCol>12</myCol>
@@ -2595,7 +2595,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>12</myRow>

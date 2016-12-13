@@ -1,5 +1,6 @@
-package block;
+package block.blocktypes;
 
+import block.blocktypes.SwitchBlock;
 import interactions.SwitchInteraction;
 
 /**

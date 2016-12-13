@@ -1477,7 +1477,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/harshilgarg/Documents/schoolwork/cs/cs308/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>7</myRow>
           <myCol>7</myCol>
@@ -1486,13 +1486,13 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
-        <block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/harshilgarg/Documents/schoolwork/cs/cs308/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>7</myRow>
           <myCol>8</myCol>
@@ -1501,12 +1501,12 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
@@ -1903,7 +1903,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/harshilgarg/Documents/schoolwork/cs/cs308/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>9</myRow>
           <myCol>8</myCol>
@@ -1912,12 +1912,12 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
@@ -2104,7 +2104,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.PokemonGiverBlock>
+        <block.blocktypes.PokemonGiverBlock>
           <myName>file:/Users/harshilgarg/Documents/schoolwork/cs/cs308/workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
           <myRow>10</myRow>
           <myCol>7</myCol>
@@ -2113,12 +2113,12 @@
           <myTalkInteractions>
             <interactions.ReceivePokemonInteraction/>
             <interactions.DisappearInteraction>
-              <myBlock class="block.PokemonGiverBlock" reference="../../.."/>
+              <myBlock class="block.blocktypes.PokemonGiverBlock" reference="../../.."/>
               <DEFAULT>resources/images/tiles/ground/grass-1.png</DEFAULT>
             </interactions.DisappearInteraction>
           </myTalkInteractions>
           <hasPokemon>true</hasPokemon>
-        </block.PokemonGiverBlock>
+        </block.blocktypes.PokemonGiverBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>

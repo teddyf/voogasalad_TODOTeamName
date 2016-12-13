@@ -1,4 +1,6 @@
-package block;
+package block.blocktypes;
+
+import block.AbstractBlock;
 
 /**
  * Abstract block class which allows for the player to win by some sort of interaction.

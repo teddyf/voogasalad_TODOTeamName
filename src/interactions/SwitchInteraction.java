@@ -2,7 +2,7 @@ package interactions;
 
 import api.Player;
 import block.BlockUpdate;
-import block.SwitchBlock;
+import block.blocktypes.SwitchBlock;
 
 import java.util.List;
 

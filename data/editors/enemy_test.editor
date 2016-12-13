@@ -4009,7 +4009,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <changed>false</changed>
           <obs/>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
@@ -4019,7 +4019,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <changed>false</changed>
           <obs/>
@@ -4754,7 +4754,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <changed>false</changed>
           <obs/>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
@@ -4764,7 +4764,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <changed>false</changed>
           <obs/>
@@ -4795,7 +4795,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <changed>false</changed>
           <obs/>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
@@ -4805,7 +4805,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <changed>false</changed>
           <obs/>
@@ -5430,7 +5430,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.EnemyBlock>
+        <block.blocktypes.EnemyBlock>
           <changed>false</changed>
           <obs/>
           <myName>file:/Users/Daniel/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/enemy/4-left.png</myName>
@@ -5440,7 +5440,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
           <health>100.0</health>
-        </block.EnemyBlock>
+        </block.blocktypes.EnemyBlock>
         <block.blocktypes.DecorationBlock>
           <changed>false</changed>
           <obs/>

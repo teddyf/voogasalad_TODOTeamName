@@ -233,14 +233,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/Users/filipmazurek/GoogleDrive/Fall_2016/CompSci_308/voogasalad_todoteamname/src/resources/images/tiles/gate/1-CLOSED.png</myName>
           <myRow>1</myRow>
           <myCol>3</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
+        </block.blocktypes.GateBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
@@ -435,22 +435,22 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.SwitchFloorBlock>
+        <block.blocktypes.SwitchFloorBlock>
           <myName>file:/Users/filipmazurek/GoogleDrive/Fall_2016/CompSci_308/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-3-OFF.png</myName>
           <myRow>2</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions>
             <interactions.SwitchInteraction>
-              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+              <mySwitchBlock class="block.blocktypes.SwitchFloorBlock" reference="../../.."/>
             </interactions.SwitchInteraction>
           </myStepInteractions>
           <myTalkInteractions/>
           <myGates>
-            <block.GateBlock reference="../../../../block.Block-array[2]/block.GateBlock"/>
+            <block.blocktypes.GateBlock reference="../../../../block.Block-array[2]/block.blocktypes.GateBlock"/>
           </myGates>
           <onPosition>false</onPosition>
-        </block.SwitchFloorBlock>
+        </block.blocktypes.SwitchFloorBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>

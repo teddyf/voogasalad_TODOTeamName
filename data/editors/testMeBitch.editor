@@ -31,20 +31,20 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.SwitchFloorBlock>
+        <block.blocktypes.SwitchFloorBlock>
           <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
           <myRow>0</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions>
             <interactions.SwitchInteraction>
-              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+              <mySwitchBlock class="block.blocktypes.SwitchFloorBlock" reference="../../.."/>
             </interactions.SwitchInteraction>
           </myStepInteractions>
           <myTalkInteractions/>
           <myGates/>
           <onPosition>false</onPosition>
-        </block.SwitchFloorBlock>
+        </block.blocktypes.SwitchFloorBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
@@ -425,20 +425,20 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.SwitchFloorBlock>
+        <block.blocktypes.SwitchFloorBlock>
           <myName>file:/Users/theodorefranceschi/Documents/workspace/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-1-OFF.png</myName>
           <myRow>2</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions>
             <interactions.SwitchInteraction>
-              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+              <mySwitchBlock class="block.blocktypes.SwitchFloorBlock" reference="../../.."/>
             </interactions.SwitchInteraction>
           </myStepInteractions>
           <myTalkInteractions/>
           <myGates/>
           <onPosition>false</onPosition>
-        </block.SwitchFloorBlock>
+        </block.blocktypes.SwitchFloorBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>

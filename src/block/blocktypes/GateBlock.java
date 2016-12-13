@@ -1,4 +1,8 @@
-package block;
+package block.blocktypes;
+
+import block.AbstractBlock;
+import block.BlockUpdate;
+import block.BlockUpdateType;
 
 /**
  * A special type of block which may be connected to a switch. On player interaction with a switch, the gate will change

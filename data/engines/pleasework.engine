@@ -233,29 +233,29 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.SwitchFloorBlock>
+        <block.blocktypes.SwitchFloorBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
           <myRow>1</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions>
             <interactions.SwitchInteraction>
-              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+              <mySwitchBlock class="block.blocktypes.SwitchFloorBlock" reference="../../.."/>
             </interactions.SwitchInteraction>
           </myStepInteractions>
           <myTalkInteractions/>
           <myGates>
-            <block.GateBlock>
+            <block.blocktypes.GateBlock>
               <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/gate/1-CLOSED.png</myName>
               <myRow>1</myRow>
               <myCol>9</myCol>
               <isWalkable>false</isWalkable>
               <myStepInteractions/>
               <myTalkInteractions/>
-            </block.GateBlock>
+            </block.blocktypes.GateBlock>
           </myGates>
           <onPosition>false</onPosition>
-        </block.SwitchFloorBlock>
+        </block.blocktypes.SwitchFloorBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
@@ -296,7 +296,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GateBlock reference="../block.SwitchFloorBlock/myGates/block.GateBlock"/>
+        <block.blocktypes.GateBlock reference="../block.blocktypes.SwitchFloorBlock/myGates/block.blocktypes.GateBlock"/>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
@@ -895,7 +895,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.TeleportBlock>
+        <block.blocktypes.TeleportBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/teleport/portal-1.png</myName>
           <myRow>4</myRow>
           <myCol>9</myCol>
@@ -923,7 +923,7 @@
             <myTalkInteractions/>
             <myReceiveBlock reference="../.."/>
           </myReceiveBlock>
-        </block.TeleportBlock>
+        </block.blocktypes.TeleportBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -1280,7 +1280,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.NPCBlock>
+        <block.blocktypes.NPCBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/npc/npc-11-down.png</myName>
           <myRow>6</myRow>
           <myCol>4</myCol>
@@ -1298,7 +1298,7 @@
           </myTalkInteractions>
           <myMessage>filip</myMessage>
           <myDirection>DOWN</myDirection>
-        </block.NPCBlock>
+        </block.blocktypes.NPCBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
@@ -1873,7 +1873,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.TeleportBlock reference="../../block.Block-array[5]/block.TeleportBlock/myReceiveBlock"/>
+        <block.blocktypes.TeleportBlock reference="../../block.Block-array[5]/block.blocktypes.TeleportBlock/myReceiveBlock"/>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>

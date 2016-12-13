@@ -211,7 +211,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.WinTalkBlock>
+        <block.blocktypes.WinTalkBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/win_talk/statue-1.1_1.png</myName>
           <myRow>2</myRow>
           <myCol>5</myCol>
@@ -220,7 +220,7 @@
           <myTalkInteractions>
             <interactions.WinInteraction/>
           </myTalkInteractions>
-        </block.WinTalkBlock>
+        </block.blocktypes.WinTalkBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
@@ -295,7 +295,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.WinTalkBlock>
+        <block.blocktypes.WinTalkBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/win_talk/statue-1.2_1.png</myName>
           <myRow>3</myRow>
           <myCol>5</myCol>
@@ -304,7 +304,7 @@
           <myTalkInteractions>
             <interactions.WinInteraction/>
           </myTalkInteractions>
-        </block.WinTalkBlock>
+        </block.blocktypes.WinTalkBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>

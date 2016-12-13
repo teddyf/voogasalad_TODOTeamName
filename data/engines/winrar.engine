@@ -4349,7 +4349,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.WinTalkBlock>
+        <block.blocktypes.WinTalkBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/win_talk/winpost.1_1.png</myName>
           <myRow>15</myRow>
           <myCol>14</myCol>
@@ -4358,7 +4358,7 @@
           <myTalkInteractions>
             <interactions.WinInteraction/>
           </myTalkInteractions>
-        </block.WinTalkBlock>
+        </block.blocktypes.WinTalkBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>15</myRow>
@@ -4633,7 +4633,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.WinTalkBlock>
+        <block.blocktypes.WinTalkBlock>
           <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/win_talk/winpost.2_1.png</myName>
           <myRow>16</myRow>
           <myCol>14</myCol>
@@ -4642,7 +4642,7 @@
           <myTalkInteractions>
             <interactions.WinInteraction/>
           </myTalkInteractions>
-        </block.WinTalkBlock>
+        </block.blocktypes.WinTalkBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>16</myRow>

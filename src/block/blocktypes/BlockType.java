@@ -1,4 +1,4 @@
-package block;
+package block.blocktypes;
 
 /**
  * Enumeration to allow easier communication between the front end and the back end. Specifies the exact types of blocks
@@ -12,6 +12,7 @@ public enum BlockType {
     ENEMY,
     GATE,
     GROUND,
+    ITEM,
     ITEM_KEY,
     NPC,
     OBSTACLE,

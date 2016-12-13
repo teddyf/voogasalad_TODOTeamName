@@ -1889,30 +1889,30 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
-        <block.GateBlock>
+        </block.blocktypes.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
-        <block.GateBlock>
+        </block.blocktypes.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
+        </block.blocktypes.GateBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
@@ -2091,30 +2091,30 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
-        <block.GateBlock>
+        </block.blocktypes.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
-        <block.GateBlock>
+        </block.blocktypes.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
+        </block.blocktypes.GateBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>10</myRow>
@@ -2503,24 +2503,24 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.SwitchFloorBlock>
+        <block.blocktypes.SwitchFloorBlock>
           <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
           <myRow>12</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions>
             <interactions.SwitchInteraction>
-              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+              <mySwitchBlock class="block.blocktypes.SwitchFloorBlock" reference="../../.."/>
             </interactions.SwitchInteraction>
           </myStepInteractions>
           <myTalkInteractions/>
           <myGates>
-            <block.GateBlock reference="../../../../block.Block-array[11]/block.GateBlock"/>
-            <block.GateBlock reference="../../../../block.Block-array[10]/block.GateBlock[2]"/>
-            <block.GateBlock reference="../../../../block.Block-array[11]/block.GateBlock[3]"/>
+            <block.blocktypes.GateBlock reference="../../../../block.Block-array[11]/block.blocktypes.GateBlock"/>
+            <block.blocktypes.GateBlock reference="../../../../block.Block-array[10]/block.blocktypes.GateBlock[2]"/>
+            <block.blocktypes.GateBlock reference="../../../../block.Block-array[11]/block.blocktypes.GateBlock[3]"/>
           </myGates>
           <onPosition>false</onPosition>
-        </block.SwitchFloorBlock>
+        </block.blocktypes.SwitchFloorBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>12</myRow>

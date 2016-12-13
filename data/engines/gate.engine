@@ -31,22 +31,22 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GateBlock>
+        <block.blocktypes.GateBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/gate/1-CLOSED.png</myName>
           <myRow>0</myRow>
           <myCol>3</myCol>
           <isWalkable>false</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GateBlock>
-        <block.GroundBlock>
+        </block.blocktypes.GateBlock>
+        <block.blocktypes.GroundBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>0</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GroundBlock>
+        </block.blocktypes.GroundBlock>
       </api.Block-array>
       <api.Block-array>
         <block.blocktypes.DecorationBlock>
@@ -81,14 +81,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GroundBlock>
+        <block.blocktypes.GroundBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>1</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GroundBlock>
+        </block.blocktypes.GroundBlock>
       </api.Block-array>
       <api.Block-array>
         <block.blocktypes.DecorationBlock>
@@ -123,14 +123,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GroundBlock>
+        <block.blocktypes.GroundBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>2</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GroundBlock>
+        </block.blocktypes.GroundBlock>
       </api.Block-array>
       <api.Block-array>
         <block.blocktypes.DecorationBlock>
@@ -141,22 +141,22 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.SwitchFloorBlock>
+        <block.blocktypes.SwitchFloorBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-1-OFF.png</myName>
           <myRow>3</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions>
             <interactions.SwitchInteraction>
-              <mySwitchBlock class="block.SwitchFloorBlock" reference="../../.."/>
+              <mySwitchBlock class="block.blocktypes.SwitchFloorBlock" reference="../../.."/>
             </interactions.SwitchInteraction>
           </myStepInteractions>
           <myTalkInteractions/>
           <myGates>
-            <block.GateBlock reference="../../../../api.Block-array/block.GateBlock"/>
+            <block.blocktypes.GateBlock reference="../../../../api.Block-array/block.blocktypes.GateBlock"/>
           </myGates>
           <onPosition>false</onPosition>
-        </block.SwitchFloorBlock>
+        </block.blocktypes.SwitchFloorBlock>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
@@ -173,14 +173,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GroundBlock>
+        <block.blocktypes.GroundBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>3</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GroundBlock>
+        </block.blocktypes.GroundBlock>
       </api.Block-array>
       <api.Block-array>
         <block.blocktypes.DecorationBlock>
@@ -215,14 +215,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-        <block.GroundBlock>
+        <block.blocktypes.GroundBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/ground/dirt-1.png</myName>
           <myRow>4</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.GroundBlock>
+        </block.blocktypes.GroundBlock>
       </api.Block-array>
     </grid>
     <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>
