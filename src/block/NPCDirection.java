@@ -1,7 +1,7 @@
 package block;
 
 /**
- * A terrible enum because of front end.
+ * An enum because of front end's naming preferences.
  *
  * @author Filip Mazurek
  */
