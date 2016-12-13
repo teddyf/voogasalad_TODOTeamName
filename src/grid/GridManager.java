@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import api.Block;
 import block.*;
+import block.blocktypes.CommunicatorBlock;
 import exceptions.*;
 import player.PlayerBlockUpdate;
 import player.PlayerUpdate;

@@ -2,7 +2,7 @@ package player;
 
 import api.Player;
 import api.Block;
-import block.DecorationBlock;
+import block.blocktypes.DecorationBlock;
 import exceptions.*;
 import grid.Grid;
 import grid.GridManager;

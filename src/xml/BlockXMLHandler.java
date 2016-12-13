@@ -1,7 +1,7 @@
 package xml;
 
 import api.Block;
-import block.DecorationBlock;
+import block.blocktypes.DecorationBlock;
 import block.EnemyBlock;
 import block.GateBlock;
 import block.ObstacleBlock;

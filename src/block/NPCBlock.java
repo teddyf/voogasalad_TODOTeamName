@@ -1,5 +1,6 @@
 package block;
 
+import block.blocktypes.CommunicatorBlock;
 import interactions.NPCTurnToFaceInteraction;
 
 /**

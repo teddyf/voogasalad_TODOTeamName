@@ -7,194 +7,194 @@
       <myNumRows>10</myNumRows>
       <myNumCols>10</myNumCols>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
         <block.NPCBlock>
           <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/npc/npc-10-down.png</myName>
           <myRow>2</myRow>
@@ -214,628 +214,628 @@
           <myMessage>hello</myMessage>
           <myDirection>DOWN</myDirection>
         </block.NPCBlock>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>5</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>6</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>7</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>8</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
       <block.Block-array>
-        <block.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
-        <block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>9</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
-        </block.DecorationBlock>
+        </block.blocktypes.DecorationBlock>
       </block.Block-array>
     </grid>
     <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>

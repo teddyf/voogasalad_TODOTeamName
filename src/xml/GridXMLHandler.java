@@ -11,7 +11,6 @@ import java.io.IOException;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
-import player.PlayerInstance;
 
 /**
  * Handles saving a GridManager and Player to XML.
@@ -59,7 +58,7 @@ public class GridXMLHandler {
 		xstream.processAnnotations(GridWorldAndPlayer.class);
 		xstream.processAnnotations(GridWorld.class);
 		xstream.processAnnotations(Grid.class);
-		xstream.processAnnotations(PlayerInstance.class);
+		xstream.processAnnotations(Player.class);
 		
 		BlockAliasFactory factory = new BlockAliasFactory(xstream);
 		//factory.setAlias();

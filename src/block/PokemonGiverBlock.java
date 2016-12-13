@@ -1,7 +1,7 @@
 package block;
 
+import block.blocktypes.CommunicatorBlock;
 import interactions.DisappearInteraction;
-import interactions.Interaction;
 import interactions.ReceivePokemonInteraction;
 
 /**

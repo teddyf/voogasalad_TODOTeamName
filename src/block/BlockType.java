@@ -12,6 +12,7 @@ public enum BlockType {
     ENEMY,
     GATE,
     GROUND,
+    ITEM_KEY,
     NPC,
     OBSTACLE,
     POKEMON_GIVER,
@@ -20,6 +21,4 @@ public enum BlockType {
     TELEPORT,
     WIN_STEP,
     WIN_TALK,
-
-    ITEM_KEY
 }

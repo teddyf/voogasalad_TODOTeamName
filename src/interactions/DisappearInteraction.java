@@ -4,7 +4,7 @@ import api.Block;
 import api.Player;
 import block.BlockUpdate;
 import block.BlockUpdateType;
-import block.DecorationBlock;
+import block.blocktypes.DecorationBlock;
 import java.util.ArrayList;
 import java.util.List;
 
