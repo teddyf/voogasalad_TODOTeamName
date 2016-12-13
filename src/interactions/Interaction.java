@@ -2,7 +2,6 @@ package interactions;
 
 import block.BlockUpdate;
 import player.Player;
-
 import java.io.Serializable;
 import java.util.List;
 
