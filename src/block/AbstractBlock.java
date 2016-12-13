@@ -22,7 +22,6 @@ public abstract class AbstractBlock implements Block {
     private boolean isWalkable;
     private List<Interaction> myStepInteractions;
     private List<Interaction> myTalkInteractions;
-    private String myMessage;
 
     public AbstractBlock(String name, int row, int col) {
         myName = name;
@@ -106,14 +105,6 @@ public abstract class AbstractBlock implements Block {
 
     public boolean removeTalkInteraction(Interaction talkInteraction) {
         return myTalkInteractions.remove(talkInteraction);
-    }
-
-    public String getMessage() {
-        return myMessage;
-    }
-
-    public void setMessage(String message){
-        this.myMessage = message;
     }
 
     public void setWalkableStatus(boolean status) {

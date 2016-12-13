@@ -110,11 +110,7 @@ public interface Block extends Serializable {
 
     List<Interaction> getTalkInteractions();
 
-    String getMessage();
-
     /* SETTERS */
-
-    void setMessage(String message);
 
     void setWalkableStatus(boolean status);
 }
