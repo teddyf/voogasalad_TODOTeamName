@@ -2,9 +2,9 @@ package player;
 
 import api.Player;
 import api.Block;
+import api.Grid;
 import block.blocktypes.DecorationBlock;
 import exceptions.*;
-import grid.Grid;
 import grid.GridManager;
 import java.util.List;
 import java.util.Observer;

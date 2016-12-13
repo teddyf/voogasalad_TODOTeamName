@@ -1,9 +1,8 @@
 package xml;
 
 import api.Player;
-import grid.Grid;
+import api.Grid;
 import grid.GridWorld;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

@@ -1,12 +1,12 @@
 package engine;
 
 import api.Block;
+import api.Grid;
 import api.IGameInstance;
 import api.Player;
 import battle.BattleHandler;
 import battle.model.Difficulty;
 import block.*;
-import grid.Grid;
 import grid.GridManager;
 import grid.GridWorld;
 import javafx.scene.control.ChoiceDialog;

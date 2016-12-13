@@ -3,7 +3,6 @@ package api;
 import block.BlockUpdate;
 import engine.UserInstruction;
 import engine.GameStatus;
-import grid.Grid;
 
 import java.util.List;
 

@@ -6,7 +6,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * The block interface
+ * The block interface, the general type of object which may be placed on the board (back end representation).
+ *
  * @author Aninda Manocha, Filip Mazurek
  */
 

@@ -1,6 +1,5 @@
 package ui.scenes.editor.objects;
 
-import grid.Grid;
 import ui.GridPaneNode;
 import block.BlockType;
 
