@@ -1,6 +1,6 @@
 package xml;
 
-import grid.GridInstance;
+import api.Grid;
 import grid.GridWorld;
 import player.Player;
 import java.io.BufferedWriter;
@@ -56,7 +56,7 @@ public class GridXMLHandler {
 	private void initXStream() {
 		xstream.processAnnotations(GridWorldAndPlayer.class);
 		xstream.processAnnotations(GridWorld.class);
-		xstream.processAnnotations(GridInstance.class);
+		xstream.processAnnotations(Grid.class);
 		xstream.processAnnotations(Player.class);
 		
 		BlockAliasFactory factory = new BlockAliasFactory(xstream);
