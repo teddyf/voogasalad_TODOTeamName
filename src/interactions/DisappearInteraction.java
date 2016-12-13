@@ -1,11 +1,10 @@
 package interactions;
 
-import block.Block;
+import api.Block;
+import api.Player;
 import block.BlockUpdate;
 import block.BlockUpdateType;
 import block.DecorationBlock;
-import player.PlayerInstance;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class DisappearInteraction implements Interaction {
     }
 
     @Override
-    public List<BlockUpdate> act(PlayerInstance player) {
+    public List<BlockUpdate> act(Player player) {
         List<BlockUpdate> updatesList = new ArrayList<>();
         int myRow = myBlock.getRow();
         int myCol = myBlock.getCol();

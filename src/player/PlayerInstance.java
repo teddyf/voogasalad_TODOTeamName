@@ -19,9 +19,6 @@ import interactions.Interaction;
 
 @XStreamAlias("player")
 public class PlayerInstance implements Player {
-
-    @XStreamOmitField
-	public static final int DEFAULT_HEALTH = 100;
 	
 	@XStreamOmitField
 	public static final int DEFAULT_NUM_POKEMON = 3;
@@ -57,7 +54,7 @@ public class PlayerInstance implements Player {
         numPokemon = DEFAULT_NUM_POKEMON;
 	}
 
-	public PlayerInstance(PlayerInstance player) {
+	public PlayerInstance(Player player) {
         myNames = player.getNames();
         myPlayerName = player.getPlayerName();
         myRow = player.getRow();

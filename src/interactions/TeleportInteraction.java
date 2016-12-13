@@ -1,8 +1,8 @@
 package interactions;
 
+import api.Player;
 import block.BlockUpdate;
 import block.BlockUpdateType;
-import player.PlayerInstance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class TeleportInteraction implements Interaction {
     }
 
     @Override
-    public List<BlockUpdate> act(PlayerInstance player) {
+    public List<BlockUpdate> act(Player player) {
         List<BlockUpdate> updateList = new ArrayList<>();
         updateList.add(new BlockUpdate(BlockUpdateType.TELEPORT, myDestinationRow - player.getRow(), myDestinationCol - player.getCol(), "teleport"));
         player.setRow(myDestinationRow);

@@ -1,8 +1,8 @@
 package interactions;
 
+import api.Player;
 import block.BlockUpdate;
 import block.SwitchBlock;
-import player.PlayerInstance;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class SwitchInteraction implements Interaction{
         mySwitchBlock = switchBlock;
     }
 
-    public List<BlockUpdate> act(PlayerInstance player) {
+    public List<BlockUpdate> act(Player player) {
         return mySwitchBlock.toggleGates();
     }
 }

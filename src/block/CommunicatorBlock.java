@@ -7,7 +7,7 @@ import interactions.MessageInteraction;
  *
  * @author Filip Mazurek, Aninda Manocha
  */
-public class CommunicatorBlock extends Block {
+public class CommunicatorBlock extends AbstractBlock {
 
     private String myMessage;
 

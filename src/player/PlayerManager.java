@@ -1,18 +1,14 @@
 package player;
 
 import api.Player;
-import block.Block;
+import api.Block;
 import block.DecorationBlock;
-import exceptions.BadPlayerPlacementException;
-import exceptions.DuplicateAttributeException;
-import exceptions.DuplicatePlayerException;
-import exceptions.NoPlayerException;
+import exceptions.*;
 import grid.Grid;
 import grid.GridManager;
-
 import java.util.List;
-import java.util.Observable;
 import java.util.Observer;
+import java.util.Observable;
 
 /**
  * This class manages the player in the editor or engine

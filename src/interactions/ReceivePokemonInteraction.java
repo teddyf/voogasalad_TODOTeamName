@@ -1,7 +1,7 @@
 package interactions;
 
+import api.Player;
 import block.BlockUpdate;
-import player.PlayerInstance;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ReceivePokemonInteraction implements Interaction {
 
-    public List<BlockUpdate> act(PlayerInstance player) {
+    public List<BlockUpdate> act(Player player) {
         player.incrementNumPokemon();
         return new ArrayList<>();
     }

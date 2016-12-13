@@ -1,22 +1,22 @@
 package battle;
 
+import api.Player;
 import battle.controller.BattleController;
 import battle.model.BattleModel;
 import battle.model.Difficulty;
 import battle.view.BattleView;
 import block.EnemyBlock;
 import javafx.stage.Stage;
-import player.PlayerInstance;
 
 /**
  * Created by Bill Xiong on 12/12/16.
  * @author Bill Xiong
  */
 public class BattleHandler {
-    private PlayerInstance player;
+    private Player player;
     private EnemyBlock enemyBlock;
 
-    public BattleHandler(PlayerInstance p, EnemyBlock e){
+    public BattleHandler(Player p, EnemyBlock e){
         player = p;
         enemyBlock = e;
     }

@@ -8,7 +8,7 @@ import java.util.Set;
  * 
  * @author Ryan Anders
  */
-public abstract class ItemBlock extends Block {
+public abstract class ItemBlock extends AbstractBlock {
 	private Set<GateBlock> myGates;
 
 	public ItemBlock(String name, int row, int col) {

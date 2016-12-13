@@ -1,8 +1,8 @@
 package xml;
 
+import api.Player;
 import grid.Grid;
 import grid.GridWorld;
-import player.PlayerInstance;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import player.PlayerInstance;
 
 /**
  * Handles saving a GridManager and Player to XML.
@@ -30,7 +31,7 @@ public class GridXMLHandler {
 	 * Saves the XML file representing a GridManager and Player.
 	 * Returns the success/failure of the operation.
 	 */
-	public boolean saveContents(String filePath, GridWorld gridWorld, PlayerInstance player) {
+	public boolean saveContents(String filePath, GridWorld gridWorld, Player player) {
 		String fileContent = xstream.toXML(new GridWorldAndPlayer(gridWorld, player));
 		
 		try { 

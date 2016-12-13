@@ -5,7 +5,7 @@ package block;
  *
  * @author Filip Mazurek, Aninda Manocha
  */
-public class DecorationBlock extends Block {
+public class DecorationBlock extends AbstractBlock {
 
 	public DecorationBlock(String name, int row, int col) {
 		super(name, row, col);

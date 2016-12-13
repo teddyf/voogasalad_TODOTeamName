@@ -2,16 +2,19 @@ package api;
 import java.util.List;
 
 import battle.Battle;
-import interactions.Interaction;
 import battle.Item;
+import interactions.Interaction;
 import player.PlayerAttribute;
 import player.PlayerDirection;
+
 /**
  * The player interface
  * @author Aninda Manocha
  */
 
 public interface Player {
+
+    int DEFAULT_HEALTH = 100;
 
     /* GETTERS */
 

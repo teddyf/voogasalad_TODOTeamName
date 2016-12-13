@@ -1,6 +1,7 @@
 package editor;
 
 import api.IEditorController;
+import api.Player;
 import block.BlockType;
 import engine.EngineController;
 import exceptions.*;
@@ -198,7 +199,7 @@ public class EditorController implements IEditorController {
 
     public EngineController runEngine() {
         try {
-            PlayerInstance testPlayer = new PlayerInstance(myPlayerManager.getPlayer());
+            Player testPlayer = new PlayerInstance(myPlayerManager.getPlayer());
             GridManager testGridManager = myGridManager.deepClone();
             EngineController testEngineController = new EngineController(testPlayer, myGridManager, testGridManager.getMusic());
             myGridManager = testGridManager;

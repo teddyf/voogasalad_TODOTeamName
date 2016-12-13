@@ -4,7 +4,6 @@ import block.BlockUpdate;
 import engine.UserInstruction;
 import engine.GameStatus;
 import grid.Grid;
-import player.PlayerInstance;
 
 import java.util.List;
 
@@ -43,7 +42,7 @@ public interface IGameInstance {
 	 * Gets the player character
 	 * @return the player character
 	 */
-	PlayerInstance getPlayer();
+	Player getPlayer();
 
 	/**
 	 * Gets the score of the game

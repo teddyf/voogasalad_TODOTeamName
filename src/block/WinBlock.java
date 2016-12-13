@@ -5,7 +5,7 @@ package block;
  *
  * @author Filip Mazurek
  */
-public abstract class WinBlock extends Block {
+public abstract class WinBlock extends AbstractBlock {
     public WinBlock(String name,  int row, int col) {
         super(name, row, col);
     }

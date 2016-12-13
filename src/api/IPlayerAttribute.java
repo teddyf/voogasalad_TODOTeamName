@@ -1,8 +1,10 @@
 package api;
+
 /**
  * The interface for the player attribute class.
  * @author Aninda Manocha
  */
+
 public interface IPlayerAttribute {
     /**
      * Increases the amount of the attribute

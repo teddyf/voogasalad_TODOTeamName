@@ -5,7 +5,7 @@ package block;
  *
  * @author Filip Mazurek
  */
-public class ObstacleBlock extends Block {
+public class ObstacleBlock extends AbstractBlock {
 
     public ObstacleBlock(String name, int row, int col) {
         super(name, row, col);

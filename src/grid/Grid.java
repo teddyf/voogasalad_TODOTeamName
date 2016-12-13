@@ -1,5 +1,6 @@
 package grid;
 
+import api.Block;
 import api.IGrid;
 import block.*;
 import java.util.Observable;

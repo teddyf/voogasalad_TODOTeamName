@@ -1,6 +1,8 @@
 package engine;
 
+import api.Block;
 import api.IGameInstance;
+import api.Player;
 import battle.BattleHandler;
 import battle.model.Difficulty;
 import block.*;
@@ -8,7 +10,6 @@ import grid.Grid;
 import grid.GridManager;
 import grid.GridWorld;
 import javafx.scene.control.ChoiceDialog;
-import player.PlayerInstance;
 import player.PlayerDirection;
 import player.PlayerUpdate;
 import xml.GridXMLHandler;
@@ -33,13 +34,13 @@ public class GameInstance extends Observable implements IGameInstance {
     private GridXMLHandler xmlHandler;
     private GridManager myGridManager;
     private Grid myGrid;
-    private PlayerInstance myPlayer;
+    private Player myPlayer;
 
     private int myScore;
     private GameStatus myStatus;
     private List<BlockUpdate> blockUpdates;
 
-    public GameInstance(PlayerInstance player, GridManager gridManager) {
+    public GameInstance(Player player, GridManager gridManager) {
         xmlHandler = new GridXMLHandler();
         myGridManager = gridManager;
         myGrid = myGridManager.getCurrentGrid();
@@ -220,7 +221,7 @@ public class GameInstance extends Observable implements IGameInstance {
         return myGrid;
     }
 
-    public PlayerInstance getPlayer() {
+    public Player getPlayer() {
         return myPlayer;
     }
 
