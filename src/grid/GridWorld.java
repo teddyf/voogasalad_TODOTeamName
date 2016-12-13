@@ -19,7 +19,7 @@ public class GridWorld {
 	private String myMusicFile;
 
     public GridWorld(GridManager gridManager, String musicFile) {
-        myGrids = gridManager.getGrids();
+        myGrids = gridManager.getGridList();
         myMusicFile = musicFile;
     }
 

@@ -6,7 +6,7 @@
       <myIndex>0</myIndex>
       <myNumRows>5</myNumRows>
       <myNumCols>5</myNumCols>
-      <block.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
@@ -47,8 +47,8 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
+      </api.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
@@ -89,8 +89,8 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
+      </api.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
@@ -100,7 +100,7 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -108,7 +108,7 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -116,7 +116,7 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -131,8 +131,8 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
+      </api.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
@@ -142,7 +142,7 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/anindamanocha/Desktop/ANINDA/Duke/CS308/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -173,8 +173,8 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
+      </api.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -215,7 +215,7 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
+      </api.Block-array>
     </grid>
     <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>
   </gridWorld>
