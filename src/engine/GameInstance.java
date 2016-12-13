@@ -13,6 +13,7 @@ import grid.GridManager;
 import grid.GridWorld;
 import javafx.scene.control.ChoiceDialog;
 import player.PlayerDirection;
+import player.PlayerManager;
 import player.PlayerUpdate;
 import xml.GridXMLHandler;
 
@@ -28,13 +29,9 @@ import java.util.Observable;
 
 public class GameInstance extends Observable implements IGameInstance {
 
-    private static final PlayerDirection NORTH = PlayerDirection.NORTH;
-    private static final PlayerDirection SOUTH = PlayerDirection.SOUTH;
-    private static final PlayerDirection EAST = PlayerDirection.EAST;
-    private static final PlayerDirection WEST = PlayerDirection.WEST;
-
     private GridXMLHandler xmlHandler;
     private GridManager myGridManager;
+    private PlayerManager myPlayerManager;
     private Grid myGrid;
     private Player myPlayer;
 
@@ -46,6 +43,8 @@ public class GameInstance extends Observable implements IGameInstance {
         xmlHandler = new GridXMLHandler();
         myGridManager = gridManager;
         myGrid = myGridManager.getCurrentGrid();
+        myPlayerManager = new PlayerManager(myGrid);
+        myPlayerManager.setPlayer(player);
         myPlayer = player;
         myScore = 0;
         myStatus = new GameStatus();
@@ -65,28 +64,28 @@ public class GameInstance extends Observable implements IGameInstance {
 
         switch (input) {
             case UP:
-                if(direction == NORTH) {
+                if(direction == PlayerDirection.NORTH) {
                     playerUpdate = handleMovement(row-1, col, PlayerUpdate.ROW);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.NORTH);
                 }
                 break;
             case DOWN:
-                if(direction == SOUTH) {
+                if(direction == PlayerDirection.SOUTH) {
                     playerUpdate = handleMovement(row+1, col, PlayerUpdate.ROW);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.SOUTH);
                 }
                 break;
             case RIGHT:
-                if(direction == EAST) {
+                if(direction == PlayerDirection.EAST) {
                     playerUpdate = handleMovement(row, col+1, PlayerUpdate.COLUMN);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.EAST);
                 }
                 break;
             case LEFT:
-                if(direction == WEST) {
+                if(direction == PlayerDirection.WEST) {
                     playerUpdate = handleMovement(row, col-1, PlayerUpdate.COLUMN);
                 } else {
                     playerUpdate = handleDirection(PlayerDirection.WEST);
@@ -227,6 +226,34 @@ public class GameInstance extends Observable implements IGameInstance {
         return myPlayer;
     }
 
+    public List<String> getPlayerNames() {
+        return myPlayerManager.getNames();
+    }
+
+    public String getPlayerName() {
+        return myPlayerManager.getPlayerName();
+    }
+
+    public int getPlayerRow() {
+        return myPlayerManager.getRow();
+    }
+
+    public int getPlayerColumn() {
+        return myPlayerManager.getCol();
+    }
+
+    public PlayerDirection getPlayerDirection() {
+        return myPlayerManager.getDirection();
+    }
+
+    public double getPlayerHealth() {
+        return myPlayerManager.getHealth();
+    }
+
+    public int getPlayerNumPokemon() {
+        return myPlayerManager.getNumPokemon();
+    }
+
     public int getScore() {
         return myScore;
     }
@@ -240,6 +267,6 @@ public class GameInstance extends Observable implements IGameInstance {
     }
 
     public void setMusic(String file) {
-        myGridManager.setMusic(file);
+        myGridManager.addMusic(file);
     }
 }

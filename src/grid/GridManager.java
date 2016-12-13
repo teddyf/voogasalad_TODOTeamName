@@ -70,6 +70,10 @@ public class GridManager extends Observable implements Serializable {
         return checkShrink(direction, amount, playerRow, playerColumn);
     }
 
+    /**
+     * Sets the name of the music file
+     * @param file - the file name
+     */
     public void addMusic(String file) {
         musicFile = file;
     }
@@ -250,7 +254,7 @@ public class GridManager extends Observable implements Serializable {
             newGridManager.addGrid(tempGrid);
         }
         newGridManager.changeGrid(0);
-        newGridManager.setMusic(musicFile);
+        newGridManager.addMusic(musicFile);
         return newGridManager;
     }
 
@@ -296,15 +300,5 @@ public class GridManager extends Observable implements Serializable {
      */
     public String getMusic() {
         return musicFile;
-    }
-
-    /* SETTERS */
-
-    /**
-     * Sets the name of the music file
-     * @param file - the file name
-     */
-    public void setMusic(String file) {
-        musicFile = file;
     }
 }
