@@ -1,7 +1,7 @@
 package ui.scenes.editor.objects;
 
 import ui.GridPaneNode;
-import block.BlockType;
+import block.blocktypes.BlockType;
 
 /**
  * Created by Harshil Garg on 12/7/16.

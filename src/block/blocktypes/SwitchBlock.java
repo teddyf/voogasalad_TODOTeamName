@@ -1,6 +1,11 @@
-package block;
+package block.blocktypes;
 
 import api.Block;
+import block.AbstractBlock;
+import block.BlockUpdate;
+import block.BlockUpdateType;
+import block.blocktypes.GateBlock;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

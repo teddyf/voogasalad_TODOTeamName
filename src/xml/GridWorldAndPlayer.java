@@ -1,9 +1,8 @@
 package xml;
 
+import api.Player;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import grid.GridWorld;
-import player.Player;
 
 /**
  * Wrapper class on a GridManager and Player used for XStream.

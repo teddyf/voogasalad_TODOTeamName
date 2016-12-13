@@ -1,4 +1,4 @@
-package block;
+package block.blocktypes;
 
 import interactions.WinInteraction;
 

@@ -1,4 +1,6 @@
-package block;
+package block.blocktypes;
+
+import block.AbstractBlock;
 
 /**
  * A board object which should have no interaction with the player character.

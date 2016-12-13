@@ -1,12 +1,12 @@
 package xml;
 
 import api.Block;
-import block.DecorationBlock;
-import block.EnemyBlock;
-import block.GateBlock;
-import block.ObstacleBlock;
-import block.SwitchFloorBlock;
-import block.SwitchTouchBlock;
+import block.blocktypes.DecorationBlock;
+import block.blocktypes.EnemyBlock;
+import block.blocktypes.GateBlock;
+import block.blocktypes.ObstacleBlock;
+import block.blocktypes.SwitchFloorBlock;
+import block.blocktypes.SwitchTouchBlock;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 

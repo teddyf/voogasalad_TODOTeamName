@@ -1,4 +1,7 @@
-package block;
+package block.blocktypes;
+
+import block.AbstractBlock;
+import block.blocktypes.GateBlock;
 
 import java.util.HashSet;
 import java.util.Set;

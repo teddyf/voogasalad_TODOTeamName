@@ -2,9 +2,10 @@ package grid;
 
 import api.Block;
 import api.Grid;
-import block.*;
 import java.util.Observable;
 import java.util.ResourceBundle;
+
+import block.blocktypes.DecorationBlock;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;

@@ -5,10 +5,9 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import api.IEngineController;
+import api.Player;
 import block.BlockUpdate;
 import grid.GridManager;
-import player.Player;
 import player.PlayerDirection;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
@@ -19,7 +18,7 @@ import xml.GridXMLHandler;
  * @author Aninda Manocha, Nisakorn Valyasevi
  */
 
-public class EngineController extends Observable implements Observer, IEngineController {
+public class EngineController extends Observable implements Observer, api.EngineController {
     private GridXMLHandler xmlHandler;
     private List<GameInstance> gameInstances;
     private GameInstance gameInstance;
@@ -96,7 +95,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
     }
 
     public List<String> getPlayerImages() {
-        return gameInstance.getPlayer().getMyNames();
+        return gameInstance.getPlayer().getNames();
     }
 
     public void keyListener(UserInstruction input) {
