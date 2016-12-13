@@ -1,9 +1,9 @@
 package api;
 import java.util.List;
 
-import editor.backend.Battle;
+import battle.Battle;
 import interactions.Interaction;
-import editor.backend.Item;
+import battle.Item;
 import player.PlayerAttribute;
 import player.PlayerDirection;
 /**
@@ -11,9 +11,9 @@ import player.PlayerDirection;
  * @author Aninda Manocha
  */
 
-public interface IPlayer {
+public interface Player {
 
-    /***** GETTERS *****/
+    /* GETTERS */
 
     /**
      * Gets the list of image path names that correspond to the player
@@ -99,7 +99,7 @@ public interface IPlayer {
      */
     int getNumPokemon();
 
-    /***** SETTERS *****/
+    /* SETTERS */
 
 	/**
 	 * Sets the row of the player
@@ -150,12 +150,12 @@ public interface IPlayer {
 	void addInteraction(Interaction interaction);
 
     /**
-     * Increments the number of battles won
+     * Increments the number of battles the player won
      */
     void incrementBattlesWon();
 
     /**
-     * Increments the number of battles lost
+     * Increments the number of battles the player lost
      */
     void incrementBattlesLost();
 
@@ -166,9 +166,12 @@ public interface IPlayer {
     void setHealth(double health);
 
     /**
-     * Increments the number of pokemon
+     * Increments the number of pokemon that the player has
      */
     void incrementNumPokemon();
 
+    /**
+     * Decrements the number of pokemon that the player has
+     */
     void decrementNumPokemon();
 }

@@ -7,20 +7,20 @@ import java.util.List;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
-import api.IPlayer;
-import editor.backend.Battle;
-import editor.backend.Item;
+import api.Player;
+import battle.Battle;
+import battle.Item;
 import interactions.Interaction;
 
 /**
  * This is the class that holds all of the information corresponding to the player on the backend.
- * 
  * @author Aninda Manocha
  */
 
 @XStreamAlias("player")
-public class Player implements IPlayer {
-	@XStreamOmitField
+public class PlayerInstance implements Player {
+
+    @XStreamOmitField
 	public static final int DEFAULT_HEALTH = 100;
 	
 	@XStreamOmitField
@@ -41,7 +41,7 @@ public class Player implements IPlayer {
 	private double health;
     private int numPokemon;
 
-	public Player(List<String> names, String playerName, int row, int col, int gridIndex) {
+	public PlayerInstance(List<String> names, String playerName, int row, int col, int gridIndex) {
 		myNames = names;
 		myPlayerName = playerName;
 		myRow = row;
@@ -57,7 +57,7 @@ public class Player implements IPlayer {
         numPokemon = DEFAULT_NUM_POKEMON;
 	}
 
-	public Player(Player player) {
+	public PlayerInstance(PlayerInstance player) {
         myNames = player.getNames();
         myPlayerName = player.getPlayerName();
         myRow = player.getRow();
@@ -73,7 +73,7 @@ public class Player implements IPlayer {
         numPokemon = DEFAULT_NUM_POKEMON;
     }
 
-	/***** GETTERS *****/
+	/* GETTERS */
 
     public List<String> getNames() {
         return myNames;
@@ -131,7 +131,7 @@ public class Player implements IPlayer {
         return numPokemon;
     }
 
-	/***** SETTERS *****/
+	/* SETTERS */
 
     public void setRow(int row) {
 		myRow = row;

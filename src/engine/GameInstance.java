@@ -1,17 +1,14 @@
 package engine;
 
 import api.IGameInstance;
-import battle.controller.BattleController;
-import battle.model.BattleModel;
+import battle.BattleHandler;
 import battle.model.Difficulty;
-import battle.view.BattleView;
 import block.*;
 import grid.Grid;
 import grid.GridManager;
 import grid.GridWorld;
 import javafx.scene.control.ChoiceDialog;
-import javafx.stage.Stage;
-import player.Player;
+import player.PlayerInstance;
 import player.PlayerDirection;
 import player.PlayerUpdate;
 import xml.GridXMLHandler;
@@ -36,13 +33,13 @@ public class GameInstance extends Observable implements IGameInstance {
     private GridXMLHandler xmlHandler;
     private GridManager myGridManager;
     private Grid myGrid;
-    private Player myPlayer;
+    private PlayerInstance myPlayer;
 
     private int myScore;
     private GameStatus myStatus;
     private List<BlockUpdate> blockUpdates;
 
-    public GameInstance(Player player, GridManager gridManager) {
+    public GameInstance(PlayerInstance player, GridManager gridManager) {
         xmlHandler = new GridXMLHandler();
         myGridManager = gridManager;
         myGrid = myGridManager.getCurrentGrid();
@@ -108,7 +105,8 @@ public class GameInstance extends Observable implements IGameInstance {
 			    	box.showAndWait();
 			    	
 			    	Difficulty diff = (Difficulty) box.getSelectedItem();
-			    	enterBattle((EnemyBlock)block, diff);
+                    BattleHandler handler = new BattleHandler(myPlayer,(EnemyBlock) block);
+                    handler.enterBattle(diff);
 			    }
 			    
 			    else if (block instanceof PokemonGiverBlock) {
@@ -134,14 +132,6 @@ public class GameInstance extends Observable implements IGameInstance {
         notifyObservers(playerUpdate);
     }
 
-    private void enterBattle(EnemyBlock enemy, Difficulty diff) {
-        Stage primaryStage = new Stage();
-        BattleView view = new BattleView(diff, "resources/images/battles/background/background-1.jpg");
-        BattleModel model = new BattleModel(myPlayer, enemy);
-        BattleController controller = new BattleController(view, model);
-        primaryStage.setScene(controller.getView().getScene());
-        primaryStage.show();
-    }
 
     /**
      * Determines if a block is within the bounds of the grid
@@ -230,7 +220,7 @@ public class GameInstance extends Observable implements IGameInstance {
         return myGrid;
     }
 
-    public Player getPlayer() {
+    public PlayerInstance getPlayer() {
         return myPlayer;
     }
 

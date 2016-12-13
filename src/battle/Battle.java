@@ -1,4 +1,4 @@
-package editor.backend;
+package battle;
 
 public interface Battle {
 	

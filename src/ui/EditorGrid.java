@@ -44,13 +44,10 @@ public class EditorGrid extends Grid implements Observer {
     }
 
     public void click (GridPaneNode node) {
-        System.out.println("in here");
         if (clicked.contains(node)) {
-            System.out.println("in here 2");
             node.getImage().setEffect(null);
             clicked.remove(node);
         } else {
-            System.out.println("in here 3");
             clicked.add(node);
         }
     }

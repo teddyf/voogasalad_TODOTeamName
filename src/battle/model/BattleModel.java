@@ -3,19 +3,19 @@ package battle.model;
 import java.util.Observable;
 import battle.controller.BattleModelInView;
 import block.EnemyBlock;
-import player.Player;
+import player.PlayerInstance;
 
 /**
  * @author Daniel Chai
  */
 public class BattleModel extends Observable implements BattleModelInView {
-	private Player player;
+	private PlayerInstance player;
 	private EnemyBlock enemy;
 
 	private boolean playerWon = false;
 	private boolean playerLost = false;
 
-	public BattleModel(Player player, EnemyBlock enemy) {
+	public BattleModel(PlayerInstance player, EnemyBlock enemy) {
 		this.player = player;
 		this.enemy = enemy;
 	}
@@ -101,7 +101,7 @@ public class BattleModel extends Observable implements BattleModelInView {
 	public void resetPlayer() {
 		playerWon = false;
 		playerLost = false;
-		player.setHealth(Player.DEFAULT_HEALTH);
+		player.setHealth(PlayerInstance.DEFAULT_HEALTH);
 		setChanged();
 		notifyObservers();
 	}

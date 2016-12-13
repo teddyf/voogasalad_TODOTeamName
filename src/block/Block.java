@@ -1,9 +1,8 @@
 package block;
 
 import api.IBlock;
-import grid.GridManager;
 import interactions.Interaction;
-import player.Player;
+import player.PlayerInstance;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public abstract class Block implements IBlock, Serializable {
      * @param player: the player object--in case of player modification (e.g. teleportation, etc.)
      * @return list of updates which need to be applied by the front end (e.g. re-rendering, etc.)
      */
-    public List<BlockUpdate> stepInteract(Player player) {
+    public List<BlockUpdate> stepInteract(PlayerInstance player) {
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         for (Interaction interaction : myStepInteractions) {
             blockUpdates.addAll(interaction.act(player));
@@ -56,7 +55,7 @@ public abstract class Block implements IBlock, Serializable {
      * @param player: the player object--in case of player modification (e.g. teleportation, etc.)
      * @return list of updates which need to be applied by the front end (e.g. re-rendering, etc.)
      */
-    public List<BlockUpdate> talkInteract(Player player){
+    public List<BlockUpdate> talkInteract(PlayerInstance player){
         List<BlockUpdate> blockUpdates = new ArrayList<>();
         if (myTalkInteractions.size() > 0) {
             for(Interaction interaction : myTalkInteractions) {

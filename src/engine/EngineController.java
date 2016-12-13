@@ -8,7 +8,7 @@ import java.util.Observer;
 import api.IEngineController;
 import block.BlockUpdate;
 import grid.GridManager;
-import player.Player;
+import player.PlayerInstance;
 import player.PlayerDirection;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
@@ -30,7 +30,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
         gameInstances = new ArrayList<GameInstance>();
     }
 
-    public EngineController(Player player, GridManager gridManager, String musicFile) {
+    public EngineController(PlayerInstance player, GridManager gridManager, String musicFile) {
         xmlHandler = new GridXMLHandler();
         gameInstances = new ArrayList<GameInstance>();
         gameInstance = new GameInstance(player, gridManager);
@@ -63,7 +63,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
 
     /***** PLAYER METHODS *****/
     
-    public Player getPlayer() {
+    public PlayerInstance getPlayer() {
     	return gameInstance.getPlayer();
     }
     
@@ -128,7 +128,7 @@ public class EngineController extends Observable implements Observer, IEngineCon
 
     public void loadEngine(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
-        Player player = gridWorldAndPlayer.getPlayer();
+        PlayerInstance player = gridWorldAndPlayer.getPlayer();
         GridManager gridManager = new GridManager(gridWorldAndPlayer.getGridWorld().getGrids());
         gridManager.setMusic(gridWorldAndPlayer.getGridWorld().getMusicFile());
         gameInstance = new GameInstance(player, gridManager);

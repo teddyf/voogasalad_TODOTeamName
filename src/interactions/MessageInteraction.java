@@ -2,7 +2,7 @@ package interactions;
 
 import block.BlockUpdate;
 import block.BlockUpdateType;
-import player.Player;
+import player.PlayerInstance;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +22,7 @@ public class MessageInteraction implements Interaction {
         myMessage = message;
     }
 
-    public List<BlockUpdate> act(Player player) {
+    public List<BlockUpdate> act(PlayerInstance player) {
         List<BlockUpdate> updateList = new ArrayList<>();
         updateList.add(new BlockUpdate(BlockUpdateType.DISPLAY_MESSAGE, myRow, myCol, myMessage));
         return updateList;

@@ -1,7 +1,7 @@
 package interactions;
 
 import block.BlockUpdate;
-import player.Player;
+import player.PlayerInstance;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,5 +20,5 @@ public interface Interaction extends Serializable {
      * @param player - the player object that interacts with a block
      * @return the list of changes which the front end needs to apply
      */
-    List<BlockUpdate> act(Player player);
+    List<BlockUpdate> act(PlayerInstance player);
 }

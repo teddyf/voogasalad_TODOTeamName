@@ -1,5 +1,6 @@
 package player;
 
+import api.Player;
 import block.Block;
 import block.DecorationBlock;
 import exceptions.BadPlayerPlacementException;
@@ -32,7 +33,7 @@ public class PlayerManager implements Observer{
             throw new BadPlayerPlacementException(row, col);
         }
         if(myPlayer == null) {
-            myPlayer = new Player(names, playerName, row, col, gridIndex);
+            myPlayer = new PlayerInstance(names, playerName, row, col, gridIndex);
             return true;
         }
         else {

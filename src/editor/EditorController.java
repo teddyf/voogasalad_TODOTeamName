@@ -1,21 +1,18 @@
 package editor;
 
 import api.IEditorController;
-import block.BlockFactory;
 import block.BlockType;
 import engine.EngineController;
 import exceptions.*;
-import grid.Grid;
 import grid.GridManager;
 import grid.GridSizeDirection;
 import grid.GridWorld;
-import player.Player;
+import player.PlayerInstance;
 import player.PlayerManager;
 import ui.scenes.editor.GameEditorAlerts;
 import xml.GridWorldAndPlayer;
 import xml.GridXMLHandler;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -201,7 +198,7 @@ public class EditorController implements IEditorController {
 
     public EngineController runEngine() {
         try {
-            Player testPlayer = new Player(myPlayerManager.getPlayer());
+            PlayerInstance testPlayer = new PlayerInstance(myPlayerManager.getPlayer());
             GridManager testGridManager = myGridManager.deepClone();
             EngineController testEngineController = new EngineController(testPlayer, myGridManager, testGridManager.getMusic());
             myGridManager = testGridManager;

@@ -4,7 +4,7 @@ import block.BlockUpdate;
 import block.BlockUpdateType;
 import block.NPCBlock;
 import block.NPCDirection;
-import player.Player;
+import player.PlayerInstance;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class NPCTurnToFaceInteraction implements Interaction {
         myNPCBlock = block;
     }
 
-    public List<BlockUpdate> act(Player player) {
+    public List<BlockUpdate> act(PlayerInstance player) {
         List<BlockUpdate> updatesList = new ArrayList<>();
 
         String status = "";
