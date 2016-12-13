@@ -188,7 +188,7 @@ public class GridManager extends Observable implements Serializable {
     public boolean addMessage(String message, int row, int col) {
         Block block = currentGrid.getBlock(row, col);
         if(block instanceof CommunicatorBlock) {
-            block.setMessage(message);
+            ((CommunicatorBlock) block).setMessage(message);
             return true;
         }
         return false;
