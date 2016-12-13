@@ -1,5 +1,6 @@
 package editor;
 
+import api.Controller;
 import api.Player;
 import block.blocktypes.BlockType;
 import engine.EngineController;
@@ -21,7 +22,7 @@ import java.util.List;
  * @author Aninda Manocha, Filip Mazurek
  */
 
-public class EditorController implements api.EditorController {
+public class EditorController implements Controller {
 
     private GridManager myGridManager;
     private PlayerManager myPlayerManager;
@@ -31,8 +32,8 @@ public class EditorController implements api.EditorController {
     public EditorController() {
         myGridManager = new GridManager();
         myPlayerManager = new PlayerManager(myGridManager.getCurrentGrid());
-        xmlHandler = new GridXMLHandler();
         myGridManager.addObserver(myPlayerManager);
+        xmlHandler = new GridXMLHandler();
     }
 
     public void setAlerts(GameEditorAlerts alerts) {
@@ -52,6 +53,10 @@ public class EditorController implements api.EditorController {
         myPlayerManager.setGrid(myGridManager.getCurrentGrid());
     }
 
+    /**
+     * Changes to a different specified grid, identified by its index in the list of grids
+     * @param index - the index of the grid
+     */
     public void changeGrid(int index) {
         myGridManager.changeGrid(index);
         myPlayerManager.setGrid(myGridManager.getCurrentGrid());
@@ -78,14 +83,26 @@ public class EditorController implements api.EditorController {
         return false;
     }
 
+    /**
+     * Gets the number of rows in the current grid
+     * @return the number of rows
+     */
     public int getNumRows() {
         return myGridManager.getCurrentGrid().getNumRows();
     }
 
+    /**
+     * Gets the number of columns in the current grid
+     * @return the number of columns
+     */
     public int getNumCols() {
         return myGridManager.getCurrentGrid().getNumCols();
     }
 
+    /**
+     * Adds music to the game
+     * @param file - the name of the music file
+     */
     public void addMusic(String file) {
         myGridManager.addMusic(file);
     }
@@ -122,9 +139,9 @@ public class EditorController implements api.EditorController {
 
     /**
      * Change the first setting of the gate in editor. Must set the status to open or closed when making a gate
-     * @param row: row of the gate block
-     * @param col: column of the gate block
-     * @param isOpen: true if open the gate, false if close the gate
+     * @param row - row of the gate block
+     * @param col - column of the gate block
+     * @param isOpen - true if open the gate, false if close the gate
      * @return if the gate status was set correctly
      */
     public boolean setGateStatus(int row, int col, boolean isOpen) {
@@ -161,6 +178,13 @@ public class EditorController implements api.EditorController {
         return myGridManager.unlinkBlocks(row1, col1, index1, row2, col2, index2);
     }
 
+    /**
+     * Gets the block located in a specific row and column in the grid. The frontend calls this method in order to
+     * render a grid block by block.
+     * @param row - the specific row
+     * @param col - the specific column
+     * @return the block
+     */
     public String getBlock(int row, int col) {
         return myGridManager.getBlock(row, col);
     }
@@ -228,6 +252,10 @@ public class EditorController implements api.EditorController {
         }
     }
 
+    /**
+     * Gets the row in which the player is located
+     * @return the row
+     */
     public int getPlayerRow() {
         try {
             return myPlayerManager.getPlayer().getRow();
@@ -236,6 +264,10 @@ public class EditorController implements api.EditorController {
         }
     }
 
+    /**
+     * Gets the column in which the player is located
+     * @return the column
+     */
     public int getPlayerCol() {
         try {
             return myPlayerManager.getPlayer().getCol();
@@ -246,6 +278,10 @@ public class EditorController implements api.EditorController {
 
     /***** DATA METHODS *****/
 
+    /**
+     * Saves the editor by taking in the name of the file to contain the information
+     * @param file - the name of the file containing the editor information
+     */
     public void saveEditor(String file) {
         GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         try {
@@ -255,6 +291,10 @@ public class EditorController implements api.EditorController {
         }
     }
 
+    /**
+     * Loads an editor that is stored in a file containing the editor information
+     * @param file - the name of the file containing the editor information
+     */
     public void loadEditor(String file) {
         GridWorldAndPlayer gridWorldAndPlayer = xmlHandler.loadContents(file);
         myPlayerManager.setPlayer(gridWorldAndPlayer.getPlayer());
@@ -262,6 +302,10 @@ public class EditorController implements api.EditorController {
         changeGrid(myGridManager.getCurrentIndex());
     }
 
+    /**
+     * Exports the editor to create a game by taking in the name of the file to contain the information
+     * @param file - the name of the file containing the engine information
+     */
     public void saveEngine(String file) {
         GridWorld gridWorld = new GridWorld(myGridManager, myGridManager.getMusic());
         try {
@@ -271,6 +315,10 @@ public class EditorController implements api.EditorController {
         }
     }
 
+    /**
+     * Creates an engine to run a game while in the editor
+     * @return an engine controller to run the tested game
+     */
     public EngineController runEngine() {
         try {
             Player enginePlayer = new PlayerInstance(myPlayerManager.getPlayer());
