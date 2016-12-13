@@ -1,16 +1,14 @@
 package player;
 
+import api.Player;
 import api.Block;
 import api.Grid;
-import block.DecorationBlock;
-import exceptions.BadPlayerPlacementException;
-import exceptions.DuplicateAttributeException;
-import exceptions.DuplicatePlayerException;
-import exceptions.NoPlayerException;
+import block.blocktypes.DecorationBlock;
+import exceptions.*;
 import grid.GridManager;
 import java.util.List;
-import java.util.Observable;
 import java.util.Observer;
+import java.util.Observable;
 
 /**
  * This class manages the player in the editor or engine
@@ -31,7 +29,7 @@ public class PlayerManager implements Observer{
             throw new BadPlayerPlacementException(row, col);
         }
         if(myPlayer == null) {
-            myPlayer = new Player(names, playerName, row, col, gridIndex);
+            myPlayer = new PlayerInstance(names, playerName, row, col, gridIndex);
             return true;
         }
         else {

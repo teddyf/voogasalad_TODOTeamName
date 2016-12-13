@@ -1,12 +1,12 @@
 package battle;
 
+import api.Player;
 import battle.controller.BattleController;
 import battle.model.BattleModel;
 import battle.model.Difficulty;
 import battle.view.BattleView;
-import block.EnemyBlock;
+import block.blocktypes.EnemyBlock;
 import javafx.stage.Stage;
-import player.Player;
 
 /**
  * Created by Bill Xiong on 12/12/16.

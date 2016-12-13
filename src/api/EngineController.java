@@ -4,14 +4,13 @@ import block.BlockUpdate;
 import engine.UserInstruction;
 
 import java.util.List;
-import java.util.Observable;
 
 /**
  * The engine controller interface
  * @author Aninda Manocha
  */
 
-public interface IEngineController extends IController {
+public interface EngineController extends Controller {
 
     /***** GRID METHODS *****/
 

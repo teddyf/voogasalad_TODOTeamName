@@ -4,10 +4,10 @@ import api.IPlayerAttribute;
 
 /**
  * This class contains the information for an attribute of a player.
- * 
  * @author Aninda Manocha
  */
 public class PlayerAttribute implements IPlayerAttribute {
+
 	private String myName;
 	private double myAmount;
 	private double myIncrement;

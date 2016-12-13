@@ -1,10 +1,10 @@
 package interactions;
 
+import api.Player;
 import block.BlockUpdate;
 import block.BlockUpdateType;
-import block.NPCBlock;
+import block.blocktypes.NPCBlock;
 import block.NPCDirection;
-import player.Player;
 import java.util.ArrayList;
 import java.util.List;
 

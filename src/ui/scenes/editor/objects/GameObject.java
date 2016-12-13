@@ -1,9 +1,11 @@
 package ui.scenes.editor.objects;
 import java.util.*;
+
+import block.blocktypes.BlockType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import ui.GridPaneNode;
-import block.*;
+
 /**
  * @author Nisa, Pim, Teddy, Harshil
  */

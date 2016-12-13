@@ -1,8 +1,8 @@
 package block;
 
 import api.Block;
+import api.Player;
 import interactions.Interaction;
-import player.Player;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,6 @@ import java.util.List;
 
 /**
  * Parent class of all blocks.
- *
  * @author Filip Mazurek, Aninda Manocha
  */
 public abstract class AbstractBlock implements Block {
@@ -31,6 +30,7 @@ public abstract class AbstractBlock implements Block {
         myStepInteractions = new ArrayList<>();
         myTalkInteractions = new ArrayList<>();
     }
+
 
     public List<BlockUpdate> stepInteract(Player player) {
         List<BlockUpdate> blockUpdates = new ArrayList<>();

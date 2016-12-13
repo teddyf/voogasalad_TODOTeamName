@@ -4,8 +4,7 @@ import java.util.Observer;
 
 import battle.controller.BattleModelInView;
 import battle.model.Difficulty;
-import battle.view.WinConditionView;
-import block.EnemyBlock;
+import block.blocktypes.EnemyBlock;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;

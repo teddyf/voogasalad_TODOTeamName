@@ -1,6 +1,6 @@
 package ui.scenes.editor.sidemenu;
 
-import block.BlockType;
+import block.blocktypes.BlockType;
 import ui.scenes.editor.objects.GameObject;
 import ui.scenes.editor.objects.MultipleBlockGameObject;
 import ui.scenes.editor.objects.SingleBlockGameObject;

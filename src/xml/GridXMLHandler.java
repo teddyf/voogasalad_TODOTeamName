@@ -1,8 +1,8 @@
 package xml;
 
+import api.Player;
 import api.Grid;
 import grid.GridWorld;
-import player.Player;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -12,7 +12,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 
 /**
- * Handles saving a GridManager and PLayer to XML.
+ * Handles saving a GridManager and Player to XML.
  * Handles loading a GridManager and Player from XML.
  * 
  * @author Daniel Chai
@@ -46,7 +46,7 @@ public class GridXMLHandler {
 	}
 	
 	/**
-	 * Returns the GridManager and Player represented by a XML file.
+	 * Returns the GridManager and Player represented by an XML file.
 	 */
 	public GridWorldAndPlayer loadContents(String filePath) {
 		File file = new File(filePath);
@@ -62,25 +62,4 @@ public class GridXMLHandler {
 		BlockAliasFactory factory = new BlockAliasFactory(xstream);
 		//factory.setAlias();
 	}
-	
-	/**
-	 * For testing purposes.
-	 */
-	/*public static void main(String[] args) {
-		GridXMLHandler test = new GridXMLHandler();
-		
-		GridManager gridWorld = new GridManager();
-		Grid grid = new Grid(0,2, 2); // grid of index 0
-		for (int row = 0; row < grid.getNumRows(); row++) {
-			for (int col = 0; col < grid.getNumCols(); col++) {
-				grid.setBlock(row, col, new CommunicatorBlock("Test Block", row, col));
-			}
-		}
-		gridWorld.addGrid(grid);
-		Player player = new Player("Test Player", 0, 0, 0);
-		
-		test.saveContents("data/gamefiles/test.xml", gridWorld, player);
-		GridWorldAndPlayer contents = test.loadContents("data/gamefiles/test.xml");
-		test.saveContents("data/gamefiles/test2.xml", contents.getGridWorld(), contents.getPlayer());
-	}*/
 }

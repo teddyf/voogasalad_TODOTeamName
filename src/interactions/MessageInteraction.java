@@ -1,8 +1,8 @@
 package interactions;
 
+import api.Player;
 import block.BlockUpdate;
 import block.BlockUpdateType;
-import player.Player;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -92,7 +92,8 @@ public class GridUI extends Observable implements Observer {
             }
         }
         myGridPane.shiftAll();
-        myGridPane.setRenderMap();
+        myGridPane.setEditorRenderMap();
+        setGridClickable();
         myBuilder.addComponent(myRoot, myGridPane.getGroup());
     }
 

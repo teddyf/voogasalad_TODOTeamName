@@ -5,7 +5,7 @@ package api;
  * @author Aninda Manocha
  */
 
-public interface IController {
+public interface Controller {
 
     /**
      * Gets the block located in a specific row and column in the grid. The frontend calls this method in order to
