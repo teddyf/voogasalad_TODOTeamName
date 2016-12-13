@@ -37,6 +37,14 @@ public class PlayerManager implements Observer{
         }
     }
 
+    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) throws DuplicateAttributeException {
+        PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
+        if (!myPlayer.addAttribute(playerAttribute)) {
+            throw new DuplicateAttributeException();
+        }
+        return true;
+    }
+
     public void deletePlayer() {
         myPlayer = null;
     }
@@ -51,14 +59,11 @@ public class PlayerManager implements Observer{
         throw new BadPlayerPlacementException(row, col);
     }
 
-    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) throws DuplicateAttributeException {
-        PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
-        if (!myPlayer.addAttribute(playerAttribute)) {
-            throw new DuplicateAttributeException();
-        }
-        return true;
-    }
-
+    /**
+     * Updates the player's properties when the grid shrinks
+     * @param grid - the observable grid manager
+     * @param update - the type of update (row or column change)
+     */
     public void update(Observable grid, Object update) {
         if (grid instanceof GridManager) {
             PlayerBlockUpdate playerBlockUpdate = (PlayerBlockUpdate)update;
@@ -70,6 +75,11 @@ public class PlayerManager implements Observer{
         }
     }
 
+    /**
+     * Gets the player
+     * @return the player
+     * @throws NoPlayerException
+     */
     public Player getPlayer() throws NoPlayerException {
         if (myPlayer == null) {
             throw new NoPlayerException();
@@ -77,10 +87,46 @@ public class PlayerManager implements Observer{
         return myPlayer;
     }
 
+    public List<String> getNames() {
+        return myPlayer.getNames();
+    }
+
+    public String getPlayerName() {
+        return myPlayer.getPlayerName();
+    }
+
+    public int getRow() {
+        return myPlayer.getRow();
+    }
+
+    public int getCol() {
+        return myPlayer.getCol();
+    }
+
+    public PlayerDirection getDirection() {
+        return myPlayer.getDirection();
+    }
+
+    public double getHealth() {
+        return myPlayer.getHealth();
+    }
+
+    public int getNumPokemon() {
+        return myPlayer.getNumPokemon();
+    }
+
+    /**
+     * Sets the player
+     * @param player - the new player
+     */
     public void setPlayer(Player player) {
         myPlayer = player;
     }
 
+    /**
+     * Sets the grid containing the player
+     * @param grid - the new grid
+     */
     public void setGrid(Grid grid) {
         myGrid = grid;
     }

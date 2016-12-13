@@ -183,7 +183,7 @@ public class EngineView extends Scene implements Observer {
     private void setUpSidePanel() {
         myEngineSidePanel = new EngineSidePanel(myRoot,myBuilder,myResources, this, myController);
         myController.addObserver(myEngineSidePanel);
-        myEngineSidePanel.update(myController, myController.getPlayer());
+        myEngineSidePanel.update(myController, myController.getPlayerName());
     }
 
 

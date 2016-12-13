@@ -252,16 +252,8 @@ public class EditorController implements Controller {
         }
     }
 
-    /**
-     * Gets the row in which the player is located
-     * @return the row
-     */
     public int getPlayerRow() {
-        try {
-            return myPlayerManager.getPlayer().getRow();
-        } catch (NoPlayerException e) {
-            return -1;
-        }
+        return myPlayerManager.getRow();
     }
 
     /**
@@ -269,11 +261,7 @@ public class EditorController implements Controller {
      * @return the column
      */
     public int getPlayerCol() {
-        try {
-            return myPlayerManager.getPlayer().getCol();
-        } catch (NoPlayerException e) {
-            return -1;
-        }
+        return myPlayerManager.getCol();
     }
 
     /***** DATA METHODS *****/
