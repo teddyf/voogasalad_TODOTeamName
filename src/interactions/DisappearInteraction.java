@@ -32,7 +32,6 @@ public class DisappearInteraction implements Interaction {
         updatesList.add(new BlockUpdate(BlockUpdateType.RE_RENDER, myBlock.getRow(), myBlock.getCol(), DEFAULT));
         myBlock.setWalkableStatus(true);
 
-        // TODO: set to a new decoration block in the grid
         return updatesList;
     }
 }

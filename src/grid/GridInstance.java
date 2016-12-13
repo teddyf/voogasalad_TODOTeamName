@@ -2,6 +2,9 @@ package grid;
 
 import api.Block;
 import api.Grid;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
@@ -24,6 +27,14 @@ public class GridInstance extends Observable implements Grid {
     private int myIndex;
     private int myNumRows;
     private int myNumCols;
+    private Map<Integer, String> extensionMapper;
+    private static final int NUM_DEFAULTS = 4;
+    private static final ResourceBundle myImagePaths = ResourceBundle.getBundle("resources/properties/image-paths");
+    private static final String BASE = myImagePaths.getString("DEFAULT_BASE");
+    private static final String EXTENSION_1 = myImagePaths.getString("DEFAULT_EXT_1");
+    private static final String EXTENSION_2 = myImagePaths.getString("DEFAULT_EXT_2");
+    private static final String EXTENSION_3 = myImagePaths.getString("DEFAULT_EXT_3");
+    private static final String EXTENSION_4 = myImagePaths.getString("DEFAULT_EXT_4");
 
     @XStreamImplicit
     private Block[][] myGrid;
@@ -33,6 +44,11 @@ public class GridInstance extends Observable implements Grid {
         myNumRows = numRows;
         myNumCols = numColumns;
         myGrid = new Block[numRows][numColumns];
+        extensionMapper = new HashMap<>();
+        extensionMapper.put(1, EXTENSION_1);
+        extensionMapper.put(2, EXTENSION_2);
+        extensionMapper.put(3, EXTENSION_3);
+        extensionMapper.put(4, EXTENSION_4);
         initializeGrid();
     }
 
@@ -42,12 +58,10 @@ public class GridInstance extends Observable implements Grid {
     private void initializeGrid() {
         for (int i = 0; i < myNumRows; i++) {
             for (int j = 0; j < myNumCols; j++) {
-                myGrid[i][j] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", i, j);
+                myGrid[i][j] = new DecorationBlock(getRandomDefaultImagePath(), i, j);
             }
         }
-        System.out.println("backend grid " + myNumRows + "backend grid " + myNumCols);
     }
-    // TODO: put that stupid resources path into a properties file.
 
 
     public void resize(int numRows, int numCols, int rowStart, int rowEnd,
@@ -56,7 +70,7 @@ public class GridInstance extends Observable implements Grid {
         for (int row = 0; row < numRows; row++) {
             for (int col = 0; col < numCols; col++) {
                 if (row < rowStart || row >= rowEnd || col < colStart || col >= colEnd) {
-                    newGrid[row][col] = new DecorationBlock("resources/images/tiles/ground/grass-1.png", row, col);
+                    newGrid[row][col] = new DecorationBlock(getRandomDefaultImagePath(), row, col);
                 } else {
                     newGrid[row][col] = myGrid[row + rowOffset][col + colOffset];
                 }
@@ -89,5 +103,15 @@ public class GridInstance extends Observable implements Grid {
         myGrid[row][col] = block;
         setChanged();
         notifyObservers(block);
+    }
+
+    /**
+     * Generate a random image path to put random default blocks
+     *
+     * @return the path as a String
+     */
+    public String getRandomDefaultImagePath() {
+        int randomNum = (int) Math.floor((Math.random() * NUM_DEFAULTS) + 1);
+        return BASE + extensionMapper.get(randomNum);
     }
 }

@@ -21,10 +21,16 @@ public class GateBlock extends AbstractBlock {
         setWalkableStatus(CLOSED);
     }
 
+    /**
+     * Set the gate's status to be open, i.e. walkable
+     */
     public void openGate() {
         setWalkableStatus(OPEN);
     }
 
+    /**
+     * Set the gate's status to be closed, i.e. not walkable
+     */
     public void closeGate() {
         setWalkableStatus(CLOSED);
     }

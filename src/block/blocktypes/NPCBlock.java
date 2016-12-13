@@ -1,7 +1,6 @@
 package block.blocktypes;
 
 import block.NPCDirection;
-import block.blocktypes.CommunicatorBlock;
 import interactions.NPCTurnToFaceInteraction;
 
 /**

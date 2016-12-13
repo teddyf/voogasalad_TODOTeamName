@@ -1,6 +1,8 @@
 package block;
 
 /**
+ * An enum because of front end's naming preferences.
+ *
  * @author Filip Mazurek
  */
 
