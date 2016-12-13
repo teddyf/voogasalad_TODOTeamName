@@ -6,7 +6,7 @@
       <myIndex>0</myIndex>
       <myNumRows>5</myNumRows>
       <myNumCols>5</myNumCols>
-      <block.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>0</myRow>
@@ -47,8 +47,8 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
+      </api.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
@@ -74,23 +74,23 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
-          <myRow>1</myRow>
-          <myCol>3</myCol>
-          <isWalkable>true</isWalkable>
-          <myStepInteractions/>
-          <myTalkInteractions/>
-        </block.blocktypes.DecorationBlock>
-        <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>1</myRow>
+          <myCol>3</myCol>
+          <isWalkable>true</isWalkable>
+          <myStepInteractions/>
+          <myTalkInteractions/>
+        </block.blocktypes.DecorationBlock>
+        <block.blocktypes.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myRow>1</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
+      </api.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
@@ -116,7 +116,7 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -124,15 +124,15 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>2</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
+      </api.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
@@ -158,7 +158,7 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -166,15 +166,15 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>3</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
-      <block.Block-array>
+      </api.Block-array>
+      <api.Block-array>
         <block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
@@ -192,7 +192,7 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -200,7 +200,7 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -208,15 +208,36 @@
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
         <block.blocktypes.DecorationBlock>
-          <myName>file:/Users/Robert/Servers/Google%20Drive/Duke%20University/Classes/CompSci%20308/Work/Eclipse%20Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/pokeball-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>4</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.blocktypes.DecorationBlock>
-      </block.Block-array>
+      </api.Block-array>
     </grid>
-    <myMusicFile>ppp</myMusicFile>
+    <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>
   </gridWorld>
+  <player class="player">
+    <myNames>
+      <string>resources/images/sprites/1-down.png</string>
+      <string>resources/images/sprites/1-left.png</string>
+      <string>resources/images/sprites/1-right.png</string>
+      <string>resources/images/sprites/1-up.png</string>
+    </myNames>
+    <myPlayerName>Player</myPlayerName>
+    <myRow>2</myRow>
+    <myCol>2</myCol>
+    <myGridIndex>0</myGridIndex>
+    <myDirection>SOUTH</myDirection>
+    <myAttributes/>
+    <myInventory/>
+    <myBattleHistory/>
+    <myInteractionHistory/>
+    <battlesWon>0</battlesWon>
+    <battlesLost>0</battlesLost>
+    <health>100.0</health>
+    <numPokemon>3</numPokemon>
+  </player>
 </root>
