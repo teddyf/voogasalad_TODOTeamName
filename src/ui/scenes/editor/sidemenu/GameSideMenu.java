@@ -1,6 +1,6 @@
 package ui.scenes.editor.sidemenu;
 
-import block.BlockType;
+import block.blocktypes.BlockType;
 import editor.EditorController;
 import grid.GridSizeDirection;
 import javafx.collections.FXCollections;

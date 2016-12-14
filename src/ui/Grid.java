@@ -84,6 +84,19 @@ public abstract class Grid extends Observable {
         }
     }
 
+    public void setEditorRenderMap() {
+        group = new Group();
+        for (int i = 0; i < blockList.size(); i++) {
+            GridPaneNode node = blockList.get(i);
+            double x = getXRender(node.getCol()) + 595;
+            double y = getYRender(node.getRow()) + 595;
+            node.setImageSize(CELL_PIXELS, CELL_PIXELS);
+            node.setImageCoord(x, y);
+            group.getChildren().add(node.getImage());
+            grid[node.getRow()][node.getCol()] = node;
+        }
+    }
+
     public void loadReset(int height, int width) {
         this.gridWidth = width + WRAP;
         this.gridHeight = height + WRAP;

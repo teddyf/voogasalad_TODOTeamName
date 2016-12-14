@@ -1,13 +1,11 @@
 package interactions;
 
+import api.Player;
 import block.BlockUpdate;
 import block.BlockUpdateType;
-import player.Player;
-import player.PlayerUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 /**
  * Allows the player to be teleported to a destination block from a teleporter.

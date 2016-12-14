@@ -1,8 +1,8 @@
 package block;
 
+import api.Block;
+import block.blocktypes.BlockType;
 import exceptions.BlockCreationException;
-
-import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.util.ResourceBundle;
 

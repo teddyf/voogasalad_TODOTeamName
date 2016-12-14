@@ -7,14 +7,19 @@ import java.util.List;
 import java.util.Observable;
 import java.util.ResourceBundle;
 
+import api.Block;
+import api.Grid;
 import block.*;
+import block.blocktypes.BlockType;
+import block.blocktypes.CommunicatorBlock;
+import block.blocktypes.GateBlock;
 import exceptions.*;
 import player.PlayerBlockUpdate;
 import player.PlayerUpdate;
 
 /**
  * This class manages all of the grids in the editor or engine
- * @author Aninda Manocha, Daniel Chai, Filip Mazurek
+ * @author Aninda Manocha, Filip Mazurek
  */
 
 public class GridManager extends Observable implements Serializable {
@@ -43,7 +48,7 @@ public class GridManager extends Observable implements Serializable {
     }
 
     public void addGrid(int numRows, int numCols) {
-        Grid newGrid = new Grid(myGrids.size(), numRows, numCols);
+        Grid newGrid = new GridInstance(myGrids.size(), numRows, numCols);
         myGrids.add(newGrid);
         changeGrid(myGrids.size() -1);
     }
@@ -65,6 +70,10 @@ public class GridManager extends Observable implements Serializable {
         return checkShrink(direction, amount, playerRow, playerColumn);
     }
 
+    /**
+     * Sets the name of the music file
+     * @param file - the file name
+     */
     public void addMusic(String file) {
         musicFile = file;
     }
@@ -183,7 +192,7 @@ public class GridManager extends Observable implements Serializable {
     public boolean addMessage(String message, int row, int col) {
         Block block = currentGrid.getBlock(row, col);
         if(block instanceof CommunicatorBlock) {
-            block.setMessage(message);
+            ((CommunicatorBlock) block).setMessage(message);
             return true;
         }
         return false;
@@ -225,36 +234,16 @@ public class GridManager extends Observable implements Serializable {
         return (block1.unlink(block2) || block2.unlink(block2));
     }
 
-    public GridManager copy() {
-        GridManager newGridManager = new GridManager();
-        for(int i = 0; i < myGrids.size(); i++) {
-            Grid grid = myGrids.get(i);
-            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
-            for (int row = 0; row < grid.getNumRows(); row++) {
-                for (int col = 0; col < grid.getNumCols(); col++) {
-                    Block block = grid.getBlock(row, col);
-                    Class<?> blockClass = block.getClass();
-                    try {
-                        Constructor<?> constructor = blockClass.getDeclaredConstructor(String.class, int.class, int.class);
-                        Object object = constructor.newInstance(block.getName(), block.getRow(), block.getCol());
-                        Block tempBlock = (Block) object;
-                        tempGrid.setBlock(row, col, tempBlock);
-                    } catch (Exception e) {
-                        System.out.println("");
-                    }
-                }
-            }
-            newGridManager.addGrid(tempGrid);
-        }
-        newGridManager.changeGrid(0);
-        return newGridManager;
-    }
-
+    /**
+     * Makes a copy of the grid manager so that one can be used to test the game while in the editor, but the original
+     * grid manager is still preserved
+     * @return the copy of the grid manager
+     */
     public GridManager deepClone() {
         GridManager newGridManager = new GridManager();
         for(int i = 0; i < myGrids.size(); i++) {
             Grid grid = myGrids.get(i);
-            Grid tempGrid = new Grid(i, grid.getNumRows(), grid.getNumCols());
+            Grid tempGrid = new GridInstance(i, grid.getNumRows(), grid.getNumCols());
             for (int row = 0; row < grid.getNumRows(); row++) {
                 for (int col = 0; col < grid.getNumCols(); col++) {
                     Block block = grid.getBlock(row, col);
@@ -265,33 +254,51 @@ public class GridManager extends Observable implements Serializable {
             newGridManager.addGrid(tempGrid);
         }
         newGridManager.changeGrid(0);
-        newGridManager.setMusic(musicFile);
+        newGridManager.addMusic(musicFile);
         return newGridManager;
     }
 
-    /***** GETTERS *****/
+    /* GETTERS */
 
-    public List<Grid> getGrids() {
+    /**
+     * Gets the list of grids
+     * @return the list of grids
+     */
+    public List<Grid> getGridList() {
         return myGrids;
     }
 
+    /**
+     * Gets the current grid
+     * @return the current grid
+     */
     public Grid getCurrentGrid() {
         return currentGrid;
     }
 
+    /**
+     * Gets the index of the current grid
+     * @return the index
+     */
     public int getCurrentIndex() {
         return currentIndex;
     }
 
+    /**
+     * Gets the name (image path) of the block located at a specified row and column
+     * @param row - the row
+     * @param col - the column
+     * @return the name of the block
+     */
     public String getBlock(int row, int col) {
         return currentGrid.getBlock(row, col).getName();
     }
 
+    /**
+     * Gets the name of the music file used for the game
+     * @return the file name
+     */
     public String getMusic() {
         return musicFile;
-    }
-
-    public void setMusic(String file) {
-        musicFile = file;
     }
 }

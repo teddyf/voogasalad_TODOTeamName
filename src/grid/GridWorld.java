@@ -1,7 +1,7 @@
 package grid;
 
 import java.util.List;
-
+import api.Grid;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
@@ -19,7 +19,7 @@ public class GridWorld {
 	private String myMusicFile;
 
     public GridWorld(GridManager gridManager, String musicFile) {
-        myGrids = gridManager.getGrids();
+        myGrids = gridManager.getGridList();
         myMusicFile = musicFile;
     }
 

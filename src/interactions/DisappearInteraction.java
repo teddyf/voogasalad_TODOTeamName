@@ -1,11 +1,10 @@
 package interactions;
 
-import block.Block;
+import api.Block;
+import api.Player;
 import block.BlockUpdate;
 import block.BlockUpdateType;
-import block.DecorationBlock;
-import player.Player;
-
+import block.blocktypes.DecorationBlock;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +32,6 @@ public class DisappearInteraction implements Interaction {
         updatesList.add(new BlockUpdate(BlockUpdateType.RE_RENDER, myBlock.getRow(), myBlock.getCol(), DEFAULT));
         myBlock.setWalkableStatus(true);
 
-        // TODO: set to a new decoration block in the grid
         return updatesList;
     }
 }

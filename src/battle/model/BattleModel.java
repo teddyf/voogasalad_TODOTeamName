@@ -1,9 +1,10 @@
 package battle.model;
 
 import java.util.Observable;
+
+import api.Player;
 import battle.controller.BattleModelInView;
-import block.EnemyBlock;
-import player.Player;
+import block.blocktypes.EnemyBlock;
 
 /**
  * @author Daniel Chai

@@ -1,17 +1,14 @@
 package player;
 
-import block.Block;
-import block.DecorationBlock;
-import exceptions.BadPlayerPlacementException;
-import exceptions.DuplicateAttributeException;
-import exceptions.DuplicatePlayerException;
-import exceptions.NoPlayerException;
-import grid.Grid;
+import api.Player;
+import api.Block;
+import api.Grid;
+import block.blocktypes.DecorationBlock;
+import exceptions.*;
 import grid.GridManager;
-
 import java.util.List;
-import java.util.Observable;
 import java.util.Observer;
+import java.util.Observable;
 
 /**
  * This class manages the player in the editor or engine
@@ -32,12 +29,20 @@ public class PlayerManager implements Observer{
             throw new BadPlayerPlacementException(row, col);
         }
         if(myPlayer == null) {
-            myPlayer = new Player(names, playerName, row, col, gridIndex);
+            myPlayer = new PlayerInstance(names, playerName, row, col, gridIndex);
             return true;
         }
         else {
             throw new DuplicatePlayerException(myPlayer.getRow(), myPlayer.getCol());
         }
+    }
+
+    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) throws DuplicateAttributeException {
+        PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
+        if (!myPlayer.addAttribute(playerAttribute)) {
+            throw new DuplicateAttributeException();
+        }
+        return true;
     }
 
     public void deletePlayer() {
@@ -54,14 +59,11 @@ public class PlayerManager implements Observer{
         throw new BadPlayerPlacementException(row, col);
     }
 
-    public boolean addPlayerAttribute(String name, double amount, double increment, double decrement) throws DuplicateAttributeException {
-        PlayerAttribute playerAttribute = new PlayerAttribute(name, amount, increment, decrement);
-        if (!myPlayer.addAttribute(playerAttribute)) {
-            throw new DuplicateAttributeException();
-        }
-        return true;
-    }
-
+    /**
+     * Updates the player's properties when the grid shrinks
+     * @param grid - the observable grid manager
+     * @param update - the type of update (row or column change)
+     */
     public void update(Observable grid, Object update) {
         if (grid instanceof GridManager) {
             PlayerBlockUpdate playerBlockUpdate = (PlayerBlockUpdate)update;
@@ -73,6 +75,11 @@ public class PlayerManager implements Observer{
         }
     }
 
+    /**
+     * Gets the player
+     * @return the player
+     * @throws NoPlayerException
+     */
     public Player getPlayer() throws NoPlayerException {
         if (myPlayer == null) {
             throw new NoPlayerException();
@@ -80,10 +87,46 @@ public class PlayerManager implements Observer{
         return myPlayer;
     }
 
+    public List<String> getNames() {
+        return myPlayer.getNames();
+    }
+
+    public String getPlayerName() {
+        return myPlayer.getPlayerName();
+    }
+
+    public int getRow() {
+        return myPlayer.getRow();
+    }
+
+    public int getCol() {
+        return myPlayer.getCol();
+    }
+
+    public PlayerDirection getDirection() {
+        return myPlayer.getDirection();
+    }
+
+    public double getHealth() {
+        return myPlayer.getHealth();
+    }
+
+    public int getNumPokemon() {
+        return myPlayer.getNumPokemon();
+    }
+
+    /**
+     * Sets the player
+     * @param player - the new player
+     */
     public void setPlayer(Player player) {
         myPlayer = player;
     }
 
+    /**
+     * Sets the grid containing the player
+     * @param grid - the new grid
+     */
     public void setGrid(Grid grid) {
         myGrid = grid;
     }
