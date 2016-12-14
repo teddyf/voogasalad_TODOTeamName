@@ -11,15 +11,11 @@ import javafx.stage.Stage;
 /**
  * @author Harshil Garg, Robert Steilberg
  *         <p>
- *         Launches the main menu, which is used to navigate to either the game
- *         builder or the game controller.engine.
- *         <p>
- *         Dependencies: MainMenuView.java
+ *         This class can be used to launch any view
  */
 public class UILauncher {
 
     private Stage myStage;
-    private MainMenuView myMainMenu;
     private EngineView myEngine;
 
     public UILauncher(Stage stage) {
@@ -64,8 +60,8 @@ public class UILauncher {
      * Navigates to the main menu
      */
     public void launchMenu() {
-        myMainMenu = new MainMenuView(myStage, new Group(), this);
-        myStage.setScene(myMainMenu);
+        MainMenuView mainMenu = new MainMenuView(myStage, new Group(), this);
+        myStage.setScene(mainMenu);
     }
 
     /**
@@ -75,6 +71,4 @@ public class UILauncher {
     public void init() {
         launchMenu();
     }
-
-    
 }

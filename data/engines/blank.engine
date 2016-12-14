@@ -1,11 +1,29 @@
 <root>
   <gridWorld>
-    <model.grid>
+    <model/grid>
       <changed>false</changed>
       <obs/>
       <myIndex>0</myIndex>
       <myNumRows>5</myNumRows>
       <myNumCols>5</myNumCols>
+      <extensionMapper>
+        <entry>
+          <int>1</int>
+          <string>1.png</string>
+        </entry>
+        <entry>
+          <int>2</int>
+          <string>2.png</string>
+        </entry>
+        <entry>
+          <int>3</int>
+          <string>3.png</string>
+        </entry>
+        <entry>
+          <int>4</int>
+          <string>4.png</string>
+        </entry>
+      </extensionMapper>
       <api.Block-array>
         <model.block.blocktypes.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
@@ -16,7 +34,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-3.png</myName>
           <myRow>0</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -24,7 +42,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-2.png</myName>
           <myRow>0</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -32,7 +50,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-4.png</myName>
           <myRow>0</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -58,7 +76,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-4.png</myName>
           <myRow>1</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -74,7 +92,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-3.png</myName>
           <myRow>1</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -82,7 +100,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-4.png</myName>
           <myRow>1</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
@@ -92,7 +110,7 @@
       </api.Block-array>
       <api.Block-array>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-3.png</myName>
           <myRow>2</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -100,7 +118,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-3.png</myName>
           <myRow>2</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -116,7 +134,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-2.png</myName>
           <myRow>2</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -124,7 +142,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-3.png</myName>
           <myRow>2</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
@@ -134,7 +152,7 @@
       </api.Block-array>
       <api.Block-array>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-2.png</myName>
           <myRow>3</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -142,7 +160,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-2.png</myName>
           <myRow>3</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -150,7 +168,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-4.png</myName>
           <myRow>3</myRow>
           <myCol>2</myCol>
           <isWalkable>true</isWalkable>
@@ -176,7 +194,7 @@
       </api.Block-array>
       <api.Block-array>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-2.png</myName>
           <myRow>4</myRow>
           <myCol>0</myCol>
           <isWalkable>true</isWalkable>
@@ -184,7 +202,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-3.png</myName>
           <myRow>4</myRow>
           <myCol>1</myCol>
           <isWalkable>true</isWalkable>
@@ -200,7 +218,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-2.png</myName>
           <myRow>4</myRow>
           <myCol>3</myCol>
           <isWalkable>true</isWalkable>
@@ -208,7 +226,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>resources/images/tiles/ground/grass-1.png</myName>
+          <myName>resources/images/tiles/ground/grass-4.png</myName>
           <myRow>4</myRow>
           <myCol>4</myCol>
           <isWalkable>true</isWalkable>
@@ -216,19 +234,19 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
       </api.Block-array>
-    </model.grid>
-    <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>
+    </model/grid>
+    <myMusicFile>&quot;src/resources/sounds/Route-30.mp3&quot;</myMusicFile>
   </gridWorld>
-  <model.player class="model.player">
+  <model/player class="model/player">
     <myNames>
-      <string>resources/images/sprites/1-down.png</string>
-      <string>resources/images/sprites/1-left.png</string>
-      <string>resources/images/sprites/1-right.png</string>
-      <string>resources/images/sprites/1-up.png</string>
+      <string>resources/images/sprites/2-down.png</string>
+      <string>resources/images/sprites/2-left.png</string>
+      <string>resources/images/sprites/2-right.png</string>
+      <string>resources/images/sprites/2-up.png</string>
     </myNames>
-    <myPlayerName>Player</myPlayerName>
-    <myRow>2</myRow>
-    <myCol>2</myCol>
+    <myPlayerName>awef</myPlayerName>
+    <myRow>1</myRow>
+    <myCol>1</myCol>
     <myGridIndex>0</myGridIndex>
     <myDirection>SOUTH</myDirection>
     <myAttributes/>
@@ -239,5 +257,5 @@
     <battlesLost>0</battlesLost>
     <health>100.0</health>
     <numPokemon>3</numPokemon>
-  </model.player>
+  </model/player>
 </root>

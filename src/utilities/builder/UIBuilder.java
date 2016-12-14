@@ -17,8 +17,6 @@ import java.util.ResourceBundle;
  * @author Harshil Garg, Robert Steilberg, Aninda Manocha, Nisakorn Valyasevi
  *         <p>
  *         This class is used to build JavaFX ui.scenes.controller.editor.objects and add them to the stage.
- *         <p>
- *         Dependencies: ComponentBuilder, ButtonBuilder, ImageViewBuilder, LabelBuilder
  */
 public class UIBuilder<E> {
     private ComponentBuilder alertBuilder;
@@ -229,24 +227,24 @@ public class UIBuilder<E> {
      * @return
      */
     public Node addNewDialogBubble(Parent layout, Stage stage, String message) {
-    	ComponentProperties properties = new ComponentProperties();
-    	properties.height(100);
-    	properties.width(600);
-    	properties.text(message);
-    	Node dialogNode = dialogBubbleBuilder.createComponent(properties);
-    	stage.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
-    		if ((keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN ||
-    				keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
-    				&& layout.getChildrenUnmodifiable().contains(dialogNode)) {
-    			removeComponent(layout, dialogNode);
-    		}
-    	});
-    	addComponent(layout, dialogNode);
-    	dialogNode.setLayoutX(50);
-    	dialogNode.setLayoutY(550);
-    	return dialogNode;
+        ComponentProperties properties = new ComponentProperties();
+        properties.height(100);
+        properties.width(600);
+        properties.text(message);
+        Node dialogNode = dialogBubbleBuilder.createComponent(properties);
+        stage.addEventHandler(KeyEvent.KEY_RELEASED, keyEvent -> {
+            if ((keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN ||
+                    keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT)
+                    && layout.getChildrenUnmodifiable().contains(dialogNode)) {
+                removeComponent(layout, dialogNode);
+            }
+        });
+        addComponent(layout, dialogNode);
+        dialogNode.setLayoutX(50);
+        dialogNode.setLayoutY(550);
+        return dialogNode;
     }
-    
+
     /**
      * Initializes a JavaFX window with the specified stage and parameters given
      * in a properties file

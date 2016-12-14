@@ -19,7 +19,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
  * @author Daniel Chai
  */
 public class BlockXMLHandler {
-	public static final String BLOCK_ALIAS = "model/block";
+	public static final String BLOCK_ALIAS = "block";
 	
 	private XStream xstream;
 	

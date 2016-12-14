@@ -14,15 +14,15 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
- * Instance of a model.grid.
+ * Instance of a grid.
  *
  * @author Filip Mazurek, Aninda Manocha, Daniel Chai
  */
 
-@XStreamAlias("model/grid")
+@XStreamAlias("grid")
 public class GridInstance extends Observable implements Grid {
     @XStreamOmitField
-    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/model.block-paths");
+    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
     
     private int myIndex;
     private int myNumRows;

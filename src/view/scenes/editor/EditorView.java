@@ -18,15 +18,15 @@ import java.util.ResourceBundle;
 import view.scenes.editor.sidemenu.*;
 
 /**
- * @author Robert Steilberg
+ * @author Robert Steilberg, Harshil Garg
  *         <p>
- *         This class handles the game controller.editor that is used to build games. It
+ *         This class handles the game editor that is used to build games. It
  *         creates the model.grid on which the overworld is created along with control
  *         panels for handling the control flow of the editing process.
  */
 public class EditorView extends Scene implements GameEditorAlerts, Observer {
 
-    private static final String EDITOR_RESOURCES = "resources/properties/game-controller.editor";
+    private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
     private static final String ALERT_RESOURCES = "resources/properties/alerts-text";
     private static final String CSS_FILE_NAME = "resources/styles/game-editor.css";
     private Stage myStage;
@@ -94,6 +94,49 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
     }
 
     /**
+     * Warn the user of a disallowed action
+     *
+     * @param warningKey is the content of the alert
+     * @return true if the user clicked OK, false otherwise
+     */
+    public boolean warnUser(String warningKey) {
+        return events.createWarning(warningKey);
+    }
+
+    /**
+     * Display an alert to the user triggered by an exception
+     *
+     * @param content is the content of the alert
+     */
+    public void exceptionDisplay(String content) {
+        myBuilder.addNewAlert(myAlertResources.getString("EXCEPTION").toUpperCase(), content);
+    }
+
+    /**
+     * Update on saving the game
+     *
+     * @param o   object observing
+     * @param arg Object triggering the update
+     */
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof EditorGrid) {
+            recentlySaved = false;
+        }
+        if (o instanceof EditorIO) {
+            recentlySaved = true;
+        }
+    }
+
+    /**
+     * Initialize observer for only triggering save when not recently saved
+     */
+    private void initObserver() {
+        myGridUI.getMyGridPane().addObserver(this);
+        myEditorIO.addObserver(this);
+    }
+
+    /**
      * Initializes the game controller.editor window by prompting the user to choose an initial
      * overworld size
      */
@@ -102,28 +145,4 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
         myBuilder.initWindow(myStage, SizeChooser2.SIZE_CHOOSER_RESOURCES);
         myStage.setScene(sizeChooser);
     }
-
-    public boolean warnUser(String warningKey) {
-        return events.createWarning(warningKey);
-    }
-
-    public void exceptionDisplay(String content) {
-        myBuilder.addNewAlert(myAlertResources.getString("EXCEPTION").toUpperCase(), content);
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-        if (o instanceof EditorGrid){
-            recentlySaved = false;
-        }
-        if (o instanceof EditorIO) {
-            recentlySaved = true;
-        }
-    }
-
-    private void initObserver() {
-        myGridUI.getMyGridPane().addObserver(this);
-        myEditorIO.addObserver(this);
-    }
-
 }

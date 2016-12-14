@@ -35,7 +35,7 @@ public class GridUI extends Observable implements Observer {
     private PlayerSideMenu playerMenu;
     private EditorControls sideControls;
     private GameSideMenu gameSideMenu;
-    private static final String EDITOR_RESOURCES = "resources/properties/game-controller.editor";
+    private static final String EDITOR_RESOURCES = "resources/properties/game-editor";
 
     public GridUI(Parent root, EditorController controller, EditorControls sideMenu, int width, int height) {
         myRoot = root;
@@ -116,7 +116,7 @@ public class GridUI extends Observable implements Observer {
         }
     }
 
-    public GridScrollButton getScrollMechanism() {
+    GridScrollButton getScrollMechanism() {
         return gsb;
     }
 
