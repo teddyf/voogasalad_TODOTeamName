@@ -1076,7 +1076,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-4.png</myName>
+          <myName>resources/images/tiles/decoration/flower-4.png</myName>
           <myRow>5</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -1084,7 +1084,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>6</myCol>
           <isWalkable>true</isWalkable>
@@ -1092,7 +1092,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>7</myCol>
           <isWalkable>false</isWalkable>
@@ -1100,7 +1100,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -1108,7 +1108,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -1116,7 +1116,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>10</myCol>
           <isWalkable>true</isWalkable>
@@ -1124,7 +1124,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -1132,7 +1132,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>12</myCol>
           <isWalkable>true</isWalkable>
@@ -1140,7 +1140,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -1148,7 +1148,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>14</myCol>
           <isWalkable>true</isWalkable>
@@ -1156,7 +1156,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -1164,7 +1164,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>16</myCol>
           <isWalkable>true</isWalkable>
@@ -1172,7 +1172,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -1180,7 +1180,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>5</myRow>
           <myCol>18</myCol>
           <isWalkable>true</isWalkable>
@@ -1188,7 +1188,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-4.png</myName>
+          <myName>resources/images/tiles/decoration/flower-4.png</myName>
           <myRow>5</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -1278,7 +1278,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -1286,7 +1286,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -1294,7 +1294,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
@@ -1302,7 +1302,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
@@ -1310,7 +1310,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -1318,7 +1318,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -1326,7 +1326,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -1334,7 +1334,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>12</myCol>
           <isWalkable>false</isWalkable>
@@ -1342,7 +1342,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -1350,7 +1350,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
@@ -1358,7 +1358,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -1366,7 +1366,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>16</myCol>
           <isWalkable>false</isWalkable>
@@ -1374,7 +1374,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -1382,7 +1382,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>18</myCol>
           <isWalkable>true</isWalkable>
@@ -1390,7 +1390,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>6</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -1480,7 +1480,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -1488,7 +1488,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -1496,7 +1496,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>7</myCol>
           <isWalkable>false</isWalkable>
@@ -1504,7 +1504,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -1512,7 +1512,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
@@ -1520,7 +1520,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>10</myCol>
           <isWalkable>true</isWalkable>
@@ -1528,7 +1528,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -1536,7 +1536,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>12</myCol>
           <isWalkable>false</isWalkable>
@@ -1544,7 +1544,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -1552,7 +1552,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>14</myCol>
           <isWalkable>true</isWalkable>
@@ -1560,7 +1560,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>15</myCol>
           <isWalkable>true</isWalkable>
@@ -1568,7 +1568,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>16</myCol>
           <isWalkable>true</isWalkable>
@@ -1576,7 +1576,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -1584,7 +1584,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -1592,7 +1592,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>7</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -1682,7 +1682,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -1690,7 +1690,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -1698,7 +1698,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
@@ -1706,7 +1706,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
@@ -1714,7 +1714,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -1722,7 +1722,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -1730,7 +1730,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -1738,7 +1738,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>12</myCol>
           <isWalkable>false</isWalkable>
@@ -1746,7 +1746,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>13</myCol>
           <isWalkable>true</isWalkable>
@@ -1754,7 +1754,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
@@ -1762,7 +1762,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -1770,7 +1770,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>16</myCol>
           <isWalkable>false</isWalkable>
@@ -1778,7 +1778,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -1786,7 +1786,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -1794,7 +1794,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>8</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -1884,7 +1884,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -1892,7 +1892,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -1900,7 +1900,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
@@ -1908,7 +1908,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
@@ -1916,7 +1916,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -1924,7 +1924,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -1932,7 +1932,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -1940,7 +1940,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>12</myCol>
           <isWalkable>false</isWalkable>
@@ -1948,7 +1948,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -1956,7 +1956,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>14</myCol>
           <isWalkable>true</isWalkable>
@@ -1964,7 +1964,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>15</myCol>
           <isWalkable>true</isWalkable>
@@ -1972,7 +1972,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>16</myCol>
           <isWalkable>true</isWalkable>
@@ -1980,7 +1980,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -1988,7 +1988,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -1996,7 +1996,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>9</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -2086,7 +2086,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -2094,7 +2094,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -2102,7 +2102,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>7</myCol>
           <isWalkable>true</isWalkable>
@@ -2110,7 +2110,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
@@ -2118,7 +2118,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -2126,7 +2126,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -2134,7 +2134,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -2142,7 +2142,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>12</myCol>
           <isWalkable>false</isWalkable>
@@ -2150,7 +2150,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -2158,7 +2158,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
@@ -2166,7 +2166,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -2174,7 +2174,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>16</myCol>
           <isWalkable>false</isWalkable>
@@ -2182,7 +2182,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>17</myCol>
           <isWalkable>true</isWalkable>
@@ -2190,7 +2190,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -2198,7 +2198,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>10</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -2288,7 +2288,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -2296,7 +2296,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -2304,7 +2304,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>7</myCol>
           <isWalkable>false</isWalkable>
@@ -2312,7 +2312,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>8</myCol>
           <isWalkable>true</isWalkable>
@@ -2320,7 +2320,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>9</myCol>
           <isWalkable>true</isWalkable>
@@ -2328,7 +2328,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>10</myCol>
           <isWalkable>true</isWalkable>
@@ -2336,7 +2336,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -2344,7 +2344,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>12</myCol>
           <isWalkable>false</isWalkable>
@@ -2352,7 +2352,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -2360,7 +2360,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>14</myCol>
           <isWalkable>true</isWalkable>
@@ -2368,7 +2368,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>15</myCol>
           <isWalkable>true</isWalkable>
@@ -2376,7 +2376,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>16</myCol>
           <isWalkable>true</isWalkable>
@@ -2384,7 +2384,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -2392,7 +2392,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -2400,7 +2400,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>11</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
@@ -2490,7 +2490,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -2498,7 +2498,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -2506,7 +2506,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>7</myCol>
           <isWalkable>false</isWalkable>
@@ -2514,7 +2514,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
@@ -2522,7 +2522,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -2530,7 +2530,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -2538,7 +2538,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.SwitchFloorBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
+          <myName>resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
           <myRow>12</myRow>
           <myCol>11</myCol>
           <isWalkable>true</isWalkable>
@@ -2550,7 +2550,7 @@
           <myTalkInteractions/>
           <myGates>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>13</myRow>
               <myCol>5</myCol>
               <isWalkable>true</isWalkable>
@@ -2560,7 +2560,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[10]/model.block.blocktypes.GateBlock[10]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock[6]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>16</myRow>
               <myCol>15</myCol>
               <isWalkable>true</isWalkable>
@@ -2568,7 +2568,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>13</myRow>
               <myCol>7</myCol>
               <isWalkable>true</isWalkable>
@@ -2576,7 +2576,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>17</myRow>
               <myCol>8</myCol>
               <isWalkable>true</isWalkable>
@@ -2584,7 +2584,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>18</myRow>
               <myCol>12</myCol>
               <isWalkable>true</isWalkable>
@@ -2592,7 +2592,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>18</myRow>
               <myCol>14</myCol>
               <isWalkable>true</isWalkable>
@@ -2600,7 +2600,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>14</myRow>
               <myCol>13</myCol>
               <isWalkable>true</isWalkable>
@@ -2608,7 +2608,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>17</myRow>
               <myCol>5</myCol>
               <isWalkable>true</isWalkable>
@@ -2617,7 +2617,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[8]/model.block.blocktypes.GateBlock[12]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>18</myRow>
               <myCol>8</myCol>
               <isWalkable>true</isWalkable>
@@ -2627,7 +2627,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[7]/model.block.blocktypes.GateBlock[15]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[8]/model.block.blocktypes.GateBlock[4]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>14</myRow>
               <myCol>19</myCol>
               <isWalkable>true</isWalkable>
@@ -2636,7 +2636,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../model.block.blocktypes.GateBlock"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>12</myRow>
               <myCol>19</myCol>
               <isWalkable>true</isWalkable>
@@ -2644,7 +2644,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>8</myCol>
               <isWalkable>true</isWalkable>
@@ -2653,7 +2653,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[6]/model.block.blocktypes.GateBlock[9]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>14</myRow>
               <myCol>15</myCol>
               <isWalkable>true</isWalkable>
@@ -2661,7 +2661,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>11</myCol>
               <isWalkable>true</isWalkable>
@@ -2670,7 +2670,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[8]/model.block.blocktypes.GateBlock"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>16</myCol>
               <isWalkable>true</isWalkable>
@@ -2678,7 +2678,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>17</myRow>
               <myCol>19</myCol>
               <isWalkable>true</isWalkable>
@@ -2687,7 +2687,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock[5]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>7</myCol>
               <isWalkable>true</isWalkable>
@@ -2697,7 +2697,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[11]/model.block.blocktypes.GateBlock[13]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[10]/model.block.blocktypes.GateBlock"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>13</myRow>
               <myCol>16</myCol>
               <isWalkable>true</isWalkable>
@@ -2705,7 +2705,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>16</myRow>
               <myCol>11</myCol>
               <isWalkable>true</isWalkable>
@@ -2716,7 +2716,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[11]/model.block.blocktypes.GateBlock[15]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[9]/model.block.blocktypes.GateBlock[15]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>18</myRow>
               <myCol>10</myCol>
               <isWalkable>true</isWalkable>
@@ -2724,7 +2724,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>16</myRow>
               <myCol>19</myCol>
               <isWalkable>true</isWalkable>
@@ -2733,7 +2733,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[10]/model.block.blocktypes.GateBlock[12]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>5</myCol>
               <isWalkable>true</isWalkable>
@@ -2747,7 +2747,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock[4]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[11]/model.block.blocktypes.GateBlock"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>16</myRow>
               <myCol>5</myCol>
               <isWalkable>true</isWalkable>
@@ -2755,7 +2755,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>18</myRow>
               <myCol>16</myCol>
               <isWalkable>true</isWalkable>
@@ -2763,7 +2763,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>13</myRow>
               <myCol>8</myCol>
               <isWalkable>true</isWalkable>
@@ -2771,7 +2771,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>13</myRow>
               <myCol>19</myCol>
               <isWalkable>true</isWalkable>
@@ -2780,7 +2780,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[8]/model.block.blocktypes.GateBlock[15]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>17</myRow>
               <myCol>16</myCol>
               <isWalkable>true</isWalkable>
@@ -2790,7 +2790,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock[15]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[8]/model.block.blocktypes.GateBlock[11]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>14</myRow>
               <myCol>17</myCol>
               <isWalkable>true</isWalkable>
@@ -2800,7 +2800,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock[12]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[10]/model.block.blocktypes.GateBlock[11]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>17</myRow>
               <myCol>12</myCol>
               <isWalkable>true</isWalkable>
@@ -2808,7 +2808,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>16</myRow>
               <myCol>9</myCol>
               <isWalkable>true</isWalkable>
@@ -2818,7 +2818,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[7]/model.block.blocktypes.GateBlock"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[9]/model.block.blocktypes.GateBlock"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>14</myRow>
               <myCol>5</myCol>
               <isWalkable>true</isWalkable>
@@ -2830,7 +2830,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock[10]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>14</myRow>
               <myCol>11</myCol>
               <isWalkable>true</isWalkable>
@@ -2841,7 +2841,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[10]/model.block.blocktypes.GateBlock[15]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[9]/model.block.blocktypes.GateBlock[9]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>18</myRow>
               <myCol>18</myCol>
               <isWalkable>true</isWalkable>
@@ -2850,7 +2850,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[8]/model.block.blocktypes.GateBlock[5]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>13</myRow>
               <myCol>12</myCol>
               <isWalkable>true</isWalkable>
@@ -2859,7 +2859,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock[11]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>16</myRow>
               <myCol>13</myCol>
               <isWalkable>true</isWalkable>
@@ -2867,7 +2867,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>16</myRow>
               <myCol>17</myCol>
               <isWalkable>true</isWalkable>
@@ -2875,7 +2875,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>19</myCol>
               <isWalkable>true</isWalkable>
@@ -2883,7 +2883,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>14</myRow>
               <myCol>9</myCol>
               <isWalkable>true</isWalkable>
@@ -2891,7 +2891,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>17</myRow>
               <myCol>7</myCol>
               <isWalkable>true</isWalkable>
@@ -2901,7 +2901,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[9]/model.block.blocktypes.GateBlock[3]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[6]/model.block.blocktypes.GateBlock[13]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>18</myRow>
               <myCol>6</myCol>
               <isWalkable>true</isWalkable>
@@ -2910,7 +2910,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[6]/model.block.blocktypes.GateBlock[7]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>13</myCol>
               <isWalkable>true</isWalkable>
@@ -2929,7 +2929,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.SwitchFloorBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
+          <myName>resources/images/tiles/switch_floor/switch-2-OFF.png</myName>
           <myRow>12</myRow>
           <myCol>13</myCol>
           <isWalkable>true</isWalkable>
@@ -2941,7 +2941,7 @@
           <myTalkInteractions/>
           <myGates>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>16</myRow>
               <myCol>12</myCol>
               <isWalkable>false</isWalkable>
@@ -2951,7 +2951,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[10]/model.block.blocktypes.GateBlock[10]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[7]/model.block.blocktypes.GateBlock[8]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>15</myCol>
               <isWalkable>true</isWalkable>
@@ -2959,7 +2959,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>8</myCol>
               <isWalkable>false</isWalkable>
@@ -2968,7 +2968,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[12]/model.block.blocktypes.GateBlock[6]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>13</myCol>
               <isWalkable>true</isWalkable>
@@ -2979,7 +2979,7 @@
             <model.block.blocktypes.GateBlock reference="../../../model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[46]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[7]/model.block.blocktypes.GateBlock[12]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>8</myCol>
               <isWalkable>true</isWalkable>
@@ -2988,7 +2988,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[7]/model.block.blocktypes.GateBlock[14]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>6</myCol>
               <isWalkable>true</isWalkable>
@@ -2996,7 +2996,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>9</myCol>
               <isWalkable>true</isWalkable>
@@ -3004,7 +3004,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>16</myCol>
               <isWalkable>true</isWalkable>
@@ -3016,7 +3016,7 @@
             <model.block.blocktypes.GateBlock reference="../../../model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[20]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[7]/model.block.blocktypes.GateBlock[13]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>12</myCol>
               <isWalkable>true</isWalkable>
@@ -3025,7 +3025,7 @@
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[7]/model.block.blocktypes.GateBlock[7]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>14</myCol>
               <isWalkable>false</isWalkable>
@@ -3033,7 +3033,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>11</myCol>
               <isWalkable>true</isWalkable>
@@ -3041,7 +3041,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>17</myCol>
               <isWalkable>true</isWalkable>
@@ -3054,7 +3054,7 @@
             <model.block.blocktypes.GateBlock reference="../../../model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[29]"/>
             <model.block.blocktypes.GateBlock reference="../../../model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[30]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>7</myCol>
               <isWalkable>false</isWalkable>
@@ -3065,7 +3065,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[11]/model.block.blocktypes.GateBlock[10]"/>
             <model.block.blocktypes.GateBlock reference="../../../model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[72]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>14</myCol>
               <isWalkable>true</isWalkable>
@@ -3075,7 +3075,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[7]/model.block.blocktypes.GateBlock[5]"/>
             <model.block.blocktypes.GateBlock reference="../../../model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[75]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
               <myRow>15</myRow>
               <myCol>10</myCol>
               <isWalkable>false</isWalkable>
@@ -3083,7 +3083,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>10</myCol>
               <isWalkable>true</isWalkable>
@@ -3091,7 +3091,7 @@
               <myTalkInteractions/>
             </model.block.blocktypes.GateBlock>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>7</myCol>
               <isWalkable>false</isWalkable>
@@ -3101,7 +3101,7 @@
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[10]/model.block.blocktypes.GateBlock[6]"/>
             <model.block.blocktypes.GateBlock reference="../../../../api.Block-array[11]/model.block.blocktypes.GateBlock[6]"/>
             <model.block.blocktypes.GateBlock>
-              <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+              <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
               <myRow>6</myRow>
               <myCol>7</myCol>
               <isWalkable>true</isWalkable>
@@ -3113,7 +3113,7 @@
           <onPosition>false</onPosition>
         </model.block.blocktypes.SwitchFloorBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
@@ -3121,7 +3121,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -3129,7 +3129,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>16</myCol>
           <isWalkable>false</isWalkable>
@@ -3137,7 +3137,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -3145,7 +3145,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>12</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -3237,7 +3237,7 @@
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -3247,7 +3247,7 @@
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[5]"/>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[46]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -3255,7 +3255,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -3263,7 +3263,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -3272,7 +3272,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[70]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -3280,7 +3280,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
@@ -3288,7 +3288,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -3297,7 +3297,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[29]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -3305,7 +3305,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>13</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -3397,7 +3397,7 @@
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[59]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>14</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -3405,7 +3405,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>14</myRow>
           <myCol>7</myCol>
           <isWalkable>false</isWalkable>
@@ -3413,7 +3413,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>14</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
@@ -3422,7 +3422,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[75]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>14</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -3431,7 +3431,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[64]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>14</myRow>
           <myCol>12</myCol>
           <isWalkable>false</isWalkable>
@@ -3440,7 +3440,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[9]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>14</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
@@ -3449,7 +3449,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[20]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>14</myRow>
           <myCol>16</myCol>
           <isWalkable>false</isWalkable>
@@ -3458,7 +3458,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[52]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>14</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -3550,7 +3550,7 @@
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[37]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>15</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -3560,7 +3560,7 @@
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[26]"/>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[18]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>15</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -3570,7 +3570,7 @@
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock[2]/myGates/model.block.blocktypes.GateBlock[37]"/>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[21]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>15</myRow>
           <myCol>12</myCol>
           <isWalkable>false</isWalkable>
@@ -3580,7 +3580,7 @@
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[81]"/>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock[2]/myGates/model.block.blocktypes.GateBlock[22]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>15</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -3589,7 +3589,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[23]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>15</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -3597,7 +3597,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>15</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -3689,7 +3689,7 @@
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[44]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>16</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -3697,7 +3697,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>16</myRow>
           <myCol>7</myCol>
           <isWalkable>false</isWalkable>
@@ -3705,7 +3705,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>16</myRow>
           <myCol>8</myCol>
           <isWalkable>false</isWalkable>
@@ -3714,7 +3714,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[56]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>16</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -3725,7 +3725,7 @@
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock[2]/myGates/model.block.blocktypes.GateBlock"/>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[72]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>16</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
@@ -3734,7 +3734,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[4]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>16</myRow>
           <myCol>16</myCol>
           <isWalkable>false</isWalkable>
@@ -3743,7 +3743,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[73]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>16</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -3835,7 +3835,7 @@
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[10]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>6</myCol>
           <isWalkable>false</isWalkable>
@@ -3845,7 +3845,7 @@
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[76]"/>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[6]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -3853,7 +3853,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>10</myCol>
           <isWalkable>false</isWalkable>
@@ -3861,7 +3861,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -3870,7 +3870,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[55]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -3878,7 +3878,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>14</myCol>
           <isWalkable>false</isWalkable>
@@ -3886,7 +3886,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -3895,7 +3895,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[49]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-2-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-2-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -3903,7 +3903,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>17</myRow>
           <myCol>18</myCol>
           <isWalkable>false</isWalkable>
@@ -3994,7 +3994,7 @@
           <myTalkInteractions/>
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.DecorationBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-4.png</myName>
+          <myName>resources/images/tiles/decoration/flower-4.png</myName>
           <myRow>18</myRow>
           <myCol>5</myCol>
           <isWalkable>true</isWalkable>
@@ -4003,7 +4003,7 @@
         </model.block.blocktypes.DecorationBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[79]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>18</myRow>
           <myCol>7</myCol>
           <isWalkable>false</isWalkable>
@@ -4012,7 +4012,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[12]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>18</myRow>
           <myCol>9</myCol>
           <isWalkable>false</isWalkable>
@@ -4021,7 +4021,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[34]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>18</myRow>
           <myCol>11</myCol>
           <isWalkable>false</isWalkable>
@@ -4030,7 +4030,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[7]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>18</myRow>
           <myCol>13</myCol>
           <isWalkable>false</isWalkable>
@@ -4039,7 +4039,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[8]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>18</myRow>
           <myCol>15</myCol>
           <isWalkable>false</isWalkable>
@@ -4048,7 +4048,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[45]"/>
         <model.block.blocktypes.GateBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/gate/light-1-CLOSED.png</myName>
+          <myName>resources/images/tiles/gate/light-1-CLOSED.png</myName>
           <myRow>18</myRow>
           <myCol>17</myCol>
           <isWalkable>false</isWalkable>
@@ -4057,7 +4057,7 @@
         </model.block.blocktypes.GateBlock>
         <model.block.blocktypes.GateBlock reference="../../api.Block-array[13]/model.block.blocktypes.SwitchFloorBlock/myGates/model.block.blocktypes.GateBlock[68]"/>
         <model.block.blocktypes.DecorationBlock>
-          <myName>file:/C:/Users/ryana/Desktop/308/Workspace/voogasalad_todoteamname/src/resources/images/tiles/decoration/flower-4.png</myName>
+          <myName>resources/images/tiles/decoration/flower-4.png</myName>
           <myRow>18</myRow>
           <myCol>19</myCol>
           <isWalkable>true</isWalkable>
