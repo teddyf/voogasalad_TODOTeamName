@@ -234,9 +234,9 @@ public class GridManager extends Observable implements Serializable {
     }
 
     /**
-     * Makes a copy of the model.grid manager so that one can be used to test the game while in the controller.editor, but the original
+     * Makes a copy of the grid manager so that one can be used to test the game while in the editor, but the original
      * model.grid manager is still preserved
-     * @return the copy of the model.grid manager
+     * @return the copy of the grid manager
      */
     public GridManager deepClone() {
         GridManager newGridManager = new GridManager();
