@@ -13,7 +13,7 @@ import java.util.List;
  * Parent class of all blocks.
  * @author Filip Mazurek, Aninda Manocha
  */
-public abstract class AbstractBlock implements Block {
+public abstract class AbstractBlock implements Block, Serializable {
 
     private String myName;
     private int myRow;
@@ -118,7 +118,7 @@ public abstract class AbstractBlock implements Block {
             objectOutputStream.writeObject(this);
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-            return (AbstractBlock) objectInputStream.readObject();
+            return (Block) objectInputStream.readObject();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

@@ -311,7 +311,7 @@ public class EditorController implements Controller {
         try {
             Player enginePlayer = new PlayerInstance(myPlayerManager.getPlayer());
             GridManager engineGridManager = myGridManager.deepClone();
-            EngineController testEngineController = new EngineController(enginePlayer, myGridManager, myGridManager.getMusic());
+            EngineController testEngineController = new EngineController(enginePlayer, myGridManager, engineGridManager.getMusic());
             myGridManager = engineGridManager;
             return testEngineController;
         } catch (NoPlayerException e) {
