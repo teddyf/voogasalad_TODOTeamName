@@ -99,8 +99,8 @@ public abstract class Grid extends Observable {
         this.gridWidth = width + WRAP;
         this.gridHeight = height + WRAP;
         this.group = new Group();
-        this.blockList = new ArrayList<GridPaneNode>();
-        this.clicked = new ArrayList<GridPaneNode>();
+        this.blockList = new ArrayList<>();
+        this.clicked = new ArrayList<>();
         grid = new GridPaneNode[gridHeight][gridWidth];
     }
 

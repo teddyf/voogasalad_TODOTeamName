@@ -27,7 +27,7 @@ class SizeChooserUI extends Scene {
     private static PropertiesUtilities myUtil;
     private static EditorView myEditor;
 
-    private String[] buttons = {"smallButton", "medButton", "largeButton", "customButton"};
+    private final String[] buttons = {"smallButton", "medButton", "largeButton", "customButton"};
 
 
     SizeChooserUI(EditorView editor, Parent root) {

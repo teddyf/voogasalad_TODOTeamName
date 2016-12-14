@@ -15,6 +15,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
+import view.grid.Grid;
 import view.scenes.editor.sidemenu.*;
 
 /**
@@ -120,7 +121,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
      */
     @Override
     public void update(Observable o, Object arg) {
-        if (o instanceof EditorGrid) {
+        if (o instanceof Grid) {
             recentlySaved = false;
         }
         if (o instanceof EditorIO) {
