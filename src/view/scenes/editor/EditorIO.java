@@ -43,7 +43,7 @@ class EditorIO extends Observable {
     boolean saveEditorFile() {
         File gameFile = new FileBrowser().saveEditorFile(myStage, myResources.getString("editorFilePath"));
         if (gameFile != null) {
-            myEditorController.saveEditor(gameFile.getAbsolutePath());
+            myEditorController.saveEditor(gameFile.getPath());
             setChanged();
             notifyObservers();
             return true;
@@ -59,7 +59,7 @@ class EditorIO extends Observable {
     boolean openEditorFile() {
         File gameFile = new FileBrowser().openEditorFile(myStage, myResources.getString("editorFilePath"));
         if (gameFile != null) {
-            myEditorController.loadEditor(gameFile.getAbsolutePath());
+            myEditorController.loadEditor(gameFile.getPath());
             setChanged();
             notifyObservers(myEditorController);
             myGrid.loadGrid(); // load into model.grid user interface
@@ -76,7 +76,7 @@ class EditorIO extends Observable {
     boolean saveGameFile() {
         File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("engineFilePath"));
         if (gameFile != null) {
-            myEditorController.saveEngine(gameFile.getAbsolutePath());
+            myEditorController.saveEngine(gameFile.getPath());
             return true;
         }
         return false;

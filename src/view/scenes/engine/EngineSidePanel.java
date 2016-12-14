@@ -76,7 +76,7 @@ public class EngineSidePanel implements Observer {
         Node n = myBuilder.addNewButton(vbox, new ComponentProperties(20, 50).text("Save Progress"));
         n.setOnMouseClicked(e -> {
             File gameFile = new FileBrowser().saveGameFile(myStage, myResources.getString("engineFilePath"));
-            engineController.saveEngine(gameFile.getAbsolutePath());
+            engineController.saveEngine(gameFile.getPath());
         });
     }
 

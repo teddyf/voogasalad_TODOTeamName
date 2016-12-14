@@ -87,7 +87,7 @@ public class EngineView extends Scene implements Observer {
                 return false;
             }
         }
-        myController.loadEngine(myGameFile.getAbsolutePath());
+        myController.loadEngine(myGameFile.getPath());
         runInstance();
         return true;
     }
