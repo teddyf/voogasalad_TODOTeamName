@@ -74,8 +74,8 @@ public class FileBrowser {
     private FileChooser setUpEditorFileChooser(String path) {
         FileChooser browser = new FileChooser();
         FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter(
-                "EDITOR files (*.controller.editor)",
-                "*.controller.editor");
+                "EDITOR files (*.editor)",
+                "*.editor");
         browser.getExtensionFilters().add(filter);
         browser.setInitialDirectory(new File(path));
         return browser;
@@ -90,8 +90,8 @@ public class FileBrowser {
     private FileChooser setUpEngineFileChooser(String path) {
         FileChooser browser = new FileChooser();
         FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter(
-                "ENGINE files (*.controller.engine)",
-                "*.controller.engine");
+                "ENGINE files (*.engine)",
+                "*.engine");
         browser.getExtensionFilters().add(filter);
         browser.setInitialDirectory(new File(path));
         return browser;
