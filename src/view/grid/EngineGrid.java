@@ -1,7 +1,5 @@
-package view.scenes.engine;
+package view.grid;
 
-import view.grid.Grid;
-import view.grid.GridPaneNode;
 import javafx.scene.Group;
 
 /**

@@ -17,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import utilities.builder.UIBuilder;
+import view.grid.EngineGrid;
 
 /**
  * @author Harshil Garg, Nisakorn Valyasevi

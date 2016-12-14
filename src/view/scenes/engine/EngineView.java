@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import view.UILauncher;
 import utilities.builder.UIBuilder;
+import view.grid.EngineGrid;
 
 import java.io.File;
 import java.util.List;

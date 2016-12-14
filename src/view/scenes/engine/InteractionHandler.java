@@ -4,6 +4,7 @@ import model.block.BlockUpdate;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import utilities.builder.UIBuilder;
+import view.grid.EngineGrid;
 
 import java.util.Observable;
 
