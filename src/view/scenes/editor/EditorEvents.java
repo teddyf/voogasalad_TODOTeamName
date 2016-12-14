@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
  *         <p>
  *         This class adds items to each of the controller.editor menus and configures their actions.
  */
-public class EditorEvents {
+class EditorEvents {
 
     private UILauncher myLauncher;
     private EditorIO myIO;

@@ -68,7 +68,6 @@ class EditorIO extends Observable {
         return false;
     }
 
-
     /**
      * Exports a game file that can be played with the controller.engine
      *
@@ -82,7 +81,6 @@ class EditorIO extends Observable {
         }
         return false;
     }
-
 
     /**
      * Runs an instance of the current game within the controller.editor

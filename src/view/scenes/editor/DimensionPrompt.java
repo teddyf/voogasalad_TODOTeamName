@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
  *         the user to enter and width and height. The width and height are validated
  *         to ensure that they are correctly formatted integers.
  */
-public class DimensionPrompt {
+class DimensionPrompt {
 
     private Parent myRoot;
     private static ResourceBundle myResources;
@@ -87,12 +87,10 @@ public class DimensionPrompt {
         dialog.setHeaderText(myResources.getString("dimHeader"));
         ButtonType submitButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(submitButtonType, ButtonType.CANCEL);
-
         Node submitButton = dialog.getDialogPane().lookupButton(submitButtonType);
         topField.textProperty().addListener(e -> submitButton.setDisable(invalidValue(topField, bottomField, maxDim)));
         bottomField.textProperty().addListener(e -> submitButton.setDisable(invalidValue(topField, bottomField, maxDim)));
         submitButton.setDisable(true);
-
         return dialog;
     }
 
@@ -113,8 +111,6 @@ public class DimensionPrompt {
                 .width(200));
         Dialog dimDialog = twoFieldDialog(maxDim, widthField, heightField);
         dimDialog.getDialogPane().setContent(createGrid(10, 10, widthField, heightField));
-
-
         if (dimDialog.showAndWait().get() == ButtonType.CANCEL) return null; // user clicked cancel
         int widthVal = Integer.parseInt(widthField.getText());
         int heightVal = Integer.parseInt(heightField.getText());

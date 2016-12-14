@@ -32,6 +32,9 @@ public class MainMenuView extends Scene {
     private ResourceBundle myResources;
     private PropertiesUtilities myUtil;
 
+    private final String[] buttons = {"buildButton", "playButton", "exitButton"};
+    private final String[] titles = {"title", "subtitle"};
+
     public MainMenuView(Stage stage, Parent root, UILauncher launcher) {
         super(root);
         myStage = stage;
@@ -49,27 +52,29 @@ public class MainMenuView extends Scene {
      * Initializes the navigational buttons in the main menu
      */
     private void setButtons() {
-        // create build button
         String buttonCSSid = myResources.getString("buttonCSSid");
-        int xPos = myUtil.getIntProperty("buildButtonX");
-        int yPos = myUtil.getIntProperty("buildButtonY");
-        String path = myResources.getString("buildButtonPath");
         int width = myUtil.getIntProperty("buttonWidth");
-        Node buildButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        buildButton.setOnMouseClicked(e -> myLauncher.launchEditor());
-        
-        // create play button
-        xPos = myUtil.getIntProperty("playButtonX");
-        yPos = myUtil.getIntProperty("playButtonY");
-        path = myResources.getString("playButtonPath");
-        Node playButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        playButton.setOnMouseClicked(e -> myLauncher.launchEngine());
-        // create exit button
-        xPos = myUtil.getIntProperty("exitButtonX");
-        yPos = myUtil.getIntProperty("exitButtonY");
-        path = myResources.getString("exitButtonPath");
-        Node exitButton = myBuilder.addCustomImageView(myRoot, xPos, yPos, path, width, buttonCSSid);
-        exitButton.setOnMouseClicked(e -> myStage.hide());
+        for (String button : buttons) {
+            int xPos = myUtil.getIntProperty(button + "X");
+            int yPos = myUtil.getIntProperty(button + "Y");
+            String path = myResources.getString(button + "Path");
+            Node newButton = myBuilder.addNewImageView(myRoot, new ComponentProperties(xPos, yPos)
+                    .path(path)
+                    .width(width)
+                    .id(buttonCSSid)
+                    .preserveRatio(true));
+            switch (button) {
+                case "buildButton":
+                    newButton.setOnMouseClicked(e -> myLauncher.launchEditor());
+                    break;
+                case "playButton":
+                    newButton.setOnMouseClicked(e -> myLauncher.launchEngine());
+                    break;
+                case "exitButton":
+                    newButton.setOnMouseClicked(e -> myStage.hide());
+                    break;
+            }
+        }
     }
 
     /**
@@ -77,19 +82,17 @@ public class MainMenuView extends Scene {
      */
     private void setText() {
         Font.loadFont(myResources.getString("externalFont"), 12);
-        // create title
-        int xPos = myUtil.getIntProperty("titleXPos");
-        int yPos = myUtil.getIntProperty("titleYPos");
-        String text = myResources.getString("titleText");
         String font = myResources.getString("font");
-        int size = myUtil.getIntProperty("titleSize");
-        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, null, size);
-        // create subtitle
-        xPos = myUtil.getIntProperty("subtitleXPos");
-        yPos = myUtil.getIntProperty("subtitleYPos");
-        text = myResources.getString("subtitleText");
-        size = myUtil.getIntProperty("subtitleSize");
-        myBuilder.addCustomLabel(myRoot, text, xPos, yPos, font, null, size);
+        for (String title : titles) {
+            int xPos = myUtil.getIntProperty(title + "XPos");
+            int yPos = myUtil.getIntProperty(title + "YPos");
+            String text = myResources.getString(title + "Text");
+            int size = myUtil.getIntProperty(title + "Size");
+            myBuilder.addNewLabel(myRoot, new ComponentProperties(xPos, yPos)
+                    .text(text)
+                    .font(font)
+                    .size(size));
+        }
     }
 
     /**
@@ -112,9 +115,5 @@ public class MainMenuView extends Scene {
         setBackground();
         setText();
         setButtons();
-    }
-        
-    public String getPath(){
-        return MAINMENU_RESOURCES;
     }
 }
