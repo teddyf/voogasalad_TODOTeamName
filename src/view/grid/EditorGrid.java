@@ -59,7 +59,6 @@ public class EditorGrid extends Grid implements Observer {
         notifyObservers();
         if (clicked.size() == 1) {
             if (clickType.equals("SWAP")) {
-                System.out.println("in here 8");
                 swap(obj, control);
             }
             else if (clickType.equals("PLAYER") && imagePaths.size() > 0) {
@@ -97,13 +96,11 @@ public class EditorGrid extends Grid implements Observer {
             GridPaneNode player = new GridPaneNode(row, col, imagePaths.get(0));
             player.setImageSize(CELL_PIXELS, CELL_PIXELS);
             player.setImageCoord(getXRender(col), getYRender(row));
-            System.out.println("model/player " + player.getImage().getX());
             group.getChildren().add(player.getImage());
 
             ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();
             list.add(temp);
             gridMap.storeObject(list);
-            System.out.println("disease" + control.getPlayerCol() +"disease"+ control.getPlayerRow());
             resetClicked();
         }
 
@@ -117,15 +114,10 @@ public class EditorGrid extends Grid implements Observer {
         List<GridPaneNode> list = obj.getImageTiles();
         getObjectNeighbors(list);
         for (int i = 0; i < clicked.size(); i++) {
-            System.out.println("clicked index" + i);
             if (addObjToMap(list, clicked.get(i))) {
-                System.out.println("hiiijdifjds");
                 for (int j = 0; j < list.size(); j++) {
                     int xPos = clicked.get(i).getCol() + list.get(j).getCol();
                     int yPos = clicked.get(i).getRow() + list.get(j).getRow();
-                    System.out.println(xPos);
-                    System.out.println(yPos);
-                    System.out.println("gridwidth" + grid[0].length + " gridheight" + grid.length);
                     GridPaneNode temp = grid[yPos][xPos];
                     // TODO add dimension checker
 
@@ -242,7 +234,6 @@ public class EditorGrid extends Grid implements Observer {
             deleted.addAll(gridMap.sharesObjWith(temp.getRow(), temp.getCol()));
             gridMap.collisionRemoval(temp.getRow(), temp.getCol());
         }
-        System.out.println("delete these: " + deleted);
         if (!deleted.isEmpty()) {
             for (int i = 0; i < deleted.size(); i += 2) {
 

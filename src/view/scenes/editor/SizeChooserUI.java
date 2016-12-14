@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  * @author Robert Steilberg
  *         <p>
  *         This class provides the functionality for allowing a user to choose the
- *         initial model.grid size of the controller.editor.
+ *         initial grid size of the editor.
  */
 public class SizeChooserUI extends Scene {
 
@@ -46,7 +46,6 @@ public class SizeChooserUI extends Scene {
         Dimension result = dimPrompt.promptForDimensions(myUtil.getIntProperty("maxDim"));
         if (result != null) {
             myEditor.launchEditor(result.width(), result.height());
-            System.out.println(result.width() + " is width " + result.height() + " is height");
         }
     }
 

@@ -128,7 +128,6 @@ public class BattleView implements Observer {
 	}
 	private void addReduceHandler() {
 		EventHandler<ActionEvent> event = actionEvent -> {
-            System.out.println(usingShield);
             FireBall f = new FireBall(root);
 		    f.throwFireBall(PLAYER_X,PLAYER_Y,ENEMY_X);
 			if (!(model.checkPlayerLost() || model.checkPlayerWon())) {
@@ -148,7 +147,6 @@ public class BattleView implements Observer {
 		player.setHP((int) model.getPlayerHP());
 		enemy.setHP((int) model.getEnemyHP());
 
-		System.out.println(model.getNumPokemon());
 		if (model.checkPlayerLost()) {
 			lose();
 		}
