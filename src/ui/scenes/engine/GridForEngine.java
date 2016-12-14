@@ -30,6 +30,8 @@ public class GridForEngine {
     private double gridHeight;
     private double renderWidth;
     private double renderHeight;
+    private int renderTopLeftX;
+    private int renderTopLeftY;
 
     private ColorAdjust hoverOpacity;
     private GridObjectMap gridMap;

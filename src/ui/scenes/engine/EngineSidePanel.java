@@ -184,7 +184,7 @@ public class EngineSidePanel implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        playerPos.setText(engineController.getPlayerRow() + "," + engineController.getPlayerColumn());
+        playerPos.setText(engineController.getPlayerColumn() + "," + engineController.getPlayerRow());
         numPokemon.setText(String.valueOf(engineController.getPlayerNumPokemon()));
         healthBar.setProgress(engineController.getPlayerHealth()/DEFAULT_HEALTH);
         healthNum.setText("" + engineController.getPlayerHealth());

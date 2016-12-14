@@ -2761,21 +2761,14 @@
           <myStepInteractions/>
           <myTalkInteractions/>
         </block.DecorationBlock>
-        <block.CommunicatorBlock>
-          <myName>file:/Users/nisavalyasevi/Documents/workspace308/voogasalad_todoteamname/src/resources/images/tiles/communicator/sign-3.png</myName>
+        <block.DecorationBlock>
+          <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>13</myRow>
           <myCol>16</myCol>
-          <isWalkable>false</isWalkable>
+          <isWalkable>true</isWalkable>
           <myStepInteractions/>
-          <myTalkInteractions>
-            <interactions.MessageInteraction>
-              <myRow>13</myRow>
-              <myCol>16</myCol>
-              <myMessage>djjl</myMessage>
-            </interactions.MessageInteraction>
-          </myTalkInteractions>
-          <myMessage>djjl</myMessage>
-        </block.CommunicatorBlock>
+          <myTalkInteractions/>
+        </block.DecorationBlock>
         <block.DecorationBlock>
           <myName>resources/images/tiles/ground/grass-1.png</myName>
           <myRow>13</myRow>
@@ -5064,27 +5057,26 @@
         </block.DecorationBlock>
       </block.Block-array>
     </grid>
-    <myMusicFile>ppp</myMusicFile>
+    <myMusicFile>src/resources/sounds/Aquacorde.mp3</myMusicFile>
   </gridWorld>
   <player>
     <battlesWon>0</battlesWon>
     <battlesLost>0</battlesLost>
     <myNames>
-      <string>resources/images/sprites/3-down.png</string>
-      <string>resources/images/sprites/3-left.png</string>
-      <string>resources/images/sprites/3-right.png</string>
-      <string>resources/images/sprites/3-up.png</string>
+      <string>resources/images/sprites/35-down.png</string>
+      <string>resources/images/sprites/35-left.png</string>
+      <string>resources/images/sprites/35-right.png</string>
+      <string>resources/images/sprites/35-up.png</string>
     </myNames>
-    <myPlayerName>jsdjkasd</myPlayerName>
+    <myPlayerName>mi</myPlayerName>
     <myDirection>SOUTH</myDirection>
-    <myRow>10</myRow>
-    <myCol>14</myCol>
+    <myRow>12</myRow>
+    <myCol>10</myCol>
     <myGridIndex>0</myGridIndex>
     <myAttributes/>
     <myInventory/>
     <myBattleHistory/>
     <myInteractionHistory/>
-    <myStatus/>
     <numPokemon>3</numPokemon>
     <health>100.0</health>
   </player>

@@ -16,7 +16,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class DialogBubbleBuilder implements ComponentBuilder {
-	private static final String imagePath = "/resources/images/dialog/";
+	private ResourceBundle myResources = ResourceBundle.getBundle("resources/properties/dialog-builder");
 	
 	public DialogBubbleBuilder() {
 	}
@@ -24,7 +24,7 @@ public class DialogBubbleBuilder implements ComponentBuilder {
 
 	public Node createComponent(ComponentProperties properties) {
 		Group dialogBubble = new Group();
-		Image rawImage = new Image(imagePath + "EmptyDialog.png");
+		Image rawImage = new Image(myResources.getString("bubbleImagePath"));
 		ImageView dialogImage = new ImageView(rawImage);
 		dialogImage.setFitHeight(properties.height);
 		dialogImage.setFitWidth(properties.width);
@@ -35,8 +35,8 @@ public class DialogBubbleBuilder implements ComponentBuilder {
 	
 	private Label setUpTextArea(ComponentProperties properties) {
 		Label textArea = new Label(properties.text);
-		Font.loadFont(EngineSidePanel.class.getResource("/resources/fonts/PokemonGB.ttf").toExternalForm(), 30);
-		textArea.setFont(new Font("Pokemon GB", 15));
+		Font.loadFont(EngineSidePanel.class.getResource(myResources.getString("fontPath")).toExternalForm(), 30);
+		textArea.setFont(new Font(myResources.getString("fontName"), Integer.parseInt((myResources.getString("dialogFontSize")))));
 		textArea.setWrapText(true);
 		textArea.setMaxHeight(properties.height - (properties.height/6));
 		textArea.setMaxWidth(properties.width - (properties.width/10));
