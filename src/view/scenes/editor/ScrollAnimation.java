@@ -8,7 +8,7 @@ import javafx.util.Duration;
 /**
  * @author Harshil Garg
  *         <p>
- *         Adds scrolling to the model.grid for navigation.
+ *         Adds scrolling to the grid for navigation.
  */
 public class ScrollAnimation {
 
@@ -26,7 +26,7 @@ public class ScrollAnimation {
 
     private Group group;
 
-    public ScrollAnimation(Group group, double xMin, double yMin) {
+    ScrollAnimation(Group group, double xMin, double yMin) {
         this.group = group;
         this.xMin = xMin;
         this.xMax = -xMin;
@@ -43,11 +43,11 @@ public class ScrollAnimation {
         transition.setInterpolator(Interpolator.LINEAR);
     }
 
-    public void setScrollSpeedButtons() {
+    void setScrollSpeedButtons() {
         CURRENT_MODE_SCROLL_SPEED_PPM = BUTTON_MODE_SCROLL_SPEED_PPM;
     }
 
-    public void setScrollSpeedTrackpad() {
+    void setScrollSpeedTrackpad() {
         CURRENT_MODE_SCROLL_SPEED_PPM = TRACKPAD_MODE_SCROLL_SPEED_PPM;
     }
 
@@ -79,7 +79,7 @@ public class ScrollAnimation {
         transition.setToY(yMin);
     }
 
-    public void center() {
+    void center() {
         double duration = 1000;
         setTransition(duration);
         transition.setToX(0);
@@ -90,7 +90,7 @@ public class ScrollAnimation {
         transition.play();
     }
 
-    public void stop() {
+    void stop() {
         transition.stop();
     }
 

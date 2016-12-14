@@ -22,7 +22,7 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 @XStreamAlias("model/grid")
 public class GridInstance extends Observable implements Grid {
     @XStreamOmitField
-    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/model.block-paths");
+    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
     
     private int myIndex;
     private int myNumRows;

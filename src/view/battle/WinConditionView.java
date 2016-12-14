@@ -18,7 +18,7 @@ public class WinConditionView {
 	private Label label;
 	private ResourceBundle resources;
 	private PropertiesUtilities utilities;
-	private static final String BATTLE_RESOURCES = "resources/properties/game-controller.engine-battle";
+	private static final String BATTLE_RESOURCES = "resources/properties/game-engine-battle";
 	private static final String CSS_FILE_PATH = "resources/styles/game-engine.css";
 	
 	private ItemView itemView;

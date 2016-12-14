@@ -28,7 +28,7 @@ public class SnapShot {
     private EngineView gameEngine;
     private PropertiesUtilities util;
     private ResourceBundle resources;
-    private static final String ENGINE_RESOURCES = "resources/properties/game-controller.engine";
+    private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 
     public SnapShot(EngineView gameEngine) {
         group = new Group();
