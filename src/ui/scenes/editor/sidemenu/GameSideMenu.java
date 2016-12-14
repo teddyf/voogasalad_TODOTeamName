@@ -140,7 +140,7 @@ public class GameSideMenu extends SideMenu {
         Tab linkTab = createTab("Link", createLinkPane());
         Tab musicTab = createTab("Music", createMusicPane());
         Tab winTab = createTab("Winning",addWinBlocks());
-        myPanel.getTabs().addAll(resizeTab, linkTab, musicTab, winTab);
+        myPanel.getTabs().addAll(linkTab, musicTab, winTab);
     }
 
     private void changeStatus() {
