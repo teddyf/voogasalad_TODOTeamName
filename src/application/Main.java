@@ -2,7 +2,7 @@ package application;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import ui.UILauncher;
+import view.UILauncher;
 
 /**
  * Initializes the program and launches the main manu.

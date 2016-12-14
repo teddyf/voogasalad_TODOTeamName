@@ -1,7 +1,7 @@
 package api;
 
 /**
- * The interface for the player attribute class.
+ * The interface for the model.player attribute class.
  * @author Aninda Manocha
  */
 
