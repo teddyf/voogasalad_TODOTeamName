@@ -16,7 +16,7 @@ import view.scenes.editor.sidemenu.PlayerSideMenu;
 import java.util.*;
 
 /**
- * @author Teddy Franceschi, Robert Steilberg, Harshil Garg
+ * @author Teddy Franceschi, Harshil Garg, Robert Steilberg
  *         <p>
  *         This class initializes the model.grid-based UI used to create the overworld.
  */

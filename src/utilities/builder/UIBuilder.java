@@ -181,23 +181,6 @@ public class UIBuilder<E> {
         return addComponent(layout, textFieldBuilder.createComponent(properties));
     }
 
-    /**
-     * Create a customized JavaFX text field and add it to the given Group or Pane
-     *
-     * @param layout is the Group or Parent to which the text field is added
-     * @param text   is the text to be displayed in the text field
-     * @param x      is the X position of the text field
-     * @param y      is the Y position of the text field
-     * @param width  is the width of the text field
-     * @param height is the height of the text field
-     * @return the properly formatted text field
-     */
-    public Node addCustomTextField(Parent layout, String text, int x, int y, int width) {
-        return addComponent(layout, textFieldBuilder.createComponent(new ComponentProperties(x, y)
-                .width(width)
-                .text(text)));
-    }
-
     public Node addNewAlert(String header, String content) {
         return alertBuilder.createComponent(new ComponentProperties()
                 .header(header)
@@ -221,10 +204,6 @@ public class UIBuilder<E> {
     /**
      * Add dialog box to layout, must set params in properties for layout X & Y coordinates,
      * text string to be displayed, and height and width of bubble
-     *
-     * @param layout
-     * @param properties
-     * @return
      */
     public Node addNewDialogBubble(Parent layout, Stage stage, String message) {
         ComponentProperties properties = new ComponentProperties();

@@ -15,6 +15,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
+import view.grid.Grid;
 import view.scenes.editor.sidemenu.*;
 
 /**
@@ -120,7 +121,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
      */
     @Override
     public void update(Observable o, Object arg) {
-        if (o instanceof EditorGrid) {
+        if (o instanceof Grid) {
             recentlySaved = false;
         }
         if (o instanceof EditorIO) {
@@ -137,12 +138,12 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
     }
 
     /**
-     * Initializes the game controller.editor window by prompting the user to choose an initial
+     * Initializes the game editor window by prompting the user to choose an initial
      * overworld size
      */
     public void init() {
-        SizeChooser2 sizeChooser = new SizeChooser2(this, new Group());
-        myBuilder.initWindow(myStage, SizeChooser2.SIZE_CHOOSER_RESOURCES);
+        SizeChooserUI sizeChooser = new SizeChooserUI(this, new Group());
+        myBuilder.initWindow(myStage, SizeChooserUI.SIZE_CHOOSER_RESOURCES);
         myStage.setScene(sizeChooser);
     }
 }
