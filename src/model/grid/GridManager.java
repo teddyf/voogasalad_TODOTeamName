@@ -241,8 +241,8 @@ public class GridManager extends Observable implements Serializable {
     public GridManager deepClone() {
         GridManager newGridManager = new GridManager();
         for(int i = 0; i < myGrids.size(); i++) {
-            Grid grid = myGrids.get(i);
-            Grid tempGrid = new GridInstance(i, grid.getNumRows(), grid.getNumCols());
+            GridInstance grid = (GridInstance)myGrids.get(i);
+            GridInstance tempGrid = new GridInstance(i, grid.getNumRows(), grid.getNumCols());
             for (int row = 0; row < grid.getNumRows(); row++) {
                 for (int col = 0; col < grid.getNumCols(); col++) {
                     Block block = grid.getBlock(row, col);

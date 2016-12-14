@@ -310,9 +310,7 @@ public class EditorController implements Controller {
     public EngineController runEngine() {
         try {
             Player enginePlayer = new PlayerInstance(myPlayerManager.getPlayer());
-//            GridManager testGridManager = myGridManager.deepClone();
             EngineController testEngineController = new EngineController(enginePlayer, myGridManager, myGridManager.getMusic());
-//            myGridManager = testGridManager;
             return testEngineController;
         } catch (NoPlayerException e) {
             myAlerts.exceptionDisplay(e.getMessage());

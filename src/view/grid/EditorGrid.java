@@ -166,14 +166,11 @@ public class EditorGrid extends Grid implements Observer {
     }
 
     private void gateTransition(GridPaneNode node, EditorController control){
-        System.out.println("gate transition");
         String path = node.getName();
         if(path.indexOf("OPEN")<0){
-            System.out.println("closing");
             control.setGateStatus(getBackendAssociatedRow(node), getBackendAssociatedColumn(node), false);
         }
         else{
-            System.out.println("opening");
             control.setGateStatus(getBackendAssociatedRow(node), getBackendAssociatedColumn(node), true);
         }
     }
