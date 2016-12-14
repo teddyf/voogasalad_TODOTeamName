@@ -46,12 +46,9 @@ public class PopUp {
         okayButton.setLayoutX(60);
         okayButton.setLayoutY(20);
 
-        okayButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                result = true;
-                stage.close();
-            }
+        okayButton.setOnAction(event -> {
+            result = true;
+            stage.close();
         });
 
         group.getChildren().addAll(label, cancelButton, okayButton);

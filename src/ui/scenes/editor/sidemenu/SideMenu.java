@@ -17,7 +17,8 @@ import java.util.ResourceBundle;
 /**
  * @author Harshil Garg, Robert Steilberg
  *         <p>
- *         This class defines the basic functionality for a SideMenu in the Editor.
+ *         This class defines the basic functionality for a generic SideMenu
+ *         in the Editor.
  */
 public abstract class SideMenu extends Observable {
 
@@ -101,6 +102,11 @@ public abstract class SideMenu extends Observable {
         return newTab;
     }
 
+    /**
+     * Set the height of a side control panel
+     *
+     * @param height
+     */
     void setSidePanelHeight(int height) {
         myPanel.setMinHeight(height);
         myPanel.setMaxHeight(height);
