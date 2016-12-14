@@ -97,7 +97,6 @@ public class EditorGrid extends Grid implements Observer {
             GridPaneNode player = new GridPaneNode(row, col, imagePaths.get(0));
             player.setImageSize(CELL_PIXELS, CELL_PIXELS);
             player.setImageCoord(getXRender(col), getYRender(row));
-            System.out.println("model/player " + player.getImage().getX());
             group.getChildren().add(player.getImage());
 
             ArrayList<GridPaneNode> list = new ArrayList<GridPaneNode>();

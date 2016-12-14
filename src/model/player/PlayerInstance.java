@@ -17,7 +17,7 @@ import model.interactions.Interaction;
  * @author Aninda Manocha
  */
 
-@XStreamAlias("model/player")
+@XStreamAlias("player")
 public class PlayerInstance implements Player {
 	
 	@XStreamOmitField
