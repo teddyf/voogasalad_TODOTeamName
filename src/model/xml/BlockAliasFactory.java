@@ -11,8 +11,8 @@ import com.thoughtworks.xstream.XStream;
  * @author Daniel Chai
  */
 public class BlockAliasFactory {
-	private static final String BLOCK_PATHS = "resources/properties/model.block-paths";
-	private static final String BLOCK_ALIAS = "model/block";
+	private static final String BLOCK_PATHS = "resources/properties/block-paths";
+	private static final String BLOCK_ALIAS = "block";
 	
 	private XStream xstream;
 	

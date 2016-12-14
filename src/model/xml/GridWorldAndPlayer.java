@@ -16,7 +16,7 @@ public class GridWorldAndPlayer {
 	@XStreamAlias("gridWorld")
 	private GridWorld myGridWorld;
 	
-	@XStreamAlias("model/player")
+	@XStreamAlias("player")
 	private Player myPlayer;
 	
 	public GridWorldAndPlayer(GridWorld gridWorld, Player player) {
