@@ -2,12 +2,10 @@ package application;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import ui.UILauncher;
+import view.UILauncher;
 
 /**
- * Initializes the program and launches the main manu.
- *
- * Dependencies:
+ * Initializes the program and launches the main menu
  */
 public class Main extends Application {
 
@@ -27,7 +25,7 @@ public class Main extends Application {
      */
     @Override
     public void start(Stage stage) {
-        UILauncher GUI = new UILauncher(stage);
-        GUI.init();
+        UILauncher launcher = new UILauncher(stage);
+        launcher.init();
     }
 }
