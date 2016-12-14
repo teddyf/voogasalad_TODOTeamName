@@ -17,13 +17,13 @@ import java.util.ResourceBundle;
 /**
  * @author Robert Steilberg
  *         <p>
- *         This class handles the game controller.engine that is used to run games.
+ *         This class handles the game engine that is used to run games.
  *         <p>
  *         Dependencies: FileBrowser.java
  */
 public class EngineView extends Scene implements Observer {
 
-    private static final String ENGINE_RESOURCES = "resources/properties/game-controller.engine";
+    private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
     private static final String CSS_FILE_NAME = "resources/styles/game-engine.css";
 
     private Stage myStage;

@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
  */
 public class BlockFactory {
 
-    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/model.block-paths");
+    private ResourceBundle myBlockPaths = ResourceBundle.getBundle("resources/properties/block-paths");
 
     /**
      * Use reflection to create the model.block requested by the front end class. Uses the model.block-paths.properties file to

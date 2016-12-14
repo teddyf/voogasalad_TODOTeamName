@@ -24,7 +24,7 @@ import utilities.builder.UIBuilder;
  */
 public class EngineAnimation implements Observer {
 
-	private static final String ENGINE_RESOURCES = "resources/properties/game-controller.engine";
+	private static final String ENGINE_RESOURCES = "resources/properties/game-engine";
 
 	private EngineGrid grid;
 	

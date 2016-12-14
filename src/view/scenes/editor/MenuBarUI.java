@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 /**
  * @author Robert Steilberg
  *         <p>
- *         This class initializes the menu bar for the game controller.editor.
+ *         This class initializes the menu bar for the game editor.
  */
 class MenuBarUI {
 

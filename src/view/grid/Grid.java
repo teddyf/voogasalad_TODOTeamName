@@ -12,24 +12,24 @@ import java.util.Random;
  */
 public abstract class Grid extends Observable {
 
-    protected static int CELL_PIXELS;
+    private static int CELL_PIXELS;
 
     protected static int WRAP = 20;
 
-    protected static String DEFAULT = "resources/images/tiles/ground/grass-";
+    private static String DEFAULT = "resources/images/tiles/ground/grass-";
     protected static String BORDER = "resources/images/tiles/obstacle/tree-4.png";
 
     protected int gridWidth;
     protected int gridHeight;
-    protected int renderWidth;
-    protected int renderHeight;
+    int renderWidth;
+    int renderHeight;
 
     protected Group group;
 
-    protected GridObjectMap gridMap;
+    GridObjectMap gridMap;
 
     protected List<GridPaneNode> blockList;
-    protected List<GridPaneNode> clicked;
+    List<GridPaneNode> clicked;
 
     protected GridPaneNode[][] grid;
 
@@ -48,7 +48,7 @@ public abstract class Grid extends Observable {
         setRenderMap();
     }
 
-    protected void initializeGrid() {
+    void initializeGrid() {
 
         int rows = gridHeight + WRAP;
         int columns = gridWidth + WRAP;
@@ -73,8 +73,7 @@ public abstract class Grid extends Observable {
 
     public void setRenderMap() {
         group = new Group();
-        for (int i = 0; i < blockList.size(); i++) {
-            GridPaneNode node = blockList.get(i);
+        for (GridPaneNode node : blockList) {
             double x = getXRender(node.getCol());
             double y = getYRender(node.getRow());
             node.setImageSize(CELL_PIXELS, CELL_PIXELS);
@@ -86,8 +85,7 @@ public abstract class Grid extends Observable {
 
     public void setEditorRenderMap() {
         group = new Group();
-        for (int i = 0; i < blockList.size(); i++) {
-            GridPaneNode node = blockList.get(i);
+        for (GridPaneNode node : blockList) {
             double x = getXRender(node.getCol()) + 595;
             double y = getYRender(node.getRow()) + 595;
             node.setImageSize(CELL_PIXELS, CELL_PIXELS);
@@ -111,23 +109,23 @@ public abstract class Grid extends Observable {
                 j >= WRAP / 2 && j < gridWidth + WRAP / 2);
     }
 
-    protected String defaultText () {
+    String defaultText() {
         int suffix = randomNumber(1, 4);
         return DEFAULT + suffix + ".png";
     }
 
-    private int randomNumber (int min, int max) {
+    private int randomNumber(int min, int max) {
         Random rand = new Random();
         return rand.nextInt((max - min) + 1) + min;
     }
 
-    protected double getXRender (int column) {
-        double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP  - renderWidth/CELL_PIXELS);
+    double getXRender(int column) {
+        double offset = -0.5 * CELL_PIXELS * (gridWidth + WRAP - renderWidth / CELL_PIXELS);
         return column * CELL_PIXELS + offset;
     }
 
-    protected double getYRender (int row) {
-        double offset = -0.5 * CELL_PIXELS * (gridHeight + WRAP  - renderHeight/CELL_PIXELS);
+    double getYRender(int row) {
+        double offset = -0.5 * CELL_PIXELS * (gridHeight + WRAP - renderHeight / CELL_PIXELS);
         return row * CELL_PIXELS + offset;
     }
 
