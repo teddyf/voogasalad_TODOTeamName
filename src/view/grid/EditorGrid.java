@@ -62,7 +62,7 @@ public class EditorGrid extends Grid implements Observer {
                 swap(obj, control);
             }
             else if (clickType.equals("PLAYER") && imagePaths.size() > 0) {
-                String name = setDialogue("Name for Player", "Set the name for your model.player");
+                String name = setDialogue("Name for Player", "Set the name for your player");
                 buildPlayer(control, name, imagePaths);
             }
         }
@@ -76,7 +76,7 @@ public class EditorGrid extends Grid implements Observer {
         }
     }
     /**
-     * Builds model.player
+     * Builds player
      * @param control
      * @param name
      * @param imagePaths
@@ -92,7 +92,7 @@ public class EditorGrid extends Grid implements Observer {
 
             GridPaneNode temp = grid[col][row];
 
-            // Allows adding on top of model.grid. Players should hover over the model.grid.
+            // Allows adding on top of grid. Players should hover over the grid.
             GridPaneNode player = new GridPaneNode(row, col, imagePaths.get(0));
             player.setImageSize(CELL_PIXELS, CELL_PIXELS);
             player.setImageCoord(getXRender(col), getYRender(row));
@@ -122,7 +122,7 @@ public class EditorGrid extends Grid implements Observer {
                     // TODO add dimension checker
 
                     if (obj.getBlockType().equals(BlockType.COMMUNICATOR)) {
-                        String message = setDialogue("Set the dialogue for the communicator model.block.","Dialog for the communicator model.block:");
+                        String message = setDialogue("Set the dialogue for the communicator block.","Dialog for the communicator block:");
                         if(!message.isEmpty()){
                             temp.swap(list.get(j), list.get(j).getImageNum());
 
@@ -142,7 +142,7 @@ public class EditorGrid extends Grid implements Observer {
                     }
 
                     else if(obj.getBlockType().equals(BlockType.NPC)){
-                        String message = setDialogue("Set the dialogue for the NPC model.block", "Dialogue for the NPC model.block");
+                        String message = setDialogue("Set the dialogue for the NPC block", "Dialogue for the NPC block");
                         if(!message.isEmpty()){
                             temp.swap(list.get(j), list.get(j).getImageNum());
                             control.addBlock(temp.getName(), obj.getBlockType(), getBackendAssociatedRow(temp),
