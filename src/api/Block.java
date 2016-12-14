@@ -1,12 +1,12 @@
 package api;
 
-import block.BlockUpdate;
-import interactions.Interaction;
+import model.block.BlockUpdate;
+import model.interactions.Interaction;
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * The block interface, the general type of object which may be placed on the board (back end representation).
+ * The model.block interface, the general type of object which may be placed on the board (back end representation).
  *
  * @author Aninda Manocha, Filip Mazurek
  */
@@ -14,27 +14,27 @@ import java.util.List;
 public interface Block extends Serializable {
 
     /**
-     * Apply all the interactions in the block which are triggered by stepping on that block tile.
+     * Apply all the model.interactions in the model.block which are triggered by stepping on that model.block tile.
      *
-     * @param player: the player object--in case of player modification (e.g. teleportation, etc.)
+     * @param player: the model.player object--in case of model.player modification (e.g. teleportation, etc.)
      * @return list of updates which need to be applied by the front end (e.g. re-rendering, etc.)
      */
     List<BlockUpdate> stepInteract(Player player);
 
     /**
-     * Apply all the interactions in the block which are triggered by talking to that block tile.
+     * Apply all the model.interactions in the model.block which are triggered by talking to that model.block tile.
      *
-     * @param player: the player object--in case of player modification (e.g. teleportation, etc.)
+     * @param player: the model.player object--in case of model.player modification (e.g. teleportation, etc.)
      * @return list of updates which need to be applied by the front end (e.g. re-rendering, etc.)
      */
     List<BlockUpdate> talkInteract(Player player);
 
     /**
-     * Make a link between this block and another selected block. Only applies if both blocks may be linked to each
-     * other. If block has no such ability, default behavior is to return false.
+     * Make a link between this model.block and another selected model.block. Only applies if both blocks may be linked to each
+     * other. If model.block has no such ability, default behavior is to return false.
      *
-     * @param block: block to be linked to from this block
-     * @param gridIndex: the grid on which the block resides (for multiple grid levels)
+     * @param block: model.block to be linked to from this model.block
+     * @param gridIndex: the model.grid on which the model.block resides (for multiple model.grid levels)
      * @return whether the link was successful
      */
     boolean link(Block block, int gridIndex);
@@ -42,13 +42,13 @@ public interface Block extends Serializable {
     /**
      * Remove the link between the selected linked blocks. Fails if the blocks were not linked originally.
      *
-     * @param block: block with which the link must be broken
+     * @param block: model.block with which the link must be broken
      * @return whether the unlink was successful
      */
     boolean unlink(Block block);
 
     /**
-     * Works to prepare a new image path name for new rendering. This is how blocks in the grid change how they look.
+     * Works to prepare a new image path name for new rendering. This is how blocks in the model.grid change how they look.
      *
      * @param name: the full original file path name
      * @param status: the new different status
@@ -57,24 +57,24 @@ public interface Block extends Serializable {
     String replaceNameStatus(String name, String status);
 
     /**
-     * Makes a copy of the block such that the block copy is indistinguishable from the original
+     * Makes a copy of the model.block such that the model.block copy is indistinguishable from the original
      *
-     * @return: copy of the original block
+     * @return: copy of the original model.block
      */
     Block deepClone();
 
     /**
-     * Add an interaction to the block which will be triggered upon stepping on the block.
+     * Add an interaction to the model.block which will be triggered upon stepping on the model.block.
      *
-     * @param stepInteraction: an Interaction to add to the block
+     * @param stepInteraction: an Interaction to add to the model.block
      * @return whether adding the interaction was successful
      */
     boolean addStepInteraction(Interaction stepInteraction);
 
     /**
-     * Add an interaction to the block which will be triggered upon talking to the block.
+     * Add an interaction to the model.block which will be triggered upon talking to the model.block.
      *
-     * @param talkInteraction: an Interaction to add to the block
+     * @param talkInteraction: an Interaction to add to the model.block
      * @return whether adding the interaction was successful
      */
     boolean addTalkInteraction(Interaction talkInteraction);

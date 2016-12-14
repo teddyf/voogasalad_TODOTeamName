@@ -1,8 +1,8 @@
 package api;
 
-import block.BlockUpdate;
-import engine.UserInstruction;
-import engine.GameStatus;
+import model.block.BlockUpdate;
+import controller.engine.UserInstruction;
+import controller.engine.GameStatus;
 
 import java.util.List;
 
@@ -14,32 +14,32 @@ import java.util.List;
 public interface IGameInstance {
 
     /**
-     * Changes to a different specified grid, identified by its index in the list of grids
-     * @param index - the index of the grid
+     * Changes to a different specified model.grid, identified by its index in the list of grids
+     * @param index - the index of the model.grid
      */
     void changeGrid(int index);
 
 	/**
-	 * Processes the user input and moves the player based on the input
+	 * Processes the user input and moves the model.player based on the input
 	 * @param input - the user input
 	 */
 	void processInput(UserInstruction input);
 
     /**
-     * Gets the interactions for the frontend to display
-     * @return the list of interactions
+     * Gets the model.interactions for the frontend to display
+     * @return the list of model.interactions
      */
     List<BlockUpdate> getInteractions();
 
     /**
-     * Gets the current grid that the player is located in
-     * @return the current grid
+     * Gets the current model.grid that the model.player is located in
+     * @return the current model.grid
      */
     Grid getGrid();
 
 	/**
-	 * Gets the player character
-	 * @return the player character
+	 * Gets the model.player character
+	 * @return the model.player character
 	 */
 	Player getPlayer();
 
