@@ -1,3 +1,26 @@
+// This entire file is part of my masterpiece.
+// Ryan Anders
+
+
+/*
+ * This class gathers and displays the items that the user
+ * can place in the editor. I chose this class because it
+ * addressed a tough design problem we were facing--as we
+ * added more and more items to the editor, the menu was
+ * becoming cluttered and disorganized. We also had to
+ * revisit how images in the menu were stored once we added
+ * functionality for pre-loaded and custom multi-block images.
+ * 
+ * I decided on using a TreeMap to store the images, due to
+ * it's ability to alphabetically sort objects in our menu.
+ * I also decided to filter through the large collections of
+ * images and only display the ones that we wanted available
+ * (i.e. the full item for multi-tile objects, or the "on"
+ * state of a switch item). I accomplished this through
+ * efficient naming (collaboration with Harshil's image splitter)
+ * as well as a nested class that defines a FilenameFilter.
+ */
+
 package view.scenes.editor.sidemenu;
 
 import model.block.blocktypes.BlockType;
