@@ -19,6 +19,8 @@
  * state of a switch item). I accomplished this through
  * efficient naming (collaboration with Harshil's image splitter)
  * as well as a nested class that defines a FilenameFilter.
+ * 
+ * This is a concise, effective, readable solution.
  */
 
 package view.scenes.editor.sidemenu;
