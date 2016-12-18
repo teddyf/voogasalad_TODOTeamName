@@ -25,7 +25,8 @@ public class ItemSideMenu extends SideMenu {
 
     private ItemViewer myViewer;
     private final BlockType[] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
-            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.GATE, BlockType.TELEPORT};
+            BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.GATE, BlockType.TELEPORT,
+            BlockType.COMMUNICATOR};
 
     ItemSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);
@@ -86,8 +87,8 @@ public class ItemSideMenu extends SideMenu {
      * @param type is the type of object being added
      * @return the ScrollPane populated with its objects
      */
-    ScrollPane createScrollPane(BlockType type) {
-        FlowPane itemPane = createFlowPane();
+    ScrollPane createBlockScrollPane(BlockType type) {
+        FlowPane itemPane = createDraggableFlowPane();
         List<GameObject> gameObjects = myViewer.getObjects(type);
         for (GameObject gameObject : gameObjects) {
             String iconPath = gameObject.getIconPath();
@@ -111,7 +112,7 @@ public class ItemSideMenu extends SideMenu {
     public void addTabs() {
         List<Tab> tabs = new ArrayList<>();
         for (BlockType type : blockTypes) {
-            Tab tab = createTab(toTitleCase(type.name()), createScrollPane(type));
+            Tab tab = createTab(toTitleCase(type.name()), createBlockScrollPane(type));
             tabs.add(tab);
         }
         myPanel.getTabs().addAll(tabs);

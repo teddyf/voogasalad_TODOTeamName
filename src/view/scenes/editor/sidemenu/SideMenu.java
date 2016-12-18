@@ -51,7 +51,7 @@ public abstract class SideMenu extends Observable {
      *
      * @return the newly created FlowPane
      */
-    FlowPane createFlowPane() {
+    FlowPane createDraggableFlowPane() {
         int padding = myUtil.getIntProperty("contentPadding");
         FlowPane itemPane = new FlowPane();
         itemPane.setHgap(padding);

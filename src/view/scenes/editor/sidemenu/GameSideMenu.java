@@ -60,7 +60,7 @@ public class GameSideMenu extends SideMenu {
      * @return a ScrollPane displaying the NPC blocks
      */
     private ScrollPane addWinBlocks() {
-        return myItemMenu.createScrollPane(BlockType.WIN_TALK);
+        return myItemMenu.createBlockScrollPane(BlockType.WIN_TALK);
     }
 
     /**
