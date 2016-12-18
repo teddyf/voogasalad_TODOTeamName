@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 
 /**
- * This class generates model.block ui.scenes.controller.editor.objects
+ * This class generates block objects
  *
  * @author Aninda Manocha, Filip Mazurek
  */

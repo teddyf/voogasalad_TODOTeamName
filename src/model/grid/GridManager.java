@@ -17,7 +17,7 @@ import model.player.PlayerBlockUpdate;
 import model.player.PlayerUpdate;
 
 /**
- * This class manages all of the grids in the controller.editor or controller.engine
+ * This class manages all of the grids in the editor or engine
  * @author Aninda Manocha, Filip Mazurek
  */
 
