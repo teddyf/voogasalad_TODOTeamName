@@ -152,6 +152,4 @@ public abstract class SideMenu extends Observable {
         configureSidePanel();
         addTabs();
     }
-
-
 }

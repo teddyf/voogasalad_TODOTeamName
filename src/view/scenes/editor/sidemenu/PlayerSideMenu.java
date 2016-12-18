@@ -6,18 +6,18 @@
  * The most important function of this class is to create the sprite that will represent
  * the user, i.e., the sprite that the user will control throughout the gameplay. The user
  * can also create other non-player characters to interact with in addition to enemies that
- * can be battled and non-player "communicator" blocks that display a static message to the
- * player.
+ * can be battled.
  * <p>
  * I chose this class as my masterpiece because it not only follows good coding conventions
  * and is an integral class to the game editor but also incorporates advanced Java topics
  * that we learned in class. This class extends SideMenu, which extends Observable, and I
  * make use of the observable/observer interaction by setting up a setChanged() and
- * notifyDirections() method whenever the player chooses a new sprite to represent them
+ * notifyObservers() method whenever the player chooses a new sprite to represent them
  * in the game. This automatically triggers the grid to expect a player to be placed on
- * the grid, which will then prompt the user for the player's name and call a special
+ * the grid, which will then prompt the user for the player's name and call a special grid
  * method unique to player creation. This also triggers a reaction in the controller that
- * the player has been created and the game is now playable.
+ * the player has been created and the game is now playable. A game cannot be played without
+ * a player.
  * <p>
  * This class also follows a good inheritance hierarchy by extending the SideMenu and making
  * use of shared functionality through the createTab(), createDraggableFlowPane(), getFilePaths(),
@@ -48,10 +48,10 @@ import java.util.ResourceBundle;
  *         This class provides functionality for the player side menu that allows
  *         users to manipulate the different players that can be in a game. Users
  *         can use this control panel to create their own sprite representation,
- *         non-player-characters, enemies that prompt battles, or simple communicators
- *         with which the player can speak.
+ *         non-player-characters, and enemies that prompt battles.
  *         <p>
- *         Dependencies: ItemSideMenu (for redirection of player blocks)
+ *         Dependencies: ItemSideMenu (for redirection of player blocks), UIBuilder,
+ *         PropertiesUtilities
  */
 public class PlayerSideMenu extends SideMenu {
 
@@ -77,9 +77,9 @@ public class PlayerSideMenu extends SideMenu {
     }
 
     /**
-     * Adds NPC blocks for which the user can set messages and speak with; NPC
-     * blocks are redirected out of the item menu and into the player side menu
-     * because they deal with player-to-player interactions
+     * Adds NPC (non-player-character) blocks for which the user can set messages
+     * and speak with; NPC blocks are redirected out of the item menu and into
+     * the player side menu because they deal with player-to-player interactions
      *
      * @return a ScrollPane holding the NPC blocks
      */
@@ -99,9 +99,10 @@ public class PlayerSideMenu extends SideMenu {
     }
 
     /**
-     * Gets all image paths corresponding the four directions a sprite may face
+     * Gets all image paths corresponding to the four directions that a sprite,
+     * specified by a given id, may face
      *
-     * @param id the id of the sprite
+     * @param id the unique id of the sprite
      */
     private void setSpriteDirections(int id) {
         mySelectedSpriteImages.clear();
@@ -111,7 +112,8 @@ public class PlayerSideMenu extends SideMenu {
                 if (c == '-') break;
                 spriteId.append(c);
             }
-            if (id == Integer.parseInt(spriteId.toString())) { // i.e. if this matches the chosen sprite
+            if (id == Integer.parseInt(spriteId.toString())) {
+                // i.e. if this image matches the chosen sprite
                 mySelectedSpriteImages.add(myResources.getString("spritePath") + file);
             }
         }
@@ -123,15 +125,16 @@ public class PlayerSideMenu extends SideMenu {
      * controller via an observable that a particular sprite has been chosen to
      * represent the main player
      *
-     * @param sprite     the Node representing the sprite
-     * @param id         the sprite's id
-     * @param allSprites the Nodes of all other sprites
+     * @param sprite     the JavaFX Node representing the sprite
+     * @param id         the sprite's unique id
+     * @param allSprites the Nodes representing all other sprites
      */
     private void addEventHandler(Node sprite, int id, List<Node> allSprites) {
         sprite.setOnMouseClicked(e -> {
             for (Node otherSprite : allSprites) {
                 resetHoverEffect(otherSprite);
             }
+            // chosen sprite is always selected
             sprite.setStyle(myResources.getString("selectedEffect"));
             sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
             setSpriteDirections(id); // pass back images of the sprite facing each direction
@@ -160,7 +163,7 @@ public class PlayerSideMenu extends SideMenu {
 
     /**
      * Gets the integer ID associated with each unique sprite, where
-     * each sprite has an image name formatted as "<id>-<direction>"
+     * each sprite has an image file name formatted as "<id>-<direction>"
      *
      * @param imagePath the image path of the sprite
      * @return the number representing the sprite's ID
@@ -175,23 +178,23 @@ public class PlayerSideMenu extends SideMenu {
     }
 
     /**
-     * Adds each sprite image representation to the menu that the user
+     * Adds each sprite image icon to the menu that the user
      * can choose to represent their player
      *
      * @return the ScrollPane containing the sprites
      */
     private ScrollPane addSprites() {
-        FlowPane sprites = createDraggableFlowPane();
+        FlowPane spritePane = createDraggableFlowPane();
         myDirectoryFiles = getFilePaths(myResources.getString("rawSpritePath"));
         for (String image : myDirectoryFiles) {
-            int id = getId(image); // number representing the sprite
+            int id = getId(image); // number representing the unique sprite
             if (image.contains(myResources.getString("spriteDisplayDirection"))) {
-                Node sprite = addSpriteIcon(image);
-                addEventHandler(sprite, id, sprites.getChildren());
-                myBuilder.addComponent(sprites, sprite);
+                Node newSprite = addSpriteIcon(image);
+                addEventHandler(newSprite, id, spritePane.getChildren());
+                myBuilder.addComponent(spritePane, newSprite);
             }
         }
-        return new ScrollPane(sprites);
+        return new ScrollPane(spritePane);
     }
 
     /**
