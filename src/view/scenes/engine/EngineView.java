@@ -18,9 +18,7 @@ import java.util.ResourceBundle;
 /**
  * @author Robert Steilberg
  *         <p>
- *         This class handles the game engine that is used to run games.
- *         <p>
- *         Dependencies: FileBrowser.java
+ *         This class handles the view for game engine that is used to run games.
  */
 public class EngineView extends Scene implements Observer {
 

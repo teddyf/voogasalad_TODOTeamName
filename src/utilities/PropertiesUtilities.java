@@ -16,21 +16,21 @@ public class PropertiesUtilities {
     }
 
     /**
-     * @return a String value
+     * @return a String value from a properties file
      */
     public String getStringProperty(String key) {
         return resources.getString(key);
     }
 
     /**
-     * @return a double value
+     * @return a double value from a properties file
      */
     public double getDoubleProperty(String key) {
         return Double.parseDouble(resources.getString(key));
     }
 
     /**
-     * @return an int value
+     * @return an int value from a properties file
      */
     public int getIntProperty(String key) {
         return Integer.parseInt(resources.getString(key));
