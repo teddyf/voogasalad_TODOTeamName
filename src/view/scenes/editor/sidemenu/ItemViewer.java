@@ -126,7 +126,7 @@ public class ItemViewer {
         return selected;
     }
 
-    class myFilenameFilter implements FilenameFilter {
+    private class myFilenameFilter implements FilenameFilter {
         @Override
         public boolean accept(File dir, String name) {
             int len = name.length();
