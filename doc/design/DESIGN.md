@@ -17,11 +17,11 @@ William Xiong | wwx
 ====================
 
 ### Front end responsibilities:
-1. Handling placing the ui.scenes.editor.objects on the grid (user interaction)
-  * Menu that is easy to search for various ui.scenes.editor.objects ranging from obstacles to NPCs
-  * If certain ui.scenes.editor.objects need to be user defined, popup box prompts user to enter necessary information
+1. Handling placing the ui.scenes.controller.editor.objects on the model.grid (user interaction)
+  * Menu that is easy to search for various ui.scenes.controller.editor.objects ranging from obstacles to NPCs
+  * If certain ui.scenes.controller.editor.objects need to be user defined, popup box prompts user to enter necessary information
 2. Be able to load a world and edit it using the same tools as building it.
-3. Defining user interactions
+3. Defining user model.interactions
   * Chat dialogues
   * Take user input for settings, e.g. name, world name
 4. Have a table view of all characters, during the game play
@@ -29,14 +29,14 @@ William Xiong | wwx
 6. Handle animations
 
 ### Back end responsibilities:
-* Handling placing ui.scenes.editor.objects on the grid (backend representation)
-* Object behaviors (obstacle, decoration, interactions, etc.) and their interactions
+* Handling placing ui.scenes.controller.editor.objects on the model.grid (backend representation)
+* Object behaviors (obstacle, decoration, model.interactions, etc.) and their model.interactions
 * Interactions defined in separate classes
 * Saving / loading
 * Loading separate user files
-* Game engine: handling front end input
+* Game controller.engine: handling front end input
 * Handing off the state, current display as a result of the actions (what to give for rendering)
-* Tweaking interactions
+* Tweaking model.interactions
 * Switch between and define different scenes
 
 
@@ -103,7 +103,7 @@ William Xiong | wwx
   * isInBounds()
   * getWidth()
   * getHeight()
-* Block: any block in the grid
+* Block: any model.block in the model.grid
   * getRow()
   * getCol()
   * getBlockState()
@@ -112,7 +112,7 @@ William Xiong | wwx
   * getMessage()
 * Battle mode: for different game modes, such as battle and walkaround
   * getModeType()
-* Item: for different items to be used by the player
+* Item: for different items to be used by the model.player
   * useItem()
 * GameInstance
   * getScore()
@@ -137,7 +137,7 @@ Classes:
   * switchToBattleScene()
 * OverworldScene
 * BattleScene
-* Grid: representing the grid of Blocks
+* Grid: representing the model.grid of Blocks
   * getBlock(Point p)
 * Grass (implements Block)
 * House (implements Block)
@@ -149,7 +149,7 @@ Classes:
 1. Allow the users can zoom in and zoom out the map
 2. Allow the users can upload their own jpg/png/gif files, specify the object types and add those elements into the map
 3. Allow the users to use the scrollbar to go through the map
-4. Allow the users to change the grid position of the ui.scenes.editor.objects already in the map by dragging
+4. Allow the users to change the model.grid position of the ui.scenes.controller.editor.objects already in the map by dragging
 5. Allow user to toggle through different background images for the game environment
 6. Have GIFs for animated characters
 7. Drag enemies to battle to overworld
@@ -162,7 +162,7 @@ Classes:
 14. User wants to create a win condition based on Player location
 15. User wanoieves new highscore
 17. Transition between different scenes, such as map and battle scene.
-18. Define player’s items and their interactions, such as potions, etc.
+18. Define model.player’s items and their model.interactions, such as potions, etc.
 19. Allow user to change attributes of different items dynamically, such as hp, speed, etc.
 20. Allow user to create items with default values and attributes
 21. User wants to change the type of interaction an object has (e.g. walk through what is normally an obstacle)
@@ -173,8 +173,8 @@ Classes:
 26. Load previous game
 27. Save current game
 28. Select game attributes: instructions, splash screen, level bonuses
-29. Allow user to create the world by specifying the state for every block
-30. Allow user to create the world by specifying the states for only a few blocks and have every other block default to a certain state
+29. Allow user to create the world by specifying the state for every model.block
+30. Allow user to create the world by specifying the states for only a few blocks and have every other model.block default to a certain state
 31. Select which blocks a character can walk on and which are off-limits
 32. Edit a particular (previously-defined) monster's health
 33. Click on tab to toggle through object types
@@ -213,9 +213,9 @@ public void editGrid (String type) {
 ###Case 2: Front end: hanging background
 ```
 public void changeBackground(ImageView newView){
-	for (int i = 0; i < grid.length; i++) {
-		for (int j = 0; j < grid[0].length; j++) {
-			grid[i][j].setBlock(new Block(newView));
+	for (int i = 0; i < model.grid.length; i++) {
+		for (int j = 0; j < model.grid[0].length; j++) {
+			model.grid[i][j].setBlock(new Block(newView));
 		}
 	}
 }
@@ -251,8 +251,8 @@ this.game=loadFile(file);
 
 ###Case 5: Back end
 ```
-//reset player to default- GamePlayer class
+//reset model.player to default- GamePlayer class
 public void resetPlayer(){
-	this.player = new Player();
+	this.model.player = new Player();
 }
 ```

@@ -4,7 +4,7 @@ Net IDS: lz107 , am548
 
 What about your API/design is intended to be flexible?
 
-Aninda: Our API involves several classes that represent each main component of our game engine. We have a general superclass for each component that contains the methods for all types of that particular component in order to classify components by their functionality. For example, we have an Interaction component, but there are multiple interactions. All the properties of a general interaction (between two characters) will be contained within the Interaction superclass, and then classes can be created for different types of interactions. The superclass allows for extensibility in that more specific types can be implemented by extending the superclass, but still maintain those properties. 
+Aninda: Our API involves several classes that represent each main component of our game controller.engine. We have a general superclass for each component that contains the methods for all types of that particular component in order to classify components by their functionality. For example, we have an Interaction component, but there are multiple model.interactions. All the properties of a general interaction (between two characters) will be contained within the Interaction superclass, and then classes can be created for different types of model.interactions. The superclass allows for extensibility in that more specific types can be implemented by extending the superclass, but still maintain those properties. 
 
 Lucy: The API is intended to allow a large amount of customizability through numerous abstract classes. For example, the tower class allows for general functionality that could be specified in subclasses for the specific types of towers that might be made. Similarly, the weapons superclass allows for specific customisable weapons to be made with settings specified by the user.  
 
@@ -12,17 +12,17 @@ How is your API/design encapsulating your implementation decisions?
 
 Aninda: Our API is organized by the general components, which illustrate what items/parts are important to our project. We have many different components, each of which is represented by a general superclass, and our API shows the methods for each component so that it is clear what each component generally does and what properties each component has. Our implementation of our game authoring environment depends on what components we choose to have the user create, so our API indicates what options the user has when creating game components.
 
-Lucy: The API encapsulates the creation of the actual ui.scenes.editor.objects and the UI. The only public methods on the backend available to the controller are methods that create towers, etc. On the frontend, the only public methods are update methods for dynamic updating of scores, tower placement, etc. 
+Lucy: The API encapsulates the creation of the actual ui.scenes.controller.editor.objects and the UI. The only public methods on the backend available to the controller are methods that create towers, etc. On the frontend, the only public methods are update methods for dynamic updating of scores, tower placement, etc. 
 
 How is your part linked to other parts of the project?
 
-Aninda: My part focuses on the game player. I am implementing how it is created in the game authoring environment and how its creation affects its role when the user actually plays the created game. The game player is a key component of the game, as the user controls it in order to play the game, and the game creator dictates its properties when selecting attributes for it in the game authoring environment. The player is characterized by its interaction history, battle history, location on the grid, and status, and each of these is represented by other components, which are other parts of the project. Other individuals on my team are working on these other components, and I will have to link the game player to each of these components so that the game player can have these attributes as the game is played.
+Aninda: My part focuses on the game model.player. I am implementing how it is created in the game authoring environment and how its creation affects its role when the user actually plays the created game. The game model.player is a key component of the game, as the user controls it in order to play the game, and the game creator dictates its properties when selecting attributes for it in the game authoring environment. The model.player is characterized by its interaction history, battle history, location on the model.grid, and status, and each of these is represented by other components, which are other parts of the project. Other individuals on my team are working on these other components, and I will have to link the game model.player to each of these components so that the game model.player can have these attributes as the game is played.
 
 Lucy: The controller creates an instance of the Game GUI and also is responsible for the update method that updates the animation on the game. 
 
-What exceptions (error cases) might occur in your part and how will you handle them (or not, by throwing)?
+What model.exceptions (error cases) might occur in your part and how will you handle them (or not, by throwing)?
 
-Aninda: The user could leave aspects of a player undefined, by not providing initial attributes (status, grid location, etc.) and this would not allow the game to start. In order to handle these errors, I would create a dialog box or notify the user that they did not provide enough information or data when creating the game player.
+Aninda: The user could leave aspects of a model.player undefined, by not providing initial attributes (status, model.grid location, etc.) and this would not allow the game to start. In order to handle these errors, I would create a dialog box or notify the user that they did not provide enough information or data when creating the game model.player.
 
 Lucy: If an invalid path is placed, the path will be replaced by a default path generated by the program and the user will be notified.
 
@@ -36,7 +36,7 @@ Lucy: Many methods are encapsulated. The frontend and backend communicate purely
 
 What feature/design problem are you most excited to work on?
 
-Aninda: I am excited to work on the player’s interactions with other characters because there are many different possible interactions and these interactions dictate how the game runs.
+Aninda: I am excited to work on the model.player’s model.interactions with other characters because there are many different possible model.interactions and these model.interactions dictate how the game runs.
 
 Lucy: NOT frontend.
 
@@ -48,13 +48,13 @@ Lucy: Frontend integration with backend. How enemies will be updates. How backen
 
 What is do you plan to implement this weekend?
 
-Aninda: I will implement all player interactions and player behavior, as well as the methods in the class that represents an instance of a game.
+Aninda: I will implement all model.player model.interactions and model.player behavior, as well as the methods in the class that represents an instance of a game.
 
 Lucy: All the things
 
 Discuss the use cases/issues created for your pieces: are they descriptive, appropriate, and reasonably sized?
 
-Aninda: Our use cases range in size from small tasks, such as loading a game, to larger tasks, such as creating a brand new user-defined player from scratch. The range of complexity allows us to test different features and ensure that our code can handle different levels of tasks. This makes our code more robust to different things that the user might want to try.
+Aninda: Our use cases range in size from small tasks, such as loading a game, to larger tasks, such as creating a brand new user-defined model.player from scratch. The range of complexity allows us to test different features and ensure that our code can handle different levels of tasks. This makes our code more robust to different things that the user might want to try.
 
 Lucy: Yes
 
