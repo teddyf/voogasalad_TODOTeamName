@@ -51,7 +51,7 @@ public class EngineGrid extends Grid {
     public boolean reRender(int row, int col, String newPath) {
         GridPaneNode newGPN = new GridPaneNode(row, col, newPath);
         GridPaneNode temp = grid[row + WRAP/2][col + WRAP/2];
-        temp.swap(newGPN, 0);
+        temp.swap(newGPN);
         return true;
     }
 

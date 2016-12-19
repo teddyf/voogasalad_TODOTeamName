@@ -56,10 +56,10 @@ public class GridPaneNode {
     }
     
     
-    public void swap(GridPaneNode node, int typeNum){
+    public void swap(GridPaneNode node){
         Image image = new Image(node.getName());
         this.imageView.setImage(image);
-        this.imageNum = node.getImageNum();
+        //this.imageNum = node.getImageNum();
         this.name = node.getName();
     }
 
