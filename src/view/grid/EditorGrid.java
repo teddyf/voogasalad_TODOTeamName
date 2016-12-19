@@ -176,7 +176,7 @@ public class EditorGrid extends Grid implements Observer {
     }
 
     private void successMessage(String header, String content){
-        new UIBuilder().addCustomAlert(new ComponentProperties().header(header).content(content));
+        new UIBuilder().addNewAlert(new ComponentProperties().header(header).content(content));
     }
 
     private String setDialogue (String header, String content) {
