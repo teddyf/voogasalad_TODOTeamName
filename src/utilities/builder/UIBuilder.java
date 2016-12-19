@@ -8,7 +8,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
@@ -16,7 +15,8 @@ import java.util.ResourceBundle;
 /**
  * @author Harshil Garg, Robert Steilberg, Aninda Manocha, Nisakorn Valyasevi
  *         <p>
- *         This class is used to build JavaFX ui.scenes.controller.editor.objects and add them to the stage.
+ *         This class is used to build JavaFX objects
+ *         and add them to the stage.
  */
 public class UIBuilder<E> {
     private ComponentBuilder alertBuilder;
@@ -122,26 +122,6 @@ public class UIBuilder<E> {
     }
 
     /**
-     * Creates a new JavaFX ImageView, sets its position, image myIconPath, width, and CSS id,
-     * and adds it to the given Group or Pane
-     *
-     * @param layout is the Group or Pane to which the ImageView is added
-     * @param xPos   is the X position of the ImageView
-     * @param yPos   is the Y position of the ImageView
-     * @param path   is the image myIconPath
-     * @param width  is the width of the ImageView
-     * @param id     is the CSS ID
-     * @return
-     */
-    public Node addCustomImageView(Parent layout, int xPos, int yPos, String path, int width, String id) {
-        return addNewImageView(layout, new ComponentProperties(xPos, yPos)
-                .path(path)
-                .preserveRatio(true)
-                .width(width)
-                .id(id));
-    }
-
-    /**
      * Create a new JavaFX Label and adds it to the given Group or Pane
      *
      * @param layout     the Group or Pane to which the Label will be added
@@ -151,23 +131,6 @@ public class UIBuilder<E> {
      */
     public Node addNewLabel(Parent layout, ComponentProperties properties) {
         return addComponent(layout, labelBuilder.createComponent(properties));
-    }
-
-    /**
-     * Create a customized JavaFX Label and add it to the given Group or Pane
-     *
-     * @param layout the Group or Pane to which the Label will be added
-     * @param text   Text to be set in properties
-     * @param x      Sets the X for properties
-     * @param y      Sets the Y for properties
-     * @return
-     */
-    public Node addCustomLabel(Parent layout, String text, int x, int y, String font, Color color, int size) {
-        return addNewLabel(layout, new ComponentProperties(x, y)
-                .text(text)
-                .color(color)
-                .font(font)
-                .size(size));
     }
 
     /**
@@ -181,22 +144,36 @@ public class UIBuilder<E> {
         return addComponent(layout, textFieldBuilder.createComponent(properties));
     }
 
-    public Node addNewAlert(String header, String content) {
-        return alertBuilder.createComponent(new ComponentProperties()
-                .header(header)
-                .content(content));
-    }
-
-    public Node addCustomAlert(ComponentProperties properties) {
+    /**
+     * Create a new alert and prompts it to the user
+     *
+     * @param properties the ComponentProperties object containing information about the alert
+     * @return
+     */
+    public Node addNewAlert(ComponentProperties properties) {
         return alertBuilder.createComponent(new ComponentProperties()
                 .header(properties.header)
                 .content(properties.content));
     }
 
+    /**
+     * Create a new JavaFX radio button and adds it to the given Group or Pane
+     *
+     * @param layout     the Group or Pane to which the Label will be added
+     * @param properties the ComponentProperties object containing information about the radio button
+     * @return
+     */
     public Node addNewRadioButton(Parent layout, ComponentProperties properties) {
         return addComponent(layout, radioButtonBuilder.createComponent(properties));
     }
 
+    /**
+     * Create a new JavaFX combo box and adds it to the given Group or Pane
+     *
+     * @param layout     the Group or Pane to which the Label will be added
+     * @param properties the ComponentProperties object containing information about the combo box
+     * @return
+     */
     public Node addNewComboBox(Parent layout, ComponentProperties properties) {
         return addComponent(layout, comboBoxBuilder.createComponent(properties));
     }
