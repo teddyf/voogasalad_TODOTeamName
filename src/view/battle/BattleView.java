@@ -2,7 +2,7 @@ package view.battle;
 import java.util.Observable;
 import java.util.Observer;
 
-import controller.battle.BattleModelInView;
+import model.battle.BattleModelInView;
 import model.battle.Difficulty;
 import model.block.blocktypes.EnemyBlock;
 import javafx.event.ActionEvent;

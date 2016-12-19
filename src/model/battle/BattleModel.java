@@ -1,12 +1,16 @@
+// This entire file is part of my masterpiece.
+// Daniel Chai
+
 package model.battle;
 
 import java.util.Observable;
 
 import api.Player;
-import controller.battle.BattleModelInView;
 import model.block.blocktypes.EnemyBlock;
 
 /**
+ * Model (backend) of a Battle instance in which a Player battles an EnemyBlock.
+ * 
  * @author Daniel Chai
  */
 public class BattleModel extends Observable implements BattleModelInView {

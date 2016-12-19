@@ -1,4 +1,7 @@
-package controller.battle;
+// This entire file is part of my masterpiece.
+// Daniel Chai
+
+package model.battle;
 
 /**
  * Interface to expose select methods from the Model to the View.
