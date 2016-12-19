@@ -16,6 +16,13 @@ import model.xml.GridXMLHandler;
 
 import java.util.List;
 
+// This entire file is part of my masterpiece.
+// Filip Mazurek
+
+/*
+    Please see my analysis for an explanation of why I think this class is good.
+ */
+
 /**
  * This is the controller for the game controller.editor. It allows the backend and frontend to talk to each other while the controller.editor
  * is being created.

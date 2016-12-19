@@ -13,6 +13,8 @@ import java.util.List;
  * Parent class of all blocks.
  * @author Filip Mazurek, Aninda Manocha
  */
+
+// please see all documentation in the Block interface
 public abstract class AbstractBlock implements Block, Serializable {
 
     private String myName;
