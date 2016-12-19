@@ -6,7 +6,12 @@ import block.EnemyBlock;
 import player.Player;
 
 /**
- * @author Daniel Chai
+ * @author Daniel Chai, Bill Xiong
+ * This code is well designed because it implements an interface that
+ * the BattleView uses to filter out unecessary information, and focus
+ * on the information that is necessary for the frontend. It also uses
+ * the Observable design pattern, which makes it easier to communicate
+ * updates between classes. 
  */
 public class BattleModel extends Observable implements BattleModelInView {
 	private Player player;
