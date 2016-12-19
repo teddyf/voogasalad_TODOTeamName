@@ -51,7 +51,11 @@ public class ItemViewer {
 
     private GameObject selected = null;
 
-
+    /**
+     * Returns a List<GameObject> containing all Game Objects of the specified type
+     * @param type BlockType desired
+     * @return List<GameObject> all objects of specified type
+     */
     List<GameObject> getObjects(BlockType type) {
         String directory = root_path + type.name().toLowerCase();
         File file = new File(directory);
@@ -116,18 +120,24 @@ public class ItemViewer {
         return file.toURI().toString();
     }
 
-
+    /**
+     * selects an object
+     * @param obj object to select
+     */
     void select(GameObject obj) {
         selected = obj;
     }
 
-
+    /**
+     * returns the currently selected object
+     * @return selected object
+     */
     GameObject getSelected() {
         return selected;
     }
 
     private class myFilenameFilter implements FilenameFilter {
-        @Override
+    	@Override
         public boolean accept(File dir, String name) {
             int len = name.length();
             String onPic = name.substring(len - 6, len - 4);
