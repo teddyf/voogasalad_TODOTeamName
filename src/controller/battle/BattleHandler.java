@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  * Created by Bill Xiong on 12/12/16.
  * @author Bill Xiong
  * This class is well designed because it encapsulates entering a battle
- * in a flexible and extensible way.
+ * in a flexible and extensible way, so the user can change it however he wants.
  */
 public class BattleHandler {
     private Player player;

@@ -18,7 +18,7 @@ import javafx.scene.text.Font;
  * @author Daniel Chai, Bill Xiong
  * This code is well designed because there are no magic values, and also this class
  * implements the Observable Design pattern, where the BattleView observes the BattleModel
- * for updates. This reduces extraneous code and makes it clean and easy to read.
+ * for updates. This reduces extraneous code and makes it clean.
  */
 public class BattleView implements Observer {
 	/*CONSTANTS*/
