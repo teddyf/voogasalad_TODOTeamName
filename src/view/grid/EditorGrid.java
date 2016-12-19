@@ -28,7 +28,7 @@ import controller.editor.EditorController;
 public class EditorGrid extends Grid implements Observer {
     private static final int CELL_PIXELS = 30;
     private static ColorAdjust hoverOpacity;
-    private static GridPaneNode def;
+    private static GridPaneNode DEFAULTNODE;
     private String clickType;
 
     /**
@@ -46,7 +46,7 @@ public class EditorGrid extends Grid implements Observer {
         hoverOpacity.setBrightness(-.1);
 
         this.clickType = "";
-        def = new GridPaneNode(0, 0, defaultText());
+        DEFAULTNODE = new GridPaneNode(0, 0, defaultText());
 
         for (GridPaneNode node : blockList) {
             if (!isWrapBlock(node.getRow(), node.getCol())) {
@@ -185,7 +185,7 @@ public class EditorGrid extends Grid implements Observer {
                 GridPaneNode node = grid[deleted.get(i)][deleted.get(i + 1)];
                 control.addBlock(defaultText(), BlockType.GROUND, getBackendAssociatedRow(node),
                                  getBackendAssociatedColumn(node));
-                node.swap(def);
+                node.swap(DEFAULTNODE);
 
             }
         }
