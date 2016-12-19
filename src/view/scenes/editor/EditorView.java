@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import view.grid.EditorGrid;
+import utilities.builder.ComponentProperties;
 import view.UILauncher;
 import utilities.builder.UIBuilder;
 
@@ -110,7 +110,9 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
      * @param content is the content of the alert
      */
     public void exceptionDisplay(String content) {
-        myBuilder.addNewAlert(myAlertResources.getString("EXCEPTION").toUpperCase(), content);
+        myBuilder.addNewAlert(new ComponentProperties()
+                .header(myAlertResources.getString("EXCEPTION")
+                        .toUpperCase()).content(content));
     }
 
     /**

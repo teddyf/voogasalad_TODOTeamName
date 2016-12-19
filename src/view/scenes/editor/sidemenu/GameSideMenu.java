@@ -166,7 +166,7 @@ public class GameSideMenu extends SideMenu {
                     setChanged();
                 }
             } catch (ArrayIndexOutOfBoundsException exc) {
-                myBuilder.addNewAlert("File Error", "Error");
+                myBuilder.addNewAlert(new ComponentProperties().header("File Error").content("Error"));
             }
         });
     }

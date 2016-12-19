@@ -156,7 +156,7 @@ public class PlayerSideMenu extends SideMenu {
             if (image.contains(myResources.getString("spriteDisplayDirection"))) {
                 Node sprite = addSpriteIcon(image);
                 addEventHandler(sprite, id, sprites.getChildren());
-                myBuilder.addComponent(sprites,sprite);
+                myBuilder.addComponent(sprites, sprite);
             }
         }
         return new ScrollPane(sprites);
