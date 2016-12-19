@@ -24,13 +24,11 @@ class EditorIO extends Observable {
     private Stage myStage;
     private EditorController myEditorController;
     private GridUI myGrid;
-    private EngineController myEngineController;
     private ResourceBundle myResources;
 
-    EditorIO(Stage stage, EditorController editorController, EngineController engineController, ResourceBundle resources, GridUI grid) {
+    EditorIO(Stage stage, EditorController editorController, ResourceBundle resources, GridUI grid) {
         myStage = stage;
         myEditorController = editorController;
-        myEngineController = engineController;
         myResources = resources;
         myGrid = grid;
     }

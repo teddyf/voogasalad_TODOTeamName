@@ -14,21 +14,20 @@
  * make use of the observable/observer interaction by setting up a setChanged() and
  * notifyObservers() method whenever the player chooses a new sprite to represent them
  * in the game. This automatically triggers the grid to expect a player to be placed on
- * the grid, which will then prompt the user for the player's name and call a special grid
- * method unique to player creation. This also triggers a reaction in the controller that
- * the player has been created and the game is now playable. A game cannot be played without
- * a player.
+ * the grid, which will then prompt the user to specify the player's name and call a special grid
+ * method unique to player sprite creation. This also triggers a reaction in the controller
+ * specifying that the player has been created and the game is now playable. A game cannot
+ * be played before a player sprite is chosen.
  * <p>
  * This class also follows a good inheritance hierarchy by extending the SideMenu and making
  * use of shared functionality through the createTab(), createDraggableFlowPane(), getFilePaths(),
- * and resetHoverEffect(). This class has private instance variables with getters for protection.
- * This class also makes use of homegrown utilities, such as UIBuilder for easy JavaFX node
- * building and PropertiesUtilities for simplified access to properties files.
+ * and resetHoverEffect() methods. This class has private instance variables with getters for
+ * protection. This class also makes use of homegrown utilities, such as UIBuilder for
+ * easy JavaFX node building and PropertiesUtilities for simplified access to properties files.
  */
 
 package view.scenes.editor.sidemenu;
 
-import model.block.blocktypes.BlockType;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
@@ -50,52 +49,27 @@ import java.util.ResourceBundle;
  *         can use this control panel to create their own sprite representation,
  *         non-player-characters, and enemies that prompt battles.
  *         <p>
- *         Dependencies: ItemSideMenu (for redirection of player blocks), UIBuilder,
- *         PropertiesUtilities
+ *         Dependencies: SideMenu, Observable, UIBuilder, PropertiesUtilities
  */
 public class PlayerSideMenu extends SideMenu {
 
     private ResourceBundle myResources;
-    private ItemSideMenu myItemBlocks;
-    private List<String> mySelectedSpriteImages;
+    private List<String> myChosenSpriteImages;
     private String[] myDirectoryFiles;
 
-    PlayerSideMenu(Parent root, ResourceBundle resources, ItemSideMenu itemMenu) {
+    PlayerSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);
         myResources = resources;
-        myItemBlocks = itemMenu;
-        mySelectedSpriteImages = new ArrayList<>();
+        myChosenSpriteImages = new ArrayList<>();
         init();
     }
 
     /**
      * @return a list containing four image paths, each of which represents a
-     * different direction that a sprite is facing
+     * different direction that a unique sprite is facing
      */
     public List<String> getImagePaths() {
-        return mySelectedSpriteImages;
-    }
-
-    /**
-     * Adds NPC (non-player-character) blocks for which the user can set messages
-     * and speak with; NPC blocks are redirected out of the item menu and into
-     * the player side menu because they deal with player-to-player interactions
-     *
-     * @return a ScrollPane holding the NPC blocks
-     */
-    private ScrollPane addNPCs() {
-        return myItemBlocks.createBlockScrollPane(BlockType.NPC);
-    }
-
-    /**
-     * Adds enemy blocks that trigger battles; enemy blocks are redirected out of
-     * the item menu and into the player side menu because they deal with player-
-     * to-player interactions
-     *
-     * @return a ScrollPane holding the enemy blocks
-     */
-    private ScrollPane addEnemies() {
-        return myItemBlocks.createBlockScrollPane(BlockType.ENEMY);
+        return myChosenSpriteImages;
     }
 
     /**
@@ -104,17 +78,17 @@ public class PlayerSideMenu extends SideMenu {
      *
      * @param id the unique id of the sprite
      */
-    private void setSpriteDirections(int id) {
-        mySelectedSpriteImages.clear();
+    private void setChosenSpriteDirections(int id) {
+        myChosenSpriteImages.clear();
         for (String file : myDirectoryFiles) {
             StringBuilder spriteId = new StringBuilder();
-            for (char c : file.toCharArray()) {
-                if (c == '-') break;
-                spriteId.append(c);
+            for (char pathChar : file.toCharArray()) {
+                if (pathChar == '-') break;
+                spriteId.append(pathChar);
             }
             if (id == Integer.parseInt(spriteId.toString())) {
                 // i.e. if this image matches the chosen sprite
-                mySelectedSpriteImages.add(myResources.getString("spritePath") + file);
+                myChosenSpriteImages.add(myResources.getString("spritePath") + file);
             }
         }
     }
@@ -125,21 +99,22 @@ public class PlayerSideMenu extends SideMenu {
      * controller via an observable that a particular sprite has been chosen to
      * represent the main player
      *
-     * @param sprite     the JavaFX Node representing the sprite
+     * @param sprite     the Node representing the sprite
      * @param id         the sprite's unique id
-     * @param allSprites the Nodes representing all other sprites
+     * @param allSprites a list of Nodes that collectively represent all other sprites
      */
-    private void addEventHandler(Node sprite, int id, List<Node> allSprites) {
+    private void addChosenEventHandler(Node sprite, int id, List<Node> allSprites) {
         sprite.setOnMouseClicked(e -> {
             for (Node otherSprite : allSprites) {
                 resetHoverEffect(otherSprite);
             }
-            // chosen sprite is always selected
+            // chosen sprite is always shown via styling as "selected"
             sprite.setStyle(myResources.getString("selectedEffect"));
             sprite.setOnMouseExited(f -> sprite.setStyle(myResources.getString("selectedEffect")));
-            setSpriteDirections(id); // pass back images of the sprite facing each direction
+            // designate the set of images representing the sprite facing each direction
+            setChosenSpriteDirections(id);
             setChanged();
-            notifyObservers(mySelectedSpriteImages);
+            notifyObservers(myChosenSpriteImages);
         });
     }
 
@@ -170,9 +145,9 @@ public class PlayerSideMenu extends SideMenu {
      */
     private int getId(String imagePath) {
         StringBuilder sb = new StringBuilder();
-        for (char c : imagePath.toCharArray()) {
-            if (c == '-') break;
-            sb.append(c);
+        for (char pathChar : imagePath.toCharArray()) {
+            if (pathChar == '-') break;
+            sb.append(pathChar);
         }
         return Integer.parseInt(sb.toString());
     }
@@ -190,7 +165,7 @@ public class PlayerSideMenu extends SideMenu {
             int id = getId(image); // number representing the unique sprite
             if (image.contains(myResources.getString("spriteDisplayDirection"))) {
                 Node newSprite = addSpriteIcon(image);
-                addEventHandler(newSprite, id, spritePane.getChildren());
+                addChosenEventHandler(newSprite, id, spritePane.getChildren());
                 myBuilder.addComponent(spritePane, newSprite);
             }
         }
@@ -198,14 +173,11 @@ public class PlayerSideMenu extends SideMenu {
     }
 
     /**
-     * Adds the sub-tabs to the player side menu that represent the player
-     * sprite panel, the NPC panel, the enemy block panel, and the communicator
-     * panel
+     * Adds the sub-tab to the side control panel for holding the
+     * icons that represent player sprites, NPCs, and enemies
      */
     protected void addTabs() {
         Tab spriteTab = createTab(myResources.getString("spriteTab"), addSprites());
-        Tab npcTab = createTab(myResources.getString("npcTab"), addNPCs());
-        Tab enemyTab = createTab(myResources.getString("enemyTab"), addEnemies());
-        myPanel.getTabs().addAll(spriteTab, npcTab, enemyTab);
+        myPanel.getTabs().add(spriteTab);
     }
 }

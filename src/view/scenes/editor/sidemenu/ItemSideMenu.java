@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 /**
- * @author Robert Steilberg, Nisa, Pim, Harshil,
+ * @author Robert Steilberg, Nisa, Pim, Harshil
  *         <p>
  *         This class provides functionality for the item side menu, with which
  *         users can place items on the overworld.
@@ -26,7 +26,7 @@ public class ItemSideMenu extends SideMenu {
     private ItemViewer myViewer;
     private final BlockType[] blockTypes = {BlockType.GROUND, BlockType.DECORATION,
             BlockType.OBSTACLE, BlockType.SWITCH_FLOOR, BlockType.GATE, BlockType.TELEPORT,
-            BlockType.COMMUNICATOR};
+            BlockType.COMMUNICATOR, BlockType.NPC, BlockType.ENEMY};
 
     ItemSideMenu(Parent root, ResourceBundle resources) {
         super(root, resources);

@@ -22,7 +22,7 @@ import view.scenes.editor.sidemenu.*;
  * @author Robert Steilberg, Harshil Garg
  *         <p>
  *         This class handles the game editor that is used to build games. It
- *         creates the model.grid on which the overworld is created along with control
+ *         creates the grid on which the overworld is created along with control
  *         panels for handling the control flow of the editing process.
  */
 public class EditorView extends Scene implements GameEditorAlerts, Observer {
@@ -71,7 +71,7 @@ public class EditorView extends Scene implements GameEditorAlerts, Observer {
         setOnScrollStarted(event -> myGridUI.getScrollMechanism().trackpadStartScroll(event));
         setOnScrollFinished(event -> myGridUI.getScrollMechanism().trackpadEndScroll(event));
         // init file I/O
-        myEditorIO = new EditorIO(myStage, myController, new EngineController(), myResources, myGridUI);
+        myEditorIO = new EditorIO(myStage, myController, myResources, myGridUI);
         myEditorIO.addObserver(myGridUI);
         events = new EditorEvents(myLauncher, myEditorIO, myResources);
         // init error checking
